@@ -41,9 +41,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           languageCode: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** Analyzes the sentiment of the provided text. */
@@ -54,9 +54,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           languageCode: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** A convenience method that provides all features in one call. */
@@ -67,9 +67,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           languageCode: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
         features: {
           classifyText: true,
           extractDocumentSentiment: true,
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           languageCode: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -98,9 +98,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           languageCode: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        modelVersion: 'Test string',
+        modelVersion: 'MODEL_VERSION_UNSPECIFIED',
       },
     );
   }

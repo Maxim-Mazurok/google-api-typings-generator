@@ -251,1250 +251,1232 @@ declare namespace gapi.client {
       /** The number of partitions in the topic. */
       partitionCount?: string;
     }
-    interface OperationsResource {
-      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
-      cancel(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be cancelled. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CancelOperationRequest;
-      }): Request<{}>;
-      cancel(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the operation resource to be cancelled. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CancelOperationRequest,
-      ): Request<{}>;
-      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be deleted. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListOperationsResponse>;
-    }
-    interface TopicsResource {
-      /** Lists the topics attached to the specified reservation. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the reservation whose topics to list. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the given reservation will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListReservationTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListReservationTopics` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListReservationTopicsResponse>;
-    }
-    interface ReservationsResource {
-      /** Creates a new reservation. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent location in which to create the reservation. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The ID to use for the reservation, which will become the final component of the reservation's name. This value is structured like: `my-reservation-name`. */
-        reservationId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Reservation;
-      }): Request<Reservation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent location in which to create the reservation. Structured like `projects/{project_number}/locations/{location}`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The ID to use for the reservation, which will become the final component of the reservation's name. This value is structured like: `my-reservation-name`. */
-          reservationId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Reservation,
-      ): Request<Reservation>;
-      /** Deletes the specified reservation. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the reservation to delete. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Returns the reservation configuration. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the reservation whose configuration to return. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Reservation>;
-      /** Returns the list of reservations for the given project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of reservations to return. The service may return fewer than this value. If unset or zero, all reservations for the parent will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListReservations` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListReservations` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The parent whose reservations are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListReservationsResponse>;
-      /** Updates properties of the specified reservation. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the reservation. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. A mask specifying the reservation fields to change. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Reservation;
-      }): Request<Reservation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the reservation. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. A mask specifying the reservation fields to change. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Reservation,
-      ): Request<Reservation>;
-      topics: TopicsResource;
-    }
-    interface SubscriptionsResource {
-      /** Creates a new subscription. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent location in which to create the subscription. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** If true, the newly created subscription will only receive messages published after the subscription was created. Otherwise, the entire message backlog will be received on the subscription. Defaults to false. */
-        skipBacklog?: boolean;
-        /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
-        subscriptionId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Subscription;
-      }): Request<Subscription>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent location in which to create the subscription. Structured like `projects/{project_number}/locations/{location}`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** If true, the newly created subscription will only receive messages published after the subscription was created. Otherwise, the entire message backlog will be received on the subscription. Defaults to false. */
-          skipBacklog?: boolean;
-          /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
-          subscriptionId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Subscription,
-      ): Request<Subscription>;
-      /** Deletes the specified subscription. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the subscription to delete. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Returns the subscription configuration. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the subscription whose configuration to return. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Subscription>;
-      /** Returns the list of subscriptions for the given project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the parent will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSubscriptions` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The parent whose subscriptions are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListSubscriptionsResponse>;
-      /** Updates properties of the specified subscription. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the subscription. Structured like: projects/{project_number}/locations/{location}/subscriptions/{subscription_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. A mask specifying the subscription fields to change. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Subscription;
-      }): Request<Subscription>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the subscription. Structured like: projects/{project_number}/locations/{location}/subscriptions/{subscription_id} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. A mask specifying the subscription fields to change. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Subscription,
-      ): Request<Subscription>;
-      /** Performs an out-of-band seek for a subscription to a specified target, which may be timestamps or named positions within the message backlog. Seek translates these targets to cursors for each partition and orchestrates subscribers to start consuming messages from these seek cursors. If an operation is returned, the seek has been registered and subscribers will eventually receive messages from the seek cursors (i.e. eventual consistency), as long as they are using a minimum supported client library version and not a system that tracks cursors independently of Pub/Sub Lite (e.g. Apache Beam, Dataflow, Spark). The seek operation will fail for unsupported clients. If clients would like to know when subscribers react to the seek (or not), they can poll the operation. The seek operation will succeed and complete once subscribers are ready to receive messages from the seek cursors for all partitions of the topic. This means that the seek operation will not complete until all subscribers come online. If the previous seek operation has not yet completed, it will be aborted and the new invocation of seek will supersede it. */
-      seek(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the subscription to seek. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SeekSubscriptionRequest;
-      }): Request<Operation>;
-      seek(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the subscription to seek. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: SeekSubscriptionRequest,
-      ): Request<Operation>;
-    }
-    interface SubscriptionsResource {
-      /** Lists the subscriptions attached to the specified topic. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the topic whose subscriptions to list. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the given topic will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListTopicSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListTopicSubscriptions` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListTopicSubscriptionsResponse>;
-    }
-    interface TopicsResource {
-      /** Creates a new topic. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent location in which to create the topic. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`. */
-        topicId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Topic;
-      }): Request<Topic>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent location in which to create the topic. Structured like `projects/{project_number}/locations/{location}`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`. */
-          topicId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Topic,
-      ): Request<Topic>;
-      /** Deletes the specified topic. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the topic to delete. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Returns the topic configuration. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the topic whose configuration to return. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Topic>;
-      /** Returns the partition information for the requested topic. */
-      getPartitions(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The topic whose partition information to return. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<TopicPartitions>;
-      /** Returns the list of topics for the given project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the parent will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListTopics` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The parent whose topics are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListTopicsResponse>;
-      /** Updates properties of the specified topic. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the topic. Structured like: projects/{project_number}/locations/{location}/topics/{topic_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. A mask specifying the topic fields to change. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Topic;
-      }): Request<Topic>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the topic. Structured like: projects/{project_number}/locations/{location}/topics/{topic_id} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. A mask specifying the topic fields to change. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Topic,
-      ): Request<Topic>;
-      subscriptions: SubscriptionsResource;
-    }
-    interface LocationsResource {
-      operations: OperationsResource;
-      reservations: ReservationsResource;
-      subscriptions: SubscriptionsResource;
-      topics: TopicsResource;
-    }
-    interface ProjectsResource {
-      locations: LocationsResource;
-    }
-    interface AdminResource {
-      projects: ProjectsResource;
-    }
-    interface CursorsResource {
-      /** Returns all committed cursor information for a subscription. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of cursors to return. The service may return fewer than this value. If unset or zero, all cursors for the parent will be returned. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListPartitionCursors` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPartitionCursors` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The subscription for which to retrieve cursors. Structured like `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPartitionCursorsResponse>;
-    }
-    interface SubscriptionsResource {
-      /** Updates the committed cursor. */
-      commitCursor(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The subscription for which to update the cursor. */
-        subscription: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CommitCursorRequest;
-      }): Request<{}>;
-      commitCursor(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The subscription for which to update the cursor. */
-          subscription: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CommitCursorRequest,
-      ): Request<{}>;
-      cursors: CursorsResource;
-    }
-    interface LocationsResource {
-      subscriptions: SubscriptionsResource;
-    }
-    interface ProjectsResource {
-      locations: LocationsResource;
-    }
-    interface CursorResource {
-      projects: ProjectsResource;
-    }
-    interface TopicsResource {
-      /** Compute the head cursor for the partition. The head cursor's offset is guaranteed to be less than or equal to all messages which have not yet been acknowledged as published, and greater than the offset of any message whose publish has already been acknowledged. It is zero if there have never been messages in the partition. */
-      computeHeadCursor(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The topic for which we should compute the head cursor. */
-        topic: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ComputeHeadCursorRequest;
-      }): Request<ComputeHeadCursorResponse>;
-      computeHeadCursor(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The topic for which we should compute the head cursor. */
-          topic: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ComputeHeadCursorRequest,
-      ): Request<ComputeHeadCursorResponse>;
-      /** Compute statistics about a range of messages in a given topic and partition. */
-      computeMessageStats(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The topic for which we should compute message stats. */
-        topic: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ComputeMessageStatsRequest;
-      }): Request<ComputeMessageStatsResponse>;
-      computeMessageStats(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The topic for which we should compute message stats. */
-          topic: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ComputeMessageStatsRequest,
-      ): Request<ComputeMessageStatsResponse>;
-      /** Compute the corresponding cursor for a publish or event time in a topic partition. */
-      computeTimeCursor(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The topic for which we should compute the cursor. */
-        topic: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ComputeTimeCursorRequest;
-      }): Request<ComputeTimeCursorResponse>;
-      computeTimeCursor(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The topic for which we should compute the cursor. */
-          topic: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ComputeTimeCursorRequest,
-      ): Request<ComputeTimeCursorResponse>;
-    }
-    interface LocationsResource {
-      topics: TopicsResource;
-    }
-    interface ProjectsResource {
-      locations: LocationsResource;
-    }
-    interface TopicStatsResource {
-      projects: ProjectsResource;
-    }
 
-    const admin: AdminResource;
+    const admin: {
+      projects: {
+        locations: {
+          operations: {
+            /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
+            cancel(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource to be cancelled. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: CancelOperationRequest;
+            }): Request<{}>;
+            cancel(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the operation resource to be cancelled. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: CancelOperationRequest,
+            ): Request<{}>;
+            /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource to be deleted. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Operation>;
+            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** The standard list filter. */
+              filter?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation's parent resource. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** The standard list page size. */
+              pageSize?: number;
+              /** The standard list page token. */
+              pageToken?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+              returnPartialSuccess?: boolean;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListOperationsResponse>;
+          };
+          reservations: {
+            /** Creates a new reservation. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent location in which to create the reservation. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The ID to use for the reservation, which will become the final component of the reservation's name. This value is structured like: `my-reservation-name`. */
+              reservationId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Reservation;
+            }): Request<Reservation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent location in which to create the reservation. Structured like `projects/{project_number}/locations/{location}`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The ID to use for the reservation, which will become the final component of the reservation's name. This value is structured like: `my-reservation-name`. */
+                reservationId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Reservation,
+            ): Request<Reservation>;
+            /** Deletes the specified reservation. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the reservation to delete. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Returns the reservation configuration. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the reservation whose configuration to return. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Reservation>;
+            /** Returns the list of reservations for the given project. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** The maximum number of reservations to return. The service may return fewer than this value. If unset or zero, all reservations for the parent will be returned. */
+              pageSize?: number;
+              /** A page token, received from a previous `ListReservations` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListReservations` must match the call that provided the page token. */
+              pageToken?: string;
+              /** Required. The parent whose reservations are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListReservationsResponse>;
+            /** Updates properties of the specified reservation. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the reservation. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. A mask specifying the reservation fields to change. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Reservation;
+            }): Request<Reservation>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the reservation. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. A mask specifying the reservation fields to change. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Reservation,
+            ): Request<Reservation>;
+            topics: {
+              /** Lists the topics attached to the specified reservation. */
+              list(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the reservation whose topics to list. Structured like: projects/{project_number}/locations/{location}/reservations/{reservation_id} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the given reservation will be returned. */
+                pageSize?: number;
+                /** A page token, received from a previous `ListReservationTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListReservationTopics` must match the call that provided the page token. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<ListReservationTopicsResponse>;
+            };
+          };
+          subscriptions: {
+            /** Creates a new subscription. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent location in which to create the subscription. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** If true, the newly created subscription will only receive messages published after the subscription was created. Otherwise, the entire message backlog will be received on the subscription. Defaults to false. */
+              skipBacklog?: boolean;
+              /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
+              subscriptionId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Subscription;
+            }): Request<Subscription>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent location in which to create the subscription. Structured like `projects/{project_number}/locations/{location}`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** If true, the newly created subscription will only receive messages published after the subscription was created. Otherwise, the entire message backlog will be received on the subscription. Defaults to false. */
+                skipBacklog?: boolean;
+                /** Required. The ID to use for the subscription, which will become the final component of the subscription's name. This value is structured like: `my-sub-name`. */
+                subscriptionId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Subscription,
+            ): Request<Subscription>;
+            /** Deletes the specified subscription. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the subscription to delete. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Returns the subscription configuration. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the subscription whose configuration to return. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Subscription>;
+            /** Returns the list of subscriptions for the given project. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the parent will be returned. */
+              pageSize?: number;
+              /** A page token, received from a previous `ListSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSubscriptions` must match the call that provided the page token. */
+              pageToken?: string;
+              /** Required. The parent whose subscriptions are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListSubscriptionsResponse>;
+            /** Updates properties of the specified subscription. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the subscription. Structured like: projects/{project_number}/locations/{location}/subscriptions/{subscription_id} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. A mask specifying the subscription fields to change. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Subscription;
+            }): Request<Subscription>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the subscription. Structured like: projects/{project_number}/locations/{location}/subscriptions/{subscription_id} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. A mask specifying the subscription fields to change. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Subscription,
+            ): Request<Subscription>;
+            /** Performs an out-of-band seek for a subscription to a specified target, which may be timestamps or named positions within the message backlog. Seek translates these targets to cursors for each partition and orchestrates subscribers to start consuming messages from these seek cursors. If an operation is returned, the seek has been registered and subscribers will eventually receive messages from the seek cursors (i.e. eventual consistency), as long as they are using a minimum supported client library version and not a system that tracks cursors independently of Pub/Sub Lite (e.g. Apache Beam, Dataflow, Spark). The seek operation will fail for unsupported clients. If clients would like to know when subscribers react to the seek (or not), they can poll the operation. The seek operation will succeed and complete once subscribers are ready to receive messages from the seek cursors for all partitions of the topic. This means that the seek operation will not complete until all subscribers come online. If the previous seek operation has not yet completed, it will be aborted and the new invocation of seek will supersede it. */
+            seek(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the subscription to seek. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: SeekSubscriptionRequest;
+            }): Request<Operation>;
+            seek(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the subscription to seek. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: SeekSubscriptionRequest,
+            ): Request<Operation>;
+          };
+          topics: {
+            /** Creates a new topic. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent location in which to create the topic. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`. */
+              topicId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Topic;
+            }): Request<Topic>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent location in which to create the topic. Structured like `projects/{project_number}/locations/{location}`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The ID to use for the topic, which will become the final component of the topic's name. This value is structured like: `my-topic-name`. */
+                topicId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Topic,
+            ): Request<Topic>;
+            /** Deletes the specified topic. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the topic to delete. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Returns the topic configuration. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the topic whose configuration to return. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Topic>;
+            /** Returns the partition information for the requested topic. */
+            getPartitions(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The topic whose partition information to return. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<TopicPartitions>;
+            /** Returns the list of topics for the given project. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the parent will be returned. */
+              pageSize?: number;
+              /** A page token, received from a previous `ListTopics` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListTopics` must match the call that provided the page token. */
+              pageToken?: string;
+              /** Required. The parent whose topics are to be listed. Structured like `projects/{project_number}/locations/{location}`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListTopicsResponse>;
+            /** Updates properties of the specified topic. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the topic. Structured like: projects/{project_number}/locations/{location}/topics/{topic_id} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. A mask specifying the topic fields to change. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Topic;
+            }): Request<Topic>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the topic. Structured like: projects/{project_number}/locations/{location}/topics/{topic_id} */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. A mask specifying the topic fields to change. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Topic,
+            ): Request<Topic>;
+            subscriptions: {
+              /** Lists the subscriptions attached to the specified topic. */
+              list(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the topic whose subscriptions to list. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the given topic will be returned. */
+                pageSize?: number;
+                /** A page token, received from a previous `ListTopicSubscriptions` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListTopicSubscriptions` must match the call that provided the page token. */
+                pageToken?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<ListTopicSubscriptionsResponse>;
+            };
+          };
+        };
+      };
+    };
 
-    const cursor: CursorResource;
+    const cursor: {
+      projects: {
+        locations: {
+          subscriptions: {
+            /** Updates the committed cursor. */
+            commitCursor(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** The subscription for which to update the cursor. */
+              subscription: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: CommitCursorRequest;
+            }): Request<{}>;
+            commitCursor(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The subscription for which to update the cursor. */
+                subscription: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: CommitCursorRequest,
+            ): Request<{}>;
+            cursors: {
+              /** Returns all committed cursor information for a subscription. */
+              list(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** The maximum number of cursors to return. The service may return fewer than this value. If unset or zero, all cursors for the parent will be returned. */
+                pageSize?: number;
+                /** A page token, received from a previous `ListPartitionCursors` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPartitionCursors` must match the call that provided the page token. */
+                pageToken?: string;
+                /** Required. The subscription for which to retrieve cursors. Structured like `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<ListPartitionCursorsResponse>;
+            };
+          };
+        };
+      };
+    };
 
-    const topicStats: TopicStatsResource;
+    const topicStats: {
+      projects: {
+        locations: {
+          topics: {
+            /** Compute the head cursor for the partition. The head cursor's offset is guaranteed to be less than or equal to all messages which have not yet been acknowledged as published, and greater than the offset of any message whose publish has already been acknowledged. It is zero if there have never been messages in the partition. */
+            computeHeadCursor(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The topic for which we should compute the head cursor. */
+              topic: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: ComputeHeadCursorRequest;
+            }): Request<ComputeHeadCursorResponse>;
+            computeHeadCursor(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The topic for which we should compute the head cursor. */
+                topic: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: ComputeHeadCursorRequest,
+            ): Request<ComputeHeadCursorResponse>;
+            /** Compute statistics about a range of messages in a given topic and partition. */
+            computeMessageStats(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The topic for which we should compute message stats. */
+              topic: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: ComputeMessageStatsRequest;
+            }): Request<ComputeMessageStatsResponse>;
+            computeMessageStats(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The topic for which we should compute message stats. */
+                topic: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: ComputeMessageStatsRequest,
+            ): Request<ComputeMessageStatsResponse>;
+            /** Compute the corresponding cursor for a publish or event time in a topic partition. */
+            computeTimeCursor(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The topic for which we should compute the cursor. */
+              topic: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: ComputeTimeCursorRequest;
+            }): Request<ComputeTimeCursorResponse>;
+            computeTimeCursor(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The topic for which we should compute the cursor. */
+                topic: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: ComputeTimeCursorRequest,
+            ): Request<ComputeTimeCursorResponse>;
+          };
+        };
+      };
+    };
   }
 }

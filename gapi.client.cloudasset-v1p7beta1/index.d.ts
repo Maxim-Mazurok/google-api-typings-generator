@@ -271,14 +271,16 @@ declare namespace gapi.client {
     }
     interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
       /** Allowed device management levels. An empty list allows all management levels. */
-      allowedDeviceManagementLevels?:
-        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'[];
+      allowedDeviceManagementLevels?: (
+        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'
+      )[];
       /** Allowed encryption statuses. An empty list allows all statuses. */
-      allowedEncryptionStatuses?:
+      allowedEncryptionStatuses?: (
         | 'ENCRYPTION_UNSPECIFIED'
         | 'ENCRYPTION_UNSUPPORTED'
         | 'UNENCRYPTED'
-        | 'ENCRYPTED'[];
+        | 'ENCRYPTED'
+      )[];
       /** Allowed OS versions. An empty list allows all types and all versions. */
       osConstraints?: GoogleIdentityAccesscontextmanagerV1OsConstraint[];
       /** Whether the device needs to be approved by the customer admin. */
@@ -445,9 +447,10 @@ declare namespace gapi.client {
       /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in `allowed_services`. */
       enableRestriction?: boolean;
       /** Defines the enforcement scopes of service patterns. */
-      servicePatternsEnforcementScopes?:
+      servicePatternsEnforcementScopes?: (
         | 'SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED'
-        | 'GOOGLE_APIS_VIA_PRIVATE_PATH'[];
+        | 'GOOGLE_APIS_VIA_PRIVATE_PATH'
+      )[];
     }
     interface GoogleIdentityAccesscontextmanagerV1VpcNetworkSource {
       /** Sub-segment ranges of a VPC network. */
@@ -489,7 +492,8 @@ declare namespace gapi.client {
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
-    interface OperationsResource {
+
+    const operations: {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
@@ -517,8 +521,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Operation>;
-    }
-    interface V1p7beta1Resource {
+    };
+
+    const v1p7beta1: {
       /** Exports assets with time and resource types to a given Cloud Storage location/BigQuery table. For Cloud Storage location destinations, the output format is newline-delimited JSON. Each line represents a google.cloud.asset.v1p7beta1.Asset in the JSON format; for BigQuery table destinations, the output table stores the fields in asset proto as columns. This API implements the google.longrunning.Operation API , which allows you to keep track of the export. We recommend intervals of at least 2 seconds with exponential retry to poll the export operation result. For regular-size resource parent, the export operation usually finishes within 5 minutes. */
       exportAssets(request: {
         /** V1 error format. */
@@ -577,10 +582,6 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAssetV1p7beta1ExportAssetsRequest,
       ): Request<Operation>;
-    }
-
-    const operations: OperationsResource;
-
-    const v1p7beta1: V1p7beta1Resource;
+    };
   }
 }

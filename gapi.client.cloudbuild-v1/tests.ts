@@ -83,7 +83,7 @@ gapi.load('client', async () => {
           approvalTime: 'Test string',
           approverAccount: 'Test string',
           comment: 'Test string',
-          decision: 'Test string',
+          decision: 'DECISION_UNSPECIFIED',
           url: 'Test string',
         },
       },
@@ -115,10 +115,10 @@ gapi.load('client', async () => {
             approvalTime: 'Test string',
             approverAccount: 'Test string',
             comment: 'Test string',
-            decision: 'Test string',
+            decision: 'DECISION_UNSPECIFIED',
             url: 'Test string',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         artifacts: {
           genericArtifacts: [
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
         ],
         failureInfo: {
           detail: 'Test string',
-          type: 'Test string',
+          type: 'FAILURE_TYPE_UNSPECIFIED',
         },
         finishTime: 'Test string',
         gitConfig: {
@@ -231,26 +231,26 @@ gapi.load('client', async () => {
         name: 'Test string',
         options: {
           automapSubstitutions: true,
-          defaultLogsBucketBehavior: 'Test string',
+          defaultLogsBucketBehavior: 'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
           diskSizeGb: 'Test string',
           dynamicSubstitutions: true,
           enableStructuredLogging: true,
           env: ['Test string'],
-          logging: 'Test string',
-          logStreamingOption: 'Test string',
-          machineType: 'Test string',
+          logging: 'LOGGING_UNSPECIFIED',
+          logStreamingOption: 'STREAM_DEFAULT',
+          machineType: 'UNSPECIFIED',
           pool: {
             name: 'Test string',
             resolvedWorkerRelease: 'Test string',
             workerRelease: 'Test string',
           },
           pubsubTopic: 'Test string',
-          rankedMachineSeries: ['Test string'],
-          requestedVerifyOption: 'Test string',
+          rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+          requestedVerifyOption: 'NOT_VERIFIED',
           resolvedWorkerRelease: 'Test string',
           secretEnv: ['Test string'],
-          sourceProvenanceHash: ['Test string'],
-          substitutionOption: 'Test string',
+          sourceProvenanceHash: ['NONE'],
+          substitutionOption: 'MUST_MATCH',
           volumes: [
             {
               name: 'Test string',
@@ -282,7 +282,7 @@ gapi.load('client', async () => {
               artifactFingerprint: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
                 A: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
               artifactRegistryPackage: 'Test string',
               digest: 'Test string',
               name: 'Test string',
-              ociMediaType: 'Test string',
+              ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
               pushTiming: {
                 endTime: 'Test string',
                 startTime: 'Test string',
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
             bucket: 'Test string',
             generation: 'Test string',
             object: 'Test string',
-            sourceFetcher: 'Test string',
+            sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
           },
           storageSourceManifest: {
             bucket: 'Test string',
@@ -452,7 +452,7 @@ gapi.load('client', async () => {
             A: {
               fileHash: [
                 {
-                  type: 'Test string',
+                  type: 'NONE',
                   value: 'Test string',
                 },
               ],
@@ -484,7 +484,7 @@ gapi.load('client', async () => {
             bucket: 'Test string',
             generation: 'Test string',
             object: 'Test string',
-            sourceFetcher: 'Test string',
+            sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
           },
           resolvedStorageSourceManifest: {
             bucket: 'Test string',
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
           },
         },
         startTime: 'Test string',
-        status: 'Test string',
+        status: 'STATUS_UNKNOWN',
         statusDetail: 'Test string',
         steps: [
           {
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
             ],
             script: 'Test string',
             secretEnv: ['Test string'],
-            status: 'Test string',
+            status: 'STATUS_UNKNOWN',
             timeout: 'Test string',
             timing: {
               endTime: 'Test string',
@@ -548,7 +548,7 @@ gapi.load('client', async () => {
         },
         warnings: [
           {
-            priority: 'Test string',
+            priority: 'PRIORITY_UNSPECIFIED',
             text: 'Test string',
           },
         ],
@@ -795,7 +795,7 @@ gapi.load('client', async () => {
           approvalTime: 'Test string',
           approverAccount: 'Test string',
           comment: 'Test string',
-          decision: 'Test string',
+          decision: 'DECISION_UNSPECIFIED',
           url: 'Test string',
         },
       },
@@ -826,10 +826,10 @@ gapi.load('client', async () => {
             approvalTime: 'Test string',
             approverAccount: 'Test string',
             comment: 'Test string',
-            decision: 'Test string',
+            decision: 'DECISION_UNSPECIFIED',
             url: 'Test string',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         artifacts: {
           genericArtifacts: [
@@ -927,7 +927,7 @@ gapi.load('client', async () => {
         ],
         failureInfo: {
           detail: 'Test string',
-          type: 'Test string',
+          type: 'FAILURE_TYPE_UNSPECIFIED',
         },
         finishTime: 'Test string',
         gitConfig: {
@@ -942,26 +942,26 @@ gapi.load('client', async () => {
         name: 'Test string',
         options: {
           automapSubstitutions: true,
-          defaultLogsBucketBehavior: 'Test string',
+          defaultLogsBucketBehavior: 'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
           diskSizeGb: 'Test string',
           dynamicSubstitutions: true,
           enableStructuredLogging: true,
           env: ['Test string'],
-          logging: 'Test string',
-          logStreamingOption: 'Test string',
-          machineType: 'Test string',
+          logging: 'LOGGING_UNSPECIFIED',
+          logStreamingOption: 'STREAM_DEFAULT',
+          machineType: 'UNSPECIFIED',
           pool: {
             name: 'Test string',
             resolvedWorkerRelease: 'Test string',
             workerRelease: 'Test string',
           },
           pubsubTopic: 'Test string',
-          rankedMachineSeries: ['Test string'],
-          requestedVerifyOption: 'Test string',
+          rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+          requestedVerifyOption: 'NOT_VERIFIED',
           resolvedWorkerRelease: 'Test string',
           secretEnv: ['Test string'],
-          sourceProvenanceHash: ['Test string'],
-          substitutionOption: 'Test string',
+          sourceProvenanceHash: ['NONE'],
+          substitutionOption: 'MUST_MATCH',
           volumes: [
             {
               name: 'Test string',
@@ -993,7 +993,7 @@ gapi.load('client', async () => {
               artifactFingerprint: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1003,7 +1003,7 @@ gapi.load('client', async () => {
                 A: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1022,7 +1022,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1039,7 +1039,7 @@ gapi.load('client', async () => {
               artifactRegistryPackage: 'Test string',
               digest: 'Test string',
               name: 'Test string',
-              ociMediaType: 'Test string',
+              ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
               pushTiming: {
                 endTime: 'Test string',
                 startTime: 'Test string',
@@ -1052,7 +1052,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1070,7 +1070,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1089,7 +1089,7 @@ gapi.load('client', async () => {
               fileHashes: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1150,7 +1150,7 @@ gapi.load('client', async () => {
             bucket: 'Test string',
             generation: 'Test string',
             object: 'Test string',
-            sourceFetcher: 'Test string',
+            sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
           },
           storageSourceManifest: {
             bucket: 'Test string',
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
             A: {
               fileHash: [
                 {
-                  type: 'Test string',
+                  type: 'NONE',
                   value: 'Test string',
                 },
               ],
@@ -1195,7 +1195,7 @@ gapi.load('client', async () => {
             bucket: 'Test string',
             generation: 'Test string',
             object: 'Test string',
-            sourceFetcher: 'Test string',
+            sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
           },
           resolvedStorageSourceManifest: {
             bucket: 'Test string',
@@ -1204,7 +1204,7 @@ gapi.load('client', async () => {
           },
         },
         startTime: 'Test string',
-        status: 'Test string',
+        status: 'STATUS_UNKNOWN',
         statusDetail: 'Test string',
         steps: [
           {
@@ -1231,7 +1231,7 @@ gapi.load('client', async () => {
             ],
             script: 'Test string',
             secretEnv: ['Test string'],
-            status: 'Test string',
+            status: 'STATUS_UNKNOWN',
             timeout: 'Test string',
             timing: {
               endTime: 'Test string',
@@ -1259,7 +1259,7 @@ gapi.load('client', async () => {
         },
         warnings: [
           {
-            priority: 'Test string',
+            priority: 'PRIORITY_UNSPECIFIED',
             text: 'Test string',
           },
         ],
@@ -1418,7 +1418,7 @@ gapi.load('client', async () => {
           projectKey: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -1437,10 +1437,10 @@ gapi.load('client', async () => {
               approvalTime: 'Test string',
               approverAccount: 'Test string',
               comment: 'Test string',
-              decision: 'Test string',
+              decision: 'DECISION_UNSPECIFIED',
               url: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           artifacts: {
             genericArtifacts: [
@@ -1538,7 +1538,7 @@ gapi.load('client', async () => {
           ],
           failureInfo: {
             detail: 'Test string',
-            type: 'Test string',
+            type: 'FAILURE_TYPE_UNSPECIFIED',
           },
           finishTime: 'Test string',
           gitConfig: {
@@ -1553,26 +1553,27 @@ gapi.load('client', async () => {
           name: 'Test string',
           options: {
             automapSubstitutions: true,
-            defaultLogsBucketBehavior: 'Test string',
+            defaultLogsBucketBehavior:
+              'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
             diskSizeGb: 'Test string',
             dynamicSubstitutions: true,
             enableStructuredLogging: true,
             env: ['Test string'],
-            logging: 'Test string',
-            logStreamingOption: 'Test string',
-            machineType: 'Test string',
+            logging: 'LOGGING_UNSPECIFIED',
+            logStreamingOption: 'STREAM_DEFAULT',
+            machineType: 'UNSPECIFIED',
             pool: {
               name: 'Test string',
               resolvedWorkerRelease: 'Test string',
               workerRelease: 'Test string',
             },
             pubsubTopic: 'Test string',
-            rankedMachineSeries: ['Test string'],
-            requestedVerifyOption: 'Test string',
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+            requestedVerifyOption: 'NOT_VERIFIED',
             resolvedWorkerRelease: 'Test string',
             secretEnv: ['Test string'],
-            sourceProvenanceHash: ['Test string'],
-            substitutionOption: 'Test string',
+            sourceProvenanceHash: ['NONE'],
+            substitutionOption: 'MUST_MATCH',
             volumes: [
               {
                 name: 'Test string',
@@ -1604,7 +1605,7 @@ gapi.load('client', async () => {
                 artifactFingerprint: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1614,7 +1615,7 @@ gapi.load('client', async () => {
                   A: {
                     fileHash: [
                       {
-                        type: 'Test string',
+                        type: 'NONE',
                         value: 'Test string',
                       },
                     ],
@@ -1633,7 +1634,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1650,7 +1651,7 @@ gapi.load('client', async () => {
                 artifactRegistryPackage: 'Test string',
                 digest: 'Test string',
                 name: 'Test string',
-                ociMediaType: 'Test string',
+                ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
                 pushTiming: {
                   endTime: 'Test string',
                   startTime: 'Test string',
@@ -1663,7 +1664,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1681,7 +1682,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1700,7 +1701,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1761,7 +1762,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             storageSourceManifest: {
               bucket: 'Test string',
@@ -1774,7 +1775,7 @@ gapi.load('client', async () => {
               A: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -1806,7 +1807,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             resolvedStorageSourceManifest: {
               bucket: 'Test string',
@@ -1815,7 +1816,7 @@ gapi.load('client', async () => {
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNKNOWN',
           statusDetail: 'Test string',
           steps: [
             {
@@ -1842,7 +1843,7 @@ gapi.load('client', async () => {
               ],
               script: 'Test string',
               secretEnv: ['Test string'],
-              status: 'Test string',
+              status: 'STATUS_UNKNOWN',
               timeout: 'Test string',
               timing: {
                 endTime: 'Test string',
@@ -1870,7 +1871,7 @@ gapi.load('client', async () => {
           },
           warnings: [
             {
-              priority: 'Test string',
+              priority: 'PRIORITY_UNSPECIFIED',
               text: 'Test string',
             },
           ],
@@ -1879,10 +1880,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         developerConnectEventConfig: {
           gitRepositoryLink: 'Test string',
-          gitRepositoryLinkType: 'Test string',
+          gitRepositoryLinkType: 'GIT_REPOSITORY_LINK_TYPE_UNSPECIFIED',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -1892,7 +1893,7 @@ gapi.load('client', async () => {
           },
         },
         disabled: true,
-        eventType: 'Test string',
+        eventType: 'EVENT_TYPE_UNSPECIFIED',
         filename: 'Test string',
         filter: 'Test string',
         gitFileSource: {
@@ -1900,7 +1901,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           path: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           revision: 'Test string',
           uri: 'Test string',
         },
@@ -1911,7 +1912,7 @@ gapi.load('client', async () => {
           owner: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -1922,19 +1923,19 @@ gapi.load('client', async () => {
         },
         id: 'Test string',
         ignoredFiles: ['Test string'],
-        includeBuildLogs: 'Test string',
+        includeBuildLogs: 'INCLUDE_BUILD_LOGS_UNSPECIFIED',
         includedFiles: ['Test string'],
         name: 'Test string',
         pubsubConfig: {
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscription: 'Test string',
           topic: 'Test string',
         },
         repositoryEventConfig: {
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -1943,7 +1944,7 @@ gapi.load('client', async () => {
             tag: 'Test string',
           },
           repository: 'Test string',
-          repositoryType: 'Test string',
+          repositoryType: 'REPOSITORY_TYPE_UNSPECIFIED',
         },
         resourceName: 'Test string',
         serviceAccount: 'Test string',
@@ -1952,7 +1953,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           ref: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           uri: 'Test string',
         },
         substitutions: {
@@ -1973,7 +1974,7 @@ gapi.load('client', async () => {
         },
         webhookConfig: {
           secret: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
       },
     );
@@ -2037,7 +2038,7 @@ gapi.load('client', async () => {
           projectKey: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -2056,10 +2057,10 @@ gapi.load('client', async () => {
               approvalTime: 'Test string',
               approverAccount: 'Test string',
               comment: 'Test string',
-              decision: 'Test string',
+              decision: 'DECISION_UNSPECIFIED',
               url: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           artifacts: {
             genericArtifacts: [
@@ -2157,7 +2158,7 @@ gapi.load('client', async () => {
           ],
           failureInfo: {
             detail: 'Test string',
-            type: 'Test string',
+            type: 'FAILURE_TYPE_UNSPECIFIED',
           },
           finishTime: 'Test string',
           gitConfig: {
@@ -2172,26 +2173,27 @@ gapi.load('client', async () => {
           name: 'Test string',
           options: {
             automapSubstitutions: true,
-            defaultLogsBucketBehavior: 'Test string',
+            defaultLogsBucketBehavior:
+              'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
             diskSizeGb: 'Test string',
             dynamicSubstitutions: true,
             enableStructuredLogging: true,
             env: ['Test string'],
-            logging: 'Test string',
-            logStreamingOption: 'Test string',
-            machineType: 'Test string',
+            logging: 'LOGGING_UNSPECIFIED',
+            logStreamingOption: 'STREAM_DEFAULT',
+            machineType: 'UNSPECIFIED',
             pool: {
               name: 'Test string',
               resolvedWorkerRelease: 'Test string',
               workerRelease: 'Test string',
             },
             pubsubTopic: 'Test string',
-            rankedMachineSeries: ['Test string'],
-            requestedVerifyOption: 'Test string',
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+            requestedVerifyOption: 'NOT_VERIFIED',
             resolvedWorkerRelease: 'Test string',
             secretEnv: ['Test string'],
-            sourceProvenanceHash: ['Test string'],
-            substitutionOption: 'Test string',
+            sourceProvenanceHash: ['NONE'],
+            substitutionOption: 'MUST_MATCH',
             volumes: [
               {
                 name: 'Test string',
@@ -2223,7 +2225,7 @@ gapi.load('client', async () => {
                 artifactFingerprint: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2233,7 +2235,7 @@ gapi.load('client', async () => {
                   A: {
                     fileHash: [
                       {
-                        type: 'Test string',
+                        type: 'NONE',
                         value: 'Test string',
                       },
                     ],
@@ -2252,7 +2254,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2269,7 +2271,7 @@ gapi.load('client', async () => {
                 artifactRegistryPackage: 'Test string',
                 digest: 'Test string',
                 name: 'Test string',
-                ociMediaType: 'Test string',
+                ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
                 pushTiming: {
                   endTime: 'Test string',
                   startTime: 'Test string',
@@ -2282,7 +2284,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2300,7 +2302,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2319,7 +2321,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2380,7 +2382,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             storageSourceManifest: {
               bucket: 'Test string',
@@ -2393,7 +2395,7 @@ gapi.load('client', async () => {
               A: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -2425,7 +2427,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             resolvedStorageSourceManifest: {
               bucket: 'Test string',
@@ -2434,7 +2436,7 @@ gapi.load('client', async () => {
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNKNOWN',
           statusDetail: 'Test string',
           steps: [
             {
@@ -2461,7 +2463,7 @@ gapi.load('client', async () => {
               ],
               script: 'Test string',
               secretEnv: ['Test string'],
-              status: 'Test string',
+              status: 'STATUS_UNKNOWN',
               timeout: 'Test string',
               timing: {
                 endTime: 'Test string',
@@ -2489,7 +2491,7 @@ gapi.load('client', async () => {
           },
           warnings: [
             {
-              priority: 'Test string',
+              priority: 'PRIORITY_UNSPECIFIED',
               text: 'Test string',
             },
           ],
@@ -2498,10 +2500,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         developerConnectEventConfig: {
           gitRepositoryLink: 'Test string',
-          gitRepositoryLinkType: 'Test string',
+          gitRepositoryLinkType: 'GIT_REPOSITORY_LINK_TYPE_UNSPECIFIED',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -2511,7 +2513,7 @@ gapi.load('client', async () => {
           },
         },
         disabled: true,
-        eventType: 'Test string',
+        eventType: 'EVENT_TYPE_UNSPECIFIED',
         filename: 'Test string',
         filter: 'Test string',
         gitFileSource: {
@@ -2519,7 +2521,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           path: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           revision: 'Test string',
           uri: 'Test string',
         },
@@ -2530,7 +2532,7 @@ gapi.load('client', async () => {
           owner: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -2541,19 +2543,19 @@ gapi.load('client', async () => {
         },
         id: 'Test string',
         ignoredFiles: ['Test string'],
-        includeBuildLogs: 'Test string',
+        includeBuildLogs: 'INCLUDE_BUILD_LOGS_UNSPECIFIED',
         includedFiles: ['Test string'],
         name: 'Test string',
         pubsubConfig: {
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscription: 'Test string',
           topic: 'Test string',
         },
         repositoryEventConfig: {
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -2562,7 +2564,7 @@ gapi.load('client', async () => {
             tag: 'Test string',
           },
           repository: 'Test string',
-          repositoryType: 'Test string',
+          repositoryType: 'REPOSITORY_TYPE_UNSPECIFIED',
         },
         resourceName: 'Test string',
         serviceAccount: 'Test string',
@@ -2571,7 +2573,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           ref: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           uri: 'Test string',
         },
         substitutions: {
@@ -2592,7 +2594,7 @@ gapi.load('client', async () => {
         },
         webhookConfig: {
           secret: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
       },
     );
@@ -2654,7 +2656,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         privatePoolV1Config: {
           networkConfig: {
-            egressOption: 'Test string',
+            egressOption: 'EGRESS_OPTION_UNSPECIFIED',
             peeredNetwork: 'Test string',
             peeredNetworkIpRange: 'Test string',
           },
@@ -2667,11 +2669,11 @@ gapi.load('client', async () => {
             diskSizeGb: 'Test string',
             enableNestedVirtualization: true,
             machineType: 'Test string',
-            rankedMachineSeries: ['Test string'],
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
             workerRelease: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -2711,7 +2713,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         privatePoolV1Config: {
           networkConfig: {
-            egressOption: 'Test string',
+            egressOption: 'EGRESS_OPTION_UNSPECIFIED',
             peeredNetwork: 'Test string',
             peeredNetworkIpRange: 'Test string',
           },
@@ -2724,11 +2726,11 @@ gapi.load('client', async () => {
             diskSizeGb: 'Test string',
             enableNestedVirtualization: true,
             machineType: 'Test string',
-            rankedMachineSeries: ['Test string'],
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
             workerRelease: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -2772,7 +2774,7 @@ gapi.load('client', async () => {
           projectKey: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -2791,10 +2793,10 @@ gapi.load('client', async () => {
               approvalTime: 'Test string',
               approverAccount: 'Test string',
               comment: 'Test string',
-              decision: 'Test string',
+              decision: 'DECISION_UNSPECIFIED',
               url: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           artifacts: {
             genericArtifacts: [
@@ -2892,7 +2894,7 @@ gapi.load('client', async () => {
           ],
           failureInfo: {
             detail: 'Test string',
-            type: 'Test string',
+            type: 'FAILURE_TYPE_UNSPECIFIED',
           },
           finishTime: 'Test string',
           gitConfig: {
@@ -2907,26 +2909,27 @@ gapi.load('client', async () => {
           name: 'Test string',
           options: {
             automapSubstitutions: true,
-            defaultLogsBucketBehavior: 'Test string',
+            defaultLogsBucketBehavior:
+              'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
             diskSizeGb: 'Test string',
             dynamicSubstitutions: true,
             enableStructuredLogging: true,
             env: ['Test string'],
-            logging: 'Test string',
-            logStreamingOption: 'Test string',
-            machineType: 'Test string',
+            logging: 'LOGGING_UNSPECIFIED',
+            logStreamingOption: 'STREAM_DEFAULT',
+            machineType: 'UNSPECIFIED',
             pool: {
               name: 'Test string',
               resolvedWorkerRelease: 'Test string',
               workerRelease: 'Test string',
             },
             pubsubTopic: 'Test string',
-            rankedMachineSeries: ['Test string'],
-            requestedVerifyOption: 'Test string',
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+            requestedVerifyOption: 'NOT_VERIFIED',
             resolvedWorkerRelease: 'Test string',
             secretEnv: ['Test string'],
-            sourceProvenanceHash: ['Test string'],
-            substitutionOption: 'Test string',
+            sourceProvenanceHash: ['NONE'],
+            substitutionOption: 'MUST_MATCH',
             volumes: [
               {
                 name: 'Test string',
@@ -2958,7 +2961,7 @@ gapi.load('client', async () => {
                 artifactFingerprint: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2968,7 +2971,7 @@ gapi.load('client', async () => {
                   A: {
                     fileHash: [
                       {
-                        type: 'Test string',
+                        type: 'NONE',
                         value: 'Test string',
                       },
                     ],
@@ -2987,7 +2990,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3004,7 +3007,7 @@ gapi.load('client', async () => {
                 artifactRegistryPackage: 'Test string',
                 digest: 'Test string',
                 name: 'Test string',
-                ociMediaType: 'Test string',
+                ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
                 pushTiming: {
                   endTime: 'Test string',
                   startTime: 'Test string',
@@ -3017,7 +3020,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3035,7 +3038,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3054,7 +3057,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3115,7 +3118,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             storageSourceManifest: {
               bucket: 'Test string',
@@ -3128,7 +3131,7 @@ gapi.load('client', async () => {
               A: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -3160,7 +3163,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             resolvedStorageSourceManifest: {
               bucket: 'Test string',
@@ -3169,7 +3172,7 @@ gapi.load('client', async () => {
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNKNOWN',
           statusDetail: 'Test string',
           steps: [
             {
@@ -3196,7 +3199,7 @@ gapi.load('client', async () => {
               ],
               script: 'Test string',
               secretEnv: ['Test string'],
-              status: 'Test string',
+              status: 'STATUS_UNKNOWN',
               timeout: 'Test string',
               timing: {
                 endTime: 'Test string',
@@ -3224,7 +3227,7 @@ gapi.load('client', async () => {
           },
           warnings: [
             {
-              priority: 'Test string',
+              priority: 'PRIORITY_UNSPECIFIED',
               text: 'Test string',
             },
           ],
@@ -3233,10 +3236,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         developerConnectEventConfig: {
           gitRepositoryLink: 'Test string',
-          gitRepositoryLinkType: 'Test string',
+          gitRepositoryLinkType: 'GIT_REPOSITORY_LINK_TYPE_UNSPECIFIED',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3246,7 +3249,7 @@ gapi.load('client', async () => {
           },
         },
         disabled: true,
-        eventType: 'Test string',
+        eventType: 'EVENT_TYPE_UNSPECIFIED',
         filename: 'Test string',
         filter: 'Test string',
         gitFileSource: {
@@ -3254,7 +3257,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           path: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           revision: 'Test string',
           uri: 'Test string',
         },
@@ -3265,7 +3268,7 @@ gapi.load('client', async () => {
           owner: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3276,19 +3279,19 @@ gapi.load('client', async () => {
         },
         id: 'Test string',
         ignoredFiles: ['Test string'],
-        includeBuildLogs: 'Test string',
+        includeBuildLogs: 'INCLUDE_BUILD_LOGS_UNSPECIFIED',
         includedFiles: ['Test string'],
         name: 'Test string',
         pubsubConfig: {
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscription: 'Test string',
           topic: 'Test string',
         },
         repositoryEventConfig: {
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3297,7 +3300,7 @@ gapi.load('client', async () => {
             tag: 'Test string',
           },
           repository: 'Test string',
-          repositoryType: 'Test string',
+          repositoryType: 'REPOSITORY_TYPE_UNSPECIFIED',
         },
         resourceName: 'Test string',
         serviceAccount: 'Test string',
@@ -3306,7 +3309,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           ref: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           uri: 'Test string',
         },
         substitutions: {
@@ -3327,7 +3330,7 @@ gapi.load('client', async () => {
         },
         webhookConfig: {
           secret: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
       },
     );
@@ -3390,7 +3393,7 @@ gapi.load('client', async () => {
           projectKey: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3409,10 +3412,10 @@ gapi.load('client', async () => {
               approvalTime: 'Test string',
               approverAccount: 'Test string',
               comment: 'Test string',
-              decision: 'Test string',
+              decision: 'DECISION_UNSPECIFIED',
               url: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           artifacts: {
             genericArtifacts: [
@@ -3510,7 +3513,7 @@ gapi.load('client', async () => {
           ],
           failureInfo: {
             detail: 'Test string',
-            type: 'Test string',
+            type: 'FAILURE_TYPE_UNSPECIFIED',
           },
           finishTime: 'Test string',
           gitConfig: {
@@ -3525,26 +3528,27 @@ gapi.load('client', async () => {
           name: 'Test string',
           options: {
             automapSubstitutions: true,
-            defaultLogsBucketBehavior: 'Test string',
+            defaultLogsBucketBehavior:
+              'DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED',
             diskSizeGb: 'Test string',
             dynamicSubstitutions: true,
             enableStructuredLogging: true,
             env: ['Test string'],
-            logging: 'Test string',
-            logStreamingOption: 'Test string',
-            machineType: 'Test string',
+            logging: 'LOGGING_UNSPECIFIED',
+            logStreamingOption: 'STREAM_DEFAULT',
+            machineType: 'UNSPECIFIED',
             pool: {
               name: 'Test string',
               resolvedWorkerRelease: 'Test string',
               workerRelease: 'Test string',
             },
             pubsubTopic: 'Test string',
-            rankedMachineSeries: ['Test string'],
-            requestedVerifyOption: 'Test string',
+            rankedMachineSeries: ['MACHINE_SERIES_UNSPECIFIED'],
+            requestedVerifyOption: 'NOT_VERIFIED',
             resolvedWorkerRelease: 'Test string',
             secretEnv: ['Test string'],
-            sourceProvenanceHash: ['Test string'],
-            substitutionOption: 'Test string',
+            sourceProvenanceHash: ['NONE'],
+            substitutionOption: 'MUST_MATCH',
             volumes: [
               {
                 name: 'Test string',
@@ -3576,7 +3580,7 @@ gapi.load('client', async () => {
                 artifactFingerprint: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3586,7 +3590,7 @@ gapi.load('client', async () => {
                   A: {
                     fileHash: [
                       {
-                        type: 'Test string',
+                        type: 'NONE',
                         value: 'Test string',
                       },
                     ],
@@ -3605,7 +3609,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3622,7 +3626,7 @@ gapi.load('client', async () => {
                 artifactRegistryPackage: 'Test string',
                 digest: 'Test string',
                 name: 'Test string',
-                ociMediaType: 'Test string',
+                ociMediaType: 'OCI_MEDIA_TYPE_UNSPECIFIED',
                 pushTiming: {
                   endTime: 'Test string',
                   startTime: 'Test string',
@@ -3635,7 +3639,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3653,7 +3657,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3672,7 +3676,7 @@ gapi.load('client', async () => {
                 fileHashes: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -3733,7 +3737,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             storageSourceManifest: {
               bucket: 'Test string',
@@ -3746,7 +3750,7 @@ gapi.load('client', async () => {
               A: {
                 fileHash: [
                   {
-                    type: 'Test string',
+                    type: 'NONE',
                     value: 'Test string',
                   },
                 ],
@@ -3778,7 +3782,7 @@ gapi.load('client', async () => {
               bucket: 'Test string',
               generation: 'Test string',
               object: 'Test string',
-              sourceFetcher: 'Test string',
+              sourceFetcher: 'SOURCE_FETCHER_UNSPECIFIED',
             },
             resolvedStorageSourceManifest: {
               bucket: 'Test string',
@@ -3787,7 +3791,7 @@ gapi.load('client', async () => {
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNKNOWN',
           statusDetail: 'Test string',
           steps: [
             {
@@ -3814,7 +3818,7 @@ gapi.load('client', async () => {
               ],
               script: 'Test string',
               secretEnv: ['Test string'],
-              status: 'Test string',
+              status: 'STATUS_UNKNOWN',
               timeout: 'Test string',
               timing: {
                 endTime: 'Test string',
@@ -3842,7 +3846,7 @@ gapi.load('client', async () => {
           },
           warnings: [
             {
-              priority: 'Test string',
+              priority: 'PRIORITY_UNSPECIFIED',
               text: 'Test string',
             },
           ],
@@ -3851,10 +3855,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         developerConnectEventConfig: {
           gitRepositoryLink: 'Test string',
-          gitRepositoryLinkType: 'Test string',
+          gitRepositoryLinkType: 'GIT_REPOSITORY_LINK_TYPE_UNSPECIFIED',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3864,7 +3868,7 @@ gapi.load('client', async () => {
           },
         },
         disabled: true,
-        eventType: 'Test string',
+        eventType: 'EVENT_TYPE_UNSPECIFIED',
         filename: 'Test string',
         filter: 'Test string',
         gitFileSource: {
@@ -3872,7 +3876,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           path: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           revision: 'Test string',
           uri: 'Test string',
         },
@@ -3883,7 +3887,7 @@ gapi.load('client', async () => {
           owner: 'Test string',
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3894,19 +3898,19 @@ gapi.load('client', async () => {
         },
         id: 'Test string',
         ignoredFiles: ['Test string'],
-        includeBuildLogs: 'Test string',
+        includeBuildLogs: 'INCLUDE_BUILD_LOGS_UNSPECIFIED',
         includedFiles: ['Test string'],
         name: 'Test string',
         pubsubConfig: {
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscription: 'Test string',
           topic: 'Test string',
         },
         repositoryEventConfig: {
           pullRequest: {
             branch: 'Test string',
-            commentControl: 'Test string',
+            commentControl: 'COMMENTS_DISABLED',
             invertRegex: true,
           },
           push: {
@@ -3915,7 +3919,7 @@ gapi.load('client', async () => {
             tag: 'Test string',
           },
           repository: 'Test string',
-          repositoryType: 'Test string',
+          repositoryType: 'REPOSITORY_TYPE_UNSPECIFIED',
         },
         resourceName: 'Test string',
         serviceAccount: 'Test string',
@@ -3924,7 +3928,7 @@ gapi.load('client', async () => {
           githubEnterpriseConfig: 'Test string',
           ref: 'Test string',
           repository: 'Test string',
-          repoType: 'Test string',
+          repoType: 'UNKNOWN',
           uri: 'Test string',
         },
         substitutions: {
@@ -3945,7 +3949,7 @@ gapi.load('client', async () => {
         },
         webhookConfig: {
           secret: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
       },
     );

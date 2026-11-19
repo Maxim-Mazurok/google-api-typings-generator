@@ -178,7 +178,7 @@ gapi.load('client', async () => {
                   ],
                   traceFlags: [
                     {
-                      scope: 'Test string',
+                      scope: 'SCOPE_UNSPECIFIED',
                       traceFlagName: 'Test string',
                     },
                   ],
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
                         ipAddresses: ['Test string'],
                         primaryMacAddress: 'Test string',
                       },
-                      role: 'Test string',
+                      role: 'ROLE_UNSPECIFIED',
                     },
                   ],
                   memoryBytes: 'Test string',
@@ -219,14 +219,14 @@ gapi.load('client', async () => {
                       storageEngines: [
                         {
                           encryptedTableCount: 42,
-                          engine: 'Test string',
+                          engine: 'ENGINE_UNSPECIFIED',
                           tableCount: 42,
                         },
                       ],
                     },
                     objects: [
                       {
-                        category: 'Test string',
+                        category: 'CATEGORY_UNSPECIFIED',
                         count: 'Test string',
                       },
                     ],
@@ -269,13 +269,13 @@ gapi.load('client', async () => {
                           storage: [
                             {
                               sizeGb: 42,
-                              type: 'Test string',
+                              type: 'PERSISTENT_DISK_TYPE_UNSPECIFIED',
                             },
                           ],
                         },
                       },
                       fit: {
-                        fitLevel: 'Test string',
+                        fitLevel: 'FIT_LEVEL_UNSPECIFIED',
                       },
                     },
                   },
@@ -304,8 +304,8 @@ gapi.load('client', async () => {
                   cpuName: 'Test string',
                   cpuSocketCount: 42,
                   cpuThreadCount: 42,
-                  firmwareType: 'Test string',
-                  hyperthreading: 'Test string',
+                  firmwareType: 'FIRMWARE_TYPE_UNSPECIFIED',
+                  hyperthreading: 'CPU_HYPER_THREADING_UNSPECIFIED',
                   vendor: 'Test string',
                 },
                 coreCount: 42,
@@ -336,7 +336,7 @@ gapi.load('client', async () => {
                         diskLabelType: 'Test string',
                         freeBytes: 'Test string',
                         hwAddress: 'Test string',
-                        interfaceType: 'Test string',
+                        interfaceType: 'INTERFACE_TYPE_UNSPECIFIED',
                         partitions: {
                           entries: [
                             {
@@ -351,10 +351,10 @@ gapi.load('client', async () => {
                           ],
                         },
                         vmware: {
-                          backingType: 'Test string',
-                          rdmCompatibility: 'Test string',
+                          backingType: 'BACKING_TYPE_UNSPECIFIED',
+                          rdmCompatibility: 'RDM_COMPATIBILITY_UNSPECIFIED',
                           shared: true,
-                          vmdkMode: 'Test string',
+                          vmdkMode: 'VMDK_MODE_UNSPECIFIED',
                         },
                       },
                     ],
@@ -393,9 +393,9 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    selinuxMode: 'Test string',
+                    selinuxMode: 'SE_LINUX_MODE_UNSPECIFIED',
                   },
-                  family: 'Test string',
+                  family: 'OS_FAMILY_UNKNOWN',
                   osName: 'Test string',
                   runtime: {
                     domain: 'Test string',
@@ -424,7 +424,7 @@ gapi.load('client', async () => {
                             protocol: 'Test string',
                             remoteIpAddress: 'Test string',
                             remotePort: 42,
-                            state: 'Test string',
+                            state: 'STATE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -460,8 +460,8 @@ gapi.load('client', async () => {
                           exePath: 'Test string',
                           pid: 'Test string',
                           serviceName: 'Test string',
-                          startMode: 'Test string',
-                          state: 'Test string',
+                          startMode: 'START_MODE_UNSPECIFIED',
+                          state: 'STATE_UNSPECIFIED',
                         },
                       ],
                     },
@@ -478,7 +478,7 @@ gapi.load('client', async () => {
                         addresses: {
                           entries: [
                             {
-                              assignment: 'Test string',
+                              assignment: 'ADDRESS_ASSIGNMENT_UNSPECIFIED',
                               bcast: 'Test string',
                               fqdn: 'Test string',
                               ipAddress: 'Test string',
@@ -497,26 +497,26 @@ gapi.load('client', async () => {
                 },
                 platform: {
                   awsEc2Details: {
-                    hyperthreading: 'Test string',
+                    hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                     location: 'Test string',
                     machineTypeLabel: 'Test string',
                   },
                   azureVmDetails: {
-                    hyperthreading: 'Test string',
+                    hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                     location: 'Test string',
                     machineTypeLabel: 'Test string',
                     provisioningState: 'Test string',
                   },
                   genericDetails: {
-                    hyperthreading: 'Test string',
+                    hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                     location: 'Test string',
                   },
                   physicalDetails: {
-                    hyperthreading: 'Test string',
+                    hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                     location: 'Test string',
                   },
                   vmwareDetails: {
-                    esxHyperthreading: 'Test string',
+                    esxHyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                     esxVersion: 'Test string',
                     osid: 'Test string',
                     vcenterFolder: 'Test string',
@@ -525,7 +525,7 @@ gapi.load('client', async () => {
                     vcenterVmId: 'Test string',
                   },
                 },
-                powerState: 'Test string',
+                powerState: 'POWER_STATE_UNSPECIFIED',
                 uuid: 'Test string',
               },
               name: 'Test string',
@@ -608,7 +608,7 @@ gapi.load('client', async () => {
     /** Gets the details of an asset. */
     await gapi.client.migrationcenter.projects.locations.assets.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'ASSET_VIEW_UNSPECIFIED',
     });
     /** Lists all the assets in a given project and location. */
     await gapi.client.migrationcenter.projects.locations.assets.list({
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       showHidden: true,
-      view: 'Test string',
+      view: 'ASSET_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of an asset. */
     await gapi.client.migrationcenter.projects.locations.assets.patch(
@@ -701,7 +701,7 @@ gapi.load('client', async () => {
             ],
             traceFlags: [
               {
-                scope: 'Test string',
+                scope: 'SCOPE_UNSPECIFIED',
                 traceFlagName: 'Test string',
               },
             ],
@@ -719,7 +719,7 @@ gapi.load('client', async () => {
                   ipAddresses: ['Test string'],
                   primaryMacAddress: 'Test string',
                 },
-                role: 'Test string',
+                role: 'ROLE_UNSPECIFIED',
               },
             ],
             memoryBytes: 'Test string',
@@ -742,14 +742,14 @@ gapi.load('client', async () => {
                 storageEngines: [
                   {
                     encryptedTableCount: 42,
-                    engine: 'Test string',
+                    engine: 'ENGINE_UNSPECIFIED',
                     tableCount: 42,
                   },
                 ],
               },
               objects: [
                 {
-                  category: 'Test string',
+                  category: 'CATEGORY_UNSPECIFIED',
                   count: 'Test string',
                 },
               ],
@@ -792,13 +792,13 @@ gapi.load('client', async () => {
                     storage: [
                       {
                         sizeGb: 42,
-                        type: 'Test string',
+                        type: 'PERSISTENT_DISK_TYPE_UNSPECIFIED',
                       },
                     ],
                   },
                 },
                 fit: {
-                  fitLevel: 'Test string',
+                  fitLevel: 'FIT_LEVEL_UNSPECIFIED',
                 },
               },
             },
@@ -827,8 +827,8 @@ gapi.load('client', async () => {
             cpuName: 'Test string',
             cpuSocketCount: 42,
             cpuThreadCount: 42,
-            firmwareType: 'Test string',
-            hyperthreading: 'Test string',
+            firmwareType: 'FIRMWARE_TYPE_UNSPECIFIED',
+            hyperthreading: 'CPU_HYPER_THREADING_UNSPECIFIED',
             vendor: 'Test string',
           },
           coreCount: 42,
@@ -859,7 +859,7 @@ gapi.load('client', async () => {
                   diskLabelType: 'Test string',
                   freeBytes: 'Test string',
                   hwAddress: 'Test string',
-                  interfaceType: 'Test string',
+                  interfaceType: 'INTERFACE_TYPE_UNSPECIFIED',
                   partitions: {
                     entries: [
                       {
@@ -874,10 +874,10 @@ gapi.load('client', async () => {
                     ],
                   },
                   vmware: {
-                    backingType: 'Test string',
-                    rdmCompatibility: 'Test string',
+                    backingType: 'BACKING_TYPE_UNSPECIFIED',
+                    rdmCompatibility: 'RDM_COMPATIBILITY_UNSPECIFIED',
                     shared: true,
-                    vmdkMode: 'Test string',
+                    vmdkMode: 'VMDK_MODE_UNSPECIFIED',
                   },
                 },
               ],
@@ -916,9 +916,9 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              selinuxMode: 'Test string',
+              selinuxMode: 'SE_LINUX_MODE_UNSPECIFIED',
             },
-            family: 'Test string',
+            family: 'OS_FAMILY_UNKNOWN',
             osName: 'Test string',
             runtime: {
               domain: 'Test string',
@@ -947,7 +947,7 @@ gapi.load('client', async () => {
                       protocol: 'Test string',
                       remoteIpAddress: 'Test string',
                       remotePort: 42,
-                      state: 'Test string',
+                      state: 'STATE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -983,8 +983,8 @@ gapi.load('client', async () => {
                     exePath: 'Test string',
                     pid: 'Test string',
                     serviceName: 'Test string',
-                    startMode: 'Test string',
-                    state: 'Test string',
+                    startMode: 'START_MODE_UNSPECIFIED',
+                    state: 'STATE_UNSPECIFIED',
                   },
                 ],
               },
@@ -1001,7 +1001,7 @@ gapi.load('client', async () => {
                   addresses: {
                     entries: [
                       {
-                        assignment: 'Test string',
+                        assignment: 'ADDRESS_ASSIGNMENT_UNSPECIFIED',
                         bcast: 'Test string',
                         fqdn: 'Test string',
                         ipAddress: 'Test string',
@@ -1020,26 +1020,26 @@ gapi.load('client', async () => {
           },
           platform: {
             awsEc2Details: {
-              hyperthreading: 'Test string',
+              hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
               location: 'Test string',
               machineTypeLabel: 'Test string',
             },
             azureVmDetails: {
-              hyperthreading: 'Test string',
+              hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
               location: 'Test string',
               machineTypeLabel: 'Test string',
               provisioningState: 'Test string',
             },
             genericDetails: {
-              hyperthreading: 'Test string',
+              hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
               location: 'Test string',
             },
             physicalDetails: {
-              hyperthreading: 'Test string',
+              hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
               location: 'Test string',
             },
             vmwareDetails: {
-              esxHyperthreading: 'Test string',
+              esxHyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
               esxVersion: 'Test string',
               osid: 'Test string',
               vcenterFolder: 'Test string',
@@ -1048,7 +1048,7 @@ gapi.load('client', async () => {
               vcenterVmId: 'Test string',
             },
           },
-          powerState: 'Test string',
+          powerState: 'POWER_STATE_UNSPECIFIED',
           uuid: 'Test string',
         },
         name: 'Test string',
@@ -1130,7 +1130,7 @@ gapi.load('client', async () => {
             attributes: {
               A: 'Test string',
             },
-            collectionType: 'Test string',
+            collectionType: 'SOURCE_TYPE_UNKNOWN',
             databaseDeploymentDetails: {
               aggregatedStats: {
                 databaseCount: 42,
@@ -1199,7 +1199,7 @@ gapi.load('client', async () => {
                 ],
                 traceFlags: [
                   {
-                    scope: 'Test string',
+                    scope: 'SCOPE_UNSPECIFIED',
                     traceFlagName: 'Test string',
                   },
                 ],
@@ -1217,7 +1217,7 @@ gapi.load('client', async () => {
                       ipAddresses: ['Test string'],
                       primaryMacAddress: 'Test string',
                     },
-                    role: 'Test string',
+                    role: 'ROLE_UNSPECIFIED',
                   },
                 ],
                 memoryBytes: 'Test string',
@@ -1240,14 +1240,14 @@ gapi.load('client', async () => {
                     storageEngines: [
                       {
                         encryptedTableCount: 42,
-                        engine: 'Test string',
+                        engine: 'ENGINE_UNSPECIFIED',
                         tableCount: 42,
                       },
                     ],
                   },
                   objects: [
                     {
-                      category: 'Test string',
+                      category: 'CATEGORY_UNSPECIFIED',
                       count: 'Test string',
                     },
                   ],
@@ -1290,8 +1290,8 @@ gapi.load('client', async () => {
                 cpuName: 'Test string',
                 cpuSocketCount: 42,
                 cpuThreadCount: 42,
-                firmwareType: 'Test string',
-                hyperthreading: 'Test string',
+                firmwareType: 'FIRMWARE_TYPE_UNSPECIFIED',
+                hyperthreading: 'CPU_HYPER_THREADING_UNSPECIFIED',
                 vendor: 'Test string',
               },
               coreCount: 42,
@@ -1322,7 +1322,7 @@ gapi.load('client', async () => {
                       diskLabelType: 'Test string',
                       freeBytes: 'Test string',
                       hwAddress: 'Test string',
-                      interfaceType: 'Test string',
+                      interfaceType: 'INTERFACE_TYPE_UNSPECIFIED',
                       partitions: {
                         entries: [
                           {
@@ -1337,10 +1337,10 @@ gapi.load('client', async () => {
                         ],
                       },
                       vmware: {
-                        backingType: 'Test string',
-                        rdmCompatibility: 'Test string',
+                        backingType: 'BACKING_TYPE_UNSPECIFIED',
+                        rdmCompatibility: 'RDM_COMPATIBILITY_UNSPECIFIED',
                         shared: true,
-                        vmdkMode: 'Test string',
+                        vmdkMode: 'VMDK_MODE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -1379,9 +1379,9 @@ gapi.load('client', async () => {
                       },
                     ],
                   },
-                  selinuxMode: 'Test string',
+                  selinuxMode: 'SE_LINUX_MODE_UNSPECIFIED',
                 },
-                family: 'Test string',
+                family: 'OS_FAMILY_UNKNOWN',
                 osName: 'Test string',
                 runtime: {
                   domain: 'Test string',
@@ -1410,7 +1410,7 @@ gapi.load('client', async () => {
                           protocol: 'Test string',
                           remoteIpAddress: 'Test string',
                           remotePort: 42,
-                          state: 'Test string',
+                          state: 'STATE_UNSPECIFIED',
                         },
                       ],
                     },
@@ -1446,8 +1446,8 @@ gapi.load('client', async () => {
                         exePath: 'Test string',
                         pid: 'Test string',
                         serviceName: 'Test string',
-                        startMode: 'Test string',
-                        state: 'Test string',
+                        startMode: 'START_MODE_UNSPECIFIED',
+                        state: 'STATE_UNSPECIFIED',
                       },
                     ],
                   },
@@ -1464,7 +1464,7 @@ gapi.load('client', async () => {
                       addresses: {
                         entries: [
                           {
-                            assignment: 'Test string',
+                            assignment: 'ADDRESS_ASSIGNMENT_UNSPECIFIED',
                             bcast: 'Test string',
                             fqdn: 'Test string',
                             ipAddress: 'Test string',
@@ -1483,26 +1483,26 @@ gapi.load('client', async () => {
               },
               platform: {
                 awsEc2Details: {
-                  hyperthreading: 'Test string',
+                  hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                   location: 'Test string',
                   machineTypeLabel: 'Test string',
                 },
                 azureVmDetails: {
-                  hyperthreading: 'Test string',
+                  hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                   location: 'Test string',
                   machineTypeLabel: 'Test string',
                   provisioningState: 'Test string',
                 },
                 genericDetails: {
-                  hyperthreading: 'Test string',
+                  hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                   location: 'Test string',
                 },
                 physicalDetails: {
-                  hyperthreading: 'Test string',
+                  hyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                   location: 'Test string',
                 },
                 vmwareDetails: {
-                  esxHyperthreading: 'Test string',
+                  esxHyperthreading: 'HYPERTHREADING_STATUS_UNSPECIFIED',
                   esxVersion: 'Test string',
                   osid: 'Test string',
                   vcenterFolder: 'Test string',
@@ -1511,7 +1511,7 @@ gapi.load('client', async () => {
                   vcenterVmId: 'Test string',
                 },
               },
-              powerState: 'Test string',
+              powerState: 'POWER_STATE_UNSPECIFIED',
               uuid: 'Test string',
             },
             performanceSamples: [
@@ -1612,7 +1612,7 @@ gapi.load('client', async () => {
         ],
         showHidden: true,
         signedUriDestination: {
-          fileFormat: 'Test string',
+          fileFormat: 'FILE_FORMAT_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -1673,7 +1673,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         signalsEndpoint: 'Test string',
         source: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
@@ -1729,7 +1729,7 @@ gapi.load('client', async () => {
         serviceAccount: 'Test string',
         signalsEndpoint: 'Test string',
         source: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         updateTime: 'Test string',
         version: 'Test string',
@@ -1853,7 +1853,7 @@ gapi.load('client', async () => {
                 fileErrors: [
                   {
                     errorDetails: 'Test string',
-                    severity: 'Test string',
+                    severity: 'SEVERITY_UNSPECIFIED',
                   },
                 ],
                 fileName: 'Test string',
@@ -1873,7 +1873,7 @@ gapi.load('client', async () => {
                     errors: [
                       {
                         errorDetails: 'Test string',
-                        severity: 'Test string',
+                        severity: 'SEVERITY_UNSPECIFIED',
                       },
                     ],
                     rowNumber: 42,
@@ -1890,7 +1890,7 @@ gapi.load('client', async () => {
             jobErrors: [
               {
                 errorDetails: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
           },
@@ -1901,7 +1901,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'IMPORT_JOB_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validationReport: {
           fileValidations: [
@@ -1909,7 +1909,7 @@ gapi.load('client', async () => {
               fileErrors: [
                 {
                   errorDetails: 'Test string',
-                  severity: 'Test string',
+                  severity: 'SEVERITY_UNSPECIFIED',
                 },
               ],
               fileName: 'Test string',
@@ -1929,7 +1929,7 @@ gapi.load('client', async () => {
                   errors: [
                     {
                       errorDetails: 'Test string',
-                      severity: 'Test string',
+                      severity: 'SEVERITY_UNSPECIFIED',
                     },
                   ],
                   rowNumber: 42,
@@ -1946,7 +1946,7 @@ gapi.load('client', async () => {
           jobErrors: [
             {
               errorDetails: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
         },
@@ -1961,7 +1961,7 @@ gapi.load('client', async () => {
     /** Gets the details of an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'IMPORT_JOB_VIEW_UNSPECIFIED',
     });
     /** Lists all import jobs. */
     await gapi.client.migrationcenter.projects.locations.importJobs.list({
@@ -1970,7 +1970,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'IMPORT_JOB_VIEW_UNSPECIFIED',
     });
     /** Updates an import job. */
     await gapi.client.migrationcenter.projects.locations.importJobs.patch(
@@ -1991,7 +1991,7 @@ gapi.load('client', async () => {
                 fileErrors: [
                   {
                     errorDetails: 'Test string',
-                    severity: 'Test string',
+                    severity: 'SEVERITY_UNSPECIFIED',
                   },
                 ],
                 fileName: 'Test string',
@@ -2011,7 +2011,7 @@ gapi.load('client', async () => {
                     errors: [
                       {
                         errorDetails: 'Test string',
-                        severity: 'Test string',
+                        severity: 'SEVERITY_UNSPECIFIED',
                       },
                     ],
                     rowNumber: 42,
@@ -2028,7 +2028,7 @@ gapi.load('client', async () => {
             jobErrors: [
               {
                 errorDetails: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
           },
@@ -2039,7 +2039,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'IMPORT_JOB_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validationReport: {
           fileValidations: [
@@ -2047,7 +2047,7 @@ gapi.load('client', async () => {
               fileErrors: [
                 {
                   errorDetails: 'Test string',
-                  severity: 'Test string',
+                  severity: 'SEVERITY_UNSPECIFIED',
                 },
               ],
               fileName: 'Test string',
@@ -2067,7 +2067,7 @@ gapi.load('client', async () => {
                   errors: [
                     {
                       errorDetails: 'Test string',
-                      severity: 'Test string',
+                      severity: 'SEVERITY_UNSPECIFIED',
                     },
                   ],
                   rowNumber: 42,
@@ -2084,7 +2084,7 @@ gapi.load('client', async () => {
           jobErrors: [
             {
               errorDetails: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
         },
@@ -2118,9 +2118,9 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         displayName: 'Test string',
-        format: 'Test string',
+        format: 'IMPORT_JOB_FORMAT_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uploadFileInfo: {
           headers: {
             A: 'Test string',
@@ -2190,9 +2190,9 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         virtualMachinePreferences: {
-          commitmentPlan: 'Test string',
+          commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
           computeEnginePreferences: {
-            licenseType: 'Test string',
+            licenseType: 'LICENSE_TYPE_UNSPECIFIED',
             machinePreferences: {
               allowedMachineSeries: [
                 {
@@ -2200,25 +2200,26 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            persistentDiskType: 'Test string',
+            persistentDiskType: 'PERSISTENT_DISK_TYPE_UNSPECIFIED',
           },
           regionPreferences: {
             preferredRegions: ['Test string'],
           },
-          sizingOptimizationStrategy: 'Test string',
+          sizingOptimizationStrategy:
+            'SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED',
           soleTenancyPreferences: {
-            commitmentPlan: 'Test string',
+            commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
             cpuOvercommitRatio: 42,
-            hostMaintenancePolicy: 'Test string',
+            hostMaintenancePolicy: 'HOST_MAINTENANCE_POLICY_UNSPECIFIED',
             nodeTypes: [
               {
                 nodeName: 'Test string',
               },
             ],
           },
-          targetProduct: 'Test string',
+          targetProduct: 'COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED',
           vmwareEnginePreferences: {
-            commitmentPlan: 'Test string',
+            commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
             cpuOvercommitRatio: 42,
             memoryOvercommitRatio: 42,
             storageDeduplicationCompressionRatio: 42,
@@ -2256,9 +2257,9 @@ gapi.load('client', async () => {
         name: 'Test string',
         updateTime: 'Test string',
         virtualMachinePreferences: {
-          commitmentPlan: 'Test string',
+          commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
           computeEnginePreferences: {
-            licenseType: 'Test string',
+            licenseType: 'LICENSE_TYPE_UNSPECIFIED',
             machinePreferences: {
               allowedMachineSeries: [
                 {
@@ -2266,25 +2267,26 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            persistentDiskType: 'Test string',
+            persistentDiskType: 'PERSISTENT_DISK_TYPE_UNSPECIFIED',
           },
           regionPreferences: {
             preferredRegions: ['Test string'],
           },
-          sizingOptimizationStrategy: 'Test string',
+          sizingOptimizationStrategy:
+            'SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED',
           soleTenancyPreferences: {
-            commitmentPlan: 'Test string',
+            commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
             cpuOvercommitRatio: 42,
-            hostMaintenancePolicy: 'Test string',
+            hostMaintenancePolicy: 'HOST_MAINTENANCE_POLICY_UNSPECIFIED',
             nodeTypes: [
               {
                 nodeName: 'Test string',
               },
             ],
           },
-          targetProduct: 'Test string',
+          targetProduct: 'COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED',
           vmwareEnginePreferences: {
-            commitmentPlan: 'Test string',
+            commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
             cpuOvercommitRatio: 42,
             memoryOvercommitRatio: 42,
             storageDeduplicationCompressionRatio: 42,
@@ -2355,7 +2357,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         summary: {
           allAssetsStats: {
             coreCountHistogram: {
@@ -2480,7 +2482,7 @@ gapi.load('client', async () => {
                 {
                   computeEngineFinding: {
                     allocatedAssetCount: 'Test string',
-                    allocatedDiskTypes: ['Test string'],
+                    allocatedDiskTypes: ['PERSISTENT_DISK_TYPE_UNSPECIFIED'],
                     allocatedRegions: ['Test string'],
                     machineSeriesAllocations: [
                       {
@@ -2494,9 +2496,9 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   displayName: 'Test string',
                   machinePreferences: {
-                    commitmentPlan: 'Test string',
+                    commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
                     computeEnginePreferences: {
-                      licenseType: 'Test string',
+                      licenseType: 'LICENSE_TYPE_UNSPECIFIED',
                       machinePreferences: {
                         allowedMachineSeries: [
                           {
@@ -2504,25 +2506,28 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      persistentDiskType: 'Test string',
+                      persistentDiskType: 'PERSISTENT_DISK_TYPE_UNSPECIFIED',
                     },
                     regionPreferences: {
                       preferredRegions: ['Test string'],
                     },
-                    sizingOptimizationStrategy: 'Test string',
+                    sizingOptimizationStrategy:
+                      'SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED',
                     soleTenancyPreferences: {
-                      commitmentPlan: 'Test string',
+                      commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
                       cpuOvercommitRatio: 42,
-                      hostMaintenancePolicy: 'Test string',
+                      hostMaintenancePolicy:
+                        'HOST_MAINTENANCE_POLICY_UNSPECIFIED',
                       nodeTypes: [
                         {
                           nodeName: 'Test string',
                         },
                       ],
                     },
-                    targetProduct: 'Test string',
+                    targetProduct:
+                      'COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED',
                     vmwareEnginePreferences: {
-                      commitmentPlan: 'Test string',
+                      commitmentPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
                       cpuOvercommitRatio: 42,
                       memoryOvercommitRatio: 42,
                       storageDeduplicationCompressionRatio: 42,
@@ -2589,7 +2594,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2604,7 +2609,7 @@ gapi.load('client', async () => {
     await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'REPORT_VIEW_UNSPECIFIED',
       },
     );
     /** Lists Reports in a given ReportConfig. */
@@ -2615,7 +2620,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'REPORT_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a new source in a given project and location. */
@@ -2634,8 +2639,8 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingFrameCount: 42,
         priority: 42,
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'SOURCE_TYPE_UNKNOWN',
         updateTime: 'Test string',
       },
     );
@@ -2672,8 +2677,8 @@ gapi.load('client', async () => {
         name: 'Test string',
         pendingFrameCount: 42,
         priority: 42,
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'SOURCE_TYPE_UNKNOWN',
         updateTime: 'Test string',
       },
     );
@@ -2681,7 +2686,7 @@ gapi.load('client', async () => {
     await gapi.client.migrationcenter.projects.locations.sources.errorFrames.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'ERROR_FRAME_VIEW_UNSPECIFIED',
       },
     );
     /** Lists all error frames in a given source and location. */
@@ -2690,7 +2695,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'ERROR_FRAME_VIEW_UNSPECIFIED',
       },
     );
   }

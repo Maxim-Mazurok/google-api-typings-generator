@@ -92,7 +92,8 @@ declare namespace gapi.client {
       /** Token to specify the next page in the list. */
       nextPageToken?: string;
     }
-    interface ApplicationsResource {
+
+    const applications: {
       /** Retrieves information about an application for the given application ID. */
       get(request?: {
         /** V1 error format. */
@@ -151,8 +152,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ApplicationsListResponse>;
-    }
-    interface TransfersResource {
+    };
+
+    const transfers: {
       /** Retrieves a data transfer request by its resource ID. */
       get(request?: {
         /** V1 error format. */
@@ -271,10 +273,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DataTransfersListResponse>;
-    }
-
-    const applications: ApplicationsResource;
-
-    const transfers: TransfersResource;
+    };
   }
 }

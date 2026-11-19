@@ -68,7 +68,7 @@ gapi.load('client', async () => {
                 aclPolicyRevision: 'Test string',
                 aclPolicyRevisionNumber: 'Test string',
                 errorMessage: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
             cluster: 'Test string',
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         version: 'Test string',
       },
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
                 aclPolicyRevision: 'Test string',
                 aclPolicyRevisionNumber: 'Test string',
                 errorMessage: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
             cluster: 'Test string',
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         version: 'Test string',
       },
@@ -219,7 +219,7 @@ gapi.load('client', async () => {
               aclPolicyRevision: 'Test string',
               aclPolicyRevisionNumber: 'Test string',
               errorMessage: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           appliedAclPolicy: 'Test string',
@@ -229,9 +229,9 @@ gapi.load('client', async () => {
         aclPolicyInSync: true,
         allowFewerZonesDeployment: true,
         asyncClusterEndpointsDeletionEnabled: true,
-        authorizationMode: 'Test string',
+        authorizationMode: 'AUTH_MODE_UNSPECIFIED',
         automatedBackupConfig: {
-          automatedBackupMode: 'Test string',
+          automatedBackupMode: 'AUTOMATED_BACKUP_MODE_UNSPECIFIED',
           fixedFrequencySchedule: {
             startTime: {
               hours: 42,
@@ -250,23 +250,23 @@ gapi.load('client', async () => {
               {
                 pscAutoConnection: {
                   address: 'Test string',
-                  connectionType: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
                   forwardingRule: 'Test string',
                   network: 'Test string',
                   projectId: 'Test string',
                   pscConnectionId: 'Test string',
-                  pscConnectionStatus: 'Test string',
+                  pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
                   serviceAttachment: 'Test string',
                 },
                 pscConnection: {
                   address: 'Test string',
-                  connectionType: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
                   forwardingRule: 'Test string',
                   network: 'Test string',
                   port: 42,
                   projectId: 'Test string',
                   pscConnectionId: 'Test string',
-                  pscConnectionStatus: 'Test string',
+                  pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
                   serviceAttachment: 'Test string',
                 },
               },
@@ -275,7 +275,7 @@ gapi.load('client', async () => {
         ],
         createTime: 'Test string',
         crossClusterReplicationConfig: {
-          clusterRole: 'Test string',
+          clusterRole: 'CLUSTER_ROLE_UNSPECIFIED',
           membership: {
             primaryCluster: {
               cluster: 'Test string',
@@ -312,8 +312,8 @@ gapi.load('client', async () => {
         ],
         effectiveMaintenanceVersion: 'Test string',
         encryptionInfo: {
-          encryptionType: 'Test string',
-          kmsKeyPrimaryState: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
+          kmsKeyPrimaryState: 'KMS_KEY_STATE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
           lastUpdateTime: 'Test string',
         },
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -348,15 +348,15 @@ gapi.load('client', async () => {
           backup: 'Test string',
         },
         name: 'Test string',
-        nodeType: 'Test string',
+        nodeType: 'NODE_TYPE_UNSPECIFIED',
         ondemandMaintenance: true,
         persistenceConfig: {
           aofConfig: {
-            appendFsync: 'Test string',
+            appendFsync: 'APPEND_FSYNC_UNSPECIFIED',
           },
-          mode: 'Test string',
+          mode: 'PERSISTENCE_MODE_UNSPECIFIED',
           rdbConfig: {
-            rdbSnapshotPeriod: 'Test string',
+            rdbSnapshotPeriod: 'SNAPSHOT_PERIOD_UNSPECIFIED',
             rdbSnapshotStartTime: 'Test string',
           },
         },
@@ -369,19 +369,19 @@ gapi.load('client', async () => {
         pscConnections: [
           {
             address: 'Test string',
-            connectionType: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             forwardingRule: 'Test string',
             network: 'Test string',
             port: 42,
             projectId: 'Test string',
             pscConnectionId: 'Test string',
-            pscConnectionStatus: 'Test string',
+            pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
             serviceAttachment: 'Test string',
           },
         ],
         pscServiceAttachments: [
           {
-            connectionType: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             serviceAttachment: 'Test string',
           },
         ],
@@ -392,24 +392,24 @@ gapi.load('client', async () => {
         rotateServerCertificate: true,
         satisfiesPzi: true,
         satisfiesPzs: true,
-        serverCaMode: 'Test string',
+        serverCaMode: 'SERVER_CA_MODE_UNSPECIFIED',
         serverCaPool: 'Test string',
         shardCount: 42,
         simulateMaintenanceEvent: true,
         sizeGb: 42,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateInfo: {
           updateInfo: {
-            targetNodeType: 'Test string',
+            targetNodeType: 'NODE_TYPE_UNSPECIFIED',
             targetReplicaCount: 42,
             targetShardCount: 42,
           },
         },
-        transitEncryptionMode: 'Test string',
+        transitEncryptionMode: 'TRANSIT_ENCRYPTION_MODE_UNSPECIFIED',
         uid: 'Test string',
         zoneDistributionConfig: {
           activeZones: ['Test string'],
-          mode: 'Test string',
+          mode: 'ZONE_DISTRIBUTION_MODE_UNSPECIFIED',
           zone: 'Test string',
           zones: ['Test string'],
         },
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
               aclPolicyRevision: 'Test string',
               aclPolicyRevisionNumber: 'Test string',
               errorMessage: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           appliedAclPolicy: 'Test string',
@@ -461,9 +461,9 @@ gapi.load('client', async () => {
         aclPolicyInSync: true,
         allowFewerZonesDeployment: true,
         asyncClusterEndpointsDeletionEnabled: true,
-        authorizationMode: 'Test string',
+        authorizationMode: 'AUTH_MODE_UNSPECIFIED',
         automatedBackupConfig: {
-          automatedBackupMode: 'Test string',
+          automatedBackupMode: 'AUTOMATED_BACKUP_MODE_UNSPECIFIED',
           fixedFrequencySchedule: {
             startTime: {
               hours: 42,
@@ -482,23 +482,23 @@ gapi.load('client', async () => {
               {
                 pscAutoConnection: {
                   address: 'Test string',
-                  connectionType: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
                   forwardingRule: 'Test string',
                   network: 'Test string',
                   projectId: 'Test string',
                   pscConnectionId: 'Test string',
-                  pscConnectionStatus: 'Test string',
+                  pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
                   serviceAttachment: 'Test string',
                 },
                 pscConnection: {
                   address: 'Test string',
-                  connectionType: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
                   forwardingRule: 'Test string',
                   network: 'Test string',
                   port: 42,
                   projectId: 'Test string',
                   pscConnectionId: 'Test string',
-                  pscConnectionStatus: 'Test string',
+                  pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
                   serviceAttachment: 'Test string',
                 },
               },
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
         ],
         createTime: 'Test string',
         crossClusterReplicationConfig: {
-          clusterRole: 'Test string',
+          clusterRole: 'CLUSTER_ROLE_UNSPECIFIED',
           membership: {
             primaryCluster: {
               cluster: 'Test string',
@@ -544,8 +544,8 @@ gapi.load('client', async () => {
         ],
         effectiveMaintenanceVersion: 'Test string',
         encryptionInfo: {
-          encryptionType: 'Test string',
-          kmsKeyPrimaryState: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
+          kmsKeyPrimaryState: 'KMS_KEY_STATE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
           lastUpdateTime: 'Test string',
         },
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -580,15 +580,15 @@ gapi.load('client', async () => {
           backup: 'Test string',
         },
         name: 'Test string',
-        nodeType: 'Test string',
+        nodeType: 'NODE_TYPE_UNSPECIFIED',
         ondemandMaintenance: true,
         persistenceConfig: {
           aofConfig: {
-            appendFsync: 'Test string',
+            appendFsync: 'APPEND_FSYNC_UNSPECIFIED',
           },
-          mode: 'Test string',
+          mode: 'PERSISTENCE_MODE_UNSPECIFIED',
           rdbConfig: {
-            rdbSnapshotPeriod: 'Test string',
+            rdbSnapshotPeriod: 'SNAPSHOT_PERIOD_UNSPECIFIED',
             rdbSnapshotStartTime: 'Test string',
           },
         },
@@ -601,19 +601,19 @@ gapi.load('client', async () => {
         pscConnections: [
           {
             address: 'Test string',
-            connectionType: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             forwardingRule: 'Test string',
             network: 'Test string',
             port: 42,
             projectId: 'Test string',
             pscConnectionId: 'Test string',
-            pscConnectionStatus: 'Test string',
+            pscConnectionStatus: 'PSC_CONNECTION_STATUS_UNSPECIFIED',
             serviceAttachment: 'Test string',
           },
         ],
         pscServiceAttachments: [
           {
-            connectionType: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             serviceAttachment: 'Test string',
           },
         ],
@@ -624,24 +624,24 @@ gapi.load('client', async () => {
         rotateServerCertificate: true,
         satisfiesPzi: true,
         satisfiesPzs: true,
-        serverCaMode: 'Test string',
+        serverCaMode: 'SERVER_CA_MODE_UNSPECIFIED',
         serverCaPool: 'Test string',
         shardCount: 42,
         simulateMaintenanceEvent: true,
         sizeGb: 42,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateInfo: {
           updateInfo: {
-            targetNodeType: 'Test string',
+            targetNodeType: 'NODE_TYPE_UNSPECIFIED',
             targetReplicaCount: 42,
             targetShardCount: 42,
           },
         },
-        transitEncryptionMode: 'Test string',
+        transitEncryptionMode: 'TRANSIT_ENCRYPTION_MODE_UNSPECIFIED',
         uid: 'Test string',
         zoneDistributionConfig: {
           activeZones: ['Test string'],
-          mode: 'Test string',
+          mode: 'ZONE_DISTRIBUTION_MODE_UNSPECIFIED',
           zone: 'Test string',
           zones: ['Test string'],
         },
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        rescheduleType: 'Test string',
+        rescheduleType: 'RESCHEDULE_TYPE_UNSPECIFIED',
         scheduleTime: 'Test string',
       },
     );
@@ -666,7 +666,7 @@ gapi.load('client', async () => {
         authToken: {
           createTime: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           token: 'Test string',
         },
       },
@@ -722,7 +722,7 @@ gapi.load('client', async () => {
         authEnabled: true,
         authorizedNetwork: 'Test string',
         availableMaintenanceVersions: ['Test string'],
-        connectMode: 'Test string',
+        connectMode: 'CONNECT_MODE_UNSPECIFIED',
         createTime: 'Test string',
         currentLocationId: 'Test string',
         customerManagedKey: 'Test string',
@@ -738,7 +738,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               duration: 'Test string',
               startTime: {
                 hours: 42,
@@ -765,16 +765,16 @@ gapi.load('client', async () => {
           },
         ],
         persistenceConfig: {
-          persistenceMode: 'Test string',
+          persistenceMode: 'PERSISTENCE_MODE_UNSPECIFIED',
           rdbNextSnapshotTime: 'Test string',
-          rdbSnapshotPeriod: 'Test string',
+          rdbSnapshotPeriod: 'SNAPSHOT_PERIOD_UNSPECIFIED',
           rdbSnapshotStartTime: 'Test string',
         },
         persistenceIamIdentity: 'Test string',
         port: 42,
         readEndpoint: 'Test string',
         readEndpointPort: 42,
-        readReplicasMode: 'Test string',
+        readReplicasMode: 'READ_REPLICAS_MODE_UNSPECIFIED',
         redisConfigs: {
           A: 'Test string',
         },
@@ -793,14 +793,14 @@ gapi.load('client', async () => {
             sha1Fingerprint: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         statusMessage: 'Test string',
-        suspensionReasons: ['Test string'],
+        suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
         tags: {
           A: 'Test string',
         },
-        tier: 'Test string',
-        transitEncryptionMode: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
+        transitEncryptionMode: 'TRANSIT_ENCRYPTION_MODE_UNSPECIFIED',
       },
     );
     /** Deletes a specific Redis instance. Instance stops serving and data is deleted. */
@@ -826,7 +826,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        dataProtectionMode: 'Test string',
+        dataProtectionMode: 'DATA_PROTECTION_MODE_UNSPECIFIED',
       },
     );
     /** Gets the details of a specific Redis instance. */
@@ -867,7 +867,7 @@ gapi.load('client', async () => {
         authEnabled: true,
         authorizedNetwork: 'Test string',
         availableMaintenanceVersions: ['Test string'],
-        connectMode: 'Test string',
+        connectMode: 'CONNECT_MODE_UNSPECIFIED',
         createTime: 'Test string',
         currentLocationId: 'Test string',
         customerManagedKey: 'Test string',
@@ -883,7 +883,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               duration: 'Test string',
               startTime: {
                 hours: 42,
@@ -910,16 +910,16 @@ gapi.load('client', async () => {
           },
         ],
         persistenceConfig: {
-          persistenceMode: 'Test string',
+          persistenceMode: 'PERSISTENCE_MODE_UNSPECIFIED',
           rdbNextSnapshotTime: 'Test string',
-          rdbSnapshotPeriod: 'Test string',
+          rdbSnapshotPeriod: 'SNAPSHOT_PERIOD_UNSPECIFIED',
           rdbSnapshotStartTime: 'Test string',
         },
         persistenceIamIdentity: 'Test string',
         port: 42,
         readEndpoint: 'Test string',
         readEndpointPort: 42,
-        readReplicasMode: 'Test string',
+        readReplicasMode: 'READ_REPLICAS_MODE_UNSPECIFIED',
         redisConfigs: {
           A: 'Test string',
         },
@@ -938,14 +938,14 @@ gapi.load('client', async () => {
             sha1Fingerprint: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         statusMessage: 'Test string',
-        suspensionReasons: ['Test string'],
+        suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
         tags: {
           A: 'Test string',
         },
-        tier: 'Test string',
-        transitEncryptionMode: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
+        transitEncryptionMode: 'TRANSIT_ENCRYPTION_MODE_UNSPECIFIED',
       },
     );
     /** Reschedule maintenance for a given instance in a given project and location. */
@@ -954,7 +954,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        rescheduleType: 'Test string',
+        rescheduleType: 'RESCHEDULE_TYPE_UNSPECIFIED',
         scheduleTime: 'Test string',
       },
     );

@@ -101,8 +101,9 @@ declare namespace gapi.client {
       /** A display name for the constraint. The maximum length is 200 characters. */
       displayName?: string;
       /** The types of operations that the constraint applies to. */
-      methodTypes?:
-        'METHOD_TYPE_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE'[];
+      methodTypes?: (
+        'METHOD_TYPE_UNSPECIFIED' | 'CREATE' | 'UPDATE' | 'DELETE'
+      )[];
       /** Immutable. The name of the constraint, in the format `organizations/{organization_id}/customConstraints/custom.{custom_constraint_id}`. For example, `organizations/123456789012/customConstraints/custom.createOnlyE2TypeVms`. Must contain 1 to 62 characters, excluding the prefix `organizations/{organization_id}/customConstraints/custom.`. */
       name?: string;
       /** Immutable. The resource type that the constraint applies to, in the format `{canonical_service_name}/{resource_type_name}`. For example, `compute.googleapis.com/Instance`. */
@@ -284,7 +285,7 @@ declare namespace gapi.client {
       /** Optional. The user-specified annotations for the posture. For details about the values you can use in an annotation, see [AIP-148: Standard fields](https://google.aip.dev/148#annotations). */
       annotations?: {[P in string]: string};
       /** Output only. The categories that the posture belongs to, as determined by the Security Posture API. */
-      categories?: 'CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE'[];
+      categories?: ('CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE')[];
       /** Output only. The time at which the posture was created. */
       createTime?: string;
       /** Optional. A description of the posture. */
@@ -308,7 +309,7 @@ declare namespace gapi.client {
       /** Optional. The user-specified annotations for the posture deployment. For details about the values you can use in an annotation, see [AIP-148: Standard fields](https://google.aip.dev/148#annotations). */
       annotations?: {[P in string]: string};
       /** Output only. The categories that the posture deployment belongs to, as determined by the Security Posture API. */
-      categories?: 'CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE'[];
+      categories?: ('CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE')[];
       /** Output only. The time at which the posture deployment was created. */
       createTime?: string;
       /** Optional. A description of the posture deployment. */
@@ -358,7 +359,7 @@ declare namespace gapi.client {
     }
     interface PostureTemplate {
       /** Output only. The categories that the posture template belongs to, as determined by the Security Posture API. */
-      categories?: 'CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE'[];
+      categories?: ('CATEGORY_UNSPECIFIED' | 'AI' | 'AWS' | 'GCP' | 'AZURE')[];
       /** Output only. A description of the posture template. */
       description?: string;
       /** Output only. Identifier. The name of the posture template, in the format `organizations/{organization}/locations/global/postureTemplates/{posture_template}`. */
@@ -437,937 +438,930 @@ declare namespace gapi.client {
       /** Details for the posture that was violated. This field is present only if the violated policy belongs to a deployed posture. */
       violatedPosture?: PostureDetails;
     }
-    interface OperationsResource {
-      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
-      cancel(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be cancelled. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CancelOperationRequest;
-      }): Request<{}>;
-      cancel(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the operation resource to be cancelled. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CancelOperationRequest,
-      ): Request<{}>;
-      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be deleted. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListOperationsResponse>;
-    }
-    interface PostureDeploymentsResource {
-      /** Creates a new PostureDeployment in a given project and location. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Required. An identifier for the posture deployment. */
-        postureDeploymentId?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PostureDeployment;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-          parent: string;
-          /** Required. An identifier for the posture deployment. */
-          postureDeploymentId?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PostureDeployment,
-      ): Request<Operation>;
-      /** Deletes a PostureDeployment. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. An opaque identifier for the current version of the posture deployment. If you provide this value, then it must match the existing value. If the values don't match, then the request fails with an ABORTED error. If you omit this value, then the posture deployment is deleted regardless of its current `etag` value. */
-        etag?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{posture_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Gets details for a PostureDeployment. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the PostureDeployment, in the format `organizations/{organization}/locations/global/postureDeployments/{posture_deployment_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PostureDeployment>;
-      /** Lists every PostureDeployment in a project and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of posture deployments to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
-        pageSize?: number;
-        /** Optional. A pagination token returned from a previous request to list posture deployments. Provide this token to retrieve the next page of results. */
-        pageToken?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPostureDeploymentsResponse>;
-      /** Updates an existing PostureDeployment. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture deployment: 1. Call GetPostureDeployment to get the current version of the deployment. 2. Update the fields in the deployment as needed. 3. Call UpdatePostureDeployment to update the deployment. Ensure that your request includes the `etag` value from the GetPostureDeployment response. **Important:** If you omit the `etag` when you call UpdatePostureDeployment, then the updated deployment unconditionally overwrites the existing deployment. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Identifier. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{deployment_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields in the PostureDeployment to update. You can update only the following fields: * PostureDeployment.posture_id * PostureDeployment.posture_revision_id */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PostureDeployment;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Identifier. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{deployment_id}`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields in the PostureDeployment to update. You can update only the following fields: * PostureDeployment.posture_id * PostureDeployment.posture_revision_id */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PostureDeployment,
-      ): Request<Operation>;
-    }
-    interface PosturesResource {
-      /** Creates a new Posture. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Required. An identifier for the posture. */
-        postureId?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Posture;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-          parent: string;
-          /** Required. An identifier for the posture. */
-          postureId?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Posture,
-      ): Request<Operation>;
-      /** Deletes all revisions of a Posture. You can only delete a posture if none of its revisions are deployed. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. An opaque identifier for the current version of the posture. If you provide this value, then it must match the existing value. If the values don't match, then the request fails with an ABORTED error. If you omit this value, then the posture is deleted regardless of its current `etag` value. */
-        etag?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Extracts existing policies from an organization, folder, or project, and applies them to another organization, folder, or project as a Posture. If the other organization, folder, or project already has a posture, then the result of the long-running operation is an ALREADY_EXISTS error. */
-      extract(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ExtractPostureRequest;
-      }): Request<Operation>;
-      extract(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ExtractPostureRequest,
-      ): Request<Operation>;
-      /** Gets a single revision of a Posture. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. The posture revision to retrieve. If not specified, the most recently updated revision is retrieved. */
-        revisionId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Posture>;
-      /** Lists the most recent revisions of all Posture resources in a specified organization and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of postures to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
-        pageSize?: number;
-        /** A pagination token returned from a previous request to list postures. Provide this token to retrieve the next page of results. */
-        pageToken?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPosturesResponse>;
-      /** Lists all revisions of a single Posture. */
-      listRevisions(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of posture revisions to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
-        pageSize?: number;
-        /** Optional. A pagination token from a previous request to list posture revisions. Provide this token to retrieve the next page of results. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPostureRevisionsResponse>;
-      /** Updates a revision of an existing Posture. If the posture revision that you update is currently deployed, then a new revision of the posture is created. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture: 1. Call GetPosture to get the current version of the posture. 2. Update the fields in the posture as needed. 3. Call UpdatePosture to update the posture. Ensure that your request includes the `etag` value from the GetPosture response. **Important:** If you omit the `etag` when you call UpdatePosture, then the updated posture unconditionally overwrites the existing posture. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Identifier. The name of the posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The revision ID of the posture to update. If the posture revision that you update is currently deployed, then a new revision of the posture is created. */
-        revisionId?: string;
-        /** Required. The fields in the Posture to update. You can update only the following fields: * Posture.description * Posture.policy_sets * Posture.state */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Posture;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Identifier. The name of the posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The revision ID of the posture to update. If the posture revision that you update is currently deployed, then a new revision of the posture is created. */
-          revisionId?: string;
-          /** Required. The fields in the Posture to update. You can update only the following fields: * Posture.description * Posture.policy_sets * Posture.state */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Posture,
-      ): Request<Operation>;
-    }
-    interface PostureTemplatesResource {
-      /** Gets a single revision of a PostureTemplate. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the PostureTemplate, in the format `organizations/{organization}/locations/global/postureTemplates/{posture_template}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. The posture template revision to retrieve. If not specified, the most recently updated revision is retrieved. */
-        revisionId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PostureTemplate>;
-      /** Lists every PostureTemplate in a given organization and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of posture templates to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
-        pageSize?: number;
-        /** Optional. A pagination token returned from a previous request to list posture templates. Provide this token to retrieve the next page of results. */
-        pageToken?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPostureTemplatesResponse>;
-    }
-    interface ReportsResource {
-      /** Validates a specified infrastructure-as-code (IaC) configuration, and creates a Report with the validation results. Only Terraform configurations are supported. Only modified assets are validated. */
-      createIaCValidationReport(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CreateIaCValidationReportRequest;
-      }): Request<Operation>;
-      createIaCValidationReport(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CreateIaCValidationReportRequest,
-      ): Request<Operation>;
-      /** Gets details for a Report. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the report, in the format `organizations/{organization}/locations/global/reports/{report_id}`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Report>;
-      /** Lists every Report in a given organization and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A filter to apply to the list of reports, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of reports to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
-        pageSize?: number;
-        /** Optional. A pagination token returned from a previous request to list reports. Provide this token to retrieve the next page of results. */
-        pageToken?: string;
-        /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListReportsResponse>;
-    }
-    interface LocationsResource {
-      /** Gets information about a location. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Resource name for the location. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Location>;
-      /** Lists information about the supported locations for this service. This method lists locations based on the resource scope provided in the ListLocationsRequest.name field: * **Global locations**: If `name` is empty, the method lists the public locations available to all projects. * **Project-specific locations**: If `name` follows the format `projects/{project}`, the method lists locations visible to that specific project. This includes public, private, or other project-specific locations enabled for the project. For gRPC and client library implementations, the resource name is passed as the `name` field. For direct service calls, the resource name is incorporated into the request path based on the specific service implementation and version. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. Do not use this field unless explicitly documented otherwise. This is primarily for internal usage. */
-        extraLocationTypes?: string | string[];
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource that owns the locations collection, if applicable. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of results to return. If not set, the service selects a default. */
-        pageSize?: number;
-        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListLocationsResponse>;
-      operations: OperationsResource;
-      postureDeployments: PostureDeploymentsResource;
-      postures: PosturesResource;
-      postureTemplates: PostureTemplatesResource;
-      reports: ReportsResource;
-    }
-    interface OrganizationsResource {
-      locations: LocationsResource;
-    }
 
-    const organizations: OrganizationsResource;
+    const organizations: {
+      locations: {
+        /** Gets information about a location. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Resource name for the location. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Location>;
+        /** Lists information about the supported locations for this service. This method lists locations based on the resource scope provided in the ListLocationsRequest.name field: * **Global locations**: If `name` is empty, the method lists the public locations available to all projects. * **Project-specific locations**: If `name` follows the format `projects/{project}`, the method lists locations visible to that specific project. This includes public, private, or other project-specific locations enabled for the project. For gRPC and client library implementations, the resource name is passed as the `name` field. For direct service calls, the resource name is incorporated into the request path based on the specific service implementation and version. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Optional. Do not use this field unless explicitly documented otherwise. This is primarily for internal usage. */
+          extraLocationTypes?: string | string[];
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+          filter?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource that owns the locations collection, if applicable. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The maximum number of results to return. If not set, the service selects a default. */
+          pageSize?: number;
+          /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListLocationsResponse>;
+        operations: {
+          /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
+          cancel(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource to be cancelled. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CancelOperationRequest;
+          }): Request<{}>;
+          cancel(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource to be cancelled. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CancelOperationRequest,
+          ): Request<{}>;
+          /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource to be deleted. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<{}>;
+          /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** The standard list filter. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation's parent resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The standard list page size. */
+            pageSize?: number;
+            /** The standard list page token. */
+            pageToken?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+            returnPartialSuccess?: boolean;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListOperationsResponse>;
+        };
+        postureDeployments: {
+          /** Creates a new PostureDeployment in a given project and location. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Required. An identifier for the posture deployment. */
+            postureDeploymentId?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: PostureDeployment;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+              parent: string;
+              /** Required. An identifier for the posture deployment. */
+              postureDeploymentId?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: PostureDeployment,
+          ): Request<Operation>;
+          /** Deletes a PostureDeployment. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Optional. An opaque identifier for the current version of the posture deployment. If you provide this value, then it must match the existing value. If the values don't match, then the request fails with an ABORTED error. If you omit this value, then the posture deployment is deleted regardless of its current `etag` value. */
+            etag?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{posture_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Gets details for a PostureDeployment. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the PostureDeployment, in the format `organizations/{organization}/locations/global/postureDeployments/{posture_deployment_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<PostureDeployment>;
+          /** Lists every PostureDeployment in a project and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of posture deployments to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
+            pageSize?: number;
+            /** Optional. A pagination token returned from a previous request to list posture deployments. Provide this token to retrieve the next page of results. */
+            pageToken?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPostureDeploymentsResponse>;
+          /** Updates an existing PostureDeployment. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture deployment: 1. Call GetPostureDeployment to get the current version of the deployment. 2. Update the fields in the deployment as needed. 3. Call UpdatePostureDeployment to update the deployment. Ensure that your request includes the `etag` value from the GetPostureDeployment response. **Important:** If you omit the `etag` when you call UpdatePostureDeployment, then the updated deployment unconditionally overwrites the existing deployment. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Identifier. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{deployment_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. The fields in the PostureDeployment to update. You can update only the following fields: * PostureDeployment.posture_id * PostureDeployment.posture_revision_id */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: PostureDeployment;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Identifier. The name of the posture deployment, in the format `organizations/{organization}/locations/global/postureDeployments/{deployment_id}`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields in the PostureDeployment to update. You can update only the following fields: * PostureDeployment.posture_id * PostureDeployment.posture_revision_id */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: PostureDeployment,
+          ): Request<Operation>;
+        };
+        postures: {
+          /** Creates a new Posture. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Required. An identifier for the posture. */
+            postureId?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Posture;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+              parent: string;
+              /** Required. An identifier for the posture. */
+              postureId?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Posture,
+          ): Request<Operation>;
+          /** Deletes all revisions of a Posture. You can only delete a posture if none of its revisions are deployed. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Optional. An opaque identifier for the current version of the posture. If you provide this value, then it must match the existing value. If the values don't match, then the request fails with an ABORTED error. If you omit this value, then the posture is deleted regardless of its current `etag` value. */
+            etag?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Extracts existing policies from an organization, folder, or project, and applies them to another organization, folder, or project as a Posture. If the other organization, folder, or project already has a posture, then the result of the long-running operation is an ALREADY_EXISTS error. */
+          extract(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: ExtractPostureRequest;
+          }): Request<Operation>;
+          extract(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: ExtractPostureRequest,
+          ): Request<Operation>;
+          /** Gets a single revision of a Posture. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. The posture revision to retrieve. If not specified, the most recently updated revision is retrieved. */
+            revisionId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Posture>;
+          /** Lists the most recent revisions of all Posture resources in a specified organization and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of postures to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
+            pageSize?: number;
+            /** A pagination token returned from a previous request to list postures. Provide this token to retrieve the next page of results. */
+            pageToken?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPosturesResponse>;
+          /** Lists all revisions of a single Posture. */
+          listRevisions(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the Posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of posture revisions to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
+            pageSize?: number;
+            /** Optional. A pagination token from a previous request to list posture revisions. Provide this token to retrieve the next page of results. */
+            pageToken?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPostureRevisionsResponse>;
+          /** Updates a revision of an existing Posture. If the posture revision that you update is currently deployed, then a new revision of the posture is created. To prevent concurrent updates from overwriting each other, always follow the read-modify-write pattern when you update a posture: 1. Call GetPosture to get the current version of the posture. 2. Update the fields in the posture as needed. 3. Call UpdatePosture to update the posture. Ensure that your request includes the `etag` value from the GetPosture response. **Important:** If you omit the `etag` when you call UpdatePosture, then the updated posture unconditionally overwrites the existing posture. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Identifier. The name of the posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. The revision ID of the posture to update. If the posture revision that you update is currently deployed, then a new revision of the posture is created. */
+            revisionId?: string;
+            /** Required. The fields in the Posture to update. You can update only the following fields: * Posture.description * Posture.policy_sets * Posture.state */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Posture;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Identifier. The name of the posture, in the format `organizations/{organization}/locations/global/postures/{posture_id}`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The revision ID of the posture to update. If the posture revision that you update is currently deployed, then a new revision of the posture is created. */
+              revisionId?: string;
+              /** Required. The fields in the Posture to update. You can update only the following fields: * Posture.description * Posture.policy_sets * Posture.state */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Posture,
+          ): Request<Operation>;
+        };
+        postureTemplates: {
+          /** Gets a single revision of a PostureTemplate. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the PostureTemplate, in the format `organizations/{organization}/locations/global/postureTemplates/{posture_template}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. The posture template revision to retrieve. If not specified, the most recently updated revision is retrieved. */
+            revisionId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<PostureTemplate>;
+          /** Lists every PostureTemplate in a given organization and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. A filter to apply to the list of postures, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of posture templates to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
+            pageSize?: number;
+            /** Optional. A pagination token returned from a previous request to list posture templates. Provide this token to retrieve the next page of results. */
+            pageToken?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPostureTemplatesResponse>;
+        };
+        reports: {
+          /** Validates a specified infrastructure-as-code (IaC) configuration, and creates a Report with the validation results. Only Terraform configurations are supported. Only modified assets are validated. */
+          createIaCValidationReport(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CreateIaCValidationReportRequest;
+          }): Request<Operation>;
+          createIaCValidationReport(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CreateIaCValidationReportRequest,
+          ): Request<Operation>;
+          /** Gets details for a Report. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the report, in the format `organizations/{organization}/locations/global/reports/{report_id}`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Report>;
+          /** Lists every Report in a given organization and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. A filter to apply to the list of reports, in the format defined in [AIP-160: Filtering](https://google.aip.dev/160). */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of reports to return. The default value is `500`. If you exceed the maximum value of `1000`, then the service uses the maximum value. */
+            pageSize?: number;
+            /** Optional. A pagination token returned from a previous request to list reports. Provide this token to retrieve the next page of results. */
+            pageToken?: string;
+            /** Required. The parent resource name, in the format `organizations/{organization}/locations/global`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListReportsResponse>;
+        };
+      };
+    };
   }
 }

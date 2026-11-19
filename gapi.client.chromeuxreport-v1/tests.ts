@@ -21,7 +21,7 @@ gapi.load('client', async () => {
       {},
       {
         collectionPeriodCount: 42,
-        formFactor: 'Test string',
+        formFactor: 'ALL_FORM_FACTORS',
         metrics: ['Test string'],
         origin: 'Test string',
         url: 'Test string',
@@ -32,7 +32,7 @@ gapi.load('client', async () => {
       {},
       {
         effectiveConnectionType: 'Test string',
-        formFactor: 'Test string',
+        formFactor: 'ALL_FORM_FACTORS',
         metrics: ['Test string'],
         origin: 'Test string',
         url: 'Test string',

@@ -439,15 +439,17 @@ declare namespace gapi.client {
       /** A rule control - a condition-action pair. Enacts a set action when the condition is triggered. For example: Boost "gShoe" when query full matches "Running Shoes". */
       rule?: GoogleCloudRetailV2alphaRule;
       /** Specifies the use case for the control. Affects what condition fields can be set. Only settable by search controls. Will default to SEARCH_SOLUTION_USE_CASE_SEARCH if not specified. Currently only allow one search_solution_use_case per control. */
-      searchSolutionUseCase?:
+      searchSolutionUseCase?: (
         | 'SEARCH_SOLUTION_USE_CASE_UNSPECIFIED'
         | 'SEARCH_SOLUTION_USE_CASE_SEARCH'
-        | 'SEARCH_SOLUTION_USE_CASE_BROWSE'[];
+        | 'SEARCH_SOLUTION_USE_CASE_BROWSE'
+      )[];
       /** Required. Immutable. The solution types that the control is used for. Currently we support setting only one type of solution at creation time. Only `SOLUTION_TYPE_SEARCH` value is supported at the moment. If no solution type is provided at creation time, will default to SOLUTION_TYPE_SEARCH. */
-      solutionTypes?:
+      solutionTypes?: (
         | 'SOLUTION_TYPE_UNSPECIFIED'
         | 'SOLUTION_TYPE_RECOMMENDATION'
-        | 'SOLUTION_TYPE_SEARCH'[];
+        | 'SOLUTION_TYPE_SEARCH'
+      )[];
     }
     interface GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig {
       /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
@@ -839,10 +841,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRetailV2alphaListEnrolledSolutionsResponse {
       /** AI Commerce Search API solutions that the project has enrolled. */
-      enrolledSolutions?:
+      enrolledSolutions?: (
         | 'SOLUTION_TYPE_UNSPECIFIED'
         | 'SOLUTION_TYPE_RECOMMENDATION'
-        | 'SOLUTION_TYPE_SEARCH'[];
+        | 'SOLUTION_TYPE_SEARCH'
+      )[];
     }
     interface GoogleCloudRetailV2alphaListGenerativeQuestionConfigsResponse {
       /** All the questions for a given catalog. */
@@ -1272,10 +1275,11 @@ declare namespace gapi.client {
     }
     interface GoogleCloudRetailV2alphaProject {
       /** Output only. AI Commerce Search API solutions that the project has enrolled. */
-      enrolledSolutions?:
+      enrolledSolutions?: (
         | 'SOLUTION_TYPE_UNSPECIFIED'
         | 'SOLUTION_TYPE_RECOMMENDATION'
-        | 'SOLUTION_TYPE_SEARCH'[];
+        | 'SOLUTION_TYPE_SEARCH'
+      )[];
       /** Output only. Full resource name of the retail project, such as `projects/{project_id_or_number}/retailProject`. */
       name?: string;
     }
@@ -1792,10 +1796,11 @@ declare namespace gapi.client {
       /** Condition replacement specifications. - Applied according to the order in the list. - A previously replaced term can not be re-replaced. - Maximum number of specifications is 100. Can only be set if solution_types is SOLUTION_TYPE_SEARCH. */
       replacementControlIds?: string[];
       /** Required. Immutable. Specifies the solution types that a serving config can be associated with. Currently we support setting only one type of solution. */
-      solutionTypes?:
+      solutionTypes?: (
         | 'SOLUTION_TYPE_UNSPECIFIED'
         | 'SOLUTION_TYPE_RECOMMENDATION'
-        | 'SOLUTION_TYPE_SEARCH'[];
+        | 'SOLUTION_TYPE_SEARCH'
+      )[];
       /** Condition synonyms specifications. If multiple syonyms conditions match, all matching synonyms control in the list will execute. Order of controls in the list will not matter. Maximum number of specifications is 100. Can only be set if solution_types is SOLUTION_TYPE_SEARCH. */
       twowaySynonymsControlIds?: string[];
     }
@@ -2324,3913 +2329,8 @@ declare namespace gapi.client {
       /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
       year?: number;
     }
-    interface AttributesConfigResource {
-      /** Adds the specified CatalogAttribute to the AttributesConfig. If the CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned. */
-      addCatalogAttribute(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-        attributesConfig: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAddCatalogAttributeRequest;
-      }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      addCatalogAttribute(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-          attributesConfig: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAddCatalogAttributeRequest,
-      ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      /** Removes all specified CatalogAttributes from the AttributesConfig. */
-      batchRemoveCatalogAttributes(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** Required. The attributes config resource shared by all catalog attributes being deleted. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-        attributesConfig: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesRequest;
-      }): Request<GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesResponse>;
-      batchRemoveCatalogAttributes(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** Required. The attributes config resource shared by all catalog attributes being deleted. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-          attributesConfig: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesRequest,
-      ): Request<GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesResponse>;
-      /** Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. */
-      removeCatalogAttribute(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-        attributesConfig: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaRemoveCatalogAttributeRequest;
-      }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      removeCatalogAttribute(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-          attributesConfig: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaRemoveCatalogAttributeRequest,
-      ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      /** Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. */
-      replaceCatalogAttribute(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-        attributesConfig: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaReplaceCatalogAttributeRequest;
-      }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      replaceCatalogAttribute(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-          attributesConfig: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaReplaceCatalogAttributeRequest,
-      ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-    }
-    interface OperationsResource {
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningOperation>;
-    }
-    interface OperationsResource {
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningOperation>;
-    }
-    interface PlacesResource {
-      operations: OperationsResource;
-    }
-    interface ProductsResource {
-      /** We recommend that you use the ProductService.AddLocalInventories method instead of the ProductService.AddFulfillmentPlaces method. ProductService.AddLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally adds place IDs to Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the added place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
-      addFulfillmentPlaces(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-        product: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAddFulfillmentPlacesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      addFulfillmentPlaces(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-          product: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAddFulfillmentPlacesRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Updates local inventory information for a Product at a list of places, while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating inventory information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be modified using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
-      addLocalInventories(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-        product: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAddLocalInventoriesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      addLocalInventories(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-          product: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAddLocalInventoriesRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Creates a Product. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. The ID to use for the Product, which will become the final component of the Product.name. If the caller does not have permission to create the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. This field must be unique among all Products with the same parent. Otherwise, an ALREADY_EXISTS error is returned. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
-        productId?: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaProduct;
-      }): Request<GoogleCloudRetailV2alphaProduct>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. The ID to use for the Product, which will become the final component of the Product.name. If the caller does not have permission to create the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. This field must be unique among all Products with the same parent. Otherwise, an ALREADY_EXISTS error is returned. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
-          productId?: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaProduct,
-      ): Request<GoogleCloudRetailV2alphaProduct>;
-      /** Deletes a Product. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** This value only applies to the case when the target product is of type PRIMARY. When deleting a product of VARIANT/COLLECTION type, this value will be ignored. When set to true, the subsequent variant products will be deleted. When set to false, if the primary product has active variant products, an error will be returned. */
-        force?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to delete the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the Product to delete does not exist, a NOT_FOUND error is returned. The Product to delete can neither be a Product.Type.COLLECTION Product member nor a Product.Type.PRIMARY Product with more than one variants. Otherwise, an INVALID_ARGUMENT error is returned. All inventory information for the named Product will be deleted. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Exports multiple Products. */
-      export(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Resource name of a Branch, and `default_branch` for branch_id component is supported. For example `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaExportProductsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      export(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Resource name of a Branch, and `default_branch` for branch_id component is supported. For example `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaExportProductsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Gets a Product. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the requested Product does not exist, a NOT_FOUND error is returned. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaProduct>;
-      /** Bulk import of multiple Products. Request processing may be synchronous. Non-existing items are created. Note that it is possible for a subset of the Products to be successfully updated. */
-      import(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` If no updateMask is specified, requires products.create permission. If updateMask is specified, requires products.update permission. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaImportProductsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      import(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` If no updateMask is specified, requires products.create permission. If updateMask is specified, requires products.update permission. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaImportProductsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Gets a list of Products. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. * List Product.Type.VARIANT Products sharing the same Product.Type.PRIMARY Product. For example: `primary_product_id = "some_product_id"` * List Products bundled in a Product.Type.COLLECTION Product. For example: `collection_product_id = "some_product_id"` * List Products with a partibular type. For example: `type = "PRIMARY"` `type = "VARIANT"` `type = "COLLECTION"` If the field is unrecognizable, an INVALID_ARGUMENT error is returned. If the specified Product.Type.PRIMARY Product or Product.Type.COLLECTION Product does not exist, a NOT_FOUND error is returned. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Maximum number of Products to return. If unspecified, defaults to 100. The maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT error is returned. */
-        pageSize?: number;
-        /** A page token ListProductsResponse.next_page_token, received from a previous ProductService.ListProducts call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to ProductService.ListProducts must match the call that provided the page token. Otherwise, an INVALID_ARGUMENT error is returned. */
-        pageToken?: string;
-        /** Required. The parent branch resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/0`. Use `default_branch` as the branch ID, to list products under the default branch. If the caller does not have permission to list Products under this branch, regardless of whether or not this branch exists, a PERMISSION_DENIED error is returned. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The fields of Product to return in the responses. If not set or empty, the following fields are returned: * Product.name * Product.id * Product.title * Product.uri * Product.images * Product.price_info * Product.brands If "*" is provided, all fields are returned. Product.name is always returned no matter what mask is set. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
-        readMask?: string;
-        /** If true and page_token is empty, ListProductsResponse.total_size is set to the total count of matched items irrespective of pagination. Notice that setting this field to true affects the performance. */
-        requireTotalSize?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListProductsResponse>;
-      /** Updates a Product. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** If set to true, and the Product is not found, a new Product will be created. In this situation, `update_mask` is ignored. */
-        allowMissing?: boolean;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Indicates which fields in the provided Product to update. The immutable and output only fields are NOT supported. If not set, all supported fields (the fields that are neither immutable nor output only) are updated. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. The attribute key can be updated by setting the mask path as "attributes.${key_name}". If a key name is present in the mask but not in the patching product from the request, this key will be deleted after the update. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaProduct;
-      }): Request<GoogleCloudRetailV2alphaProduct>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** If set to true, and the Product is not found, a new Product will be created. In this situation, `update_mask` is ignored. */
-          allowMissing?: boolean;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Indicates which fields in the provided Product to update. The immutable and output only fields are NOT supported. If not set, all supported fields (the fields that are neither immutable nor output only) are updated. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. The attribute key can be updated by setting the mask path as "attributes.${key_name}". If a key name is present in the mask but not in the patching product from the request, this key will be deleted after the update. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaProduct,
-      ): Request<GoogleCloudRetailV2alphaProduct>;
-      /** Permanently deletes all selected Products under a branch. This process is asynchronous. If the request is valid, the removal will be enqueued and processed offline. Depending on the number of Products, this operation could take hours to complete. Before the operation completes, some Products may still be returned by ProductService.GetProduct or ProductService.ListProducts. Depending on the number of Products, this operation could take hours to complete. To get a sample of Products that would be deleted, set PurgeProductsRequest.force to false. */
-      purge(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the branch under which the products are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaPurgeProductsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      purge(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the branch under which the products are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaPurgeProductsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** We recommend that you use the ProductService.RemoveLocalInventories method instead of the ProductService.RemoveFulfillmentPlaces method. ProductService.RemoveLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally removes place IDs from a Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the removed place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
-      removeFulfillmentPlaces(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-        product: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaRemoveFulfillmentPlacesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      removeFulfillmentPlaces(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-          product: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaRemoveFulfillmentPlacesRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Remove local inventory information for a Product at a list of places at a removal timestamp. This process is asynchronous. If the request is valid, the removal will be enqueued and processed downstream. As a consequence, when a response is returned, removals are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be removed using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
-      removeLocalInventories(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-        product: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaRemoveLocalInventoriesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      removeLocalInventories(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
-          product: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaRemoveLocalInventoriesRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Updates inventory information for a Product while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update is enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. When inventory is updated with ProductService.CreateProduct and ProductService.UpdateProduct, the specified inventory field value(s) overwrite any existing value(s) while ignoring the last update time for this field. Furthermore, the last update times for the specified inventory fields are overwritten by the times of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are set in CreateProductRequest.product, then any pre-existing inventory information for this product is used. If no inventory fields are set in SetInventoryRequest.set_mask, then any existing inventory information is preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If conflicting updates are issued, the Operations associated with the stale updates are not marked as done until they are obsolete. */
-      setInventory(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaSetInventoryRequest;
-      }): Request<GoogleLongrunningOperation>;
-      setInventory(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaSetInventoryRequest,
-      ): Request<GoogleLongrunningOperation>;
-    }
-    interface BranchesResource {
-      /** Retrieves a Branch. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the branch to retrieve. Format: `projects/*‍/locations/global/catalogs/default_catalog/branches/some_branch_id`. "default_branch" can be used as a special branch_id, it returns the default branch that has been set for the catalog. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The view to apply to the returned Branch. Defaults to [Branch.BranchView.BASIC] if unspecified. See documentation of fields of Branch to find what fields are excluded from BASIC view. */
-        view?:
-          'BRANCH_VIEW_UNSPECIFIED' | 'BRANCH_VIEW_BASIC' | 'BRANCH_VIEW_FULL';
-      }): Request<GoogleCloudRetailV2alphaBranch>;
-      /** Lists all instances of Branch under the specified parent Catalog. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent catalog resource name. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The view to apply to the returned Branch. Defaults to [Branch.BranchView.BASIC] if unspecified. See documentation of fields of Branch to find what fields are excluded from BASIC view. */
-        view?:
-          'BRANCH_VIEW_UNSPECIFIED' | 'BRANCH_VIEW_BASIC' | 'BRANCH_VIEW_FULL';
-      }): Request<GoogleCloudRetailV2alphaListBranchesResponse>;
-      operations: OperationsResource;
-      places: PlacesResource;
-      products: ProductsResource;
-    }
-    interface CompletionDataResource {
-      /** Bulk import of processed completion dataset. Request processing is asynchronous. Partial updating is not supported. The operation is successfully finished only after the imported suggestions are indexed successfully and ready for serving. The process takes hours. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
-      import(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The catalog which the suggestions dataset belongs to. Format: `projects/1234/locations/global/catalogs/default_catalog`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaImportCompletionDataRequest;
-      }): Request<GoogleLongrunningOperation>;
-      import(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The catalog which the suggestions dataset belongs to. Format: `projects/1234/locations/global/catalogs/default_catalog`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaImportCompletionDataRequest,
-      ): Request<GoogleLongrunningOperation>;
-    }
-    interface ControlsResource {
-      /** Creates a Control. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
-        controlId?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Full resource name of parent catalog. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaControl;
-      }): Request<GoogleCloudRetailV2alphaControl>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
-          controlId?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Full resource name of parent catalog. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaControl,
-      ): Request<GoogleCloudRetailV2alphaControl>;
-      /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the Control to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets a Control. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the Control to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaControl>;
-      /** Lists all Controls by their parent Catalog. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. * List controls that are used in a single ServingConfig: 'serving_config = "boosted_home_page_cvr"' */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListControls` call. Provide this to retrieve the subsequent page. */
-        pageToken?: string;
-        /** Required. The catalog resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListControlsResponse>;
-      /** Updates a Control. Control cannot be set to a different oneof field, if so an INVALID_ARGUMENT is returned. If the Control to update does not exist, a NOT_FOUND error is returned. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/controls/*` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Indicates which fields in the provided Control to update. The following are NOT supported: * Control.name If not set or empty, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaControl;
-      }): Request<GoogleCloudRetailV2alphaControl>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/controls/*` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Indicates which fields in the provided Control to update. The following are NOT supported: * Control.name If not set or empty, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaControl,
-      ): Request<GoogleCloudRetailV2alphaControl>;
-    }
-    interface GenerativeQuestionResource {
-      /** Allows management of multiple questions. */
-      batchUpdate(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsRequest;
-      }): Request<GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsResponse>;
-      batchUpdate(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Optional. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsRequest,
-      ): Request<GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsResponse>;
-    }
-    interface GenerativeQuestionsResource {
-      /** Returns all questions for a given catalog. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListGenerativeQuestionConfigsResponse>;
-    }
-    interface MerchantCenterAccountLinksResource {
-      /** Creates a MerchantCenterAccountLink. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The branch resource where this MerchantCenterAccountLink will be created. Format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaMerchantCenterAccountLink;
-      }): Request<GoogleLongrunningOperation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The branch resource where this MerchantCenterAccountLink will be created. Format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaMerchantCenterAccountLink,
-      ): Request<GoogleLongrunningOperation>;
-      /** Deletes a MerchantCenterAccountLink. If the MerchantCenterAccountLink to delete does not exist, a NOT_FOUND error is returned. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Full resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/merchantCenterAccountLinks/{merchant_center_account_link_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Lists all MerchantCenterAccountLinks under the specified parent Catalog. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent Catalog of the resource. It must match this format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListMerchantCenterAccountLinksResponse>;
-    }
-    interface ModelsResource {
-      /** Creates a new model. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. Whether to run a dry run to validate the request (without actually creating the model). */
-        dryRun?: boolean;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource under which to create the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaModel;
-      }): Request<GoogleLongrunningOperation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Optional. Whether to run a dry run to validate the request (without actually creating the model). */
-          dryRun?: boolean;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource under which to create the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaModel,
-      ): Request<GoogleLongrunningOperation>;
-      /** Deletes an existing model. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the Model to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets a model. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the Model to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog}/models/{model_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaModel>;
-      /** Lists all the models linked to this event store. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListModels` call. Provide this to retrieve the subsequent page. */
-        pageToken?: string;
-        /** Required. The parent for which to list models. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListModelsResponse>;
-      /** Update of model metadata. Only fields that currently can be updated are: `filtering_option` and `periodic_tuning_state`. If other values are provided, this API method ignores them. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The fully qualified resource name of the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided 'model' to update. If not set, by default updates all fields. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaModel;
-      }): Request<GoogleCloudRetailV2alphaModel>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The fully qualified resource name of the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided 'model' to update. If not set, by default updates all fields. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaModel,
-      ): Request<GoogleCloudRetailV2alphaModel>;
-      /** Pauses the training of an existing model. */
-      pause(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the model to pause. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaPauseModelRequest;
-      }): Request<GoogleCloudRetailV2alphaModel>;
-      pause(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the model to pause. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaPauseModelRequest,
-      ): Request<GoogleCloudRetailV2alphaModel>;
-      /** Resumes the training of an existing model. */
-      resume(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the model to resume. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaResumeModelRequest;
-      }): Request<GoogleCloudRetailV2alphaModel>;
-      resume(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the model to resume. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaResumeModelRequest,
-      ): Request<GoogleCloudRetailV2alphaModel>;
-      /** Tunes an existing model. */
-      tune(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the model to tune. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaTuneModelRequest;
-      }): Request<GoogleLongrunningOperation>;
-      tune(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The resource name of the model to tune. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaTuneModelRequest,
-      ): Request<GoogleLongrunningOperation>;
-    }
-    interface OperationsResource {
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningOperation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningListOperationsResponse>;
-    }
-    interface PlacementsResource {
-      /** Performs a conversational search. This feature is only available for users who have Conversational Search enabled. */
-      conversationalSearch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaConversationalSearchRequest;
-      }): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
-      conversationalSearch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaConversationalSearchRequest,
-      ): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
-      /** Makes a recommendation prediction. */
-      predict(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaPredictRequest;
-      }): Request<GoogleCloudRetailV2alphaPredictResponse>;
-      predict(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaPredictRequest,
-      ): Request<GoogleCloudRetailV2alphaPredictResponse>;
-      /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
-      search(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaSearchRequest;
-      }): Request<GoogleCloudRetailV2alphaSearchResponse>;
-      search(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaSearchRequest,
-      ): Request<GoogleCloudRetailV2alphaSearchResponse>;
-    }
-    interface ServingConfigsResource {
-      /** Enables a Control on the specified ServingConfig. The control is added in the last position of the list of controls it belongs to (e.g. if it's a facet spec control it will be applied in the last position of servingConfig.facetSpecIds) Returns a ALREADY_EXISTS error if the control has already been applied. Returns a FAILED_PRECONDITION error if the addition could exceed maximum number of control allowed for that type of control. */
-      addControl(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-        servingConfig: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAddControlRequest;
-      }): Request<GoogleCloudRetailV2alphaServingConfig>;
-      addControl(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-          servingConfig: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAddControlRequest,
-      ): Request<GoogleCloudRetailV2alphaServingConfig>;
-      /** Performs a conversational search. This feature is only available for users who have Conversational Search enabled. */
-      conversationalSearch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaConversationalSearchRequest;
-      }): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
-      conversationalSearch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaConversationalSearchRequest,
-      ): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
-      /** Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Full resource name of parent. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The ID to use for the ServingConfig, which will become the final component of the ServingConfig's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
-        servingConfigId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaServingConfig;
-      }): Request<GoogleCloudRetailV2alphaServingConfig>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Full resource name of parent. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The ID to use for the ServingConfig, which will become the final component of the ServingConfig's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
-          servingConfigId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaServingConfig,
-      ): Request<GoogleCloudRetailV2alphaServingConfig>;
-      /** Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the ServingConfig to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The resource name of the ServingConfig to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaServingConfig>;
-      /** Lists all ServingConfigs linked to this catalog. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. Maximum number of results to return. If unspecified, defaults to 100. If a value greater than 100 is provided, at most 100 results are returned. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListServingConfigs` call. Provide this to retrieve the subsequent page. */
-        pageToken?: string;
-        /** Required. The catalog resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListServingConfigsResponse>;
-      /** Updates a ServingConfig. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/servingConfig/*` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Indicates which fields in the provided ServingConfig to update. The following are NOT supported: * ServingConfig.name If not set, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaServingConfig;
-      }): Request<GoogleCloudRetailV2alphaServingConfig>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/servingConfig/*` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Indicates which fields in the provided ServingConfig to update. The following are NOT supported: * ServingConfig.name If not set, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaServingConfig,
-      ): Request<GoogleCloudRetailV2alphaServingConfig>;
-      /** Makes a recommendation prediction. */
-      predict(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaPredictRequest;
-      }): Request<GoogleCloudRetailV2alphaPredictResponse>;
-      predict(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaPredictRequest,
-      ): Request<GoogleCloudRetailV2alphaPredictResponse>;
-      /** Disables a Control on the specified ServingConfig. The control is removed from the ServingConfig. Returns a NOT_FOUND error if the Control is not enabled for the ServingConfig. */
-      removeControl(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-        servingConfig: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaRemoveControlRequest;
-      }): Request<GoogleCloudRetailV2alphaServingConfig>;
-      removeControl(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
-          servingConfig: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaRemoveControlRequest,
-      ): Request<GoogleCloudRetailV2alphaServingConfig>;
-      /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
-      search(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
-        placement: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaSearchRequest;
-      }): Request<GoogleCloudRetailV2alphaSearchResponse>;
-      search(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
-          placement: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaSearchRequest,
-      ): Request<GoogleCloudRetailV2alphaSearchResponse>;
-    }
-    interface UserEventsResource {
-      /** Writes a single user event from the browser. For larger user event payload over 16 KB, the POST method should be used instead, otherwise a 400 Bad Request error is returned. This method is used only by the AI Commerce Search API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
-      collect(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent catalog name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaCollectUserEventRequest;
-      }): Request<GoogleApiHttpBody>;
-      collect(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent catalog name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaCollectUserEventRequest,
-      ): Request<GoogleApiHttpBody>;
-      /** Exports user events. `Operation.response` is of type `ExportResponse`. `Operation.metadata` is of type `ExportMetadata`. */
-      export(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Resource name of a Catalog. For example `projects/1234/locations/global/catalogs/default_catalog` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaExportUserEventsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      export(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Resource name of a Catalog. For example `projects/1234/locations/global/catalogs/default_catalog` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaExportUserEventsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. `Operation.response` is of type `ImportResponse`. Note that it is possible for a subset of the items to be successfully inserted. `Operation.metadata` is of type `ImportMetadata`. */
-      import(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. `projects/1234/locations/global/catalogs/default_catalog` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaImportUserEventsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      import(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. `projects/1234/locations/global/catalogs/default_catalog` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaImportUserEventsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
-      purge(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The resource name of the catalog under which the events are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaPurgeUserEventsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      purge(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The resource name of the catalog under which the events are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaPurgeUserEventsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Starts a user-event rejoin operation with latest product catalog. Events are not annotated with detailed product information for products that are missing from the catalog when the user event is ingested. These events are stored as unjoined events with limited usage on training and serving. You can use this method to start a join operation on specified events with the latest version of product catalog. You can also use this method to correct events joined with the wrong product catalog. A rejoin operation can take hours or days to complete. */
-      rejoin(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaRejoinUserEventsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      rejoin(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaRejoinUserEventsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Writes a single user event. */
-      write(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** If set to true, the user event will be written asynchronously after validation, and the API will respond without waiting for the write. Therefore, silent failures can occur even if the API returns success. In case of silent failures, error messages can be found in Stackdriver logs. */
-        writeAsync?: boolean;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaUserEvent;
-      }): Request<GoogleCloudRetailV2alphaUserEvent>;
-      write(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** If set to true, the user event will be written asynchronously after validation, and the API will respond without waiting for the write. Therefore, silent failures can occur even if the API returns success. In case of silent failures, error messages can be found in Stackdriver logs. */
-          writeAsync?: boolean;
-        },
-        body: GoogleCloudRetailV2alphaUserEvent,
-      ): Request<GoogleCloudRetailV2alphaUserEvent>;
-    }
-    interface CatalogsResource {
-      /** Completes the specified prefix with keyword suggestions. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
-      completeQuery(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Catalog for which the completion is performed. Full resource name of catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-        catalog: string;
-        /** Determines which dataset to use for fetching completion. "user-data" will use the dataset imported through CompletionService.ImportCompletionData. `cloud-retail` will use the dataset generated by Cloud Retail based on user events. If left empty, completions will be fetched from the `user-data` dataset. Current supported values: * user-data * cloud-retail: This option requires enabling auto-learning function first. See [guidelines](https://cloud.google.com/retail/docs/completion-overview#generated-completion-dataset). */
-        dataset?: string;
-        /** The device type context for completion suggestions. We recommend that you leave this field empty. It can apply different suggestions on different device types, e.g. `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device types. Supported formats: * `UNKNOWN_DEVICE_TYPE` * `DESKTOP` * `MOBILE` * A customized string starts with `OTHER_`, e.g. `OTHER_IPHONE`. */
-        deviceType?: string;
-        /** If true, attribute suggestions are enabled and provided in the response. This field is only available for the `cloud-retail` dataset. */
-        enableAttributeSuggestions?: boolean;
-        /** The entity for customers who run multiple entities, domains, sites, or regions, for example, `Google US`, `Google Ads`, `Waymo`, `google.com`, `youtube.com`, etc. If this is set, it must be an exact match with UserEvent.entity to get per-entity autocomplete results. This field will be applied to `completion_results` only. It has no effect on the `attribute_results`. Also, this entity should be limited to 256 characters, if too long, it will be truncated to 256 characters in both generation and serving time, and may lead to mis-match. To ensure it works, please set the entity with string within 256 characters. */
-        entity?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Note that this field applies for `user-data` dataset only. For requests with `cloud-retail` dataset, setting this field has no effect. The language filters applied to the output suggestions. If set, it should contain the language of the query. If not set, suggestions are returned without considering language restrictions. This is the BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47). The maximum number of language codes is 3. */
-        languageCodes?: string | string[];
-        /** Completion max suggestions. If left unset or set to 0, then will fallback to the configured value CompletionConfig.max_suggestions. The maximum allowed max suggestions is 20. If it is set higher, it will be capped by 20. */
-        maxSuggestions?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. The query used to generate suggestions. The maximum number of allowed characters is 255. */
-        query?: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Recommended field. A unique identifier for tracking visitors. For example, this could be implemented with an HTTP cookie, which should be able to uniquely identify a visitor on a single device. This unique identifier should not change if the visitor logs in or out of the website. The field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
-        visitorId?: string;
-      }): Request<GoogleCloudRetailV2alphaCompleteQueryResponse>;
-      /** Exports analytics metrics. `Operation.response` is of type `ExportAnalyticsMetricsResponse`. `Operation.metadata` is of type `ExportMetadata`. */
-      exportAnalyticsMetrics(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Full resource name of the parent catalog. Expected format: `projects/*‍/locations/*‍/catalogs/*` */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaExportAnalyticsMetricsRequest;
-      }): Request<GoogleLongrunningOperation>;
-      exportAnalyticsMetrics(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. Full resource name of the parent catalog. Expected format: `projects/*‍/locations/*‍/catalogs/*` */
-          catalog: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaExportAnalyticsMetricsRequest,
-      ): Request<GoogleLongrunningOperation>;
-      /** Gets an AttributesConfig. */
-      getAttributesConfig(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      /** Gets a CompletionConfig. */
-      getCompletionConfig(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Full CompletionConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaCompletionConfig>;
-      /** Returns the conversational search customization config for a given catalog. */
-      getConversationalSearchCustomizationConfig(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
-      /** Get which branch is currently default branch set by CatalogService.SetDefaultBranch method under a specified parent catalog. */
-      getDefaultBranch(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaGetDefaultBranchResponse>;
-      /** Manages overal generative question feature state -- enables toggling feature on and off. */
-      getGenerativeQuestionFeature(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
-      /** Lists all the Catalogs associated with the project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Maximum number of Catalogs to return. If unspecified, defaults to 50. The maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT is returned. */
-        pageSize?: number;
-        /** A page token ListCatalogsResponse.next_page_token, received from a previous CatalogService.ListCatalogs call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to CatalogService.ListCatalogs must match the call that provided the page token. Otherwise, an INVALID_ARGUMENT error is returned. */
-        pageToken?: string;
-        /** Required. The account resource name with an associated location. If the caller does not have permission to list Catalogs under this location, regardless of whether or not this location exists, a PERMISSION_DENIED error is returned. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleCloudRetailV2alphaListCatalogsResponse>;
-      /** Updates the Catalogs. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Immutable. The fully qualified resource name of the catalog. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided Catalog to update. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaCatalog;
-      }): Request<GoogleCloudRetailV2alphaCatalog>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Immutable. The fully qualified resource name of the catalog. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided Catalog to update. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaCatalog,
-      ): Request<GoogleCloudRetailV2alphaCatalog>;
-      /** Set a specified branch id as default branch. API methods such as SearchService.Search, ProductService.GetProduct, ProductService.ListProducts will treat requests using "default_branch" to the actual branch id set as default. For example, if `projects/*‍/locations/*‍/catalogs/*‍/branches/1` is set as default, setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` is equivalent to setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/1`. Using multiple branches can be useful when developers would like to have a staging branch to test and verify for future usage. When it becomes ready, developers switch on the staging branch using this API while keeping using `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` as SearchRequest.branch to route the traffic to this staging branch. CAUTION: If you have live predict/search traffic, switching the default branch could potentially cause outages if the ID space of the new branch is very different from the old one. More specifically: * PredictionService will only return product IDs from branch {newBranch}. * SearchService will only return product IDs from branch {newBranch} (if branch is not explicitly set). * UserEventService will only join events with products from branch {newBranch}. */
-      setDefaultBranch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Full resource name of the catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaSetDefaultBranchRequest;
-      }): Request<{}>;
-      setDefaultBranch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Full resource name of the catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
-          catalog: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaSetDefaultBranchRequest,
-      ): Request<{}>;
-      /** Updates the AttributesConfig. The catalog attributes in the request will be updated in the catalog, or inserted if they do not exist. Existing catalog attributes not included in the request will remain unchanged. Attributes that are assigned to products, but do not exist at the catalog level, are always included in the response. The product attribute is assigned default values for missing catalog attribute fields, e.g., searchable and dynamic facetable options. */
-      updateAttributesConfig(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Immutable. The fully qualified resource name of the attribute config. Format: `projects/*‍/locations/*‍/catalogs/*‍/attributesConfig` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided AttributesConfig to update. The following is the only supported field: * AttributesConfig.catalog_attributes If not set, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAttributesConfig;
-      }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      updateAttributesConfig(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Immutable. The fully qualified resource name of the attribute config. Format: `projects/*‍/locations/*‍/catalogs/*‍/attributesConfig` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided AttributesConfig to update. The following is the only supported field: * AttributesConfig.catalog_attributes If not set, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAttributesConfig,
-      ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
-      /** Updates the CompletionConfigs. */
-      updateCompletionConfig(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Immutable. Fully qualified name `projects/*‍/locations/*‍/catalogs/*‍/completionConfig` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided CompletionConfig to update. The following are the only supported fields: * CompletionConfig.matching_order * CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length * CompletionConfig.auto_learning If not set, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaCompletionConfig;
-      }): Request<GoogleCloudRetailV2alphaCompletionConfig>;
-      updateCompletionConfig(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Immutable. Fully qualified name `projects/*‍/locations/*‍/catalogs/*‍/completionConfig` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided CompletionConfig to update. The following are the only supported fields: * CompletionConfig.matching_order * CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length * CompletionConfig.auto_learning If not set, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaCompletionConfig,
-      ): Request<GoogleCloudRetailV2alphaCompletionConfig>;
-      /** Updates the conversational search customization config for a given catalog. */
-      updateConversationalSearchCustomizationConfig(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided ConversationalSearchCustomizationConfig to update. If not set or empty, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig;
-      }): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
-      updateConversationalSearchCustomizationConfig(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-          catalog: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided ConversationalSearchCustomizationConfig to update. If not set or empty, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig,
-      ): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
-      /** Allows management of individual questions. */
-      updateGenerativeQuestion(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided GenerativeQuestionConfig to update. The following are NOT supported: * GenerativeQuestionConfig.frequency If not set or empty, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaGenerativeQuestionConfig;
-      }): Request<GoogleCloudRetailV2alphaGenerativeQuestionConfig>;
-      updateGenerativeQuestion(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-          catalog: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided GenerativeQuestionConfig to update. The following are NOT supported: * GenerativeQuestionConfig.frequency If not set or empty, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaGenerativeQuestionConfig,
-      ): Request<GoogleCloudRetailV2alphaGenerativeQuestionConfig>;
-      /** Manages overal generative question feature state -- enables toggling feature on and off. */
-      updateGenerativeQuestionFeature(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Resource name of the affected catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-        catalog: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. Indicates which fields in the provided GenerativeQuestionsFeatureConfig to update. If not set or empty, all supported fields are updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig;
-      }): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
-      updateGenerativeQuestionFeature(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. Resource name of the affected catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
-          catalog: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. Indicates which fields in the provided GenerativeQuestionsFeatureConfig to update. If not set or empty, all supported fields are updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig,
-      ): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
-      attributesConfig: AttributesConfigResource;
-      branches: BranchesResource;
-      completionData: CompletionDataResource;
-      controls: ControlsResource;
-      generativeQuestion: GenerativeQuestionResource;
-      generativeQuestions: GenerativeQuestionsResource;
-      merchantCenterAccountLinks: MerchantCenterAccountLinksResource;
-      models: ModelsResource;
-      operations: OperationsResource;
-      placements: PlacementsResource;
-      servingConfigs: ServingConfigsResource;
-      userEvents: UserEventsResource;
-    }
-    interface OperationsResource {
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningOperation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningListOperationsResponse>;
-    }
-    interface LocationsResource {
-      catalogs: CatalogsResource;
-      operations: OperationsResource;
-    }
-    interface OperationsResource {
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningOperation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleLongrunningListOperationsResponse>;
-    }
-    interface RetailProjectResource {
-      /** Accepts service terms for this project. By making requests to this API, you agree to the terms of service linked below. https://cloud.google.com/retail/data-use-terms */
-      acceptTerms(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Full resource name of the project. Format: `projects/{project_number_or_id}/retailProject` */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudRetailV2alphaAcceptTermsRequest;
-      }): Request<GoogleCloudRetailV2alphaProject>;
-      acceptTerms(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Required. Full resource name of the project. Format: `projects/{project_number_or_id}/retailProject` */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudRetailV2alphaAcceptTermsRequest,
-      ): Request<GoogleCloudRetailV2alphaProject>;
-    }
-    interface ProjectsResource {
+
+    const projects: {
       /** The method enrolls a solution of type Retail Search into a project. The Recommendations AI solution type is enrolled by default when your project enables AI Commerce Search API, so you don't need to call the enrollSolution method for recommendations. */
       enrollSolution(request: {
         /** V1 error format. */
@@ -6521,11 +2621,3898 @@ declare namespace gapi.client {
         },
         body: GoogleCloudRetailV2alphaLoggingConfig,
       ): Request<GoogleCloudRetailV2alphaLoggingConfig>;
-      locations: LocationsResource;
-      operations: OperationsResource;
-      retailProject: RetailProjectResource;
-    }
-
-    const projects: ProjectsResource;
+      locations: {
+        catalogs: {
+          /** Completes the specified prefix with keyword suggestions. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
+          completeQuery(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Catalog for which the completion is performed. Full resource name of catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
+            catalog: string;
+            /** Determines which dataset to use for fetching completion. "user-data" will use the dataset imported through CompletionService.ImportCompletionData. `cloud-retail` will use the dataset generated by Cloud Retail based on user events. If left empty, completions will be fetched from the `user-data` dataset. Current supported values: * user-data * cloud-retail: This option requires enabling auto-learning function first. See [guidelines](https://cloud.google.com/retail/docs/completion-overview#generated-completion-dataset). */
+            dataset?: string;
+            /** The device type context for completion suggestions. We recommend that you leave this field empty. It can apply different suggestions on different device types, e.g. `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device types. Supported formats: * `UNKNOWN_DEVICE_TYPE` * `DESKTOP` * `MOBILE` * A customized string starts with `OTHER_`, e.g. `OTHER_IPHONE`. */
+            deviceType?: string;
+            /** If true, attribute suggestions are enabled and provided in the response. This field is only available for the `cloud-retail` dataset. */
+            enableAttributeSuggestions?: boolean;
+            /** The entity for customers who run multiple entities, domains, sites, or regions, for example, `Google US`, `Google Ads`, `Waymo`, `google.com`, `youtube.com`, etc. If this is set, it must be an exact match with UserEvent.entity to get per-entity autocomplete results. This field will be applied to `completion_results` only. It has no effect on the `attribute_results`. Also, this entity should be limited to 256 characters, if too long, it will be truncated to 256 characters in both generation and serving time, and may lead to mis-match. To ensure it works, please set the entity with string within 256 characters. */
+            entity?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Note that this field applies for `user-data` dataset only. For requests with `cloud-retail` dataset, setting this field has no effect. The language filters applied to the output suggestions. If set, it should contain the language of the query. If not set, suggestions are returned without considering language restrictions. This is the BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47). The maximum number of language codes is 3. */
+            languageCodes?: string | string[];
+            /** Completion max suggestions. If left unset or set to 0, then will fallback to the configured value CompletionConfig.max_suggestions. The maximum allowed max suggestions is 20. If it is set higher, it will be capped by 20. */
+            maxSuggestions?: number;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Required. The query used to generate suggestions. The maximum number of allowed characters is 255. */
+            query?: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Recommended field. A unique identifier for tracking visitors. For example, this could be implemented with an HTTP cookie, which should be able to uniquely identify a visitor on a single device. This unique identifier should not change if the visitor logs in or out of the website. The field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
+            visitorId?: string;
+          }): Request<GoogleCloudRetailV2alphaCompleteQueryResponse>;
+          /** Exports analytics metrics. `Operation.response` is of type `ExportAnalyticsMetricsResponse`. `Operation.metadata` is of type `ExportMetadata`. */
+          exportAnalyticsMetrics(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Full resource name of the parent catalog. Expected format: `projects/*‍/locations/*‍/catalogs/*` */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaExportAnalyticsMetricsRequest;
+          }): Request<GoogleLongrunningOperation>;
+          exportAnalyticsMetrics(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. Full resource name of the parent catalog. Expected format: `projects/*‍/locations/*‍/catalogs/*` */
+              catalog: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaExportAnalyticsMetricsRequest,
+          ): Request<GoogleLongrunningOperation>;
+          /** Gets an AttributesConfig. */
+          getAttributesConfig(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+          /** Gets a CompletionConfig. */
+          getCompletionConfig(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Full CompletionConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaCompletionConfig>;
+          /** Returns the conversational search customization config for a given catalog. */
+          getConversationalSearchCustomizationConfig(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
+          /** Get which branch is currently default branch set by CatalogService.SetDefaultBranch method under a specified parent catalog. */
+          getDefaultBranch(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaGetDefaultBranchResponse>;
+          /** Manages overal generative question feature state -- enables toggling feature on and off. */
+          getGenerativeQuestionFeature(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
+          /** Lists all the Catalogs associated with the project. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Maximum number of Catalogs to return. If unspecified, defaults to 50. The maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT is returned. */
+            pageSize?: number;
+            /** A page token ListCatalogsResponse.next_page_token, received from a previous CatalogService.ListCatalogs call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to CatalogService.ListCatalogs must match the call that provided the page token. Otherwise, an INVALID_ARGUMENT error is returned. */
+            pageToken?: string;
+            /** Required. The account resource name with an associated location. If the caller does not have permission to list Catalogs under this location, regardless of whether or not this location exists, a PERMISSION_DENIED error is returned. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleCloudRetailV2alphaListCatalogsResponse>;
+          /** Updates the Catalogs. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Immutable. The fully qualified resource name of the catalog. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided Catalog to update. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaCatalog;
+          }): Request<GoogleCloudRetailV2alphaCatalog>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Immutable. The fully qualified resource name of the catalog. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided Catalog to update. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaCatalog,
+          ): Request<GoogleCloudRetailV2alphaCatalog>;
+          /** Set a specified branch id as default branch. API methods such as SearchService.Search, ProductService.GetProduct, ProductService.ListProducts will treat requests using "default_branch" to the actual branch id set as default. For example, if `projects/*‍/locations/*‍/catalogs/*‍/branches/1` is set as default, setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` is equivalent to setting SearchRequest.branch to `projects/*‍/locations/*‍/catalogs/*‍/branches/1`. Using multiple branches can be useful when developers would like to have a staging branch to test and verify for future usage. When it becomes ready, developers switch on the staging branch using this API while keeping using `projects/*‍/locations/*‍/catalogs/*‍/branches/default_branch` as SearchRequest.branch to route the traffic to this staging branch. CAUTION: If you have live predict/search traffic, switching the default branch could potentially cause outages if the ID space of the new branch is very different from the old one. More specifically: * PredictionService will only return product IDs from branch {newBranch}. * SearchService will only return product IDs from branch {newBranch} (if branch is not explicitly set). * UserEventService will only join events with products from branch {newBranch}. */
+          setDefaultBranch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Full resource name of the catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaSetDefaultBranchRequest;
+          }): Request<{}>;
+          setDefaultBranch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Full resource name of the catalog, such as `projects/*‍/locations/global/catalogs/default_catalog`. */
+              catalog: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaSetDefaultBranchRequest,
+          ): Request<{}>;
+          /** Updates the AttributesConfig. The catalog attributes in the request will be updated in the catalog, or inserted if they do not exist. Existing catalog attributes not included in the request will remain unchanged. Attributes that are assigned to products, but do not exist at the catalog level, are always included in the response. The product attribute is assigned default values for missing catalog attribute fields, e.g., searchable and dynamic facetable options. */
+          updateAttributesConfig(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Immutable. The fully qualified resource name of the attribute config. Format: `projects/*‍/locations/*‍/catalogs/*‍/attributesConfig` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided AttributesConfig to update. The following is the only supported field: * AttributesConfig.catalog_attributes If not set, all supported fields are updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaAttributesConfig;
+          }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+          updateAttributesConfig(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Immutable. The fully qualified resource name of the attribute config. Format: `projects/*‍/locations/*‍/catalogs/*‍/attributesConfig` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided AttributesConfig to update. The following is the only supported field: * AttributesConfig.catalog_attributes If not set, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaAttributesConfig,
+          ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+          /** Updates the CompletionConfigs. */
+          updateCompletionConfig(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Immutable. Fully qualified name `projects/*‍/locations/*‍/catalogs/*‍/completionConfig` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided CompletionConfig to update. The following are the only supported fields: * CompletionConfig.matching_order * CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length * CompletionConfig.auto_learning If not set, all supported fields are updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaCompletionConfig;
+          }): Request<GoogleCloudRetailV2alphaCompletionConfig>;
+          updateCompletionConfig(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Immutable. Fully qualified name `projects/*‍/locations/*‍/catalogs/*‍/completionConfig` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided CompletionConfig to update. The following are the only supported fields: * CompletionConfig.matching_order * CompletionConfig.max_suggestions * CompletionConfig.min_prefix_length * CompletionConfig.auto_learning If not set, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaCompletionConfig,
+          ): Request<GoogleCloudRetailV2alphaCompletionConfig>;
+          /** Updates the conversational search customization config for a given catalog. */
+          updateConversationalSearchCustomizationConfig(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided ConversationalSearchCustomizationConfig to update. If not set or empty, all supported fields are updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig;
+          }): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
+          updateConversationalSearchCustomizationConfig(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+              catalog: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided ConversationalSearchCustomizationConfig to update. If not set or empty, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig,
+          ): Request<GoogleCloudRetailV2alphaConversationalSearchCustomizationConfig>;
+          /** Allows management of individual questions. */
+          updateGenerativeQuestion(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided GenerativeQuestionConfig to update. The following are NOT supported: * GenerativeQuestionConfig.frequency If not set or empty, all supported fields are updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaGenerativeQuestionConfig;
+          }): Request<GoogleCloudRetailV2alphaGenerativeQuestionConfig>;
+          updateGenerativeQuestion(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. Resource name of the catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+              catalog: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided GenerativeQuestionConfig to update. The following are NOT supported: * GenerativeQuestionConfig.frequency If not set or empty, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaGenerativeQuestionConfig,
+          ): Request<GoogleCloudRetailV2alphaGenerativeQuestionConfig>;
+          /** Manages overal generative question feature state -- enables toggling feature on and off. */
+          updateGenerativeQuestionFeature(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Resource name of the affected catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+            catalog: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. Indicates which fields in the provided GenerativeQuestionsFeatureConfig to update. If not set or empty, all supported fields are updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig;
+          }): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
+          updateGenerativeQuestionFeature(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. Resource name of the affected catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+              catalog: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided GenerativeQuestionsFeatureConfig to update. If not set or empty, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig,
+          ): Request<GoogleCloudRetailV2alphaGenerativeQuestionsFeatureConfig>;
+          attributesConfig: {
+            /** Adds the specified CatalogAttribute to the AttributesConfig. If the CatalogAttribute to add already exists, an ALREADY_EXISTS error is returned. */
+            addCatalogAttribute(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+              attributesConfig: string;
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaAddCatalogAttributeRequest;
+            }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+            addCatalogAttribute(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+                attributesConfig: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaAddCatalogAttributeRequest,
+            ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+            /** Removes all specified CatalogAttributes from the AttributesConfig. */
+            batchRemoveCatalogAttributes(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** Required. The attributes config resource shared by all catalog attributes being deleted. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+              attributesConfig: string;
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesRequest;
+            }): Request<GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesResponse>;
+            batchRemoveCatalogAttributes(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** Required. The attributes config resource shared by all catalog attributes being deleted. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+                attributesConfig: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesRequest,
+            ): Request<GoogleCloudRetailV2alphaBatchRemoveCatalogAttributesResponse>;
+            /** Removes the specified CatalogAttribute from the AttributesConfig. If the CatalogAttribute to remove does not exist, a NOT_FOUND error is returned. */
+            removeCatalogAttribute(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+              attributesConfig: string;
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaRemoveCatalogAttributeRequest;
+            }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+            removeCatalogAttribute(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+                attributesConfig: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaRemoveCatalogAttributeRequest,
+            ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+            /** Replaces the specified CatalogAttribute in the AttributesConfig by updating the catalog attribute with the same CatalogAttribute.key. If the CatalogAttribute to replace does not exist, a NOT_FOUND error is returned. */
+            replaceCatalogAttribute(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+              attributesConfig: string;
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaReplaceCatalogAttributeRequest;
+            }): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+            replaceCatalogAttribute(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** Required. Full AttributesConfig resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/attributesConfig` */
+                attributesConfig: string;
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaReplaceCatalogAttributeRequest,
+            ): Request<GoogleCloudRetailV2alphaAttributesConfig>;
+          };
+          branches: {
+            /** Retrieves a Branch. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the branch to retrieve. Format: `projects/*‍/locations/global/catalogs/default_catalog/branches/some_branch_id`. "default_branch" can be used as a special branch_id, it returns the default branch that has been set for the catalog. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** The view to apply to the returned Branch. Defaults to [Branch.BranchView.BASIC] if unspecified. See documentation of fields of Branch to find what fields are excluded from BASIC view. */
+              view?:
+                | 'BRANCH_VIEW_UNSPECIFIED'
+                | 'BRANCH_VIEW_BASIC'
+                | 'BRANCH_VIEW_FULL';
+            }): Request<GoogleCloudRetailV2alphaBranch>;
+            /** Lists all instances of Branch under the specified parent Catalog. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent catalog resource name. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** The view to apply to the returned Branch. Defaults to [Branch.BranchView.BASIC] if unspecified. See documentation of fields of Branch to find what fields are excluded from BASIC view. */
+              view?:
+                | 'BRANCH_VIEW_UNSPECIFIED'
+                | 'BRANCH_VIEW_BASIC'
+                | 'BRANCH_VIEW_FULL';
+            }): Request<GoogleCloudRetailV2alphaListBranchesResponse>;
+            operations: {
+              /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+              get(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The name of the operation resource. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<GoogleLongrunningOperation>;
+            };
+            places: {
+              operations: {
+                /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+                get(request?: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** The name of the operation resource. */
+                  name: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                }): Request<GoogleLongrunningOperation>;
+              };
+            };
+            products: {
+              /** We recommend that you use the ProductService.AddLocalInventories method instead of the ProductService.AddFulfillmentPlaces method. ProductService.AddLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally adds place IDs to Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the added place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
+              addFulfillmentPlaces(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                product: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaAddFulfillmentPlacesRequest;
+              }): Request<GoogleLongrunningOperation>;
+              addFulfillmentPlaces(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                  product: string;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaAddFulfillmentPlacesRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Updates local inventory information for a Product at a list of places, while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating inventory information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be modified using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
+              addLocalInventories(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                product: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaAddLocalInventoriesRequest;
+              }): Request<GoogleLongrunningOperation>;
+              addLocalInventories(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                  product: string;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaAddLocalInventoriesRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Creates a Product. */
+              create(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. The ID to use for the Product, which will become the final component of the Product.name. If the caller does not have permission to create the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. This field must be unique among all Products with the same parent. Otherwise, an ALREADY_EXISTS error is returned. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
+                productId?: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaProduct;
+              }): Request<GoogleCloudRetailV2alphaProduct>;
+              create(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Required. The parent catalog resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch`. */
+                  parent: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Required. The ID to use for the Product, which will become the final component of the Product.name. If the caller does not have permission to create the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. This field must be unique among all Products with the same parent. Otherwise, an ALREADY_EXISTS error is returned. This field must be a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is returned. */
+                  productId?: string;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaProduct,
+              ): Request<GoogleCloudRetailV2alphaProduct>;
+              /** Deletes a Product. */
+              delete(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** This value only applies to the case when the target product is of type PRIMARY. When deleting a product of VARIANT/COLLECTION type, this value will be ignored. When set to true, the subsequent variant products will be deleted. When set to false, if the primary product has active variant products, an error will be returned. */
+                force?: boolean;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to delete the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the Product to delete does not exist, a NOT_FOUND error is returned. The Product to delete can neither be a Product.Type.COLLECTION Product member nor a Product.Type.PRIMARY Product with more than one variants. Otherwise, an INVALID_ARGUMENT error is returned. All inventory information for the named Product will be deleted. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<{}>;
+              /** Exports multiple Products. */
+              export(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Resource name of a Branch, and `default_branch` for branch_id component is supported. For example `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaExportProductsRequest;
+              }): Request<GoogleLongrunningOperation>;
+              export(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Required. Resource name of a Branch, and `default_branch` for branch_id component is supported. For example `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` */
+                  parent: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaExportProductsRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Gets a Product. */
+              get(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. If the requested Product does not exist, a NOT_FOUND error is returned. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<GoogleCloudRetailV2alphaProduct>;
+              /** Bulk import of multiple Products. Request processing may be synchronous. Non-existing items are created. Note that it is possible for a subset of the Products to be successfully updated. */
+              import(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` If no updateMask is specified, requires products.create permission. If updateMask is specified, requires products.update permission. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaImportProductsRequest;
+              }): Request<GoogleLongrunningOperation>;
+              import(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Required. `projects/1234/locations/global/catalogs/default_catalog/branches/default_branch` If no updateMask is specified, requires products.create permission. If updateMask is specified, requires products.update permission. */
+                  parent: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaImportProductsRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Gets a list of Products. */
+              list(request?: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. * List Product.Type.VARIANT Products sharing the same Product.Type.PRIMARY Product. For example: `primary_product_id = "some_product_id"` * List Products bundled in a Product.Type.COLLECTION Product. For example: `collection_product_id = "some_product_id"` * List Products with a partibular type. For example: `type = "PRIMARY"` `type = "VARIANT"` `type = "COLLECTION"` If the field is unrecognizable, an INVALID_ARGUMENT error is returned. If the specified Product.Type.PRIMARY Product or Product.Type.COLLECTION Product does not exist, a NOT_FOUND error is returned. */
+                filter?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Maximum number of Products to return. If unspecified, defaults to 100. The maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT error is returned. */
+                pageSize?: number;
+                /** A page token ListProductsResponse.next_page_token, received from a previous ProductService.ListProducts call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to ProductService.ListProducts must match the call that provided the page token. Otherwise, an INVALID_ARGUMENT error is returned. */
+                pageToken?: string;
+                /** Required. The parent branch resource name, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/0`. Use `default_branch` as the branch ID, to list products under the default branch. If the caller does not have permission to list Products under this branch, regardless of whether or not this branch exists, a PERMISSION_DENIED error is returned. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** The fields of Product to return in the responses. If not set or empty, the following fields are returned: * Product.name * Product.id * Product.title * Product.uri * Product.images * Product.price_info * Product.brands If "*" is provided, all fields are returned. Product.name is always returned no matter what mask is set. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. */
+                readMask?: string;
+                /** If true and page_token is empty, ListProductsResponse.total_size is set to the total count of matched items irrespective of pagination. Notice that setting this field to true affects the performance. */
+                requireTotalSize?: boolean;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              }): Request<GoogleCloudRetailV2alphaListProductsResponse>;
+              /** Updates a Product. */
+              patch(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** If set to true, and the Product is not found, a new Product will be created. In this situation, `update_mask` is ignored. */
+                allowMissing?: boolean;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Indicates which fields in the provided Product to update. The immutable and output only fields are NOT supported. If not set, all supported fields (the fields that are neither immutable nor output only) are updated. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. The attribute key can be updated by setting the mask path as "attributes.${key_name}". If a key name is present in the mask but not in the patching product from the request, this key will be deleted after the update. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaProduct;
+              }): Request<GoogleCloudRetailV2alphaProduct>;
+              patch(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** If set to true, and the Product is not found, a new Product will be created. In this situation, `update_mask` is ignored. */
+                  allowMissing?: boolean;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
+                  name: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Indicates which fields in the provided Product to update. The immutable and output only fields are NOT supported. If not set, all supported fields (the fields that are neither immutable nor output only) are updated. If an unsupported or unknown field is provided, an INVALID_ARGUMENT error is returned. The attribute key can be updated by setting the mask path as "attributes.${key_name}". If a key name is present in the mask but not in the patching product from the request, this key will be deleted after the update. */
+                  updateMask?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaProduct,
+              ): Request<GoogleCloudRetailV2alphaProduct>;
+              /** Permanently deletes all selected Products under a branch. This process is asynchronous. If the request is valid, the removal will be enqueued and processed offline. Depending on the number of Products, this operation could take hours to complete. Before the operation completes, some Products may still be returned by ProductService.GetProduct or ProductService.ListProducts. Depending on the number of Products, this operation could take hours to complete. To get a sample of Products that would be deleted, set PurgeProductsRequest.force to false. */
+              purge(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the branch under which the products are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaPurgeProductsRequest;
+              }): Request<GoogleLongrunningOperation>;
+              purge(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Required. The resource name of the branch under which the products are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}/branches/${branchId}` */
+                  parent: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaPurgeProductsRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** We recommend that you use the ProductService.RemoveLocalInventories method instead of the ProductService.RemoveFulfillmentPlaces method. ProductService.RemoveLocalInventories achieves the same results but provides more fine-grained control over ingesting local inventory data. Incrementally removes place IDs from a Product.fulfillment_info.place_ids. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update will be enqueued and processed downstream. As a consequence, when a response is returned, the removed place IDs are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
+              removeFulfillmentPlaces(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                product: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaRemoveFulfillmentPlacesRequest;
+              }): Request<GoogleLongrunningOperation>;
+              removeFulfillmentPlaces(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                  product: string;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaRemoveFulfillmentPlacesRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Remove local inventory information for a Product at a list of places at a removal timestamp. This process is asynchronous. If the request is valid, the removal will be enqueued and processed downstream. As a consequence, when a response is returned, removals are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. Local inventory information can only be removed using this method. ProductService.CreateProduct and ProductService.UpdateProduct has no effect on local inventories. The returned Operations will be obsolete after 1 day, and GetOperation API will return NOT_FOUND afterwards. If conflicting updates are issued, the Operations associated with the stale updates will not be marked as done until being obsolete. */
+              removeLocalInventories(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                product: string;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaRemoveLocalInventoriesRequest;
+              }): Request<GoogleLongrunningOperation>;
+              removeLocalInventories(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Required. Full resource name of Product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/some_product_id`. If the caller does not have permission to access the Product, regardless of whether or not it exists, a PERMISSION_DENIED error is returned. */
+                  product: string;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaRemoveLocalInventoriesRequest,
+              ): Request<GoogleLongrunningOperation>;
+              /** Updates inventory information for a Product while respecting the last update timestamps of each inventory field. This process is asynchronous and does not require the Product to exist before updating fulfillment information. If the request is valid, the update is enqueued and processed downstream. As a consequence, when a response is returned, updates are not immediately manifested in the Product queried by ProductService.GetProduct or ProductService.ListProducts. When inventory is updated with ProductService.CreateProduct and ProductService.UpdateProduct, the specified inventory field value(s) overwrite any existing value(s) while ignoring the last update time for this field. Furthermore, the last update times for the specified inventory fields are overwritten by the times of the ProductService.CreateProduct or ProductService.UpdateProduct request. If no inventory fields are set in CreateProductRequest.product, then any pre-existing inventory information for this product is used. If no inventory fields are set in SetInventoryRequest.set_mask, then any existing inventory information is preserved. Pre-existing inventory information can only be updated with ProductService.SetInventory, ProductService.AddFulfillmentPlaces, and ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If conflicting updates are issued, the Operations associated with the stale updates are not marked as done until they are obsolete. */
+              setInventory(request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** Request body */
+                resource: GoogleCloudRetailV2alphaSetInventoryRequest;
+              }): Request<GoogleLongrunningOperation>;
+              setInventory(
+                request: {
+                  /** V1 error format. */
+                  '$.xgafv'?: '1' | '2';
+                  /** OAuth access token. */
+                  access_token?: string;
+                  /** Data format for response. */
+                  alt?: 'json' | 'media' | 'proto';
+                  /** JSONP */
+                  callback?: string;
+                  /** Selector specifying which fields to include in a partial response. */
+                  fields?: string;
+                  /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                  key?: string;
+                  /** Immutable. Full resource name of the product, such as `projects/*‍/locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`. */
+                  name: string;
+                  /** OAuth 2.0 token for the current user. */
+                  oauth_token?: string;
+                  /** Returns response with indentations and line breaks. */
+                  prettyPrint?: boolean;
+                  /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                  quotaUser?: string;
+                  /** Upload protocol for media (e.g. "raw", "multipart"). */
+                  upload_protocol?: string;
+                  /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                  uploadType?: string;
+                },
+                body: GoogleCloudRetailV2alphaSetInventoryRequest,
+              ): Request<GoogleLongrunningOperation>;
+            };
+          };
+          completionData: {
+            /** Bulk import of processed completion dataset. Request processing is asynchronous. Partial updating is not supported. The operation is successfully finished only after the imported suggestions are indexed successfully and ready for serving. The process takes hours. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
+            import(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The catalog which the suggestions dataset belongs to. Format: `projects/1234/locations/global/catalogs/default_catalog`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaImportCompletionDataRequest;
+            }): Request<GoogleLongrunningOperation>;
+            import(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The catalog which the suggestions dataset belongs to. Format: `projects/1234/locations/global/catalogs/default_catalog`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaImportCompletionDataRequest,
+            ): Request<GoogleLongrunningOperation>;
+          };
+          controls: {
+            /** Creates a Control. If the Control to create already exists, an ALREADY_EXISTS error is returned. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
+              controlId?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Full resource name of parent catalog. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaControl;
+            }): Request<GoogleCloudRetailV2alphaControl>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Required. The ID to use for the Control, which will become the final component of the Control's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
+                controlId?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Full resource name of parent catalog. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaControl,
+            ): Request<GoogleCloudRetailV2alphaControl>;
+            /** Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the Control to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Gets a Control. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the Control to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/controls/{control_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaControl>;
+            /** Lists all Controls by their parent Catalog. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** Optional. A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. * List controls that are used in a single ServingConfig: 'serving_config = "boosted_home_page_cvr"' */
+              filter?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000. */
+              pageSize?: number;
+              /** Optional. A page token, received from a previous `ListControls` call. Provide this to retrieve the subsequent page. */
+              pageToken?: string;
+              /** Required. The catalog resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaListControlsResponse>;
+            /** Updates a Control. Control cannot be set to a different oneof field, if so an INVALID_ARGUMENT is returned. If the Control to update does not exist, a NOT_FOUND error is returned. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/controls/*` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Indicates which fields in the provided Control to update. The following are NOT supported: * Control.name If not set or empty, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaControl;
+            }): Request<GoogleCloudRetailV2alphaControl>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/controls/*` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Indicates which fields in the provided Control to update. The following are NOT supported: * Control.name If not set or empty, all supported fields are updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaControl,
+            ): Request<GoogleCloudRetailV2alphaControl>;
+          };
+          generativeQuestion: {
+            /** Allows management of multiple questions. */
+            batchUpdate(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsRequest;
+            }): Request<GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsResponse>;
+            batchUpdate(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Optional. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsRequest,
+            ): Request<GoogleCloudRetailV2alphaBatchUpdateGenerativeQuestionConfigsResponse>;
+          };
+          generativeQuestions: {
+            /** Returns all questions for a given catalog. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Resource name of the parent catalog. Format: projects/{project}/locations/{location}/catalogs/{catalog} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaListGenerativeQuestionConfigsResponse>;
+          };
+          merchantCenterAccountLinks: {
+            /** Creates a MerchantCenterAccountLink. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The branch resource where this MerchantCenterAccountLink will be created. Format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaMerchantCenterAccountLink;
+            }): Request<GoogleLongrunningOperation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The branch resource where this MerchantCenterAccountLink will be created. Format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaMerchantCenterAccountLink,
+            ): Request<GoogleLongrunningOperation>;
+            /** Deletes a MerchantCenterAccountLink. If the MerchantCenterAccountLink to delete does not exist, a NOT_FOUND error is returned. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Full resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/merchantCenterAccountLinks/{merchant_center_account_link_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Lists all MerchantCenterAccountLinks under the specified parent Catalog. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent Catalog of the resource. It must match this format: `projects/{PROJECT_NUMBER}/locations/global/catalogs/{CATALOG_ID}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaListMerchantCenterAccountLinksResponse>;
+          };
+          models: {
+            /** Creates a new model. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Optional. Whether to run a dry run to validate the request (without actually creating the model). */
+              dryRun?: boolean;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource under which to create the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaModel;
+            }): Request<GoogleLongrunningOperation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Optional. Whether to run a dry run to validate the request (without actually creating the model). */
+                dryRun?: boolean;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent resource under which to create the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaModel,
+            ): Request<GoogleLongrunningOperation>;
+            /** Deletes an existing model. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the Model to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Gets a model. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the Model to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog}/models/{model_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaModel>;
+            /** Lists all the models linked to this event store. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000. */
+              pageSize?: number;
+              /** Optional. A page token, received from a previous `ListModels` call. Provide this to retrieve the subsequent page. */
+              pageToken?: string;
+              /** Required. The parent for which to list models. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaListModelsResponse>;
+            /** Update of model metadata. Only fields that currently can be updated are: `filtering_option` and `periodic_tuning_state`. If other values are provided, this API method ignores them. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The fully qualified resource name of the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. Indicates which fields in the provided 'model' to update. If not set, by default updates all fields. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaModel;
+            }): Request<GoogleCloudRetailV2alphaModel>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The fully qualified resource name of the model. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` catalog_id has char limit of 50. recommendation_model_id has char limit of 40. */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Optional. Indicates which fields in the provided 'model' to update. If not set, by default updates all fields. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaModel,
+            ): Request<GoogleCloudRetailV2alphaModel>;
+            /** Pauses the training of an existing model. */
+            pause(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the model to pause. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaPauseModelRequest;
+            }): Request<GoogleCloudRetailV2alphaModel>;
+            pause(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the model to pause. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaPauseModelRequest,
+            ): Request<GoogleCloudRetailV2alphaModel>;
+            /** Resumes the training of an existing model. */
+            resume(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the model to resume. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaResumeModelRequest;
+            }): Request<GoogleCloudRetailV2alphaModel>;
+            resume(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The name of the model to resume. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaResumeModelRequest,
+            ): Request<GoogleCloudRetailV2alphaModel>;
+            /** Tunes an existing model. */
+            tune(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the model to tune. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaTuneModelRequest;
+            }): Request<GoogleLongrunningOperation>;
+            tune(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The resource name of the model to tune. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaTuneModelRequest,
+            ): Request<GoogleLongrunningOperation>;
+          };
+          operations: {
+            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleLongrunningOperation>;
+            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** The standard list filter. */
+              filter?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation's parent resource. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** The standard list page size. */
+              pageSize?: number;
+              /** The standard list page token. */
+              pageToken?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+              returnPartialSuccess?: boolean;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleLongrunningListOperationsResponse>;
+          };
+          placements: {
+            /** Performs a conversational search. This feature is only available for users who have Conversational Search enabled. */
+            conversationalSearch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaConversationalSearchRequest;
+            }): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
+            conversationalSearch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaConversationalSearchRequest,
+            ): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
+            /** Makes a recommendation prediction. */
+            predict(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaPredictRequest;
+            }): Request<GoogleCloudRetailV2alphaPredictResponse>;
+            predict(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaPredictRequest,
+            ): Request<GoogleCloudRetailV2alphaPredictResponse>;
+            /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
+            search(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaSearchRequest;
+            }): Request<GoogleCloudRetailV2alphaSearchResponse>;
+            search(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaSearchRequest,
+            ): Request<GoogleCloudRetailV2alphaSearchResponse>;
+          };
+          servingConfigs: {
+            /** Enables a Control on the specified ServingConfig. The control is added in the last position of the list of controls it belongs to (e.g. if it's a facet spec control it will be applied in the last position of servingConfig.facetSpecIds) Returns a ALREADY_EXISTS error if the control has already been applied. Returns a FAILED_PRECONDITION error if the addition could exceed maximum number of control allowed for that type of control. */
+            addControl(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+              servingConfig: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaAddControlRequest;
+            }): Request<GoogleCloudRetailV2alphaServingConfig>;
+            addControl(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+                servingConfig: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaAddControlRequest,
+            ): Request<GoogleCloudRetailV2alphaServingConfig>;
+            /** Performs a conversational search. This feature is only available for users who have Conversational Search enabled. */
+            conversationalSearch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaConversationalSearchRequest;
+            }): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
+            conversationalSearch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the search engine placement, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search` or `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` This field is used to identify the serving config name and the set of models that will be used to make the search. */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaConversationalSearchRequest,
+            ): Request<GoogleCloudRetailV2alphaConversationalSearchResponse>;
+            /** Creates a ServingConfig. A maximum of 100 ServingConfigs are allowed in a Catalog, otherwise a FAILED_PRECONDITION error is returned. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Full resource name of parent. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The ID to use for the ServingConfig, which will become the final component of the ServingConfig's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
+              servingConfigId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaServingConfig;
+            }): Request<GoogleCloudRetailV2alphaServingConfig>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Full resource name of parent. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The ID to use for the ServingConfig, which will become the final component of the ServingConfig's resource name. This value should be 4-63 characters, and valid characters are /a-z-_/. */
+                servingConfigId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaServingConfig,
+            ): Request<GoogleCloudRetailV2alphaServingConfig>;
+            /** Deletes a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the ServingConfig to delete. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<{}>;
+            /** Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not exist. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The resource name of the ServingConfig to get. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaServingConfig>;
+            /** Lists all ServingConfigs linked to this catalog. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. Maximum number of results to return. If unspecified, defaults to 100. If a value greater than 100 is provided, at most 100 results are returned. */
+              pageSize?: number;
+              /** Optional. A page token, received from a previous `ListServingConfigs` call. Provide this to retrieve the subsequent page. */
+              pageToken?: string;
+              /** Required. The catalog resource name. Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<GoogleCloudRetailV2alphaListServingConfigsResponse>;
+            /** Updates a ServingConfig. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/servingConfig/*` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Indicates which fields in the provided ServingConfig to update. The following are NOT supported: * ServingConfig.name If not set, all supported fields are updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaServingConfig;
+            }): Request<GoogleCloudRetailV2alphaServingConfig>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Immutable. Fully qualified name `projects/*‍/locations/global/catalogs/*‍/servingConfig/*` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Indicates which fields in the provided ServingConfig to update. The following are NOT supported: * ServingConfig.name If not set, all supported fields are updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaServingConfig,
+            ): Request<GoogleCloudRetailV2alphaServingConfig>;
+            /** Makes a recommendation prediction. */
+            predict(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaPredictRequest;
+            }): Request<GoogleCloudRetailV2alphaPredictResponse>;
+            predict(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Full resource name of the format: `{placement=projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/*}` or `{placement=projects/*‍/locations/global/catalogs/default_catalog/placements/*}`. We recommend using the `servingConfigs` resource. `placements` is a legacy resource. The ID of the Recommendations AI serving config or placement. Before you can request predictions from your model, you must create at least one serving config or placement for it. For more information, see [Manage serving configs] (https://cloud.google.com/retail/docs/manage-configs). The full list of available serving configs can be seen at https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaPredictRequest,
+            ): Request<GoogleCloudRetailV2alphaPredictResponse>;
+            /** Disables a Control on the specified ServingConfig. The control is removed from the ServingConfig. Returns a NOT_FOUND error if the Control is not enabled for the ServingConfig. */
+            removeControl(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+              servingConfig: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaRemoveControlRequest;
+            }): Request<GoogleCloudRetailV2alphaServingConfig>;
+            removeControl(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The source ServingConfig resource name . Format: `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/servingConfigs/{serving_config_id}` */
+                servingConfig: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaRemoveControlRequest,
+            ): Request<GoogleCloudRetailV2alphaServingConfig>;
+            /** Performs a search. This feature is only available for users who have Retail Search enabled. Enable Retail Search on Cloud Console before using this feature. */
+            search(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
+              placement: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaSearchRequest;
+            }): Request<GoogleCloudRetailV2alphaSearchResponse>;
+            search(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the Retail Search serving config, such as `projects/*‍/locations/global/catalogs/default_catalog/servingConfigs/default_serving_config` or the name of the legacy placement resource, such as `projects/*‍/locations/global/catalogs/default_catalog/placements/default_search`. This field is used to identify the serving config name and the set of models that are used to make the search. */
+                placement: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaSearchRequest,
+            ): Request<GoogleCloudRetailV2alphaSearchResponse>;
+          };
+          userEvents: {
+            /** Writes a single user event from the browser. For larger user event payload over 16 KB, the POST method should be used instead, otherwise a 400 Bad Request error is returned. This method is used only by the AI Commerce Search API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
+            collect(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent catalog name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaCollectUserEventRequest;
+            }): Request<GoogleApiHttpBody>;
+            collect(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent catalog name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaCollectUserEventRequest,
+            ): Request<GoogleApiHttpBody>;
+            /** Exports user events. `Operation.response` is of type `ExportResponse`. `Operation.metadata` is of type `ExportMetadata`. */
+            export(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Resource name of a Catalog. For example `projects/1234/locations/global/catalogs/default_catalog` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaExportUserEventsRequest;
+            }): Request<GoogleLongrunningOperation>;
+            export(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. Resource name of a Catalog. For example `projects/1234/locations/global/catalogs/default_catalog` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaExportUserEventsRequest,
+            ): Request<GoogleLongrunningOperation>;
+            /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. `Operation.response` is of type `ImportResponse`. Note that it is possible for a subset of the items to be successfully inserted. `Operation.metadata` is of type `ImportMetadata`. */
+            import(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. `projects/1234/locations/global/catalogs/default_catalog` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaImportUserEventsRequest;
+            }): Request<GoogleLongrunningOperation>;
+            import(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. `projects/1234/locations/global/catalogs/default_catalog` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaImportUserEventsRequest,
+            ): Request<GoogleLongrunningOperation>;
+            /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
+            purge(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The resource name of the catalog under which the events are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaPurgeUserEventsRequest;
+            }): Request<GoogleLongrunningOperation>;
+            purge(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The resource name of the catalog under which the events are created. The format is `projects/${projectId}/locations/global/catalogs/${catalogId}` */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaPurgeUserEventsRequest,
+            ): Request<GoogleLongrunningOperation>;
+            /** Starts a user-event rejoin operation with latest product catalog. Events are not annotated with detailed product information for products that are missing from the catalog when the user event is ingested. These events are stored as unjoined events with limited usage on training and serving. You can use this method to start a join operation on specified events with the latest version of product catalog. You can also use this method to correct events joined with the wrong product catalog. A rejoin operation can take hours or days to complete. */
+            rejoin(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaRejoinUserEventsRequest;
+            }): Request<GoogleLongrunningOperation>;
+            rejoin(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudRetailV2alphaRejoinUserEventsRequest,
+            ): Request<GoogleLongrunningOperation>;
+            /** Writes a single user event. */
+            write(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** If set to true, the user event will be written asynchronously after validation, and the API will respond without waiting for the write. Therefore, silent failures can occur even if the API returns success. In case of silent failures, error messages can be found in Stackdriver logs. */
+              writeAsync?: boolean;
+              /** Request body */
+              resource: GoogleCloudRetailV2alphaUserEvent;
+            }): Request<GoogleCloudRetailV2alphaUserEvent>;
+            write(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent catalog resource name, such as `projects/1234/locations/global/catalogs/default_catalog`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+                /** If set to true, the user event will be written asynchronously after validation, and the API will respond without waiting for the write. Therefore, silent failures can occur even if the API returns success. In case of silent failures, error messages can be found in Stackdriver logs. */
+                writeAsync?: boolean;
+              },
+              body: GoogleCloudRetailV2alphaUserEvent,
+            ): Request<GoogleCloudRetailV2alphaUserEvent>;
+          };
+        };
+        operations: {
+          /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleLongrunningOperation>;
+          /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** The standard list filter. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation's parent resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The standard list page size. */
+            pageSize?: number;
+            /** The standard list page token. */
+            pageToken?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+            returnPartialSuccess?: boolean;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<GoogleLongrunningListOperationsResponse>;
+        };
+      };
+      operations: {
+        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<GoogleLongrunningOperation>;
+        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The standard list filter. */
+          filter?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation's parent resource. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The standard list page size. */
+          pageSize?: number;
+          /** The standard list page token. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+          returnPartialSuccess?: boolean;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<GoogleLongrunningListOperationsResponse>;
+      };
+      retailProject: {
+        /** Accepts service terms for this project. By making requests to this API, you agree to the terms of service linked below. https://cloud.google.com/retail/data-use-terms */
+        acceptTerms(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Required. Full resource name of the project. Format: `projects/{project_number_or_id}/retailProject` */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: GoogleCloudRetailV2alphaAcceptTermsRequest;
+        }): Request<GoogleCloudRetailV2alphaProject>;
+        acceptTerms(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Required. Full resource name of the project. Format: `projects/{project_number_or_id}/retailProject` */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: GoogleCloudRetailV2alphaAcceptTermsRequest,
+        ): Request<GoogleCloudRetailV2alphaProject>;
+      };
+    };
   }
 }

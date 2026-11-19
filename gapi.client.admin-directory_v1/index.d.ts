@@ -1649,7 +1649,8 @@ declare namespace gapi.client {
       /** The type of the resource. This is always `admin#directory#verificationCodesList`. */
       kind?: string;
     }
-    interface ChannelsResource {
+
+    const channels: {
       /** Stops watching resources through this channel. */
       stop(request: {
         /** V1 error format. */
@@ -1704,910 +1705,900 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<void>;
-    }
-    interface CommandsResource {
-      /** Gets command data a specific command issued to the device. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Immutable. ID of Chrome OS Device Command. */
-        commandId: string;
-        /** Immutable. ID of the Google Workspace account. */
-        customerId: string;
-        /** Immutable. ID of Chrome OS Device. */
-        deviceId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<DirectoryChromeosdevicesCommand>;
-    }
-    interface ChromeosResource {
-      /** Changes the status of a batch of ChromeOS devices. For more information about changing a ChromeOS device state [Repair, repurpose, or retire ChromeOS devices](https://support.google.com/chrome/a/answer/3523633). */
-      batchChangeStatus(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Immutable ID of the Google Workspace account. */
-        customerId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: BatchChangeChromeOsDeviceStatusRequest;
-      }): Request<BatchChangeChromeOsDeviceStatusResponse>;
-      batchChangeStatus(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. Immutable ID of the Google Workspace account. */
-          customerId: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: BatchChangeChromeOsDeviceStatusRequest,
-      ): Request<BatchChangeChromeOsDeviceStatusResponse>;
-      /** Counts ChromeOS devices matching the request. */
-      countChromeOsDevices(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. Immutable ID of the Google Workspace account. */
-        customerId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Search string in the format given at [List query operators](https://developers.google.com/workspace/admin/directory/v1/list-query-operators). */
-        filter?: string;
-        /** Optional. Return devices from all child orgunits, as well as the specified org unit. If this is set to true, 'orgUnitPath' must be provided. */
-        includeChildOrgunits?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The full path of the organizational unit (minus the leading `/`) or its unique ID. */
-        orgUnitPath?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CountChromeOsDevicesResponse>;
-      /** Issues a command for the device to execute. */
-      issueCommand(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Immutable. ID of the Google Workspace account. */
-        customerId: string;
-        /** Immutable. ID of Chrome OS Device. */
-        deviceId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: DirectoryChromeosdevicesIssueCommandRequest;
-      }): Request<DirectoryChromeosdevicesIssueCommandResponse>;
-      issueCommand(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Immutable. ID of the Google Workspace account. */
-          customerId: string;
-          /** Immutable. ID of Chrome OS Device. */
-          deviceId: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: DirectoryChromeosdevicesIssueCommandRequest,
-      ): Request<DirectoryChromeosdevicesIssueCommandResponse>;
-      commands: CommandsResource;
-    }
-    interface DevicesResource {
-      chromeos: ChromeosResource;
-    }
-    interface CustomerResource {
-      devices: DevicesResource;
-    }
-    interface PrintersResource {
-      /** Creates printers under given Organization Unit. */
-      batchCreatePrinters(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The name of the customer. Format: customers/{customer_id} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: BatchCreatePrintersRequest;
-      }): Request<BatchCreatePrintersResponse>;
-      batchCreatePrinters(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The name of the customer. Format: customers/{customer_id} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: BatchCreatePrintersRequest,
-      ): Request<BatchCreatePrintersResponse>;
-      /** Deletes printers in batch. */
-      batchDeletePrinters(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The name of the customer. Format: customers/{customer_id} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: BatchDeletePrintersRequest;
-      }): Request<BatchDeletePrintersResponse>;
-      batchDeletePrinters(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The name of the customer. Format: customers/{customer_id} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: BatchDeletePrintersRequest,
-      ): Request<BatchDeletePrintersResponse>;
-      /** Creates a printer under given Organization Unit. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The name of the customer. Format: customers/{customer_id} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Printer;
-      }): Request<Printer>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The name of the customer. Format: customers/{customer_id} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Printer,
-      ): Request<Printer>;
-      /** Deletes a `Printer`. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the printer to be updated. Format: customers/{customer_id}/chrome/printers/{printer_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Returns a `Printer` resource (printer's config). */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the printer to retrieve. Format: customers/{customer_id}/chrome/printers/{printer_id} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Printer>;
-      /** List printers configs. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Search query. Search syntax is shared between this api and Admin Console printers pages. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The order to sort results by. Must be one of display_name, description, make_and_model, or create_time. Default order is ascending, but descending order can be returned by appending "desc" to the order_by field. For instance, "description desc" will return the printers sorted by description in descending order. */
-        orderBy?: string;
-        /** Organization Unit that we want to list the printers for. When org_unit is not present in the request then all printers of the customer are returned (or filtered). When org_unit is present in the request then only printers available to this OU will be returned (owned or inherited). You may see if printer is owned or inherited for this OU by looking at Printer.org_unit_id. */
-        orgUnitId?: string;
-        /** The maximum number of objects to return. The service may return fewer than this value. */
-        pageSize?: number;
-        /** A page token, received from a previous call. */
-        pageToken?: string;
-        /** Required. The name of the customer who owns this collection of printers. Format: customers/{customer_id} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPrintersResponse>;
-      /** Lists the supported printer models. */
-      listPrinterModels(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Filer to list only models by a given manufacturer in format: "manufacturer:Brother". Search syntax is shared between this api and Admin Console printers pages. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of objects to return. The service may return fewer than this value. */
-        pageSize?: number;
-        /** A page token, received from a previous call. */
-        pageToken?: string;
-        /** Required. The name of the customer who owns this collection of printers. Format: customers/{customer_id} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPrinterModelsResponse>;
-      /** Updates a `Printer` resource. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
-        clearMask?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Identifier. The resource name of the Printer object, in the format customers/{customer-id}/printers/{printer-id} (During printer creation leave empty) */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The list of fields to be updated. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Printer;
-      }): Request<Printer>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
-          clearMask?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Identifier. The resource name of the Printer object, in the format customers/{customer-id}/printers/{printer-id} (During printer creation leave empty) */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The list of fields to be updated. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Printer,
-      ): Request<Printer>;
-    }
-    interface PrintServersResource {
-      /** Creates multiple print servers. */
-      batchCreatePrintServers(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: BatchCreatePrintServersRequest;
-      }): Request<BatchCreatePrintServersResponse>;
-      batchCreatePrintServers(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: BatchCreatePrintServersRequest,
-      ): Request<BatchCreatePrintServersResponse>;
-      /** Deletes multiple print servers. */
-      batchDeletePrintServers(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{customer.id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: BatchDeletePrintServersRequest;
-      }): Request<BatchDeletePrintServersResponse>;
-      batchDeletePrintServers(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{customer.id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: BatchDeletePrintServersRequest,
-      ): Request<BatchDeletePrintServersResponse>;
-      /** Creates a print server. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PrintServer;
-      }): Request<PrintServer>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PrintServer,
-      ): Request<PrintServer>;
-      /** Deletes a print server. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the print server to be deleted. Format: `customers/{customer.id}/chrome/printServers/{print_server.id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Returns a print server's configuration. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PrintServer>;
-      /** Lists print server configurations. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Search query in [Common Expression Language syntax](https://github.com/google/cel-spec). Supported filters are `display_name`, `description`, and `uri`. Example: `printServer.displayName=='marketing-queue'`. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Sort order for results. Supported values are `display_name`, `description`, or `create_time`. Default order is ascending, but descending order can be returned by appending "desc" to the `order_by` field. For instance, `orderBy=='description desc'` returns the print servers sorted by description in descending order. */
-        orderBy?: string;
-        /** If `org_unit_id` is present in the request, only print servers owned or inherited by the organizational unit (OU) are returned. If the `PrintServer` resource's `org_unit_id` matches the one in the request, the OU owns the server. If `org_unit_id` is not specified in the request, all print servers are returned or filtered against. */
-        orgUnitId?: string;
-        /** The maximum number of objects to return (default `100`, max `100`). The service might return fewer than this value. */
-        pageSize?: number;
-        /** A generated token to paginate results (the `next_page_token` from a previous call). */
-        pageToken?: string;
-        /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPrintServersResponse>;
-      /** Updates a print server's configuration. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Identifier. Resource name of the print server. Leave empty when creating. Format: `customers/{customer.id}/printServers/{print_server.id}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The list of fields to update. Some fields are read-only and cannot be updated. Values for unspecified fields are patched. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PrintServer;
-      }): Request<PrintServer>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Identifier. Resource name of the print server. Leave empty when creating. Format: `customers/{customer.id}/printServers/{print_server.id}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The list of fields to update. Some fields are read-only and cannot be updated. Values for unspecified fields are patched. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PrintServer,
-      ): Request<PrintServer>;
-    }
-    interface ChromeResource {
-      printers: PrintersResource;
-      printServers: PrintServersResource;
-    }
-    interface CustomersResource {
-      chrome: ChromeResource;
-    }
+    };
 
-    const channels: ChannelsResource;
+    const customer: {
+      devices: {
+        chromeos: {
+          /** Changes the status of a batch of ChromeOS devices. For more information about changing a ChromeOS device state [Repair, repurpose, or retire ChromeOS devices](https://support.google.com/chrome/a/answer/3523633). */
+          batchChangeStatus(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Immutable ID of the Google Workspace account. */
+            customerId: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: BatchChangeChromeOsDeviceStatusRequest;
+          }): Request<BatchChangeChromeOsDeviceStatusResponse>;
+          batchChangeStatus(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. Immutable ID of the Google Workspace account. */
+              customerId: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: BatchChangeChromeOsDeviceStatusRequest,
+          ): Request<BatchChangeChromeOsDeviceStatusResponse>;
+          /** Counts ChromeOS devices matching the request. */
+          countChromeOsDevices(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. Immutable ID of the Google Workspace account. */
+            customerId: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. Search string in the format given at [List query operators](https://developers.google.com/workspace/admin/directory/v1/list-query-operators). */
+            filter?: string;
+            /** Optional. Return devices from all child orgunits, as well as the specified org unit. If this is set to true, 'orgUnitPath' must be provided. */
+            includeChildOrgunits?: boolean;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The full path of the organizational unit (minus the leading `/`) or its unique ID. */
+            orgUnitPath?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<CountChromeOsDevicesResponse>;
+          /** Issues a command for the device to execute. */
+          issueCommand(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Immutable. ID of the Google Workspace account. */
+            customerId: string;
+            /** Immutable. ID of Chrome OS Device. */
+            deviceId: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: DirectoryChromeosdevicesIssueCommandRequest;
+          }): Request<DirectoryChromeosdevicesIssueCommandResponse>;
+          issueCommand(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Immutable. ID of the Google Workspace account. */
+              customerId: string;
+              /** Immutable. ID of Chrome OS Device. */
+              deviceId: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: DirectoryChromeosdevicesIssueCommandRequest,
+          ): Request<DirectoryChromeosdevicesIssueCommandResponse>;
+          commands: {
+            /** Gets command data a specific command issued to the device. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Immutable. ID of Chrome OS Device Command. */
+              commandId: string;
+              /** Immutable. ID of the Google Workspace account. */
+              customerId: string;
+              /** Immutable. ID of Chrome OS Device. */
+              deviceId: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<DirectoryChromeosdevicesCommand>;
+          };
+        };
+      };
+    };
 
-    const customer: CustomerResource;
-
-    const customers: CustomersResource;
+    const customers: {
+      chrome: {
+        printers: {
+          /** Creates printers under given Organization Unit. */
+          batchCreatePrinters(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The name of the customer. Format: customers/{customer_id} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: BatchCreatePrintersRequest;
+          }): Request<BatchCreatePrintersResponse>;
+          batchCreatePrinters(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The name of the customer. Format: customers/{customer_id} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: BatchCreatePrintersRequest,
+          ): Request<BatchCreatePrintersResponse>;
+          /** Deletes printers in batch. */
+          batchDeletePrinters(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The name of the customer. Format: customers/{customer_id} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: BatchDeletePrintersRequest;
+          }): Request<BatchDeletePrintersResponse>;
+          batchDeletePrinters(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The name of the customer. Format: customers/{customer_id} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: BatchDeletePrintersRequest,
+          ): Request<BatchDeletePrintersResponse>;
+          /** Creates a printer under given Organization Unit. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The name of the customer. Format: customers/{customer_id} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Printer;
+          }): Request<Printer>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The name of the customer. Format: customers/{customer_id} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Printer,
+          ): Request<Printer>;
+          /** Deletes a `Printer`. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the printer to be updated. Format: customers/{customer_id}/chrome/printers/{printer_id} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<{}>;
+          /** Returns a `Printer` resource (printer's config). */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the printer to retrieve. Format: customers/{customer_id}/chrome/printers/{printer_id} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Printer>;
+          /** List printers configs. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Search query. Search syntax is shared between this api and Admin Console printers pages. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The order to sort results by. Must be one of display_name, description, make_and_model, or create_time. Default order is ascending, but descending order can be returned by appending "desc" to the order_by field. For instance, "description desc" will return the printers sorted by description in descending order. */
+            orderBy?: string;
+            /** Organization Unit that we want to list the printers for. When org_unit is not present in the request then all printers of the customer are returned (or filtered). When org_unit is present in the request then only printers available to this OU will be returned (owned or inherited). You may see if printer is owned or inherited for this OU by looking at Printer.org_unit_id. */
+            orgUnitId?: string;
+            /** The maximum number of objects to return. The service may return fewer than this value. */
+            pageSize?: number;
+            /** A page token, received from a previous call. */
+            pageToken?: string;
+            /** Required. The name of the customer who owns this collection of printers. Format: customers/{customer_id} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPrintersResponse>;
+          /** Lists the supported printer models. */
+          listPrinterModels(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Filer to list only models by a given manufacturer in format: "manufacturer:Brother". Search syntax is shared between this api and Admin Console printers pages. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of objects to return. The service may return fewer than this value. */
+            pageSize?: number;
+            /** A page token, received from a previous call. */
+            pageToken?: string;
+            /** Required. The name of the customer who owns this collection of printers. Format: customers/{customer_id} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPrinterModelsResponse>;
+          /** Updates a `Printer` resource. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
+            clearMask?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Identifier. The resource name of the Printer object, in the format customers/{customer-id}/printers/{printer-id} (During printer creation leave empty) */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** The list of fields to be updated. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Printer;
+          }): Request<Printer>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** The list of fields to be cleared. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
+              clearMask?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Identifier. The resource name of the Printer object, in the format customers/{customer-id}/printers/{printer-id} (During printer creation leave empty) */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** The list of fields to be updated. Note, some of the fields are read only and cannot be updated. Values for not specified fields will be patched. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Printer,
+          ): Request<Printer>;
+        };
+        printServers: {
+          /** Creates multiple print servers. */
+          batchCreatePrintServers(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: BatchCreatePrintServersRequest;
+          }): Request<BatchCreatePrintServersResponse>;
+          batchCreatePrintServers(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: BatchCreatePrintServersRequest,
+          ): Request<BatchCreatePrintServersResponse>;
+          /** Deletes multiple print servers. */
+          batchDeletePrintServers(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{customer.id}` */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: BatchDeletePrintServersRequest;
+          }): Request<BatchDeletePrintServersResponse>;
+          batchDeletePrintServers(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{customer.id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: BatchDeletePrintServersRequest,
+          ): Request<BatchDeletePrintServersResponse>;
+          /** Creates a print server. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: PrintServer;
+          }): Request<PrintServer>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: PrintServer,
+          ): Request<PrintServer>;
+          /** Deletes a print server. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the print server to be deleted. Format: `customers/{customer.id}/chrome/printServers/{print_server.id}` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<{}>;
+          /** Returns a print server's configuration. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<PrintServer>;
+          /** Lists print server configurations. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Search query in [Common Expression Language syntax](https://github.com/google/cel-spec). Supported filters are `display_name`, `description`, and `uri`. Example: `printServer.displayName=='marketing-queue'`. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Sort order for results. Supported values are `display_name`, `description`, or `create_time`. Default order is ascending, but descending order can be returned by appending "desc" to the `order_by` field. For instance, `orderBy=='description desc'` returns the print servers sorted by description in descending order. */
+            orderBy?: string;
+            /** If `org_unit_id` is present in the request, only print servers owned or inherited by the organizational unit (OU) are returned. If the `PrintServer` resource's `org_unit_id` matches the one in the request, the OU owns the server. If `org_unit_id` is not specified in the request, all print servers are returned or filtered against. */
+            orgUnitId?: string;
+            /** The maximum number of objects to return (default `100`, max `100`). The service might return fewer than this value. */
+            pageSize?: number;
+            /** A generated token to paginate results (the `next_page_token` from a previous call). */
+            pageToken?: string;
+            /** Required. The [unique ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers) of the customer's Google Workspace account. Format: `customers/{id}` */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPrintServersResponse>;
+          /** Updates a print server's configuration. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Identifier. Resource name of the print server. Leave empty when creating. Format: `customers/{customer.id}/printServers/{print_server.id}` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** The list of fields to update. Some fields are read-only and cannot be updated. Values for unspecified fields are patched. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: PrintServer;
+          }): Request<PrintServer>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Identifier. Resource name of the print server. Leave empty when creating. Format: `customers/{customer.id}/printServers/{print_server.id}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** The list of fields to update. Some fields are read-only and cannot be updated. Values for unspecified fields are patched. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: PrintServer,
+          ): Request<PrintServer>;
+        };
+      };
+    };
   }
   namespace directory {
     interface Alias {
@@ -4231,7 +4222,8 @@ declare namespace gapi.client {
       /** The type of the resource. This is always `admin#directory#verificationCodesList`. */
       kind?: string;
     }
-    interface AspsResource {
+
+    const asps: {
       /** Deletes an ASP issued by a user. */
       delete(request?: {
         /** V1 error format. */
@@ -4317,8 +4309,9 @@ declare namespace gapi.client {
         /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
         userKey: string;
       }): Request<Asps>;
-    }
-    interface ChromeosdevicesResource {
+    };
+
+    const chromeosdevices: {
       /** Use [BatchChangeChromeOsDeviceStatus](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus) instead. Takes an action that affects a Chrome OS Device. This includes deprovisioning, disabling, and re-enabling devices. *Warning:* * Deprovisioning a device will stop device policy syncing and remove device-level printers. After a device is deprovisioned, it must be wiped before it can be re-enrolled. * Lost or stolen devices should use the disable action. * Re-enabling a disabled device will consume a device license. If you do not have sufficient licenses available when completing the re-enable action, you will receive an error. For more information about deprovisioning and disabling devices, visit the [help center](https://support.google.com/chrome/a/answer/3523633). */
       action(request: {
         /** V1 error format. */
@@ -4655,8 +4648,9 @@ declare namespace gapi.client {
         },
         body: ChromeOsDevice,
       ): Request<ChromeOsDevice>;
-    }
-    interface CustomersResource {
+    };
+
+    const customers: {
       /** Retrieves a customer. */
       get(request?: {
         /** V1 error format. */
@@ -4800,8 +4794,9 @@ declare namespace gapi.client {
         },
         body: Customer,
       ): Request<Customer>;
-    }
-    interface DomainAliasesResource {
+    };
+
+    const domainAliases: {
       /** Deletes a domain Alias of the customer. */
       delete(request?: {
         /** V1 error format. */
@@ -4947,8 +4942,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DomainAliases>;
-    }
-    interface DomainsResource {
+    };
+
+    const domains: {
       /** Deletes a domain of the customer. */
       delete(request?: {
         /** V1 error format. */
@@ -5092,124 +5088,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Domains2>;
-    }
-    interface AliasesResource {
-      /** Removes an alias. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** The alias to be removed */
-        alias: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
-        groupKey: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Adds an alias for the group. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
-        groupKey: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Alias;
-      }): Request<Alias>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
-          groupKey: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Alias,
-      ): Request<Alias>;
-      /** Lists all aliases for a group. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
-        groupKey: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Aliases>;
-    }
-    interface GroupsResource {
+    };
+
+    const groups: {
       /** Deletes a group. */
       delete(request?: {
         /** V1 error format. */
@@ -5475,9 +5356,125 @@ declare namespace gapi.client {
         },
         body: Group,
       ): Request<Group>;
-      aliases: AliasesResource;
-    }
-    interface MembersResource {
+      aliases: {
+        /** Removes an alias. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** The alias to be removed */
+          alias: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
+          groupKey: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<void>;
+        /** Adds an alias for the group. */
+        insert(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
+          groupKey: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: Alias;
+        }): Request<Alias>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
+            groupKey: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Alias,
+        ): Request<Alias>;
+        /** Lists all aliases for a group. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Identifies the group in the API request. The value can be the group's email address, group alias, or the unique group ID. */
+          groupKey: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Aliases>;
+      };
+    };
+
+    const members: {
       /** Removes a member from a group. */
       delete(request?: {
         /** V1 error format. */
@@ -5782,8 +5779,9 @@ declare namespace gapi.client {
         },
         body: Member,
       ): Request<Member>;
-    }
-    interface MobiledevicesResource {
+    };
+
+    const mobiledevices: {
       /** Takes an action that affects a mobile device. For example, remotely wiping a device. */
       action(request: {
         /** V1 error format. */
@@ -5953,8 +5951,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<MobileDevices>;
-    }
-    interface OrgunitsResource {
+    };
+
+    const orgunits: {
       /** Removes an organizational unit. */
       delete(request?: {
         /** V1 error format. */
@@ -6226,8 +6225,9 @@ declare namespace gapi.client {
         },
         body: OrgUnit,
       ): Request<OrgUnit>;
-    }
-    interface PrivilegesResource {
+    };
+
+    const privileges: {
       /** Retrieves a paginated list of all privileges for a customer. */
       list(request?: {
         /** V1 error format. */
@@ -6255,100 +6255,70 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Privileges>;
-    }
-    interface BuildingsResource {
-      /** Deletes a building. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The id of the building to delete. */
-        buildingId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Retrieves a building. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The unique ID of the building to retrieve. */
-        buildingId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Building>;
-      /** Inserts a building. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Source from which Building.coordinates are derived. */
-        coordinatesSource?:
-          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Building;
-      }): Request<Building>;
-      insert(
-        request: {
+    };
+
+    const resources: {
+      buildings: {
+        /** Deletes a building. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The id of the building to delete. */
+          buildingId: string;
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<void>;
+        /** Retrieves a building. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The unique ID of the building to retrieve. */
+          buildingId: string;
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Building>;
+        /** Inserts a building. */
+        insert(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6376,76 +6346,76 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Building,
-      ): Request<Building>;
-      /** Retrieves a list of buildings for an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Token to specify the next page in the list. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Buildings>;
-      /** Patches a building. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The id of the building to update. */
-        buildingId: string;
-        /** JSONP */
-        callback?: string;
-        /** Source from which Building.coordinates are derived. */
-        coordinatesSource?:
-          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Building;
-      }): Request<Building>;
-      patch(
-        request: {
+          /** Request body */
+          resource: Building;
+        }): Request<Building>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Source from which Building.coordinates are derived. */
+            coordinatesSource?:
+              | 'CLIENT_SPECIFIED'
+              | 'RESOLVED_FROM_ADDRESS'
+              | 'SOURCE_UNSPECIFIED';
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Building,
+        ): Request<Building>;
+        /** Retrieves a list of buildings for an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Token to specify the next page in the list. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Buildings>;
+        /** Patches a building. */
+        patch(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6475,45 +6445,47 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Building,
-      ): Request<Building>;
-      /** Updates a building. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The id of the building to update. */
-        buildingId: string;
-        /** JSONP */
-        callback?: string;
-        /** Source from which Building.coordinates are derived. */
-        coordinatesSource?:
-          'CLIENT_SPECIFIED' | 'RESOLVED_FROM_ADDRESS' | 'SOURCE_UNSPECIFIED';
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Building;
-      }): Request<Building>;
-      update(
-        request: {
+          /** Request body */
+          resource: Building;
+        }): Request<Building>;
+        patch(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The id of the building to update. */
+            buildingId: string;
+            /** JSONP */
+            callback?: string;
+            /** Source from which Building.coordinates are derived. */
+            coordinatesSource?:
+              | 'CLIENT_SPECIFIED'
+              | 'RESOLVED_FROM_ADDRESS'
+              | 'SOURCE_UNSPECIFIED';
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Building,
+        ): Request<Building>;
+        /** Updates a building. */
+        update(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6543,100 +6515,107 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Building,
-      ): Request<Building>;
-    }
-    interface CalendarsResource {
-      /** Deletes a calendar resource. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The unique ID of the calendar resource to delete. */
-        calendarResourceId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Retrieves a calendar resource. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The unique ID of the calendar resource to retrieve. */
-        calendarResourceId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CalendarResource>;
-      /** Inserts a calendar resource. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CalendarResource;
-      }): Request<CalendarResource>;
-      insert(
-        request: {
+          /** Request body */
+          resource: Building;
+        }): Request<Building>;
+        update(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The id of the building to update. */
+            buildingId: string;
+            /** JSONP */
+            callback?: string;
+            /** Source from which Building.coordinates are derived. */
+            coordinatesSource?:
+              | 'CLIENT_SPECIFIED'
+              | 'RESOLVED_FROM_ADDRESS'
+              | 'SOURCE_UNSPECIFIED';
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Building,
+        ): Request<Building>;
+      };
+      calendars: {
+        /** Deletes a calendar resource. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The unique ID of the calendar resource to delete. */
+          calendarResourceId: string;
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<void>;
+        /** Retrieves a calendar resource. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The unique ID of the calendar resource to retrieve. */
+          calendarResourceId: string;
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<CalendarResource>;
+        /** Inserts a calendar resource. */
+        insert(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6661,77 +6640,75 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: CalendarResource,
-      ): Request<CalendarResource>;
-      /** Retrieves a list of calendar resources for an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Field(s) to sort results by in either ascending or descending order. Supported fields include `resourceId`, `resourceName`, `capacity`, `buildingId`, and `floorName`. If no order is specified, defaults to ascending. Should be of the form "field [asc|desc], field [asc|desc], ...". For example `buildingId, capacity desc` would return results sorted first by `buildingId` in ascending order then by `capacity` in descending order. */
-        orderBy?: string;
-        /** Token to specify the next page in the list. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** String query used to filter results. Contains one or more search clauses, each with a field, operator, and value. A field can be any of supported fields and operators can be any of supported operations. Operators include '=' for exact match, '!=' for mismatch and ':' for prefix match or HAS match where applicable. For prefix match, the value should always be followed by a *. Logical operators NOT and AND are supported (in this order of precedence). Supported fields include `generatedResourceName`, `name`, `buildingId`, `floor_name`, `capacity`, `featureInstances.feature.name`, `resourceEmail`, `resourceCategory`. For example `buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone`. */
-        query?: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CalendarResources>;
-      /** Patches a calendar resource. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The unique ID of the calendar resource to update. */
-        calendarResourceId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CalendarResource;
-      }): Request<CalendarResource>;
-      patch(
-        request: {
+          /** Request body */
+          resource: CalendarResource;
+        }): Request<CalendarResource>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: CalendarResource,
+        ): Request<CalendarResource>;
+        /** Retrieves a list of calendar resources for an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Field(s) to sort results by in either ascending or descending order. Supported fields include `resourceId`, `resourceName`, `capacity`, `buildingId`, and `floorName`. If no order is specified, defaults to ascending. Should be of the form "field [asc|desc], field [asc|desc], ...". For example `buildingId, capacity desc` would return results sorted first by `buildingId` in ascending order then by `capacity` in descending order. */
+          orderBy?: string;
+          /** Token to specify the next page in the list. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** String query used to filter results. Contains one or more search clauses, each with a field, operator, and value. A field can be any of supported fields and operators can be any of supported operations. Operators include '=' for exact match, '!=' for mismatch and ':' for prefix match or HAS match where applicable. For prefix match, the value should always be followed by a *. Logical operators NOT and AND are supported (in this order of precedence). Supported fields include `generatedResourceName`, `name`, `buildingId`, `floor_name`, `capacity`, `featureInstances.feature.name`, `resourceEmail`, `resourceCategory`. For example `buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone`. */
+          query?: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<CalendarResources>;
+        /** Patches a calendar resource. */
+        patch(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6758,42 +6735,42 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: CalendarResource,
-      ): Request<CalendarResource>;
-      /** Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The unique ID of the calendar resource to update. */
-        calendarResourceId: string;
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CalendarResource;
-      }): Request<CalendarResource>;
-      update(
-        request: {
+          /** Request body */
+          resource: CalendarResource;
+        }): Request<CalendarResource>;
+        patch(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The unique ID of the calendar resource to update. */
+            calendarResourceId: string;
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: CalendarResource,
+        ): Request<CalendarResource>;
+        /** Updates a calendar resource. This method supports patch semantics, meaning you only need to include the fields you wish to update. Fields that are not present in the request will be preserved. */
+        update(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6820,100 +6797,102 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: CalendarResource,
-      ): Request<CalendarResource>;
-    }
-    interface FeaturesResource {
-      /** Deletes a feature. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** The unique ID of the feature to delete. */
-        featureKey: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Retrieves a feature. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** The unique ID of the feature to retrieve. */
-        featureKey: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Feature>;
-      /** Inserts a feature. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Feature;
-      }): Request<Feature>;
-      insert(
-        request: {
+          /** Request body */
+          resource: CalendarResource;
+        }): Request<CalendarResource>;
+        update(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The unique ID of the calendar resource to update. */
+            calendarResourceId: string;
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: CalendarResource,
+        ): Request<CalendarResource>;
+      };
+      features: {
+        /** Deletes a feature. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** The unique ID of the feature to delete. */
+          featureKey: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<void>;
+        /** Retrieves a feature. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** The unique ID of the feature to retrieve. */
+          featureKey: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Feature>;
+        /** Inserts a feature. */
+        insert(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -6938,73 +6917,71 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Feature,
-      ): Request<Feature>;
-      /** Retrieves a list of features for an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Token to specify the next page in the list. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Features>;
-      /** Patches a feature. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** The unique ID of the feature to update. */
-        featureKey: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Feature;
-      }): Request<Feature>;
-      patch(
-        request: {
+          /** Request body */
+          resource: Feature;
+        }): Request<Feature>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Feature,
+        ): Request<Feature>;
+        /** Retrieves a list of features for an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+          customer: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Token to specify the next page in the list. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Features>;
+        /** Patches a feature. */
+        patch(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -7031,42 +7008,42 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Feature,
-      ): Request<Feature>;
-      /** Renames a feature. */
-      rename(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The unique ID of the feature to rename. */
-        oldName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: FeatureRename;
-      }): Request<void>;
-      rename(
-        request: {
+          /** Request body */
+          resource: Feature;
+        }): Request<Feature>;
+        patch(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** The unique ID of the feature to update. */
+            featureKey: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Feature,
+        ): Request<Feature>;
+        /** Renames a feature. */
+        rename(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -7093,42 +7070,42 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: FeatureRename,
-      ): Request<void>;
-      /** Updates a feature. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
-        customer: string;
-        /** The unique ID of the feature to update. */
-        featureKey: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Feature;
-      }): Request<Feature>;
-      update(
-        request: {
+          /** Request body */
+          resource: FeatureRename;
+        }): Request<void>;
+        rename(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The unique ID of the feature to rename. */
+            oldName: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: FeatureRename,
+        ): Request<void>;
+        /** Updates a feature. */
+        update(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -7155,16 +7132,44 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Feature,
-      ): Request<Feature>;
-    }
-    interface ResourcesResource {
-      buildings: BuildingsResource;
-      calendars: CalendarsResource;
-      features: FeaturesResource;
-    }
-    interface RoleAssignmentsResource {
+          /** Request body */
+          resource: Feature;
+        }): Request<Feature>;
+        update(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The unique ID for the customer's Google Workspace account. As an account administrator, you can also use the `my_customer` alias to represent your account's customer ID. */
+            customer: string;
+            /** The unique ID of the feature to update. */
+            featureKey: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Feature,
+        ): Request<Feature>;
+      };
+    };
+
+    const roleAssignments: {
       /** Deletes a role assignment. */
       delete(request?: {
         /** V1 error format. */
@@ -7318,8 +7323,9 @@ declare namespace gapi.client {
         /** The primary email address, alias email address, or unique user or group ID. If included in the request, returns role assignments only for this user or group. */
         userKey?: string;
       }): Request<RoleAssignments>;
-    }
-    interface RolesResource {
+    };
+
+    const roles: {
       /** Deletes a role. */
       delete(request?: {
         /** V1 error format. */
@@ -7591,8 +7597,9 @@ declare namespace gapi.client {
         },
         body: Role,
       ): Request<Role>;
-    }
-    interface SchemasResource {
+    };
+
+    const schemas: {
       /** Deletes a schema. */
       delete(request?: {
         /** V1 error format. */
@@ -7860,8 +7867,9 @@ declare namespace gapi.client {
         },
         body: Schema,
       ): Request<Schema>;
-    }
-    interface TokensResource {
+    };
+
+    const tokens: {
       /** Deletes all access tokens issued by a user for an application. */
       delete(request?: {
         /** V1 error format. */
@@ -7947,8 +7955,9 @@ declare namespace gapi.client {
         /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
         userKey: string;
       }): Request<Tokens>;
-    }
-    interface TwoStepVerificationResource {
+    };
+
+    const twoStepVerification: {
       /** Turns off 2-Step Verification for user. */
       turnOff(request?: {
         /** V1 error format. */
@@ -7976,360 +7985,9 @@ declare namespace gapi.client {
         /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
         userKey: string;
       }): Request<void>;
-    }
-    interface AliasesResource {
-      /** Removes an alias. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** The alias to be removed. */
-        alias: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-      }): Request<void>;
-      /** Adds an alias. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-        /** Request body */
-        resource: Alias;
-      }): Request<Alias>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-          userKey: string;
-        },
-        body: Alias,
-      ): Request<Alias>;
-      /** Lists all aliases for a user. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Events to watch for. */
-        event?: 'add' | 'delete';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-      }): Request<Aliases>;
-      /** Watches for changes in users list. */
-      watch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Events to watch for. */
-        event?: 'add' | 'delete';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Email or immutable ID of the user */
-        userKey: string;
-        /** Request body */
-        resource: Channel;
-      }): Request<Channel>;
-      watch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Events to watch for. */
-          event?: 'add' | 'delete';
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Email or immutable ID of the user */
-          userKey: string;
-        },
-        body: Channel,
-      ): Request<Channel>;
-    }
-    interface PhotosResource {
-      /** Removes the user's photo. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-      }): Request<void>;
-      /** Retrieves the user's photo. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-      }): Request<UserPhoto>;
-      /** Adds a photo for the user. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-        /** Request body */
-        resource: UserPhoto;
-      }): Request<UserPhoto>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-          userKey: string;
-        },
-        body: UserPhoto,
-      ): Request<UserPhoto>;
-      /** Adds a photo for the user. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-        userKey: string;
-        /** Request body */
-        resource: UserPhoto;
-      }): Request<UserPhoto>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
-          userKey: string;
-        },
-        body: UserPhoto,
-      ): Request<UserPhoto>;
-    }
-    interface UsersResource {
+    };
+
+    const users: {
       /** Create a guest user with access to a [subset of Workspace capabilities](https://support.google.com/a/answer/16558545). */
       createGuest(request: {
         /** V1 error format. */
@@ -8912,10 +8570,361 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-      aliases: AliasesResource;
-      photos: PhotosResource;
-    }
-    interface VerificationCodesResource {
+      aliases: {
+        /** Removes an alias. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** The alias to be removed. */
+          alias: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+        }): Request<void>;
+        /** Adds an alias. */
+        insert(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+          /** Request body */
+          resource: Alias;
+        }): Request<Alias>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+            userKey: string;
+          },
+          body: Alias,
+        ): Request<Alias>;
+        /** Lists all aliases for a user. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Events to watch for. */
+          event?: 'add' | 'delete';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+        }): Request<Aliases>;
+        /** Watches for changes in users list. */
+        watch(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Events to watch for. */
+          event?: 'add' | 'delete';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Email or immutable ID of the user */
+          userKey: string;
+          /** Request body */
+          resource: Channel;
+        }): Request<Channel>;
+        watch(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Events to watch for. */
+            event?: 'add' | 'delete';
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Email or immutable ID of the user */
+            userKey: string;
+          },
+          body: Channel,
+        ): Request<Channel>;
+      };
+      photos: {
+        /** Removes the user's photo. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+        }): Request<void>;
+        /** Retrieves the user's photo. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+        }): Request<UserPhoto>;
+        /** Adds a photo for the user. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
+        patch(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+          /** Request body */
+          resource: UserPhoto;
+        }): Request<UserPhoto>;
+        patch(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+            userKey: string;
+          },
+          body: UserPhoto,
+        ): Request<UserPhoto>;
+        /** Adds a photo for the user. */
+        update(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+          userKey: string;
+          /** Request body */
+          resource: UserPhoto;
+        }): Request<UserPhoto>;
+        update(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
+            userKey: string;
+          },
+          body: UserPhoto,
+        ): Request<UserPhoto>;
+      };
+    };
+
+    const verificationCodes: {
       /** Generates new backup verification codes for the user. */
       generate(request?: {
         /** V1 error format. */
@@ -8997,42 +9006,6 @@ declare namespace gapi.client {
         /** Identifies the user in the API request. The value can be the user's primary email address, alias email address, or unique user ID. */
         userKey: string;
       }): Request<VerificationCodes>;
-    }
-
-    const asps: AspsResource;
-
-    const chromeosdevices: ChromeosdevicesResource;
-
-    const customers: CustomersResource;
-
-    const domainAliases: DomainAliasesResource;
-
-    const domains: DomainsResource;
-
-    const groups: GroupsResource;
-
-    const members: MembersResource;
-
-    const mobiledevices: MobiledevicesResource;
-
-    const orgunits: OrgunitsResource;
-
-    const privileges: PrivilegesResource;
-
-    const resources: ResourcesResource;
-
-    const roleAssignments: RoleAssignmentsResource;
-
-    const roles: RolesResource;
-
-    const schemas: SchemasResource;
-
-    const tokens: TokensResource;
-
-    const twoStepVerification: TwoStepVerificationResource;
-
-    const users: UsersResource;
-
-    const verificationCodes: VerificationCodesResource;
+    };
   }
 }

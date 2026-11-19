@@ -65,7 +65,7 @@ gapi.load('client', async () => {
       },
       {
         argument: 'Test string',
-        callLogLevel: 'Test string',
+        callLogLevel: 'CALL_LOG_LEVEL_UNSPECIFIED',
         createTime: 'Test string',
         disableConcurrencyQuotaOverflowBuffering: true,
         duration: 'Test string',
@@ -87,17 +87,17 @@ gapi.load('client', async () => {
             ],
           },
         },
-        executionHistoryLevel: 'Test string',
+        executionHistoryLevel: 'EXECUTION_HISTORY_LEVEL_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
         result: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateError: {
           details: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         status: {
           currentSteps: [
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'EXECUTION_VIEW_UNSPECIFIED',
       },
     );
     /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
@@ -138,7 +138,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'EXECUTION_VIEW_UNSPECIFIED',
       },
     );
     /** Returns a list of active callbacks that belong to the execution with the given name. The returned callbacks are ordered by callback ID. */
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.stepEntries.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'EXECUTION_ENTRY_VIEW_UNSPECIFIED',
       },
     );
     /** Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time. */
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         parent: 'Test string',
         skip: 42,
-        view: 'Test string',
+        view: 'EXECUTION_ENTRY_VIEW_UNSPECIFIED',
       },
     );
   }

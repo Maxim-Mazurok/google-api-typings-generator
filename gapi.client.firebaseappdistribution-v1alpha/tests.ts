@@ -33,7 +33,7 @@ gapi.load('client', async () => {
   async function run() {
     /** Get the app, if it exists */
     await gapi.client.firebaseappdistribution.apps.get({
-      appView: 'Test string',
+      appView: 'APP_VIEW_UNSPECIFIED',
       mobilesdkAppId: 'Test string',
     });
     /** Get a JWT token */
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
                 goalDetails: {
                   goalActions: [
                     {
-                      cachingType: 'Test string',
+                      cachingType: 'CACHING_TYPE_UNSPECIFIED',
                       debugInfo: {
                         annotatedScreenshotUri: 'Test string',
                         jsonUri: 'Test string',
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
                               yCoordinate: 42,
                             },
                             targetFoldedState: 'Test string',
-                            targetOrientation: 'Test string',
+                            targetOrientation: 'ORIENTATION_UNSPECIFIED',
                             textInput: 'Test string',
                             wait: {
                               duration: 'Test string',
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
                       explanation: 'Test string',
                       startTime: 'Test string',
                       terminalAction: {
-                        reason: 'Test string',
+                        reason: 'REASON_UNSPECIFIED',
                         screenshot: {
                           height: 42,
                           uri: 'Test string',
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                state: 'Test string',
+                state: 'STEP_STATE_UNSPECIFIED',
                 step: {
                   assertion: 'Test string',
                   goal: 'Test string',
@@ -267,10 +267,10 @@ gapi.load('client', async () => {
               orientation: 'Test string',
               version: 'Test string',
             },
-            executionType: 'Test string',
-            failedReason: 'Test string',
+            executionType: 'EXECUTION_TYPE_UNSPECIFIED',
+            failedReason: 'FAILED_REASON_UNSPECIFIED',
             finalAiAssertionMissing: true,
-            inconclusiveReason: 'Test string',
+            inconclusiveReason: 'INCONCLUSIVE_REASON_UNSPECIFIED',
             name: 'Test string',
             originDeviceExecution: 'Test string',
             resultsStoragePath: 'Test string',
@@ -281,7 +281,7 @@ gapi.load('client', async () => {
               mainActivityCrawlTimedOut: true,
             },
             screenshotUris: ['Test string'],
-            state: 'Test string',
+            state: 'TEST_STATE_UNSPECIFIED',
             videoStartTime: 'Test string',
             videoUri: 'Test string',
           },
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         resultsBucket: 'Test string',
         testCase: 'Test string',
-        testState: 'Test string',
+        testState: 'TEST_STATE_UNSPECIFIED',
       },
     );
     /** Get results for automated test run on release. */
@@ -312,7 +312,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'RELEASE_TEST_VIEW_UNSPECIFIED',
       },
     );
     /** Deletes multiple test cases. */

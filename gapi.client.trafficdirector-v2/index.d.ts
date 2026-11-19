@@ -306,7 +306,8 @@ declare namespace gapi.client {
       /** If specified, a match occurs if and only if the target value is a string value and is matched to this field. */
       stringMatch?: StringMatcher;
     }
-    interface DiscoveryResource {
+
+    const discovery: {
       client_status(request: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -360,8 +361,6 @@ declare namespace gapi.client {
         },
         body: ClientStatusRequest,
       ): Request<ClientStatusResponse>;
-    }
-
-    const discovery: DiscoveryResource;
+    };
   }
 }

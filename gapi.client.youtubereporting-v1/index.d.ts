@@ -275,79 +275,8 @@ declare namespace gapi.client {
       /** True if this a system-managed report type; otherwise false. Reporting jobs for system-managed report types are created automatically and can thus not be used in the `CreateJob` method. */
       systemManaged?: boolean;
     }
-    interface ReportsResource {
-      /** Gets the metadata of a specific report. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The ID of the job. */
-        jobId: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). */
-        onBehalfOfContentOwner?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The ID of the report to retrieve. */
-        reportId: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Report>;
-      /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** If set, only reports created after the specified date/time are returned. */
-        createdAfter?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The ID of the job. */
-        jobId: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). */
-        onBehalfOfContentOwner?: string;
-        /** Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. */
-        pageSize?: number;
-        /** A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in response to the previous call to the `ListReports` method. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** If set, only reports whose start time is greater than or equal the specified date/time are returned. */
-        startTimeAtOrAfter?: string;
-        /** If set, only reports whose start time is smaller than the specified date/time are returned. */
-        startTimeBefore?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListReportsResponse>;
-    }
-    interface JobsResource {
+
+    const jobs: {
       /** Creates a job and returns it. */
       create(request: {
         /** V1 error format. */
@@ -497,9 +426,81 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListJobsResponse>;
-      reports: ReportsResource;
-    }
-    interface MediaResource {
+      reports: {
+        /** Gets the metadata of a specific report. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The ID of the job. */
+          jobId: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). */
+          onBehalfOfContentOwner?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The ID of the report to retrieve. */
+          reportId: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Report>;
+        /** Lists reports created by a specific job. Returns NOT_FOUND if the job does not exist. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** If set, only reports created after the specified date/time are returned. */
+          createdAfter?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The ID of the job. */
+          jobId: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The content owner's external ID on which behalf the user is acting on. If not set, the user is acting for himself (his own channel). */
+          onBehalfOfContentOwner?: string;
+          /** Requested page size. Server may return fewer report types than requested. If unspecified, server will pick an appropriate default. */
+          pageSize?: number;
+          /** A token identifying a page of results the server should return. Typically, this is the value of ListReportsResponse.next_page_token returned in response to the previous call to the `ListReports` method. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** If set, only reports whose start time is greater than or equal the specified date/time are returned. */
+          startTimeAtOrAfter?: string;
+          /** If set, only reports whose start time is smaller than the specified date/time are returned. */
+          startTimeBefore?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListReportsResponse>;
+      };
+    };
+
+    const media: {
       /** Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
       download(request?: {
         /** V1 error format. */
@@ -527,8 +528,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GdataMedia>;
-    }
-    interface ReportTypesResource {
+    };
+
+    const reportTypes: {
       /** Lists report types. */
       list(request?: {
         /** V1 error format. */
@@ -562,12 +564,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListReportTypesResponse>;
-    }
-
-    const jobs: JobsResource;
-
-    const media: MediaResource;
-
-    const reportTypes: ReportTypesResource;
+    };
   }
 }

@@ -579,8 +579,9 @@ declare namespace gapi.client {
     }
     interface ConfigManagementPolicyControllerMonitoring {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?:
-        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
+      backends?: (
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'
+      )[];
     }
     interface ConfigManagementPolicyControllerState {
       /** The state about the policy controller installation. */
@@ -1285,14 +1286,15 @@ declare namespace gapi.client {
     }
     interface OperationalState {
       /** Output only. Reasons for the Rollout Sequence state. */
-      reasons?:
+      reasons?: (
         | 'REASON_UNSPECIFIED'
         | 'FLEET_FEATURE_DELETED_ERROR'
         | 'FLEET_DELETED_ERROR'
         | 'EMPTY_STAGE_WARNING'
         | 'MIXED_RELEASE_CHANNELS_WARNING'
         | 'INTERNAL_ERROR'
-        | 'NO_CLUSTERS_IN_SEQUENCE'[];
+        | 'NO_CLUSTERS_IN_SEQUENCE'
+      )[];
       /** Output only. State of the Rollout Sequence. */
       state?:
         | 'STATE_CODE_UNSPECIFIED'
@@ -1401,8 +1403,9 @@ declare namespace gapi.client {
     }
     interface PolicyControllerMonitoringConfig {
       /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-      backends?:
-        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'[];
+      backends?: (
+        'MONITORING_BACKEND_UNSPECIFIED' | 'PROMETHEUS' | 'CLOUD_MONITORING'
+      )[];
     }
     interface PolicyControllerOnClusterState {
       /** Surface potential errors or information logs. */
@@ -1595,12 +1598,13 @@ declare namespace gapi.client {
     }
     interface RolloutCreationScope {
       /** Optional. The list of enabled upgrade types. */
-      upgradeTypes?:
+      upgradeTypes?: (
         | 'UPGRADE_TYPE_UNSPECIFIED'
         | 'CONTROL_PLANE_MINOR'
         | 'CONTROL_PLANE_PATCH'
         | 'NODE_MINOR'
-        | 'NODE_PATCH'[];
+        | 'NODE_PATCH'
+      )[];
     }
     interface RolloutMembershipState {
       /** Optional. Output only. The time this status and any related Rollout-specific details for the membership were updated. */
@@ -2091,3023 +2095,3007 @@ declare namespace gapi.client {
       /** A human-readable description of the current state or returned error. */
       description?: string;
     }
-    interface FleetsResource {
-      /** Returns all fleets within an organization or a project that the caller has access to. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListFleetsResponse>;
-    }
-    interface LocationsResource {
-      fleets: FleetsResource;
-    }
-    interface OrganizationsResource {
-      locations: LocationsResource;
-    }
-    interface FeaturesResource {
-      /** Adds a new Feature. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The ID of the feature to create. */
-        featureId?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Feature;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** The ID of the feature to create. */
-          featureId?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Feature,
-      ): Request<Operation>;
-      /** Removes a Feature. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** If set to true, the delete will ignore any outstanding resources for this Feature (that is, `FeatureState.has_resources` is set to true). These resources will NOT be cleaned up or modified in any way. */
-        force?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Gets details of a single Feature. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. If set to true, the response will return partial results when some regions are unreachable and the unreachable field in Feature proto will be populated. If set to false, the request will fail when some regions are unreachable. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Feature>;
-      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-      getIamPolicy(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
-        'options.requestedPolicyVersion'?: number;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-        resource: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Policy>;
-      /** Lists Features in a given project and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Lists Features that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Feature with the name "servicemesh" in project "foo-proj": name = "projects/foo-proj/locations/global/features/servicemesh" - Features that have a label called `foo`: labels.foo:* - Features that have a label called `foo` whose value is `bar`: labels.foo = bar */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
-        orderBy?: string;
-        /** When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. If set to true, the response will return partial results when some regions are unreachable and the unreachable field in Feature proto will be populated. If set to false, the request will fail when some regions are unreachable. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListFeaturesResponse>;
-      /** Updates an existing Feature. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Mask of fields to update. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Feature;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-          requestId?: string;
-          /** Mask of fields to update. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Feature,
-      ): Request<Operation>;
-      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-      setIamPolicy(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: SetIamPolicyRequest,
-      ): Request<Policy>;
-      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: TestIamPermissionsRequest,
-      ): Request<TestIamPermissionsResponse>;
-    }
-    interface FleetsResource {
-      /** Creates a fleet. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Fleet;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Fleet,
-      ): Request<Operation>;
-      /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Returns the details of a fleet. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Fleet>;
-      /** Returns all fleets within an organization or a project that the caller has access to. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListFleetsResponse>;
-      /** Updates a fleet. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated; */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Fleet;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated; */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Fleet,
-      ): Request<Operation>;
-    }
-    interface BindingsResource {
-      /** Creates a MembershipBinding. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The ID to use for the MembershipBinding. */
-        membershipBindingId?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: MembershipBinding;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The ID to use for the MembershipBinding. */
-          membershipBindingId?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: MembershipBinding,
-      ): Request<Operation>;
-      /** Deletes a MembershipBinding. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Returns the details of a MembershipBinding. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<MembershipBinding>;
-      /** Lists MembershipBindings. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Lists MembershipBindings that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListMembershipBindings` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent Membership for which the MembershipBindings will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListMembershipBindingsResponse>;
-      /** Updates a MembershipBinding. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: MembershipBinding;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: MembershipBinding,
-      ): Request<Operation>;
-    }
-    interface RbacrolebindingsResource {
-      /** Creates a Membership RBACRoleBinding. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-        rbacrolebindingId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RBACRoleBinding;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-          rbacrolebindingId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RBACRoleBinding,
-      ): Request<Operation>;
-      /** Deletes a Membership RBACRoleBinding. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
-      generateMembershipRBACRoleBindingYAML(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-        rbacrolebindingId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RBACRoleBinding;
-      }): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
-      generateMembershipRBACRoleBindingYAML(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-          rbacrolebindingId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RBACRoleBinding,
-      ): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
-      /** Returns the details of a Membership RBACRoleBinding. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<RBACRoleBinding>;
-      /** Lists all Membership RBACRoleBindings. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListMembershipRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListMembershipRBACRoleBindingsResponse>;
-      /** Updates a Membership RBACRoleBinding. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RBACRoleBinding;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RBACRoleBinding,
-      ): Request<Operation>;
-    }
-    interface MembershipsResource {
-      /** Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-        membershipId?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Membership;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-          membershipId?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Membership,
-      ): Request<Operation>;
-      /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. If set to true, any subresource from this Membership will also be deleted. Otherwise, the request will only work if the Membership has no subresource. */
-        force?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. */
-      generateConnectManifest(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. The image pull secret content for the registry, if not public. */
-        imagePullSecretContent?: string;
-        /** Optional. If true, generate the resources for upgrade only. Some resources generated only for installation (e.g. secrets) will be excluded. */
-        isUpgrade?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Membership resource name the Agent will associate with, in the format `projects/*‍/locations/*‍/memberships/*`. */
-        name: string;
-        /** Optional. Namespace for GKE Connect agent resources. Defaults to `gke-connect`. The Connect Agent is authorized automatically when run in the default namespace. Otherwise, explicit authorization must be granted with an additional IAM binding. */
-        namespace?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Optional. URI of a proxy if connectivity from the agent to gkeconnect.googleapis.com requires the use of a proxy. Format must be in the form `http(s)://{proxy_address}`, depending on the HTTP/HTTPS protocol supported by the proxy. This will direct the connect agent's outbound traffic through a HTTP(S) proxy. */
-        proxy?: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. The registry to fetch the connect agent image from. Defaults to gcr.io/gkeconnect. */
-        registry?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Optional. The Connect agent version to use. Defaults to the most current version. */
-        version?: string;
-      }): Request<GenerateConnectManifestResponse>;
-      /** Gets the details of a Membership. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Membership>;
-      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-      getIamPolicy(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
-        'options.requestedPolicyVersion'?: number;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-        resource: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Policy>;
-      /** Lists Memberships in a given project and location. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Name is `bar` in project `foo-proj` and location `global`: name = "projects/foo-proj/locations/global/membership/bar" - Memberships that have a label called `foo`: labels.foo:* - Memberships that have a label called `foo` whose value is `bar`: labels.foo = bar - Memberships in the CREATING state: state = CREATING */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
-        orderBy?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListMemberships` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/*‍/locations/*`. `projects/*‍/locations/-` list memberships in all the regions. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListMembershipsResponse>;
-      /** Updates an existing Membership. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Required. Mask of fields to update. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Membership;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-          requestId?: string;
-          /** Required. Mask of fields to update. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Membership,
-      ): Request<Operation>;
-      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-      setIamPolicy(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: SetIamPolicyRequest,
-      ): Request<Policy>;
-      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: TestIamPermissionsRequest,
-      ): Request<TestIamPermissionsResponse>;
-      bindings: BindingsResource;
-      rbacrolebindings: RbacrolebindingsResource;
-    }
-    interface OperationsResource {
-      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
-      cancel(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be cancelled. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CancelOperationRequest;
-      }): Request<{}>;
-      cancel(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The name of the operation resource to be cancelled. */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CancelOperationRequest,
-      ): Request<{}>;
-      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource to be deleted. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The standard list filter. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The name of the operation's parent resource. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The standard list page size. */
-        pageSize?: number;
-        /** The standard list page token. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
-        returnPartialSuccess?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListOperationsResponse>;
-    }
-    interface RolloutsResource {
-      /** Cancels a Rollout. The rollout will not be started on new clusters, however the rollout running on the cluster will be allowed to finish. */
-      cancel(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout to cancel. projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CancelRolloutRequest;
-      }): Request<Operation>;
-      cancel(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the rollout to cancel. projects/{project}/locations/{location}/rollouts/{rollout} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CancelRolloutRequest,
-      ): Request<Operation>;
-      /** Removes a Rollout. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout to delete. projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Force-completes a rollout stage. Only the active stage of an active rollout can be force-completed. */
-      forceCompleteStage(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout. Format: projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ForceCompleteRolloutStageRequest;
-      }): Request<Operation>;
-      forceCompleteStage(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the rollout. Format: projects/{project}/locations/{location}/rollouts/{rollout} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ForceCompleteRolloutStageRequest,
-      ): Request<Operation>;
-      /** Retrieves a single rollout. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout to retrieve. projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Rollout>;
-      /** Retrieves the list of all rollouts. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Lists Rollouts that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of rollout to return. The service may return fewer than this value. If unspecified, at most 50 rollouts will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListRollouts` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRollouts` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The parent, which owns this collection of rollout. Format: projects/{project}/locations/{location} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListRolloutsResponse>;
-      /** Pauses a running Rollout. The rollout will not be started on new clusters, however the rollout running on the cluster will be allowed to finish. */
-      pause(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout to pause. projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PauseRolloutRequest;
-      }): Request<Operation>;
-      pause(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the rollout to pause. projects/{project}/locations/{location}/rollouts/{rollout} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PauseRolloutRequest,
-      ): Request<Operation>;
-      /** Resume a paused Rollout. The rollout will be resumed and allowed to be started on clusters. */
-      resume(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout to resume. projects/{project}/locations/{location}/rollouts/{rollout} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ResumeRolloutRequest;
-      }): Request<Operation>;
-      resume(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the rollout to resume. projects/{project}/locations/{location}/rollouts/{rollout} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ResumeRolloutRequest,
-      ): Request<Operation>;
-    }
-    interface RolloutSequencesResource {
-      /** Creates a new rollout sequence resource. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent resource where this rollout sequence will be created. projects/{project}/locations/{location} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/ */
-        rolloutSequenceId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RolloutSequence;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent resource where this rollout sequence will be created. projects/{project}/locations/{location} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/ */
-          rolloutSequenceId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RolloutSequence,
-      ): Request<Operation>;
-      /** Removes a RolloutSequence. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout sequence to delete. projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Retrieve a single rollout sequence. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout sequence to retrieve. projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<RolloutSequence>;
-      /** Retrieves the list of all rollout sequences. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Lists Rollout Sequences that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum number of rollout sequences to return. The service may return fewer than this value. If unspecified, at most 50 rollout sequences will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous `ListRolloutSequences` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRolloutSequences` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The parent, which owns this collection of rollout sequences. Format: projects/{project}/locations/{location} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListRolloutSequencesResponse>;
-      /** Updates a rollout sequence. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Identifier. Name of the rollout sequence in the format of: projects/{PROJECT_ID}/locations/global/rolloutSequences/{NAME} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. The list of fields to update. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RolloutSequence;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Identifier. Name of the rollout sequence in the format of: projects/{PROJECT_ID}/locations/global/rolloutSequences/{NAME} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Optional. The list of fields to update. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RolloutSequence,
-      ): Request<Operation>;
-      /** Upgrades a rollout sequence. */
-      upgrade(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the rollout sequence. Format: projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: UpgradeRolloutSequenceRequest;
-      }): Request<Operation>;
-      upgrade(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the rollout sequence. Format: projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: UpgradeRolloutSequenceRequest,
-      ): Request<Operation>;
-    }
-    interface NamespacesResource {
-      /** Creates a fleet namespace. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-        scopeNamespaceId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Namespace;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-          scopeNamespaceId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Namespace,
-      ): Request<Operation>;
-      /** Deletes a fleet namespace. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Returns the details of a fleet namespace. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Namespace>;
-      /** Lists fleet namespaces. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListScopeNamespacesResponse>;
-      /** Updates a fleet namespace. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Namespace;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Namespace,
-      ): Request<Operation>;
-    }
-    interface RbacrolebindingsResource {
-      /** Creates a Scope RBACRoleBinding. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-        rbacrolebindingId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RBACRoleBinding;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
-          rbacrolebindingId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RBACRoleBinding,
-      ): Request<Operation>;
-      /** Deletes a Scope RBACRoleBinding. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Returns the details of a Scope RBACRoleBinding. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<RBACRoleBinding>;
-      /** Lists all Scope RBACRoleBindings. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListScopeRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListScopeRBACRoleBindingsResponse>;
-      /** Updates a Scope RBACRoleBinding. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RBACRoleBinding;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RBACRoleBinding,
-      ): Request<Operation>;
-    }
-    interface ScopesResource {
-      /** Creates a Scope. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
-        scopeId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Scope;
-      }): Request<Operation>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
-          scopeId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Scope,
-      ): Request<Operation>;
-      /** Deletes a Scope. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Operation>;
-      /** Returns the details of a Scope. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Scope>;
-      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-      getIamPolicy(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
-        'options.requestedPolicyVersion'?: number;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-        resource: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Policy>;
-      /** Lists Scopes. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListScopes` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListScopesResponse>;
-      /** Lists Memberships bound to a Scope. The response includes relevant Memberships from all regions. */
-      listMemberships(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Currently, filtering can be done only based on Memberships's `name`, `labels`, `create_time`, `update_time`, and `unique_id`. */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. Pagination is currently not supported; therefore, setting this field does not have any impact for now. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListBoundMemberships` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Name of the Scope, in the format `projects/*‍/locations/global/scopes/*`, to which the Memberships are bound. */
-        scopeName: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListBoundMembershipsResponse>;
-      /** Lists permitted Scopes. */
-      listPermitted(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-        pageSize?: number;
-        /** Optional. Token returned by previous call to `ListPermittedScopes` which specifies the position in the list from where to continue listing the resources. */
-        pageToken?: string;
-        /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPermittedScopesResponse>;
-      /** Updates a scopes. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The fields to be updated. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Scope;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The fields to be updated. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Scope,
-      ): Request<Operation>;
-      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-      setIamPolicy(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: SetIamPolicyRequest,
-      ): Request<Policy>;
-      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: TestIamPermissionsRequest,
-      ): Request<TestIamPermissionsResponse>;
-      namespaces: NamespacesResource;
-      rbacrolebindings: RbacrolebindingsResource;
-    }
-    interface LocationsResource {
-      /** Gets information about a location. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Resource name for the location. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Location>;
-      /** Lists information about the supported locations for this service. This method lists locations based on the resource scope provided in the ListLocationsRequest.name field: * **Global locations**: If `name` is empty, the method lists the public locations available to all projects. * **Project-specific locations**: If `name` follows the format `projects/{project}`, the method lists locations visible to that specific project. This includes public, private, or other project-specific locations enabled for the project. For gRPC and client library implementations, the resource name is passed as the `name` field. For direct service calls, the resource name is incorporated into the request path based on the specific service implementation and version. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. Do not use this field unless explicitly documented otherwise. This is primarily for internal usage. */
-        extraLocationTypes?: string | string[];
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The resource that owns the locations collection, if applicable. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of results to return. If not set, the service selects a default. */
-        pageSize?: number;
-        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListLocationsResponse>;
-      features: FeaturesResource;
-      fleets: FleetsResource;
-      memberships: MembershipsResource;
-      operations: OperationsResource;
-      rollouts: RolloutsResource;
-      rolloutSequences: RolloutSequencesResource;
-      scopes: ScopesResource;
-    }
-    interface ProjectsResource {
-      locations: LocationsResource;
-    }
 
-    const organizations: OrganizationsResource;
+    const organizations: {
+      locations: {
+        fleets: {
+          /** Returns all fleets within an organization or a project that the caller has access to. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+            pageSize?: number;
+            /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListFleetsResponse>;
+        };
+      };
+    };
 
-    const projects: ProjectsResource;
+    const projects: {
+      locations: {
+        /** Gets information about a location. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Resource name for the location. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Location>;
+        /** Lists information about the supported locations for this service. This method lists locations based on the resource scope provided in the ListLocationsRequest.name field: * **Global locations**: If `name` is empty, the method lists the public locations available to all projects. * **Project-specific locations**: If `name` follows the format `projects/{project}`, the method lists locations visible to that specific project. This includes public, private, or other project-specific locations enabled for the project. For gRPC and client library implementations, the resource name is passed as the `name` field. For direct service calls, the resource name is incorporated into the request path based on the specific service implementation and version. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Optional. Do not use this field unless explicitly documented otherwise. This is primarily for internal usage. */
+          extraLocationTypes?: string | string[];
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+          filter?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource that owns the locations collection, if applicable. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The maximum number of results to return. If not set, the service selects a default. */
+          pageSize?: number;
+          /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListLocationsResponse>;
+        features: {
+          /** Adds a new Feature. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The ID of the feature to create. */
+            featureId?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Feature;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** The ID of the feature to create. */
+              featureId?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+              requestId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Feature,
+          ): Request<Operation>;
+          /** Removes a Feature. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** If set to true, the delete will ignore any outstanding resources for this Feature (that is, `FeatureState.has_resources` is set to true). These resources will NOT be cleaned up or modified in any way. */
+            force?: boolean;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Gets details of a single Feature. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. If set to true, the response will return partial results when some regions are unreachable and the unreachable field in Feature proto will be populated. If set to false, the request will fail when some regions are unreachable. */
+            returnPartialSuccess?: boolean;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Feature>;
+          /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+          getIamPolicy(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+            'options.requestedPolicyVersion'?: number;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+            resource: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Policy>;
+          /** Lists Features in a given project and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Lists Features that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Feature with the name "servicemesh" in project "foo-proj": name = "projects/foo-proj/locations/global/features/servicemesh" - Features that have a label called `foo`: labels.foo:* - Features that have a label called `foo` whose value is `bar`: labels.foo = bar */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
+            orderBy?: string;
+            /** When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+            pageSize?: number;
+            /** Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
+            pageToken?: string;
+            /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. If set to true, the response will return partial results when some regions are unreachable and the unreachable field in Feature proto will be populated. If set to false, the request will fail when some regions are unreachable. */
+            returnPartialSuccess?: boolean;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListFeaturesResponse>;
+          /** Updates an existing Feature. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Mask of fields to update. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Feature;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+              requestId?: string;
+              /** Mask of fields to update. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Feature,
+          ): Request<Operation>;
+          /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+          setIamPolicy(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: SetIamPolicyRequest,
+          ): Request<Policy>;
+          /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+          testIamPermissions(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: TestIamPermissionsRequest,
+          ): Request<TestIamPermissionsResponse>;
+        };
+        fleets: {
+          /** Creates a fleet. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Fleet;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Fleet,
+          ): Request<Operation>;
+          /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Returns the details of a fleet. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Fleet>;
+          /** Returns all fleets within an organization or a project that the caller has access to. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+            pageSize?: number;
+            /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListFleetsResponse>;
+          /** Updates a fleet. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. The fields to be updated; */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Fleet;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated; */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Fleet,
+          ): Request<Operation>;
+        };
+        memberships: {
+          /** Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+            membershipId?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Membership;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+              membershipId?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+              requestId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Membership,
+          ): Request<Operation>;
+          /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. If set to true, any subresource from this Membership will also be deleted. Otherwise, the request will only work if the Membership has no subresource. */
+            force?: boolean;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. */
+          generateConnectManifest(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. The image pull secret content for the registry, if not public. */
+            imagePullSecretContent?: string;
+            /** Optional. If true, generate the resources for upgrade only. Some resources generated only for installation (e.g. secrets) will be excluded. */
+            isUpgrade?: boolean;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Membership resource name the Agent will associate with, in the format `projects/*‍/locations/*‍/memberships/*`. */
+            name: string;
+            /** Optional. Namespace for GKE Connect agent resources. Defaults to `gke-connect`. The Connect Agent is authorized automatically when run in the default namespace. Otherwise, explicit authorization must be granted with an additional IAM binding. */
+            namespace?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Optional. URI of a proxy if connectivity from the agent to gkeconnect.googleapis.com requires the use of a proxy. Format must be in the form `http(s)://{proxy_address}`, depending on the HTTP/HTTPS protocol supported by the proxy. This will direct the connect agent's outbound traffic through a HTTP(S) proxy. */
+            proxy?: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. The registry to fetch the connect agent image from. Defaults to gcr.io/gkeconnect. */
+            registry?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Optional. The Connect agent version to use. Defaults to the most current version. */
+            version?: string;
+          }): Request<GenerateConnectManifestResponse>;
+          /** Gets the details of a Membership. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Membership>;
+          /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+          getIamPolicy(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+            'options.requestedPolicyVersion'?: number;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+            resource: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Policy>;
+          /** Lists Memberships in a given project and location. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Name is `bar` in project `foo-proj` and location `global`: name = "projects/foo-proj/locations/global/membership/bar" - Memberships that have a label called `foo`: labels.foo:* - Memberships that have a label called `foo` whose value is `bar`: labels.foo = bar - Memberships in the CREATING state: state = CREATING */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
+            orderBy?: string;
+            /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+            pageSize?: number;
+            /** Optional. Token returned by previous call to `ListMemberships` which specifies the position in the list from where to continue listing the resources. */
+            pageToken?: string;
+            /** Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/*‍/locations/*`. `projects/*‍/locations/-` list memberships in all the regions. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListMembershipsResponse>;
+          /** Updates an existing Membership. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Required. Mask of fields to update. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Membership;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+              requestId?: string;
+              /** Required. Mask of fields to update. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Membership,
+          ): Request<Operation>;
+          /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+          setIamPolicy(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: SetIamPolicyRequest,
+          ): Request<Policy>;
+          /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+          testIamPermissions(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: TestIamPermissionsRequest,
+          ): Request<TestIamPermissionsResponse>;
+          bindings: {
+            /** Creates a MembershipBinding. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The ID to use for the MembershipBinding. */
+              membershipBindingId?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: MembershipBinding;
+            }): Request<Operation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The ID to use for the MembershipBinding. */
+                membershipBindingId?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: MembershipBinding,
+            ): Request<Operation>;
+            /** Deletes a MembershipBinding. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Operation>;
+            /** Returns the details of a MembershipBinding. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<MembershipBinding>;
+            /** Lists MembershipBindings. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** Optional. Lists MembershipBindings that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
+              filter?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+              pageSize?: number;
+              /** Optional. Token returned by previous call to `ListMembershipBindings` which specifies the position in the list from where to continue listing the resources. */
+              pageToken?: string;
+              /** Required. The parent Membership for which the MembershipBindings will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListMembershipBindingsResponse>;
+            /** Updates a MembershipBinding. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: MembershipBinding;
+            }): Request<Operation>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The fields to be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: MembershipBinding,
+            ): Request<Operation>;
+          };
+          rbacrolebindings: {
+            /** Creates a Membership RBACRoleBinding. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+              rbacrolebindingId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: RBACRoleBinding;
+            }): Request<Operation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+                rbacrolebindingId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: RBACRoleBinding,
+            ): Request<Operation>;
+            /** Deletes a Membership RBACRoleBinding. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Operation>;
+            /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
+            generateMembershipRBACRoleBindingYAML(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+              rbacrolebindingId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: RBACRoleBinding;
+            }): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
+            generateMembershipRBACRoleBindingYAML(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+                rbacrolebindingId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: RBACRoleBinding,
+            ): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
+            /** Returns the details of a Membership RBACRoleBinding. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<RBACRoleBinding>;
+            /** Lists all Membership RBACRoleBindings. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+              pageSize?: number;
+              /** Optional. Token returned by previous call to `ListMembershipRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
+              pageToken?: string;
+              /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListMembershipRBACRoleBindingsResponse>;
+            /** Updates a Membership RBACRoleBinding. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: RBACRoleBinding;
+            }): Request<Operation>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The fields to be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: RBACRoleBinding,
+            ): Request<Operation>;
+          };
+        };
+        operations: {
+          /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
+          cancel(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource to be cancelled. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CancelOperationRequest;
+          }): Request<{}>;
+          cancel(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The name of the operation resource to be cancelled. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CancelOperationRequest,
+          ): Request<{}>;
+          /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource to be deleted. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<{}>;
+          /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** The standard list filter. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The name of the operation's parent resource. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The standard list page size. */
+            pageSize?: number;
+            /** The standard list page token. */
+            pageToken?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** When set to `true`, operations that are reachable are returned as normal, and those that are unreachable are returned in the ListOperationsResponse.unreachable field. This can only be `true` when reading across collections. For example, when `parent` is set to `"projects/example/locations/-"`. This field is not supported by default and will result in an `UNIMPLEMENTED` error if set unless explicitly documented otherwise in service or product specific documentation. */
+            returnPartialSuccess?: boolean;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListOperationsResponse>;
+        };
+        rollouts: {
+          /** Cancels a Rollout. The rollout will not be started on new clusters, however the rollout running on the cluster will be allowed to finish. */
+          cancel(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout to cancel. projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CancelRolloutRequest;
+          }): Request<Operation>;
+          cancel(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the rollout to cancel. projects/{project}/locations/{location}/rollouts/{rollout} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CancelRolloutRequest,
+          ): Request<Operation>;
+          /** Removes a Rollout. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout to delete. projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+            requestId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Force-completes a rollout stage. Only the active stage of an active rollout can be force-completed. */
+          forceCompleteStage(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout. Format: projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: ForceCompleteRolloutStageRequest;
+          }): Request<Operation>;
+          forceCompleteStage(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the rollout. Format: projects/{project}/locations/{location}/rollouts/{rollout} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: ForceCompleteRolloutStageRequest,
+          ): Request<Operation>;
+          /** Retrieves a single rollout. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout to retrieve. projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Rollout>;
+          /** Retrieves the list of all rollouts. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. Lists Rollouts that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of rollout to return. The service may return fewer than this value. If unspecified, at most 50 rollouts will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListRollouts` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRollouts` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The parent, which owns this collection of rollout. Format: projects/{project}/locations/{location} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListRolloutsResponse>;
+          /** Pauses a running Rollout. The rollout will not be started on new clusters, however the rollout running on the cluster will be allowed to finish. */
+          pause(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout to pause. projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: PauseRolloutRequest;
+          }): Request<Operation>;
+          pause(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the rollout to pause. projects/{project}/locations/{location}/rollouts/{rollout} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: PauseRolloutRequest,
+          ): Request<Operation>;
+          /** Resume a paused Rollout. The rollout will be resumed and allowed to be started on clusters. */
+          resume(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout to resume. projects/{project}/locations/{location}/rollouts/{rollout} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: ResumeRolloutRequest;
+          }): Request<Operation>;
+          resume(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the rollout to resume. projects/{project}/locations/{location}/rollouts/{rollout} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: ResumeRolloutRequest,
+          ): Request<Operation>;
+        };
+        rolloutSequences: {
+          /** Creates a new rollout sequence resource. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent resource where this rollout sequence will be created. projects/{project}/locations/{location} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/ */
+            rolloutSequenceId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: RolloutSequence;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent resource where this rollout sequence will be created. projects/{project}/locations/{location} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/ */
+              rolloutSequenceId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: RolloutSequence,
+          ): Request<Operation>;
+          /** Removes a RolloutSequence. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout sequence to delete. projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Retrieve a single rollout sequence. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout sequence to retrieve. projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<RolloutSequence>;
+          /** Retrieves the list of all rollout sequences. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. Lists Rollout Sequences that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum number of rollout sequences to return. The service may return fewer than this value. If unspecified, at most 50 rollout sequences will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+            pageSize?: number;
+            /** Optional. A page token, received from a previous `ListRolloutSequences` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRolloutSequences` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The parent, which owns this collection of rollout sequences. Format: projects/{project}/locations/{location} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListRolloutSequencesResponse>;
+          /** Updates a rollout sequence. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Identifier. Name of the rollout sequence in the format of: projects/{PROJECT_ID}/locations/global/rolloutSequences/{NAME} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Optional. The list of fields to update. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: RolloutSequence;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Identifier. Name of the rollout sequence in the format of: projects/{PROJECT_ID}/locations/global/rolloutSequences/{NAME} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Optional. The list of fields to update. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: RolloutSequence,
+          ): Request<Operation>;
+          /** Upgrades a rollout sequence. */
+          upgrade(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the rollout sequence. Format: projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: UpgradeRolloutSequenceRequest;
+          }): Request<Operation>;
+          upgrade(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The name of the rollout sequence. Format: projects/{project}/locations/{location}/rolloutSequences/{rollout_sequence} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: UpgradeRolloutSequenceRequest,
+          ): Request<Operation>;
+        };
+        scopes: {
+          /** Creates a Scope. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
+            scopeId?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Scope;
+          }): Request<Operation>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
+              scopeId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Scope,
+          ): Request<Operation>;
+          /** Deletes a Scope. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Operation>;
+          /** Returns the details of a Scope. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Scope>;
+          /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+          getIamPolicy(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+            'options.requestedPolicyVersion'?: number;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+            resource: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Policy>;
+          /** Lists Scopes. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+            pageSize?: number;
+            /** Optional. Token returned by previous call to `ListScopes` which specifies the position in the list from where to continue listing the resources. */
+            pageToken?: string;
+            /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListScopesResponse>;
+          /** Lists Memberships bound to a Scope. The response includes relevant Memberships from all regions. */
+          listMemberships(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Currently, filtering can be done only based on Memberships's `name`, `labels`, `create_time`, `update_time`, and `unique_id`. */
+            filter?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. Pagination is currently not supported; therefore, setting this field does not have any impact for now. */
+            pageSize?: number;
+            /** Optional. Token returned by previous call to `ListBoundMemberships` which specifies the position in the list from where to continue listing the resources. */
+            pageToken?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. Name of the Scope, in the format `projects/*‍/locations/global/scopes/*`, to which the Memberships are bound. */
+            scopeName: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListBoundMembershipsResponse>;
+          /** Lists permitted Scopes. */
+          listPermitted(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+            pageSize?: number;
+            /** Optional. Token returned by previous call to `ListPermittedScopes` which specifies the position in the list from where to continue listing the resources. */
+            pageToken?: string;
+            /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListPermittedScopesResponse>;
+          /** Updates a scopes. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. The fields to be updated. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: Scope;
+          }): Request<Operation>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: Scope,
+          ): Request<Operation>;
+          /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+          setIamPolicy(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: SetIamPolicyRequest,
+          ): Request<Policy>;
+          /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+          testIamPermissions(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+              resource: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: TestIamPermissionsRequest,
+          ): Request<TestIamPermissionsResponse>;
+          namespaces: {
+            /** Creates a fleet namespace. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+              scopeNamespaceId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Namespace;
+            }): Request<Operation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+                scopeNamespaceId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Namespace,
+            ): Request<Operation>;
+            /** Deletes a fleet namespace. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Operation>;
+            /** Returns the details of a fleet namespace. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Namespace>;
+            /** Lists fleet namespaces. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+              pageSize?: number;
+              /** Optional. Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
+              pageToken?: string;
+              /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListScopeNamespacesResponse>;
+            /** Updates a fleet namespace. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: Namespace;
+            }): Request<Operation>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The fields to be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: Namespace,
+            ): Request<Operation>;
+          };
+          rbacrolebindings: {
+            /** Creates a Scope RBACRoleBinding. */
+            create(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+              rbacrolebindingId?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: RBACRoleBinding;
+            }): Request<Operation>;
+            create(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+                parent: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+                rbacrolebindingId?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: RBACRoleBinding,
+            ): Request<Operation>;
+            /** Deletes a Scope RBACRoleBinding. */
+            delete(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<Operation>;
+            /** Returns the details of a Scope RBACRoleBinding. */
+            get(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<RBACRoleBinding>;
+            /** Lists all Scope RBACRoleBindings. */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+              pageSize?: number;
+              /** Optional. Token returned by previous call to `ListScopeRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
+              pageToken?: string;
+              /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListScopeRBACRoleBindingsResponse>;
+            /** Updates a Scope RBACRoleBinding. */
+            patch(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Required. The fields to be updated. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: RBACRoleBinding;
+            }): Request<Operation>;
+            patch(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+                name: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Required. The fields to be updated. */
+                updateMask?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: RBACRoleBinding,
+            ): Request<Operation>;
+          };
+        };
+      };
+    };
   }
 }

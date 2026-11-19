@@ -1252,7 +1252,8 @@ declare namespace gapi.client {
         url?: string;
       };
     }
-    interface AboutResource {
+
+    const about: {
       /** Gets the information about the current user along with Drive API settings */
       get(request?: {
         /** V1 error format. */
@@ -1284,8 +1285,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<About>;
-    }
-    interface AppsResource {
+    };
+
+    const apps: {
       /** Gets a specific app. */
       get(request?: {
         /** V1 error format. */
@@ -1344,8 +1346,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AppList>;
-    }
-    interface ChangesResource {
+    };
+
+    const changes: {
       /** Deprecated: Use `changes.getStartPageToken` and `changes.list` to retrieve recent changes. */
       get(request?: {
         /** V1 error format. */
@@ -1583,8 +1586,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface ChannelsResource {
+    };
+
+    const channels: {
       /** Stops watching resources through this channel. */
       stop(request: {
         /** V1 error format. */
@@ -1639,8 +1643,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<void>;
-    }
-    interface ChildrenResource {
+    };
+
+    const children: {
       /** Removes a child from a folder. */
       delete(request?: {
         /** V1 error format. */
@@ -1806,8 +1811,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ChildList>;
-    }
-    interface CommentsResource {
+    };
+
+    const comments: {
       /** Deletes a comment. */
       delete(request?: {
         /** V1 error format. */
@@ -2085,8 +2091,9 @@ declare namespace gapi.client {
         },
         body: Comment,
       ): Request<Comment>;
-    }
-    interface DrivesResource {
+    };
+
+    const drives: {
       /** Permanently deletes a shared drive for which the user is an `organizer`. The shared drive cannot contain any untrashed items. */
       delete(request?: {
         /** V1 error format. */
@@ -2354,8 +2361,9 @@ declare namespace gapi.client {
         },
         body: Drive,
       ): Request<Drive>;
-    }
-    interface FilesResource {
+    };
+
+    const files: {
       /** Creates a copy of the specified file. */
       copy(request: {
         /** V1 error format. */
@@ -3387,8 +3395,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface ParentsResource {
+    };
+
+    const parents: {
       /** Removes a parent from a file. */
       delete(request?: {
         /** V1 error format. */
@@ -3546,8 +3555,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ParentList>;
-    }
-    interface PermissionsResource {
+    };
+
+    const permissions: {
       /** Deletes a permission from a file or shared drive. **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied. */
       delete(request?: {
         /** V1 error format. */
@@ -3948,8 +3958,9 @@ declare namespace gapi.client {
         },
         body: Permission,
       ): Request<Permission>;
-    }
-    interface PropertiesResource {
+    };
+
+    const properties: {
       /** Deletes a property. */
       delete(request?: {
         /** V1 error format. */
@@ -4229,8 +4240,9 @@ declare namespace gapi.client {
         },
         body: Property,
       ): Request<Property>;
-    }
-    interface RepliesResource {
+    };
+
+    const replies: {
       /** Deletes a reply. */
       delete(request?: {
         /** V1 error format. */
@@ -4524,8 +4536,9 @@ declare namespace gapi.client {
         },
         body: CommentReply,
       ): Request<CommentReply>;
-    }
-    interface RevisionsResource {
+    };
+
+    const revisions: {
       /** Permanently deletes a file version. You can only delete revisions for files with binary content, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted. */
       delete(request?: {
         /** V1 error format. */
@@ -4739,8 +4752,9 @@ declare namespace gapi.client {
         },
         body: Revision,
       ): Request<Revision>;
-    }
-    interface TeamdrivesResource {
+    };
+
+    const teamdrives: {
       /** Deprecated: Use `drives.delete` instead. */
       delete(request?: {
         /** V1 error format. */
@@ -4950,34 +4964,6 @@ declare namespace gapi.client {
         },
         body: TeamDrive,
       ): Request<TeamDrive>;
-    }
-
-    const about: AboutResource;
-
-    const apps: AppsResource;
-
-    const changes: ChangesResource;
-
-    const channels: ChannelsResource;
-
-    const children: ChildrenResource;
-
-    const comments: CommentsResource;
-
-    const drives: DrivesResource;
-
-    const files: FilesResource;
-
-    const parents: ParentsResource;
-
-    const permissions: PermissionsResource;
-
-    const properties: PropertiesResource;
-
-    const replies: RepliesResource;
-
-    const revisions: RevisionsResource;
-
-    const teamdrives: TeamdrivesResource;
+    };
   }
 }

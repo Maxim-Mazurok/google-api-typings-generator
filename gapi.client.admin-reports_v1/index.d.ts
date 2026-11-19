@@ -416,7 +416,8 @@ declare namespace gapi.client {
       /** User email. */
       userEmail?: string;
     }
-    interface ChannelsResource {
+
+    const channels: {
       /** Stop watching resources through this channel. */
       stop(request: {
         /** V1 error format. */
@@ -471,9 +472,7 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<void>;
-    }
-
-    const channels: ChannelsResource;
+    };
   }
   namespace reports {
     interface Activities {
@@ -864,7 +863,8 @@ declare namespace gapi.client {
       /** User email. */
       userEmail?: string;
     }
-    interface ActivitiesResource {
+
+    const activities: {
       /** Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides. */
       list(request?: {
         /** V1 error format. */
@@ -1116,8 +1116,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface CustomerUsageReportsResource {
+    };
+
+    const customerUsageReports: {
       /** Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
@@ -1151,8 +1152,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<UsageReports>;
-    }
-    interface EntityUsageReportsResource {
+    };
+
+    const entityUsageReports: {
       /** Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
@@ -1194,8 +1196,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<UsageReports>;
-    }
-    interface UserUsageReportResource {
+    };
+
+    const userUsageReport: {
       /** Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides. */
       get(request?: {
         /** V1 error format. */
@@ -1239,14 +1242,6 @@ declare namespace gapi.client {
         /** Represents the profile ID or the user email for which the data should be filtered. Can be `all` for all information, or `userKey` for a user's unique Google Workspace profile ID or their primary email address. Must not be a deleted user. For a deleted user, call `users.list` in Directory API with `showDeleted=true`, then use the returned `ID` as the `userKey`. */
         userKey: string;
       }): Request<UsageReports>;
-    }
-
-    const activities: ActivitiesResource;
-
-    const customerUsageReports: CustomerUsageReportsResource;
-
-    const entityUsageReports: EntityUsageReportsResource;
-
-    const userUsageReport: UserUsageReportResource;
+    };
   }
 }

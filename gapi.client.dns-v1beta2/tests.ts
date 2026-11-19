@@ -59,9 +59,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -86,9 +86,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -116,9 +116,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -140,9 +140,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -160,9 +160,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -186,9 +186,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -225,9 +225,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -252,9 +252,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -282,9 +282,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -306,9 +306,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -326,9 +326,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -352,9 +352,9 @@ gapi.load('client', async () => {
                       internalLoadBalancers: [
                         {
                           ipAddress: 'Test string',
-                          ipProtocol: 'Test string',
+                          ipProtocol: 'undefined',
                           kind: 'Test string',
-                          loadBalancerType: 'Test string',
+                          loadBalancerType: 'none',
                           networkUrl: 'Test string',
                           port: 'Test string',
                           project: 'Test string',
@@ -381,7 +381,7 @@ gapi.load('client', async () => {
         isServing: true,
         kind: 'Test string',
         startTime: 'Test string',
-        status: 'Test string',
+        status: 'pending',
       },
     );
     /** Fetches the representation of an existing Change. */
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
       maxResults: 42,
       pageToken: 'Test string',
       project: 'Test string',
-      sortBy: 'Test string',
+      sortBy: 'changeSequence',
       sortOrder: 'Test string',
     });
     /** Fetches the representation of an existing DnsKey. */
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
       maxResults: 42,
       pageToken: 'Test string',
       project: 'Test string',
-      sortBy: 'Test string',
+      sortBy: 'startTime',
     });
     /** Creates a new ManagedZone. Note: While `dns.managedZones.create` is the baseline permission required to invoke this method, additional permissions are required if the managed zone configuration references other resources. */
     await gapi.client.dns.managedZones.create(
@@ -460,15 +460,15 @@ gapi.load('client', async () => {
         dnssecConfig: {
           defaultKeySpecs: [
             {
-              algorithm: 'Test string',
+              algorithm: 'rsasha1',
               keyLength: 42,
-              keyType: 'Test string',
+              keyType: 'keySigning',
               kind: 'Test string',
             },
           ],
           kind: 'Test string',
-          nonExistence: 'Test string',
-          state: 'Test string',
+          nonExistence: 'nsec',
+          state: 'off',
         },
         forwardingConfig: {
           kind: 'Test string',
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
           targetNameServers: [
             {
               domainName: 'Test string',
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -530,7 +530,7 @@ gapi.load('client', async () => {
             namespaceUrl: 'Test string',
           },
         },
-        visibility: 'Test string',
+        visibility: 'public',
       },
     );
     /** Deletes a previously created ManagedZone. */
@@ -581,15 +581,15 @@ gapi.load('client', async () => {
         dnssecConfig: {
           defaultKeySpecs: [
             {
-              algorithm: 'Test string',
+              algorithm: 'rsasha1',
               keyLength: 42,
-              keyType: 'Test string',
+              keyType: 'keySigning',
               kind: 'Test string',
             },
           ],
           kind: 'Test string',
-          nonExistence: 'Test string',
-          state: 'Test string',
+          nonExistence: 'nsec',
+          state: 'off',
         },
         forwardingConfig: {
           kind: 'Test string',
@@ -602,7 +602,7 @@ gapi.load('client', async () => {
           targetNameServers: [
             {
               domainName: 'Test string',
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -651,7 +651,7 @@ gapi.load('client', async () => {
             namespaceUrl: 'Test string',
           },
         },
-        visibility: 'Test string',
+        visibility: 'public',
       },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
@@ -666,7 +666,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -717,15 +717,15 @@ gapi.load('client', async () => {
         dnssecConfig: {
           defaultKeySpecs: [
             {
-              algorithm: 'Test string',
+              algorithm: 'rsasha1',
               keyLength: 42,
-              keyType: 'Test string',
+              keyType: 'keySigning',
               kind: 'Test string',
             },
           ],
           kind: 'Test string',
-          nonExistence: 'Test string',
-          state: 'Test string',
+          nonExistence: 'nsec',
+          state: 'off',
         },
         forwardingConfig: {
           kind: 'Test string',
@@ -738,7 +738,7 @@ gapi.load('client', async () => {
           targetNameServers: [
             {
               domainName: 'Test string',
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -787,7 +787,7 @@ gapi.load('client', async () => {
             namespaceUrl: 'Test string',
           },
         },
-        visibility: 'Test string',
+        visibility: 'public',
       },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
           ],
           targetNameServers: [
             {
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -963,7 +963,7 @@ gapi.load('client', async () => {
           ],
           targetNameServers: [
             {
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -1009,7 +1009,7 @@ gapi.load('client', async () => {
           ],
           targetNameServers: [
             {
-              forwardingPath: 'Test string',
+              forwardingPath: 'default',
               ipv4Address: 'Test string',
               ipv6Address: 'Test string',
               kind: 'Test string',
@@ -1061,9 +1061,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1088,9 +1088,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1118,9 +1118,9 @@ gapi.load('client', async () => {
                     internalLoadBalancers: [
                       {
                         ipAddress: 'Test string',
-                        ipProtocol: 'Test string',
+                        ipProtocol: 'undefined',
                         kind: 'Test string',
-                        loadBalancerType: 'Test string',
+                        loadBalancerType: 'none',
                         networkUrl: 'Test string',
                         port: 'Test string',
                         project: 'Test string',
@@ -1142,9 +1142,9 @@ gapi.load('client', async () => {
               internalLoadBalancers: [
                 {
                   ipAddress: 'Test string',
-                  ipProtocol: 'Test string',
+                  ipProtocol: 'undefined',
                   kind: 'Test string',
-                  loadBalancerType: 'Test string',
+                  loadBalancerType: 'none',
                   networkUrl: 'Test string',
                   port: 'Test string',
                   project: 'Test string',
@@ -1162,9 +1162,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1188,9 +1188,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1261,9 +1261,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1288,9 +1288,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1318,9 +1318,9 @@ gapi.load('client', async () => {
                     internalLoadBalancers: [
                       {
                         ipAddress: 'Test string',
-                        ipProtocol: 'Test string',
+                        ipProtocol: 'undefined',
                         kind: 'Test string',
-                        loadBalancerType: 'Test string',
+                        loadBalancerType: 'none',
                         networkUrl: 'Test string',
                         port: 'Test string',
                         project: 'Test string',
@@ -1342,9 +1342,9 @@ gapi.load('client', async () => {
               internalLoadBalancers: [
                 {
                   ipAddress: 'Test string',
-                  ipProtocol: 'Test string',
+                  ipProtocol: 'undefined',
                   kind: 'Test string',
-                  loadBalancerType: 'Test string',
+                  loadBalancerType: 'none',
                   networkUrl: 'Test string',
                   port: 'Test string',
                   project: 'Test string',
@@ -1362,9 +1362,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1388,9 +1388,9 @@ gapi.load('client', async () => {
                   internalLoadBalancers: [
                     {
                       ipAddress: 'Test string',
-                      ipProtocol: 'Test string',
+                      ipProtocol: 'undefined',
                       kind: 'Test string',
-                      loadBalancerType: 'Test string',
+                      loadBalancerType: 'none',
                       networkUrl: 'Test string',
                       port: 'Test string',
                       project: 'Test string',
@@ -1525,7 +1525,7 @@ gapi.load('client', async () => {
         responsePolicy: 'Test string',
       },
       {
-        behavior: 'Test string',
+        behavior: 'behaviorUnspecified',
         dnsName: 'Test string',
         kind: 'Test string',
         localData: {
@@ -1543,9 +1543,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1570,9 +1570,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1600,9 +1600,9 @@ gapi.load('client', async () => {
                           internalLoadBalancers: [
                             {
                               ipAddress: 'Test string',
-                              ipProtocol: 'Test string',
+                              ipProtocol: 'undefined',
                               kind: 'Test string',
-                              loadBalancerType: 'Test string',
+                              loadBalancerType: 'none',
                               networkUrl: 'Test string',
                               port: 'Test string',
                               project: 'Test string',
@@ -1624,9 +1624,9 @@ gapi.load('client', async () => {
                     internalLoadBalancers: [
                       {
                         ipAddress: 'Test string',
-                        ipProtocol: 'Test string',
+                        ipProtocol: 'undefined',
                         kind: 'Test string',
-                        loadBalancerType: 'Test string',
+                        loadBalancerType: 'none',
                         networkUrl: 'Test string',
                         port: 'Test string',
                         project: 'Test string',
@@ -1644,9 +1644,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1670,9 +1670,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1729,7 +1729,7 @@ gapi.load('client', async () => {
         responsePolicyRule: 'Test string',
       },
       {
-        behavior: 'Test string',
+        behavior: 'behaviorUnspecified',
         dnsName: 'Test string',
         kind: 'Test string',
         localData: {
@@ -1747,9 +1747,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1774,9 +1774,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1804,9 +1804,9 @@ gapi.load('client', async () => {
                           internalLoadBalancers: [
                             {
                               ipAddress: 'Test string',
-                              ipProtocol: 'Test string',
+                              ipProtocol: 'undefined',
                               kind: 'Test string',
-                              loadBalancerType: 'Test string',
+                              loadBalancerType: 'none',
                               networkUrl: 'Test string',
                               port: 'Test string',
                               project: 'Test string',
@@ -1828,9 +1828,9 @@ gapi.load('client', async () => {
                     internalLoadBalancers: [
                       {
                         ipAddress: 'Test string',
-                        ipProtocol: 'Test string',
+                        ipProtocol: 'undefined',
                         kind: 'Test string',
-                        loadBalancerType: 'Test string',
+                        loadBalancerType: 'none',
                         networkUrl: 'Test string',
                         port: 'Test string',
                         project: 'Test string',
@@ -1848,9 +1848,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1874,9 +1874,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1912,7 +1912,7 @@ gapi.load('client', async () => {
         responsePolicyRule: 'Test string',
       },
       {
-        behavior: 'Test string',
+        behavior: 'behaviorUnspecified',
         dnsName: 'Test string',
         kind: 'Test string',
         localData: {
@@ -1930,9 +1930,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1957,9 +1957,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -1987,9 +1987,9 @@ gapi.load('client', async () => {
                           internalLoadBalancers: [
                             {
                               ipAddress: 'Test string',
-                              ipProtocol: 'Test string',
+                              ipProtocol: 'undefined',
                               kind: 'Test string',
-                              loadBalancerType: 'Test string',
+                              loadBalancerType: 'none',
                               networkUrl: 'Test string',
                               port: 'Test string',
                               project: 'Test string',
@@ -2011,9 +2011,9 @@ gapi.load('client', async () => {
                     internalLoadBalancers: [
                       {
                         ipAddress: 'Test string',
-                        ipProtocol: 'Test string',
+                        ipProtocol: 'undefined',
                         kind: 'Test string',
-                        loadBalancerType: 'Test string',
+                        loadBalancerType: 'none',
                         networkUrl: 'Test string',
                         port: 'Test string',
                         project: 'Test string',
@@ -2031,9 +2031,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',
@@ -2057,9 +2057,9 @@ gapi.load('client', async () => {
                         internalLoadBalancers: [
                           {
                             ipAddress: 'Test string',
-                            ipProtocol: 'Test string',
+                            ipProtocol: 'undefined',
                             kind: 'Test string',
-                            loadBalancerType: 'Test string',
+                            loadBalancerType: 'none',
                             networkUrl: 'Test string',
                             port: 'Test string',
                             project: 'Test string',

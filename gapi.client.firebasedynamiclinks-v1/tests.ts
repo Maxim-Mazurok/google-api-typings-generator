@@ -87,7 +87,7 @@ gapi.load('client', async () => {
         sdkVersion: 'Test string',
         suffix: {
           customSuffix: 'Test string',
-          option: 'Test string',
+          option: 'OPTION_UNSPECIFIED',
         },
       },
     );
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
         sdkVersion: 'Test string',
         suffix: {
           customSuffix: 'Test string',
-          option: 'Test string',
+          option: 'OPTION_UNSPECIFIED',
         },
       },
     );
@@ -172,10 +172,10 @@ gapi.load('client', async () => {
           timezone: 'Test string',
         },
         iosVersion: 'Test string',
-        retrievalMethod: 'Test string',
+        retrievalMethod: 'UNKNOWN_PAYLOAD_RETRIEVAL_METHOD',
         sdkVersion: 'Test string',
         uniqueMatchLinkToCheck: 'Test string',
-        visualStyle: 'Test string',
+        visualStyle: 'UNKNOWN_VISUAL_STYLE',
       },
     );
     /** Get iOS reopen attribution for app universal link open deeplinking. */

@@ -45,17 +45,17 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        apiVersion: 'Test string',
+        apiVersion: 'API_VERSION_UNSPECIFIED',
         avatarUri: 'Test string',
         classificationThreshold: 42,
         defaultLanguageCode: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
         enableLogging: true,
-        matchMode: 'Test string',
+        matchMode: 'MATCH_MODE_UNSPECIFIED',
         parent: 'Test string',
         supportedLanguageCodes: ['Test string'],
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
         timeZone: 'Test string',
       },
     );
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         enabled: true,
         features: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         genericWebService: {
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
         entityTypeBatchInline: {
           entityTypes: [
             {
-              autoExpansionMode: 'Test string',
+              autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
               displayName: 'Test string',
               enableFuzzyExtraction: true,
               entities: [
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
           enabled: true,
           features: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           genericWebService: {
@@ -281,10 +281,10 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textToSpeechSettings: {
           enableTextToSpeech: true,
-          outputAudioEncoding: 'Test string',
+          outputAudioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfigs: {
             A: {
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
               pitch: 42,
               pronunciations: [
                 {
-                  phoneticEncoding: 'Test string',
+                  phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                   phrase: 'Test string',
                   pronunciation: 'Test string',
                 },
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -339,7 +339,7 @@ gapi.load('client', async () => {
           enabled: true,
           features: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           genericWebService: {
@@ -354,10 +354,10 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textToSpeechSettings: {
           enableTextToSpeech: true,
-          outputAudioEncoding: 'Test string',
+          outputAudioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfigs: {
             A: {
@@ -365,7 +365,7 @@ gapi.load('client', async () => {
               pitch: 42,
               pronunciations: [
                 {
-                  phoneticEncoding: 'Test string',
+                  phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                   phrase: 'Test string',
                   pronunciation: 'Test string',
                 },
@@ -373,7 +373,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -383,7 +383,7 @@ gapi.load('client', async () => {
       },
     );
     await gapi.client.dialogflow.projects.agent.environments.intents.list({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -401,14 +401,14 @@ gapi.load('client', async () => {
       {
         inputAudio: 'Test string',
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
         queryInput: {
           audioConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -437,14 +437,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -460,7 +460,7 @@ gapi.load('client', async () => {
             useGeminiAsr: true,
           },
           dtmf: {
-            dtmfEvents: ['Test string'],
+            dtmfEvents: ['TELEPHONY_DTMF_UNSPECIFIED'],
           },
           event: {
             languageCode: 'Test string',
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -575,7 +575,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -608,7 +608,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -620,7 +620,7 @@ gapi.load('client', async () => {
         intents: [
           {
             action: 'Test string',
-            defaultResponsePlatforms: ['Test string'],
+            defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
             displayName: 'Test string',
             endInteraction: true,
             events: ['Test string'],
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
                 browseCarouselCard: {
-                  imageDisplayOptions: 'Test string',
+                  imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                   items: [
                     {
                       description: 'Test string',
@@ -664,7 +664,7 @@ gapi.load('client', async () => {
                       },
                       openUriAction: {
                         url: 'Test string',
-                        urlTypeHint: 'Test string',
+                        urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                       },
                       title: 'Test string',
                     },
@@ -739,12 +739,12 @@ gapi.load('client', async () => {
                       name: 'Test string',
                     },
                   ],
-                  mediaType: 'Test string',
+                  mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                 },
                 payload: {
                   A: 42,
                 },
-                platform: 'Test string',
+                platform: 'PLATFORM_UNSPECIFIED',
                 quickReplies: {
                   quickReplies: ['Test string'],
                   title: 'Test string',
@@ -755,7 +755,7 @@ gapi.load('client', async () => {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -780,14 +780,14 @@ gapi.load('client', async () => {
                       title: 'Test string',
                     },
                   ],
-                  cardWidth: 'Test string',
+                  cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                 },
                 rbmStandaloneRichCard: {
                   cardContent: {
                     description: 'Test string',
                     media: {
                       fileUri: 'Test string',
-                      height: 'Test string',
+                      height: 'HEIGHT_UNSPECIFIED',
                       thumbnailUri: 'Test string',
                     },
                     suggestions: [
@@ -811,8 +811,9 @@ gapi.load('client', async () => {
                     ],
                     title: 'Test string',
                   },
-                  cardOrientation: 'Test string',
-                  thumbnailImageAlignment: 'Test string',
+                  cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                  thumbnailImageAlignment:
+                    'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                 },
                 rbmText: {
                   rbmSuggestion: [
@@ -864,7 +865,7 @@ gapi.load('client', async () => {
                   columnProperties: [
                     {
                       header: 'Test string',
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                     },
                   ],
                   image: {
@@ -939,10 +940,10 @@ gapi.load('client', async () => {
                   },
                 ],
                 timesAddedCount: 42,
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
-            webhookState: 'Test string',
+            webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
           },
         ],
       },
@@ -956,7 +957,7 @@ gapi.load('client', async () => {
           intents: [
             {
               action: 'Test string',
-              defaultResponsePlatforms: ['Test string'],
+              defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
               displayName: 'Test string',
               endInteraction: true,
               events: ['Test string'],
@@ -989,7 +990,7 @@ gapi.load('client', async () => {
                     title: 'Test string',
                   },
                   browseCarouselCard: {
-                    imageDisplayOptions: 'Test string',
+                    imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                     items: [
                       {
                         description: 'Test string',
@@ -1000,7 +1001,7 @@ gapi.load('client', async () => {
                         },
                         openUriAction: {
                           url: 'Test string',
-                          urlTypeHint: 'Test string',
+                          urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                         },
                         title: 'Test string',
                       },
@@ -1075,12 +1076,12 @@ gapi.load('client', async () => {
                         name: 'Test string',
                       },
                     ],
-                    mediaType: 'Test string',
+                    mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                   },
                   payload: {
                     A: 42,
                   },
-                  platform: 'Test string',
+                  platform: 'PLATFORM_UNSPECIFIED',
                   quickReplies: {
                     quickReplies: ['Test string'],
                     title: 'Test string',
@@ -1091,7 +1092,7 @@ gapi.load('client', async () => {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -1116,14 +1117,14 @@ gapi.load('client', async () => {
                         title: 'Test string',
                       },
                     ],
-                    cardWidth: 'Test string',
+                    cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                   },
                   rbmStandaloneRichCard: {
                     cardContent: {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -1147,8 +1148,9 @@ gapi.load('client', async () => {
                       ],
                       title: 'Test string',
                     },
-                    cardOrientation: 'Test string',
-                    thumbnailImageAlignment: 'Test string',
+                    cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                    thumbnailImageAlignment:
+                      'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                   },
                   rbmText: {
                     rbmSuggestion: [
@@ -1200,7 +1202,7 @@ gapi.load('client', async () => {
                     columnProperties: [
                       {
                         header: 'Test string',
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       },
                     ],
                     image: {
@@ -1275,28 +1277,28 @@ gapi.load('client', async () => {
                     },
                   ],
                   timesAddedCount: 42,
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
-              webhookState: 'Test string',
+              webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
             },
           ],
         },
         intentBatchUri: 'Test string',
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         updateMask: 'Test string',
       },
     );
     await gapi.client.dialogflow.projects.agent.intents.create(
       {
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         parent: 'Test string',
       },
       {
         action: 'Test string',
-        defaultResponsePlatforms: ['Test string'],
+        defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
         displayName: 'Test string',
         endInteraction: true,
         events: ['Test string'],
@@ -1329,7 +1331,7 @@ gapi.load('client', async () => {
               title: 'Test string',
             },
             browseCarouselCard: {
-              imageDisplayOptions: 'Test string',
+              imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
               items: [
                 {
                   description: 'Test string',
@@ -1340,7 +1342,7 @@ gapi.load('client', async () => {
                   },
                   openUriAction: {
                     url: 'Test string',
-                    urlTypeHint: 'Test string',
+                    urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                   },
                   title: 'Test string',
                 },
@@ -1415,12 +1417,12 @@ gapi.load('client', async () => {
                   name: 'Test string',
                 },
               ],
-              mediaType: 'Test string',
+              mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
             },
             payload: {
               A: 42,
             },
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             quickReplies: {
               quickReplies: ['Test string'],
               title: 'Test string',
@@ -1431,7 +1433,7 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   media: {
                     fileUri: 'Test string',
-                    height: 'Test string',
+                    height: 'HEIGHT_UNSPECIFIED',
                     thumbnailUri: 'Test string',
                   },
                   suggestions: [
@@ -1456,14 +1458,14 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
               ],
-              cardWidth: 'Test string',
+              cardWidth: 'CARD_WIDTH_UNSPECIFIED',
             },
             rbmStandaloneRichCard: {
               cardContent: {
                 description: 'Test string',
                 media: {
                   fileUri: 'Test string',
-                  height: 'Test string',
+                  height: 'HEIGHT_UNSPECIFIED',
                   thumbnailUri: 'Test string',
                 },
                 suggestions: [
@@ -1487,8 +1489,8 @@ gapi.load('client', async () => {
                 ],
                 title: 'Test string',
               },
-              cardOrientation: 'Test string',
-              thumbnailImageAlignment: 'Test string',
+              cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+              thumbnailImageAlignment: 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
             },
             rbmText: {
               rbmSuggestion: [
@@ -1540,7 +1542,7 @@ gapi.load('client', async () => {
               columnProperties: [
                 {
                   header: 'Test string',
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                 },
               ],
               image: {
@@ -1615,22 +1617,22 @@ gapi.load('client', async () => {
               },
             ],
             timesAddedCount: 42,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
-        webhookState: 'Test string',
+        webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.agent.intents.delete({
       name: 'Test string',
     });
     await gapi.client.dialogflow.projects.agent.intents.get({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       name: 'Test string',
     });
     await gapi.client.dialogflow.projects.agent.intents.list({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -1638,14 +1640,14 @@ gapi.load('client', async () => {
     });
     await gapi.client.dialogflow.projects.agent.intents.patch(
       {
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         name: 'Test string',
         updateMask: 'Test string',
       },
       {
         action: 'Test string',
-        defaultResponsePlatforms: ['Test string'],
+        defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
         displayName: 'Test string',
         endInteraction: true,
         events: ['Test string'],
@@ -1678,7 +1680,7 @@ gapi.load('client', async () => {
               title: 'Test string',
             },
             browseCarouselCard: {
-              imageDisplayOptions: 'Test string',
+              imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
               items: [
                 {
                   description: 'Test string',
@@ -1689,7 +1691,7 @@ gapi.load('client', async () => {
                   },
                   openUriAction: {
                     url: 'Test string',
-                    urlTypeHint: 'Test string',
+                    urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                   },
                   title: 'Test string',
                 },
@@ -1764,12 +1766,12 @@ gapi.load('client', async () => {
                   name: 'Test string',
                 },
               ],
-              mediaType: 'Test string',
+              mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
             },
             payload: {
               A: 42,
             },
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             quickReplies: {
               quickReplies: ['Test string'],
               title: 'Test string',
@@ -1780,7 +1782,7 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   media: {
                     fileUri: 'Test string',
-                    height: 'Test string',
+                    height: 'HEIGHT_UNSPECIFIED',
                     thumbnailUri: 'Test string',
                   },
                   suggestions: [
@@ -1805,14 +1807,14 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
               ],
-              cardWidth: 'Test string',
+              cardWidth: 'CARD_WIDTH_UNSPECIFIED',
             },
             rbmStandaloneRichCard: {
               cardContent: {
                 description: 'Test string',
                 media: {
                   fileUri: 'Test string',
-                  height: 'Test string',
+                  height: 'HEIGHT_UNSPECIFIED',
                   thumbnailUri: 'Test string',
                 },
                 suggestions: [
@@ -1836,8 +1838,8 @@ gapi.load('client', async () => {
                 ],
                 title: 'Test string',
               },
-              cardOrientation: 'Test string',
-              thumbnailImageAlignment: 'Test string',
+              cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+              thumbnailImageAlignment: 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
             },
             rbmText: {
               rbmSuggestion: [
@@ -1889,7 +1891,7 @@ gapi.load('client', async () => {
               columnProperties: [
                 {
                   header: 'Test string',
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                 },
               ],
               image: {
@@ -1964,10 +1966,10 @@ gapi.load('client', async () => {
               },
             ],
             timesAddedCount: 42,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
-        webhookState: 'Test string',
+        webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.agent.knowledgeBases.create(
@@ -2014,7 +2016,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -2033,7 +2035,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.delete(
@@ -2060,7 +2062,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -2079,7 +2081,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.agent.knowledgeBases.documents.reload(
@@ -2103,14 +2105,14 @@ gapi.load('client', async () => {
       {
         inputAudio: 'Test string',
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -2118,7 +2120,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -2127,7 +2129,7 @@ gapi.load('client', async () => {
         queryInput: {
           audioConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -2139,14 +2141,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -2162,7 +2164,7 @@ gapi.load('client', async () => {
             useGeminiAsr: true,
           },
           dtmf: {
-            dtmfEvents: ['Test string'],
+            dtmfEvents: ['TELEPHONY_DTMF_UNSPECIFIED'],
           },
           event: {
             languageCode: 'Test string',
@@ -2207,7 +2209,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -2271,7 +2273,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2298,7 +2300,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2310,7 +2312,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionNumber: 42,
       },
     );
@@ -2334,7 +2336,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionNumber: 42,
       },
     );
@@ -2407,7 +2409,7 @@ gapi.load('client', async () => {
                   disableSuggestedReply: true,
                   displayDetails: 'Test string',
                   displayName: 'Test string',
-                  triggerEvent: 'Test string',
+                  triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
                 knowledgeSources: [
                   {
@@ -2432,7 +2434,7 @@ gapi.load('client', async () => {
                         inputParameters: {
                           A: 42,
                         },
-                        state: 'Test string',
+                        state: 'STATE_UNSPECIFIED',
                         tool: 'Test string',
                         toolDisplayDetails: 'Test string',
                         toolDisplayName: 'Test string',
@@ -2493,7 +2495,7 @@ gapi.load('client', async () => {
                     title: 'Test string',
                   },
                   browseCarouselCard: {
-                    imageDisplayOptions: 'Test string',
+                    imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                     items: [
                       {
                         description: 'Test string',
@@ -2504,7 +2506,7 @@ gapi.load('client', async () => {
                         },
                         openUriAction: {
                           url: 'Test string',
-                          urlTypeHint: 'Test string',
+                          urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                         },
                         title: 'Test string',
                       },
@@ -2579,12 +2581,12 @@ gapi.load('client', async () => {
                         name: 'Test string',
                       },
                     ],
-                    mediaType: 'Test string',
+                    mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                   },
                   payload: {
                     A: 42,
                   },
-                  platform: 'Test string',
+                  platform: 'PLATFORM_UNSPECIFIED',
                   quickReplies: {
                     quickReplies: ['Test string'],
                     title: 'Test string',
@@ -2595,7 +2597,7 @@ gapi.load('client', async () => {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -2620,14 +2622,14 @@ gapi.load('client', async () => {
                         title: 'Test string',
                       },
                     ],
-                    cardWidth: 'Test string',
+                    cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                   },
                   rbmStandaloneRichCard: {
                     cardContent: {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -2651,8 +2653,9 @@ gapi.load('client', async () => {
                       ],
                       title: 'Test string',
                     },
-                    cardOrientation: 'Test string',
-                    thumbnailImageAlignment: 'Test string',
+                    cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                    thumbnailImageAlignment:
+                      'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                   },
                   rbmText: {
                     rbmSuggestion: [
@@ -2704,7 +2707,7 @@ gapi.load('client', async () => {
                     columnProperties: [
                       {
                         header: 'Test string',
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       },
                     ],
                     image: {
@@ -2742,7 +2745,7 @@ gapi.load('client', async () => {
               fulfillmentText: 'Test string',
               intent: {
                 action: 'Test string',
-                defaultResponsePlatforms: ['Test string'],
+                defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
                 displayName: 'Test string',
                 endInteraction: true,
                 events: ['Test string'],
@@ -2775,7 +2778,7 @@ gapi.load('client', async () => {
                       title: 'Test string',
                     },
                     browseCarouselCard: {
-                      imageDisplayOptions: 'Test string',
+                      imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                       items: [
                         {
                           description: 'Test string',
@@ -2786,7 +2789,7 @@ gapi.load('client', async () => {
                           },
                           openUriAction: {
                             url: 'Test string',
-                            urlTypeHint: 'Test string',
+                            urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                           },
                           title: 'Test string',
                         },
@@ -2861,12 +2864,12 @@ gapi.load('client', async () => {
                           name: 'Test string',
                         },
                       ],
-                      mediaType: 'Test string',
+                      mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                     },
                     payload: {
                       A: 42,
                     },
-                    platform: 'Test string',
+                    platform: 'PLATFORM_UNSPECIFIED',
                     quickReplies: {
                       quickReplies: ['Test string'],
                       title: 'Test string',
@@ -2877,7 +2880,7 @@ gapi.load('client', async () => {
                           description: 'Test string',
                           media: {
                             fileUri: 'Test string',
-                            height: 'Test string',
+                            height: 'HEIGHT_UNSPECIFIED',
                             thumbnailUri: 'Test string',
                           },
                           suggestions: [
@@ -2902,14 +2905,14 @@ gapi.load('client', async () => {
                           title: 'Test string',
                         },
                       ],
-                      cardWidth: 'Test string',
+                      cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                     },
                     rbmStandaloneRichCard: {
                       cardContent: {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -2933,8 +2936,9 @@ gapi.load('client', async () => {
                         ],
                         title: 'Test string',
                       },
-                      cardOrientation: 'Test string',
-                      thumbnailImageAlignment: 'Test string',
+                      cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                      thumbnailImageAlignment:
+                        'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                     },
                     rbmText: {
                       rbmSuggestion: [
@@ -2986,7 +2990,8 @@ gapi.load('client', async () => {
                       columnProperties: [
                         {
                           header: 'Test string',
-                          horizontalAlignment: 'Test string',
+                          horizontalAlignment:
+                            'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                         },
                       ],
                       image: {
@@ -3061,10 +3066,10 @@ gapi.load('client', async () => {
                       },
                     ],
                     timesAddedCount: 42,
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 ],
-                webhookState: 'Test string',
+                webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
               },
               intentDetectionConfidence: 42,
               knowledgeAnswers: {
@@ -3073,7 +3078,7 @@ gapi.load('client', async () => {
                     answer: 'Test string',
                     faqQuestion: 'Test string',
                     matchConfidence: 42,
-                    matchConfidenceLevel: 'Test string',
+                    matchConfidenceLevel: 'MATCH_CONFIDENCE_LEVEL_UNSPECIFIED',
                     source: 'Test string',
                   },
                 ],
@@ -3162,7 +3167,7 @@ gapi.load('client', async () => {
                     ],
                   },
                   systemAction: 'Test string',
-                  triggeringEvent: 'Test string',
+                  triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
               ],
               sampleResponses: [
@@ -3209,7 +3214,7 @@ gapi.load('client', async () => {
                   inputParameters: {
                     A: 42,
                   },
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   tool: 'Test string',
                   toolDisplayDetails: 'Test string',
                   toolDisplayName: 'Test string',
@@ -3278,7 +3283,7 @@ gapi.load('client', async () => {
                     inputParameters: {
                       A: 42,
                     },
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                     tool: 'Test string',
                     toolDisplayDetails: 'Test string',
                     toolDisplayName: 'Test string',
@@ -3305,10 +3310,10 @@ gapi.load('client', async () => {
         },
         answerFeedback: {
           agentAssistantDetailFeedback: {
-            answerRelevance: 'Test string',
+            answerRelevance: 'ANSWER_RELEVANCE_UNSPECIFIED',
             companionFeedback: {},
-            documentCorrectness: 'Test string',
-            documentEfficiency: 'Test string',
+            documentCorrectness: 'DOCUMENT_CORRECTNESS_UNSPECIFIED',
+            documentEfficiency: 'DOCUMENT_EFFICIENCY_UNSPECIFIED',
             knowledgeAssistFeedback: {
               answerCopied: true,
               clickedUris: ['Test string'],
@@ -3328,7 +3333,7 @@ gapi.load('client', async () => {
           },
           clicked: true,
           clickTime: 'Test string',
-          correctnessLevel: 'Test string',
+          correctnessLevel: 'CORRECTNESS_LEVEL_UNSPECIFIED',
           displayed: true,
           displayTime: 'Test string',
         },
@@ -3340,8 +3345,8 @@ gapi.load('client', async () => {
         conversationProfile: 'Test string',
       },
       {
-        participantRole: 'Test string',
-        suggestionFeatureType: 'Test string',
+        participantRole: 'ROLE_UNSPECIFIED',
+        suggestionFeatureType: 'TYPE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.conversationProfiles.create(
@@ -3394,21 +3399,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -3458,21 +3463,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -3490,7 +3495,7 @@ gapi.load('client', async () => {
             enableSentimentAnalysisV3: true,
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
         },
@@ -3511,15 +3516,15 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         newMessageEventNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         newRecognitionResultNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         notificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         securitySettings: 'Test string',
@@ -3534,21 +3539,21 @@ gapi.load('client', async () => {
         },
         sttConfig: {
           alternativeLanguageCodes: ['Test string'],
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           disableInterimInputTranscripts: true,
           enableWordInfo: true,
           geminiAsrConfig: {
-            endOfSpeechSensitivity: 'Test string',
+            endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
             prefixPaddingMs: 42,
             silenceDurationMs: 42,
-            startOfSpeechSensitivity: 'Test string',
+            startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
           },
           languageCode: 'Test string',
           model: 'Test string',
           phraseSets: ['Test string'],
           profanityFilter: true,
           sampleRateHertz: 42,
-          speechModelVariant: 'Test string',
+          speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
           useGeminiAsr: true,
           useTimeoutBasedEndpointing: true,
         },
@@ -3558,7 +3563,7 @@ gapi.load('client', async () => {
           pitch: 42,
           pronunciations: [
             {
-              phoneticEncoding: 'Test string',
+              phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
               phrase: 'Test string',
               pronunciation: 'Test string',
             },
@@ -3566,7 +3571,7 @@ gapi.load('client', async () => {
           speakingRate: 42,
           voice: {
             name: 'Test string',
-            ssmlGender: 'Test string',
+            ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           },
           volumeGainDb: 42,
         },
@@ -3636,21 +3641,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -3700,21 +3705,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -3732,7 +3737,7 @@ gapi.load('client', async () => {
             enableSentimentAnalysisV3: true,
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
         },
@@ -3753,15 +3758,15 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         newMessageEventNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         newRecognitionResultNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         notificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         securitySettings: 'Test string',
@@ -3776,21 +3781,21 @@ gapi.load('client', async () => {
         },
         sttConfig: {
           alternativeLanguageCodes: ['Test string'],
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           disableInterimInputTranscripts: true,
           enableWordInfo: true,
           geminiAsrConfig: {
-            endOfSpeechSensitivity: 'Test string',
+            endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
             prefixPaddingMs: 42,
             silenceDurationMs: 42,
-            startOfSpeechSensitivity: 'Test string',
+            startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
           },
           languageCode: 'Test string',
           model: 'Test string',
           phraseSets: ['Test string'],
           profanityFilter: true,
           sampleRateHertz: 42,
-          speechModelVariant: 'Test string',
+          speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
           useGeminiAsr: true,
           useTimeoutBasedEndpointing: true,
         },
@@ -3800,7 +3805,7 @@ gapi.load('client', async () => {
           pitch: 42,
           pronunciations: [
             {
-              phoneticEncoding: 'Test string',
+              phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
               phrase: 'Test string',
               pronunciation: 'Test string',
             },
@@ -3808,7 +3813,7 @@ gapi.load('client', async () => {
           speakingRate: 42,
           voice: {
             name: 'Test string',
-            ssmlGender: 'Test string',
+            ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           },
           volumeGainDb: 42,
         },
@@ -3821,7 +3826,7 @@ gapi.load('client', async () => {
         conversationProfile: 'Test string',
       },
       {
-        participantRole: 'Test string',
+        participantRole: 'ROLE_UNSPECIFIED',
         suggestionFeatureConfig: {
           conversationProcessConfig: {
             recentSentencesCount: 42,
@@ -3855,21 +3860,21 @@ gapi.load('client', async () => {
             },
             maxResults: 42,
             sections: {
-              sectionTypes: ['Test string'],
+              sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
             },
           },
           raiSettings: {
             raiCategoryConfigs: [
               {
-                category: 'Test string',
-                sensitivityLevel: 'Test string',
+                category: 'RAI_CATEGORY_UNSPECIFIED',
+                sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
               },
             ],
           },
           suggestionFeature: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          suggestionTriggerEvent: 'Test string',
+          suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
           suggestionTriggerSettings: {
             noSmallTalk: true,
             onlyEndUser: true,
@@ -3890,7 +3895,7 @@ gapi.load('client', async () => {
       },
       {
         conversationProfile: 'Test string',
-        conversationStage: 'Test string',
+        conversationStage: 'CONVERSATION_STAGE_UNSPECIFIED',
         endTime: 'Test string',
         ingestedContextReferences: {
           A: {
@@ -3898,13 +3903,13 @@ gapi.load('client', async () => {
               {
                 answerRecord: 'Test string',
                 content: 'Test string',
-                contentFormat: 'Test string',
+                contentFormat: 'CONTENT_FORMAT_UNSPECIFIED',
                 ingestionTime: 'Test string',
               },
             ],
             createTime: 'Test string',
             languageCode: 'Test string',
-            updateMode: 'Test string',
+            updateMode: 'UPDATE_MODE_UNSPECIFIED',
           },
         },
         initialConversationProfile: {
@@ -3953,21 +3958,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -4017,21 +4022,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -4049,7 +4054,7 @@ gapi.load('client', async () => {
               enableSentimentAnalysisV3: true,
             },
             notificationConfig: {
-              messageFormat: 'Test string',
+              messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
               topic: 'Test string',
             },
           },
@@ -4070,15 +4075,15 @@ gapi.load('client', async () => {
           },
           name: 'Test string',
           newMessageEventNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           newRecognitionResultNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           securitySettings: 'Test string',
@@ -4093,21 +4098,21 @@ gapi.load('client', async () => {
           },
           sttConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             disableInterimInputTranscripts: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
             phraseSets: ['Test string'],
             profanityFilter: true,
             sampleRateHertz: 42,
-            speechModelVariant: 'Test string',
+            speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             useGeminiAsr: true,
             useTimeoutBasedEndpointing: true,
           },
@@ -4117,7 +4122,7 @@ gapi.load('client', async () => {
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -4125,7 +4130,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -4134,10 +4139,10 @@ gapi.load('client', async () => {
         },
         initialGeneratorContexts: {
           A: {
-            generatorType: 'Test string',
+            generatorType: 'GENERATOR_TYPE_UNSPECIFIED',
           },
         },
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
         phoneNumber: {
           countryCode: 42,
@@ -4194,7 +4199,7 @@ gapi.load('client', async () => {
               },
               name: 'Test string',
               participant: 'Test string',
-              participantRole: 'Test string',
+              participantRole: 'ROLE_UNSPECIFIED',
               responseMessages: [
                 {
                   endInteraction: {},
@@ -4266,7 +4271,7 @@ gapi.load('client', async () => {
           audio: 'Test string',
           config: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -4278,14 +4283,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -4348,7 +4353,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -4364,14 +4369,14 @@ gapi.load('client', async () => {
           },
         },
         replyAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -4379,14 +4384,14 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
         },
         requestId: 'Test string',
         suggestionInput: {
-          action: 'Test string',
+          action: 'ACTION_UNSPECIFIED',
           answerRecord: 'Test string',
           intentInput: {
             intent: 'Test string',
@@ -4412,13 +4417,13 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        agentDesktopSource: 'Test string',
+        agentDesktopSource: 'AGENT_DESKTOP_SOURCE_UNSPECIFIED',
         documentsMetadataFilters: {
           A: 'Test string',
         },
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.conversations.participants.get({
@@ -4435,13 +4440,13 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        agentDesktopSource: 'Test string',
+        agentDesktopSource: 'AGENT_DESKTOP_SOURCE_UNSPECIFIED',
         documentsMetadataFilters: {
           A: 'Test string',
         },
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.conversations.participants.suggestions.compile(
@@ -4518,7 +4523,7 @@ gapi.load('client', async () => {
       },
       {
         latestMessage: 'Test string',
-        triggerEvents: ['Test string'],
+        triggerEvents: ['TRIGGER_EVENT_UNSPECIFIED'],
       },
     );
     await gapi.client.dialogflow.projects.conversations.suggestions.searchKnowledge(
@@ -4538,7 +4543,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-        querySource: 'Test string',
+        querySource: 'QUERY_SOURCE_UNSPECIFIED',
         searchConfig: {
           boostSpecs: [
             {
@@ -4549,7 +4554,7 @@ gapi.load('client', async () => {
                     {
                       boost: 42,
                       boostControlSpec: {
-                        attributeType: 'Test string',
+                        attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                         controlPoints: [
                           {
                             attributeValue: 'Test string',
@@ -4557,7 +4562,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         fieldName: 'Test string',
-                        interpolationType: 'Test string',
+                        interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                       },
                       condition: 'Test string',
                     },
@@ -4613,7 +4618,7 @@ gapi.load('client', async () => {
                 ],
               },
               systemAction: 'Test string',
-              triggeringEvent: 'Test string',
+              triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
             },
           ],
           outputLanguageCode: 'Test string',
@@ -4623,7 +4628,7 @@ gapi.load('client', async () => {
         cesAppSpecs: [
           {
             cesApp: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             proactiveEnabled: true,
             reactiveEnabled: true,
           },
@@ -4631,7 +4636,7 @@ gapi.load('client', async () => {
         cesToolSpecs: [
           {
             cesTool: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             parameterOverrides: [
               {
                 contextReferenceKey: 'Test string',
@@ -4668,7 +4673,7 @@ gapi.load('client', async () => {
                   {
                     createTime: 'Test string',
                     languageCode: 'Test string',
-                    role: 'Test string',
+                    role: 'ROLE_UNSPECIFIED',
                     text: 'Test string',
                   },
                 ],
@@ -4714,7 +4719,7 @@ gapi.load('client', async () => {
                         ],
                       },
                       systemAction: 'Test string',
-                      triggeringEvent: 'Test string',
+                      triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                     },
                   ],
                   sampleResponses: [
@@ -4761,7 +4766,7 @@ gapi.load('client', async () => {
                       inputParameters: {
                         A: 42,
                       },
-                      state: 'Test string',
+                      state: 'STATE_UNSPECIFIED',
                       tool: 'Test string',
                       toolDisplayDetails: 'Test string',
                       toolDisplayName: 'Test string',
@@ -4789,7 +4794,7 @@ gapi.load('client', async () => {
                   {
                     definition: 'Test string',
                     key: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -4800,7 +4805,7 @@ gapi.load('client', async () => {
             {
               definition: 'Test string',
               key: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           version: 'Test string',
@@ -4808,7 +4813,7 @@ gapi.load('client', async () => {
         tools: ['Test string'],
         toolsetTools: [
           {
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             operationId: 'Test string',
             parameterOverrides: [
               {
@@ -4822,7 +4827,7 @@ gapi.load('client', async () => {
             toolset: 'Test string',
           },
         ],
-        triggerEvent: 'Test string',
+        triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -4875,7 +4880,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -4894,7 +4899,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.knowledgeBases.documents.delete({
@@ -4909,7 +4914,7 @@ gapi.load('client', async () => {
       },
       {
         documentTemplate: {
-          knowledgeTypes: ['Test string'],
+          knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
           metadata: {
             A: 'Test string',
           },
@@ -4937,7 +4942,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -4956,7 +4961,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.knowledgeBases.documents.reload(
@@ -4995,17 +5000,17 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        apiVersion: 'Test string',
+        apiVersion: 'API_VERSION_UNSPECIFIED',
         avatarUri: 'Test string',
         classificationThreshold: 42,
         defaultLanguageCode: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
         enableLogging: true,
-        matchMode: 'Test string',
+        matchMode: 'MATCH_MODE_UNSPECIFIED',
         parent: 'Test string',
         supportedLanguageCodes: ['Test string'],
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
         timeZone: 'Test string',
       },
     );
@@ -5063,7 +5068,7 @@ gapi.load('client', async () => {
         enabled: true,
         features: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         genericWebService: {
@@ -5094,7 +5099,7 @@ gapi.load('client', async () => {
         entityTypeBatchInline: {
           entityTypes: [
             {
-              autoExpansionMode: 'Test string',
+              autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
               displayName: 'Test string',
               enableFuzzyExtraction: true,
               entities: [
@@ -5103,7 +5108,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -5119,7 +5124,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -5128,7 +5133,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -5152,7 +5157,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -5161,7 +5166,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -5216,7 +5221,7 @@ gapi.load('client', async () => {
           enabled: true,
           features: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           genericWebService: {
@@ -5231,10 +5236,10 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textToSpeechSettings: {
           enableTextToSpeech: true,
-          outputAudioEncoding: 'Test string',
+          outputAudioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfigs: {
             A: {
@@ -5242,7 +5247,7 @@ gapi.load('client', async () => {
               pitch: 42,
               pronunciations: [
                 {
-                  phoneticEncoding: 'Test string',
+                  phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                   phrase: 'Test string',
                   pronunciation: 'Test string',
                 },
@@ -5250,7 +5255,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -5291,7 +5296,7 @@ gapi.load('client', async () => {
           enabled: true,
           features: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           genericWebService: {
@@ -5306,10 +5311,10 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textToSpeechSettings: {
           enableTextToSpeech: true,
-          outputAudioEncoding: 'Test string',
+          outputAudioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfigs: {
             A: {
@@ -5317,7 +5322,7 @@ gapi.load('client', async () => {
               pitch: 42,
               pronunciations: [
                 {
-                  phoneticEncoding: 'Test string',
+                  phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                   phrase: 'Test string',
                   pronunciation: 'Test string',
                 },
@@ -5325,7 +5330,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -5336,7 +5341,7 @@ gapi.load('client', async () => {
     );
     await gapi.client.dialogflow.projects.locations.agent.environments.intents.list(
       {
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
@@ -5355,14 +5360,14 @@ gapi.load('client', async () => {
       {
         inputAudio: 'Test string',
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -5370,7 +5375,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -5379,7 +5384,7 @@ gapi.load('client', async () => {
         queryInput: {
           audioConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -5391,14 +5396,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -5414,7 +5419,7 @@ gapi.load('client', async () => {
             useGeminiAsr: true,
           },
           dtmf: {
-            dtmfEvents: ['Test string'],
+            dtmfEvents: ['TELEPHONY_DTMF_UNSPECIFIED'],
           },
           event: {
             languageCode: 'Test string',
@@ -5459,7 +5464,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -5529,7 +5534,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -5562,7 +5567,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -5574,7 +5579,7 @@ gapi.load('client', async () => {
         intents: [
           {
             action: 'Test string',
-            defaultResponsePlatforms: ['Test string'],
+            defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
             displayName: 'Test string',
             endInteraction: true,
             events: ['Test string'],
@@ -5607,7 +5612,7 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
                 browseCarouselCard: {
-                  imageDisplayOptions: 'Test string',
+                  imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                   items: [
                     {
                       description: 'Test string',
@@ -5618,7 +5623,7 @@ gapi.load('client', async () => {
                       },
                       openUriAction: {
                         url: 'Test string',
-                        urlTypeHint: 'Test string',
+                        urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                       },
                       title: 'Test string',
                     },
@@ -5693,12 +5698,12 @@ gapi.load('client', async () => {
                       name: 'Test string',
                     },
                   ],
-                  mediaType: 'Test string',
+                  mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                 },
                 payload: {
                   A: 42,
                 },
-                platform: 'Test string',
+                platform: 'PLATFORM_UNSPECIFIED',
                 quickReplies: {
                   quickReplies: ['Test string'],
                   title: 'Test string',
@@ -5709,7 +5714,7 @@ gapi.load('client', async () => {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -5734,14 +5739,14 @@ gapi.load('client', async () => {
                       title: 'Test string',
                     },
                   ],
-                  cardWidth: 'Test string',
+                  cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                 },
                 rbmStandaloneRichCard: {
                   cardContent: {
                     description: 'Test string',
                     media: {
                       fileUri: 'Test string',
-                      height: 'Test string',
+                      height: 'HEIGHT_UNSPECIFIED',
                       thumbnailUri: 'Test string',
                     },
                     suggestions: [
@@ -5765,8 +5770,9 @@ gapi.load('client', async () => {
                     ],
                     title: 'Test string',
                   },
-                  cardOrientation: 'Test string',
-                  thumbnailImageAlignment: 'Test string',
+                  cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                  thumbnailImageAlignment:
+                    'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                 },
                 rbmText: {
                   rbmSuggestion: [
@@ -5818,7 +5824,7 @@ gapi.load('client', async () => {
                   columnProperties: [
                     {
                       header: 'Test string',
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                     },
                   ],
                   image: {
@@ -5893,10 +5899,10 @@ gapi.load('client', async () => {
                   },
                 ],
                 timesAddedCount: 42,
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
-            webhookState: 'Test string',
+            webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
           },
         ],
       },
@@ -5910,7 +5916,7 @@ gapi.load('client', async () => {
           intents: [
             {
               action: 'Test string',
-              defaultResponsePlatforms: ['Test string'],
+              defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
               displayName: 'Test string',
               endInteraction: true,
               events: ['Test string'],
@@ -5943,7 +5949,7 @@ gapi.load('client', async () => {
                     title: 'Test string',
                   },
                   browseCarouselCard: {
-                    imageDisplayOptions: 'Test string',
+                    imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                     items: [
                       {
                         description: 'Test string',
@@ -5954,7 +5960,7 @@ gapi.load('client', async () => {
                         },
                         openUriAction: {
                           url: 'Test string',
-                          urlTypeHint: 'Test string',
+                          urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                         },
                         title: 'Test string',
                       },
@@ -6029,12 +6035,12 @@ gapi.load('client', async () => {
                         name: 'Test string',
                       },
                     ],
-                    mediaType: 'Test string',
+                    mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                   },
                   payload: {
                     A: 42,
                   },
-                  platform: 'Test string',
+                  platform: 'PLATFORM_UNSPECIFIED',
                   quickReplies: {
                     quickReplies: ['Test string'],
                     title: 'Test string',
@@ -6045,7 +6051,7 @@ gapi.load('client', async () => {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -6070,14 +6076,14 @@ gapi.load('client', async () => {
                         title: 'Test string',
                       },
                     ],
-                    cardWidth: 'Test string',
+                    cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                   },
                   rbmStandaloneRichCard: {
                     cardContent: {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -6101,8 +6107,9 @@ gapi.load('client', async () => {
                       ],
                       title: 'Test string',
                     },
-                    cardOrientation: 'Test string',
-                    thumbnailImageAlignment: 'Test string',
+                    cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                    thumbnailImageAlignment:
+                      'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                   },
                   rbmText: {
                     rbmSuggestion: [
@@ -6154,7 +6161,7 @@ gapi.load('client', async () => {
                     columnProperties: [
                       {
                         header: 'Test string',
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       },
                     ],
                     image: {
@@ -6229,28 +6236,28 @@ gapi.load('client', async () => {
                     },
                   ],
                   timesAddedCount: 42,
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
-              webhookState: 'Test string',
+              webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
             },
           ],
         },
         intentBatchUri: 'Test string',
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         updateMask: 'Test string',
       },
     );
     await gapi.client.dialogflow.projects.locations.agent.intents.create(
       {
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         parent: 'Test string',
       },
       {
         action: 'Test string',
-        defaultResponsePlatforms: ['Test string'],
+        defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
         displayName: 'Test string',
         endInteraction: true,
         events: ['Test string'],
@@ -6283,7 +6290,7 @@ gapi.load('client', async () => {
               title: 'Test string',
             },
             browseCarouselCard: {
-              imageDisplayOptions: 'Test string',
+              imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
               items: [
                 {
                   description: 'Test string',
@@ -6294,7 +6301,7 @@ gapi.load('client', async () => {
                   },
                   openUriAction: {
                     url: 'Test string',
-                    urlTypeHint: 'Test string',
+                    urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                   },
                   title: 'Test string',
                 },
@@ -6369,12 +6376,12 @@ gapi.load('client', async () => {
                   name: 'Test string',
                 },
               ],
-              mediaType: 'Test string',
+              mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
             },
             payload: {
               A: 42,
             },
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             quickReplies: {
               quickReplies: ['Test string'],
               title: 'Test string',
@@ -6385,7 +6392,7 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   media: {
                     fileUri: 'Test string',
-                    height: 'Test string',
+                    height: 'HEIGHT_UNSPECIFIED',
                     thumbnailUri: 'Test string',
                   },
                   suggestions: [
@@ -6410,14 +6417,14 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
               ],
-              cardWidth: 'Test string',
+              cardWidth: 'CARD_WIDTH_UNSPECIFIED',
             },
             rbmStandaloneRichCard: {
               cardContent: {
                 description: 'Test string',
                 media: {
                   fileUri: 'Test string',
-                  height: 'Test string',
+                  height: 'HEIGHT_UNSPECIFIED',
                   thumbnailUri: 'Test string',
                 },
                 suggestions: [
@@ -6441,8 +6448,8 @@ gapi.load('client', async () => {
                 ],
                 title: 'Test string',
               },
-              cardOrientation: 'Test string',
-              thumbnailImageAlignment: 'Test string',
+              cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+              thumbnailImageAlignment: 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
             },
             rbmText: {
               rbmSuggestion: [
@@ -6494,7 +6501,7 @@ gapi.load('client', async () => {
               columnProperties: [
                 {
                   header: 'Test string',
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                 },
               ],
               image: {
@@ -6569,22 +6576,22 @@ gapi.load('client', async () => {
               },
             ],
             timesAddedCount: 42,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
-        webhookState: 'Test string',
+        webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agent.intents.delete({
       name: 'Test string',
     });
     await gapi.client.dialogflow.projects.locations.agent.intents.get({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       name: 'Test string',
     });
     await gapi.client.dialogflow.projects.locations.agent.intents.list({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -6592,14 +6599,14 @@ gapi.load('client', async () => {
     });
     await gapi.client.dialogflow.projects.locations.agent.intents.patch(
       {
-        intentView: 'Test string',
+        intentView: 'INTENT_VIEW_UNSPECIFIED',
         languageCode: 'Test string',
         name: 'Test string',
         updateMask: 'Test string',
       },
       {
         action: 'Test string',
-        defaultResponsePlatforms: ['Test string'],
+        defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
         displayName: 'Test string',
         endInteraction: true,
         events: ['Test string'],
@@ -6632,7 +6639,7 @@ gapi.load('client', async () => {
               title: 'Test string',
             },
             browseCarouselCard: {
-              imageDisplayOptions: 'Test string',
+              imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
               items: [
                 {
                   description: 'Test string',
@@ -6643,7 +6650,7 @@ gapi.load('client', async () => {
                   },
                   openUriAction: {
                     url: 'Test string',
-                    urlTypeHint: 'Test string',
+                    urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                   },
                   title: 'Test string',
                 },
@@ -6718,12 +6725,12 @@ gapi.load('client', async () => {
                   name: 'Test string',
                 },
               ],
-              mediaType: 'Test string',
+              mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
             },
             payload: {
               A: 42,
             },
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             quickReplies: {
               quickReplies: ['Test string'],
               title: 'Test string',
@@ -6734,7 +6741,7 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   media: {
                     fileUri: 'Test string',
-                    height: 'Test string',
+                    height: 'HEIGHT_UNSPECIFIED',
                     thumbnailUri: 'Test string',
                   },
                   suggestions: [
@@ -6759,14 +6766,14 @@ gapi.load('client', async () => {
                   title: 'Test string',
                 },
               ],
-              cardWidth: 'Test string',
+              cardWidth: 'CARD_WIDTH_UNSPECIFIED',
             },
             rbmStandaloneRichCard: {
               cardContent: {
                 description: 'Test string',
                 media: {
                   fileUri: 'Test string',
-                  height: 'Test string',
+                  height: 'HEIGHT_UNSPECIFIED',
                   thumbnailUri: 'Test string',
                 },
                 suggestions: [
@@ -6790,8 +6797,8 @@ gapi.load('client', async () => {
                 ],
                 title: 'Test string',
               },
-              cardOrientation: 'Test string',
-              thumbnailImageAlignment: 'Test string',
+              cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+              thumbnailImageAlignment: 'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
             },
             rbmText: {
               rbmSuggestion: [
@@ -6843,7 +6850,7 @@ gapi.load('client', async () => {
               columnProperties: [
                 {
                   header: 'Test string',
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                 },
               ],
               image: {
@@ -6918,10 +6925,10 @@ gapi.load('client', async () => {
               },
             ],
             timesAddedCount: 42,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
-        webhookState: 'Test string',
+        webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agent.sessions.deleteContexts(
@@ -6936,14 +6943,14 @@ gapi.load('client', async () => {
       {
         inputAudio: 'Test string',
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -6951,7 +6958,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -6960,7 +6967,7 @@ gapi.load('client', async () => {
         queryInput: {
           audioConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -6972,14 +6979,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -6995,7 +7002,7 @@ gapi.load('client', async () => {
             useGeminiAsr: true,
           },
           dtmf: {
-            dtmfEvents: ['Test string'],
+            dtmfEvents: ['TELEPHONY_DTMF_UNSPECIFIED'],
           },
           event: {
             languageCode: 'Test string',
@@ -7040,7 +7047,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -7110,7 +7117,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -7143,7 +7150,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -7155,7 +7162,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionNumber: 42,
       },
     );
@@ -7179,7 +7186,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionNumber: 42,
       },
     );
@@ -7252,7 +7259,7 @@ gapi.load('client', async () => {
                   disableSuggestedReply: true,
                   displayDetails: 'Test string',
                   displayName: 'Test string',
-                  triggerEvent: 'Test string',
+                  triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
                 knowledgeSources: [
                   {
@@ -7277,7 +7284,7 @@ gapi.load('client', async () => {
                         inputParameters: {
                           A: 42,
                         },
-                        state: 'Test string',
+                        state: 'STATE_UNSPECIFIED',
                         tool: 'Test string',
                         toolDisplayDetails: 'Test string',
                         toolDisplayName: 'Test string',
@@ -7338,7 +7345,7 @@ gapi.load('client', async () => {
                     title: 'Test string',
                   },
                   browseCarouselCard: {
-                    imageDisplayOptions: 'Test string',
+                    imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                     items: [
                       {
                         description: 'Test string',
@@ -7349,7 +7356,7 @@ gapi.load('client', async () => {
                         },
                         openUriAction: {
                           url: 'Test string',
-                          urlTypeHint: 'Test string',
+                          urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                         },
                         title: 'Test string',
                       },
@@ -7424,12 +7431,12 @@ gapi.load('client', async () => {
                         name: 'Test string',
                       },
                     ],
-                    mediaType: 'Test string',
+                    mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                   },
                   payload: {
                     A: 42,
                   },
-                  platform: 'Test string',
+                  platform: 'PLATFORM_UNSPECIFIED',
                   quickReplies: {
                     quickReplies: ['Test string'],
                     title: 'Test string',
@@ -7440,7 +7447,7 @@ gapi.load('client', async () => {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -7465,14 +7472,14 @@ gapi.load('client', async () => {
                         title: 'Test string',
                       },
                     ],
-                    cardWidth: 'Test string',
+                    cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                   },
                   rbmStandaloneRichCard: {
                     cardContent: {
                       description: 'Test string',
                       media: {
                         fileUri: 'Test string',
-                        height: 'Test string',
+                        height: 'HEIGHT_UNSPECIFIED',
                         thumbnailUri: 'Test string',
                       },
                       suggestions: [
@@ -7496,8 +7503,9 @@ gapi.load('client', async () => {
                       ],
                       title: 'Test string',
                     },
-                    cardOrientation: 'Test string',
-                    thumbnailImageAlignment: 'Test string',
+                    cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                    thumbnailImageAlignment:
+                      'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                   },
                   rbmText: {
                     rbmSuggestion: [
@@ -7549,7 +7557,7 @@ gapi.load('client', async () => {
                     columnProperties: [
                       {
                         header: 'Test string',
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       },
                     ],
                     image: {
@@ -7587,7 +7595,7 @@ gapi.load('client', async () => {
               fulfillmentText: 'Test string',
               intent: {
                 action: 'Test string',
-                defaultResponsePlatforms: ['Test string'],
+                defaultResponsePlatforms: ['PLATFORM_UNSPECIFIED'],
                 displayName: 'Test string',
                 endInteraction: true,
                 events: ['Test string'],
@@ -7620,7 +7628,7 @@ gapi.load('client', async () => {
                       title: 'Test string',
                     },
                     browseCarouselCard: {
-                      imageDisplayOptions: 'Test string',
+                      imageDisplayOptions: 'IMAGE_DISPLAY_OPTIONS_UNSPECIFIED',
                       items: [
                         {
                           description: 'Test string',
@@ -7631,7 +7639,7 @@ gapi.load('client', async () => {
                           },
                           openUriAction: {
                             url: 'Test string',
-                            urlTypeHint: 'Test string',
+                            urlTypeHint: 'URL_TYPE_HINT_UNSPECIFIED',
                           },
                           title: 'Test string',
                         },
@@ -7706,12 +7714,12 @@ gapi.load('client', async () => {
                           name: 'Test string',
                         },
                       ],
-                      mediaType: 'Test string',
+                      mediaType: 'RESPONSE_MEDIA_TYPE_UNSPECIFIED',
                     },
                     payload: {
                       A: 42,
                     },
-                    platform: 'Test string',
+                    platform: 'PLATFORM_UNSPECIFIED',
                     quickReplies: {
                       quickReplies: ['Test string'],
                       title: 'Test string',
@@ -7722,7 +7730,7 @@ gapi.load('client', async () => {
                           description: 'Test string',
                           media: {
                             fileUri: 'Test string',
-                            height: 'Test string',
+                            height: 'HEIGHT_UNSPECIFIED',
                             thumbnailUri: 'Test string',
                           },
                           suggestions: [
@@ -7747,14 +7755,14 @@ gapi.load('client', async () => {
                           title: 'Test string',
                         },
                       ],
-                      cardWidth: 'Test string',
+                      cardWidth: 'CARD_WIDTH_UNSPECIFIED',
                     },
                     rbmStandaloneRichCard: {
                       cardContent: {
                         description: 'Test string',
                         media: {
                           fileUri: 'Test string',
-                          height: 'Test string',
+                          height: 'HEIGHT_UNSPECIFIED',
                           thumbnailUri: 'Test string',
                         },
                         suggestions: [
@@ -7778,8 +7786,9 @@ gapi.load('client', async () => {
                         ],
                         title: 'Test string',
                       },
-                      cardOrientation: 'Test string',
-                      thumbnailImageAlignment: 'Test string',
+                      cardOrientation: 'CARD_ORIENTATION_UNSPECIFIED',
+                      thumbnailImageAlignment:
+                        'THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED',
                     },
                     rbmText: {
                       rbmSuggestion: [
@@ -7831,7 +7840,8 @@ gapi.load('client', async () => {
                       columnProperties: [
                         {
                           header: 'Test string',
-                          horizontalAlignment: 'Test string',
+                          horizontalAlignment:
+                            'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                         },
                       ],
                       image: {
@@ -7906,10 +7916,10 @@ gapi.load('client', async () => {
                       },
                     ],
                     timesAddedCount: 42,
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 ],
-                webhookState: 'Test string',
+                webhookState: 'WEBHOOK_STATE_UNSPECIFIED',
               },
               intentDetectionConfidence: 42,
               knowledgeAnswers: {
@@ -7918,7 +7928,7 @@ gapi.load('client', async () => {
                     answer: 'Test string',
                     faqQuestion: 'Test string',
                     matchConfidence: 42,
-                    matchConfidenceLevel: 'Test string',
+                    matchConfidenceLevel: 'MATCH_CONFIDENCE_LEVEL_UNSPECIFIED',
                     source: 'Test string',
                   },
                 ],
@@ -8007,7 +8017,7 @@ gapi.load('client', async () => {
                     ],
                   },
                   systemAction: 'Test string',
-                  triggeringEvent: 'Test string',
+                  triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
               ],
               sampleResponses: [
@@ -8054,7 +8064,7 @@ gapi.load('client', async () => {
                   inputParameters: {
                     A: 42,
                   },
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   tool: 'Test string',
                   toolDisplayDetails: 'Test string',
                   toolDisplayName: 'Test string',
@@ -8123,7 +8133,7 @@ gapi.load('client', async () => {
                     inputParameters: {
                       A: 42,
                     },
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                     tool: 'Test string',
                     toolDisplayDetails: 'Test string',
                     toolDisplayName: 'Test string',
@@ -8150,10 +8160,10 @@ gapi.load('client', async () => {
         },
         answerFeedback: {
           agentAssistantDetailFeedback: {
-            answerRelevance: 'Test string',
+            answerRelevance: 'ANSWER_RELEVANCE_UNSPECIFIED',
             companionFeedback: {},
-            documentCorrectness: 'Test string',
-            documentEfficiency: 'Test string',
+            documentCorrectness: 'DOCUMENT_CORRECTNESS_UNSPECIFIED',
+            documentEfficiency: 'DOCUMENT_EFFICIENCY_UNSPECIFIED',
             knowledgeAssistFeedback: {
               answerCopied: true,
               clickedUris: ['Test string'],
@@ -8173,7 +8183,7 @@ gapi.load('client', async () => {
           },
           clicked: true,
           clickTime: 'Test string',
-          correctnessLevel: 'Test string',
+          correctnessLevel: 'CORRECTNESS_LEVEL_UNSPECIFIED',
           displayed: true,
           displayTime: 'Test string',
         },
@@ -8189,7 +8199,7 @@ gapi.load('client', async () => {
         cesToolSpecs: [
           {
             cesTool: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             parameterOverrides: [
               {
                 contextReferenceKey: 'Test string',
@@ -8219,18 +8229,18 @@ gapi.load('client', async () => {
                   disableSuggestedReply: true,
                   displayDetails: 'Test string',
                   displayName: 'Test string',
-                  triggerEvent: 'Test string',
+                  triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
               ],
               knowledgeSource: {},
               overarchingGuidance: 'Test string',
             },
-            skillTriggeringEvent: 'Test string',
+            skillTriggeringEvent: 'SKILL_TRIGGER_EVENT_UNSPECIFIED',
           },
         ],
         toolsetTools: [
           {
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             operationId: 'Test string',
             parameterOverrides: [
               {
@@ -8267,7 +8277,7 @@ gapi.load('client', async () => {
         cesToolSpecs: [
           {
             cesTool: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             parameterOverrides: [
               {
                 contextReferenceKey: 'Test string',
@@ -8297,18 +8307,18 @@ gapi.load('client', async () => {
                   disableSuggestedReply: true,
                   displayDetails: 'Test string',
                   displayName: 'Test string',
-                  triggerEvent: 'Test string',
+                  triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 },
               ],
               knowledgeSource: {},
               overarchingGuidance: 'Test string',
             },
-            skillTriggeringEvent: 'Test string',
+            skillTriggeringEvent: 'SKILL_TRIGGER_EVENT_UNSPECIFIED',
           },
         ],
         toolsetTools: [
           {
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             operationId: 'Test string',
             parameterOverrides: [
               {
@@ -8330,8 +8340,8 @@ gapi.load('client', async () => {
         conversationProfile: 'Test string',
       },
       {
-        participantRole: 'Test string',
-        suggestionFeatureType: 'Test string',
+        participantRole: 'ROLE_UNSPECIFIED',
+        suggestionFeatureType: 'TYPE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.conversationProfiles.create(
@@ -8384,21 +8394,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -8448,21 +8458,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -8480,7 +8490,7 @@ gapi.load('client', async () => {
             enableSentimentAnalysisV3: true,
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
         },
@@ -8501,15 +8511,15 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         newMessageEventNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         newRecognitionResultNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         notificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         securitySettings: 'Test string',
@@ -8524,21 +8534,21 @@ gapi.load('client', async () => {
         },
         sttConfig: {
           alternativeLanguageCodes: ['Test string'],
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           disableInterimInputTranscripts: true,
           enableWordInfo: true,
           geminiAsrConfig: {
-            endOfSpeechSensitivity: 'Test string',
+            endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
             prefixPaddingMs: 42,
             silenceDurationMs: 42,
-            startOfSpeechSensitivity: 'Test string',
+            startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
           },
           languageCode: 'Test string',
           model: 'Test string',
           phraseSets: ['Test string'],
           profanityFilter: true,
           sampleRateHertz: 42,
-          speechModelVariant: 'Test string',
+          speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
           useGeminiAsr: true,
           useTimeoutBasedEndpointing: true,
         },
@@ -8548,7 +8558,7 @@ gapi.load('client', async () => {
           pitch: 42,
           pronunciations: [
             {
-              phoneticEncoding: 'Test string',
+              phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
               phrase: 'Test string',
               pronunciation: 'Test string',
             },
@@ -8556,7 +8566,7 @@ gapi.load('client', async () => {
           speakingRate: 42,
           voice: {
             name: 'Test string',
-            ssmlGender: 'Test string',
+            ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           },
           volumeGainDb: 42,
         },
@@ -8628,21 +8638,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -8692,21 +8702,21 @@ gapi.load('client', async () => {
                   },
                   maxResults: 42,
                   sections: {
-                    sectionTypes: ['Test string'],
+                    sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                   },
                 },
                 raiSettings: {
                   raiCategoryConfigs: [
                     {
-                      category: 'Test string',
-                      sensitivityLevel: 'Test string',
+                      category: 'RAI_CATEGORY_UNSPECIFIED',
+                      sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                     },
                   ],
                 },
                 suggestionFeature: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
-                suggestionTriggerEvent: 'Test string',
+                suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                 suggestionTriggerSettings: {
                   noSmallTalk: true,
                   onlyEndUser: true,
@@ -8724,7 +8734,7 @@ gapi.load('client', async () => {
             enableSentimentAnalysisV3: true,
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
         },
@@ -8745,15 +8755,15 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         newMessageEventNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         newRecognitionResultNotificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         notificationConfig: {
-          messageFormat: 'Test string',
+          messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
           topic: 'Test string',
         },
         securitySettings: 'Test string',
@@ -8768,21 +8778,21 @@ gapi.load('client', async () => {
         },
         sttConfig: {
           alternativeLanguageCodes: ['Test string'],
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           disableInterimInputTranscripts: true,
           enableWordInfo: true,
           geminiAsrConfig: {
-            endOfSpeechSensitivity: 'Test string',
+            endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
             prefixPaddingMs: 42,
             silenceDurationMs: 42,
-            startOfSpeechSensitivity: 'Test string',
+            startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
           },
           languageCode: 'Test string',
           model: 'Test string',
           phraseSets: ['Test string'],
           profanityFilter: true,
           sampleRateHertz: 42,
-          speechModelVariant: 'Test string',
+          speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
           useGeminiAsr: true,
           useTimeoutBasedEndpointing: true,
         },
@@ -8792,7 +8802,7 @@ gapi.load('client', async () => {
           pitch: 42,
           pronunciations: [
             {
-              phoneticEncoding: 'Test string',
+              phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
               phrase: 'Test string',
               pronunciation: 'Test string',
             },
@@ -8800,7 +8810,7 @@ gapi.load('client', async () => {
           speakingRate: 42,
           voice: {
             name: 'Test string',
-            ssmlGender: 'Test string',
+            ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           },
           volumeGainDb: 42,
         },
@@ -8813,7 +8823,7 @@ gapi.load('client', async () => {
         conversationProfile: 'Test string',
       },
       {
-        participantRole: 'Test string',
+        participantRole: 'ROLE_UNSPECIFIED',
         suggestionFeatureConfig: {
           conversationProcessConfig: {
             recentSentencesCount: 42,
@@ -8847,21 +8857,21 @@ gapi.load('client', async () => {
             },
             maxResults: 42,
             sections: {
-              sectionTypes: ['Test string'],
+              sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
             },
           },
           raiSettings: {
             raiCategoryConfigs: [
               {
-                category: 'Test string',
-                sensitivityLevel: 'Test string',
+                category: 'RAI_CATEGORY_UNSPECIFIED',
+                sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
               },
             ],
           },
           suggestionFeature: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          suggestionTriggerEvent: 'Test string',
+          suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
           suggestionTriggerSettings: {
             noSmallTalk: true,
             onlyEndUser: true,
@@ -8882,7 +8892,7 @@ gapi.load('client', async () => {
       },
       {
         conversationProfile: 'Test string',
-        conversationStage: 'Test string',
+        conversationStage: 'CONVERSATION_STAGE_UNSPECIFIED',
         endTime: 'Test string',
         ingestedContextReferences: {
           A: {
@@ -8890,13 +8900,13 @@ gapi.load('client', async () => {
               {
                 answerRecord: 'Test string',
                 content: 'Test string',
-                contentFormat: 'Test string',
+                contentFormat: 'CONTENT_FORMAT_UNSPECIFIED',
                 ingestionTime: 'Test string',
               },
             ],
             createTime: 'Test string',
             languageCode: 'Test string',
-            updateMode: 'Test string',
+            updateMode: 'UPDATE_MODE_UNSPECIFIED',
           },
         },
         initialConversationProfile: {
@@ -8945,21 +8955,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -9009,21 +9019,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -9041,7 +9051,7 @@ gapi.load('client', async () => {
               enableSentimentAnalysisV3: true,
             },
             notificationConfig: {
-              messageFormat: 'Test string',
+              messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
               topic: 'Test string',
             },
           },
@@ -9062,15 +9072,15 @@ gapi.load('client', async () => {
           },
           name: 'Test string',
           newMessageEventNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           newRecognitionResultNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           securitySettings: 'Test string',
@@ -9085,21 +9095,21 @@ gapi.load('client', async () => {
           },
           sttConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             disableInterimInputTranscripts: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
             phraseSets: ['Test string'],
             profanityFilter: true,
             sampleRateHertz: 42,
-            speechModelVariant: 'Test string',
+            speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             useGeminiAsr: true,
             useTimeoutBasedEndpointing: true,
           },
@@ -9109,7 +9119,7 @@ gapi.load('client', async () => {
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -9117,7 +9127,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -9126,10 +9136,10 @@ gapi.load('client', async () => {
         },
         initialGeneratorContexts: {
           A: {
-            generatorType: 'Test string',
+            generatorType: 'GENERATOR_TYPE_UNSPECIFIED',
           },
         },
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
         phoneNumber: {
           countryCode: 42,
@@ -9168,13 +9178,13 @@ gapi.load('client', async () => {
               {
                 answerRecord: 'Test string',
                 content: 'Test string',
-                contentFormat: 'Test string',
+                contentFormat: 'CONTENT_FORMAT_UNSPECIFIED',
                 ingestionTime: 'Test string',
               },
             ],
             createTime: 'Test string',
             languageCode: 'Test string',
-            updateMode: 'Test string',
+            updateMode: 'UPDATE_MODE_UNSPECIFIED',
           },
         },
       },
@@ -9208,7 +9218,7 @@ gapi.load('client', async () => {
               },
               name: 'Test string',
               participant: 'Test string',
-              participantRole: 'Test string',
+              participantRole: 'ROLE_UNSPECIFIED',
               responseMessages: [
                 {
                   endInteraction: {},
@@ -9282,7 +9292,7 @@ gapi.load('client', async () => {
           audio: 'Test string',
           config: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             bargeInConfig: {
               noBargeInDuration: 'Test string',
               totalDuration: 'Test string',
@@ -9294,14 +9304,14 @@ gapi.load('client', async () => {
             enableVoiceActivityEvents: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
-            modelVariant: 'Test string',
+            modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             optOutConformerModelMigration: true,
             phraseHints: ['Test string'],
             phraseSets: ['Test string'],
@@ -9364,7 +9374,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -9380,14 +9390,14 @@ gapi.load('client', async () => {
           },
         },
         replyAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -9395,14 +9405,14 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
         },
         requestId: 'Test string',
         suggestionInput: {
-          action: 'Test string',
+          action: 'ACTION_UNSPECIFIED',
           answerRecord: 'Test string',
           intentInput: {
             intent: 'Test string',
@@ -9428,13 +9438,13 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        agentDesktopSource: 'Test string',
+        agentDesktopSource: 'AGENT_DESKTOP_SOURCE_UNSPECIFIED',
         documentsMetadataFilters: {
           A: 'Test string',
         },
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.conversations.participants.get(
@@ -9455,13 +9465,13 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        agentDesktopSource: 'Test string',
+        agentDesktopSource: 'AGENT_DESKTOP_SOURCE_UNSPECIFIED',
         documentsMetadataFilters: {
           A: 'Test string',
         },
         name: 'Test string',
         obfuscatedExternalUserId: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.conversations.participants.suggestions.suggestArticles(
@@ -9521,7 +9531,7 @@ gapi.load('client', async () => {
       },
       {
         latestMessage: 'Test string',
-        triggerEvents: ['Test string'],
+        triggerEvents: ['TRIGGER_EVENT_UNSPECIFIED'],
       },
     );
     await gapi.client.dialogflow.projects.locations.conversations.suggestions.searchKnowledge(
@@ -9541,7 +9551,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-        querySource: 'Test string',
+        querySource: 'QUERY_SOURCE_UNSPECIFIED',
         searchConfig: {
           boostSpecs: [
             {
@@ -9552,7 +9562,7 @@ gapi.load('client', async () => {
                     {
                       boost: 42,
                       boostControlSpec: {
-                        attributeType: 'Test string',
+                        attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                         controlPoints: [
                           {
                             attributeValue: 'Test string',
@@ -9560,7 +9570,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         fieldName: 'Test string',
-                        interpolationType: 'Test string',
+                        interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                       },
                       condition: 'Test string',
                     },
@@ -9627,7 +9637,7 @@ gapi.load('client', async () => {
                 ],
               },
               systemAction: 'Test string',
-              triggeringEvent: 'Test string',
+              triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
             },
           ],
           outputLanguageCode: 'Test string',
@@ -9637,7 +9647,7 @@ gapi.load('client', async () => {
         cesAppSpecs: [
           {
             cesApp: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             proactiveEnabled: true,
             reactiveEnabled: true,
           },
@@ -9645,7 +9655,7 @@ gapi.load('client', async () => {
         cesToolSpecs: [
           {
             cesTool: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             parameterOverrides: [
               {
                 contextReferenceKey: 'Test string',
@@ -9682,7 +9692,7 @@ gapi.load('client', async () => {
                   {
                     createTime: 'Test string',
                     languageCode: 'Test string',
-                    role: 'Test string',
+                    role: 'ROLE_UNSPECIFIED',
                     text: 'Test string',
                   },
                 ],
@@ -9728,7 +9738,7 @@ gapi.load('client', async () => {
                         ],
                       },
                       systemAction: 'Test string',
-                      triggeringEvent: 'Test string',
+                      triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                     },
                   ],
                   sampleResponses: [
@@ -9775,7 +9785,7 @@ gapi.load('client', async () => {
                       inputParameters: {
                         A: 42,
                       },
-                      state: 'Test string',
+                      state: 'STATE_UNSPECIFIED',
                       tool: 'Test string',
                       toolDisplayDetails: 'Test string',
                       toolDisplayName: 'Test string',
@@ -9803,7 +9813,7 @@ gapi.load('client', async () => {
                   {
                     definition: 'Test string',
                     key: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -9814,7 +9824,7 @@ gapi.load('client', async () => {
             {
               definition: 'Test string',
               key: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           version: 'Test string',
@@ -9822,7 +9832,7 @@ gapi.load('client', async () => {
         tools: ['Test string'],
         toolsetTools: [
           {
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             operationId: 'Test string',
             parameterOverrides: [
               {
@@ -9836,7 +9846,7 @@ gapi.load('client', async () => {
             toolset: 'Test string',
           },
         ],
-        triggerEvent: 'Test string',
+        triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -9874,7 +9884,7 @@ gapi.load('client', async () => {
                 ],
               },
               systemAction: 'Test string',
-              triggeringEvent: 'Test string',
+              triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
             },
           ],
           outputLanguageCode: 'Test string',
@@ -9884,7 +9894,7 @@ gapi.load('client', async () => {
         cesAppSpecs: [
           {
             cesApp: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             proactiveEnabled: true,
             reactiveEnabled: true,
           },
@@ -9892,7 +9902,7 @@ gapi.load('client', async () => {
         cesToolSpecs: [
           {
             cesTool: 'Test string',
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             parameterOverrides: [
               {
                 contextReferenceKey: 'Test string',
@@ -9929,7 +9939,7 @@ gapi.load('client', async () => {
                   {
                     createTime: 'Test string',
                     languageCode: 'Test string',
-                    role: 'Test string',
+                    role: 'ROLE_UNSPECIFIED',
                     text: 'Test string',
                   },
                 ],
@@ -9975,7 +9985,7 @@ gapi.load('client', async () => {
                         ],
                       },
                       systemAction: 'Test string',
-                      triggeringEvent: 'Test string',
+                      triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                     },
                   ],
                   sampleResponses: [
@@ -10022,7 +10032,7 @@ gapi.load('client', async () => {
                       inputParameters: {
                         A: 42,
                       },
-                      state: 'Test string',
+                      state: 'STATE_UNSPECIFIED',
                       tool: 'Test string',
                       toolDisplayDetails: 'Test string',
                       toolDisplayName: 'Test string',
@@ -10050,7 +10060,7 @@ gapi.load('client', async () => {
                   {
                     definition: 'Test string',
                     key: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -10061,7 +10071,7 @@ gapi.load('client', async () => {
             {
               definition: 'Test string',
               key: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
           version: 'Test string',
@@ -10069,7 +10079,7 @@ gapi.load('client', async () => {
         tools: ['Test string'],
         toolsetTools: [
           {
-            confirmationRequirement: 'Test string',
+            confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
             operationId: 'Test string',
             parameterOverrides: [
               {
@@ -10083,7 +10093,7 @@ gapi.load('client', async () => {
             toolset: 'Test string',
           },
         ],
-        triggerEvent: 'Test string',
+        triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -10117,11 +10127,11 @@ gapi.load('client', async () => {
               dataset: 'Test string',
             },
             endTime: 'Test string',
-            inputDataSourceType: 'Test string',
+            inputDataSourceType: 'INPUT_DATA_SOURCE_TYPE_UNSPECIFIED',
             isSummaryGenerationAllowed: true,
             sampleSize: 42,
             startTime: 'Test string',
-            summaryGenerationOption: 'Test string',
+            summaryGenerationOption: 'SUMMARY_GENERATION_OPTION_UNSPECIFIED',
           },
           outputGcsBucketPath: 'Test string',
           summarizationConfig: {
@@ -10150,7 +10160,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 systemAction: 'Test string',
-                triggeringEvent: 'Test string',
+                triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
               },
             ],
             outputLanguageCode: 'Test string',
@@ -10160,7 +10170,7 @@ gapi.load('client', async () => {
           cesAppSpecs: [
             {
               cesApp: 'Test string',
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               proactiveEnabled: true,
               reactiveEnabled: true,
             },
@@ -10168,7 +10178,7 @@ gapi.load('client', async () => {
           cesToolSpecs: [
             {
               cesTool: 'Test string',
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               parameterOverrides: [
                 {
                   contextReferenceKey: 'Test string',
@@ -10205,7 +10215,7 @@ gapi.load('client', async () => {
                     {
                       createTime: 'Test string',
                       languageCode: 'Test string',
-                      role: 'Test string',
+                      role: 'ROLE_UNSPECIFIED',
                       text: 'Test string',
                     },
                   ],
@@ -10251,7 +10261,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         systemAction: 'Test string',
-                        triggeringEvent: 'Test string',
+                        triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                       },
                     ],
                     sampleResponses: [
@@ -10298,7 +10308,7 @@ gapi.load('client', async () => {
                         inputParameters: {
                           A: 42,
                         },
-                        state: 'Test string',
+                        state: 'STATE_UNSPECIFIED',
                         tool: 'Test string',
                         toolDisplayDetails: 'Test string',
                         toolDisplayName: 'Test string',
@@ -10326,7 +10336,7 @@ gapi.load('client', async () => {
                     {
                       definition: 'Test string',
                       key: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -10337,7 +10347,7 @@ gapi.load('client', async () => {
               {
                 definition: 'Test string',
                 key: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             version: 'Test string',
@@ -10345,7 +10355,7 @@ gapi.load('client', async () => {
           tools: ['Test string'],
           toolsetTools: [
             {
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               operationId: 'Test string',
               parameterOverrides: [
                 {
@@ -10359,7 +10369,7 @@ gapi.load('client', async () => {
               toolset: 'Test string',
             },
           ],
-          triggerEvent: 'Test string',
+          triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
           updateTime: 'Test string',
         },
         name: 'Test string',
@@ -10372,7 +10382,7 @@ gapi.load('client', async () => {
                 {
                   createTime: 'Test string',
                   languageCode: 'Test string',
-                  role: 'Test string',
+                  role: 'ROLE_UNSPECIFIED',
                   text: 'Test string',
                 },
               ],
@@ -10536,7 +10546,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -10555,7 +10565,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.delete(
@@ -10574,7 +10584,7 @@ gapi.load('client', async () => {
       },
       {
         documentTemplate: {
-          knowledgeTypes: ['Test string'],
+          knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
           metadata: {
             A: 'Test string',
           },
@@ -10604,7 +10614,7 @@ gapi.load('client', async () => {
         contentUri: 'Test string',
         displayName: 'Test string',
         enableAutoReload: true,
-        knowledgeTypes: ['Test string'],
+        knowledgeTypes: ['KNOWLEDGE_TYPE_UNSPECIFIED'],
         latestReloadStatus: {
           status: {
             code: 42,
@@ -10623,7 +10633,7 @@ gapi.load('client', async () => {
         mimeType: 'Test string',
         name: 'Test string',
         rawContent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.knowledgeBases.documents.reload(
@@ -10670,7 +10680,7 @@ gapi.load('client', async () => {
           sipTrunks: ['Test string'],
         },
         conversationProfile: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
         phoneNumber: 'Test string',
         purgeTime: 'Test string',
@@ -10691,23 +10701,23 @@ gapi.load('client', async () => {
           {
             connectionId: 'Test string',
             errorDetails: {
-              certificateState: 'Test string',
+              certificateState: 'CERTIFICATE_STATE_UNSPECIFIED',
               errorMessage: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
         displayName: 'Test string',
         expectedHostname: ['Test string'],
-        googleRootCertFile: 'Test string',
+        googleRootCertFile: 'CERT_FILE_UNSPECIFIED',
         name: 'Test string',
         peerHostnames: [
           {
-            connectionState: 'Test string',
+            connectionState: 'CONNECTION_STATE_UNSPECIFIED',
             enabledSipPing: true,
             errorDetails: {
-              certificateState: 'Test string',
+              certificateState: 'HOSTNAME_CERTIFICATE_STATE_UNSPECIFIED',
               errorMessage: 'Test string',
             },
             peerHostname: 'Test string',
@@ -10716,7 +10726,7 @@ gapi.load('client', async () => {
             probeDetails: {
               initTime: 'Test string',
               optionsLatency: 'Test string',
-              probeStatus: 'Test string',
+              probeStatus: 'PROBE_STATUS_UNSPECIFIED',
             },
           },
         ],
@@ -10743,23 +10753,23 @@ gapi.load('client', async () => {
           {
             connectionId: 'Test string',
             errorDetails: {
-              certificateState: 'Test string',
+              certificateState: 'CERTIFICATE_STATE_UNSPECIFIED',
               errorMessage: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
         displayName: 'Test string',
         expectedHostname: ['Test string'],
-        googleRootCertFile: 'Test string',
+        googleRootCertFile: 'CERT_FILE_UNSPECIFIED',
         name: 'Test string',
         peerHostnames: [
           {
-            connectionState: 'Test string',
+            connectionState: 'CONNECTION_STATE_UNSPECIFIED',
             enabledSipPing: true,
             errorDetails: {
-              certificateState: 'Test string',
+              certificateState: 'HOSTNAME_CERTIFICATE_STATE_UNSPECIFIED',
               errorMessage: 'Test string',
             },
             peerHostname: 'Test string',
@@ -10768,7 +10778,7 @@ gapi.load('client', async () => {
             probeDetails: {
               initTime: 'Test string',
               optionsLatency: 'Test string',
-              probeStatus: 'Test string',
+              probeStatus: 'PROBE_STATUS_UNSPECIFIED',
             },
           },
         ],
@@ -10785,13 +10795,13 @@ gapi.load('client', async () => {
               {
                 answerRecord: 'Test string',
                 content: 'Test string',
-                contentFormat: 'Test string',
+                contentFormat: 'CONTENT_FORMAT_UNSPECIFIED',
                 ingestionTime: 'Test string',
               },
             ],
             createTime: 'Test string',
             languageCode: 'Test string',
-            updateMode: 'Test string',
+            updateMode: 'UPDATE_MODE_UNSPECIFIED',
           },
         },
         conversationContext: {
@@ -10799,7 +10809,7 @@ gapi.load('client', async () => {
             {
               createTime: 'Test string',
               languageCode: 'Test string',
-              role: 'Test string',
+              role: 'ROLE_UNSPECIFIED',
               text: 'Test string',
             },
           ],
@@ -10822,7 +10832,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 systemAction: 'Test string',
-                triggeringEvent: 'Test string',
+                triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
               },
             ],
             outputLanguageCode: 'Test string',
@@ -10832,7 +10842,7 @@ gapi.load('client', async () => {
           cesAppSpecs: [
             {
               cesApp: 'Test string',
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               proactiveEnabled: true,
               reactiveEnabled: true,
             },
@@ -10840,7 +10850,7 @@ gapi.load('client', async () => {
           cesToolSpecs: [
             {
               cesTool: 'Test string',
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               parameterOverrides: [
                 {
                   contextReferenceKey: 'Test string',
@@ -10877,7 +10887,7 @@ gapi.load('client', async () => {
                     {
                       createTime: 'Test string',
                       languageCode: 'Test string',
-                      role: 'Test string',
+                      role: 'ROLE_UNSPECIFIED',
                       text: 'Test string',
                     },
                   ],
@@ -10923,7 +10933,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         systemAction: 'Test string',
-                        triggeringEvent: 'Test string',
+                        triggeringEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                       },
                     ],
                     sampleResponses: [
@@ -10970,7 +10980,7 @@ gapi.load('client', async () => {
                         inputParameters: {
                           A: 42,
                         },
-                        state: 'Test string',
+                        state: 'STATE_UNSPECIFIED',
                         tool: 'Test string',
                         toolDisplayDetails: 'Test string',
                         toolDisplayName: 'Test string',
@@ -10998,7 +11008,7 @@ gapi.load('client', async () => {
                     {
                       definition: 'Test string',
                       key: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -11009,7 +11019,7 @@ gapi.load('client', async () => {
               {
                 definition: 'Test string',
                 key: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             version: 'Test string',
@@ -11017,7 +11027,7 @@ gapi.load('client', async () => {
           tools: ['Test string'],
           toolsetTools: [
             {
-              confirmationRequirement: 'Test string',
+              confirmationRequirement: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
               operationId: 'Test string',
               parameterOverrides: [
                 {
@@ -11031,12 +11041,12 @@ gapi.load('client', async () => {
               toolset: 'Test string',
             },
           ],
-          triggerEvent: 'Test string',
+          triggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
           updateTime: 'Test string',
         },
         generatorName: 'Test string',
         securitySettings: 'Test string',
-        triggerEvents: ['Test string'],
+        triggerEvents: ['TRIGGER_EVENT_UNSPECIFIED'],
       },
     );
     await gapi.client.dialogflow.projects.locations.suggestions.generateStatelessSummary(
@@ -11090,21 +11100,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -11154,21 +11164,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -11186,7 +11196,7 @@ gapi.load('client', async () => {
               enableSentimentAnalysisV3: true,
             },
             notificationConfig: {
-              messageFormat: 'Test string',
+              messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
               topic: 'Test string',
             },
           },
@@ -11207,15 +11217,15 @@ gapi.load('client', async () => {
           },
           name: 'Test string',
           newMessageEventNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           newRecognitionResultNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           securitySettings: 'Test string',
@@ -11230,21 +11240,21 @@ gapi.load('client', async () => {
           },
           sttConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             disableInterimInputTranscripts: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
             phraseSets: ['Test string'],
             profanityFilter: true,
             sampleRateHertz: 42,
-            speechModelVariant: 'Test string',
+            speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             useGeminiAsr: true,
             useTimeoutBasedEndpointing: true,
           },
@@ -11254,7 +11264,7 @@ gapi.load('client', async () => {
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -11262,7 +11272,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -11289,7 +11299,7 @@ gapi.load('client', async () => {
               },
               name: 'Test string',
               participant: 'Test string',
-              participantRole: 'Test string',
+              participantRole: 'ROLE_UNSPECIFIED',
               responseMessages: [
                 {
                   endInteraction: {},
@@ -11357,7 +11367,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-        querySource: 'Test string',
+        querySource: 'QUERY_SOURCE_UNSPECIFIED',
         searchConfig: {
           boostSpecs: [
             {
@@ -11368,7 +11378,7 @@ gapi.load('client', async () => {
                     {
                       boost: 42,
                       boostControlSpec: {
-                        attributeType: 'Test string',
+                        attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                         controlPoints: [
                           {
                             attributeValue: 'Test string',
@@ -11376,7 +11386,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         fieldName: 'Test string',
-                        interpolationType: 'Test string',
+                        interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                       },
                       condition: 'Test string',
                     },
@@ -11402,7 +11412,7 @@ gapi.load('client', async () => {
       },
       {
         actionConfirmationRequirement: {
-          A: 'Test string',
+          A: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
         },
         connectorSpec: {
           actions: [
@@ -11410,7 +11420,7 @@ gapi.load('client', async () => {
               connectionActionId: 'Test string',
               entityOperation: {
                 entityId: 'Test string',
-                operation: 'Test string',
+                operation: 'OPERATION_TYPE_UNSPECIFIED',
               },
               inputFields: ['Test string'],
               outputFields: ['Test string'],
@@ -11428,7 +11438,7 @@ gapi.load('client', async () => {
           inputSchema: {
             A: 42,
           },
-          methodType: 'Test string',
+          methodType: 'METHOD_TYPE_UNSPECIFIED',
           outputSchema: {
             A: 42,
           },
@@ -11439,7 +11449,7 @@ gapi.load('client', async () => {
             apiKeyConfig: {
               apiKey: 'Test string',
               keyName: 'Test string',
-              requestLocation: 'Test string',
+              requestLocation: 'REQUEST_LOCATION_UNSPECIFIED',
               secretVersionForApiKey: 'Test string',
             },
             bearerTokenConfig: {
@@ -11449,13 +11459,13 @@ gapi.load('client', async () => {
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
-              oauthGrantType: 'Test string',
+              oauthGrantType: 'OAUTH_GRANT_TYPE_UNSPECIFIED',
               scopes: ['Test string'],
               secretVersionForClientSecret: 'Test string',
               tokenEndpoint: 'Test string',
             },
             serviceAgentAuthConfig: {
-              serviceAgentAuth: 'Test string',
+              serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             },
           },
           serviceDirectoryConfig: {
@@ -11495,7 +11505,7 @@ gapi.load('client', async () => {
       },
       {
         actionConfirmationRequirement: {
-          A: 'Test string',
+          A: 'CONFIRMATION_REQUIREMENT_UNSPECIFIED',
         },
         connectorSpec: {
           actions: [
@@ -11503,7 +11513,7 @@ gapi.load('client', async () => {
               connectionActionId: 'Test string',
               entityOperation: {
                 entityId: 'Test string',
-                operation: 'Test string',
+                operation: 'OPERATION_TYPE_UNSPECIFIED',
               },
               inputFields: ['Test string'],
               outputFields: ['Test string'],
@@ -11521,7 +11531,7 @@ gapi.load('client', async () => {
           inputSchema: {
             A: 42,
           },
-          methodType: 'Test string',
+          methodType: 'METHOD_TYPE_UNSPECIFIED',
           outputSchema: {
             A: 42,
           },
@@ -11532,7 +11542,7 @@ gapi.load('client', async () => {
             apiKeyConfig: {
               apiKey: 'Test string',
               keyName: 'Test string',
-              requestLocation: 'Test string',
+              requestLocation: 'REQUEST_LOCATION_UNSPECIFIED',
               secretVersionForApiKey: 'Test string',
             },
             bearerTokenConfig: {
@@ -11542,13 +11552,13 @@ gapi.load('client', async () => {
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
-              oauthGrantType: 'Test string',
+              oauthGrantType: 'OAUTH_GRANT_TYPE_UNSPECIFIED',
               scopes: ['Test string'],
               secretVersionForClientSecret: 'Test string',
               tokenEndpoint: 'Test string',
             },
             serviceAgentAuthConfig: {
-              serviceAgentAuth: 'Test string',
+              serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             },
           },
           serviceDirectoryConfig: {
@@ -11603,7 +11613,7 @@ gapi.load('client', async () => {
           sipTrunks: ['Test string'],
         },
         conversationProfile: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
         phoneNumber: 'Test string',
         purgeTime: 'Test string',
@@ -11666,21 +11676,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -11730,21 +11740,21 @@ gapi.load('client', async () => {
                     },
                     maxResults: 42,
                     sections: {
-                      sectionTypes: ['Test string'],
+                      sectionTypes: ['SECTION_TYPE_UNSPECIFIED'],
                     },
                   },
                   raiSettings: {
                     raiCategoryConfigs: [
                       {
-                        category: 'Test string',
-                        sensitivityLevel: 'Test string',
+                        category: 'RAI_CATEGORY_UNSPECIFIED',
+                        sensitivityLevel: 'SENSITIVITY_LEVEL_UNSPECIFIED',
                       },
                     ],
                   },
                   suggestionFeature: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  suggestionTriggerEvent: 'Test string',
+                  suggestionTriggerEvent: 'TRIGGER_EVENT_UNSPECIFIED',
                   suggestionTriggerSettings: {
                     noSmallTalk: true,
                     onlyEndUser: true,
@@ -11762,7 +11772,7 @@ gapi.load('client', async () => {
               enableSentimentAnalysisV3: true,
             },
             notificationConfig: {
-              messageFormat: 'Test string',
+              messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
               topic: 'Test string',
             },
           },
@@ -11783,15 +11793,15 @@ gapi.load('client', async () => {
           },
           name: 'Test string',
           newMessageEventNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           newRecognitionResultNotificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           notificationConfig: {
-            messageFormat: 'Test string',
+            messageFormat: 'MESSAGE_FORMAT_UNSPECIFIED',
             topic: 'Test string',
           },
           securitySettings: 'Test string',
@@ -11806,21 +11816,21 @@ gapi.load('client', async () => {
           },
           sttConfig: {
             alternativeLanguageCodes: ['Test string'],
-            audioEncoding: 'Test string',
+            audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
             disableInterimInputTranscripts: true,
             enableWordInfo: true,
             geminiAsrConfig: {
-              endOfSpeechSensitivity: 'Test string',
+              endOfSpeechSensitivity: 'END_SENSITIVITY_UNSPECIFIED',
               prefixPaddingMs: 42,
               silenceDurationMs: 42,
-              startOfSpeechSensitivity: 'Test string',
+              startOfSpeechSensitivity: 'START_SENSITIVITY_UNSPECIFIED',
             },
             languageCode: 'Test string',
             model: 'Test string',
             phraseSets: ['Test string'],
             profanityFilter: true,
             sampleRateHertz: 42,
-            speechModelVariant: 'Test string',
+            speechModelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
             useGeminiAsr: true,
             useTimeoutBasedEndpointing: true,
           },
@@ -11830,7 +11840,7 @@ gapi.load('client', async () => {
             pitch: 42,
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -11838,7 +11848,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -11865,7 +11875,7 @@ gapi.load('client', async () => {
               },
               name: 'Test string',
               participant: 'Test string',
-              participantRole: 'Test string',
+              participantRole: 'ROLE_UNSPECIFIED',
               responseMessages: [
                 {
                   endInteraction: {},
@@ -11933,7 +11943,7 @@ gapi.load('client', async () => {
           languageCode: 'Test string',
           text: 'Test string',
         },
-        querySource: 'Test string',
+        querySource: 'QUERY_SOURCE_UNSPECIFIED',
         searchConfig: {
           boostSpecs: [
             {
@@ -11944,7 +11954,7 @@ gapi.load('client', async () => {
                     {
                       boost: 42,
                       boostControlSpec: {
-                        attributeType: 'Test string',
+                        attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                         controlPoints: [
                           {
                             attributeValue: 'Test string',
@@ -11952,7 +11962,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         fieldName: 'Test string',
-                        interpolationType: 'Test string',
+                        interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                       },
                       condition: 'Test string',
                     },

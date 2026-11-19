@@ -61,7 +61,7 @@ gapi.load('client', async () => {
         registration: 'Test string',
       },
       {
-        contactNotices: ['Test string'],
+        contactNotices: ['CONTACT_NOTICE_UNSPECIFIED'],
         contactSettings: {
           adminContact: {
             email: 'Test string',
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
               sublocality: 'Test string',
             },
           },
-          privacy: 'Test string',
+          privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
           registrantContact: {
             email: 'Test string',
             faxNumber: 'Test string',
@@ -133,9 +133,9 @@ gapi.load('client', async () => {
           customDns: {
             dsRecords: [
               {
-                algorithm: 'Test string',
+                algorithm: 'ALGORITHM_UNSPECIFIED',
                 digest: 'Test string',
-                digestType: 'Test string',
+                digestType: 'DIGEST_TYPE_UNSPECIFIED',
                 keyTag: 42,
               },
             ],
@@ -151,13 +151,13 @@ gapi.load('client', async () => {
           googleDomainsDns: {
             dsRecords: [
               {
-                algorithm: 'Test string',
+                algorithm: 'ALGORITHM_UNSPECIFIED',
                 digest: 'Test string',
-                digestType: 'Test string',
+                digestType: 'DIGEST_TYPE_UNSPECIFIED',
                 keyTag: 42,
               },
             ],
-            dsState: 'Test string',
+            dsState: 'DS_STATE_UNSPECIFIED',
             nameServers: ['Test string'],
           },
           googleDomainsRedirectsDataAvailable: true,
@@ -173,10 +173,10 @@ gapi.load('client', async () => {
       },
       {
         managementSettings: {
-          effectiveTransferLockState: 'Test string',
-          preferredRenewalMethod: 'Test string',
-          renewalMethod: 'Test string',
-          transferLockState: 'Test string',
+          effectiveTransferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
+          preferredRenewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+          renewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+          transferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
         },
         updateMask: 'Test string',
         validateOnly: true,
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
               sublocality: 'Test string',
             },
           },
-          privacy: 'Test string',
+          privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
           registrantContact: {
             email: 'Test string',
             faxNumber: 'Test string',
@@ -301,9 +301,9 @@ gapi.load('client', async () => {
           customDns: {
             dsRecords: [
               {
-                algorithm: 'Test string',
+                algorithm: 'ALGORITHM_UNSPECIFIED',
                 digest: 'Test string',
-                digestType: 'Test string',
+                digestType: 'DIGEST_TYPE_UNSPECIFIED',
                 keyTag: 42,
               },
             ],
@@ -319,29 +319,29 @@ gapi.load('client', async () => {
           googleDomainsDns: {
             dsRecords: [
               {
-                algorithm: 'Test string',
+                algorithm: 'ALGORITHM_UNSPECIFIED',
                 digest: 'Test string',
-                digestType: 'Test string',
+                digestType: 'DIGEST_TYPE_UNSPECIFIED',
                 keyTag: 42,
               },
             ],
-            dsState: 'Test string',
+            dsState: 'DS_STATE_UNSPECIFIED',
             nameServers: ['Test string'],
           },
           googleDomainsRedirectsDataAvailable: true,
         },
         domainName: 'Test string',
-        domainProperties: ['Test string'],
+        domainProperties: ['DOMAIN_PROPERTY_UNSPECIFIED'],
         expireTime: 'Test string',
-        issues: ['Test string'],
+        issues: ['ISSUE_UNSPECIFIED'],
         labels: {
           A: 'Test string',
         },
         managementSettings: {
-          effectiveTransferLockState: 'Test string',
-          preferredRenewalMethod: 'Test string',
-          renewalMethod: 'Test string',
-          transferLockState: 'Test string',
+          effectiveTransferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
+          preferredRenewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+          renewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+          transferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
         },
         name: 'Test string',
         pendingContactSettings: {
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
               sublocality: 'Test string',
             },
           },
-          privacy: 'Test string',
+          privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
           registrantContact: {
             email: 'Test string',
             faxNumber: 'Test string',
@@ -401,11 +401,11 @@ gapi.load('client', async () => {
             },
           },
         },
-        provider: 'Test string',
-        registerFailureReason: 'Test string',
-        state: 'Test string',
-        supportedPrivacy: ['Test string'],
-        transferFailureReason: 'Test string',
+        provider: 'REGISTRAR_UNSPECIFIED',
+        registerFailureReason: 'REGISTER_FAILURE_REASON_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
+        supportedPrivacy: ['CONTACT_PRIVACY_UNSPECIFIED'],
+        transferFailureReason: 'TRANSFER_FAILURE_REASON_UNSPECIFIED',
       },
     );
     /** Registers a new domain name and creates a corresponding `Registration` resource. Call `RetrieveRegisterParameters` first to check availability of the domain name and determine parameters like price that are needed to build a call to this method. A successful call creates a `Registration` resource in state `REGISTRATION_PENDING`, which resolves to `ACTIVE` within 1-2 minutes, indicating that the domain was successfully registered. If the resource ends up in state `REGISTRATION_FAILED`, it indicates that the domain was not registered successfully, and you can safely delete the resource and retry registration. */
@@ -414,8 +414,8 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        contactNotices: ['Test string'],
-        domainNotices: ['Test string'],
+        contactNotices: ['CONTACT_NOTICE_UNSPECIFIED'],
+        domainNotices: ['DOMAIN_NOTICE_UNSPECIFIED'],
         registration: {
           contactSettings: {
             adminContact: {
@@ -436,7 +436,7 @@ gapi.load('client', async () => {
                 sublocality: 'Test string',
               },
             },
-            privacy: 'Test string',
+            privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
             registrantContact: {
               email: 'Test string',
               faxNumber: 'Test string',
@@ -479,9 +479,9 @@ gapi.load('client', async () => {
             customDns: {
               dsRecords: [
                 {
-                  algorithm: 'Test string',
+                  algorithm: 'ALGORITHM_UNSPECIFIED',
                   digest: 'Test string',
-                  digestType: 'Test string',
+                  digestType: 'DIGEST_TYPE_UNSPECIFIED',
                   keyTag: 42,
                 },
               ],
@@ -497,29 +497,29 @@ gapi.load('client', async () => {
             googleDomainsDns: {
               dsRecords: [
                 {
-                  algorithm: 'Test string',
+                  algorithm: 'ALGORITHM_UNSPECIFIED',
                   digest: 'Test string',
-                  digestType: 'Test string',
+                  digestType: 'DIGEST_TYPE_UNSPECIFIED',
                   keyTag: 42,
                 },
               ],
-              dsState: 'Test string',
+              dsState: 'DS_STATE_UNSPECIFIED',
               nameServers: ['Test string'],
             },
             googleDomainsRedirectsDataAvailable: true,
           },
           domainName: 'Test string',
-          domainProperties: ['Test string'],
+          domainProperties: ['DOMAIN_PROPERTY_UNSPECIFIED'],
           expireTime: 'Test string',
-          issues: ['Test string'],
+          issues: ['ISSUE_UNSPECIFIED'],
           labels: {
             A: 'Test string',
           },
           managementSettings: {
-            effectiveTransferLockState: 'Test string',
-            preferredRenewalMethod: 'Test string',
-            renewalMethod: 'Test string',
-            transferLockState: 'Test string',
+            effectiveTransferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
+            preferredRenewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+            renewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+            transferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
           },
           name: 'Test string',
           pendingContactSettings: {
@@ -541,7 +541,7 @@ gapi.load('client', async () => {
                 sublocality: 'Test string',
               },
             },
-            privacy: 'Test string',
+            privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
             registrantContact: {
               email: 'Test string',
               faxNumber: 'Test string',
@@ -579,11 +579,11 @@ gapi.load('client', async () => {
               },
             },
           },
-          provider: 'Test string',
-          registerFailureReason: 'Test string',
-          state: 'Test string',
-          supportedPrivacy: ['Test string'],
-          transferFailureReason: 'Test string',
+          provider: 'REGISTRAR_UNSPECIFIED',
+          registerFailureReason: 'REGISTER_FAILURE_REASON_UNSPECIFIED',
+          state: 'STATE_UNSPECIFIED',
+          supportedPrivacy: ['CONTACT_PRIVACY_UNSPECIFIED'],
+          transferFailureReason: 'TRANSFER_FAILURE_REASON_UNSPECIFIED',
         },
         validateOnly: true,
         yearlyPrice: {
@@ -673,7 +673,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -715,7 +715,7 @@ gapi.load('client', async () => {
         authorizationCode: {
           code: 'Test string',
         },
-        contactNotices: ['Test string'],
+        contactNotices: ['CONTACT_NOTICE_UNSPECIFIED'],
         registration: {
           contactSettings: {
             adminContact: {
@@ -736,7 +736,7 @@ gapi.load('client', async () => {
                 sublocality: 'Test string',
               },
             },
-            privacy: 'Test string',
+            privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
             registrantContact: {
               email: 'Test string',
               faxNumber: 'Test string',
@@ -779,9 +779,9 @@ gapi.load('client', async () => {
             customDns: {
               dsRecords: [
                 {
-                  algorithm: 'Test string',
+                  algorithm: 'ALGORITHM_UNSPECIFIED',
                   digest: 'Test string',
-                  digestType: 'Test string',
+                  digestType: 'DIGEST_TYPE_UNSPECIFIED',
                   keyTag: 42,
                 },
               ],
@@ -797,29 +797,29 @@ gapi.load('client', async () => {
             googleDomainsDns: {
               dsRecords: [
                 {
-                  algorithm: 'Test string',
+                  algorithm: 'ALGORITHM_UNSPECIFIED',
                   digest: 'Test string',
-                  digestType: 'Test string',
+                  digestType: 'DIGEST_TYPE_UNSPECIFIED',
                   keyTag: 42,
                 },
               ],
-              dsState: 'Test string',
+              dsState: 'DS_STATE_UNSPECIFIED',
               nameServers: ['Test string'],
             },
             googleDomainsRedirectsDataAvailable: true,
           },
           domainName: 'Test string',
-          domainProperties: ['Test string'],
+          domainProperties: ['DOMAIN_PROPERTY_UNSPECIFIED'],
           expireTime: 'Test string',
-          issues: ['Test string'],
+          issues: ['ISSUE_UNSPECIFIED'],
           labels: {
             A: 'Test string',
           },
           managementSettings: {
-            effectiveTransferLockState: 'Test string',
-            preferredRenewalMethod: 'Test string',
-            renewalMethod: 'Test string',
-            transferLockState: 'Test string',
+            effectiveTransferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
+            preferredRenewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+            renewalMethod: 'RENEWAL_METHOD_UNSPECIFIED',
+            transferLockState: 'TRANSFER_LOCK_STATE_UNSPECIFIED',
           },
           name: 'Test string',
           pendingContactSettings: {
@@ -841,7 +841,7 @@ gapi.load('client', async () => {
                 sublocality: 'Test string',
               },
             },
-            privacy: 'Test string',
+            privacy: 'CONTACT_PRIVACY_UNSPECIFIED',
             registrantContact: {
               email: 'Test string',
               faxNumber: 'Test string',
@@ -879,11 +879,11 @@ gapi.load('client', async () => {
               },
             },
           },
-          provider: 'Test string',
-          registerFailureReason: 'Test string',
-          state: 'Test string',
-          supportedPrivacy: ['Test string'],
-          transferFailureReason: 'Test string',
+          provider: 'REGISTRAR_UNSPECIFIED',
+          registerFailureReason: 'REGISTER_FAILURE_REASON_UNSPECIFIED',
+          state: 'STATE_UNSPECIFIED',
+          supportedPrivacy: ['CONTACT_PRIVACY_UNSPECIFIED'],
+          transferFailureReason: 'TRANSFER_FAILURE_REASON_UNSPECIFIED',
         },
         validateOnly: true,
         yearlyPrice: {

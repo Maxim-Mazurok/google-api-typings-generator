@@ -41,10 +41,10 @@ gapi.load('client', async () => {
         clientName: 'Test string',
         entityId: 'Test string',
         entityName: 'Test string',
-        entityType: 'Test string',
+        entityType: 'ENTITY_TYPE_UNSPECIFIED',
         partnerClientId: 'Test string',
-        role: 'Test string',
-        status: 'Test string',
+        role: 'CLIENT_ROLE_UNSPECIFIED',
+        status: 'CLIENT_STATUS_UNSPECIFIED',
         visibleToSeller: true,
       },
     );
@@ -71,10 +71,10 @@ gapi.load('client', async () => {
         clientName: 'Test string',
         entityId: 'Test string',
         entityName: 'Test string',
-        entityType: 'Test string',
+        entityType: 'ENTITY_TYPE_UNSPECIFIED',
         partnerClientId: 'Test string',
-        role: 'Test string',
-        status: 'Test string',
+        role: 'CLIENT_ROLE_UNSPECIFIED',
+        status: 'CLIENT_STATUS_UNSPECIFIED',
         visibleToSeller: true,
       },
     );
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
       {
         clientAccountId: 'Test string',
         email: 'Test string',
-        status: 'Test string',
+        status: 'USER_STATUS_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
     await gapi.client.adexchangebuyer2.accounts.creatives.create(
       {
         accountId: 'Test string',
-        duplicateIdMode: 'Test string',
+        duplicateIdMode: 'NO_DUPLICATES',
       },
       {
         accountId: 'Test string',
@@ -146,36 +146,36 @@ gapi.load('client', async () => {
         advertiserName: 'Test string',
         agencyId: 'Test string',
         apiUpdateTime: 'Test string',
-        attributes: ['Test string'],
+        attributes: ['ATTRIBUTE_UNSPECIFIED'],
         clickThroughUrls: ['Test string'],
         corrections: [
           {
             contexts: [
               {
-                all: 'Test string',
+                all: 'SIMPLE_CONTEXT',
                 appType: {
-                  appTypes: ['Test string'],
+                  appTypes: ['NATIVE'],
                 },
                 auctionType: {
-                  auctionTypes: ['Test string'],
+                  auctionTypes: ['OPEN_AUCTION'],
                 },
                 location: {
                   geoCriteriaIds: [42],
                 },
                 platform: {
-                  platforms: ['Test string'],
+                  platforms: ['DESKTOP'],
                 },
                 securityType: {
-                  securities: ['Test string'],
+                  securities: ['INSECURE'],
                 },
               },
             ],
             details: ['Test string'],
-            type: 'Test string',
+            type: 'CORRECTION_TYPE_UNSPECIFIED',
           },
         ],
         creativeId: 'Test string',
-        dealsStatus: 'Test string',
+        dealsStatus: 'STATUS_UNSPECIFIED',
         declaredClickThroughUrls: ['Test string'],
         detectedAdvertiserIds: ['Test string'],
         detectedDomains: ['Test string'],
@@ -215,41 +215,41 @@ gapi.load('client', async () => {
           storeUrl: 'Test string',
           videoUrl: 'Test string',
         },
-        openAuctionStatus: 'Test string',
-        restrictedCategories: ['Test string'],
+        openAuctionStatus: 'STATUS_UNSPECIFIED',
+        restrictedCategories: ['NO_RESTRICTED_CATEGORIES'],
         servingRestrictions: [
           {
             contexts: [
               {
-                all: 'Test string',
+                all: 'SIMPLE_CONTEXT',
                 appType: {
-                  appTypes: ['Test string'],
+                  appTypes: ['NATIVE'],
                 },
                 auctionType: {
-                  auctionTypes: ['Test string'],
+                  auctionTypes: ['OPEN_AUCTION'],
                 },
                 location: {
                   geoCriteriaIds: [42],
                 },
                 platform: {
-                  platforms: ['Test string'],
+                  platforms: ['DESKTOP'],
                 },
                 securityType: {
-                  securities: ['Test string'],
+                  securities: ['INSECURE'],
                 },
               },
             ],
             disapproval: {
               details: ['Test string'],
-              reason: 'Test string',
+              reason: 'LENGTH_OF_IMAGE_ANIMATION',
             },
             disapprovalReasons: [
               {
                 details: ['Test string'],
-                reason: 'Test string',
+                reason: 'LENGTH_OF_IMAGE_ANIMATION',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
           },
         ],
         vendorIds: [42],
@@ -296,36 +296,36 @@ gapi.load('client', async () => {
         advertiserName: 'Test string',
         agencyId: 'Test string',
         apiUpdateTime: 'Test string',
-        attributes: ['Test string'],
+        attributes: ['ATTRIBUTE_UNSPECIFIED'],
         clickThroughUrls: ['Test string'],
         corrections: [
           {
             contexts: [
               {
-                all: 'Test string',
+                all: 'SIMPLE_CONTEXT',
                 appType: {
-                  appTypes: ['Test string'],
+                  appTypes: ['NATIVE'],
                 },
                 auctionType: {
-                  auctionTypes: ['Test string'],
+                  auctionTypes: ['OPEN_AUCTION'],
                 },
                 location: {
                   geoCriteriaIds: [42],
                 },
                 platform: {
-                  platforms: ['Test string'],
+                  platforms: ['DESKTOP'],
                 },
                 securityType: {
-                  securities: ['Test string'],
+                  securities: ['INSECURE'],
                 },
               },
             ],
             details: ['Test string'],
-            type: 'Test string',
+            type: 'CORRECTION_TYPE_UNSPECIFIED',
           },
         ],
         creativeId: 'Test string',
-        dealsStatus: 'Test string',
+        dealsStatus: 'STATUS_UNSPECIFIED',
         declaredClickThroughUrls: ['Test string'],
         detectedAdvertiserIds: ['Test string'],
         detectedDomains: ['Test string'],
@@ -365,41 +365,41 @@ gapi.load('client', async () => {
           storeUrl: 'Test string',
           videoUrl: 'Test string',
         },
-        openAuctionStatus: 'Test string',
-        restrictedCategories: ['Test string'],
+        openAuctionStatus: 'STATUS_UNSPECIFIED',
+        restrictedCategories: ['NO_RESTRICTED_CATEGORIES'],
         servingRestrictions: [
           {
             contexts: [
               {
-                all: 'Test string',
+                all: 'SIMPLE_CONTEXT',
                 appType: {
-                  appTypes: ['Test string'],
+                  appTypes: ['NATIVE'],
                 },
                 auctionType: {
-                  auctionTypes: ['Test string'],
+                  auctionTypes: ['OPEN_AUCTION'],
                 },
                 location: {
                   geoCriteriaIds: [42],
                 },
                 platform: {
-                  platforms: ['Test string'],
+                  platforms: ['DESKTOP'],
                 },
                 securityType: {
-                  securities: ['Test string'],
+                  securities: ['INSECURE'],
                 },
               },
             ],
             disapproval: {
               details: ['Test string'],
-              reason: 'Test string',
+              reason: 'LENGTH_OF_IMAGE_ANIMATION',
             },
             disapprovalReasons: [
               {
                 details: ['Test string'],
-                reason: 'Test string',
+                reason: 'LENGTH_OF_IMAGE_ANIMATION',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
           },
         ],
         vendorIds: [42],
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
     await gapi.client.adexchangebuyer2.accounts.finalizedProposals.list({
       accountId: 'Test string',
       filter: 'Test string',
-      filterSyntax: 'Test string',
+      filterSyntax: 'FILTER_SYNTAX_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
     });
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
       {
         note: {
           createTime: 'Test string',
-          creatorRole: 'Test string',
+          creatorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
           note: 'Test string',
           noteId: 'Test string',
           proposalRevision: 'Test string',
@@ -574,40 +574,42 @@ gapi.load('client', async () => {
             createProductId: 'Test string',
             createProductRevision: 'Test string',
             createTime: 'Test string',
-            creativePreApprovalPolicy: 'Test string',
+            creativePreApprovalPolicy:
+              'CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED',
             creativeRestrictions: {
-              creativeFormat: 'Test string',
+              creativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
               creativeSpecifications: [
                 {
                   creativeCompanionSizes: [
                     {
                       height: 'Test string',
-                      sizeType: 'Test string',
+                      sizeType: 'SIZE_TYPE_UNSPECIFIED',
                       width: 'Test string',
                     },
                   ],
                   creativeSize: {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 },
               ],
-              skippableAdType: 'Test string',
+              skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
             },
-            creativeSafeFrameCompatibility: 'Test string',
+            creativeSafeFrameCompatibility:
+              'CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED',
             dealId: 'Test string',
             dealServingMetadata: {
               dealPauseStatus: {
                 buyerPauseReason: 'Test string',
-                firstPausedBy: 'Test string',
+                firstPausedBy: 'BUYER_SELLER_ROLE_UNSPECIFIED',
                 hasBuyerPaused: true,
                 hasSellerPaused: true,
                 sellerPauseReason: 'Test string',
               },
             },
             dealTerms: {
-              brandingType: 'Test string',
+              brandingType: 'BRANDING_TYPE_UNSPECIFIED',
               description: 'Test string',
               estimatedGrossSpend: {
                 amount: {
@@ -615,7 +617,7 @@ gapi.load('client', async () => {
                   nanos: 42,
                   units: 'Test string',
                 },
-                pricingType: 'Test string',
+                pricingType: 'PRICING_TYPE_UNSPECIFIED',
               },
               estimatedImpressionsPerDay: 'Test string',
               guaranteedFixedPriceTerms: {
@@ -631,7 +633,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -640,7 +642,7 @@ gapi.load('client', async () => {
                 impressionCap: 'Test string',
                 minimumDailyLooks: 'Test string',
                 percentShareOfVoice: 'Test string',
-                reservationType: 'Test string',
+                reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
               },
               nonGuaranteedAuctionTerms: {
                 autoOptimizePrivateAuction: true,
@@ -656,7 +658,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -674,7 +676,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -682,13 +684,13 @@ gapi.load('client', async () => {
               sellerTimeZone: 'Test string',
             },
             deliveryControl: {
-              creativeBlockingLevel: 'Test string',
-              deliveryRateType: 'Test string',
+              creativeBlockingLevel: 'CREATIVE_BLOCKING_LEVEL_UNSPECIFIED',
+              deliveryRateType: 'DELIVERY_RATE_TYPE_UNSPECIFIED',
               frequencyCaps: [
                 {
                   maxImpressions: 42,
                   numTimeUnits: 42,
-                  timeUnitType: 'Test string',
+                  timeUnitType: 'TIME_UNIT_TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -696,7 +698,8 @@ gapi.load('client', async () => {
             displayName: 'Test string',
             externalDealId: 'Test string',
             isSetupComplete: true,
-            programmaticCreativeSource: 'Test string',
+            programmaticCreativeSource:
+              'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED',
             proposalId: 'Test string',
             sellerContacts: [
               {
@@ -704,7 +707,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            syndicationProduct: 'Test string',
+            syndicationProduct: 'SYNDICATION_PRODUCT_UNSPECIFIED',
             targeting: {
               geoTargeting: {
                 excludedCriteriaIds: ['Test string'],
@@ -714,14 +717,14 @@ gapi.load('client', async () => {
                 excludedInventorySizes: [
                   {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 ],
                 targetedInventorySizes: [
                   {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 ],
@@ -759,8 +762,8 @@ gapi.load('client', async () => {
                 },
               },
               videoTargeting: {
-                excludedPositionTypes: ['Test string'],
-                targetedPositionTypes: ['Test string'],
+                excludedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
+                targetedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
               },
             },
             targetingCriterion: [
@@ -768,25 +771,25 @@ gapi.load('client', async () => {
                 exclusions: [
                   {
                     creativeSizeValue: {
-                      allowedFormats: ['Test string'],
+                      allowedFormats: ['UNKNOWN'],
                       companionSizes: [
                         {
                           height: 42,
                           width: 42,
                         },
                       ],
-                      creativeSizeType: 'Test string',
-                      nativeTemplate: 'Test string',
+                      creativeSizeType: 'CREATIVE_SIZE_TYPE_UNSPECIFIED',
+                      nativeTemplate: 'UNKNOWN_NATIVE_TEMPLATE',
                       size: {
                         height: 42,
                         width: 42,
                       },
-                      skippableAdType: 'Test string',
+                      skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
                     },
                     dayPartTargetingValue: {
                       dayParts: [
                         {
-                          dayOfWeek: 'Test string',
+                          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                           endTime: {
                             hours: 42,
                             minutes: 42,
@@ -801,7 +804,7 @@ gapi.load('client', async () => {
                           },
                         },
                       ],
-                      timeZoneType: 'Test string',
+                      timeZoneType: 'TIME_ZONE_SOURCE_UNSPECIFIED',
                     },
                     longValue: 'Test string',
                     stringValue: 'Test string',
@@ -810,25 +813,25 @@ gapi.load('client', async () => {
                 inclusions: [
                   {
                     creativeSizeValue: {
-                      allowedFormats: ['Test string'],
+                      allowedFormats: ['UNKNOWN'],
                       companionSizes: [
                         {
                           height: 42,
                           width: 42,
                         },
                       ],
-                      creativeSizeType: 'Test string',
-                      nativeTemplate: 'Test string',
+                      creativeSizeType: 'CREATIVE_SIZE_TYPE_UNSPECIFIED',
+                      nativeTemplate: 'UNKNOWN_NATIVE_TEMPLATE',
                       size: {
                         height: 42,
                         width: 42,
                       },
-                      skippableAdType: 'Test string',
+                      skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
                     },
                     dayPartTargetingValue: {
                       dayParts: [
                         {
-                          dayOfWeek: 'Test string',
+                          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                           endTime: {
                             hours: 42,
                             minutes: 42,
@@ -843,7 +846,7 @@ gapi.load('client', async () => {
                           },
                         },
                       ],
-                      timeZoneType: 'Test string',
+                      timeZoneType: 'TIME_ZONE_SOURCE_UNSPECIFIED',
                     },
                     longValue: 'Test string',
                     stringValue: 'Test string',
@@ -859,21 +862,21 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         isRenegotiating: true,
         isSetupComplete: true,
-        lastUpdaterOrCommentorRole: 'Test string',
+        lastUpdaterOrCommentorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
         notes: [
           {
             createTime: 'Test string',
-            creatorRole: 'Test string',
+            creatorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
             note: 'Test string',
             noteId: 'Test string',
             proposalRevision: 'Test string',
           },
         ],
-        originatorRole: 'Test string',
+        originatorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
         privateAuctionId: 'Test string',
         proposalId: 'Test string',
         proposalRevision: 'Test string',
-        proposalState: 'Test string',
+        proposalState: 'PROPOSAL_STATE_UNSPECIFIED',
         seller: {
           accountId: 'Test string',
           subAccountId: 'Test string',
@@ -897,7 +900,7 @@ gapi.load('client', async () => {
     await gapi.client.adexchangebuyer2.accounts.proposals.list({
       accountId: 'Test string',
       filter: 'Test string',
-      filterSyntax: 'Test string',
+      filterSyntax: 'FILTER_SYNTAX_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
     });
@@ -951,40 +954,42 @@ gapi.load('client', async () => {
             createProductId: 'Test string',
             createProductRevision: 'Test string',
             createTime: 'Test string',
-            creativePreApprovalPolicy: 'Test string',
+            creativePreApprovalPolicy:
+              'CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED',
             creativeRestrictions: {
-              creativeFormat: 'Test string',
+              creativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
               creativeSpecifications: [
                 {
                   creativeCompanionSizes: [
                     {
                       height: 'Test string',
-                      sizeType: 'Test string',
+                      sizeType: 'SIZE_TYPE_UNSPECIFIED',
                       width: 'Test string',
                     },
                   ],
                   creativeSize: {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 },
               ],
-              skippableAdType: 'Test string',
+              skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
             },
-            creativeSafeFrameCompatibility: 'Test string',
+            creativeSafeFrameCompatibility:
+              'CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED',
             dealId: 'Test string',
             dealServingMetadata: {
               dealPauseStatus: {
                 buyerPauseReason: 'Test string',
-                firstPausedBy: 'Test string',
+                firstPausedBy: 'BUYER_SELLER_ROLE_UNSPECIFIED',
                 hasBuyerPaused: true,
                 hasSellerPaused: true,
                 sellerPauseReason: 'Test string',
               },
             },
             dealTerms: {
-              brandingType: 'Test string',
+              brandingType: 'BRANDING_TYPE_UNSPECIFIED',
               description: 'Test string',
               estimatedGrossSpend: {
                 amount: {
@@ -992,7 +997,7 @@ gapi.load('client', async () => {
                   nanos: 42,
                   units: 'Test string',
                 },
-                pricingType: 'Test string',
+                pricingType: 'PRICING_TYPE_UNSPECIFIED',
               },
               estimatedImpressionsPerDay: 'Test string',
               guaranteedFixedPriceTerms: {
@@ -1008,7 +1013,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -1017,7 +1022,7 @@ gapi.load('client', async () => {
                 impressionCap: 'Test string',
                 minimumDailyLooks: 'Test string',
                 percentShareOfVoice: 'Test string',
-                reservationType: 'Test string',
+                reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
               },
               nonGuaranteedAuctionTerms: {
                 autoOptimizePrivateAuction: true,
@@ -1033,7 +1038,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -1051,7 +1056,7 @@ gapi.load('client', async () => {
                         nanos: 42,
                         units: 'Test string',
                       },
-                      pricingType: 'Test string',
+                      pricingType: 'PRICING_TYPE_UNSPECIFIED',
                     },
                   },
                 ],
@@ -1059,13 +1064,13 @@ gapi.load('client', async () => {
               sellerTimeZone: 'Test string',
             },
             deliveryControl: {
-              creativeBlockingLevel: 'Test string',
-              deliveryRateType: 'Test string',
+              creativeBlockingLevel: 'CREATIVE_BLOCKING_LEVEL_UNSPECIFIED',
+              deliveryRateType: 'DELIVERY_RATE_TYPE_UNSPECIFIED',
               frequencyCaps: [
                 {
                   maxImpressions: 42,
                   numTimeUnits: 42,
-                  timeUnitType: 'Test string',
+                  timeUnitType: 'TIME_UNIT_TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1073,7 +1078,8 @@ gapi.load('client', async () => {
             displayName: 'Test string',
             externalDealId: 'Test string',
             isSetupComplete: true,
-            programmaticCreativeSource: 'Test string',
+            programmaticCreativeSource:
+              'PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED',
             proposalId: 'Test string',
             sellerContacts: [
               {
@@ -1081,7 +1087,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            syndicationProduct: 'Test string',
+            syndicationProduct: 'SYNDICATION_PRODUCT_UNSPECIFIED',
             targeting: {
               geoTargeting: {
                 excludedCriteriaIds: ['Test string'],
@@ -1091,14 +1097,14 @@ gapi.load('client', async () => {
                 excludedInventorySizes: [
                   {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 ],
                 targetedInventorySizes: [
                   {
                     height: 'Test string',
-                    sizeType: 'Test string',
+                    sizeType: 'SIZE_TYPE_UNSPECIFIED',
                     width: 'Test string',
                   },
                 ],
@@ -1136,8 +1142,8 @@ gapi.load('client', async () => {
                 },
               },
               videoTargeting: {
-                excludedPositionTypes: ['Test string'],
-                targetedPositionTypes: ['Test string'],
+                excludedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
+                targetedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
               },
             },
             targetingCriterion: [
@@ -1145,25 +1151,25 @@ gapi.load('client', async () => {
                 exclusions: [
                   {
                     creativeSizeValue: {
-                      allowedFormats: ['Test string'],
+                      allowedFormats: ['UNKNOWN'],
                       companionSizes: [
                         {
                           height: 42,
                           width: 42,
                         },
                       ],
-                      creativeSizeType: 'Test string',
-                      nativeTemplate: 'Test string',
+                      creativeSizeType: 'CREATIVE_SIZE_TYPE_UNSPECIFIED',
+                      nativeTemplate: 'UNKNOWN_NATIVE_TEMPLATE',
                       size: {
                         height: 42,
                         width: 42,
                       },
-                      skippableAdType: 'Test string',
+                      skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
                     },
                     dayPartTargetingValue: {
                       dayParts: [
                         {
-                          dayOfWeek: 'Test string',
+                          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                           endTime: {
                             hours: 42,
                             minutes: 42,
@@ -1178,7 +1184,7 @@ gapi.load('client', async () => {
                           },
                         },
                       ],
-                      timeZoneType: 'Test string',
+                      timeZoneType: 'TIME_ZONE_SOURCE_UNSPECIFIED',
                     },
                     longValue: 'Test string',
                     stringValue: 'Test string',
@@ -1187,25 +1193,25 @@ gapi.load('client', async () => {
                 inclusions: [
                   {
                     creativeSizeValue: {
-                      allowedFormats: ['Test string'],
+                      allowedFormats: ['UNKNOWN'],
                       companionSizes: [
                         {
                           height: 42,
                           width: 42,
                         },
                       ],
-                      creativeSizeType: 'Test string',
-                      nativeTemplate: 'Test string',
+                      creativeSizeType: 'CREATIVE_SIZE_TYPE_UNSPECIFIED',
+                      nativeTemplate: 'UNKNOWN_NATIVE_TEMPLATE',
                       size: {
                         height: 42,
                         width: 42,
                       },
-                      skippableAdType: 'Test string',
+                      skippableAdType: 'SKIPPABLE_AD_TYPE_UNSPECIFIED',
                     },
                     dayPartTargetingValue: {
                       dayParts: [
                         {
-                          dayOfWeek: 'Test string',
+                          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                           endTime: {
                             hours: 42,
                             minutes: 42,
@@ -1220,7 +1226,7 @@ gapi.load('client', async () => {
                           },
                         },
                       ],
-                      timeZoneType: 'Test string',
+                      timeZoneType: 'TIME_ZONE_SOURCE_UNSPECIFIED',
                     },
                     longValue: 'Test string',
                     stringValue: 'Test string',
@@ -1236,21 +1242,21 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         isRenegotiating: true,
         isSetupComplete: true,
-        lastUpdaterOrCommentorRole: 'Test string',
+        lastUpdaterOrCommentorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
         notes: [
           {
             createTime: 'Test string',
-            creatorRole: 'Test string',
+            creatorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
             note: 'Test string',
             noteId: 'Test string',
             proposalRevision: 'Test string',
           },
         ],
-        originatorRole: 'Test string',
+        originatorRole: 'BUYER_SELLER_ROLE_UNSPECIFIED',
         privateAuctionId: 'Test string',
         proposalId: 'Test string',
         proposalRevision: 'Test string',
-        proposalState: 'Test string',
+        proposalState: 'PROPOSAL_STATE_UNSPECIFIED',
         seller: {
           accountId: 'Test string',
           subAccountId: 'Test string',
@@ -1295,14 +1301,14 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-        breakdownDimensions: ['Test string'],
+        breakdownDimensions: ['BREAKDOWN_DIMENSION_UNSPECIFIED'],
         creativeId: 'Test string',
         dealId: 'Test string',
-        environment: 'Test string',
-        format: 'Test string',
-        formats: ['Test string'],
+        environment: 'ENVIRONMENT_UNSPECIFIED',
+        format: 'FORMAT_UNSPECIFIED',
+        formats: ['FORMAT_UNSPECIFIED'],
         name: 'Test string',
-        platforms: ['Test string'],
+        platforms: ['PLATFORM_UNSPECIFIED'],
         publisherIdentifiers: ['Test string'],
         realtimeTimeRange: {
           startTimestamp: 'Test string',
@@ -1312,7 +1318,7 @@ gapi.load('client', async () => {
           offsetDays: 42,
         },
         sellerNetworkIds: [42],
-        timeSeriesGranularity: 'Test string',
+        timeSeriesGranularity: 'TIME_SERIES_GRANULARITY_UNSPECIFIED',
       },
     );
     /** Deletes the requested filter set from the account with the given account ID. */
@@ -1430,14 +1436,14 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-        breakdownDimensions: ['Test string'],
+        breakdownDimensions: ['BREAKDOWN_DIMENSION_UNSPECIFIED'],
         creativeId: 'Test string',
         dealId: 'Test string',
-        environment: 'Test string',
-        format: 'Test string',
-        formats: ['Test string'],
+        environment: 'ENVIRONMENT_UNSPECIFIED',
+        format: 'FORMAT_UNSPECIFIED',
+        formats: ['FORMAT_UNSPECIFIED'],
         name: 'Test string',
-        platforms: ['Test string'],
+        platforms: ['PLATFORM_UNSPECIFIED'],
         publisherIdentifiers: ['Test string'],
         realtimeTimeRange: {
           startTimestamp: 'Test string',
@@ -1447,7 +1453,7 @@ gapi.load('client', async () => {
           offsetDays: 42,
         },
         sellerNetworkIds: [42],
-        timeSeriesGranularity: 'Test string',
+        timeSeriesGranularity: 'TIME_SERIES_GRANULARITY_UNSPECIFIED',
       },
     );
     /** Deletes the requested filter set from the account with the given account ID. */
@@ -1559,14 +1565,14 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-        breakdownDimensions: ['Test string'],
+        breakdownDimensions: ['BREAKDOWN_DIMENSION_UNSPECIFIED'],
         creativeId: 'Test string',
         dealId: 'Test string',
-        environment: 'Test string',
-        format: 'Test string',
-        formats: ['Test string'],
+        environment: 'ENVIRONMENT_UNSPECIFIED',
+        format: 'FORMAT_UNSPECIFIED',
+        formats: ['FORMAT_UNSPECIFIED'],
         name: 'Test string',
-        platforms: ['Test string'],
+        platforms: ['PLATFORM_UNSPECIFIED'],
         publisherIdentifiers: ['Test string'],
         realtimeTimeRange: {
           startTimestamp: 'Test string',
@@ -1576,7 +1582,7 @@ gapi.load('client', async () => {
           offsetDays: 42,
         },
         sellerNetworkIds: [42],
-        timeSeriesGranularity: 'Test string',
+        timeSeriesGranularity: 'TIME_SERIES_GRANULARITY_UNSPECIFIED',
       },
     );
     /** Deletes the requested filter set from the account with the given account ID. */

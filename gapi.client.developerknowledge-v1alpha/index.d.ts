@@ -112,7 +112,8 @@ declare namespace gapi.client {
       /** Contains the search results for the given query. Each DocumentChunk in this list contains a snippet of content relevant to the search query. Use the DocumentChunk.parent field of each result with DeveloperKnowledge.GetDocument or DeveloperKnowledge.BatchGetDocuments to retrieve the full document content. */
       results?: DocumentChunk[];
     }
-    interface DocumentsResource {
+
+    const documents: {
       /** Retrieves multiple documents, each with its full Markdown content. */
       batchGet(request?: {
         /** V1 error format. */
@@ -212,8 +213,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SearchDocumentChunksResponse>;
-    }
-    interface V1alphaResource {
+    };
+
+    const v1alpha: {
       /** Answers a query using grounded generation. */
       answerQuery(request: {
         /** V1 error format. */
@@ -268,10 +270,6 @@ declare namespace gapi.client {
         },
         body: AnswerQueryRequest,
       ): Request<AnswerQueryResponse>;
-    }
-
-    const documents: DocumentsResource;
-
-    const v1alpha: V1alphaResource;
+    };
   }
 }

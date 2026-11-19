@@ -48,8 +48,8 @@ gapi.load('client', async () => {
         name: 'Test string',
         runtimeSpec: {
           accelerator: 'Test string',
-          shape: 'Test string',
-          variant: 'Test string',
+          shape: 'SHAPE_UNSPECIFIED',
+          variant: 'VARIANT_UNSPECIFIED',
         },
         version: 'Test string',
       },

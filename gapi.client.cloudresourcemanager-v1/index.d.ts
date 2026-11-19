@@ -414,7 +414,8 @@ declare namespace gapi.client {
     interface UpdateProjectMetadata {}
     interface UpdateTagKeyMetadata {}
     interface UpdateTagValueMetadata {}
-    interface FoldersResource {
+
+    const folders: {
       /** Clears a `Policy` from a resource. */
       clearOrgPolicy(
         request: {
@@ -595,8 +596,9 @@ declare namespace gapi.client {
         },
         body: SetOrgPolicyRequest,
       ): Request<OrgPolicy>;
-    }
-    interface LiensResource {
+    };
+
+    const liens: {
       /** Creates a Lien which applies to the resource denoted by the `parent` field. Callers of this method will require permission on the `parent` resource. For example, applying to `projects/1234` requires permission `resourcemanager.projects.updateLiens`. NOTE: Some resources may limit the number of Liens which may be applied. */
       create(request: {
         /** V1 error format. */
@@ -736,8 +738,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListLiensResponse>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
@@ -765,8 +768,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Operation>;
-    }
-    interface OrganizationsResource {
+    };
+
+    const organizations: {
       /** Clears a `Policy` from a resource. */
       clearOrgPolicy(
         request: {
@@ -1118,8 +1122,9 @@ declare namespace gapi.client {
         },
         body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
-    }
-    interface ProjectsResource {
+    };
+
+    const projects: {
       /** Clears a `Policy` from a resource. */
       clearOrgPolicy(
         request: {
@@ -1703,16 +1708,6 @@ declare namespace gapi.client {
         },
         body: Project,
       ): Request<Project>;
-    }
-
-    const folders: FoldersResource;
-
-    const liens: LiensResource;
-
-    const operations: OperationsResource;
-
-    const organizations: OrganizationsResource;
-
-    const projects: ProjectsResource;
+    };
   }
 }

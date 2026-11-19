@@ -62,7 +62,7 @@ gapi.load('client', async () => {
         userId: 'Test string',
       },
       {
-        accountState: 'Test string',
+        accountState: 'enabled',
       },
     );
     /** Updates the device policy. To ensure the policy is properly enforced, you need to prevent unmanaged accounts from accessing Google Play by setting the allowed_accounts in the managed configuration for the Google Play package. See restrict accounts in Google Play. When provisioning a new device, you should set the device policy using this method before adding the managed Google Play Account to the device, otherwise the policy will not be applied for a short period of time after adding the account to the device. */
@@ -78,32 +78,34 @@ gapi.load('client', async () => {
         device: 'Test string',
         latestBuildFingerprint: 'Test string',
         maker: 'Test string',
-        managementType: 'Test string',
+        managementType: 'managedDevice',
         model: 'Test string',
         policy: {
-          autoUpdatePolicy: 'Test string',
-          deviceReportPolicy: 'Test string',
+          autoUpdatePolicy: 'autoUpdatePolicyUnspecified',
+          deviceReportPolicy: 'deviceReportPolicyUnspecified',
           maintenanceWindow: {
             durationMs: 'Test string',
             startTimeAfterMidnightMs: 'Test string',
           },
           policyId: 'Test string',
-          productAvailabilityPolicy: 'Test string',
+          productAvailabilityPolicy: 'productAvailabilityPolicyUnspecified',
           productPolicy: [
             {
               autoInstallPolicy: {
                 autoInstallConstraint: [
                   {
-                    chargingStateConstraint: 'Test string',
-                    deviceIdleStateConstraint: 'Test string',
-                    networkTypeConstraint: 'Test string',
+                    chargingStateConstraint:
+                      'chargingStateConstraintUnspecified',
+                    deviceIdleStateConstraint:
+                      'deviceIdleStateConstraintUnspecified',
+                    networkTypeConstraint: 'networkTypeConstraintUnspecified',
                   },
                 ],
-                autoInstallMode: 'Test string',
+                autoInstallMode: 'autoInstallModeUnspecified',
                 autoInstallPriority: 42,
                 minimumVersionCode: 42,
               },
-              autoUpdateMode: 'Test string',
+              autoUpdateMode: 'autoUpdateModeUnspecified',
               enterpriseAuthenticationAppLinkConfigs: [
                 {
                   uri: 'Test string',
@@ -141,7 +143,7 @@ gapi.load('client', async () => {
               },
               productId: 'Test string',
               trackIds: ['Test string'],
-              tracks: ['Test string'],
+              tracks: ['appTrackUnspecified'],
             },
           ],
         },
@@ -154,7 +156,7 @@ gapi.load('client', async () => {
                   data: 'Test string',
                   key: 'Test string',
                   message: 'Test string',
-                  severity: 'Test string',
+                  severity: 'severityUnknown',
                   stateTimestampMillis: 'Test string',
                 },
               ],
@@ -174,9 +176,9 @@ gapi.load('client', async () => {
       },
       {
         duration: 'Test string',
-        enrollmentTokenType: 'Test string',
+        enrollmentTokenType: 'enrollmentTokenTypeUnspecified',
         googleAuthenticationOptions: {
-          authenticationRequirement: 'Test string',
+          authenticationRequirement: 'authenticationRequirementUnspecified',
           requiredAccountEmail: 'Test string',
         },
         token: 'Test string',
@@ -201,7 +203,7 @@ gapi.load('client', async () => {
           enabled: true,
         },
         parent: 'Test string',
-        permission: ['Test string'],
+        permission: ['unknown'],
         playSearch: {
           approveApps: true,
           enabled: true,
@@ -231,12 +233,13 @@ gapi.load('client', async () => {
             email: 'Test string',
           },
         ],
-        enterpriseType: 'Test string',
+        enterpriseType: 'enterpriseTypeUnspecified',
         googleAuthenticationSettings: {
-          googleAuthenticationRequired: 'Test string',
+          googleAuthenticationRequired:
+            'googleAuthenticationRequiredUnspecified',
         },
         id: 'Test string',
-        managedGoogleDomainType: 'Test string',
+        managedGoogleDomainType: 'managedGoogleDomainTypeUnspecified',
         name: 'Test string',
         primaryDomain: 'Test string',
       },
@@ -262,7 +265,7 @@ gapi.load('client', async () => {
     /** Returns a service account and credentials. The service account can be bound to the enterprise by calling setAccount. The service account is unique to this enterprise and EMM, and will be deleted if the enterprise is unbound. The credentials contain private key data and are not stored server-side. This method can only be called after calling Enterprises.Enroll or Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other times it will return an error. Subsequent calls after the first will generate a new, unique set of credentials, and invalidate the previously generated credentials. Once the service account is bound to the enterprise, it can be managed using the serviceAccountKeys resource. *Note:* After you create a key, you might need to wait for 60 seconds or more before you perform another operation with the key. If you try to perform an operation with the key immediately after you create the key, and you receive an error, you can retry the request with exponential backoff . */
     await gapi.client.androidenterprise.enterprises.getServiceAccount({
       enterpriseId: 'Test string',
-      keyType: 'Test string',
+      keyType: 'googleCredentials',
     });
     /** Returns the store layout for the enterprise. If the store layout has not been set, returns "basic" as the store layout type and no homepage. */
     await gapi.client.androidenterprise.enterprises.getStoreLayout({
@@ -274,7 +277,7 @@ gapi.load('client', async () => {
     });
     /** Pulls and returns a notification set for the enterprises associated with the service account authenticated for the request. The notification set may be empty if no notification are pending. A notification set returned needs to be acknowledged within 20 seconds by calling Enterprises.AcknowledgeNotificationSet, unless the notification set is empty. Notifications that are not acknowledged within the 20 seconds will eventually be included again in the response to another PullNotificationSet request, and those that are never acknowledged will ultimately be deleted according to the Google Cloud Platform Pub/Sub system policy. Multiple requests might be performed concurrently to retrieve notifications, in which case the pending notifications (if any) will be split among each caller, if any are pending. If no notifications are present, an empty notification list is returned. Subsequent requests may return more notifications once they become available. */
     await gapi.client.androidenterprise.enterprises.pullNotificationSet({
-      requestMode: 'Test string',
+      requestMode: 'waitForNotifications',
     });
     /** Sends a test notification to validate the EMM integration with the Google Cloud Pub/Sub service for this enterprise. */
     await gapi.client.androidenterprise.enterprises.sendTestPushNotification({
@@ -296,7 +299,7 @@ gapi.load('client', async () => {
       },
       {
         homepageId: 'Test string',
-        storeLayoutType: 'Test string',
+        storeLayoutType: 'unknown',
       },
     );
     /** Unenrolls an enterprise from the calling EMM. */
@@ -330,7 +333,7 @@ gapi.load('client', async () => {
       },
       {
         productId: 'Test string',
-        reason: 'Test string',
+        reason: 'free',
       },
     );
     /** Retrieves details of an enterprise's group license for a product. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
@@ -376,7 +379,7 @@ gapi.load('client', async () => {
         userId: 'Test string',
       },
       {
-        installState: 'Test string',
+        installState: 'installed',
         productId: 'Test string',
         versionCode: 42,
       },
@@ -515,7 +518,7 @@ gapi.load('client', async () => {
         approvalUrlInfo: {
           approvalUrl: 'Test string',
         },
-        approvedPermissions: 'Test string',
+        approvedPermissions: 'currentPermissionsOnly',
       },
     );
     /** Generates a URL that can be rendered in an iframe to display the permissions (if any) of a product. An enterprise admin must view these permissions and accept them on behalf of their organization in order to approve that product. Admins should accept the displayed permissions by interacting with a separate UI element in the EMM console, which in turn should trigger the use of this URL as the approvalUrlInfo.approvalUrl property in a Products.approve call to approve the product. This URL can only be used to display permissions for up to 1 day. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
@@ -569,7 +572,7 @@ gapi.load('client', async () => {
         data: 'Test string',
         id: 'Test string',
         publicData: 'Test string',
-        type: 'Test string',
+        type: 'googleCredentials',
       },
     );
     /** Lists all active credentials for the service account associated with this enterprise. Only the ID and key type are returned. The calling service account must have been retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount. */
@@ -704,10 +707,10 @@ gapi.load('client', async () => {
       },
       {
         accountIdentifier: 'Test string',
-        accountType: 'Test string',
+        accountType: 'deviceAccount',
         displayName: 'Test string',
         id: 'Test string',
-        managementType: 'Test string',
+        managementType: 'googleManaged',
         primaryEmail: 'Test string',
       },
     );
@@ -729,12 +732,12 @@ gapi.load('client', async () => {
       },
       {
         productId: ['Test string'],
-        productSetBehavior: 'Test string',
+        productSetBehavior: 'unknown',
         productVisibility: [
           {
             productId: 'Test string',
             trackIds: ['Test string'],
-            tracks: ['Test string'],
+            tracks: ['appTrackUnspecified'],
           },
         ],
       },
@@ -747,10 +750,10 @@ gapi.load('client', async () => {
       },
       {
         accountIdentifier: 'Test string',
-        accountType: 'Test string',
+        accountType: 'deviceAccount',
         displayName: 'Test string',
         id: 'Test string',
-        managementType: 'Test string',
+        managementType: 'googleManaged',
         primaryEmail: 'Test string',
       },
     );
@@ -770,7 +773,7 @@ gapi.load('client', async () => {
         enterpriseId: 'Test string',
       },
       {
-        displayMode: 'Test string',
+        displayMode: 'displayModeUnspecified',
         icons: [
           {
             imageData: 'Test string',
@@ -794,7 +797,7 @@ gapi.load('client', async () => {
         webAppId: 'Test string',
       },
       {
-        displayMode: 'Test string',
+        displayMode: 'displayModeUnspecified',
         icons: [
           {
             imageData: 'Test string',

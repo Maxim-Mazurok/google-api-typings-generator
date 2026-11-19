@@ -20,7 +20,7 @@ gapi.load('client', async () => {
     await gapi.client.acceleratedmobilepageurl.ampUrls.batchGet(
       {},
       {
-        lookupStrategy: 'Test string',
+        lookupStrategy: 'FETCH_LIVE_DOC',
         urls: ['Test string'],
       },
     );

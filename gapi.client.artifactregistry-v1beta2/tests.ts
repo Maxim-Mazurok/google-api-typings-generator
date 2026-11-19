@@ -44,7 +44,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        legacyRedirectionState: 'Test string',
+        legacyRedirectionState: 'REDIRECTION_STATE_UNSPECIFIED',
         name: 'Test string',
         pullPercent: 42,
       },
@@ -74,14 +74,14 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         description: 'Test string',
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
         },
         mavenConfig: {
           allowSnapshotOverwrites: true,
-          versionPolicy: 'Test string',
+          versionPolicy: 'VERSION_POLICY_UNSPECIFIED',
         },
         name: 'Test string',
         satisfiesPzi: true,
@@ -121,14 +121,14 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         description: 'Test string',
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
         },
         mavenConfig: {
           allowSnapshotOverwrites: true,
-          versionPolicy: 'Test string',
+          versionPolicy: 'VERSION_POLICY_UNSPECIFIED',
         },
         name: 'Test string',
         satisfiesPzi: true,
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Lists versions. */
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Imports Yum (RPM) artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */

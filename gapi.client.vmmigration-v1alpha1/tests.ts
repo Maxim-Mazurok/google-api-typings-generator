@@ -63,7 +63,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
-        migrationTargetType: 'Test string',
+        migrationTargetType: 'MIGRATION_TARGET_TYPE_UNSPECIFIED',
         name: 'Test string',
         updateTime: 'Test string',
       },
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
-        migrationTargetType: 'Test string',
+        migrationTargetType: 'MIGRATION_TARGET_TYPE_UNSPECIFIED',
         name: 'Test string',
         updateTime: 'Test string',
       },
@@ -141,9 +141,9 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            bootConversion: 'Test string',
+            bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
             generalize: true,
-            licenseType: 'Test string',
+            licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           },
           singleRegionStorage: true,
           targetProject: 'Test string',
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -180,9 +180,9 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            bootConversion: 'Test string',
+            bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
             generalize: true,
-            licenseType: 'Test string',
+            licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           },
           serviceAccount: {
             email: 'Test string',
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
           shieldedInstanceConfig: {
             enableIntegrityMonitoring: true,
             enableVtpm: true,
-            secureBoot: 'Test string',
+            secureBoot: 'SECURE_BOOT_UNSPECIFIED',
           },
           singleRegionStorage: true,
           skipOsAdaptation: {},
@@ -225,9 +225,9 @@ gapi.load('client', async () => {
                     value: 'Test string',
                   },
                 ],
-                bootConversion: 'Test string',
+                bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
                 generalize: true,
-                licenseType: 'Test string',
+                licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               },
               singleRegionStorage: true,
               targetProject: 'Test string',
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -273,9 +273,9 @@ gapi.load('client', async () => {
                     value: 'Test string',
                   },
                 ],
-                bootConversion: 'Test string',
+                bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
                 generalize: true,
-                licenseType: 'Test string',
+                licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               },
               serviceAccount: {
                 email: 'Test string',
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
               shieldedInstanceConfig: {
                 enableIntegrityMonitoring: true,
                 enableVtpm: true,
-                secureBoot: 'Test string',
+                secureBoot: 'SECURE_BOOT_UNSPECIFIED',
               },
               singleRegionStorage: true,
               skipOsAdaptation: {},
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
               targetProject: 'Test string',
             },
             name: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             steps: [
               {
                 adaptingOs: {},
@@ -309,7 +309,7 @@ gapi.load('client', async () => {
                   locale: 'Test string',
                   message: 'Test string',
                 },
-                code: 'Test string',
+                code: 'WARNING_CODE_UNSPECIFIED',
                 helpLinks: [
                   {
                     description: 'Test string',
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           publicIp: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         azure: {
           azureLocation: 'Test string',
@@ -447,7 +447,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           resourceGroupId: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscriptionId: 'Test string',
         },
         createTime: 'Test string',
@@ -497,7 +497,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         source: 'Test string',
-        type: 'Test string',
+        type: 'STORAGE_TYPE_UNSPECIFIED',
       },
     );
     /** Gets details of a single Source. */
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           publicIp: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         azure: {
           azureLocation: 'Test string',
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           resourceGroupId: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           subscriptionId: 'Test string',
         },
         createTime: 'Test string',
@@ -638,7 +638,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         registrationId: 'Test string',
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateTime: 'Test string',
         updateTime: 'Test string',
         upgradeStatus: {
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
           },
           previousVersion: 'Test string',
           startTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           version: 'Test string',
         },
         version: 'Test string',
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
       },
       {
         awsSourceDiskDetails: {
-          diskType: 'Test string',
+          diskType: 'TYPE_UNSPECIFIED',
           sizeGib: 'Test string',
           tags: {
             A: 'Test string',
@@ -727,7 +727,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         steps: [
           {
             copyingSourceDiskSnapshot: {},
@@ -746,7 +746,7 @@ gapi.load('client', async () => {
           },
           targetDisk: {
             diskId: 'Test string',
-            diskType: 'Test string',
+            diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
             replicaZones: ['Test string'],
             zone: 'Test string',
           },
@@ -786,7 +786,7 @@ gapi.load('client', async () => {
       },
       {
         awsSourceDiskDetails: {
-          diskType: 'Test string',
+          diskType: 'TYPE_UNSPECIFIED',
           sizeGib: 'Test string',
           tags: {
             A: 'Test string',
@@ -806,7 +806,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         steps: [
           {
             copyingSourceDiskSnapshot: {},
@@ -825,7 +825,7 @@ gapi.load('client', async () => {
           },
           targetDisk: {
             diskId: 'Test string',
-            diskType: 'Test string',
+            diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
             replicaZones: ['Test string'],
             zone: 'Test string',
           },
@@ -850,7 +850,7 @@ gapi.load('client', async () => {
       },
       {
         awsSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -859,14 +859,14 @@ gapi.load('client', async () => {
               volumeId: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
         azureSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -875,10 +875,10 @@ gapi.load('client', async () => {
               sizeGb: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
         computeEngineDisksTargetDefaults: {
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -905,7 +905,7 @@ gapi.load('client', async () => {
             bootDiskDefaults: {
               deviceName: 'Test string',
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -919,12 +919,12 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
-              onHostMaintenance: 'Test string',
-              restartType: 'Test string',
+              onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+              restartType: 'RESTART_TYPE_UNSPECIFIED',
             },
             enableIntegrityMonitoring: true,
             enableVtpm: true,
@@ -945,7 +945,7 @@ gapi.load('client', async () => {
                 externalIp: 'Test string',
                 internalIp: 'Test string',
                 network: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -966,22 +966,22 @@ gapi.load('client', async () => {
           additionalLicenses: ['Test string'],
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootConversion: 'Test string',
-          bootOption: 'Test string',
+          bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+          bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
           diskReplicaZones: ['Test string'],
           disks: [
@@ -990,7 +990,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -1000,7 +1000,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          diskType: 'Test string',
+          diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
           enableIntegrityMonitoring: true,
           enableVtpm: true,
           encryption: {
@@ -1010,7 +1010,7 @@ gapi.load('client', async () => {
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -1021,7 +1021,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -1036,29 +1036,29 @@ gapi.load('client', async () => {
         computeEngineVmDefaults: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -1071,7 +1071,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -1100,7 +1100,7 @@ gapi.load('client', async () => {
           progress: 42,
           progressPercent: 42,
           startTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           steps: [
             {
               endTime: 'Test string',
@@ -1122,7 +1122,7 @@ gapi.load('client', async () => {
                 locale: 'Test string',
                 message: 'Test string',
               },
-              code: 'Test string',
+              code: 'WARNING_CODE_UNSPECIFIED',
               helpLinks: [
                 {
                   description: 'Test string',
@@ -1176,7 +1176,7 @@ gapi.load('client', async () => {
           progress: 42,
           progressPercent: 42,
           startTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           steps: [
             {
               endTime: 'Test string',
@@ -1198,7 +1198,7 @@ gapi.load('client', async () => {
                 locale: 'Test string',
                 message: 'Test string',
               },
-              code: 'Test string',
+              code: 'WARNING_CODE_UNSPECIFIED',
               helpLinks: [
                 {
                   description: 'Test string',
@@ -1245,25 +1245,25 @@ gapi.load('client', async () => {
               additionalLicenses: ['Test string'],
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootConversion: 'Test string',
-              bootOption: 'Test string',
+              bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+              bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
               diskReplicaZones: ['Test string'],
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               enableIntegrityMonitoring: true,
               enableVtpm: true,
               encryption: {
@@ -1273,7 +1273,7 @@ gapi.load('client', async () => {
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1284,7 +1284,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1299,29 +1299,29 @@ gapi.load('client', async () => {
             computeEngineVmDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1334,7 +1334,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1358,7 +1358,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
             name: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             stateTime: 'Test string',
             steps: [
               {
@@ -1372,29 +1372,29 @@ gapi.load('client', async () => {
             targetDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1407,7 +1407,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1445,25 +1445,25 @@ gapi.load('client', async () => {
               additionalLicenses: ['Test string'],
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootConversion: 'Test string',
-              bootOption: 'Test string',
+              bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+              bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
               diskReplicaZones: ['Test string'],
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               enableIntegrityMonitoring: true,
               enableVtpm: true,
               encryption: {
@@ -1473,7 +1473,7 @@ gapi.load('client', async () => {
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1484,7 +1484,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1499,29 +1499,29 @@ gapi.load('client', async () => {
             computeEngineVmDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1534,7 +1534,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1560,7 +1560,7 @@ gapi.load('client', async () => {
             name: 'Test string',
             progress: 42,
             progressPercent: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             stateMessage: 'Test string',
             stateTime: 'Test string',
             steps: [
@@ -1582,7 +1582,7 @@ gapi.load('client', async () => {
                   progress: 42,
                   progressPercent: 42,
                   startTime: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   steps: [
                     {
                       endTime: 'Test string',
@@ -1604,7 +1604,7 @@ gapi.load('client', async () => {
                         locale: 'Test string',
                         message: 'Test string',
                       },
-                      code: 'Test string',
+                      code: 'WARNING_CODE_UNSPECIFIED',
                       helpLinks: [
                         {
                           description: 'Test string',
@@ -1637,7 +1637,7 @@ gapi.load('client', async () => {
                   progress: 42,
                   progressPercent: 42,
                   startTime: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   steps: [
                     {
                       endTime: 'Test string',
@@ -1659,7 +1659,7 @@ gapi.load('client', async () => {
                         locale: 'Test string',
                         message: 'Test string',
                       },
-                      code: 'Test string',
+                      code: 'WARNING_CODE_UNSPECIFIED',
                       helpLinks: [
                         {
                           description: 'Test string',
@@ -1681,29 +1681,29 @@ gapi.load('client', async () => {
             targetDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -1716,7 +1716,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -1731,34 +1731,34 @@ gapi.load('client', async () => {
           },
         ],
         sourceVmId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateTime: 'Test string',
         targetDefaults: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -1771,7 +1771,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -1785,7 +1785,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         vmwareSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -1794,10 +1794,10 @@ gapi.load('client', async () => {
               sizeGb: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
       },
@@ -1825,7 +1825,7 @@ gapi.load('client', async () => {
     /** Gets details of a single MigratingVm. */
     await gapi.client.vmmigration.projects.locations.sources.migratingVms.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'MIGRATING_VM_VIEW_UNSPECIFIED',
     });
     /** Lists MigratingVms in a given Source. */
     await gapi.client.vmmigration.projects.locations.sources.migratingVms.list({
@@ -1834,7 +1834,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'MIGRATING_VM_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single MigratingVm. */
     await gapi.client.vmmigration.projects.locations.sources.migratingVms.patch(
@@ -1845,7 +1845,7 @@ gapi.load('client', async () => {
       },
       {
         awsSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -1854,14 +1854,14 @@ gapi.load('client', async () => {
               volumeId: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
         azureSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -1870,10 +1870,10 @@ gapi.load('client', async () => {
               sizeGb: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
         computeEngineDisksTargetDefaults: {
@@ -1883,7 +1883,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -1900,7 +1900,7 @@ gapi.load('client', async () => {
             bootDiskDefaults: {
               deviceName: 'Test string',
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -1914,12 +1914,12 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
-              onHostMaintenance: 'Test string',
-              restartType: 'Test string',
+              onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+              restartType: 'RESTART_TYPE_UNSPECIFIED',
             },
             enableIntegrityMonitoring: true,
             enableVtpm: true,
@@ -1940,7 +1940,7 @@ gapi.load('client', async () => {
                 externalIp: 'Test string',
                 internalIp: 'Test string',
                 network: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -1961,22 +1961,22 @@ gapi.load('client', async () => {
           additionalLicenses: ['Test string'],
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootConversion: 'Test string',
-          bootOption: 'Test string',
+          bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+          bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
           diskReplicaZones: ['Test string'],
           disks: [
@@ -1985,7 +1985,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               diskName: 'Test string',
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               encryption: {
                 kmsKey: 'Test string',
               },
@@ -1995,7 +1995,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          diskType: 'Test string',
+          diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
           enableIntegrityMonitoring: true,
           enableVtpm: true,
           encryption: {
@@ -2005,7 +2005,7 @@ gapi.load('client', async () => {
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -2016,7 +2016,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -2031,29 +2031,29 @@ gapi.load('client', async () => {
         computeEngineVmDefaults: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -2066,7 +2066,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -2095,7 +2095,7 @@ gapi.load('client', async () => {
           progress: 42,
           progressPercent: 42,
           startTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           steps: [
             {
               endTime: 'Test string',
@@ -2117,7 +2117,7 @@ gapi.load('client', async () => {
                 locale: 'Test string',
                 message: 'Test string',
               },
-              code: 'Test string',
+              code: 'WARNING_CODE_UNSPECIFIED',
               helpLinks: [
                 {
                   description: 'Test string',
@@ -2171,7 +2171,7 @@ gapi.load('client', async () => {
           progress: 42,
           progressPercent: 42,
           startTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           steps: [
             {
               endTime: 'Test string',
@@ -2193,7 +2193,7 @@ gapi.load('client', async () => {
                 locale: 'Test string',
                 message: 'Test string',
               },
-              code: 'Test string',
+              code: 'WARNING_CODE_UNSPECIFIED',
               helpLinks: [
                 {
                   description: 'Test string',
@@ -2240,25 +2240,25 @@ gapi.load('client', async () => {
               additionalLicenses: ['Test string'],
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootConversion: 'Test string',
-              bootOption: 'Test string',
+              bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+              bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
               diskReplicaZones: ['Test string'],
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               enableIntegrityMonitoring: true,
               enableVtpm: true,
               encryption: {
@@ -2268,7 +2268,7 @@ gapi.load('client', async () => {
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2279,7 +2279,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2294,29 +2294,29 @@ gapi.load('client', async () => {
             computeEngineVmDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2329,7 +2329,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2353,7 +2353,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
             name: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             stateTime: 'Test string',
             steps: [
               {
@@ -2367,29 +2367,29 @@ gapi.load('client', async () => {
             targetDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2402,7 +2402,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2440,25 +2440,25 @@ gapi.load('client', async () => {
               additionalLicenses: ['Test string'],
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootConversion: 'Test string',
-              bootOption: 'Test string',
+              bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+              bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
               diskReplicaZones: ['Test string'],
-              diskType: 'Test string',
+              diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
               enableIntegrityMonitoring: true,
               enableVtpm: true,
               encryption: {
@@ -2468,7 +2468,7 @@ gapi.load('client', async () => {
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2479,7 +2479,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2494,29 +2494,29 @@ gapi.load('client', async () => {
             computeEngineVmDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2529,7 +2529,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2555,7 +2555,7 @@ gapi.load('client', async () => {
             name: 'Test string',
             progress: 42,
             progressPercent: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             stateMessage: 'Test string',
             stateTime: 'Test string',
             steps: [
@@ -2577,7 +2577,7 @@ gapi.load('client', async () => {
                   progress: 42,
                   progressPercent: 42,
                   startTime: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   steps: [
                     {
                       endTime: 'Test string',
@@ -2599,7 +2599,7 @@ gapi.load('client', async () => {
                         locale: 'Test string',
                         message: 'Test string',
                       },
-                      code: 'Test string',
+                      code: 'WARNING_CODE_UNSPECIFIED',
                       helpLinks: [
                         {
                           description: 'Test string',
@@ -2632,7 +2632,7 @@ gapi.load('client', async () => {
                   progress: 42,
                   progressPercent: 42,
                   startTime: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   steps: [
                     {
                       endTime: 'Test string',
@@ -2654,7 +2654,7 @@ gapi.load('client', async () => {
                         locale: 'Test string',
                         message: 'Test string',
                       },
-                      code: 'Test string',
+                      code: 'WARNING_CODE_UNSPECIFIED',
                       helpLinks: [
                         {
                           description: 'Test string',
@@ -2676,29 +2676,29 @@ gapi.load('client', async () => {
             targetDetails: {
               appliedLicense: {
                 osLicense: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              bootOption: 'Test string',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               computeScheduling: {
                 automaticRestart: true,
                 minNodeCpus: 42,
                 nodeAffinities: [
                   {
                     key: 'Test string',
-                    operator: 'Test string',
+                    operator: 'OPERATOR_UNSPECIFIED',
                     values: ['Test string'],
                   },
                 ],
-                onHostMaintenance: 'Test string',
-                restartType: 'Test string',
+                onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+                restartType: 'RESTART_TYPE_UNSPECIFIED',
               },
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               externalIp: 'Test string',
               internalIp: 'Test string',
               labels: {
                 A: 'Test string',
               },
-              licenseType: 'Test string',
+              licenseType: 'DEFAULT',
               machineType: 'Test string',
               machineTypeSeries: 'Test string',
               metadata: {
@@ -2711,7 +2711,7 @@ gapi.load('client', async () => {
                   externalIp: 'Test string',
                   internalIp: 'Test string',
                   network: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
                   subnetwork: 'Test string',
                 },
               ],
@@ -2726,34 +2726,34 @@ gapi.load('client', async () => {
           },
         ],
         sourceVmId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateTime: 'Test string',
         targetDefaults: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -2766,7 +2766,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -2780,7 +2780,7 @@ gapi.load('client', async () => {
         },
         updateTime: 'Test string',
         vmwareSourceVmDetails: {
-          architecture: 'Test string',
+          architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
           committedStorageBytes: 'Test string',
           disks: [
             {
@@ -2789,10 +2789,10 @@ gapi.load('client', async () => {
               sizeGb: 'Test string',
             },
           ],
-          firmware: 'Test string',
+          firmware: 'FIRMWARE_UNSPECIFIED',
           vmCapabilitiesInfo: {
             lastOsCapabilitiesUpdateTime: 'Test string',
-            osCapabilities: ['Test string'],
+            osCapabilities: ['OS_CAPABILITY_UNSPECIFIED'],
           },
         },
       },
@@ -2855,25 +2855,25 @@ gapi.load('client', async () => {
           additionalLicenses: ['Test string'],
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootConversion: 'Test string',
-          bootOption: 'Test string',
+          bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+          bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
           diskReplicaZones: ['Test string'],
-          diskType: 'Test string',
+          diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
           enableIntegrityMonitoring: true,
           enableVtpm: true,
           encryption: {
@@ -2883,7 +2883,7 @@ gapi.load('client', async () => {
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -2894,7 +2894,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -2909,29 +2909,29 @@ gapi.load('client', async () => {
         computeEngineVmDetails: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -2944,7 +2944,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -2968,7 +2968,7 @@ gapi.load('client', async () => {
           message: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateTime: 'Test string',
         steps: [
           {
@@ -2982,29 +2982,29 @@ gapi.load('client', async () => {
         targetDetails: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -3017,7 +3017,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -3084,25 +3084,25 @@ gapi.load('client', async () => {
           additionalLicenses: ['Test string'],
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootConversion: 'Test string',
-          bootOption: 'Test string',
+          bootConversion: 'BOOT_CONVERSION_UNSPECIFIED',
+          bootOption: 'COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
           diskReplicaZones: ['Test string'],
-          diskType: 'Test string',
+          diskType: 'COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED',
           enableIntegrityMonitoring: true,
           enableVtpm: true,
           encryption: {
@@ -3112,7 +3112,7 @@ gapi.load('client', async () => {
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -3123,7 +3123,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -3138,29 +3138,29 @@ gapi.load('client', async () => {
         computeEngineVmDetails: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -3173,7 +3173,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -3199,7 +3199,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         progress: 42,
         progressPercent: 42,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         stateTime: 'Test string',
         steps: [
@@ -3221,7 +3221,7 @@ gapi.load('client', async () => {
               progress: 42,
               progressPercent: 42,
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               steps: [
                 {
                   endTime: 'Test string',
@@ -3243,7 +3243,7 @@ gapi.load('client', async () => {
                     locale: 'Test string',
                     message: 'Test string',
                   },
-                  code: 'Test string',
+                  code: 'WARNING_CODE_UNSPECIFIED',
                   helpLinks: [
                     {
                       description: 'Test string',
@@ -3276,7 +3276,7 @@ gapi.load('client', async () => {
               progress: 42,
               progressPercent: 42,
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               steps: [
                 {
                   endTime: 'Test string',
@@ -3298,7 +3298,7 @@ gapi.load('client', async () => {
                     locale: 'Test string',
                     message: 'Test string',
                   },
-                  code: 'Test string',
+                  code: 'WARNING_CODE_UNSPECIFIED',
                   helpLinks: [
                     {
                       description: 'Test string',
@@ -3320,29 +3320,29 @@ gapi.load('client', async () => {
         targetDetails: {
           appliedLicense: {
             osLicense: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
-          bootOption: 'Test string',
+          bootOption: 'BOOT_OPTION_UNSPECIFIED',
           computeScheduling: {
             automaticRestart: true,
             minNodeCpus: 42,
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'OPERATOR_UNSPECIFIED',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
-            restartType: 'Test string',
+            onHostMaintenance: 'ON_HOST_MAINTENANCE_UNSPECIFIED',
+            restartType: 'RESTART_TYPE_UNSPECIFIED',
           },
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           externalIp: 'Test string',
           internalIp: 'Test string',
           labels: {
             A: 'Test string',
           },
-          licenseType: 'Test string',
+          licenseType: 'DEFAULT',
           machineType: 'Test string',
           machineTypeSeries: 'Test string',
           metadata: {
@@ -3355,7 +3355,7 @@ gapi.load('client', async () => {
               externalIp: 'Test string',
               internalIp: 'Test string',
               network: 'Test string',
-              networkTier: 'Test string',
+              networkTier: 'COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -3422,9 +3422,9 @@ gapi.load('client', async () => {
         },
         frameEndTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateTime: 'Test string',
-        timeFrame: 'Test string',
+        timeFrame: 'TIME_FRAME_UNSPECIFIED',
         vmCount: 42,
         vms: [
           {
@@ -3448,8 +3448,8 @@ gapi.load('client', async () => {
             },
             vmId: 'Test string',
             vmwareVmDetails: {
-              architecture: 'Test string',
-              bootOption: 'Test string',
+              architecture: 'VM_ARCHITECTURE_UNSPECIFIED',
+              bootOption: 'BOOT_OPTION_UNSPECIFIED',
               committedStorage: 'Test string',
               committedStorageMb: 'Test string',
               cpuCount: 42,
@@ -3459,7 +3459,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               guestDescription: 'Test string',
               memoryMb: 42,
-              powerState: 'Test string',
+              powerState: 'POWER_STATE_UNSPECIFIED',
               uuid: 'Test string',
               vmId: 'Test string',
             },
@@ -3479,7 +3479,7 @@ gapi.load('client', async () => {
     await gapi.client.vmmigration.projects.locations.sources.utilizationReports.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'UTILIZATION_REPORT_VIEW_UNSPECIFIED',
       },
     );
     /** Lists Utilization Reports of the given Source. */
@@ -3490,7 +3490,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'UTILIZATION_REPORT_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a new TargetProject in a given project. NOTE: TargetProject is a global resource; hence the only supported value for location is `global`. */

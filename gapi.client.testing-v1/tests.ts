@@ -67,11 +67,11 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         inactivityTimeout: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'SESSION_STATE_UNSPECIFIED',
         stateHistories: [
           {
             eventTime: 'Test string',
-            sessionState: 'Test string',
+            sessionState: 'SESSION_STATE_UNSPECIFIED',
             stateMessage: 'Test string',
           },
         ],
@@ -108,11 +108,11 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         inactivityTimeout: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'SESSION_STATE_UNSPECIFIED',
         stateHistories: [
           {
             eventTime: 'Test string',
-            sessionState: 'Test string',
+            sessionState: 'SESSION_STATE_UNSPECIFIED',
             stateMessage: 'Test string',
           },
         ],
@@ -176,8 +176,8 @@ gapi.load('client', async () => {
         ],
         failFast: true,
         flakyTestAttempts: 42,
-        invalidMatrixDetails: 'Test string',
-        outcomeSummary: 'Test string',
+        invalidMatrixDetails: 'INVALID_MATRIX_DETAILS_UNSPECIFIED',
+        outcomeSummary: 'OUTCOME_SUMMARY_UNSPECIFIED',
         projectId: 'Test string',
         resultStorage: {
           googleCloudStorage: {
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
             projectId: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'TEST_STATE_UNSPECIFIED',
         testExecutions: [
           {
             environment: {
@@ -222,7 +222,7 @@ gapi.load('client', async () => {
                 testTargets: ['Test string'],
               },
             },
-            state: 'Test string',
+            state: 'TEST_STATE_UNSPECIFIED',
             testDetails: {
               errorMessage: 'Test string',
               progressMessages: ['Test string'],
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
                 },
                 appPackageId: 'Test string',
                 instrumentInPrivateComputeCore: true,
-                orchestratorOption: 'Test string',
+                orchestratorOption: 'ORCHESTRATOR_OPTION_UNSPECIFIED',
                 shardingOption: {
                   manualSharding: {
                     testTargetsForShard: [
@@ -291,12 +291,12 @@ gapi.load('client', async () => {
                 maxSteps: 42,
                 roboDirectives: [
                   {
-                    actionType: 'Test string',
+                    actionType: 'ACTION_TYPE_UNSPECIFIED',
                     inputText: 'Test string',
                     resourceName: 'Test string',
                   },
                 ],
-                roboMode: 'Test string',
+                roboMode: 'ROBO_MODE_UNSPECIFIED',
                 roboScript: {
                   gcsPath: 'Test string',
                 },
@@ -468,7 +468,7 @@ gapi.load('client', async () => {
             },
             appPackageId: 'Test string',
             instrumentInPrivateComputeCore: true,
-            orchestratorOption: 'Test string',
+            orchestratorOption: 'ORCHESTRATOR_OPTION_UNSPECIFIED',
             shardingOption: {
               manualSharding: {
                 testTargetsForShard: [
@@ -513,12 +513,12 @@ gapi.load('client', async () => {
             maxSteps: 42,
             roboDirectives: [
               {
-                actionType: 'Test string',
+                actionType: 'ACTION_TYPE_UNSPECIFIED',
                 inputText: 'Test string',
                 resourceName: 'Test string',
               },
             ],
-            roboMode: 'Test string',
+            roboMode: 'ROBO_MODE_UNSPECIFIED',
             roboScript: {
               gcsPath: 'Test string',
             },
@@ -671,7 +671,7 @@ gapi.load('client', async () => {
     });
     /** Gets the catalog of supported test environments. May return any of the following canonical error codes: - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the environment type does not exist - INTERNAL - if an internal error occurred */
     await gapi.client.testing.testEnvironmentCatalog.get({
-      environmentType: 'Test string',
+      environmentType: 'ENVIRONMENT_TYPE_UNSPECIFIED',
       includeViewableModels: true,
       projectId: 'Test string',
     });

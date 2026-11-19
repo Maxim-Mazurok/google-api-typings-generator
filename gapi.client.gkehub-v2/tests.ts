@@ -57,12 +57,12 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         lifecycleState: {
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         name: 'Test string',
         spec: {
           cloudbuild: {
-            securityPolicy: 'Test string',
+            securityPolicy: 'SECURITY_POLICY_UNSPECIFIED',
             version: 'Test string',
           },
           configmanagement: {
@@ -114,14 +114,14 @@ gapi.load('client', async () => {
               enableHierarchicalResourceQuota: true,
               enablePodTreeLabels: true,
             },
-            management: 'Test string',
+            management: 'MANAGEMENT_UNSPECIFIED',
             policyController: {
               auditIntervalSeconds: 'Test string',
               enabled: true,
               exemptableNamespaces: ['Test string'],
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               referentialRulesEnabled: true,
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
             },
           },
           origin: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           policycontroller: {
             policyControllerHubConfig: {
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
                       memory: 'Test string',
                     },
                   },
-                  podAffinity: 'Test string',
+                  podAffinity: 'AFFINITY_UNSPECIFIED',
                   podAntiAffinity: true,
                   podTolerations: [
                     {
@@ -243,10 +243,10 @@ gapi.load('client', async () => {
                 },
               },
               exemptableNamespaces: ['Test string'],
-              installSpec: 'Test string',
+              installSpec: 'INSTALL_SPEC_UNSPECIFIED',
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               policyContent: {
@@ -256,7 +256,7 @@ gapi.load('client', async () => {
                   },
                 },
                 templateLibrary: {
-                  installation: 'Test string',
+                  installation: 'INSTALLATION_UNSPECIFIED',
                 },
               },
               referentialRulesEnabled: true,
@@ -265,19 +265,19 @@ gapi.load('client', async () => {
           },
           rbacrolebindingactuation: {},
           servicemesh: {
-            configApi: 'Test string',
-            controlPlane: 'Test string',
-            defaultChannel: 'Test string',
-            management: 'Test string',
+            configApi: 'CONFIG_API_UNSPECIFIED',
+            controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+            defaultChannel: 'CHANNEL_UNSPECIFIED',
+            management: 'MANAGEMENT_UNSPECIFIED',
           },
           workloadcertificate: {
-            certificateManagement: 'Test string',
+            certificateManagement: 'CERTIFICATE_MANAGEMENT_UNSPECIFIED',
           },
         },
         state: {
           appdevexperience: {
             networkingInstallSucceeded: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
             },
           },
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
             upgrades: [
               {
                 status: {
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   reason: 'Test string',
                   updateTime: 'Test string',
                 },
@@ -305,33 +305,33 @@ gapi.load('client', async () => {
               version: {
                 webhookVersion: 'Test string',
               },
-              webhook: 'Test string',
+              webhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
             },
             clusterName: 'Test string',
             configSyncState: {
-              clusterLevelStopSyncingState: 'Test string',
+              clusterLevelStopSyncingState: 'STOP_SYNCING_STATE_UNSPECIFIED',
               crCount: 42,
               deploymentState: {
-                admissionWebhook: 'Test string',
-                gitSync: 'Test string',
-                importer: 'Test string',
-                monitor: 'Test string',
-                otelCollector: 'Test string',
-                reconcilerManager: 'Test string',
-                resourceGroupControllerManager: 'Test string',
-                rootReconciler: 'Test string',
-                syncer: 'Test string',
+                admissionWebhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                gitSync: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                importer: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                monitor: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                otelCollector: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                reconcilerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                resourceGroupControllerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                rootReconciler: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                syncer: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               errors: [
                 {
                   errorMessage: 'Test string',
                 },
               ],
-              reposyncCrd: 'Test string',
-              rootsyncCrd: 'Test string',
-              state: 'Test string',
+              reposyncCrd: 'CRD_STATE_UNSPECIFIED',
+              rootsyncCrd: 'CRD_STATE_UNSPECIFIED',
+              state: 'STATE_UNSPECIFIED',
               syncState: {
-                code: 'Test string',
+                code: 'SYNC_CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -370,8 +370,8 @@ gapi.load('client', async () => {
             },
             hierarchyControllerState: {
               state: {
-                extension: 'Test string',
-                hnc: 'Test string',
+                extension: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                hnc: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               version: {
                 extension: 'Test string',
@@ -428,14 +428,14 @@ gapi.load('client', async () => {
                 enableHierarchicalResourceQuota: true,
                 enablePodTreeLabels: true,
               },
-              management: 'Test string',
+              management: 'MANAGEMENT_UNSPECIFIED',
               policyController: {
                 auditIntervalSeconds: 'Test string',
                 enabled: true,
                 exemptableNamespaces: ['Test string'],
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 referentialRulesEnabled: true,
@@ -445,7 +445,7 @@ gapi.load('client', async () => {
               version: 'Test string',
             },
             operatorState: {
-              deploymentState: 'Test string',
+              deploymentState: 'DEPLOYMENT_STATE_UNSPECIFIED',
               errors: [
                 {
                   errorMessage: 'Test string',
@@ -455,13 +455,14 @@ gapi.load('client', async () => {
             },
             policyControllerState: {
               deploymentState: {
-                gatekeeperAudit: 'Test string',
-                gatekeeperControllerManagerState: 'Test string',
-                gatekeeperMutation: 'Test string',
+                gatekeeperAudit: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                gatekeeperControllerManagerState:
+                  'DEPLOYMENT_STATE_UNSPECIFIED',
+                gatekeeperMutation: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               migration: {
                 copyTime: 'Test string',
-                stage: 'Test string',
+                stage: 'STAGE_UNSPECIFIED',
               },
               version: {
                 version: 'Test string',
@@ -551,7 +552,7 @@ gapi.load('client', async () => {
                 sessionDuration: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'DEPLOYMENT_STATE_UNSPECIFIED',
           },
           metering: {
             lastMeasurementTime: 'Test string',
@@ -561,32 +562,32 @@ gapi.load('client', async () => {
             componentStates: {
               A: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
             policyContentState: {
               bundleStates: {
                 A: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
               referentialSyncConfigState: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
               templateLibraryState: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
-            state: 'Test string',
+            state: 'LIFECYCLE_STATE_UNSPECIFIED',
           },
           rbacrolebindingactuation: {
             rbacrolebindingStates: {
               A: {
                 description: 'Test string',
-                state: 'Test string',
+                state: 'ROLE_BINDING_STATE_UNSPECIFIED',
                 updateTime: 'Test string',
               },
             },
@@ -600,7 +601,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 messageBase: {
                   documentationUrl: 'Test string',
-                  level: 'Test string',
+                  level: 'LEVEL_UNSPECIFIED',
                   type: {
                     code: 'Test string',
                     displayName: 'Test string',
@@ -611,10 +612,10 @@ gapi.load('client', async () => {
             ],
             conditions: [
               {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 details: 'Test string',
                 documentationLink: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
             configApiVersion: 'Test string',
@@ -625,8 +626,8 @@ gapi.load('client', async () => {
                   details: 'Test string',
                 },
               ],
-              implementation: 'Test string',
-              state: 'Test string',
+              implementation: 'IMPLEMENTATION_UNSPECIFIED',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
             dataPlaneManagement: {
               details: [
@@ -635,11 +636,11 @@ gapi.load('client', async () => {
                   details: 'Test string',
                 },
               ],
-              state: 'Test string',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
           },
           state: {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             description: 'Test string',
             updateTime: 'Test string',
           },
@@ -647,7 +648,7 @@ gapi.load('client', async () => {
             description: 'Test string',
             identityProviderStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'IDENTITY_PROVIDER_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
@@ -688,12 +689,12 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         lifecycleState: {
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         name: 'Test string',
         spec: {
           cloudbuild: {
-            securityPolicy: 'Test string',
+            securityPolicy: 'SECURITY_POLICY_UNSPECIFIED',
             version: 'Test string',
           },
           configmanagement: {
@@ -745,14 +746,14 @@ gapi.load('client', async () => {
               enableHierarchicalResourceQuota: true,
               enablePodTreeLabels: true,
             },
-            management: 'Test string',
+            management: 'MANAGEMENT_UNSPECIFIED',
             policyController: {
               auditIntervalSeconds: 'Test string',
               enabled: true,
               exemptableNamespaces: ['Test string'],
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               referentialRulesEnabled: true,
@@ -842,7 +843,7 @@ gapi.load('client', async () => {
             },
           },
           origin: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           policycontroller: {
             policyControllerHubConfig: {
@@ -860,7 +861,7 @@ gapi.load('client', async () => {
                       memory: 'Test string',
                     },
                   },
-                  podAffinity: 'Test string',
+                  podAffinity: 'AFFINITY_UNSPECIFIED',
                   podAntiAffinity: true,
                   podTolerations: [
                     {
@@ -874,10 +875,10 @@ gapi.load('client', async () => {
                 },
               },
               exemptableNamespaces: ['Test string'],
-              installSpec: 'Test string',
+              installSpec: 'INSTALL_SPEC_UNSPECIFIED',
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               policyContent: {
@@ -887,7 +888,7 @@ gapi.load('client', async () => {
                   },
                 },
                 templateLibrary: {
-                  installation: 'Test string',
+                  installation: 'INSTALLATION_UNSPECIFIED',
                 },
               },
               referentialRulesEnabled: true,
@@ -896,19 +897,19 @@ gapi.load('client', async () => {
           },
           rbacrolebindingactuation: {},
           servicemesh: {
-            configApi: 'Test string',
-            controlPlane: 'Test string',
-            defaultChannel: 'Test string',
-            management: 'Test string',
+            configApi: 'CONFIG_API_UNSPECIFIED',
+            controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+            defaultChannel: 'CHANNEL_UNSPECIFIED',
+            management: 'MANAGEMENT_UNSPECIFIED',
           },
           workloadcertificate: {
-            certificateManagement: 'Test string',
+            certificateManagement: 'CERTIFICATE_MANAGEMENT_UNSPECIFIED',
           },
         },
         state: {
           appdevexperience: {
             networkingInstallSucceeded: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
             },
           },
@@ -920,7 +921,7 @@ gapi.load('client', async () => {
             upgrades: [
               {
                 status: {
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   reason: 'Test string',
                   updateTime: 'Test string',
                 },
@@ -936,33 +937,33 @@ gapi.load('client', async () => {
               version: {
                 webhookVersion: 'Test string',
               },
-              webhook: 'Test string',
+              webhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
             },
             clusterName: 'Test string',
             configSyncState: {
-              clusterLevelStopSyncingState: 'Test string',
+              clusterLevelStopSyncingState: 'STOP_SYNCING_STATE_UNSPECIFIED',
               crCount: 42,
               deploymentState: {
-                admissionWebhook: 'Test string',
-                gitSync: 'Test string',
-                importer: 'Test string',
-                monitor: 'Test string',
-                otelCollector: 'Test string',
-                reconcilerManager: 'Test string',
-                resourceGroupControllerManager: 'Test string',
-                rootReconciler: 'Test string',
-                syncer: 'Test string',
+                admissionWebhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                gitSync: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                importer: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                monitor: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                otelCollector: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                reconcilerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                resourceGroupControllerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                rootReconciler: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                syncer: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               errors: [
                 {
                   errorMessage: 'Test string',
                 },
               ],
-              reposyncCrd: 'Test string',
-              rootsyncCrd: 'Test string',
-              state: 'Test string',
+              reposyncCrd: 'CRD_STATE_UNSPECIFIED',
+              rootsyncCrd: 'CRD_STATE_UNSPECIFIED',
+              state: 'STATE_UNSPECIFIED',
               syncState: {
-                code: 'Test string',
+                code: 'SYNC_CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -1001,8 +1002,8 @@ gapi.load('client', async () => {
             },
             hierarchyControllerState: {
               state: {
-                extension: 'Test string',
-                hnc: 'Test string',
+                extension: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                hnc: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               version: {
                 extension: 'Test string',
@@ -1059,14 +1060,14 @@ gapi.load('client', async () => {
                 enableHierarchicalResourceQuota: true,
                 enablePodTreeLabels: true,
               },
-              management: 'Test string',
+              management: 'MANAGEMENT_UNSPECIFIED',
               policyController: {
                 auditIntervalSeconds: 'Test string',
                 enabled: true,
                 exemptableNamespaces: ['Test string'],
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 referentialRulesEnabled: true,
@@ -1076,7 +1077,7 @@ gapi.load('client', async () => {
               version: 'Test string',
             },
             operatorState: {
-              deploymentState: 'Test string',
+              deploymentState: 'DEPLOYMENT_STATE_UNSPECIFIED',
               errors: [
                 {
                   errorMessage: 'Test string',
@@ -1086,13 +1087,14 @@ gapi.load('client', async () => {
             },
             policyControllerState: {
               deploymentState: {
-                gatekeeperAudit: 'Test string',
-                gatekeeperControllerManagerState: 'Test string',
-                gatekeeperMutation: 'Test string',
+                gatekeeperAudit: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                gatekeeperControllerManagerState:
+                  'DEPLOYMENT_STATE_UNSPECIFIED',
+                gatekeeperMutation: 'DEPLOYMENT_STATE_UNSPECIFIED',
               },
               migration: {
                 copyTime: 'Test string',
-                stage: 'Test string',
+                stage: 'STAGE_UNSPECIFIED',
               },
               version: {
                 version: 'Test string',
@@ -1182,7 +1184,7 @@ gapi.load('client', async () => {
                 sessionDuration: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'DEPLOYMENT_STATE_UNSPECIFIED',
           },
           metering: {
             lastMeasurementTime: 'Test string',
@@ -1192,32 +1194,32 @@ gapi.load('client', async () => {
             componentStates: {
               A: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
             policyContentState: {
               bundleStates: {
                 A: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
               referentialSyncConfigState: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
               templateLibraryState: {
                 details: 'Test string',
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
-            state: 'Test string',
+            state: 'LIFECYCLE_STATE_UNSPECIFIED',
           },
           rbacrolebindingactuation: {
             rbacrolebindingStates: {
               A: {
                 description: 'Test string',
-                state: 'Test string',
+                state: 'ROLE_BINDING_STATE_UNSPECIFIED',
                 updateTime: 'Test string',
               },
             },
@@ -1231,7 +1233,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 messageBase: {
                   documentationUrl: 'Test string',
-                  level: 'Test string',
+                  level: 'LEVEL_UNSPECIFIED',
                   type: {
                     code: 'Test string',
                     displayName: 'Test string',
@@ -1242,10 +1244,10 @@ gapi.load('client', async () => {
             ],
             conditions: [
               {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 details: 'Test string',
                 documentationLink: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
             configApiVersion: 'Test string',
@@ -1256,8 +1258,8 @@ gapi.load('client', async () => {
                   details: 'Test string',
                 },
               ],
-              implementation: 'Test string',
-              state: 'Test string',
+              implementation: 'IMPLEMENTATION_UNSPECIFIED',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
             dataPlaneManagement: {
               details: [
@@ -1266,11 +1268,11 @@ gapi.load('client', async () => {
                   details: 'Test string',
                 },
               ],
-              state: 'Test string',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
           },
           state: {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             description: 'Test string',
             updateTime: 'Test string',
           },
@@ -1278,7 +1280,7 @@ gapi.load('client', async () => {
             description: 'Test string',
             identityProviderStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'IDENTITY_PROVIDER_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },

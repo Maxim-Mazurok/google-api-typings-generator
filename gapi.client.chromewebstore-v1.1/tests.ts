@@ -36,7 +36,7 @@ gapi.load('client', async () => {
     /** Gets your own Chrome Web Store item. */
     await gapi.client.chromewebstore.items.get({
       itemId: 'Test string',
-      projection: 'Test string',
+      projection: 'DRAFT',
     });
     /** Inserts a new item. */
     await gapi.client.chromewebstore.items.insert({

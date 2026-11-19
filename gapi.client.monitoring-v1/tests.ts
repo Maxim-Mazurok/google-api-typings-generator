@@ -81,7 +81,7 @@ gapi.load('client', async () => {
             {
               displayName: 'Test string',
               enabled: true,
-              eventType: 'Test string',
+              eventType: 'EVENT_TYPE_UNSPECIFIED',
               filter: 'Test string',
               resourceNames: ['Test string'],
             },
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
                     resourceNames: ['Test string'],
                   },
                   pieChart: {
-                    chartType: 'Test string',
+                    chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                     dataSets: [
                       {
                         dimensions: [
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -167,74 +167,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -275,7 +275,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -286,7 +286,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -312,14 +312,14 @@ gapi.load('client', async () => {
                     ],
                     sparkChartView: {
                       minAlignmentPeriod: 'Test string',
-                      sparkChartType: 'Test string',
+                      sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                     },
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -332,74 +332,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -427,19 +427,19 @@ gapi.load('client', async () => {
                     subtitle: 'Test string',
                   },
                   singleViewGroup: {
-                    displayType: 'Test string',
+                    displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                   },
                   text: {
                     content: 'Test string',
-                    format: 'Test string',
+                    format: 'FORMAT_UNSPECIFIED',
                     style: {
                       backgroundColor: 'Test string',
-                      fontSize: 'Test string',
-                      horizontalAlignment: 'Test string',
-                      padding: 'Test string',
-                      pointerLocation: 'Test string',
+                      fontSize: 'FONT_SIZE_UNSPECIFIED',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                      padding: 'PADDING_SIZE_UNSPECIFIED',
+                      pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                       textColor: 'Test string',
-                      verticalAlignment: 'Test string',
+                      verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                     },
                   },
                   timeRange: {
@@ -452,15 +452,15 @@ gapi.load('client', async () => {
                   timeSeriesTable: {
                     columnSettings: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                         column: 'Test string',
                         displayName: 'Test string',
                         thresholds: [
                           {
-                            color: 'Test string',
-                            direction: 'Test string',
+                            color: 'COLOR_UNSPECIFIED',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             label: 'Test string',
-                            targetAxis: 'Test string',
+                            targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                             value: 42,
                           },
                         ],
@@ -483,74 +483,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -574,7 +574,7 @@ gapi.load('client', async () => {
                         },
                       },
                     ],
-                    metricVisualization: 'Test string',
+                    metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                   },
                   title: 'Test string',
                   treemap: {
@@ -593,7 +593,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         measures: [
@@ -619,74 +619,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -714,7 +714,7 @@ gapi.load('client', async () => {
                   },
                   visibilityCondition: {
                     templateVariableCondition: {
-                      comparator: 'Test string',
+                      comparator: 'COMPARATOR_UNSPECIFIED',
                       templateVariable: 'Test string',
                       templateVariableValue: 'Test string',
                     },
@@ -722,7 +722,7 @@ gapi.load('client', async () => {
                   xyChart: {
                     chartOptions: {
                       displayHorizontal: true,
-                      mode: 'Test string',
+                      mode: 'MODE_UNSPECIFIED',
                     },
                     dataSets: [
                       {
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         dimensions: [
@@ -750,7 +750,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -772,14 +772,14 @@ gapi.load('client', async () => {
                           },
                         ],
                         minAlignmentPeriod: 'Test string',
-                        plotType: 'Test string',
+                        plotType: 'PLOT_TYPE_UNSPECIFIED',
                         sort: [
                           {
                             column: 'Test string',
-                            direction: 'Test string',
+                            direction: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         timeSeriesQuery: {
                           opsAnalyticsQuery: {
                             sql: 'Test string',
@@ -789,74 +789,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -882,25 +882,25 @@ gapi.load('client', async () => {
                     ],
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
                     timeshiftDuration: 'Test string',
                     xAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     y2Axis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     yAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                   },
                 },
@@ -910,7 +910,7 @@ gapi.load('client', async () => {
         },
         dashboardFilters: [
           {
-            filterType: 'Test string',
+            filterType: 'FILTER_TYPE_UNSPECIFIED',
             labelKey: 'Test string',
             stringArray: {
               values: ['Test string'],
@@ -929,74 +929,74 @@ gapi.load('client', async () => {
               timeSeriesFilter: {
                 aggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 filter: 'Test string',
                 pickTimeSeriesFilter: {
-                  direction: 'Test string',
+                  direction: 'DIRECTION_UNSPECIFIED',
                   interval: {
                     endTime: 'Test string',
                     startTime: 'Test string',
                   },
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
                 secondaryAggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 statisticalTimeSeriesFilter: {
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
               },
               timeSeriesFilterRatio: {
                 denominator: {
                   aggregation: {
                     alignmentPeriod: 'Test string',
-                    crossSeriesReducer: 'Test string',
+                    crossSeriesReducer: 'REDUCE_NONE',
                     groupByFields: ['Test string'],
-                    perSeriesAligner: 'Test string',
+                    perSeriesAligner: 'ALIGN_NONE',
                   },
                   filter: 'Test string',
                 },
                 numerator: {
                   aggregation: {
                     alignmentPeriod: 'Test string',
-                    crossSeriesReducer: 'Test string',
+                    crossSeriesReducer: 'REDUCE_NONE',
                     groupByFields: ['Test string'],
-                    perSeriesAligner: 'Test string',
+                    perSeriesAligner: 'ALIGN_NONE',
                   },
                   filter: 'Test string',
                 },
                 pickTimeSeriesFilter: {
-                  direction: 'Test string',
+                  direction: 'DIRECTION_UNSPECIFIED',
                   interval: {
                     endTime: 'Test string',
                     startTime: 'Test string',
                   },
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
                 secondaryAggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 statisticalTimeSeriesFilter: {
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
               },
               timeSeriesQueryLanguage: 'Test string',
               traceQuery: {
                 resourceContainer: 'Test string',
-                spanDataValue: 'Test string',
+                spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                 spanFilters: {
                   apphubServices: ['Test string'],
                   apphubWorkloads: ['Test string'],
@@ -1018,7 +1018,7 @@ gapi.load('client', async () => {
               },
               unitOverride: 'Test string',
             },
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
         displayName: 'Test string',
@@ -1059,7 +1059,7 @@ gapi.load('client', async () => {
                 resourceNames: ['Test string'],
               },
               pieChart: {
-                chartType: 'Test string',
+                chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                 dataSets: [
                   {
                     dimensions: [
@@ -1070,7 +1070,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -1101,74 +1101,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -1209,7 +1209,7 @@ gapi.load('client', async () => {
                     },
                     column: 'Test string',
                     limit: 42,
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 dimensions: [
@@ -1220,7 +1220,7 @@ gapi.load('client', async () => {
                     maxBinCount: 42,
                     numericBinSize: 42,
                     sortColumn: 'Test string',
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     timeBinSize: 'Test string',
                     xMax: 42,
                     xMin: 42,
@@ -1246,14 +1246,14 @@ gapi.load('client', async () => {
                 ],
                 sparkChartView: {
                   minAlignmentPeriod: 'Test string',
-                  sparkChartType: 'Test string',
+                  sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                 },
                 thresholds: [
                   {
-                    color: 'Test string',
-                    direction: 'Test string',
+                    color: 'COLOR_UNSPECIFIED',
+                    direction: 'DIRECTION_UNSPECIFIED',
                     label: 'Test string',
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     value: 42,
                   },
                 ],
@@ -1266,74 +1266,74 @@ gapi.load('client', async () => {
                   timeSeriesFilter: {
                     aggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     filter: 'Test string',
                     pickTimeSeriesFilter: {
-                      direction: 'Test string',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       interval: {
                         endTime: 'Test string',
                         startTime: 'Test string',
                       },
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                     secondaryAggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     statisticalTimeSeriesFilter: {
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                   },
                   timeSeriesFilterRatio: {
                     denominator: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                     },
                     numerator: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                     },
                     pickTimeSeriesFilter: {
-                      direction: 'Test string',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       interval: {
                         endTime: 'Test string',
                         startTime: 'Test string',
                       },
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                     secondaryAggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     statisticalTimeSeriesFilter: {
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                   },
                   timeSeriesQueryLanguage: 'Test string',
                   traceQuery: {
                     resourceContainer: 'Test string',
-                    spanDataValue: 'Test string',
+                    spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                     spanFilters: {
                       apphubServices: ['Test string'],
                       apphubWorkloads: ['Test string'],
@@ -1361,19 +1361,19 @@ gapi.load('client', async () => {
                 subtitle: 'Test string',
               },
               singleViewGroup: {
-                displayType: 'Test string',
+                displayType: 'DISPLAY_TYPE_UNSPECIFIED',
               },
               text: {
                 content: 'Test string',
-                format: 'Test string',
+                format: 'FORMAT_UNSPECIFIED',
                 style: {
                   backgroundColor: 'Test string',
-                  fontSize: 'Test string',
-                  horizontalAlignment: 'Test string',
-                  padding: 'Test string',
-                  pointerLocation: 'Test string',
+                  fontSize: 'FONT_SIZE_UNSPECIFIED',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                  padding: 'PADDING_SIZE_UNSPECIFIED',
+                  pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                   textColor: 'Test string',
-                  verticalAlignment: 'Test string',
+                  verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                 },
               },
               timeRange: {
@@ -1386,15 +1386,15 @@ gapi.load('client', async () => {
               timeSeriesTable: {
                 columnSettings: [
                   {
-                    alignment: 'Test string',
+                    alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                     column: 'Test string',
                     displayName: 'Test string',
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -1417,74 +1417,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -1508,7 +1508,7 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                metricVisualization: 'Test string',
+                metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
               },
               title: 'Test string',
               treemap: {
@@ -1527,7 +1527,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     measures: [
@@ -1553,74 +1553,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -1648,7 +1648,7 @@ gapi.load('client', async () => {
               },
               visibilityCondition: {
                 templateVariableCondition: {
-                  comparator: 'Test string',
+                  comparator: 'COMPARATOR_UNSPECIFIED',
                   templateVariable: 'Test string',
                   templateVariableValue: 'Test string',
                 },
@@ -1656,7 +1656,7 @@ gapi.load('client', async () => {
               xyChart: {
                 chartOptions: {
                   displayHorizontal: true,
-                  mode: 'Test string',
+                  mode: 'MODE_UNSPECIFIED',
                 },
                 dataSets: [
                   {
@@ -1673,7 +1673,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -1684,7 +1684,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -1706,14 +1706,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     minAlignmentPeriod: 'Test string',
-                    plotType: 'Test string',
+                    plotType: 'PLOT_TYPE_UNSPECIFIED',
                     sort: [
                       {
                         column: 'Test string',
-                        direction: 'Test string',
+                        direction: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     timeSeriesQuery: {
                       opsAnalyticsQuery: {
                         sql: 'Test string',
@@ -1723,74 +1723,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -1816,25 +1816,25 @@ gapi.load('client', async () => {
                 ],
                 thresholds: [
                   {
-                    color: 'Test string',
-                    direction: 'Test string',
+                    color: 'COLOR_UNSPECIFIED',
+                    direction: 'DIRECTION_UNSPECIFIED',
                     label: 'Test string',
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     value: 42,
                   },
                 ],
                 timeshiftDuration: 'Test string',
                 xAxis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
                 y2Axis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
                 yAxis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
               },
             },
@@ -1881,7 +1881,7 @@ gapi.load('client', async () => {
                   resourceNames: ['Test string'],
                 },
                 pieChart: {
-                  chartType: 'Test string',
+                  chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                   dataSets: [
                     {
                       dimensions: [
@@ -1892,7 +1892,7 @@ gapi.load('client', async () => {
                           maxBinCount: 42,
                           numericBinSize: 42,
                           sortColumn: 'Test string',
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           timeBinSize: 'Test string',
                           xMax: 42,
                           xMin: 42,
@@ -1923,74 +1923,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -2031,7 +2031,7 @@ gapi.load('client', async () => {
                       },
                       column: 'Test string',
                       limit: 42,
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     },
                   ],
                   dimensions: [
@@ -2042,7 +2042,7 @@ gapi.load('client', async () => {
                       maxBinCount: 42,
                       numericBinSize: 42,
                       sortColumn: 'Test string',
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       timeBinSize: 'Test string',
                       xMax: 42,
                       xMin: 42,
@@ -2068,14 +2068,14 @@ gapi.load('client', async () => {
                   ],
                   sparkChartView: {
                     minAlignmentPeriod: 'Test string',
-                    sparkChartType: 'Test string',
+                    sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                   },
                   thresholds: [
                     {
-                      color: 'Test string',
-                      direction: 'Test string',
+                      color: 'COLOR_UNSPECIFIED',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       label: 'Test string',
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       value: 42,
                     },
                   ],
@@ -2088,74 +2088,74 @@ gapi.load('client', async () => {
                     timeSeriesFilter: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                       pickTimeSeriesFilter: {
-                        direction: 'Test string',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         interval: {
                           endTime: 'Test string',
                           startTime: 'Test string',
                         },
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                       secondaryAggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       statisticalTimeSeriesFilter: {
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                     },
                     timeSeriesFilterRatio: {
                       denominator: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                       },
                       numerator: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                       },
                       pickTimeSeriesFilter: {
-                        direction: 'Test string',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         interval: {
                           endTime: 'Test string',
                           startTime: 'Test string',
                         },
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                       secondaryAggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       statisticalTimeSeriesFilter: {
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                     },
                     timeSeriesQueryLanguage: 'Test string',
                     traceQuery: {
                       resourceContainer: 'Test string',
-                      spanDataValue: 'Test string',
+                      spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                       spanFilters: {
                         apphubServices: ['Test string'],
                         apphubWorkloads: ['Test string'],
@@ -2183,19 +2183,19 @@ gapi.load('client', async () => {
                   subtitle: 'Test string',
                 },
                 singleViewGroup: {
-                  displayType: 'Test string',
+                  displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                 },
                 text: {
                   content: 'Test string',
-                  format: 'Test string',
+                  format: 'FORMAT_UNSPECIFIED',
                   style: {
                     backgroundColor: 'Test string',
-                    fontSize: 'Test string',
-                    horizontalAlignment: 'Test string',
-                    padding: 'Test string',
-                    pointerLocation: 'Test string',
+                    fontSize: 'FONT_SIZE_UNSPECIFIED',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                    padding: 'PADDING_SIZE_UNSPECIFIED',
+                    pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                     textColor: 'Test string',
-                    verticalAlignment: 'Test string',
+                    verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                   },
                 },
                 timeRange: {
@@ -2208,15 +2208,15 @@ gapi.load('client', async () => {
                 timeSeriesTable: {
                   columnSettings: [
                     {
-                      alignment: 'Test string',
+                      alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                       column: 'Test string',
                       displayName: 'Test string',
                       thresholds: [
                         {
-                          color: 'Test string',
-                          direction: 'Test string',
+                          color: 'COLOR_UNSPECIFIED',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           label: 'Test string',
-                          targetAxis: 'Test string',
+                          targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                           value: 42,
                         },
                       ],
@@ -2239,74 +2239,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -2330,7 +2330,7 @@ gapi.load('client', async () => {
                       },
                     },
                   ],
-                  metricVisualization: 'Test string',
+                  metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                 },
                 title: 'Test string',
                 treemap: {
@@ -2349,7 +2349,7 @@ gapi.load('client', async () => {
                           },
                           column: 'Test string',
                           limit: 42,
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
                       measures: [
@@ -2375,74 +2375,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -2470,7 +2470,7 @@ gapi.load('client', async () => {
                 },
                 visibilityCondition: {
                   templateVariableCondition: {
-                    comparator: 'Test string',
+                    comparator: 'COMPARATOR_UNSPECIFIED',
                     templateVariable: 'Test string',
                     templateVariableValue: 'Test string',
                   },
@@ -2478,7 +2478,7 @@ gapi.load('client', async () => {
                 xyChart: {
                   chartOptions: {
                     displayHorizontal: true,
-                    mode: 'Test string',
+                    mode: 'MODE_UNSPECIFIED',
                   },
                   dataSets: [
                     {
@@ -2495,7 +2495,7 @@ gapi.load('client', async () => {
                           },
                           column: 'Test string',
                           limit: 42,
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
                       dimensions: [
@@ -2506,7 +2506,7 @@ gapi.load('client', async () => {
                           maxBinCount: 42,
                           numericBinSize: 42,
                           sortColumn: 'Test string',
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           timeBinSize: 'Test string',
                           xMax: 42,
                           xMin: 42,
@@ -2528,14 +2528,14 @@ gapi.load('client', async () => {
                         },
                       ],
                       minAlignmentPeriod: 'Test string',
-                      plotType: 'Test string',
+                      plotType: 'PLOT_TYPE_UNSPECIFIED',
                       sort: [
                         {
                           column: 'Test string',
-                          direction: 'Test string',
+                          direction: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       timeSeriesQuery: {
                         opsAnalyticsQuery: {
                           sql: 'Test string',
@@ -2545,74 +2545,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -2638,25 +2638,25 @@ gapi.load('client', async () => {
                   ],
                   thresholds: [
                     {
-                      color: 'Test string',
-                      direction: 'Test string',
+                      color: 'COLOR_UNSPECIFIED',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       label: 'Test string',
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       value: 42,
                     },
                   ],
                   timeshiftDuration: 'Test string',
                   xAxis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                   y2Axis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                   yAxis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                 },
               },
@@ -2705,7 +2705,7 @@ gapi.load('client', async () => {
                     resourceNames: ['Test string'],
                   },
                   pieChart: {
-                    chartType: 'Test string',
+                    chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                     dataSets: [
                       {
                         dimensions: [
@@ -2716,7 +2716,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -2747,74 +2747,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -2855,7 +2855,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -2866,7 +2866,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -2892,14 +2892,14 @@ gapi.load('client', async () => {
                     ],
                     sparkChartView: {
                       minAlignmentPeriod: 'Test string',
-                      sparkChartType: 'Test string',
+                      sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                     },
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -2912,74 +2912,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -3007,19 +3007,19 @@ gapi.load('client', async () => {
                     subtitle: 'Test string',
                   },
                   singleViewGroup: {
-                    displayType: 'Test string',
+                    displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                   },
                   text: {
                     content: 'Test string',
-                    format: 'Test string',
+                    format: 'FORMAT_UNSPECIFIED',
                     style: {
                       backgroundColor: 'Test string',
-                      fontSize: 'Test string',
-                      horizontalAlignment: 'Test string',
-                      padding: 'Test string',
-                      pointerLocation: 'Test string',
+                      fontSize: 'FONT_SIZE_UNSPECIFIED',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                      padding: 'PADDING_SIZE_UNSPECIFIED',
+                      pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                       textColor: 'Test string',
-                      verticalAlignment: 'Test string',
+                      verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                     },
                   },
                   timeRange: {
@@ -3032,15 +3032,15 @@ gapi.load('client', async () => {
                   timeSeriesTable: {
                     columnSettings: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                         column: 'Test string',
                         displayName: 'Test string',
                         thresholds: [
                           {
-                            color: 'Test string',
-                            direction: 'Test string',
+                            color: 'COLOR_UNSPECIFIED',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             label: 'Test string',
-                            targetAxis: 'Test string',
+                            targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                             value: 42,
                           },
                         ],
@@ -3063,74 +3063,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -3154,7 +3154,7 @@ gapi.load('client', async () => {
                         },
                       },
                     ],
-                    metricVisualization: 'Test string',
+                    metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                   },
                   title: 'Test string',
                   treemap: {
@@ -3173,7 +3173,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         measures: [
@@ -3199,74 +3199,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -3294,7 +3294,7 @@ gapi.load('client', async () => {
                   },
                   visibilityCondition: {
                     templateVariableCondition: {
-                      comparator: 'Test string',
+                      comparator: 'COMPARATOR_UNSPECIFIED',
                       templateVariable: 'Test string',
                       templateVariableValue: 'Test string',
                     },
@@ -3302,7 +3302,7 @@ gapi.load('client', async () => {
                   xyChart: {
                     chartOptions: {
                       displayHorizontal: true,
-                      mode: 'Test string',
+                      mode: 'MODE_UNSPECIFIED',
                     },
                     dataSets: [
                       {
@@ -3319,7 +3319,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         dimensions: [
@@ -3330,7 +3330,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -3352,14 +3352,14 @@ gapi.load('client', async () => {
                           },
                         ],
                         minAlignmentPeriod: 'Test string',
-                        plotType: 'Test string',
+                        plotType: 'PLOT_TYPE_UNSPECIFIED',
                         sort: [
                           {
                             column: 'Test string',
-                            direction: 'Test string',
+                            direction: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         timeSeriesQuery: {
                           opsAnalyticsQuery: {
                             sql: 'Test string',
@@ -3369,74 +3369,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -3462,25 +3462,25 @@ gapi.load('client', async () => {
                     ],
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
                     timeshiftDuration: 'Test string',
                     xAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     y2Axis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     yAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                   },
                 },
@@ -3517,7 +3517,7 @@ gapi.load('client', async () => {
             {
               displayName: 'Test string',
               enabled: true,
-              eventType: 'Test string',
+              eventType: 'EVENT_TYPE_UNSPECIFIED',
               filter: 'Test string',
               resourceNames: ['Test string'],
             },
@@ -3561,7 +3561,7 @@ gapi.load('client', async () => {
                     resourceNames: ['Test string'],
                   },
                   pieChart: {
-                    chartType: 'Test string',
+                    chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                     dataSets: [
                       {
                         dimensions: [
@@ -3572,7 +3572,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -3603,74 +3603,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -3711,7 +3711,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -3722,7 +3722,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -3748,14 +3748,14 @@ gapi.load('client', async () => {
                     ],
                     sparkChartView: {
                       minAlignmentPeriod: 'Test string',
-                      sparkChartType: 'Test string',
+                      sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                     },
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -3768,74 +3768,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -3863,19 +3863,19 @@ gapi.load('client', async () => {
                     subtitle: 'Test string',
                   },
                   singleViewGroup: {
-                    displayType: 'Test string',
+                    displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                   },
                   text: {
                     content: 'Test string',
-                    format: 'Test string',
+                    format: 'FORMAT_UNSPECIFIED',
                     style: {
                       backgroundColor: 'Test string',
-                      fontSize: 'Test string',
-                      horizontalAlignment: 'Test string',
-                      padding: 'Test string',
-                      pointerLocation: 'Test string',
+                      fontSize: 'FONT_SIZE_UNSPECIFIED',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                      padding: 'PADDING_SIZE_UNSPECIFIED',
+                      pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                       textColor: 'Test string',
-                      verticalAlignment: 'Test string',
+                      verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                     },
                   },
                   timeRange: {
@@ -3888,15 +3888,15 @@ gapi.load('client', async () => {
                   timeSeriesTable: {
                     columnSettings: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                         column: 'Test string',
                         displayName: 'Test string',
                         thresholds: [
                           {
-                            color: 'Test string',
-                            direction: 'Test string',
+                            color: 'COLOR_UNSPECIFIED',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             label: 'Test string',
-                            targetAxis: 'Test string',
+                            targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                             value: 42,
                           },
                         ],
@@ -3919,74 +3919,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -4010,7 +4010,7 @@ gapi.load('client', async () => {
                         },
                       },
                     ],
-                    metricVisualization: 'Test string',
+                    metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                   },
                   title: 'Test string',
                   treemap: {
@@ -4029,7 +4029,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         measures: [
@@ -4055,74 +4055,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -4150,7 +4150,7 @@ gapi.load('client', async () => {
                   },
                   visibilityCondition: {
                     templateVariableCondition: {
-                      comparator: 'Test string',
+                      comparator: 'COMPARATOR_UNSPECIFIED',
                       templateVariable: 'Test string',
                       templateVariableValue: 'Test string',
                     },
@@ -4158,7 +4158,7 @@ gapi.load('client', async () => {
                   xyChart: {
                     chartOptions: {
                       displayHorizontal: true,
-                      mode: 'Test string',
+                      mode: 'MODE_UNSPECIFIED',
                     },
                     dataSets: [
                       {
@@ -4175,7 +4175,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         dimensions: [
@@ -4186,7 +4186,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -4208,14 +4208,14 @@ gapi.load('client', async () => {
                           },
                         ],
                         minAlignmentPeriod: 'Test string',
-                        plotType: 'Test string',
+                        plotType: 'PLOT_TYPE_UNSPECIFIED',
                         sort: [
                           {
                             column: 'Test string',
-                            direction: 'Test string',
+                            direction: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         timeSeriesQuery: {
                           opsAnalyticsQuery: {
                             sql: 'Test string',
@@ -4225,74 +4225,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -4318,25 +4318,25 @@ gapi.load('client', async () => {
                     ],
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
                     timeshiftDuration: 'Test string',
                     xAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     y2Axis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     yAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                   },
                 },
@@ -4346,7 +4346,7 @@ gapi.load('client', async () => {
         },
         dashboardFilters: [
           {
-            filterType: 'Test string',
+            filterType: 'FILTER_TYPE_UNSPECIFIED',
             labelKey: 'Test string',
             stringArray: {
               values: ['Test string'],
@@ -4365,74 +4365,74 @@ gapi.load('client', async () => {
               timeSeriesFilter: {
                 aggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 filter: 'Test string',
                 pickTimeSeriesFilter: {
-                  direction: 'Test string',
+                  direction: 'DIRECTION_UNSPECIFIED',
                   interval: {
                     endTime: 'Test string',
                     startTime: 'Test string',
                   },
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
                 secondaryAggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 statisticalTimeSeriesFilter: {
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
               },
               timeSeriesFilterRatio: {
                 denominator: {
                   aggregation: {
                     alignmentPeriod: 'Test string',
-                    crossSeriesReducer: 'Test string',
+                    crossSeriesReducer: 'REDUCE_NONE',
                     groupByFields: ['Test string'],
-                    perSeriesAligner: 'Test string',
+                    perSeriesAligner: 'ALIGN_NONE',
                   },
                   filter: 'Test string',
                 },
                 numerator: {
                   aggregation: {
                     alignmentPeriod: 'Test string',
-                    crossSeriesReducer: 'Test string',
+                    crossSeriesReducer: 'REDUCE_NONE',
                     groupByFields: ['Test string'],
-                    perSeriesAligner: 'Test string',
+                    perSeriesAligner: 'ALIGN_NONE',
                   },
                   filter: 'Test string',
                 },
                 pickTimeSeriesFilter: {
-                  direction: 'Test string',
+                  direction: 'DIRECTION_UNSPECIFIED',
                   interval: {
                     endTime: 'Test string',
                     startTime: 'Test string',
                   },
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
                 secondaryAggregation: {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
                 statisticalTimeSeriesFilter: {
                   numTimeSeries: 42,
-                  rankingMethod: 'Test string',
+                  rankingMethod: 'METHOD_UNSPECIFIED',
                 },
               },
               timeSeriesQueryLanguage: 'Test string',
               traceQuery: {
                 resourceContainer: 'Test string',
-                spanDataValue: 'Test string',
+                spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                 spanFilters: {
                   apphubServices: ['Test string'],
                   apphubWorkloads: ['Test string'],
@@ -4454,7 +4454,7 @@ gapi.load('client', async () => {
               },
               unitOverride: 'Test string',
             },
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
         displayName: 'Test string',
@@ -4495,7 +4495,7 @@ gapi.load('client', async () => {
                 resourceNames: ['Test string'],
               },
               pieChart: {
-                chartType: 'Test string',
+                chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                 dataSets: [
                   {
                     dimensions: [
@@ -4506,7 +4506,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -4537,74 +4537,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -4645,7 +4645,7 @@ gapi.load('client', async () => {
                     },
                     column: 'Test string',
                     limit: 42,
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 dimensions: [
@@ -4656,7 +4656,7 @@ gapi.load('client', async () => {
                     maxBinCount: 42,
                     numericBinSize: 42,
                     sortColumn: 'Test string',
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     timeBinSize: 'Test string',
                     xMax: 42,
                     xMin: 42,
@@ -4682,14 +4682,14 @@ gapi.load('client', async () => {
                 ],
                 sparkChartView: {
                   minAlignmentPeriod: 'Test string',
-                  sparkChartType: 'Test string',
+                  sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                 },
                 thresholds: [
                   {
-                    color: 'Test string',
-                    direction: 'Test string',
+                    color: 'COLOR_UNSPECIFIED',
+                    direction: 'DIRECTION_UNSPECIFIED',
                     label: 'Test string',
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     value: 42,
                   },
                 ],
@@ -4702,74 +4702,74 @@ gapi.load('client', async () => {
                   timeSeriesFilter: {
                     aggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     filter: 'Test string',
                     pickTimeSeriesFilter: {
-                      direction: 'Test string',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       interval: {
                         endTime: 'Test string',
                         startTime: 'Test string',
                       },
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                     secondaryAggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     statisticalTimeSeriesFilter: {
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                   },
                   timeSeriesFilterRatio: {
                     denominator: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                     },
                     numerator: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                     },
                     pickTimeSeriesFilter: {
-                      direction: 'Test string',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       interval: {
                         endTime: 'Test string',
                         startTime: 'Test string',
                       },
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                     secondaryAggregation: {
                       alignmentPeriod: 'Test string',
-                      crossSeriesReducer: 'Test string',
+                      crossSeriesReducer: 'REDUCE_NONE',
                       groupByFields: ['Test string'],
-                      perSeriesAligner: 'Test string',
+                      perSeriesAligner: 'ALIGN_NONE',
                     },
                     statisticalTimeSeriesFilter: {
                       numTimeSeries: 42,
-                      rankingMethod: 'Test string',
+                      rankingMethod: 'METHOD_UNSPECIFIED',
                     },
                   },
                   timeSeriesQueryLanguage: 'Test string',
                   traceQuery: {
                     resourceContainer: 'Test string',
-                    spanDataValue: 'Test string',
+                    spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                     spanFilters: {
                       apphubServices: ['Test string'],
                       apphubWorkloads: ['Test string'],
@@ -4797,19 +4797,19 @@ gapi.load('client', async () => {
                 subtitle: 'Test string',
               },
               singleViewGroup: {
-                displayType: 'Test string',
+                displayType: 'DISPLAY_TYPE_UNSPECIFIED',
               },
               text: {
                 content: 'Test string',
-                format: 'Test string',
+                format: 'FORMAT_UNSPECIFIED',
                 style: {
                   backgroundColor: 'Test string',
-                  fontSize: 'Test string',
-                  horizontalAlignment: 'Test string',
-                  padding: 'Test string',
-                  pointerLocation: 'Test string',
+                  fontSize: 'FONT_SIZE_UNSPECIFIED',
+                  horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                  padding: 'PADDING_SIZE_UNSPECIFIED',
+                  pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                   textColor: 'Test string',
-                  verticalAlignment: 'Test string',
+                  verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                 },
               },
               timeRange: {
@@ -4822,15 +4822,15 @@ gapi.load('client', async () => {
               timeSeriesTable: {
                 columnSettings: [
                   {
-                    alignment: 'Test string',
+                    alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                     column: 'Test string',
                     displayName: 'Test string',
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -4853,74 +4853,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -4944,7 +4944,7 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                metricVisualization: 'Test string',
+                metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
               },
               title: 'Test string',
               treemap: {
@@ -4963,7 +4963,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     measures: [
@@ -4989,74 +4989,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -5084,7 +5084,7 @@ gapi.load('client', async () => {
               },
               visibilityCondition: {
                 templateVariableCondition: {
-                  comparator: 'Test string',
+                  comparator: 'COMPARATOR_UNSPECIFIED',
                   templateVariable: 'Test string',
                   templateVariableValue: 'Test string',
                 },
@@ -5092,7 +5092,7 @@ gapi.load('client', async () => {
               xyChart: {
                 chartOptions: {
                   displayHorizontal: true,
-                  mode: 'Test string',
+                  mode: 'MODE_UNSPECIFIED',
                 },
                 dataSets: [
                   {
@@ -5109,7 +5109,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -5120,7 +5120,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -5142,14 +5142,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     minAlignmentPeriod: 'Test string',
-                    plotType: 'Test string',
+                    plotType: 'PLOT_TYPE_UNSPECIFIED',
                     sort: [
                       {
                         column: 'Test string',
-                        direction: 'Test string',
+                        direction: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     timeSeriesQuery: {
                       opsAnalyticsQuery: {
                         sql: 'Test string',
@@ -5159,74 +5159,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -5252,25 +5252,25 @@ gapi.load('client', async () => {
                 ],
                 thresholds: [
                   {
-                    color: 'Test string',
-                    direction: 'Test string',
+                    color: 'COLOR_UNSPECIFIED',
+                    direction: 'DIRECTION_UNSPECIFIED',
                     label: 'Test string',
-                    targetAxis: 'Test string',
+                    targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                     value: 42,
                   },
                 ],
                 timeshiftDuration: 'Test string',
                 xAxis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
                 y2Axis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
                 yAxis: {
                   label: 'Test string',
-                  scale: 'Test string',
+                  scale: 'SCALE_UNSPECIFIED',
                 },
               },
             },
@@ -5317,7 +5317,7 @@ gapi.load('client', async () => {
                   resourceNames: ['Test string'],
                 },
                 pieChart: {
-                  chartType: 'Test string',
+                  chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                   dataSets: [
                     {
                       dimensions: [
@@ -5328,7 +5328,7 @@ gapi.load('client', async () => {
                           maxBinCount: 42,
                           numericBinSize: 42,
                           sortColumn: 'Test string',
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           timeBinSize: 'Test string',
                           xMax: 42,
                           xMin: 42,
@@ -5359,74 +5359,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -5467,7 +5467,7 @@ gapi.load('client', async () => {
                       },
                       column: 'Test string',
                       limit: 42,
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     },
                   ],
                   dimensions: [
@@ -5478,7 +5478,7 @@ gapi.load('client', async () => {
                       maxBinCount: 42,
                       numericBinSize: 42,
                       sortColumn: 'Test string',
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       timeBinSize: 'Test string',
                       xMax: 42,
                       xMin: 42,
@@ -5504,14 +5504,14 @@ gapi.load('client', async () => {
                   ],
                   sparkChartView: {
                     minAlignmentPeriod: 'Test string',
-                    sparkChartType: 'Test string',
+                    sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                   },
                   thresholds: [
                     {
-                      color: 'Test string',
-                      direction: 'Test string',
+                      color: 'COLOR_UNSPECIFIED',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       label: 'Test string',
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       value: 42,
                     },
                   ],
@@ -5524,74 +5524,74 @@ gapi.load('client', async () => {
                     timeSeriesFilter: {
                       aggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       filter: 'Test string',
                       pickTimeSeriesFilter: {
-                        direction: 'Test string',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         interval: {
                           endTime: 'Test string',
                           startTime: 'Test string',
                         },
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                       secondaryAggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       statisticalTimeSeriesFilter: {
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                     },
                     timeSeriesFilterRatio: {
                       denominator: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                       },
                       numerator: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                       },
                       pickTimeSeriesFilter: {
-                        direction: 'Test string',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         interval: {
                           endTime: 'Test string',
                           startTime: 'Test string',
                         },
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                       secondaryAggregation: {
                         alignmentPeriod: 'Test string',
-                        crossSeriesReducer: 'Test string',
+                        crossSeriesReducer: 'REDUCE_NONE',
                         groupByFields: ['Test string'],
-                        perSeriesAligner: 'Test string',
+                        perSeriesAligner: 'ALIGN_NONE',
                       },
                       statisticalTimeSeriesFilter: {
                         numTimeSeries: 42,
-                        rankingMethod: 'Test string',
+                        rankingMethod: 'METHOD_UNSPECIFIED',
                       },
                     },
                     timeSeriesQueryLanguage: 'Test string',
                     traceQuery: {
                       resourceContainer: 'Test string',
-                      spanDataValue: 'Test string',
+                      spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                       spanFilters: {
                         apphubServices: ['Test string'],
                         apphubWorkloads: ['Test string'],
@@ -5619,19 +5619,19 @@ gapi.load('client', async () => {
                   subtitle: 'Test string',
                 },
                 singleViewGroup: {
-                  displayType: 'Test string',
+                  displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                 },
                 text: {
                   content: 'Test string',
-                  format: 'Test string',
+                  format: 'FORMAT_UNSPECIFIED',
                   style: {
                     backgroundColor: 'Test string',
-                    fontSize: 'Test string',
-                    horizontalAlignment: 'Test string',
-                    padding: 'Test string',
-                    pointerLocation: 'Test string',
+                    fontSize: 'FONT_SIZE_UNSPECIFIED',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                    padding: 'PADDING_SIZE_UNSPECIFIED',
+                    pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                     textColor: 'Test string',
-                    verticalAlignment: 'Test string',
+                    verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                   },
                 },
                 timeRange: {
@@ -5644,15 +5644,15 @@ gapi.load('client', async () => {
                 timeSeriesTable: {
                   columnSettings: [
                     {
-                      alignment: 'Test string',
+                      alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                       column: 'Test string',
                       displayName: 'Test string',
                       thresholds: [
                         {
-                          color: 'Test string',
-                          direction: 'Test string',
+                          color: 'COLOR_UNSPECIFIED',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           label: 'Test string',
-                          targetAxis: 'Test string',
+                          targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                           value: 42,
                         },
                       ],
@@ -5675,74 +5675,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -5766,7 +5766,7 @@ gapi.load('client', async () => {
                       },
                     },
                   ],
-                  metricVisualization: 'Test string',
+                  metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                 },
                 title: 'Test string',
                 treemap: {
@@ -5785,7 +5785,7 @@ gapi.load('client', async () => {
                           },
                           column: 'Test string',
                           limit: 42,
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
                       measures: [
@@ -5811,74 +5811,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -5906,7 +5906,7 @@ gapi.load('client', async () => {
                 },
                 visibilityCondition: {
                   templateVariableCondition: {
-                    comparator: 'Test string',
+                    comparator: 'COMPARATOR_UNSPECIFIED',
                     templateVariable: 'Test string',
                     templateVariableValue: 'Test string',
                   },
@@ -5914,7 +5914,7 @@ gapi.load('client', async () => {
                 xyChart: {
                   chartOptions: {
                     displayHorizontal: true,
-                    mode: 'Test string',
+                    mode: 'MODE_UNSPECIFIED',
                   },
                   dataSets: [
                     {
@@ -5931,7 +5931,7 @@ gapi.load('client', async () => {
                           },
                           column: 'Test string',
                           limit: 42,
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
                       dimensions: [
@@ -5942,7 +5942,7 @@ gapi.load('client', async () => {
                           maxBinCount: 42,
                           numericBinSize: 42,
                           sortColumn: 'Test string',
-                          sortOrder: 'Test string',
+                          sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           timeBinSize: 'Test string',
                           xMax: 42,
                           xMin: 42,
@@ -5964,14 +5964,14 @@ gapi.load('client', async () => {
                         },
                       ],
                       minAlignmentPeriod: 'Test string',
-                      plotType: 'Test string',
+                      plotType: 'PLOT_TYPE_UNSPECIFIED',
                       sort: [
                         {
                           column: 'Test string',
-                          direction: 'Test string',
+                          direction: 'SORT_ORDER_UNSPECIFIED',
                         },
                       ],
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       timeSeriesQuery: {
                         opsAnalyticsQuery: {
                           sql: 'Test string',
@@ -5981,74 +5981,74 @@ gapi.load('client', async () => {
                         timeSeriesFilter: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesFilterRatio: {
                           denominator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           numerator: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                           },
                           pickTimeSeriesFilter: {
-                            direction: 'Test string',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             interval: {
                               endTime: 'Test string',
                               startTime: 'Test string',
                             },
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                           secondaryAggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           statisticalTimeSeriesFilter: {
                             numTimeSeries: 42,
-                            rankingMethod: 'Test string',
+                            rankingMethod: 'METHOD_UNSPECIFIED',
                           },
                         },
                         timeSeriesQueryLanguage: 'Test string',
                         traceQuery: {
                           resourceContainer: 'Test string',
-                          spanDataValue: 'Test string',
+                          spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                           spanFilters: {
                             apphubServices: ['Test string'],
                             apphubWorkloads: ['Test string'],
@@ -6074,25 +6074,25 @@ gapi.load('client', async () => {
                   ],
                   thresholds: [
                     {
-                      color: 'Test string',
-                      direction: 'Test string',
+                      color: 'COLOR_UNSPECIFIED',
+                      direction: 'DIRECTION_UNSPECIFIED',
                       label: 'Test string',
-                      targetAxis: 'Test string',
+                      targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                       value: 42,
                     },
                   ],
                   timeshiftDuration: 'Test string',
                   xAxis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                   y2Axis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                   yAxis: {
                     label: 'Test string',
-                    scale: 'Test string',
+                    scale: 'SCALE_UNSPECIFIED',
                   },
                 },
               },
@@ -6141,7 +6141,7 @@ gapi.load('client', async () => {
                     resourceNames: ['Test string'],
                   },
                   pieChart: {
-                    chartType: 'Test string',
+                    chartType: 'PIE_CHART_TYPE_UNSPECIFIED',
                     dataSets: [
                       {
                         dimensions: [
@@ -6152,7 +6152,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -6183,74 +6183,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -6291,7 +6291,7 @@ gapi.load('client', async () => {
                         },
                         column: 'Test string',
                         limit: 42,
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       },
                     ],
                     dimensions: [
@@ -6302,7 +6302,7 @@ gapi.load('client', async () => {
                         maxBinCount: 42,
                         numericBinSize: 42,
                         sortColumn: 'Test string',
-                        sortOrder: 'Test string',
+                        sortOrder: 'SORT_ORDER_UNSPECIFIED',
                         timeBinSize: 'Test string',
                         xMax: 42,
                         xMin: 42,
@@ -6328,14 +6328,14 @@ gapi.load('client', async () => {
                     ],
                     sparkChartView: {
                       minAlignmentPeriod: 'Test string',
-                      sparkChartType: 'Test string',
+                      sparkChartType: 'SPARK_CHART_TYPE_UNSPECIFIED',
                     },
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
@@ -6348,74 +6348,74 @@ gapi.load('client', async () => {
                       timeSeriesFilter: {
                         aggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         filter: 'Test string',
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesFilterRatio: {
                         denominator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         numerator: {
                           aggregation: {
                             alignmentPeriod: 'Test string',
-                            crossSeriesReducer: 'Test string',
+                            crossSeriesReducer: 'REDUCE_NONE',
                             groupByFields: ['Test string'],
-                            perSeriesAligner: 'Test string',
+                            perSeriesAligner: 'ALIGN_NONE',
                           },
                           filter: 'Test string',
                         },
                         pickTimeSeriesFilter: {
-                          direction: 'Test string',
+                          direction: 'DIRECTION_UNSPECIFIED',
                           interval: {
                             endTime: 'Test string',
                             startTime: 'Test string',
                           },
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                         secondaryAggregation: {
                           alignmentPeriod: 'Test string',
-                          crossSeriesReducer: 'Test string',
+                          crossSeriesReducer: 'REDUCE_NONE',
                           groupByFields: ['Test string'],
-                          perSeriesAligner: 'Test string',
+                          perSeriesAligner: 'ALIGN_NONE',
                         },
                         statisticalTimeSeriesFilter: {
                           numTimeSeries: 42,
-                          rankingMethod: 'Test string',
+                          rankingMethod: 'METHOD_UNSPECIFIED',
                         },
                       },
                       timeSeriesQueryLanguage: 'Test string',
                       traceQuery: {
                         resourceContainer: 'Test string',
-                        spanDataValue: 'Test string',
+                        spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                         spanFilters: {
                           apphubServices: ['Test string'],
                           apphubWorkloads: ['Test string'],
@@ -6443,19 +6443,19 @@ gapi.load('client', async () => {
                     subtitle: 'Test string',
                   },
                   singleViewGroup: {
-                    displayType: 'Test string',
+                    displayType: 'DISPLAY_TYPE_UNSPECIFIED',
                   },
                   text: {
                     content: 'Test string',
-                    format: 'Test string',
+                    format: 'FORMAT_UNSPECIFIED',
                     style: {
                       backgroundColor: 'Test string',
-                      fontSize: 'Test string',
-                      horizontalAlignment: 'Test string',
-                      padding: 'Test string',
-                      pointerLocation: 'Test string',
+                      fontSize: 'FONT_SIZE_UNSPECIFIED',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                      padding: 'PADDING_SIZE_UNSPECIFIED',
+                      pointerLocation: 'POINTER_LOCATION_UNSPECIFIED',
                       textColor: 'Test string',
-                      verticalAlignment: 'Test string',
+                      verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                     },
                   },
                   timeRange: {
@@ -6468,15 +6468,15 @@ gapi.load('client', async () => {
                   timeSeriesTable: {
                     columnSettings: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'CELL_ALIGNMENT_UNSPECIFIED',
                         column: 'Test string',
                         displayName: 'Test string',
                         thresholds: [
                           {
-                            color: 'Test string',
-                            direction: 'Test string',
+                            color: 'COLOR_UNSPECIFIED',
+                            direction: 'DIRECTION_UNSPECIFIED',
                             label: 'Test string',
-                            targetAxis: 'Test string',
+                            targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                             value: 42,
                           },
                         ],
@@ -6499,74 +6499,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -6590,7 +6590,7 @@ gapi.load('client', async () => {
                         },
                       },
                     ],
-                    metricVisualization: 'Test string',
+                    metricVisualization: 'METRIC_VISUALIZATION_UNSPECIFIED',
                   },
                   title: 'Test string',
                   treemap: {
@@ -6609,7 +6609,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         measures: [
@@ -6635,74 +6635,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -6730,7 +6730,7 @@ gapi.load('client', async () => {
                   },
                   visibilityCondition: {
                     templateVariableCondition: {
-                      comparator: 'Test string',
+                      comparator: 'COMPARATOR_UNSPECIFIED',
                       templateVariable: 'Test string',
                       templateVariableValue: 'Test string',
                     },
@@ -6738,7 +6738,7 @@ gapi.load('client', async () => {
                   xyChart: {
                     chartOptions: {
                       displayHorizontal: true,
-                      mode: 'Test string',
+                      mode: 'MODE_UNSPECIFIED',
                     },
                     dataSets: [
                       {
@@ -6755,7 +6755,7 @@ gapi.load('client', async () => {
                             },
                             column: 'Test string',
                             limit: 42,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                         dimensions: [
@@ -6766,7 +6766,7 @@ gapi.load('client', async () => {
                             maxBinCount: 42,
                             numericBinSize: 42,
                             sortColumn: 'Test string',
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             timeBinSize: 'Test string',
                             xMax: 42,
                             xMin: 42,
@@ -6788,14 +6788,14 @@ gapi.load('client', async () => {
                           },
                         ],
                         minAlignmentPeriod: 'Test string',
-                        plotType: 'Test string',
+                        plotType: 'PLOT_TYPE_UNSPECIFIED',
                         sort: [
                           {
                             column: 'Test string',
-                            direction: 'Test string',
+                            direction: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         timeSeriesQuery: {
                           opsAnalyticsQuery: {
                             sql: 'Test string',
@@ -6805,74 +6805,74 @@ gapi.load('client', async () => {
                           timeSeriesFilter: {
                             aggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             filter: 'Test string',
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesFilterRatio: {
                             denominator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             numerator: {
                               aggregation: {
                                 alignmentPeriod: 'Test string',
-                                crossSeriesReducer: 'Test string',
+                                crossSeriesReducer: 'REDUCE_NONE',
                                 groupByFields: ['Test string'],
-                                perSeriesAligner: 'Test string',
+                                perSeriesAligner: 'ALIGN_NONE',
                               },
                               filter: 'Test string',
                             },
                             pickTimeSeriesFilter: {
-                              direction: 'Test string',
+                              direction: 'DIRECTION_UNSPECIFIED',
                               interval: {
                                 endTime: 'Test string',
                                 startTime: 'Test string',
                               },
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                             secondaryAggregation: {
                               alignmentPeriod: 'Test string',
-                              crossSeriesReducer: 'Test string',
+                              crossSeriesReducer: 'REDUCE_NONE',
                               groupByFields: ['Test string'],
-                              perSeriesAligner: 'Test string',
+                              perSeriesAligner: 'ALIGN_NONE',
                             },
                             statisticalTimeSeriesFilter: {
                               numTimeSeries: 42,
-                              rankingMethod: 'Test string',
+                              rankingMethod: 'METHOD_UNSPECIFIED',
                             },
                           },
                           timeSeriesQueryLanguage: 'Test string',
                           traceQuery: {
                             resourceContainer: 'Test string',
-                            spanDataValue: 'Test string',
+                            spanDataValue: 'SPAN_DATA_VALUE_UNSPECIFIED',
                             spanFilters: {
                               apphubServices: ['Test string'],
                               apphubWorkloads: ['Test string'],
@@ -6898,25 +6898,25 @@ gapi.load('client', async () => {
                     ],
                     thresholds: [
                       {
-                        color: 'Test string',
-                        direction: 'Test string',
+                        color: 'COLOR_UNSPECIFIED',
+                        direction: 'DIRECTION_UNSPECIFIED',
                         label: 'Test string',
-                        targetAxis: 'Test string',
+                        targetAxis: 'TARGET_AXIS_UNSPECIFIED',
                         value: 42,
                       },
                     ],
                     timeshiftDuration: 'Test string',
                     xAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     y2Axis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                     yAxis: {
                       label: 'Test string',
-                      scale: 'Test string',
+                      scale: 'SCALE_UNSPECIFIED',
                     },
                   },
                 },

@@ -249,7 +249,8 @@ declare namespace gapi.client {
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
-    interface ProjectsResource {
+
+    const projects: {
       /** Exports a copy of all or a subset of entities from Google Cloud Datastore to another storage system, such as Google Cloud Storage. Recent updates to entities may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. */
       export(request: {
         /** V1 error format. */
@@ -366,8 +367,6 @@ declare namespace gapi.client {
         },
         body: GoogleDatastoreAdminV1beta1ImportEntitiesRequest,
       ): Request<GoogleLongrunningOperation>;
-    }
-
-    const projects: ProjectsResource;
+    };
   }
 }

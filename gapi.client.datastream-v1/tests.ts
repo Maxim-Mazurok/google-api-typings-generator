@@ -949,7 +949,7 @@ gapi.load('client', async () => {
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConfig: {
           subnet: 'Test string',
@@ -1201,9 +1201,9 @@ gapi.load('client', async () => {
             blmtConfig: {
               bucket: 'Test string',
               connectionName: 'Test string',
-              fileFormat: 'Test string',
+              fileFormat: 'FILE_FORMAT_UNSPECIFIED',
               rootPath: 'Test string',
-              tableFormat: 'Test string',
+              tableFormat: 'TABLE_FORMAT_UNSPECIFIED',
             },
             dataFreshness: 'Test string',
             merge: {},
@@ -1225,8 +1225,8 @@ gapi.load('client', async () => {
             fileRotationInterval: 'Test string',
             fileRotationMb: 42,
             jsonFileFormat: {
-              compression: 'Test string',
-              schemaFileFormat: 'Test string',
+              compression: 'JSON_COMPRESSION_UNSPECIFIED',
+              schemaFileFormat: 'SCHEMA_FILE_FORMAT_UNSPECIFIED',
             },
             path: 'Test string',
           },
@@ -1257,7 +1257,8 @@ gapi.load('client', async () => {
                 },
                 bigqueryPartitioning: {
                   ingestionTimePartition: {
-                    partitioningTimeGranularity: 'Test string',
+                    partitioningTimeGranularity:
+                      'PARTITIONING_TIME_GRANULARITY_UNSPECIFIED',
                   },
                   integerRangePartition: {
                     column: 'Test string',
@@ -1268,7 +1269,8 @@ gapi.load('client', async () => {
                   requirePartitionFilter: true,
                   timeUnitPartition: {
                     column: 'Test string',
-                    partitioningTimeGranularity: 'Test string',
+                    partitioningTimeGranularity:
+                      'PARTITIONING_TIME_GRANULARITY_UNSPECIFIED',
                   },
                 },
               },
@@ -1375,7 +1377,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            jsonMode: 'Test string',
+            jsonMode: 'MONGODB_JSON_MODE_UNSPECIFIED',
             maxConcurrentBackfillTasks: 42,
           },
           mysqlSourceConfig: {
@@ -1692,7 +1694,7 @@ gapi.load('client', async () => {
             },
             maxConcurrentBackfillTasks: 42,
             maxConcurrentCdcTasks: 42,
-            spannerRpcPriority: 'Test string',
+            spannerRpcPriority: 'SPANNER_RPC_PRIORITY_UNSPECIFIED',
           },
           sqlServerSourceConfig: {
             changeTables: {
@@ -1785,7 +1787,7 @@ gapi.load('client', async () => {
             pollingInterval: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1990,9 +1992,9 @@ gapi.load('client', async () => {
             blmtConfig: {
               bucket: 'Test string',
               connectionName: 'Test string',
-              fileFormat: 'Test string',
+              fileFormat: 'FILE_FORMAT_UNSPECIFIED',
               rootPath: 'Test string',
-              tableFormat: 'Test string',
+              tableFormat: 'TABLE_FORMAT_UNSPECIFIED',
             },
             dataFreshness: 'Test string',
             merge: {},
@@ -2014,8 +2016,8 @@ gapi.load('client', async () => {
             fileRotationInterval: 'Test string',
             fileRotationMb: 42,
             jsonFileFormat: {
-              compression: 'Test string',
-              schemaFileFormat: 'Test string',
+              compression: 'JSON_COMPRESSION_UNSPECIFIED',
+              schemaFileFormat: 'SCHEMA_FILE_FORMAT_UNSPECIFIED',
             },
             path: 'Test string',
           },
@@ -2046,7 +2048,8 @@ gapi.load('client', async () => {
                 },
                 bigqueryPartitioning: {
                   ingestionTimePartition: {
-                    partitioningTimeGranularity: 'Test string',
+                    partitioningTimeGranularity:
+                      'PARTITIONING_TIME_GRANULARITY_UNSPECIFIED',
                   },
                   integerRangePartition: {
                     column: 'Test string',
@@ -2057,7 +2060,8 @@ gapi.load('client', async () => {
                   requirePartitionFilter: true,
                   timeUnitPartition: {
                     column: 'Test string',
-                    partitioningTimeGranularity: 'Test string',
+                    partitioningTimeGranularity:
+                      'PARTITIONING_TIME_GRANULARITY_UNSPECIFIED',
                   },
                 },
               },
@@ -2164,7 +2168,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            jsonMode: 'Test string',
+            jsonMode: 'MONGODB_JSON_MODE_UNSPECIFIED',
             maxConcurrentBackfillTasks: 42,
           },
           mysqlSourceConfig: {
@@ -2481,7 +2485,7 @@ gapi.load('client', async () => {
             },
             maxConcurrentBackfillTasks: 42,
             maxConcurrentCdcTasks: 42,
-            spannerRpcPriority: 'Test string',
+            spannerRpcPriority: 'SPANNER_RPC_PRIORITY_UNSPECIFIED',
           },
           sqlServerSourceConfig: {
             changeTables: {
@@ -2574,7 +2578,7 @@ gapi.load('client', async () => {
             pollingInterval: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

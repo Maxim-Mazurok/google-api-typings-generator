@@ -137,14 +137,14 @@ gapi.load('client', async () => {
                 },
                 postgresql: {
                   cloudSql: {
-                    edition: 'Test string',
+                    edition: 'EDITION_UNSPECIFIED',
                     instance: 'Test string',
                   },
                   database: 'Test string',
                   ephemeral: true,
                   schema: 'Test string',
-                  schemaMigration: 'Test string',
-                  schemaValidation: 'Test string',
+                  schemaMigration: 'SQL_SCHEMA_MIGRATION_UNSPECIFIED',
+                  schemaValidation: 'SQL_SCHEMA_VALIDATION_UNSPECIFIED',
                   unlinked: true,
                 },
               },
@@ -262,14 +262,14 @@ gapi.load('client', async () => {
                 },
                 postgresql: {
                   cloudSql: {
-                    edition: 'Test string',
+                    edition: 'EDITION_UNSPECIFIED',
                     instance: 'Test string',
                   },
                   database: 'Test string',
                   ephemeral: true,
                   schema: 'Test string',
-                  schemaMigration: 'Test string',
-                  schemaValidation: 'Test string',
+                  schemaMigration: 'SQL_SCHEMA_MIGRATION_UNSPECIFIED',
+                  schemaValidation: 'SQL_SCHEMA_VALIDATION_UNSPECIFIED',
                   unlinked: true,
                 },
               },
@@ -410,14 +410,14 @@ gapi.load('client', async () => {
                 },
                 postgresql: {
                   cloudSql: {
-                    edition: 'Test string',
+                    edition: 'EDITION_UNSPECIFIED',
                     instance: 'Test string',
                   },
                   database: 'Test string',
                   ephemeral: true,
                   schema: 'Test string',
-                  schemaMigration: 'Test string',
-                  schemaValidation: 'Test string',
+                  schemaMigration: 'SQL_SCHEMA_MIGRATION_UNSPECIFIED',
+                  schemaValidation: 'SQL_SCHEMA_VALIDATION_UNSPECIFIED',
                   unlinked: true,
                 },
               },
@@ -733,14 +733,14 @@ gapi.load('client', async () => {
             },
             postgresql: {
               cloudSql: {
-                edition: 'Test string',
+                edition: 'EDITION_UNSPECIFIED',
                 instance: 'Test string',
               },
               database: 'Test string',
               ephemeral: true,
               schema: 'Test string',
-              schemaMigration: 'Test string',
-              schemaValidation: 'Test string',
+              schemaMigration: 'SQL_SCHEMA_MIGRATION_UNSPECIFIED',
+              schemaValidation: 'SQL_SCHEMA_VALIDATION_UNSPECIFIED',
               unlinked: true,
             },
           },
@@ -797,7 +797,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        executionMode: 'Test string',
+        executionMode: 'EXECUTION_MODE_UNSPECIFIED',
         migrationSteps: [
           {
             name: 'Test string',
@@ -830,14 +830,14 @@ gapi.load('client', async () => {
             },
             postgresql: {
               cloudSql: {
-                edition: 'Test string',
+                edition: 'EDITION_UNSPECIFIED',
                 instance: 'Test string',
               },
               database: 'Test string',
               ephemeral: true,
               schema: 'Test string',
-              schemaMigration: 'Test string',
-              schemaValidation: 'Test string',
+              schemaMigration: 'SQL_SCHEMA_MIGRATION_UNSPECIFIED',
+              schemaValidation: 'SQL_SCHEMA_VALIDATION_UNSPECIFIED',
               unlinked: true,
             },
           },

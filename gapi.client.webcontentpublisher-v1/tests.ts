@@ -48,14 +48,14 @@ gapi.load('client', async () => {
         ],
         contentPolicyStatus: {
           policyInfoUrl: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-        onboardingState: 'Test string',
+        onboardingState: 'ONBOARDING_STATE_UNSPECIFIED',
         organizationId: 'Test string',
-        paymentOption: 'Test string',
+        paymentOption: 'PAYMENT_OPTION_UNSPECIFIED',
         primaryDomain: {
           ownershipVerified: true,
           url: 'Test string',
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         publicationId: 'Test string',
         publicationPrivacyPolicyUrl: 'Test string',
         publicationTosUrl: 'Test string',
-        publicationType: 'Test string',
+        publicationType: 'PUBLICATION_TYPE_UNSPECIFIED',
         regionCode: 'Test string',
         rrmProduct: {
           enabled: true,
@@ -113,14 +113,14 @@ gapi.load('client', async () => {
         ],
         contentPolicyStatus: {
           policyInfoUrl: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         displayName: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
-        onboardingState: 'Test string',
+        onboardingState: 'ONBOARDING_STATE_UNSPECIFIED',
         organizationId: 'Test string',
-        paymentOption: 'Test string',
+        paymentOption: 'PAYMENT_OPTION_UNSPECIFIED',
         primaryDomain: {
           ownershipVerified: true,
           url: 'Test string',
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
         publicationId: 'Test string',
         publicationPrivacyPolicyUrl: 'Test string',
         publicationTosUrl: 'Test string',
-        publicationType: 'Test string',
+        publicationType: 'PUBLICATION_TYPE_UNSPECIFIED',
         regionCode: 'Test string',
         rrmProduct: {
           enabled: true,
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
           optInRequired: true,
           title: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         surveyConfig: {
           customMessage: 'Test string',
           questions: [
@@ -184,7 +184,7 @@ gapi.load('client', async () => {
           ],
           reportUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Gets a CTA. */
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
           optInRequired: true,
           title: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         surveyConfig: {
           customMessage: 'Test string',
           questions: [
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           ],
           reportUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Checks if a user is eligible for free article access. */

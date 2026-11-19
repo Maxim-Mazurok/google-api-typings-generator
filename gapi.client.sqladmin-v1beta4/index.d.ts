@@ -542,8 +542,9 @@ declare namespace gapi.client {
       /** This is always `sql#connectSettings`. */
       kind?: string;
       /** Optional. Output only. mdx_protocol_support controls how the client uses metadata exchange when connecting to the instance. The values in the list representing parts of the MDX protocol that are supported by this instance. When the list is empty, the instance does not support MDX, so the client must not send an MDX request. The default is empty. */
-      mdxProtocolSupport?:
-        'MDX_PROTOCOL_SUPPORT_UNSPECIFIED' | 'CLIENT_PROTOCOL_TYPE'[];
+      mdxProtocolSupport?: (
+        'MDX_PROTOCOL_SUPPORT_UNSPECIFIED' | 'CLIENT_PROTOCOL_TYPE'
+      )[];
       /** The number of read pool nodes in a read pool. */
       nodeCount?: number;
       /** Output only. Entries containing information about each read pool node of the read pool. */
@@ -772,13 +773,14 @@ declare namespace gapi.client {
         | 'ONLINE_MAINTENANCE'
         | 'REPAIRING';
       /** If the instance state is SUSPENDED, the reason for the suspension. */
-      suspensionReason?:
+      suspensionReason?: (
         | 'SQL_SUSPENSION_REASON_UNSPECIFIED'
         | 'BILLING_ISSUE'
         | 'LEGAL_ISSUE'
         | 'OPERATIONAL_ISSUE'
         | 'KMS_KEY_ISSUE'
-        | 'PROJECT_ABUSE'[];
+        | 'PROJECT_ABUSE'
+      )[];
       /** Input only. Whether Cloud SQL is enabled to switch storing point-in-time recovery log files from a data disk to Cloud Storage. */
       switchTransactionLogsToCloudStorageEnabled?: boolean;
       /** Optional. Input only. Immutable. Tag keys and tag values that are bound to this instance. You must represent each item in the map as: `"" : ""`. For example, a single resource can have the following tags: ``` "123/environment": "production", "123/costCenter": "marketing", ``` For more information on tag creation and management, see https://cloud.google.com/resource-manager/docs/tags/tags-overview. */
@@ -1018,7 +1020,7 @@ declare namespace gapi.client {
       /** For `STRING` flags, a list of strings that the value can be set to. */
       allowedStringValues?: string[];
       /** The database version this flag applies to. Can be MySQL instances: `MYSQL_8_0`, `MYSQL_8_0_18`, `MYSQL_8_0_26`, `MYSQL_5_7`, or `MYSQL_5_6`. PostgreSQL instances: `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11` or `POSTGRES_12`. SQL Server instances: `SQLSERVER_2017_STANDARD`, `SQLSERVER_2017_ENTERPRISE`, `SQLSERVER_2017_EXPRESS`, `SQLSERVER_2017_WEB`, `SQLSERVER_2019_STANDARD`, `SQLSERVER_2019_ENTERPRISE`, `SQLSERVER_2019_EXPRESS`, or `SQLSERVER_2019_WEB`. See [the complete list](/sql/docs/mysql/admin-api/rest/v1/SqlDatabaseVersion). */
-      appliesTo?:
+      appliesTo?: (
         | 'SQL_DATABASE_VERSION_UNSPECIFIED'
         | 'MYSQL_5_1'
         | 'MYSQL_5_5'
@@ -1074,7 +1076,8 @@ declare namespace gapi.client {
         | 'SQLSERVER_2022_WEB'
         | 'SQLSERVER_2025_STANDARD'
         | 'SQLSERVER_2025_ENTERPRISE'
-        | 'SQLSERVER_2025_EXPRESS'[];
+        | 'SQLSERVER_2025_EXPRESS'
+      )[];
       /** Scope of flag. */
       flagScope?:
         | 'SQL_FLAG_SCOPE_UNSPECIFIED'
@@ -2569,7 +2572,8 @@ declare namespace gapi.client {
       /** Optional. Contains details about the stop workload capture operation. */
       stopWorkloadCaptureContext?: StopWorkloadCaptureContext;
     }
-    interface BackupRunsResource {
+
+    const backupRuns: {
       /** Deletes the backup taken by a backup run. */
       delete(request?: {
         /** V1 error format. */
@@ -2727,8 +2731,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BackupRunsListResponse>;
-    }
-    interface BackupsResource {
+    };
+
+    const backups: {
       /** Creates a backup for a Cloud SQL instance. This API can be used only to create on-demand backups. */
       createBackup(request: {
         /** V1 error format. */
@@ -2936,8 +2941,9 @@ declare namespace gapi.client {
         },
         body: Backup,
       ): Request<Operation>;
-    }
-    interface BlueGreenDeploymentsResource {
+    };
+
+    const blueGreenDeployments: {
       /** Creates a blue-green deployment under a given project and location. This deployment provisions a synchronized green environment (target instance) from a blue production environment (source instance), facilitating updates like major version upgrades on the green instance without impacting the blue instance. */
       create(request: {
         /** V1 error format. */
@@ -3151,8 +3157,9 @@ declare namespace gapi.client {
         },
         body: SwitchoverBlueGreenDeploymentRequest,
       ): Request<Operation>;
-    }
-    interface ConnectResource {
+    };
+
+    const connect: {
       /** Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database. */
       generateEphemeralCert(request: {
         /** V1 error format. */
@@ -3275,8 +3282,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ConnectSettings>;
-    }
-    interface DatabasesResource {
+    };
+
+    const databases: {
       /** Deletes a database from a Cloud SQL instance. */
       delete(request?: {
         /** V1 error format. */
@@ -3580,8 +3588,9 @@ declare namespace gapi.client {
         },
         body: Database,
       ): Request<Operation>;
-    }
-    interface FlagsResource {
+    };
+
+    const flags: {
       /** Lists all available database flags for Cloud SQL instances. */
       list(request?: {
         /** V1 error format. */
@@ -3614,8 +3623,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<FlagsListResponse>;
-    }
-    interface InstancesResource {
+    };
+
+    const instances: {
       /** Acquire a lease for the setup of SQL Server Reporting Services (SSRS). */
       acquireSsrsLease(request: {
         /** V1 error format. */
@@ -5380,8 +5390,9 @@ declare namespace gapi.client {
         },
         body: DatabaseInstance,
       ): Request<Operation>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Cancels an instance operation that has been performed on an instance. Ordinarily, this method name should be `CancelSqlOperation`. */
       cancel(request?: {
         /** V1 error format. */
@@ -5479,107 +5490,12 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<OperationsListResponse>;
-    }
-    interface InstancesResource {
-      /** Get Disk Shrink Config for a given instance. */
-      getDiskShrinkConfig(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Optional. Region of the Cloud SQL instance. */
-        location?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<SqlInstancesGetDiskShrinkConfigResponse>;
-      /** Get Latest Recovery Time for a given instance. */
-      getLatestRecoveryTime(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Optional. Region of the Cloud SQL instance. */
-        location?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The timestamp used to identify the time when the source instance is deleted. If this instance is deleted, then you must set the timestamp. */
-        sourceInstanceDeletionTime?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<SqlInstancesGetLatestRecoveryTimeResponse>;
-      /** Perform Disk Shrink on primary instance. */
-      performDiskShrink(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Optional. Region of the Cloud SQL instance. */
-        location?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PerformDiskShrinkContext;
-      }): Request<Operation>;
-      performDiskShrink(
-        request: {
+    };
+
+    const projects: {
+      instances: {
+        /** Get Disk Shrink Config for a given instance. */
+        getDiskShrinkConfig(request?: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -5608,44 +5524,108 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: PerformDiskShrinkContext,
-      ): Request<Operation>;
-      /** Reschedules the maintenance on the given instance. */
-      rescheduleMaintenance(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Optional. Region of the Cloud SQL instance. */
-        location?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SqlInstancesRescheduleMaintenanceRequestBody;
-      }): Request<Operation>;
-      rescheduleMaintenance(
-        request: {
+        }): Request<SqlInstancesGetDiskShrinkConfigResponse>;
+        /** Get Latest Recovery Time for a given instance. */
+        getLatestRecoveryTime(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Cloud SQL instance ID. This does not include the project ID. */
+          instance: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Optional. Region of the Cloud SQL instance. */
+          location?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID of the project that contains the instance. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The timestamp used to identify the time when the source instance is deleted. If this instance is deleted, then you must set the timestamp. */
+          sourceInstanceDeletionTime?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<SqlInstancesGetLatestRecoveryTimeResponse>;
+        /** Perform Disk Shrink on primary instance. */
+        performDiskShrink(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Cloud SQL instance ID. This does not include the project ID. */
+          instance: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Optional. Region of the Cloud SQL instance. */
+          location?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID of the project that contains the instance. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: PerformDiskShrinkContext;
+        }): Request<Operation>;
+        performDiskShrink(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Cloud SQL instance ID. This does not include the project ID. */
+            instance: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Optional. Region of the Cloud SQL instance. */
+            location?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Project ID of the project that contains the instance. */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: PerformDiskShrinkContext,
+        ): Request<Operation>;
+        /** Reschedules the maintenance on the given instance. */
+        rescheduleMaintenance(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -5674,42 +5654,44 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: SqlInstancesRescheduleMaintenanceRequestBody,
-      ): Request<Operation>;
-      /** Reset Replica Size to primary instance disk size. */
-      resetReplicaSize(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL read replica instance name. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** ID of the project that contains the read replica. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SqlInstancesResetReplicaSizeRequest;
-      }): Request<Operation>;
-      resetReplicaSize(
-        request: {
+          /** Request body */
+          resource: SqlInstancesRescheduleMaintenanceRequestBody;
+        }): Request<Operation>;
+        rescheduleMaintenance(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Cloud SQL instance ID. This does not include the project ID. */
+            instance: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Optional. Region of the Cloud SQL instance. */
+            location?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** ID of the project that contains the instance. */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: SqlInstancesRescheduleMaintenanceRequestBody,
+        ): Request<Operation>;
+        /** Reset Replica Size to primary instance disk size. */
+        resetReplicaSize(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -5736,42 +5718,42 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: SqlInstancesResetReplicaSizeRequest,
-      ): Request<Operation>;
-      /** Start External primary instance migration. */
-      startExternalSync(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SqlInstancesStartExternalSyncRequest;
-      }): Request<Operation>;
-      startExternalSync(
-        request: {
+          /** Request body */
+          resource: SqlInstancesResetReplicaSizeRequest;
+        }): Request<Operation>;
+        resetReplicaSize(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Cloud SQL read replica instance name. */
+            instance: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** ID of the project that contains the read replica. */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: SqlInstancesResetReplicaSizeRequest,
+        ): Request<Operation>;
+        /** Start External primary instance migration. */
+        startExternalSync(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -5798,42 +5780,42 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: SqlInstancesStartExternalSyncRequest,
-      ): Request<Operation>;
-      /** Verify External primary instance external sync settings. */
-      verifyExternalSyncSettings(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Cloud SQL instance ID. This does not include the project ID. */
-        instance: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID of the project that contains the instance. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SqlInstancesVerifyExternalSyncSettingsRequest;
-      }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
-      verifyExternalSyncSettings(
-        request: {
+          /** Request body */
+          resource: SqlInstancesStartExternalSyncRequest;
+        }): Request<Operation>;
+        startExternalSync(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Cloud SQL instance ID. This does not include the project ID. */
+            instance: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** ID of the project that contains the instance. */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: SqlInstancesStartExternalSyncRequest,
+        ): Request<Operation>;
+        /** Verify External primary instance external sync settings. */
+        verifyExternalSyncSettings(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -5860,14 +5842,44 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: SqlInstancesVerifyExternalSyncSettingsRequest,
-      ): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
-    }
-    interface ProjectsResource {
-      instances: InstancesResource;
-    }
-    interface SslCertsResource {
+          /** Request body */
+          resource: SqlInstancesVerifyExternalSyncSettingsRequest;
+        }): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
+        verifyExternalSyncSettings(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** Cloud SQL instance ID. This does not include the project ID. */
+            instance: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Project ID of the project that contains the instance. */
+            project: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: SqlInstancesVerifyExternalSyncSettingsRequest,
+        ): Request<SqlInstancesVerifyExternalSyncSettingsResponse>;
+      };
+    };
+
+    const sslCerts: {
       /** Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database. */
       createEphemeral(request: {
         /** V1 error format. */
@@ -6087,8 +6099,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SslCertsListResponse>;
-    }
-    interface TiersResource {
+    };
+
+    const tiers: {
       /** Lists all available machine types (tiers) for Cloud SQL, for example, `db-custom-1-3840`. For related information, see [Pricing](/sql/pricing). */
       list(request?: {
         /** V1 error format. */
@@ -6116,8 +6129,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TiersListResponse>;
-    }
-    interface UsersResource {
+    };
+
+    const users: {
       /** Deletes a user from a Cloud SQL instance. */
       delete(request?: {
         /** V1 error format. */
@@ -6375,8 +6389,9 @@ declare namespace gapi.client {
         },
         body: User,
       ): Request<Operation>;
-    }
-    interface WorkloadCapturesResource {
+    };
+
+    const workloadCaptures: {
       /** Lists all captured workloads associated with the instance. */
       list(request?: {
         /** V1 error format. */
@@ -6658,32 +6673,6 @@ declare namespace gapi.client {
         },
         body: WorkloadCapturesStopReplayRequest,
       ): Request<Operation>;
-    }
-
-    const backupRuns: BackupRunsResource;
-
-    const backups: BackupsResource;
-
-    const blueGreenDeployments: BlueGreenDeploymentsResource;
-
-    const connect: ConnectResource;
-
-    const databases: DatabasesResource;
-
-    const flags: FlagsResource;
-
-    const instances: InstancesResource;
-
-    const operations: OperationsResource;
-
-    const projects: ProjectsResource;
-
-    const sslCerts: SslCertsResource;
-
-    const tiers: TiersResource;
-
-    const users: UsersResource;
-
-    const workloadCaptures: WorkloadCapturesResource;
+    };
   }
 }

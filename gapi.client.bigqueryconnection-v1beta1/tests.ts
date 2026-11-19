@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           database: 'Test string',
           instanceId: 'Test string',
           serviceAccountId: 'Test string',
-          type: 'Test string',
+          type: 'DATABASE_TYPE_UNSPECIFIED',
         },
         creationTime: 'Test string',
         description: 'Test string',
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
           database: 'Test string',
           instanceId: 'Test string',
           serviceAccountId: 'Test string',
-          type: 'Test string',
+          type: 'DATABASE_TYPE_UNSPECIFIED',
         },
         creationTime: 'Test string',
         description: 'Test string',
@@ -120,7 +120,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

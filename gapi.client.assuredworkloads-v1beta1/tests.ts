@@ -72,7 +72,7 @@ gapi.load('client', async () => {
             rotationPeriod: 'Test string',
           },
         },
-        complianceRegime: 'Test string',
+        complianceRegime: 'COMPLIANCE_REGIME_UNSPECIFIED',
         complianceStatus: {
           acknowledgedResourceViolationCount: 42,
           acknowledgedViolationCount: 42,
@@ -84,9 +84,11 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         displayName: 'Test string',
         ekmProvisioningResponse: {
-          ekmProvisioningErrorDomain: 'Test string',
-          ekmProvisioningErrorMapping: 'Test string',
-          ekmProvisioningState: 'Test string',
+          ekmProvisioningErrorDomain:
+            'EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED',
+          ekmProvisioningErrorMapping:
+            'EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED',
+          ekmProvisioningState: 'EKM_PROVISIONING_STATE_UNSPECIFIED',
         },
         enableSovereignControls: true,
         etag: 'Test string',
@@ -108,7 +110,7 @@ gapi.load('client', async () => {
             rotationPeriod: 'Test string',
           },
         },
-        kajEnrollmentState: 'Test string',
+        kajEnrollmentState: 'KAJ_ENROLLMENT_STATE_UNSPECIFIED',
         kmsSettings: {
           nextRotationTime: 'Test string',
           rotationPeriod: 'Test string',
@@ -117,7 +119,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        partner: 'Test string',
+        partner: 'PARTNER_UNSPECIFIED',
         partnerPermissions: {
           accessTransparencyLogsSupportCaseViewer: true,
           assuredWorkloadsMonitoring: true,
@@ -130,23 +132,23 @@ gapi.load('client', async () => {
         resources: [
           {
             resourceId: 'Test string',
-            resourceType: 'Test string',
+            resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
           },
         ],
         resourceSettings: [
           {
             displayName: 'Test string',
             resourceId: 'Test string',
-            resourceType: 'Test string',
+            resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
           },
         ],
         saaEnrollmentResponse: {
-          setupErrors: ['Test string'],
-          setupStatus: 'Test string',
+          setupErrors: ['SETUP_ERROR_UNSPECIFIED'],
+          setupStatus: 'SETUP_STATE_UNSPECIFIED',
         },
         violationNotificationsEnabled: true,
         workloadOptions: {
-          kajEnrollmentType: 'Test string',
+          kajEnrollmentType: 'KAJ_ENROLLMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -195,7 +197,7 @@ gapi.load('client', async () => {
             rotationPeriod: 'Test string',
           },
         },
-        complianceRegime: 'Test string',
+        complianceRegime: 'COMPLIANCE_REGIME_UNSPECIFIED',
         complianceStatus: {
           acknowledgedResourceViolationCount: 42,
           acknowledgedViolationCount: 42,
@@ -207,9 +209,11 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         displayName: 'Test string',
         ekmProvisioningResponse: {
-          ekmProvisioningErrorDomain: 'Test string',
-          ekmProvisioningErrorMapping: 'Test string',
-          ekmProvisioningState: 'Test string',
+          ekmProvisioningErrorDomain:
+            'EKM_PROVISIONING_ERROR_DOMAIN_UNSPECIFIED',
+          ekmProvisioningErrorMapping:
+            'EKM_PROVISIONING_ERROR_MAPPING_UNSPECIFIED',
+          ekmProvisioningState: 'EKM_PROVISIONING_STATE_UNSPECIFIED',
         },
         enableSovereignControls: true,
         etag: 'Test string',
@@ -231,7 +235,7 @@ gapi.load('client', async () => {
             rotationPeriod: 'Test string',
           },
         },
-        kajEnrollmentState: 'Test string',
+        kajEnrollmentState: 'KAJ_ENROLLMENT_STATE_UNSPECIFIED',
         kmsSettings: {
           nextRotationTime: 'Test string',
           rotationPeriod: 'Test string',
@@ -240,7 +244,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        partner: 'Test string',
+        partner: 'PARTNER_UNSPECIFIED',
         partnerPermissions: {
           accessTransparencyLogsSupportCaseViewer: true,
           assuredWorkloadsMonitoring: true,
@@ -253,23 +257,23 @@ gapi.load('client', async () => {
         resources: [
           {
             resourceId: 'Test string',
-            resourceType: 'Test string',
+            resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
           },
         ],
         resourceSettings: [
           {
             displayName: 'Test string',
             resourceId: 'Test string',
-            resourceType: 'Test string',
+            resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
           },
         ],
         saaEnrollmentResponse: {
-          setupErrors: ['Test string'],
-          setupStatus: 'Test string',
+          setupErrors: ['SETUP_ERROR_UNSPECIFIED'],
+          setupStatus: 'SETUP_STATE_UNSPECIFIED',
         },
         violationNotificationsEnabled: true,
         workloadOptions: {
-          kajEnrollmentType: 'Test string',
+          kajEnrollmentType: 'KAJ_ENROLLMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -279,7 +283,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        restrictionType: 'Test string',
+        restrictionType: 'RESTRICTION_TYPE_UNSPECIFIED',
       },
     );
     /** This endpoint creates a new operation to apply the given update. */
@@ -288,7 +292,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'WORKLOAD_UPDATE_ACTION_UNSPECIFIED',
       },
     );
     /** This endpoint lists all updates for the given workload. */
@@ -305,17 +309,17 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        acknowledgeType: 'Test string',
+        acknowledgeType: 'ACKNOWLEDGE_TYPE_UNSPECIFIED',
         comment: 'Test string',
         nonCompliantOrgPolicy: 'Test string',
-        view: 'Test string',
+        view: 'VIOLATION_VIEW_UNSPECIFIED',
       },
     );
     /** Retrieves an Assured Workloads violation by its resource name. */
     await gapi.client.assuredworkloads.organizations.locations.workloads.violations.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VIOLATION_VIEW_UNSPECIFIED',
       },
     );
     /** Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash character) as a wildcard character instead of workload-id in the parent. Format `organizations/{org_id}/locations/{location}/workloads/-` */
@@ -328,7 +332,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'VIOLATION_VIEW_UNSPECIFIED',
       },
     );
   }

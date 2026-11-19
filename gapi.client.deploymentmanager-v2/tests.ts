@@ -49,7 +49,7 @@ gapi.load('client', async () => {
     );
     /** Deletes a deployment and all of the resources in the deployment. */
     await gapi.client.deploymentmanager.deployments.delete({
-      deletePolicy: 'Test string',
+      deletePolicy: 'DELETE',
       deployment: 'Test string',
       'header.bypassBillingFilter': true,
       project: 'Test string',
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
     /** Creates a deployment and all of the resources described by the deployment manifest. */
     await gapi.client.deploymentmanager.deployments.insert(
       {
-        createPolicy: 'Test string',
+        createPolicy: 'CREATE_OR_ACQUIRE',
         'header.bypassBillingFilter': true,
         preview: true,
         project: 'Test string',
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
                       limit: 42,
                       limitName: 'Test string',
                       metricName: 'Test string',
-                      rolloutStatus: 'Test string',
+                      rolloutStatus: 'ROLLOUT_STATUS_UNSPECIFIED',
                     },
                   },
                 ],
@@ -151,10 +151,10 @@ gapi.load('client', async () => {
           },
           getHealthOperationMetadata: {
             healthInfo: {
-              availabilitySloStatus: 'Test string',
-              healthStatus: 'Test string',
-              repairCategory: 'Test string',
-              unhealthyReason: 'Test string',
+              availabilitySloStatus: 'AVAILABILITY_SLO_STATUS_UNSPECIFIED',
+              healthStatus: 'HEALTH_STATUS_UNSPECIFIED',
+              repairCategory: 'REPAIR_CATEGORY_UNSPECIFIED',
+              unhealthyReason: 'UNHEALTHY_REASON_UNSPECIFIED',
               updateTime: 'Test string',
             },
           },
@@ -187,7 +187,7 @@ gapi.load('client', async () => {
                 deletedVmCount: 42,
                 estimatedAvailabilityTime: 'Test string',
                 failedToCreateVmCount: 42,
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 targetVmCount: 42,
               },
             },
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
             bytesTransferred: 'Test string',
             filesTransferred: 'Test string',
             objectName: 'Test string',
-            phase: 'Test string',
+            phase: 'PHASE_UNSPECIFIED',
             totalBytes: 'Test string',
           },
           name: 'Test string',
@@ -238,19 +238,19 @@ gapi.load('client', async () => {
                   ],
                   message: 'Test string',
                 },
-                state: 'Test string',
+                state: 'UNSPECIFIED',
               },
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'PENDING',
           statusMessage: 'Test string',
           targetId: 'Test string',
           targetLink: 'Test string',
           user: 'Test string',
           warnings: [
             {
-              code: 'Test string',
+              code: 'DEPRECATED_RESOURCE_USED',
               data: [
                 {
                   key: 'Test string',
@@ -298,8 +298,8 @@ gapi.load('client', async () => {
     /** Patches a deployment and all of the resources described by the deployment manifest. */
     await gapi.client.deploymentmanager.deployments.patch(
       {
-        createPolicy: 'Test string',
-        deletePolicy: 'Test string',
+        createPolicy: 'CREATE_OR_ACQUIRE',
+        deletePolicy: 'DELETE',
         deployment: 'Test string',
         'header.bypassBillingFilter': true,
         preview: true,
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
                       limit: 42,
                       limitName: 'Test string',
                       metricName: 'Test string',
-                      rolloutStatus: 'Test string',
+                      rolloutStatus: 'ROLLOUT_STATUS_UNSPECIFIED',
                     },
                   },
                 ],
@@ -381,10 +381,10 @@ gapi.load('client', async () => {
           },
           getHealthOperationMetadata: {
             healthInfo: {
-              availabilitySloStatus: 'Test string',
-              healthStatus: 'Test string',
-              repairCategory: 'Test string',
-              unhealthyReason: 'Test string',
+              availabilitySloStatus: 'AVAILABILITY_SLO_STATUS_UNSPECIFIED',
+              healthStatus: 'HEALTH_STATUS_UNSPECIFIED',
+              repairCategory: 'REPAIR_CATEGORY_UNSPECIFIED',
+              unhealthyReason: 'UNHEALTHY_REASON_UNSPECIFIED',
               updateTime: 'Test string',
             },
           },
@@ -417,7 +417,7 @@ gapi.load('client', async () => {
                 deletedVmCount: 42,
                 estimatedAvailabilityTime: 'Test string',
                 failedToCreateVmCount: 42,
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 targetVmCount: 42,
               },
             },
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
             bytesTransferred: 'Test string',
             filesTransferred: 'Test string',
             objectName: 'Test string',
-            phase: 'Test string',
+            phase: 'PHASE_UNSPECIFIED',
             totalBytes: 'Test string',
           },
           name: 'Test string',
@@ -468,19 +468,19 @@ gapi.load('client', async () => {
                   ],
                   message: 'Test string',
                 },
-                state: 'Test string',
+                state: 'UNSPECIFIED',
               },
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'PENDING',
           statusMessage: 'Test string',
           targetId: 'Test string',
           targetLink: 'Test string',
           user: 'Test string',
           warnings: [
             {
-              code: 'Test string',
+              code: 'DEPRECATED_RESOURCE_USED',
               data: [
                 {
                   key: 'Test string',
@@ -543,7 +543,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -591,8 +591,8 @@ gapi.load('client', async () => {
     /** Updates a deployment and all of the resources described by the deployment manifest. */
     await gapi.client.deploymentmanager.deployments.update(
       {
-        createPolicy: 'Test string',
-        deletePolicy: 'Test string',
+        createPolicy: 'CREATE_OR_ACQUIRE',
+        deletePolicy: 'DELETE',
         deployment: 'Test string',
         'header.bypassBillingFilter': true,
         preview: true,
@@ -660,7 +660,7 @@ gapi.load('client', async () => {
                       limit: 42,
                       limitName: 'Test string',
                       metricName: 'Test string',
-                      rolloutStatus: 'Test string',
+                      rolloutStatus: 'ROLLOUT_STATUS_UNSPECIFIED',
                     },
                   },
                 ],
@@ -674,10 +674,10 @@ gapi.load('client', async () => {
           },
           getHealthOperationMetadata: {
             healthInfo: {
-              availabilitySloStatus: 'Test string',
-              healthStatus: 'Test string',
-              repairCategory: 'Test string',
-              unhealthyReason: 'Test string',
+              availabilitySloStatus: 'AVAILABILITY_SLO_STATUS_UNSPECIFIED',
+              healthStatus: 'HEALTH_STATUS_UNSPECIFIED',
+              repairCategory: 'REPAIR_CATEGORY_UNSPECIFIED',
+              unhealthyReason: 'UNHEALTHY_REASON_UNSPECIFIED',
               updateTime: 'Test string',
             },
           },
@@ -710,7 +710,7 @@ gapi.load('client', async () => {
                 deletedVmCount: 42,
                 estimatedAvailabilityTime: 'Test string',
                 failedToCreateVmCount: 42,
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 targetVmCount: 42,
               },
             },
@@ -732,7 +732,7 @@ gapi.load('client', async () => {
             bytesTransferred: 'Test string',
             filesTransferred: 'Test string',
             objectName: 'Test string',
-            phase: 'Test string',
+            phase: 'PHASE_UNSPECIFIED',
             totalBytes: 'Test string',
           },
           name: 'Test string',
@@ -761,19 +761,19 @@ gapi.load('client', async () => {
                   ],
                   message: 'Test string',
                 },
-                state: 'Test string',
+                state: 'UNSPECIFIED',
               },
             },
           },
           startTime: 'Test string',
-          status: 'Test string',
+          status: 'PENDING',
           statusMessage: 'Test string',
           targetId: 'Test string',
           targetLink: 'Test string',
           user: 'Test string',
           warnings: [
             {
-              code: 'Test string',
+              code: 'DEPRECATED_RESOURCE_USED',
               data: [
                 {
                   key: 'Test string',

@@ -51,7 +51,7 @@ gapi.load('client', async () => {
         pageToken: 'Test string',
         query: 'Test string',
         returnTotalResultsCount: true,
-        summaryRowSetting: 'Test string',
+        summaryRowSetting: 'UNSPECIFIED',
         validateOnly: true,
       },
     );

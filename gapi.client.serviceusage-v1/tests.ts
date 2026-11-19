@@ -78,7 +78,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        checkIfServiceHasUsage: 'Test string',
+        checkIfServiceHasUsage: 'CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED',
         disableDependentServices: true,
       },
     );

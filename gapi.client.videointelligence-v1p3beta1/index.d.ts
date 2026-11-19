@@ -1226,7 +1226,7 @@ declare namespace gapi.client {
     }
     interface GoogleCloudVideointelligenceV1p3beta1_AnnotateVideoRequest {
       /** Required. Requested video annotation features. */
-      features?:
+      features?: (
         | 'FEATURE_UNSPECIFIED'
         | 'LABEL_DETECTION'
         | 'SHOT_CHANGE_DETECTION'
@@ -1237,7 +1237,8 @@ declare namespace gapi.client {
         | 'OBJECT_TRACKING'
         | 'LOGO_RECOGNITION'
         | 'CELEBRITY_RECOGNITION'
-        | 'PERSON_DETECTION'[];
+        | 'PERSON_DETECTION'
+      )[];
       /** The video data bytes. If unset, the input video(s) should be specified via the `input_uri`. If set, `input_uri` must be unset. */
       inputContent?: string;
       /** Input video location. Currently, only [Cloud Storage](https://cloud.google.com/storage/) URIs are supported. URIs must be specified in the following format: `gs://bucket-id/object-id` (other URI formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see [Request URIs](https://cloud.google.com/storage/docs/request-endpoints). To identify multiple videos, a video URI may include wildcards in the `object-id`. Supported wildcards: '*' to match 0 or more characters; '?' to match 1 character. If unset, the input video should be embedded in the request as `input_content`. If set, `input_content` must be unset. */
@@ -1708,7 +1709,8 @@ declare namespace gapi.client {
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
-    interface VideosResource {
+
+    const videos: {
       /** Performs asynchronous video annotation. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `AnnotateVideoProgress` (progress). `Operation.response` contains `AnnotateVideoResponse` (results). */
       annotate(request: {
         /** V1 error format. */
@@ -1763,8 +1765,6 @@ declare namespace gapi.client {
         },
         body: GoogleCloudVideointelligenceV1p3beta1_AnnotateVideoRequest,
       ): Request<GoogleLongrunning_Operation>;
-    }
-
-    const videos: VideosResource;
+    };
   }
 }

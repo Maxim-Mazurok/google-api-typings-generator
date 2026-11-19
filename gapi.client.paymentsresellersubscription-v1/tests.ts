@@ -63,7 +63,7 @@ gapi.load('client', async () => {
       },
       {
         cancelImmediately: true,
-        cancellationReason: 'Test string',
+        cancellationReason: 'CANCELLATION_REASON_UNSPECIFIED',
       },
     );
     /** Used by partners to create a subscription for their customers. The created subscription is associated with the end user inferred from the end user credentials. This API must be authorized by the end user using OAuth. */
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
       },
       {
         cancellationDetails: {
-          reason: 'Test string',
+          reason: 'CANCELLATION_REASON_UNSPECIFIED',
         },
         createTime: 'Test string',
         cycleEndTime: 'Test string',
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
               {
                 freeTrialDuration: {
                   count: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 introductoryPricingDetails: {
                   introductoryPricingSpecs: [
@@ -120,7 +120,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 promotion: 'Test string',
-                type: 'Test string',
+                type: 'PROMOTION_TYPE_UNSPECIFIED',
               },
             ],
             name: 'Test string',
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
                 startTime: 'Test string',
               },
             },
-            planType: 'Test string',
+            planType: 'LINE_ITEM_PLAN_TYPE_UNSPECIFIED',
             product: 'Test string',
             productPayload: {
               googleHomePayload: {
@@ -140,18 +140,18 @@ gapi.load('client', async () => {
               },
               googleOnePayload: {
                 campaigns: ['Test string'],
-                offering: 'Test string',
-                salesChannel: 'Test string',
+                offering: 'OFFERING_UNSPECIFIED',
+                salesChannel: 'CHANNEL_UNSPECIFIED',
                 storeId: 'Test string',
               },
               youtubePayload: {
                 accessEndTime: 'Test string',
                 partnerEligibilityIds: ['Test string'],
-                partnerPlanType: 'Test string',
+                partnerPlanType: 'PARTNER_PLAN_TYPE_UNSPECIFIED',
               },
             },
-            recurrenceType: 'Test string',
-            state: 'Test string',
+            recurrenceType: 'LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED',
+            state: 'LINE_ITEM_STATE_UNSPECIFIED',
           },
         ],
         migrationDetails: {
@@ -160,14 +160,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         partnerUserToken: 'Test string',
-        processingState: 'Test string',
+        processingState: 'PROCESSING_STATE_UNSPECIFIED',
         products: ['Test string'],
         promotions: ['Test string'],
         promotionSpecs: [
           {
             freeTrialDuration: {
               count: 42,
-              unit: 'Test string',
+              unit: 'UNIT_UNSPECIFIED',
             },
             introductoryPricingDetails: {
               introductoryPricingSpecs: [
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
               ],
             },
             promotion: 'Test string',
-            type: 'Test string',
+            type: 'PROMOTION_TYPE_UNSPECIFIED',
           },
         ],
         purchaseTime: 'Test string',
@@ -193,10 +193,10 @@ gapi.load('client', async () => {
           postalCode: 'Test string',
           regionCode: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         upgradeDowngradeDetails: {
-          billingCycleSpec: 'Test string',
+          billingCycleSpec: 'BILLING_CYCLE_SPEC_UNSPECIFIED',
           previousSubscriptionId: 'Test string',
         },
       },
@@ -224,7 +224,7 @@ gapi.load('client', async () => {
         extension: {
           duration: {
             count: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           partnerUserToken: 'Test string',
         },
@@ -239,13 +239,13 @@ gapi.load('client', async () => {
     await gapi.client.paymentsresellersubscription.partners.subscriptions.provision(
       {
         'cycleOptions.initialCycleDuration.count': 42,
-        'cycleOptions.initialCycleDuration.unit': 'Test string',
+        'cycleOptions.initialCycleDuration.unit': 'UNIT_UNSPECIFIED',
         parent: 'Test string',
         subscriptionId: 'Test string',
       },
       {
         cancellationDetails: {
-          reason: 'Test string',
+          reason: 'CANCELLATION_REASON_UNSPECIFIED',
         },
         createTime: 'Test string',
         cycleEndTime: 'Test string',
@@ -275,7 +275,7 @@ gapi.load('client', async () => {
               {
                 freeTrialDuration: {
                   count: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 introductoryPricingDetails: {
                   introductoryPricingSpecs: [
@@ -291,7 +291,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 promotion: 'Test string',
-                type: 'Test string',
+                type: 'PROMOTION_TYPE_UNSPECIFIED',
               },
             ],
             name: 'Test string',
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
                 startTime: 'Test string',
               },
             },
-            planType: 'Test string',
+            planType: 'LINE_ITEM_PLAN_TYPE_UNSPECIFIED',
             product: 'Test string',
             productPayload: {
               googleHomePayload: {
@@ -311,18 +311,18 @@ gapi.load('client', async () => {
               },
               googleOnePayload: {
                 campaigns: ['Test string'],
-                offering: 'Test string',
-                salesChannel: 'Test string',
+                offering: 'OFFERING_UNSPECIFIED',
+                salesChannel: 'CHANNEL_UNSPECIFIED',
                 storeId: 'Test string',
               },
               youtubePayload: {
                 accessEndTime: 'Test string',
                 partnerEligibilityIds: ['Test string'],
-                partnerPlanType: 'Test string',
+                partnerPlanType: 'PARTNER_PLAN_TYPE_UNSPECIFIED',
               },
             },
-            recurrenceType: 'Test string',
-            state: 'Test string',
+            recurrenceType: 'LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED',
+            state: 'LINE_ITEM_STATE_UNSPECIFIED',
           },
         ],
         migrationDetails: {
@@ -331,14 +331,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         partnerUserToken: 'Test string',
-        processingState: 'Test string',
+        processingState: 'PROCESSING_STATE_UNSPECIFIED',
         products: ['Test string'],
         promotions: ['Test string'],
         promotionSpecs: [
           {
             freeTrialDuration: {
               count: 42,
-              unit: 'Test string',
+              unit: 'UNIT_UNSPECIFIED',
             },
             introductoryPricingDetails: {
               introductoryPricingSpecs: [
@@ -354,7 +354,7 @@ gapi.load('client', async () => {
               ],
             },
             promotion: 'Test string',
-            type: 'Test string',
+            type: 'PROMOTION_TYPE_UNSPECIFIED',
           },
         ],
         purchaseTime: 'Test string',
@@ -364,10 +364,10 @@ gapi.load('client', async () => {
           postalCode: 'Test string',
           regionCode: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         upgradeDowngradeDetails: {
-          billingCycleSpec: 'Test string',
+          billingCycleSpec: 'BILLING_CYCLE_SPEC_UNSPECIFIED',
           previousSubscriptionId: 'Test string',
         },
       },
@@ -381,10 +381,10 @@ gapi.load('client', async () => {
         cycleOptions: {
           initialCycleDuration: {
             count: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
         },
-        resumeMode: 'Test string',
+        resumeMode: 'RESUME_MODE_UNSPECIFIED',
       },
     );
     /** Suspends a subscription. Contract terms may dictate if a prorated refund will be issued upon suspension. It should be called directly by the partner using service accounts. */
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        suspendMode: 'Test string',
+        suspendMode: 'SUSPEND_MODE_UNSPECIFIED',
       },
     );
     /** Currently, it is used by **Google One, Play Pass** partners. Revokes the pending cancellation of a subscription, which is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already cancelled, the request will fail. It should be called directly by the partner using service accounts. */
@@ -433,7 +433,7 @@ gapi.load('client', async () => {
           {
             freeTrialDuration: {
               count: 42,
-              unit: 'Test string',
+              unit: 'UNIT_UNSPECIFIED',
             },
             introductoryPricingDetails: {
               introductoryPricingSpecs: [
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
               ],
             },
             promotion: 'Test string',
-            type: 'Test string',
+            type: 'PROMOTION_TYPE_UNSPECIFIED',
           },
         ],
         name: 'Test string',
@@ -459,7 +459,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        planType: 'Test string',
+        planType: 'LINE_ITEM_PLAN_TYPE_UNSPECIFIED',
         product: 'Test string',
         productPayload: {
           googleHomePayload: {
@@ -469,18 +469,18 @@ gapi.load('client', async () => {
           },
           googleOnePayload: {
             campaigns: ['Test string'],
-            offering: 'Test string',
-            salesChannel: 'Test string',
+            offering: 'OFFERING_UNSPECIFIED',
+            salesChannel: 'CHANNEL_UNSPECIFIED',
             storeId: 'Test string',
           },
           youtubePayload: {
             accessEndTime: 'Test string',
             partnerEligibilityIds: ['Test string'],
-            partnerPlanType: 'Test string',
+            partnerPlanType: 'PARTNER_PLAN_TYPE_UNSPECIFIED',
           },
         },
-        recurrenceType: 'Test string',
-        state: 'Test string',
+        recurrenceType: 'LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED',
+        state: 'LINE_ITEM_STATE_UNSPECIFIED',
       },
     );
     /** This API replaces user authorized OAuth consent based APIs (Create, Entitle). Issues a timed session token for the given user intent. You can use the session token to redirect the user to Google to finish the signup flow. You can re-generate new session token repeatedly for the same request if necessary, regardless of the previous tokens being expired or not. By default, the session token is valid for 1 hour. */
@@ -494,13 +494,13 @@ gapi.load('client', async () => {
             cycleOptions: {
               initialCycleDuration: {
                 count: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
             },
             parent: 'Test string',
             subscription: {
               cancellationDetails: {
-                reason: 'Test string',
+                reason: 'CANCELLATION_REASON_UNSPECIFIED',
               },
               createTime: 'Test string',
               cycleEndTime: 'Test string',
@@ -530,7 +530,7 @@ gapi.load('client', async () => {
                     {
                       freeTrialDuration: {
                         count: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       introductoryPricingDetails: {
                         introductoryPricingSpecs: [
@@ -546,7 +546,7 @@ gapi.load('client', async () => {
                         ],
                       },
                       promotion: 'Test string',
-                      type: 'Test string',
+                      type: 'PROMOTION_TYPE_UNSPECIFIED',
                     },
                   ],
                   name: 'Test string',
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
                       startTime: 'Test string',
                     },
                   },
-                  planType: 'Test string',
+                  planType: 'LINE_ITEM_PLAN_TYPE_UNSPECIFIED',
                   product: 'Test string',
                   productPayload: {
                     googleHomePayload: {
@@ -566,18 +566,18 @@ gapi.load('client', async () => {
                     },
                     googleOnePayload: {
                       campaigns: ['Test string'],
-                      offering: 'Test string',
-                      salesChannel: 'Test string',
+                      offering: 'OFFERING_UNSPECIFIED',
+                      salesChannel: 'CHANNEL_UNSPECIFIED',
                       storeId: 'Test string',
                     },
                     youtubePayload: {
                       accessEndTime: 'Test string',
                       partnerEligibilityIds: ['Test string'],
-                      partnerPlanType: 'Test string',
+                      partnerPlanType: 'PARTNER_PLAN_TYPE_UNSPECIFIED',
                     },
                   },
-                  recurrenceType: 'Test string',
-                  state: 'Test string',
+                  recurrenceType: 'LINE_ITEM_RECURRENCE_TYPE_UNSPECIFIED',
+                  state: 'LINE_ITEM_STATE_UNSPECIFIED',
                 },
               ],
               migrationDetails: {
@@ -586,14 +586,14 @@ gapi.load('client', async () => {
               },
               name: 'Test string',
               partnerUserToken: 'Test string',
-              processingState: 'Test string',
+              processingState: 'PROCESSING_STATE_UNSPECIFIED',
               products: ['Test string'],
               promotions: ['Test string'],
               promotionSpecs: [
                 {
                   freeTrialDuration: {
                     count: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   introductoryPricingDetails: {
                     introductoryPricingSpecs: [
@@ -609,7 +609,7 @@ gapi.load('client', async () => {
                     ],
                   },
                   promotion: 'Test string',
-                  type: 'Test string',
+                  type: 'PROMOTION_TYPE_UNSPECIFIED',
                 },
               ],
               purchaseTime: 'Test string',
@@ -619,10 +619,10 @@ gapi.load('client', async () => {
                 postalCode: 'Test string',
                 regionCode: 'Test string',
               },
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               updateTime: 'Test string',
               upgradeDowngradeDetails: {
-                billingCycleSpec: 'Test string',
+                billingCycleSpec: 'BILLING_CYCLE_SPEC_UNSPECIFIED',
                 previousSubscriptionId: 'Test string',
               },
             },

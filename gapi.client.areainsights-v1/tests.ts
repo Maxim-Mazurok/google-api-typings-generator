@@ -59,8 +59,8 @@ gapi.load('client', async () => {
               place: 'Test string',
             },
           },
-          operatingStatus: ['Test string'],
-          priceLevels: ['Test string'],
+          operatingStatus: ['OPERATING_STATUS_UNSPECIFIED'],
+          priceLevels: ['PRICE_LEVEL_UNSPECIFIED'],
           ratingFilter: {
             maxRating: 42,
             minRating: 42,
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
             includedTypes: ['Test string'],
           },
         },
-        insights: ['Test string'],
+        insights: ['INSIGHT_UNSPECIFIED'],
       },
     );
   }

@@ -135,7 +135,7 @@ gapi.load('client', async () => {
         ],
         solverConfig: {
           maximumProcessingDuration: 'Test string',
-          scheduleType: 'Test string',
+          scheduleType: 'SCHEDULE_TYPE_UNSPECIFIED',
         },
         workforceDemands: {
           values: [
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
         critical: {
           peakHours: [
             {
-              days: ['Test string'],
+              days: ['DAY_OF_WEEK_UNSPECIFIED'],
               duration: 'Test string',
               endTime: {
                 hours: 42,
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           agentDesktopEnabled: true,
         },
         instanceConfig: {
-          instanceSize: 'Test string',
+          instanceSize: 'INSTANCE_SIZE_UNSPECIFIED',
         },
         kmsKey: 'Test string',
         labels: {
@@ -266,14 +266,14 @@ gapi.load('client', async () => {
         purgeTime: 'Test string',
         releaseVersion: 'Test string',
         samlParams: {
-          authenticationContexts: ['Test string'],
+          authenticationContexts: ['AUTHENTICATION_CONTEXT_UNSPECIFIED'],
           certificate: 'Test string',
           emailMapping: 'Test string',
           entityId: 'Test string',
           ssoUri: 'Test string',
           userEmail: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         uris: {
           chatBotUri: 'Test string',
@@ -325,7 +325,7 @@ gapi.load('client', async () => {
         critical: {
           peakHours: [
             {
-              days: ['Test string'],
+              days: ['DAY_OF_WEEK_UNSPECIFIED'],
               duration: 'Test string',
               endTime: {
                 hours: 42,
@@ -351,7 +351,7 @@ gapi.load('client', async () => {
           agentDesktopEnabled: true,
         },
         instanceConfig: {
-          instanceSize: 'Test string',
+          instanceSize: 'INSTANCE_SIZE_UNSPECIFIED',
         },
         kmsKey: 'Test string',
         labels: {
@@ -381,14 +381,14 @@ gapi.load('client', async () => {
         purgeTime: 'Test string',
         releaseVersion: 'Test string',
         samlParams: {
-          authenticationContexts: ['Test string'],
+          authenticationContexts: ['AUTHENTICATION_CONTEXT_UNSPECIFIED'],
           certificate: 'Test string',
           emailMapping: 'Test string',
           entityId: 'Test string',
           ssoUri: 'Test string',
           userEmail: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         uris: {
           chatBotUri: 'Test string',

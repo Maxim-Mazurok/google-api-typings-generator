@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         consumerNetwork: 'Test string',
         endpointProject: 'Test string',
-        requestedIpVersion: 'Test string',
+        requestedIpVersion: 'IP_VERSION_UNSPECIFIED',
         serviceClass: 'Test string',
       },
     );
@@ -59,14 +59,14 @@ gapi.load('client', async () => {
     await gapi.client.networkconnectivity.projects.locations.automatedDnsRecords.create(
       {
         automatedDnsRecordId: 'Test string',
-        insertMode: 'Test string',
+        insertMode: 'INSERT_MODE_UNSPECIFIED',
         parent: 'Test string',
         requestId: 'Test string',
       },
       {
         consumerNetwork: 'Test string',
         createTime: 'Test string',
-        creationMode: 'Test string',
+        creationMode: 'CREATION_MODE_UNSPECIFIED',
         currentConfig: {
           rrdatas: ['Test string'],
           ttl: 'Test string',
@@ -85,9 +85,9 @@ gapi.load('client', async () => {
           rrdatas: ['Test string'],
           ttl: 'Test string',
         },
-        recordType: 'Test string',
+        recordType: 'RECORD_TYPE_UNSPECIFIED',
         serviceClass: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateDetails: 'Test string',
         updateTime: 'Test string',
       },
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
     /** Deletes a single AutomatedDnsRecord. */
     await gapi.client.networkconnectivity.projects.locations.automatedDnsRecords.delete(
       {
-        deleteMode: 'Test string',
+        deleteMode: 'DELETE_MODE_UNSPECIFIED',
         etag: 'Test string',
         name: 'Test string',
         requestId: 'Test string',
@@ -157,8 +157,8 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        policyMode: 'Test string',
-        presetTopology: 'Test string',
+        policyMode: 'POLICY_MODE_UNSPECIFIED',
+        presetTopology: 'PRESET_TOPOLOGY_UNSPECIFIED',
         routeTables: ['Test string'],
         routingVpcs: [
           {
@@ -170,23 +170,23 @@ gapi.load('client', async () => {
           spokeStateCounts: [
             {
               count: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           spokeStateReasonCounts: [
             {
               count: 'Test string',
-              stateReasonCode: 'Test string',
+              stateReasonCode: 'CODE_UNSPECIFIED',
             },
           ],
           spokeTypeCounts: [
             {
               count: 'Test string',
-              spokeType: 'Test string',
+              spokeType: 'SPOKE_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         spokeLocations: 'Test string',
-        view: 'Test string',
+        view: 'SPOKE_VIEW_UNSPECIFIED',
       },
     );
     /** Updates the description and/or labels of a Network Connectivity Center hub. */
@@ -248,8 +248,8 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        policyMode: 'Test string',
-        presetTopology: 'Test string',
+        policyMode: 'POLICY_MODE_UNSPECIFIED',
+        presetTopology: 'PRESET_TOPOLOGY_UNSPECIFIED',
         routeTables: ['Test string'],
         routingVpcs: [
           {
@@ -261,23 +261,23 @@ gapi.load('client', async () => {
           spokeStateCounts: [
             {
               count: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           spokeStateReasonCounts: [
             {
               count: 'Test string',
-              stateReasonCode: 'Test string',
+              stateReasonCode: 'CODE_UNSPECIFIED',
             },
           ],
           spokeTypeCounts: [
             {
               count: 'Test string',
-              spokeType: 'Test string',
+              spokeType: 'SPOKE_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -328,7 +328,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -402,7 +402,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         routeTable: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -419,7 +419,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -497,7 +497,7 @@ gapi.load('client', async () => {
         filter: {
           destRange: 'Test string',
           ipProtocol: 'Test string',
-          protocolVersion: 'Test string',
+          protocolVersion: 'PROTOCOL_VERSION_UNSPECIFIED',
           srcRange: 'Test string',
         },
         interconnectAttachment: {
@@ -510,7 +510,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         nextHopIlbIp: 'Test string',
-        nextHopOtherRoutes: 'Test string',
+        nextHopOtherRoutes: 'OTHER_ROUTES_UNSPECIFIED',
         priority: 42,
         selfLink: 'Test string',
         updateTime: 'Test string',
@@ -519,7 +519,7 @@ gapi.load('client', async () => {
         },
         warnings: [
           {
-            code: 'Test string',
+            code: 'WARNING_UNSPECIFIED',
             data: {
               A: 'Test string',
             },
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -612,7 +612,7 @@ gapi.load('client', async () => {
       },
       {
         allocationOptions: {
-          allocationStrategy: 'Test string',
+          allocationStrategy: 'ALLOCATION_STRATEGY_UNSPECIFIED',
           firstAvailableRangesLookupSize: 42,
         },
         createTime: 'Test string',
@@ -629,14 +629,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        overlaps: ['Test string'],
-        peering: 'Test string',
+        overlaps: ['OVERLAP_UNSPECIFIED'],
+        peering: 'PEERING_UNSPECIFIED',
         prefixLength: 42,
-        purpose: 'Test string',
-        rangeStatus: 'Test string',
+        purpose: 'PURPOSE_UNSPECIFIED',
+        rangeStatus: 'RANGE_STATUS_UNSPECIFIED',
         targetCidrRange: ['Test string'],
         updateTime: 'Test string',
-        usage: 'Test string',
+        usage: 'USAGE_UNSPECIFIED',
         users: ['Test string'],
       },
     );
@@ -679,7 +679,7 @@ gapi.load('client', async () => {
       },
       {
         allocationOptions: {
-          allocationStrategy: 'Test string',
+          allocationStrategy: 'ALLOCATION_STRATEGY_UNSPECIFIED',
           firstAvailableRangesLookupSize: 42,
         },
         createTime: 'Test string',
@@ -696,14 +696,14 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        overlaps: ['Test string'],
-        peering: 'Test string',
+        overlaps: ['OVERLAP_UNSPECIFIED'],
+        peering: 'PEERING_UNSPECIFIED',
         prefixLength: 42,
-        purpose: 'Test string',
-        rangeStatus: 'Test string',
+        purpose: 'PURPOSE_UNSPECIFIED',
+        rangeStatus: 'RANGE_STATUS_UNSPECIFIED',
         targetCidrRange: ['Test string'],
         updateTime: 'Test string',
-        usage: 'Test string',
+        usage: 'USAGE_UNSPECIFIED',
         users: ['Test string'],
       },
     );
@@ -719,7 +719,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -774,7 +774,7 @@ gapi.load('client', async () => {
             states: [
               {
                 effectiveTime: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
           },
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
             states: [
               {
                 effectiveTime: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
           },
@@ -853,7 +853,7 @@ gapi.load('client', async () => {
           {
             asn: 'Test string',
             csp: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
@@ -867,7 +867,7 @@ gapi.load('client', async () => {
           states: [
             {
               effectiveTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
         },
@@ -914,7 +914,7 @@ gapi.load('client', async () => {
           {
             asn: 'Test string',
             csp: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
@@ -928,7 +928,7 @@ gapi.load('client', async () => {
           states: [
             {
               effectiveTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
         },
@@ -981,7 +981,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        authorizationMode: 'Test string',
+        authorizationMode: 'AUTHORIZATION_MODE_UNSPECIFIED',
         authorizedClientResources: ['Test string'],
         createTime: 'Test string',
         description: 'Test string',
@@ -1027,7 +1027,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        accessType: 'Test string',
+        accessType: 'ACCESS_TYPE_UNSPECIFIED',
         address: 'Test string',
         createTime: 'Test string',
         description: 'Test string',
@@ -1137,7 +1137,7 @@ gapi.load('client', async () => {
           {
             consumerInstanceProject: 'Test string',
             disableGlobalAccess: true,
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             network: 'Test string',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
@@ -1147,7 +1147,7 @@ gapi.load('client', async () => {
             serviceAttachmentIpAddressMap: {
               A: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         consumerPscConnections: [
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
                 message: 'Test string',
               },
               fqdn: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             error: {
               code: 42,
@@ -1181,11 +1181,11 @@ gapi.load('client', async () => {
               },
               reason: 'Test string',
             },
-            errorType: 'Test string',
+            errorType: 'CONNECTION_ERROR_TYPE_UNSPECIFIED',
             forwardingRule: 'Test string',
             gceOperation: 'Test string',
             ip: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             network: 'Test string',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
@@ -1195,13 +1195,13 @@ gapi.load('client', async () => {
             pscConnectionId: 'Test string',
             selectedSubnetwork: 'Test string',
             serviceAttachmentUri: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
         description: 'Test string',
         etag: 'Test string',
-        infrastructure: 'Test string',
+        infrastructure: 'INFRASTRUCTURE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -1258,7 +1258,7 @@ gapi.load('client', async () => {
           {
             consumerInstanceProject: 'Test string',
             disableGlobalAccess: true,
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             network: 'Test string',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
@@ -1268,7 +1268,7 @@ gapi.load('client', async () => {
             serviceAttachmentIpAddressMap: {
               A: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         consumerPscConnections: [
@@ -1284,7 +1284,7 @@ gapi.load('client', async () => {
                 message: 'Test string',
               },
               fqdn: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             error: {
               code: 42,
@@ -1302,11 +1302,11 @@ gapi.load('client', async () => {
               },
               reason: 'Test string',
             },
-            errorType: 'Test string',
+            errorType: 'CONNECTION_ERROR_TYPE_UNSPECIFIED',
             forwardingRule: 'Test string',
             gceOperation: 'Test string',
             ip: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             network: 'Test string',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
@@ -1316,13 +1316,13 @@ gapi.load('client', async () => {
             pscConnectionId: 'Test string',
             selectedSubnetwork: 'Test string',
             serviceAttachmentUri: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
         description: 'Test string',
         etag: 'Test string',
-        infrastructure: 'Test string',
+        infrastructure: 'INFRASTRUCTURE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -1347,12 +1347,12 @@ gapi.load('client', async () => {
     await gapi.client.networkconnectivity.projects.locations.serviceConnectionPolicies.create(
       {
         'autoSubnetworkConfig.allocRangeSpace': 'Test string',
-        'autoSubnetworkConfig.ipStack': 'Test string',
+        'autoSubnetworkConfig.ipStack': 'SUBNET_IP_STACK_UNSPECIFIED',
         'autoSubnetworkConfig.prefixLength': 42,
         parent: 'Test string',
         requestId: 'Test string',
         serviceConnectionPolicyId: 'Test string',
-        subnetworkMode: 'Test string',
+        subnetworkMode: 'SUBNETWORK_MODE_UNSPECIFIED',
       },
       {
         autoCreatedSubnetInfo: {
@@ -1365,7 +1365,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         etag: 'Test string',
-        infrastructure: 'Test string',
+        infrastructure: 'INFRASTRUCTURE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -1374,7 +1374,7 @@ gapi.load('client', async () => {
         pscConfig: {
           allowedGoogleProducersResourceHierarchyLevel: ['Test string'],
           limit: 'Test string',
-          producerInstanceLocation: 'Test string',
+          producerInstanceLocation: 'PRODUCER_INSTANCE_LOCATION_UNSPECIFIED',
           subnetworks: ['Test string'],
         },
         pscConnections: [
@@ -1398,9 +1398,9 @@ gapi.load('client', async () => {
               },
               reason: 'Test string',
             },
-            errorType: 'Test string',
+            errorType: 'CONNECTION_ERROR_TYPE_UNSPECIFIED',
             gceOperation: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
               A: 'Test string',
@@ -1408,7 +1408,7 @@ gapi.load('client', async () => {
             pscConnectionId: 'Test string',
             selectedSubnetwork: 'Test string',
             serviceClass: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         serviceClass: 'Test string',
@@ -1457,7 +1457,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         etag: 'Test string',
-        infrastructure: 'Test string',
+        infrastructure: 'INFRASTRUCTURE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -1466,7 +1466,7 @@ gapi.load('client', async () => {
         pscConfig: {
           allowedGoogleProducersResourceHierarchyLevel: ['Test string'],
           limit: 'Test string',
-          producerInstanceLocation: 'Test string',
+          producerInstanceLocation: 'PRODUCER_INSTANCE_LOCATION_UNSPECIFIED',
           subnetworks: ['Test string'],
         },
         pscConnections: [
@@ -1490,9 +1490,9 @@ gapi.load('client', async () => {
               },
               reason: 'Test string',
             },
-            errorType: 'Test string',
+            errorType: 'CONNECTION_ERROR_TYPE_UNSPECIFIED',
             gceOperation: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IP_VERSION_UNSPECIFIED',
             producerInstanceId: 'Test string',
             producerInstanceMetadata: {
               A: 'Test string',
@@ -1500,7 +1500,7 @@ gapi.load('client', async () => {
             pscConnectionId: 'Test string',
             selectedSubnetwork: 'Test string',
             serviceClass: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         serviceClass: 'Test string',
@@ -1565,7 +1565,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         fieldPathsPendingUpdate: ['Test string'],
         gateway: {
-          capacity: 'Test string',
+          capacity: 'GATEWAY_CAPACITY_UNSPECIFIED',
           cloudRouters: ['Test string'],
           ipRangeReservations: [
             {
@@ -1644,13 +1644,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         reasons: [
           {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             message: 'Test string',
             userDetails: 'Test string',
           },
         ],
-        spokeType: 'Test string',
-        state: 'Test string',
+        spokeType: 'SPOKE_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -1692,7 +1692,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         fieldPathsPendingUpdate: ['Test string'],
         gateway: {
-          capacity: 'Test string',
+          capacity: 'GATEWAY_CAPACITY_UNSPECIFIED',
           cloudRouters: ['Test string'],
           ipRangeReservations: [
             {
@@ -1771,13 +1771,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         reasons: [
           {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             message: 'Test string',
             userDetails: 'Test string',
           },
         ],
-        spokeType: 'Test string',
-        state: 'Test string',
+        spokeType: 'SPOKE_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -1794,7 +1794,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1843,8 +1843,8 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         priority: 42,
-        recipient: 'Test string',
-        state: 'Test string',
+        recipient: 'RECIPIENT_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -1888,8 +1888,8 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         priority: 42,
-        recipient: 'Test string',
-        state: 'Test string',
+        recipient: 'RECIPIENT_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         uniqueId: 'Test string',
         updateTime: 'Test string',
       },
@@ -1904,7 +1904,7 @@ gapi.load('client', async () => {
       {
         advertisedRoutes: ['Test string'],
         autoAccept: true,
-        bandwidth: 'Test string',
+        bandwidth: 'BANDWIDTH_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         generatedActivationKey: 'Test string',
@@ -1920,8 +1920,8 @@ gapi.load('client', async () => {
         pscRoutingEnabled: true,
         remoteAccountId: 'Test string',
         remoteProfile: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'STACK_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1952,7 +1952,7 @@ gapi.load('client', async () => {
       {
         advertisedRoutes: ['Test string'],
         autoAccept: true,
-        bandwidth: 'Test string',
+        bandwidth: 'BANDWIDTH_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         generatedActivationKey: 'Test string',
@@ -1968,8 +1968,8 @@ gapi.load('client', async () => {
         pscRoutingEnabled: true,
         remoteAccountId: 'Test string',
         remoteProfile: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'STACK_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

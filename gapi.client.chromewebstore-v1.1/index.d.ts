@@ -66,7 +66,8 @@ declare namespace gapi.client {
       /** The publish target of this publish operation. This is the same as using publishTarget as a URL query parameter. The string value can either be target="trustedTesters" or target="default". The default value, if none is supplied, is target="default". Recommended usage is to use the URL query parameter to specificy the value. */
       target?: string;
     }
-    interface ItemsResource {
+
+    const items: {
       /** Gets your own Chrome Web Store item. */
       get(request?: {
         /** V1 error format. */
@@ -251,8 +252,6 @@ declare namespace gapi.client {
         },
         body: Item,
       ): Request<Item>;
-    }
-
-    const items: ItemsResource;
+    };
   }
 }

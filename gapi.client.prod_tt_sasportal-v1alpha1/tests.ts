@@ -138,11 +138,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -204,7 +204,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -222,18 +222,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -251,7 +251,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -259,12 +259,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */
@@ -292,11 +292,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -358,7 +358,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -376,18 +376,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -413,12 +413,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */
@@ -464,11 +464,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -478,7 +478,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -486,7 +486,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -517,7 +517,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -530,7 +530,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -548,18 +548,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -577,7 +577,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -585,12 +585,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Signs a device. */
@@ -602,11 +602,11 @@ gapi.load('client', async () => {
         device: {
           activeConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -616,7 +616,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -624,7 +624,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
@@ -655,7 +655,7 @@ gapi.load('client', async () => {
               cpiId: 'Test string',
               latitude: 42,
               longitude: 42,
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           },
           displayName: 'Test string',
@@ -668,7 +668,7 @@ gapi.load('client', async () => {
           ],
           grants: [
             {
-              channelType: 'Test string',
+              channelType: 'CHANNEL_TYPE_UNSPECIFIED',
               expireTime: 'Test string',
               frequencyRange: {
                 highFrequencyMhz: 42,
@@ -686,18 +686,18 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              state: 'Test string',
+              state: 'GRANT_STATE_UNSPECIFIED',
               suspensionReason: ['Test string'],
             },
           ],
           name: 'Test string',
           preloadedConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -715,7 +715,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -723,12 +723,12 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
           serialNumber: 'Test string',
-          state: 'Test string',
+          state: 'DEVICE_STATE_UNSPECIFIED',
         },
       },
     );
@@ -816,11 +816,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -838,7 +838,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -846,7 +846,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -869,7 +869,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -882,7 +882,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -900,18 +900,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -921,7 +921,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -937,12 +937,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */
@@ -1010,11 +1010,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1024,7 +1024,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1032,7 +1032,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1040,7 +1040,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -1063,7 +1063,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -1076,7 +1076,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -1094,18 +1094,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1115,7 +1115,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1123,7 +1123,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1131,12 +1131,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Signs a device. */
@@ -1148,11 +1148,11 @@ gapi.load('client', async () => {
         device: {
           activeConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -1162,7 +1162,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -1170,7 +1170,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -1178,7 +1178,7 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
@@ -1201,7 +1201,7 @@ gapi.load('client', async () => {
               cpiId: 'Test string',
               latitude: 42,
               longitude: 42,
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           },
           displayName: 'Test string',
@@ -1214,7 +1214,7 @@ gapi.load('client', async () => {
           ],
           grants: [
             {
-              channelType: 'Test string',
+              channelType: 'CHANNEL_TYPE_UNSPECIFIED',
               expireTime: 'Test string',
               frequencyRange: {
                 highFrequencyMhz: 42,
@@ -1232,18 +1232,18 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              state: 'Test string',
+              state: 'GRANT_STATE_UNSPECIFIED',
               suspensionReason: ['Test string'],
             },
           ],
           name: 'Test string',
           preloadedConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -1253,7 +1253,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -1261,7 +1261,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -1269,12 +1269,12 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
           serialNumber: 'Test string',
-          state: 'Test string',
+          state: 'DEVICE_STATE_UNSPECIFIED',
         },
       },
     );
@@ -1348,11 +1348,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1362,7 +1362,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1370,7 +1370,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1378,7 +1378,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -1401,7 +1401,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -1414,7 +1414,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -1432,18 +1432,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1453,7 +1453,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1461,7 +1461,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1469,12 +1469,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */
@@ -1502,11 +1502,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1516,7 +1516,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1524,7 +1524,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -1555,7 +1555,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -1568,7 +1568,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -1586,18 +1586,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1607,7 +1607,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1615,7 +1615,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1623,12 +1623,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */
@@ -1674,11 +1674,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1688,7 +1688,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1696,7 +1696,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1704,7 +1704,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -1727,7 +1727,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -1740,7 +1740,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -1758,18 +1758,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -1779,7 +1779,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -1787,7 +1787,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -1795,12 +1795,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Signs a device. */
@@ -1812,11 +1812,11 @@ gapi.load('client', async () => {
         device: {
           activeConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -1826,7 +1826,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -1834,7 +1834,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -1842,7 +1842,7 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
@@ -1865,7 +1865,7 @@ gapi.load('client', async () => {
               cpiId: 'Test string',
               latitude: 42,
               longitude: 42,
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           },
           displayName: 'Test string',
@@ -1878,7 +1878,7 @@ gapi.load('client', async () => {
           ],
           grants: [
             {
-              channelType: 'Test string',
+              channelType: 'CHANNEL_TYPE_UNSPECIFIED',
               expireTime: 'Test string',
               frequencyRange: {
                 highFrequencyMhz: 42,
@@ -1896,18 +1896,18 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              state: 'Test string',
+              state: 'GRANT_STATE_UNSPECIFIED',
               suspensionReason: ['Test string'],
             },
           ],
           name: 'Test string',
           preloadedConfig: {
             airInterface: {
-              radioTechnology: 'Test string',
+              radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
               supportedSpec: 'Test string',
             },
             callSign: 'Test string',
-            category: 'Test string',
+            category: 'DEVICE_CATEGORY_UNSPECIFIED',
             installationParams: {
               antennaAzimuth: 42,
               antennaBeamwidth: 42,
@@ -1917,7 +1917,7 @@ gapi.load('client', async () => {
               cpeCbsdIndication: true,
               eirpCapability: 42,
               height: 42,
-              heightType: 'Test string',
+              heightType: 'HEIGHT_TYPE_UNSPECIFIED',
               horizontalAccuracy: 42,
               indoorDeployment: true,
               latitude: 42,
@@ -1925,7 +1925,7 @@ gapi.load('client', async () => {
               verticalAccuracy: 42,
             },
             isSigned: true,
-            measurementCapabilities: ['Test string'],
+            measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
             model: {
               firmwareVersion: 'Test string',
               hardwareVersion: 'Test string',
@@ -1933,12 +1933,12 @@ gapi.load('client', async () => {
               softwareVersion: 'Test string',
               vendor: 'Test string',
             },
-            state: 'Test string',
+            state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
             updateTime: 'Test string',
             userId: 'Test string',
           },
           serialNumber: 'Test string',
-          state: 'Test string',
+          state: 'DEVICE_STATE_UNSPECIFIED',
         },
       },
     );
@@ -2026,11 +2026,11 @@ gapi.load('client', async () => {
       {
         activeConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -2040,7 +2040,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -2048,7 +2048,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -2056,7 +2056,7 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
@@ -2079,7 +2079,7 @@ gapi.load('client', async () => {
             cpiId: 'Test string',
             latitude: 42,
             longitude: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         displayName: 'Test string',
@@ -2092,7 +2092,7 @@ gapi.load('client', async () => {
         ],
         grants: [
           {
-            channelType: 'Test string',
+            channelType: 'CHANNEL_TYPE_UNSPECIFIED',
             expireTime: 'Test string',
             frequencyRange: {
               highFrequencyMhz: 42,
@@ -2110,18 +2110,18 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            state: 'Test string',
+            state: 'GRANT_STATE_UNSPECIFIED',
             suspensionReason: ['Test string'],
           },
         ],
         name: 'Test string',
         preloadedConfig: {
           airInterface: {
-            radioTechnology: 'Test string',
+            radioTechnology: 'RADIO_TECHNOLOGY_UNSPECIFIED',
             supportedSpec: 'Test string',
           },
           callSign: 'Test string',
-          category: 'Test string',
+          category: 'DEVICE_CATEGORY_UNSPECIFIED',
           installationParams: {
             antennaAzimuth: 42,
             antennaBeamwidth: 42,
@@ -2131,7 +2131,7 @@ gapi.load('client', async () => {
             cpeCbsdIndication: true,
             eirpCapability: 42,
             height: 42,
-            heightType: 'Test string',
+            heightType: 'HEIGHT_TYPE_UNSPECIFIED',
             horizontalAccuracy: 42,
             indoorDeployment: true,
             latitude: 42,
@@ -2139,7 +2139,7 @@ gapi.load('client', async () => {
             verticalAccuracy: 42,
           },
           isSigned: true,
-          measurementCapabilities: ['Test string'],
+          measurementCapabilities: ['MEASUREMENT_CAPABILITY_UNSPECIFIED'],
           model: {
             firmwareVersion: 'Test string',
             hardwareVersion: 'Test string',
@@ -2147,12 +2147,12 @@ gapi.load('client', async () => {
             softwareVersion: 'Test string',
             vendor: 'Test string',
           },
-          state: 'Test string',
+          state: 'DEVICE_CONFIG_STATE_UNSPECIFIED',
           updateTime: 'Test string',
           userId: 'Test string',
         },
         serialNumber: 'Test string',
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
       },
     );
     /** Creates a signed device under a node or customer. */

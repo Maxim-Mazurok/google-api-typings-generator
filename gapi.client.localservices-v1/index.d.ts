@@ -152,7 +152,8 @@ declare namespace gapi.client {
       /** Optional. IANA Time Zone Database version number. For example "2019a". */
       version?: string;
     }
-    interface AccountReportsResource {
+
+    const accountReports: {
       /** Get account reports containing aggregate account data of all linked GLS accounts. Caller needs to provide their manager customer id and the associated auth credential that allows them read permissions on their linked accounts. */
       search(request?: {
         /** V1 error format. */
@@ -196,8 +197,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleAdsHomeservicesLocalservicesV1SearchAccountReportsResponse>;
-    }
-    interface DetailedLeadReportsResource {
+    };
+
+    const detailedLeadReports: {
       /** Get detailed lead reports containing leads that have been received by all linked GLS accounts. Caller needs to provide their manager customer id and the associated auth credential that allows them read permissions on their linked accounts. */
       search(request?: {
         /** V1 error format. */
@@ -241,10 +243,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleAdsHomeservicesLocalservicesV1SearchDetailedLeadReportsResponse>;
-    }
-
-    const accountReports: AccountReportsResource;
-
-    const detailedLeadReports: DetailedLeadReportsResource;
+    };
   }
 }

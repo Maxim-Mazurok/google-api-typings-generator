@@ -479,7 +479,8 @@ declare namespace gapi.client {
         | 'LIST_CONSTRAINT'
         | 'CUSTOM_CONSTRAINT';
     }
-    interface ServicesResource {
+
+    const services: {
       /** This method provides admission control for services that are integrated with [Service Infrastructure](https://cloud.google.com/service-infrastructure). It checks whether an operation should be allowed based on the service configuration and relevant policies. It must be called before the operation is executed. For more information, see [Admission Control](https://cloud.google.com/service-infrastructure/docs/admission-control). NOTE: The admission control has an expected policy propagation delay of 60s. The caller **must** not depend on the most recent policy changes. NOTE: The admission control has a hard limit of 1 referenced resources per call. If an operation refers to more than 1 resources, the caller must call the Check method multiple times. This method requires the `servicemanagement.services.check` permission on the specified service. For more information, see [Service Control API Access Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control). */
       check(request: {
         /** V1 error format. */
@@ -596,8 +597,6 @@ declare namespace gapi.client {
         },
         body: ReportRequest,
       ): client.Request<ReportResponse>;
-    }
-
-    const services: ServicesResource;
+    };
   }
 }

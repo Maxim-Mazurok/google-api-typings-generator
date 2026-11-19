@@ -38,7 +38,7 @@ declare namespace gapi.client {
       /** The time at which the site's status last changed on this platform. */
       lastChangeTime?: string;
       /** The site's regions on this platform. No longer populated, because there is no longer any semantic difference between sites in different regions. */
-      region?: 'REGION_UNKNOWN' | 'REGION_A' | 'REGION_B' | 'REGION_C'[];
+      region?: ('REGION_UNKNOWN' | 'REGION_A' | 'REGION_B' | 'REGION_C')[];
       /** A link to the full Ad Experience Report for the site on this platform.. Not set in ViolatingSitesResponse. Note that you must complete the [Search Console verification process](https://support.google.com/webmasters/answer/9008080) for the site before you can access the full report. */
       reportUrl?: string;
       /** Whether the site is currently under review on this platform. */
@@ -56,7 +56,8 @@ declare namespace gapi.client {
       /** The list of violating sites. */
       violatingSites?: SiteSummaryResponse[];
     }
-    interface SitesResource {
+
+    const sites: {
       /** Gets a site's Ad Experience Report summary. */
       get(request?: {
         /** V1 error format. */
@@ -84,8 +85,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SiteSummaryResponse>;
-    }
-    interface ViolatingSitesResource {
+    };
+
+    const violatingSites: {
       /** Lists sites that are failing in the Ad Experience Report on at least one platform. */
       list(request?: {
         /** V1 error format. */
@@ -111,10 +113,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ViolatingSitesResponse>;
-    }
-
-    const sites: SitesResource;
-
-    const violatingSites: ViolatingSitesResource;
+    };
   }
 }

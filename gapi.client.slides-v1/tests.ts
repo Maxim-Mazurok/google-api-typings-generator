@@ -61,7 +61,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -78,11 +78,11 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -92,24 +92,24 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               objectId: 'Test string',
               url: 'Test string',
             },
             createLine: {
-              category: 'Test string',
+              category: 'LINE_CATEGORY_UNSPECIFIED',
               elementProperties: {
                 pageObjectId: 'Test string',
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -119,14 +119,14 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
-              lineCategory: 'Test string',
+              lineCategory: 'STRAIGHT',
               objectId: 'Test string',
             },
             createParagraphBullets: {
-              bulletPreset: 'Test string',
+              bulletPreset: 'BULLET_DISC_CIRCLE_SQUARE',
               cellLocation: {
                 columnIndex: 42,
                 rowIndex: 42,
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
               textRange: {
                 endIndex: 42,
                 startIndex: 42,
-                type: 'Test string',
+                type: 'RANGE_TYPE_UNSPECIFIED',
               },
             },
             createShape: {
@@ -144,11 +144,11 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -158,11 +158,11 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               objectId: 'Test string',
-              shapeType: 'Test string',
+              shapeType: 'TYPE_UNSPECIFIED',
             },
             createSheetsChart: {
               chartId: 42,
@@ -171,11 +171,11 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -185,10 +185,10 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
-              linkingMode: 'Test string',
+              linkingMode: 'NOT_LINKED_IMAGE',
               objectId: 'Test string',
               spreadsheetId: 'Test string',
             },
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
                   layoutPlaceholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   layoutPlaceholderObjectId: 'Test string',
                   objectId: 'Test string',
@@ -208,7 +208,7 @@ gapi.load('client', async () => {
               ],
               slideLayoutReference: {
                 layoutId: 'Test string',
-                predefinedLayout: 'Test string',
+                predefinedLayout: 'PREDEFINED_LAYOUT_UNSPECIFIED',
               },
             },
             createTable: {
@@ -218,11 +218,11 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -232,7 +232,7 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               objectId: 'Test string',
@@ -244,11 +244,11 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 transform: {
@@ -258,12 +258,12 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               id: 'Test string',
               objectId: 'Test string',
-              source: 'Test string',
+              source: 'SOURCE_UNSPECIFIED',
             },
             deleteComment: {
               commentId: 'Test string',
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
               textRange: {
                 endIndex: 42,
                 startIndex: 42,
-                type: 'Test string',
+                type: 'RANGE_TYPE_UNSPECIFIED',
               },
             },
             deleteTableColumn: {
@@ -310,7 +310,7 @@ gapi.load('client', async () => {
               textRange: {
                 endIndex: 42,
                 startIndex: 42,
-                type: 'Test string',
+                type: 'RANGE_TYPE_UNSPECIFIED',
               },
             },
             duplicateObject: {
@@ -332,7 +332,7 @@ gapi.load('client', async () => {
                 textRange: {
                   endIndex: 42,
                   startIndex: 42,
-                  type: 'Test string',
+                  type: 'RANGE_TYPE_UNSPECIFIED',
                 },
               },
               tableAnchor: {
@@ -355,7 +355,7 @@ gapi.load('client', async () => {
                 textRange: {
                   endIndex: 42,
                   startIndex: 42,
-                  type: 'Test string',
+                  type: 'RANGE_TYPE_UNSPECIFIED',
                 },
               },
             },
@@ -406,10 +406,10 @@ gapi.load('client', async () => {
                 searchByRegex: true,
                 text: 'Test string',
               },
-              imageReplaceMethod: 'Test string',
+              imageReplaceMethod: 'IMAGE_REPLACE_METHOD_UNSPECIFIED',
               imageUrl: 'Test string',
               pageObjectIds: ['Test string'],
-              replaceMethod: 'Test string',
+              replaceMethod: 'CENTER_INSIDE',
             },
             replaceAllShapesWithSheetsChart: {
               chartId: 42,
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
                 searchByRegex: true,
                 text: 'Test string',
               },
-              linkingMode: 'Test string',
+              linkingMode: 'NOT_LINKED_IMAGE',
               pageObjectIds: ['Test string'],
               spreadsheetId: 'Test string',
             },
@@ -433,7 +433,7 @@ gapi.load('client', async () => {
             },
             replaceImage: {
               imageObjectId: 'Test string',
-              imageReplaceMethod: 'Test string',
+              imageReplaceMethod: 'IMAGE_REPLACE_METHOD_UNSPECIFIED',
               url: 'Test string',
             },
             rerouteLine: {
@@ -472,12 +472,12 @@ gapi.load('client', async () => {
                 },
                 link: {
                   pageObjectId: 'Test string',
-                  relativeLink: 'Test string',
+                  relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                   slideIndex: 42,
                   url: 'Test string',
                 },
                 outline: {
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   outlineFill: {
                     solidFill: {
                       alpha: 42,
@@ -487,18 +487,18 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   weight: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 recolor: {
-                  name: 'Test string',
+                  name: 'NONE',
                   recolorStops: [
                     {
                       alpha: 42,
@@ -508,18 +508,18 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       position: 42,
                     },
                   ],
                 },
                 shadow: {
-                  alignment: 'Test string',
+                  alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                   alpha: 42,
                   blurRadius: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   color: {
                     rgbColor: {
@@ -527,9 +527,9 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   rotateWithShape: true,
                   transform: {
                     scaleX: 42,
@@ -538,23 +538,23 @@ gapi.load('client', async () => {
                     shearY: 42,
                     translateX: 42,
                     translateY: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
-                  type: 'Test string',
+                  type: 'SHADOW_TYPE_UNSPECIFIED',
                 },
                 transparency: 42,
               },
               objectId: 'Test string',
             },
             updateLineCategory: {
-              lineCategory: 'Test string',
+              lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
               objectId: 'Test string',
             },
             updateLineProperties: {
               fields: 'Test string',
               lineProperties: {
-                dashStyle: 'Test string',
-                endArrow: 'Test string',
+                dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                endArrow: 'ARROW_STYLE_UNSPECIFIED',
                 endConnection: {
                   connectedObjectId: 'Test string',
                   connectionSiteIndex: 42,
@@ -568,24 +568,24 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 link: {
                   pageObjectId: 'Test string',
-                  relativeLink: 'Test string',
+                  relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                   slideIndex: 42,
                   url: 'Test string',
                 },
-                startArrow: 'Test string',
+                startArrow: 'ARROW_STYLE_UNSPECIFIED',
                 startConnection: {
                   connectedObjectId: 'Test string',
                   connectionSiteIndex: 42,
                 },
                 weight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               objectId: 'Test string',
@@ -596,11 +596,11 @@ gapi.load('client', async () => {
               title: 'Test string',
             },
             updatePageElementsZOrder: {
-              operation: 'Test string',
+              operation: 'Z_ORDER_OPERATION_UNSPECIFIED',
               pageElementObjectIds: ['Test string'],
             },
             updatePageElementTransform: {
-              applyMode: 'Test string',
+              applyMode: 'APPLY_MODE_UNSPECIFIED',
               objectId: 'Test string',
               transform: {
                 scaleX: 42,
@@ -609,7 +609,7 @@ gapi.load('client', async () => {
                 shearY: 42,
                 translateX: 42,
                 translateY: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
             },
             updatePageProperties: {
@@ -624,12 +624,12 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      type: 'Test string',
+                      type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   ],
                 },
                 pageBackgroundFill: {
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   solidFill: {
                     alpha: 42,
                     color: {
@@ -638,7 +638,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                   stretchedPictureFill: {
@@ -646,11 +646,11 @@ gapi.load('client', async () => {
                     size: {
                       height: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   },
@@ -665,35 +665,35 @@ gapi.load('client', async () => {
               fields: 'Test string',
               objectId: 'Test string',
               style: {
-                alignment: 'Test string',
-                direction: 'Test string',
+                alignment: 'ALIGNMENT_UNSPECIFIED',
+                direction: 'TEXT_DIRECTION_UNSPECIFIED',
                 indentEnd: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentFirstLine: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentStart: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 lineSpacing: 42,
                 spaceAbove: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 spaceBelow: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
-                spacingMode: 'Test string',
+                spacingMode: 'SPACING_MODE_UNSPECIFIED',
               },
               textRange: {
                 endIndex: 42,
                 startIndex: 42,
-                type: 'Test string',
+                type: 'RANGE_TYPE_UNSPECIFIED',
               },
             },
             updateShapeProperties: {
@@ -701,19 +701,19 @@ gapi.load('client', async () => {
               objectId: 'Test string',
               shapeProperties: {
                 autofit: {
-                  autofitType: 'Test string',
+                  autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                   fontScale: 42,
                   lineSpacingReduction: 42,
                 },
-                contentAlignment: 'Test string',
+                contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                 link: {
                   pageObjectId: 'Test string',
-                  relativeLink: 'Test string',
+                  relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                   slideIndex: 42,
                   url: 'Test string',
                 },
                 outline: {
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   outlineFill: {
                     solidFill: {
                       alpha: 42,
@@ -723,22 +723,22 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   weight: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 shadow: {
-                  alignment: 'Test string',
+                  alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                   alpha: 42,
                   blurRadius: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   color: {
                     rgbColor: {
@@ -746,9 +746,9 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   rotateWithShape: true,
                   transform: {
                     scaleX: 42,
@@ -757,12 +757,12 @@ gapi.load('client', async () => {
                     shearY: 42,
                     translateX: 42,
                     translateY: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
-                  type: 'Test string',
+                  type: 'SHADOW_TYPE_UNSPECIFIED',
                 },
                 shapeBackgroundFill: {
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   solidFill: {
                     alpha: 42,
                     color: {
@@ -771,7 +771,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -831,7 +831,7 @@ gapi.load('client', async () => {
                           me: true,
                           user: 'Test string',
                         },
-                        commentAction: 'Test string',
+                        commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                         content: 'Test string',
                         contentHtml: 'Test string',
                         createTime: 'Test string',
@@ -851,7 +851,7 @@ gapi.load('client', async () => {
                             me: true,
                             user: 'Test string',
                           },
-                          commentAction: 'Test string',
+                          commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                           content: 'Test string',
                           contentHtml: 'Test string',
                           createTime: 'Test string',
@@ -862,10 +862,10 @@ gapi.load('client', async () => {
                           updateTime: 'Test string',
                         },
                       ],
-                      status: 'Test string',
+                      status: 'STATUS_UNSPECIFIED',
                     },
                   ],
-                  commentsViewMode: 'Test string',
+                  commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
                   layoutProperties: {
                     displayName: 'Test string',
                     masterObjectId: 'Test string',
@@ -898,12 +898,12 @@ gapi.load('client', async () => {
                           },
                           link: {
                             pageObjectId: 'Test string',
-                            relativeLink: 'Test string',
+                            relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                             slideIndex: 42,
                             url: 'Test string',
                           },
                           outline: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             outlineFill: {
                               solidFill: {
                                 alpha: 42,
@@ -913,18 +913,18 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           recolor: {
-                            name: 'Test string',
+                            name: 'NONE',
                             recolorStops: [
                               {
                                 alpha: 42,
@@ -934,18 +934,18 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                                 position: 42,
                               },
                             ],
                           },
                           shadow: {
-                            alignment: 'Test string',
+                            alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                             alpha: 42,
                             blurRadius: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             color: {
                               rgbColor: {
@@ -953,9 +953,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             rotateWithShape: true,
                             transform: {
                               scaleX: 42,
@@ -964,24 +964,24 @@ gapi.load('client', async () => {
                               shearY: 42,
                               translateX: 42,
                               translateY: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            type: 'Test string',
+                            type: 'SHADOW_TYPE_UNSPECIFIED',
                           },
                           transparency: 42,
                         },
                         placeholder: {
                           index: 42,
                           parentObjectId: 'Test string',
-                          type: 'Test string',
+                          type: 'NONE',
                         },
                         sourceUrl: 'Test string',
                       },
                       line: {
-                        lineCategory: 'Test string',
+                        lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
                         lineProperties: {
-                          dashStyle: 'Test string',
-                          endArrow: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                          endArrow: 'ARROW_STYLE_UNSPECIFIED',
                           endConnection: {
                             connectedObjectId: 'Test string',
                             connectionSiteIndex: 42,
@@ -995,50 +995,50 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
                           link: {
                             pageObjectId: 'Test string',
-                            relativeLink: 'Test string',
+                            relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                             slideIndex: 42,
                             url: 'Test string',
                           },
-                          startArrow: 'Test string',
+                          startArrow: 'ARROW_STYLE_UNSPECIFIED',
                           startConnection: {
                             connectedObjectId: 'Test string',
                             connectionSiteIndex: 42,
                           },
                           weight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
-                        lineType: 'Test string',
+                        lineType: 'TYPE_UNSPECIFIED',
                       },
                       objectId: 'Test string',
                       shape: {
                         placeholder: {
                           index: 42,
                           parentObjectId: 'Test string',
-                          type: 'Test string',
+                          type: 'NONE',
                         },
                         shapeProperties: {
                           autofit: {
-                            autofitType: 'Test string',
+                            autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                             fontScale: 42,
                             lineSpacingReduction: 42,
                           },
-                          contentAlignment: 'Test string',
+                          contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                           link: {
                             pageObjectId: 'Test string',
-                            relativeLink: 'Test string',
+                            relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                             slideIndex: 42,
                             url: 'Test string',
                           },
                           outline: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             outlineFill: {
                               solidFill: {
                                 alpha: 42,
@@ -1048,22 +1048,22 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           shadow: {
-                            alignment: 'Test string',
+                            alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                             alpha: 42,
                             blurRadius: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             color: {
                               rgbColor: {
@@ -1071,9 +1071,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             rotateWithShape: true,
                             transform: {
                               scaleX: 42,
@@ -1082,12 +1082,12 @@ gapi.load('client', async () => {
                               shearY: 42,
                               translateX: 42,
                               translateY: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            type: 'Test string',
+                            type: 'SHADOW_TYPE_UNSPECIFIED',
                           },
                           shapeBackgroundFill: {
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             solidFill: {
                               alpha: 42,
                               color: {
@@ -1096,12 +1096,12 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
                         },
-                        shapeType: 'Test string',
+                        shapeType: 'TYPE_UNSPECIFIED',
                         text: {
                           lists: {
                             A: {
@@ -1116,15 +1116,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -1133,13 +1135,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -1167,15 +1171,16 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontFamily: 'Test string',
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     opaqueColor: {
@@ -1184,13 +1189,15 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
                                   italic: true,
                                   link: {
                                     pageObjectId: 'Test string',
-                                    relativeLink: 'Test string',
+                                    relativeLink:
+                                      'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                     slideIndex: 42,
                                     url: 'Test string',
                                   },
@@ -1202,7 +1209,7 @@ gapi.load('client', async () => {
                                     weight: 42,
                                   },
                                 },
-                                type: 'Test string',
+                                type: 'TYPE_UNSPECIFIED',
                               },
                               endIndex: 42,
                               paragraphMarker: {
@@ -1215,15 +1222,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -1232,13 +1241,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -1255,30 +1266,30 @@ gapi.load('client', async () => {
                                   nestingLevel: 42,
                                 },
                                 style: {
-                                  alignment: 'Test string',
-                                  direction: 'Test string',
+                                  alignment: 'ALIGNMENT_UNSPECIFIED',
+                                  direction: 'TEXT_DIRECTION_UNSPECIFIED',
                                   indentEnd: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   indentFirstLine: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   indentStart: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   lineSpacing: 42,
                                   spaceAbove: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   spaceBelow: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
-                                  spacingMode: 'Test string',
+                                  spacingMode: 'SPACING_MODE_UNSPECIFIED',
                                 },
                               },
                               startIndex: 42,
@@ -1292,15 +1303,16 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontFamily: 'Test string',
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     opaqueColor: {
@@ -1309,13 +1321,15 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
                                   italic: true,
                                   link: {
                                     pageObjectId: 'Test string',
-                                    relativeLink: 'Test string',
+                                    relativeLink:
+                                      'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                     slideIndex: 42,
                                     url: 'Test string',
                                   },
@@ -1348,12 +1362,12 @@ gapi.load('client', async () => {
                             },
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
                             outline: {
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               outlineFill: {
                                 solidFill: {
                                   alpha: 42,
@@ -1363,18 +1377,18 @@ gapi.load('client', async () => {
                                       green: 42,
                                       red: 42,
                                     },
-                                    themeColor: 'Test string',
+                                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                   },
                                 },
                               },
-                              propertyState: 'Test string',
+                              propertyState: 'RENDERED',
                               weight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             recolor: {
-                              name: 'Test string',
+                              name: 'NONE',
                               recolorStops: [
                                 {
                                   alpha: 42,
@@ -1384,18 +1398,18 @@ gapi.load('client', async () => {
                                       green: 42,
                                       red: 42,
                                     },
-                                    themeColor: 'Test string',
+                                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                   },
                                   position: 42,
                                 },
                               ],
                             },
                             shadow: {
-                              alignment: 'Test string',
+                              alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                               alpha: 42,
                               blurRadius: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               color: {
                                 rgbColor: {
@@ -1403,9 +1417,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              propertyState: 'Test string',
+                              propertyState: 'RENDERED',
                               rotateWithShape: true,
                               transform: {
                                 scaleX: 42,
@@ -1414,9 +1428,9 @@ gapi.load('client', async () => {
                                 shearY: 42,
                                 translateX: 42,
                                 translateY: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              type: 'Test string',
+                              type: 'SHADOW_TYPE_UNSPECIFIED',
                             },
                             transparency: 42,
                           },
@@ -1426,17 +1440,17 @@ gapi.load('client', async () => {
                       size: {
                         height: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       speakerSpotlight: {
                         speakerSpotlightProperties: {
                           outline: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             outlineFill: {
                               solidFill: {
                                 alpha: 42,
@@ -1446,22 +1460,22 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           shadow: {
-                            alignment: 'Test string',
+                            alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                             alpha: 42,
                             blurRadius: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             color: {
                               rgbColor: {
@@ -1469,9 +1483,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             rotateWithShape: true,
                             transform: {
                               scaleX: 42,
@@ -1480,9 +1494,9 @@ gapi.load('client', async () => {
                               shearY: 42,
                               translateX: 42,
                               translateY: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            type: 'Test string',
+                            type: 'SHADOW_TYPE_UNSPECIFIED',
                           },
                         },
                       },
@@ -1497,7 +1511,7 @@ gapi.load('client', async () => {
                                   rowIndex: 42,
                                 },
                                 tableBorderProperties: {
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   tableBorderFill: {
                                     solidFill: {
                                       alpha: 42,
@@ -1507,13 +1521,14 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                   },
                                   weight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                               },
@@ -1525,7 +1540,7 @@ gapi.load('client', async () => {
                           {
                             columnWidth: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
@@ -1533,7 +1548,7 @@ gapi.load('client', async () => {
                           {
                             rowHeight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             tableCells: [
                               {
@@ -1544,9 +1559,10 @@ gapi.load('client', async () => {
                                 },
                                 rowSpan: 42,
                                 tableCellProperties: {
-                                  contentAlignment: 'Test string',
+                                  contentAlignment:
+                                    'CONTENT_ALIGNMENT_UNSPECIFIED',
                                   tableCellBackgroundFill: {
-                                    propertyState: 'Test string',
+                                    propertyState: 'RENDERED',
                                     solidFill: {
                                       alpha: 42,
                                       color: {
@@ -1555,7 +1571,8 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                   },
@@ -1574,15 +1591,17 @@ gapi.load('client', async () => {
                                                   green: 42,
                                                   red: 42,
                                                 },
-                                                themeColor: 'Test string',
+                                                themeColor:
+                                                  'THEME_COLOR_TYPE_UNSPECIFIED',
                                               },
                                             },
-                                            baselineOffset: 'Test string',
+                                            baselineOffset:
+                                              'BASELINE_OFFSET_UNSPECIFIED',
                                             bold: true,
                                             fontFamily: 'Test string',
                                             fontSize: {
                                               magnitude: 42,
-                                              unit: 'Test string',
+                                              unit: 'UNIT_UNSPECIFIED',
                                             },
                                             foregroundColor: {
                                               opaqueColor: {
@@ -1591,13 +1610,15 @@ gapi.load('client', async () => {
                                                   green: 42,
                                                   red: 42,
                                                 },
-                                                themeColor: 'Test string',
+                                                themeColor:
+                                                  'THEME_COLOR_TYPE_UNSPECIFIED',
                                               },
                                             },
                                             italic: true,
                                             link: {
                                               pageObjectId: 'Test string',
-                                              relativeLink: 'Test string',
+                                              relativeLink:
+                                                'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                               slideIndex: 42,
                                               url: 'Test string',
                                             },
@@ -1625,15 +1646,17 @@ gapi.load('client', async () => {
                                                 green: 42,
                                                 red: 42,
                                               },
-                                              themeColor: 'Test string',
+                                              themeColor:
+                                                'THEME_COLOR_TYPE_UNSPECIFIED',
                                             },
                                           },
-                                          baselineOffset: 'Test string',
+                                          baselineOffset:
+                                            'BASELINE_OFFSET_UNSPECIFIED',
                                           bold: true,
                                           fontFamily: 'Test string',
                                           fontSize: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           foregroundColor: {
                                             opaqueColor: {
@@ -1642,13 +1665,15 @@ gapi.load('client', async () => {
                                                 green: 42,
                                                 red: 42,
                                               },
-                                              themeColor: 'Test string',
+                                              themeColor:
+                                                'THEME_COLOR_TYPE_UNSPECIFIED',
                                             },
                                           },
                                           italic: true,
                                           link: {
                                             pageObjectId: 'Test string',
-                                            relativeLink: 'Test string',
+                                            relativeLink:
+                                              'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                             slideIndex: 42,
                                             url: 'Test string',
                                           },
@@ -1660,7 +1685,7 @@ gapi.load('client', async () => {
                                             weight: 42,
                                           },
                                         },
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                       endIndex: 42,
                                       paragraphMarker: {
@@ -1673,15 +1698,17 @@ gapi.load('client', async () => {
                                                   green: 42,
                                                   red: 42,
                                                 },
-                                                themeColor: 'Test string',
+                                                themeColor:
+                                                  'THEME_COLOR_TYPE_UNSPECIFIED',
                                               },
                                             },
-                                            baselineOffset: 'Test string',
+                                            baselineOffset:
+                                              'BASELINE_OFFSET_UNSPECIFIED',
                                             bold: true,
                                             fontFamily: 'Test string',
                                             fontSize: {
                                               magnitude: 42,
-                                              unit: 'Test string',
+                                              unit: 'UNIT_UNSPECIFIED',
                                             },
                                             foregroundColor: {
                                               opaqueColor: {
@@ -1690,13 +1717,15 @@ gapi.load('client', async () => {
                                                   green: 42,
                                                   red: 42,
                                                 },
-                                                themeColor: 'Test string',
+                                                themeColor:
+                                                  'THEME_COLOR_TYPE_UNSPECIFIED',
                                               },
                                             },
                                             italic: true,
                                             link: {
                                               pageObjectId: 'Test string',
-                                              relativeLink: 'Test string',
+                                              relativeLink:
+                                                'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                               slideIndex: 42,
                                               url: 'Test string',
                                             },
@@ -1713,30 +1742,32 @@ gapi.load('client', async () => {
                                           nestingLevel: 42,
                                         },
                                         style: {
-                                          alignment: 'Test string',
-                                          direction: 'Test string',
+                                          alignment: 'ALIGNMENT_UNSPECIFIED',
+                                          direction:
+                                            'TEXT_DIRECTION_UNSPECIFIED',
                                           indentEnd: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           indentFirstLine: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           indentStart: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           lineSpacing: 42,
                                           spaceAbove: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           spaceBelow: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
-                                          spacingMode: 'Test string',
+                                          spacingMode:
+                                            'SPACING_MODE_UNSPECIFIED',
                                         },
                                       },
                                       startIndex: 42,
@@ -1750,15 +1781,17 @@ gapi.load('client', async () => {
                                                 green: 42,
                                                 red: 42,
                                               },
-                                              themeColor: 'Test string',
+                                              themeColor:
+                                                'THEME_COLOR_TYPE_UNSPECIFIED',
                                             },
                                           },
-                                          baselineOffset: 'Test string',
+                                          baselineOffset:
+                                            'BASELINE_OFFSET_UNSPECIFIED',
                                           bold: true,
                                           fontFamily: 'Test string',
                                           fontSize: {
                                             magnitude: 42,
-                                            unit: 'Test string',
+                                            unit: 'UNIT_UNSPECIFIED',
                                           },
                                           foregroundColor: {
                                             opaqueColor: {
@@ -1767,13 +1800,15 @@ gapi.load('client', async () => {
                                                 green: 42,
                                                 red: 42,
                                               },
-                                              themeColor: 'Test string',
+                                              themeColor:
+                                                'THEME_COLOR_TYPE_UNSPECIFIED',
                                             },
                                           },
                                           italic: true,
                                           link: {
                                             pageObjectId: 'Test string',
-                                            relativeLink: 'Test string',
+                                            relativeLink:
+                                              'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                             slideIndex: 42,
                                             url: 'Test string',
                                           },
@@ -1794,7 +1829,7 @@ gapi.load('client', async () => {
                             tableRowProperties: {
                               minRowHeight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           },
@@ -1808,7 +1843,7 @@ gapi.load('client', async () => {
                                   rowIndex: 42,
                                 },
                                 tableBorderProperties: {
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   tableBorderFill: {
                                     solidFill: {
                                       alpha: 42,
@@ -1818,13 +1853,14 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                   },
                                   weight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                               },
@@ -1840,18 +1876,18 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       video: {
                         id: 'Test string',
-                        source: 'Test string',
+                        source: 'SOURCE_UNSPECIFIED',
                         url: 'Test string',
                         videoProperties: {
                           autoPlay: true,
                           end: 42,
                           mute: true,
                           outline: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             outlineFill: {
                               solidFill: {
                                 alpha: 42,
@@ -1861,14 +1897,14 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           start: 42,
@@ -1888,12 +1924,12 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          type: 'Test string',
+                          type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       ],
                     },
                     pageBackgroundFill: {
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       solidFill: {
                         alpha: 42,
                         color: {
@@ -1902,7 +1938,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                       stretchedPictureFill: {
@@ -1910,17 +1946,17 @@ gapi.load('client', async () => {
                         size: {
                           height: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       },
                     },
                   },
-                  pageType: 'Test string',
+                  pageType: 'SLIDE',
                   revisionId: 'Test string',
                   slideProperties: undefined,
                 },
@@ -1931,11 +1967,11 @@ gapi.load('client', async () => {
               slideObjectIds: ['Test string'],
             },
             updateTableBorderProperties: {
-              borderPosition: 'Test string',
+              borderPosition: 'ALL',
               fields: 'Test string',
               objectId: 'Test string',
               tableBorderProperties: {
-                dashStyle: 'Test string',
+                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                 tableBorderFill: {
                   solidFill: {
                     alpha: 42,
@@ -1945,13 +1981,13 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 weight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               tableRange: {
@@ -1967,9 +2003,9 @@ gapi.load('client', async () => {
               fields: 'Test string',
               objectId: 'Test string',
               tableCellProperties: {
-                contentAlignment: 'Test string',
+                contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                 tableCellBackgroundFill: {
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   solidFill: {
                     alpha: 42,
                     color: {
@@ -1978,7 +2014,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -1999,7 +2035,7 @@ gapi.load('client', async () => {
               tableColumnProperties: {
                 columnWidth: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
             },
@@ -2010,7 +2046,7 @@ gapi.load('client', async () => {
               tableRowProperties: {
                 minRowHeight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
             },
@@ -2029,15 +2065,15 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
-                baselineOffset: 'Test string',
+                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                 bold: true,
                 fontFamily: 'Test string',
                 fontSize: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 foregroundColor: {
                   opaqueColor: {
@@ -2046,13 +2082,13 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 italic: true,
                 link: {
                   pageObjectId: 'Test string',
-                  relativeLink: 'Test string',
+                  relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                   slideIndex: 42,
                   url: 'Test string',
                 },
@@ -2067,7 +2103,7 @@ gapi.load('client', async () => {
               textRange: {
                 endIndex: 42,
                 startIndex: 42,
-                type: 'Test string',
+                type: 'RANGE_TYPE_UNSPECIFIED',
               },
             },
             updateVideoProperties: {
@@ -2078,7 +2114,7 @@ gapi.load('client', async () => {
                 end: 42,
                 mute: true,
                 outline: {
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   outlineFill: {
                     solidFill: {
                       alpha: 42,
@@ -2088,14 +2124,14 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
-                  propertyState: 'Test string',
+                  propertyState: 'RENDERED',
                   weight: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 start: 42,
@@ -2124,7 +2160,7 @@ gapi.load('client', async () => {
                 me: true,
                 user: 'Test string',
               },
-              commentAction: 'Test string',
+              commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
               content: 'Test string',
               contentHtml: 'Test string',
               createTime: 'Test string',
@@ -2144,7 +2180,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -2155,10 +2191,10 @@ gapi.load('client', async () => {
                 updateTime: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
           },
         ],
-        commentsViewMode: 'Test string',
+        commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
         layouts: [
           {
             commentAnchors: [
@@ -2207,7 +2243,7 @@ gapi.load('client', async () => {
                     me: true,
                     user: 'Test string',
                   },
-                  commentAction: 'Test string',
+                  commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                   content: 'Test string',
                   contentHtml: 'Test string',
                   createTime: 'Test string',
@@ -2227,7 +2263,7 @@ gapi.load('client', async () => {
                       me: true,
                       user: 'Test string',
                     },
-                    commentAction: 'Test string',
+                    commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                     content: 'Test string',
                     contentHtml: 'Test string',
                     createTime: 'Test string',
@@ -2238,10 +2274,10 @@ gapi.load('client', async () => {
                     updateTime: 'Test string',
                   },
                 ],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
               },
             ],
-            commentsViewMode: 'Test string',
+            commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
             layoutProperties: {
               displayName: 'Test string',
               masterObjectId: 'Test string',
@@ -2274,12 +2310,12 @@ gapi.load('client', async () => {
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -2289,18 +2325,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     recolor: {
-                      name: 'Test string',
+                      name: 'NONE',
                       recolorStops: [
                         {
                           alpha: 42,
@@ -2310,18 +2346,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           position: 42,
                         },
                       ],
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -2329,9 +2365,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -2340,24 +2376,24 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     transparency: 42,
                   },
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   sourceUrl: 'Test string',
                 },
                 line: {
-                  lineCategory: 'Test string',
+                  lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
                   lineProperties: {
-                    dashStyle: 'Test string',
-                    endArrow: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                    endArrow: 'ARROW_STYLE_UNSPECIFIED',
                     endConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
@@ -2371,50 +2407,50 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
-                    startArrow: 'Test string',
+                    startArrow: 'ARROW_STYLE_UNSPECIFIED',
                     startConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
                     },
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
-                  lineType: 'Test string',
+                  lineType: 'TYPE_UNSPECIFIED',
                 },
                 objectId: 'Test string',
                 shape: {
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   shapeProperties: {
                     autofit: {
-                      autofitType: 'Test string',
+                      autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                       fontScale: 42,
                       lineSpacingReduction: 42,
                     },
-                    contentAlignment: 'Test string',
+                    contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -2424,22 +2460,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -2447,9 +2483,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -2458,12 +2494,12 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     shapeBackgroundFill: {
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       solidFill: {
                         alpha: 42,
                         color: {
@@ -2472,12 +2508,12 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                   },
-                  shapeType: 'Test string',
+                  shapeType: 'TYPE_UNSPECIFIED',
                   text: {
                     lists: {
                       A: {
@@ -2492,15 +2528,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -2509,13 +2545,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -2543,15 +2579,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -2560,13 +2596,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -2578,7 +2614,7 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         endIndex: 42,
                         paragraphMarker: {
@@ -2591,15 +2627,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -2608,13 +2644,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -2631,30 +2667,30 @@ gapi.load('client', async () => {
                             nestingLevel: 42,
                           },
                           style: {
-                            alignment: 'Test string',
-                            direction: 'Test string',
+                            alignment: 'ALIGNMENT_UNSPECIFIED',
+                            direction: 'TEXT_DIRECTION_UNSPECIFIED',
                             indentEnd: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentFirstLine: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentStart: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             lineSpacing: 42,
                             spaceAbove: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             spaceBelow: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            spacingMode: 'Test string',
+                            spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           },
                         },
                         startIndex: 42,
@@ -2668,15 +2704,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -2685,13 +2721,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -2724,12 +2760,12 @@ gapi.load('client', async () => {
                       },
                       link: {
                         pageObjectId: 'Test string',
-                        relativeLink: 'Test string',
+                        relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                         slideIndex: 42,
                         url: 'Test string',
                       },
                       outline: {
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         outlineFill: {
                           solidFill: {
                             alpha: 42,
@@ -2739,18 +2775,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         weight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       recolor: {
-                        name: 'Test string',
+                        name: 'NONE',
                         recolorStops: [
                           {
                             alpha: 42,
@@ -2760,18 +2796,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             position: 42,
                           },
                         ],
                       },
                       shadow: {
-                        alignment: 'Test string',
+                        alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                         alpha: 42,
                         blurRadius: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         color: {
                           rgbColor: {
@@ -2779,9 +2815,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         rotateWithShape: true,
                         transform: {
                           scaleX: 42,
@@ -2790,9 +2826,9 @@ gapi.load('client', async () => {
                           shearY: 42,
                           translateX: 42,
                           translateY: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        type: 'Test string',
+                        type: 'SHADOW_TYPE_UNSPECIFIED',
                       },
                       transparency: 42,
                     },
@@ -2802,17 +2838,17 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 speakerSpotlight: {
                   speakerSpotlightProperties: {
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -2822,22 +2858,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -2845,9 +2881,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -2856,9 +2892,9 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -2873,7 +2909,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -2883,13 +2919,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -2901,7 +2937,7 @@ gapi.load('client', async () => {
                     {
                       columnWidth: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
@@ -2909,7 +2945,7 @@ gapi.load('client', async () => {
                     {
                       rowHeight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       tableCells: [
                         {
@@ -2920,9 +2956,9 @@ gapi.load('client', async () => {
                           },
                           rowSpan: 42,
                           tableCellProperties: {
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             tableCellBackgroundFill: {
-                              propertyState: 'Test string',
+                              propertyState: 'RENDERED',
                               solidFill: {
                                 alpha: 42,
                                 color: {
@@ -2931,7 +2967,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
@@ -2950,15 +2986,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -2967,13 +3005,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -3001,15 +3041,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -3018,13 +3060,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -3036,7 +3080,7 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'TYPE_UNSPECIFIED',
                                 },
                                 endIndex: 42,
                                 paragraphMarker: {
@@ -3049,15 +3093,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -3066,13 +3112,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -3089,30 +3137,30 @@ gapi.load('client', async () => {
                                     nestingLevel: 42,
                                   },
                                   style: {
-                                    alignment: 'Test string',
-                                    direction: 'Test string',
+                                    alignment: 'ALIGNMENT_UNSPECIFIED',
+                                    direction: 'TEXT_DIRECTION_UNSPECIFIED',
                                     indentEnd: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentFirstLine: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentStart: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     lineSpacing: 42,
                                     spaceAbove: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     spaceBelow: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
-                                    spacingMode: 'Test string',
+                                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                                   },
                                 },
                                 startIndex: 42,
@@ -3126,15 +3174,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -3143,13 +3193,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -3170,7 +3222,7 @@ gapi.load('client', async () => {
                       tableRowProperties: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     },
@@ -3184,7 +3236,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -3194,13 +3246,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -3216,18 +3268,18 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 video: {
                   id: 'Test string',
-                  source: 'Test string',
+                  source: 'SOURCE_UNSPECIFIED',
                   url: 'Test string',
                   videoProperties: {
                     autoPlay: true,
                     end: 42,
                     mute: true,
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -3237,14 +3289,14 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     start: 42,
@@ -3264,12 +3316,12 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    type: 'Test string',
+                    type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 ],
               },
               pageBackgroundFill: {
-                propertyState: 'Test string',
+                propertyState: 'RENDERED',
                 solidFill: {
                   alpha: 42,
                   color: {
@@ -3278,7 +3330,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 stretchedPictureFill: {
@@ -3286,17 +3338,17 @@ gapi.load('client', async () => {
                   size: {
                     height: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 },
               },
             },
-            pageType: 'Test string',
+            pageType: 'SLIDE',
             revisionId: 'Test string',
             slideProperties: {
               isSkipped: true,
@@ -3355,7 +3407,7 @@ gapi.load('client', async () => {
                     me: true,
                     user: 'Test string',
                   },
-                  commentAction: 'Test string',
+                  commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                   content: 'Test string',
                   contentHtml: 'Test string',
                   createTime: 'Test string',
@@ -3375,7 +3427,7 @@ gapi.load('client', async () => {
                       me: true,
                       user: 'Test string',
                     },
-                    commentAction: 'Test string',
+                    commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                     content: 'Test string',
                     contentHtml: 'Test string',
                     createTime: 'Test string',
@@ -3386,10 +3438,10 @@ gapi.load('client', async () => {
                     updateTime: 'Test string',
                   },
                 ],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
               },
             ],
-            commentsViewMode: 'Test string',
+            commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
             layoutProperties: {
               displayName: 'Test string',
               masterObjectId: 'Test string',
@@ -3422,12 +3474,12 @@ gapi.load('client', async () => {
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -3437,18 +3489,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     recolor: {
-                      name: 'Test string',
+                      name: 'NONE',
                       recolorStops: [
                         {
                           alpha: 42,
@@ -3458,18 +3510,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           position: 42,
                         },
                       ],
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -3477,9 +3529,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -3488,24 +3540,24 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     transparency: 42,
                   },
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   sourceUrl: 'Test string',
                 },
                 line: {
-                  lineCategory: 'Test string',
+                  lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
                   lineProperties: {
-                    dashStyle: 'Test string',
-                    endArrow: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                    endArrow: 'ARROW_STYLE_UNSPECIFIED',
                     endConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
@@ -3519,50 +3571,50 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
-                    startArrow: 'Test string',
+                    startArrow: 'ARROW_STYLE_UNSPECIFIED',
                     startConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
                     },
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
-                  lineType: 'Test string',
+                  lineType: 'TYPE_UNSPECIFIED',
                 },
                 objectId: 'Test string',
                 shape: {
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   shapeProperties: {
                     autofit: {
-                      autofitType: 'Test string',
+                      autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                       fontScale: 42,
                       lineSpacingReduction: 42,
                     },
-                    contentAlignment: 'Test string',
+                    contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -3572,22 +3624,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -3595,9 +3647,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -3606,12 +3658,12 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     shapeBackgroundFill: {
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       solidFill: {
                         alpha: 42,
                         color: {
@@ -3620,12 +3672,12 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                   },
-                  shapeType: 'Test string',
+                  shapeType: 'TYPE_UNSPECIFIED',
                   text: {
                     lists: {
                       A: {
@@ -3640,15 +3692,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -3657,13 +3709,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -3691,15 +3743,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -3708,13 +3760,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -3726,7 +3778,7 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         endIndex: 42,
                         paragraphMarker: {
@@ -3739,15 +3791,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -3756,13 +3808,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -3779,30 +3831,30 @@ gapi.load('client', async () => {
                             nestingLevel: 42,
                           },
                           style: {
-                            alignment: 'Test string',
-                            direction: 'Test string',
+                            alignment: 'ALIGNMENT_UNSPECIFIED',
+                            direction: 'TEXT_DIRECTION_UNSPECIFIED',
                             indentEnd: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentFirstLine: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentStart: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             lineSpacing: 42,
                             spaceAbove: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             spaceBelow: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            spacingMode: 'Test string',
+                            spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           },
                         },
                         startIndex: 42,
@@ -3816,15 +3868,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -3833,13 +3885,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -3872,12 +3924,12 @@ gapi.load('client', async () => {
                       },
                       link: {
                         pageObjectId: 'Test string',
-                        relativeLink: 'Test string',
+                        relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                         slideIndex: 42,
                         url: 'Test string',
                       },
                       outline: {
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         outlineFill: {
                           solidFill: {
                             alpha: 42,
@@ -3887,18 +3939,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         weight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       recolor: {
-                        name: 'Test string',
+                        name: 'NONE',
                         recolorStops: [
                           {
                             alpha: 42,
@@ -3908,18 +3960,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             position: 42,
                           },
                         ],
                       },
                       shadow: {
-                        alignment: 'Test string',
+                        alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                         alpha: 42,
                         blurRadius: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         color: {
                           rgbColor: {
@@ -3927,9 +3979,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         rotateWithShape: true,
                         transform: {
                           scaleX: 42,
@@ -3938,9 +3990,9 @@ gapi.load('client', async () => {
                           shearY: 42,
                           translateX: 42,
                           translateY: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        type: 'Test string',
+                        type: 'SHADOW_TYPE_UNSPECIFIED',
                       },
                       transparency: 42,
                     },
@@ -3950,17 +4002,17 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 speakerSpotlight: {
                   speakerSpotlightProperties: {
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -3970,22 +4022,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -3993,9 +4045,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -4004,9 +4056,9 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -4021,7 +4073,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -4031,13 +4083,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -4049,7 +4101,7 @@ gapi.load('client', async () => {
                     {
                       columnWidth: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
@@ -4057,7 +4109,7 @@ gapi.load('client', async () => {
                     {
                       rowHeight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       tableCells: [
                         {
@@ -4068,9 +4120,9 @@ gapi.load('client', async () => {
                           },
                           rowSpan: 42,
                           tableCellProperties: {
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             tableCellBackgroundFill: {
-                              propertyState: 'Test string',
+                              propertyState: 'RENDERED',
                               solidFill: {
                                 alpha: 42,
                                 color: {
@@ -4079,7 +4131,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
@@ -4098,15 +4150,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -4115,13 +4169,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -4149,15 +4205,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -4166,13 +4224,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -4184,7 +4244,7 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'TYPE_UNSPECIFIED',
                                 },
                                 endIndex: 42,
                                 paragraphMarker: {
@@ -4197,15 +4257,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -4214,13 +4276,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -4237,30 +4301,30 @@ gapi.load('client', async () => {
                                     nestingLevel: 42,
                                   },
                                   style: {
-                                    alignment: 'Test string',
-                                    direction: 'Test string',
+                                    alignment: 'ALIGNMENT_UNSPECIFIED',
+                                    direction: 'TEXT_DIRECTION_UNSPECIFIED',
                                     indentEnd: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentFirstLine: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentStart: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     lineSpacing: 42,
                                     spaceAbove: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     spaceBelow: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
-                                    spacingMode: 'Test string',
+                                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                                   },
                                 },
                                 startIndex: 42,
@@ -4274,15 +4338,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -4291,13 +4357,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -4318,7 +4386,7 @@ gapi.load('client', async () => {
                       tableRowProperties: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     },
@@ -4332,7 +4400,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -4342,13 +4410,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -4364,18 +4432,18 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 video: {
                   id: 'Test string',
-                  source: 'Test string',
+                  source: 'SOURCE_UNSPECIFIED',
                   url: 'Test string',
                   videoProperties: {
                     autoPlay: true,
                     end: 42,
                     mute: true,
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -4385,14 +4453,14 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     start: 42,
@@ -4412,12 +4480,12 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    type: 'Test string',
+                    type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 ],
               },
               pageBackgroundFill: {
-                propertyState: 'Test string',
+                propertyState: 'RENDERED',
                 solidFill: {
                   alpha: 42,
                   color: {
@@ -4426,7 +4494,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 stretchedPictureFill: {
@@ -4434,17 +4502,17 @@ gapi.load('client', async () => {
                   size: {
                     height: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 },
               },
             },
-            pageType: 'Test string',
+            pageType: 'SLIDE',
             revisionId: 'Test string',
             slideProperties: {
               isSkipped: true,
@@ -4501,7 +4569,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -4521,7 +4589,7 @@ gapi.load('client', async () => {
                     me: true,
                     user: 'Test string',
                   },
-                  commentAction: 'Test string',
+                  commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                   content: 'Test string',
                   contentHtml: 'Test string',
                   createTime: 'Test string',
@@ -4532,10 +4600,10 @@ gapi.load('client', async () => {
                   updateTime: 'Test string',
                 },
               ],
-              status: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
             },
           ],
-          commentsViewMode: 'Test string',
+          commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
           layoutProperties: {
             displayName: 'Test string',
             masterObjectId: 'Test string',
@@ -4568,12 +4636,12 @@ gapi.load('client', async () => {
                   },
                   link: {
                     pageObjectId: 'Test string',
-                    relativeLink: 'Test string',
+                    relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                     slideIndex: 42,
                     url: 'Test string',
                   },
                   outline: {
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     outlineFill: {
                       solidFill: {
                         alpha: 42,
@@ -4583,18 +4651,18 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   recolor: {
-                    name: 'Test string',
+                    name: 'NONE',
                     recolorStops: [
                       {
                         alpha: 42,
@@ -4604,18 +4672,18 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         position: 42,
                       },
                     ],
                   },
                   shadow: {
-                    alignment: 'Test string',
+                    alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                     alpha: 42,
                     blurRadius: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     color: {
                       rgbColor: {
@@ -4623,9 +4691,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     rotateWithShape: true,
                     transform: {
                       scaleX: 42,
@@ -4634,24 +4702,24 @@ gapi.load('client', async () => {
                       shearY: 42,
                       translateX: 42,
                       translateY: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'SHADOW_TYPE_UNSPECIFIED',
                   },
                   transparency: 42,
                 },
                 placeholder: {
                   index: 42,
                   parentObjectId: 'Test string',
-                  type: 'Test string',
+                  type: 'NONE',
                 },
                 sourceUrl: 'Test string',
               },
               line: {
-                lineCategory: 'Test string',
+                lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
                 lineProperties: {
-                  dashStyle: 'Test string',
-                  endArrow: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                  endArrow: 'ARROW_STYLE_UNSPECIFIED',
                   endConnection: {
                     connectedObjectId: 'Test string',
                     connectionSiteIndex: 42,
@@ -4665,50 +4733,50 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
                   link: {
                     pageObjectId: 'Test string',
-                    relativeLink: 'Test string',
+                    relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                     slideIndex: 42,
                     url: 'Test string',
                   },
-                  startArrow: 'Test string',
+                  startArrow: 'ARROW_STYLE_UNSPECIFIED',
                   startConnection: {
                     connectedObjectId: 'Test string',
                     connectionSiteIndex: 42,
                   },
                   weight: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
-                lineType: 'Test string',
+                lineType: 'TYPE_UNSPECIFIED',
               },
               objectId: 'Test string',
               shape: {
                 placeholder: {
                   index: 42,
                   parentObjectId: 'Test string',
-                  type: 'Test string',
+                  type: 'NONE',
                 },
                 shapeProperties: {
                   autofit: {
-                    autofitType: 'Test string',
+                    autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                     fontScale: 42,
                     lineSpacingReduction: 42,
                   },
-                  contentAlignment: 'Test string',
+                  contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                   link: {
                     pageObjectId: 'Test string',
-                    relativeLink: 'Test string',
+                    relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                     slideIndex: 42,
                     url: 'Test string',
                   },
                   outline: {
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     outlineFill: {
                       solidFill: {
                         alpha: 42,
@@ -4718,22 +4786,22 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   shadow: {
-                    alignment: 'Test string',
+                    alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                     alpha: 42,
                     blurRadius: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     color: {
                       rgbColor: {
@@ -4741,9 +4809,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     rotateWithShape: true,
                     transform: {
                       scaleX: 42,
@@ -4752,12 +4820,12 @@ gapi.load('client', async () => {
                       shearY: 42,
                       translateX: 42,
                       translateY: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'SHADOW_TYPE_UNSPECIFIED',
                   },
                   shapeBackgroundFill: {
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     solidFill: {
                       alpha: 42,
                       color: {
@@ -4766,12 +4834,12 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
                 },
-                shapeType: 'Test string',
+                shapeType: 'TYPE_UNSPECIFIED',
                 text: {
                   lists: {
                     A: {
@@ -4786,15 +4854,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -4803,13 +4871,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -4837,15 +4905,15 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontFamily: 'Test string',
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             opaqueColor: {
@@ -4854,13 +4922,13 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
                           italic: true,
                           link: {
                             pageObjectId: 'Test string',
-                            relativeLink: 'Test string',
+                            relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                             slideIndex: 42,
                             url: 'Test string',
                           },
@@ -4872,7 +4940,7 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       endIndex: 42,
                       paragraphMarker: {
@@ -4885,15 +4953,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -4902,13 +4970,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -4925,30 +4993,30 @@ gapi.load('client', async () => {
                           nestingLevel: 42,
                         },
                         style: {
-                          alignment: 'Test string',
-                          direction: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
+                          direction: 'TEXT_DIRECTION_UNSPECIFIED',
                           indentEnd: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentFirstLine: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentStart: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           lineSpacing: 42,
                           spaceAbove: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           spaceBelow: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
-                          spacingMode: 'Test string',
+                          spacingMode: 'SPACING_MODE_UNSPECIFIED',
                         },
                       },
                       startIndex: 42,
@@ -4962,15 +5030,15 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontFamily: 'Test string',
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             opaqueColor: {
@@ -4979,13 +5047,13 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
                           italic: true,
                           link: {
                             pageObjectId: 'Test string',
-                            relativeLink: 'Test string',
+                            relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                             slideIndex: 42,
                             url: 'Test string',
                           },
@@ -5018,12 +5086,12 @@ gapi.load('client', async () => {
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -5033,18 +5101,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     recolor: {
-                      name: 'Test string',
+                      name: 'NONE',
                       recolorStops: [
                         {
                           alpha: 42,
@@ -5054,18 +5122,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           position: 42,
                         },
                       ],
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -5073,9 +5141,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -5084,9 +5152,9 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     transparency: 42,
                   },
@@ -5096,17 +5164,17 @@ gapi.load('client', async () => {
               size: {
                 height: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 width: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               speakerSpotlight: {
                 speakerSpotlightProperties: {
                   outline: {
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     outlineFill: {
                       solidFill: {
                         alpha: 42,
@@ -5116,22 +5184,22 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   shadow: {
-                    alignment: 'Test string',
+                    alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                     alpha: 42,
                     blurRadius: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     color: {
                       rgbColor: {
@@ -5139,9 +5207,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     rotateWithShape: true,
                     transform: {
                       scaleX: 42,
@@ -5150,9 +5218,9 @@ gapi.load('client', async () => {
                       shearY: 42,
                       translateX: 42,
                       translateY: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'SHADOW_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -5167,7 +5235,7 @@ gapi.load('client', async () => {
                           rowIndex: 42,
                         },
                         tableBorderProperties: {
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           tableBorderFill: {
                             solidFill: {
                               alpha: 42,
@@ -5177,13 +5245,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
                           weight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       },
@@ -5195,7 +5263,7 @@ gapi.load('client', async () => {
                   {
                     columnWidth: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 ],
@@ -5203,7 +5271,7 @@ gapi.load('client', async () => {
                   {
                     rowHeight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     tableCells: [
                       {
@@ -5214,9 +5282,9 @@ gapi.load('client', async () => {
                         },
                         rowSpan: 42,
                         tableCellProperties: {
-                          contentAlignment: 'Test string',
+                          contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                           tableCellBackgroundFill: {
-                            propertyState: 'Test string',
+                            propertyState: 'RENDERED',
                             solidFill: {
                               alpha: 42,
                               color: {
@@ -5225,7 +5293,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
@@ -5244,15 +5312,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -5261,13 +5331,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -5295,15 +5367,16 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontFamily: 'Test string',
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     opaqueColor: {
@@ -5312,13 +5385,15 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
                                   italic: true,
                                   link: {
                                     pageObjectId: 'Test string',
-                                    relativeLink: 'Test string',
+                                    relativeLink:
+                                      'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                     slideIndex: 42,
                                     url: 'Test string',
                                   },
@@ -5330,7 +5405,7 @@ gapi.load('client', async () => {
                                     weight: 42,
                                   },
                                 },
-                                type: 'Test string',
+                                type: 'TYPE_UNSPECIFIED',
                               },
                               endIndex: 42,
                               paragraphMarker: {
@@ -5343,15 +5418,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -5360,13 +5437,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -5383,30 +5462,30 @@ gapi.load('client', async () => {
                                   nestingLevel: 42,
                                 },
                                 style: {
-                                  alignment: 'Test string',
-                                  direction: 'Test string',
+                                  alignment: 'ALIGNMENT_UNSPECIFIED',
+                                  direction: 'TEXT_DIRECTION_UNSPECIFIED',
                                   indentEnd: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   indentFirstLine: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   indentStart: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   lineSpacing: 42,
                                   spaceAbove: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   spaceBelow: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
-                                  spacingMode: 'Test string',
+                                  spacingMode: 'SPACING_MODE_UNSPECIFIED',
                                 },
                               },
                               startIndex: 42,
@@ -5420,15 +5499,16 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontFamily: 'Test string',
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     opaqueColor: {
@@ -5437,13 +5517,15 @@ gapi.load('client', async () => {
                                         green: 42,
                                         red: 42,
                                       },
-                                      themeColor: 'Test string',
+                                      themeColor:
+                                        'THEME_COLOR_TYPE_UNSPECIFIED',
                                     },
                                   },
                                   italic: true,
                                   link: {
                                     pageObjectId: 'Test string',
-                                    relativeLink: 'Test string',
+                                    relativeLink:
+                                      'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                     slideIndex: 42,
                                     url: 'Test string',
                                   },
@@ -5464,7 +5546,7 @@ gapi.load('client', async () => {
                     tableRowProperties: {
                       minRowHeight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   },
@@ -5478,7 +5560,7 @@ gapi.load('client', async () => {
                           rowIndex: 42,
                         },
                         tableBorderProperties: {
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           tableBorderFill: {
                             solidFill: {
                               alpha: 42,
@@ -5488,13 +5570,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
                           weight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       },
@@ -5510,18 +5592,18 @@ gapi.load('client', async () => {
                 shearY: 42,
                 translateX: 42,
                 translateY: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               video: {
                 id: 'Test string',
-                source: 'Test string',
+                source: 'SOURCE_UNSPECIFIED',
                 url: 'Test string',
                 videoProperties: {
                   autoPlay: true,
                   end: 42,
                   mute: true,
                   outline: {
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     outlineFill: {
                       solidFill: {
                         alpha: 42,
@@ -5531,14 +5613,14 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
-                    propertyState: 'Test string',
+                    propertyState: 'RENDERED',
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   start: 42,
@@ -5558,12 +5640,12 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  type: 'Test string',
+                  type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
               ],
             },
             pageBackgroundFill: {
-              propertyState: 'Test string',
+              propertyState: 'RENDERED',
               solidFill: {
                 alpha: 42,
                 color: {
@@ -5572,7 +5654,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
               },
               stretchedPictureFill: {
@@ -5580,17 +5662,17 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
               },
             },
           },
-          pageType: 'Test string',
+          pageType: 'SLIDE',
           revisionId: 'Test string',
           slideProperties: {
             isSkipped: true,
@@ -5602,11 +5684,11 @@ gapi.load('client', async () => {
         pageSize: {
           height: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           width: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
         },
         presentationId: 'Test string',
@@ -5659,7 +5741,7 @@ gapi.load('client', async () => {
                     me: true,
                     user: 'Test string',
                   },
-                  commentAction: 'Test string',
+                  commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                   content: 'Test string',
                   contentHtml: 'Test string',
                   createTime: 'Test string',
@@ -5679,7 +5761,7 @@ gapi.load('client', async () => {
                       me: true,
                       user: 'Test string',
                     },
-                    commentAction: 'Test string',
+                    commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                     content: 'Test string',
                     contentHtml: 'Test string',
                     createTime: 'Test string',
@@ -5690,10 +5772,10 @@ gapi.load('client', async () => {
                     updateTime: 'Test string',
                   },
                 ],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
               },
             ],
-            commentsViewMode: 'Test string',
+            commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
             layoutProperties: {
               displayName: 'Test string',
               masterObjectId: 'Test string',
@@ -5726,12 +5808,12 @@ gapi.load('client', async () => {
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -5741,18 +5823,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     recolor: {
-                      name: 'Test string',
+                      name: 'NONE',
                       recolorStops: [
                         {
                           alpha: 42,
@@ -5762,18 +5844,18 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           position: 42,
                         },
                       ],
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -5781,9 +5863,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -5792,24 +5874,24 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     transparency: 42,
                   },
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   sourceUrl: 'Test string',
                 },
                 line: {
-                  lineCategory: 'Test string',
+                  lineCategory: 'LINE_CATEGORY_UNSPECIFIED',
                   lineProperties: {
-                    dashStyle: 'Test string',
-                    endArrow: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                    endArrow: 'ARROW_STYLE_UNSPECIFIED',
                     endConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
@@ -5823,50 +5905,50 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
-                    startArrow: 'Test string',
+                    startArrow: 'ARROW_STYLE_UNSPECIFIED',
                     startConnection: {
                       connectedObjectId: 'Test string',
                       connectionSiteIndex: 42,
                     },
                     weight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
-                  lineType: 'Test string',
+                  lineType: 'TYPE_UNSPECIFIED',
                 },
                 objectId: 'Test string',
                 shape: {
                   placeholder: {
                     index: 42,
                     parentObjectId: 'Test string',
-                    type: 'Test string',
+                    type: 'NONE',
                   },
                   shapeProperties: {
                     autofit: {
-                      autofitType: 'Test string',
+                      autofitType: 'AUTOFIT_TYPE_UNSPECIFIED',
                       fontScale: 42,
                       lineSpacingReduction: 42,
                     },
-                    contentAlignment: 'Test string',
+                    contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                     link: {
                       pageObjectId: 'Test string',
-                      relativeLink: 'Test string',
+                      relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                       slideIndex: 42,
                       url: 'Test string',
                     },
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -5876,22 +5958,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -5899,9 +5981,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -5910,12 +5992,12 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                     shapeBackgroundFill: {
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       solidFill: {
                         alpha: 42,
                         color: {
@@ -5924,12 +6006,12 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                   },
-                  shapeType: 'Test string',
+                  shapeType: 'TYPE_UNSPECIFIED',
                   text: {
                     lists: {
                       A: {
@@ -5944,15 +6026,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -5961,13 +6043,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -5995,15 +6077,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -6012,13 +6094,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -6030,7 +6112,7 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         endIndex: 42,
                         paragraphMarker: {
@@ -6043,15 +6125,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontFamily: 'Test string',
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 opaqueColor: {
@@ -6060,13 +6142,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                               italic: true,
                               link: {
                                 pageObjectId: 'Test string',
-                                relativeLink: 'Test string',
+                                relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                 slideIndex: 42,
                                 url: 'Test string',
                               },
@@ -6083,30 +6165,30 @@ gapi.load('client', async () => {
                             nestingLevel: 42,
                           },
                           style: {
-                            alignment: 'Test string',
-                            direction: 'Test string',
+                            alignment: 'ALIGNMENT_UNSPECIFIED',
+                            direction: 'TEXT_DIRECTION_UNSPECIFIED',
                             indentEnd: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentFirstLine: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentStart: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             lineSpacing: 42,
                             spaceAbove: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             spaceBelow: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            spacingMode: 'Test string',
+                            spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           },
                         },
                         startIndex: 42,
@@ -6120,15 +6202,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontFamily: 'Test string',
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               opaqueColor: {
@@ -6137,13 +6219,13 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                             italic: true,
                             link: {
                               pageObjectId: 'Test string',
-                              relativeLink: 'Test string',
+                              relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                               slideIndex: 42,
                               url: 'Test string',
                             },
@@ -6176,12 +6258,12 @@ gapi.load('client', async () => {
                       },
                       link: {
                         pageObjectId: 'Test string',
-                        relativeLink: 'Test string',
+                        relativeLink: 'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                         slideIndex: 42,
                         url: 'Test string',
                       },
                       outline: {
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         outlineFill: {
                           solidFill: {
                             alpha: 42,
@@ -6191,18 +6273,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                           },
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         weight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       recolor: {
-                        name: 'Test string',
+                        name: 'NONE',
                         recolorStops: [
                           {
                             alpha: 42,
@@ -6212,18 +6294,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             position: 42,
                           },
                         ],
                       },
                       shadow: {
-                        alignment: 'Test string',
+                        alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                         alpha: 42,
                         blurRadius: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         color: {
                           rgbColor: {
@@ -6231,9 +6313,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        propertyState: 'Test string',
+                        propertyState: 'RENDERED',
                         rotateWithShape: true,
                         transform: {
                           scaleX: 42,
@@ -6242,9 +6324,9 @@ gapi.load('client', async () => {
                           shearY: 42,
                           translateX: 42,
                           translateY: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        type: 'Test string',
+                        type: 'SHADOW_TYPE_UNSPECIFIED',
                       },
                       transparency: 42,
                     },
@@ -6254,17 +6336,17 @@ gapi.load('client', async () => {
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 speakerSpotlight: {
                   speakerSpotlightProperties: {
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -6274,22 +6356,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     shadow: {
-                      alignment: 'Test string',
+                      alignment: 'RECTANGLE_POSITION_UNSPECIFIED',
                       alpha: 42,
                       blurRadius: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       color: {
                         rgbColor: {
@@ -6297,9 +6379,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       rotateWithShape: true,
                       transform: {
                         scaleX: 42,
@@ -6308,9 +6390,9 @@ gapi.load('client', async () => {
                         shearY: 42,
                         translateX: 42,
                         translateY: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      type: 'Test string',
+                      type: 'SHADOW_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -6325,7 +6407,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -6335,13 +6417,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -6353,7 +6435,7 @@ gapi.load('client', async () => {
                     {
                       columnWidth: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
@@ -6361,7 +6443,7 @@ gapi.load('client', async () => {
                     {
                       rowHeight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       tableCells: [
                         {
@@ -6372,9 +6454,9 @@ gapi.load('client', async () => {
                           },
                           rowSpan: 42,
                           tableCellProperties: {
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             tableCellBackgroundFill: {
-                              propertyState: 'Test string',
+                              propertyState: 'RENDERED',
                               solidFill: {
                                 alpha: 42,
                                 color: {
@@ -6383,7 +6465,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
@@ -6402,15 +6484,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -6419,13 +6503,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -6453,15 +6539,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -6470,13 +6558,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -6488,7 +6578,7 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'TYPE_UNSPECIFIED',
                                 },
                                 endIndex: 42,
                                 paragraphMarker: {
@@ -6501,15 +6591,17 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
-                                      baselineOffset: 'Test string',
+                                      baselineOffset:
+                                        'BASELINE_OFFSET_UNSPECIFIED',
                                       bold: true,
                                       fontFamily: 'Test string',
                                       fontSize: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       foregroundColor: {
                                         opaqueColor: {
@@ -6518,13 +6610,15 @@ gapi.load('client', async () => {
                                             green: 42,
                                             red: 42,
                                           },
-                                          themeColor: 'Test string',
+                                          themeColor:
+                                            'THEME_COLOR_TYPE_UNSPECIFIED',
                                         },
                                       },
                                       italic: true,
                                       link: {
                                         pageObjectId: 'Test string',
-                                        relativeLink: 'Test string',
+                                        relativeLink:
+                                          'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                         slideIndex: 42,
                                         url: 'Test string',
                                       },
@@ -6541,30 +6635,30 @@ gapi.load('client', async () => {
                                     nestingLevel: 42,
                                   },
                                   style: {
-                                    alignment: 'Test string',
-                                    direction: 'Test string',
+                                    alignment: 'ALIGNMENT_UNSPECIFIED',
+                                    direction: 'TEXT_DIRECTION_UNSPECIFIED',
                                     indentEnd: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentFirstLine: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     indentStart: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     lineSpacing: 42,
                                     spaceAbove: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     spaceBelow: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
-                                    spacingMode: 'Test string',
+                                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                                   },
                                 },
                                 startIndex: 42,
@@ -6578,15 +6672,17 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontFamily: 'Test string',
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       opaqueColor: {
@@ -6595,13 +6691,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        themeColor: 'Test string',
+                                        themeColor:
+                                          'THEME_COLOR_TYPE_UNSPECIFIED',
                                       },
                                     },
                                     italic: true,
                                     link: {
                                       pageObjectId: 'Test string',
-                                      relativeLink: 'Test string',
+                                      relativeLink:
+                                        'RELATIVE_SLIDE_LINK_UNSPECIFIED',
                                       slideIndex: 42,
                                       url: 'Test string',
                                     },
@@ -6622,7 +6720,7 @@ gapi.load('client', async () => {
                       tableRowProperties: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     },
@@ -6636,7 +6734,7 @@ gapi.load('client', async () => {
                             rowIndex: 42,
                           },
                           tableBorderProperties: {
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             tableBorderFill: {
                               solidFill: {
                                 alpha: 42,
@@ -6646,13 +6744,13 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
                             weight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         },
@@ -6668,18 +6766,18 @@ gapi.load('client', async () => {
                   shearY: 42,
                   translateX: 42,
                   translateY: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 video: {
                   id: 'Test string',
-                  source: 'Test string',
+                  source: 'SOURCE_UNSPECIFIED',
                   url: 'Test string',
                   videoProperties: {
                     autoPlay: true,
                     end: 42,
                     mute: true,
                     outline: {
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       outlineFill: {
                         solidFill: {
                           alpha: 42,
@@ -6689,14 +6787,14 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                         },
                       },
-                      propertyState: 'Test string',
+                      propertyState: 'RENDERED',
                       weight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     start: 42,
@@ -6716,12 +6814,12 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    type: 'Test string',
+                    type: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 ],
               },
               pageBackgroundFill: {
-                propertyState: 'Test string',
+                propertyState: 'RENDERED',
                 solidFill: {
                   alpha: 42,
                   color: {
@@ -6730,7 +6828,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 stretchedPictureFill: {
@@ -6738,17 +6836,17 @@ gapi.load('client', async () => {
                   size: {
                     height: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 },
               },
             },
-            pageType: 'Test string',
+            pageType: 'SLIDE',
             revisionId: 'Test string',
             slideProperties: {
               isSkipped: true,
@@ -6763,12 +6861,12 @@ gapi.load('client', async () => {
     );
     /** Gets the latest version of the specified presentation. */
     await gapi.client.slides.presentations.get({
-      commentsViewMode: 'Test string',
+      commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
       presentationId: 'Test string',
     });
     /** Gets the latest version of the specified page in the presentation. */
     await gapi.client.slides.presentations.pages.get({
-      commentsViewMode: 'Test string',
+      commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
       pageObjectId: 'Test string',
       presentationId: 'Test string',
     });
@@ -6776,8 +6874,8 @@ gapi.load('client', async () => {
     await gapi.client.slides.presentations.pages.getThumbnail({
       pageObjectId: 'Test string',
       presentationId: 'Test string',
-      'thumbnailProperties.mimeType': 'Test string',
-      'thumbnailProperties.thumbnailSize': 'Test string',
+      'thumbnailProperties.mimeType': 'PNG',
+      'thumbnailProperties.thumbnailSize': 'THUMBNAIL_SIZE_UNSPECIFIED',
     });
   }
 });

@@ -34,7 +34,7 @@ gapi.load('client', async () => {
     /** Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. */
     await gapi.client.beyondcorp.organizations.locations.insights.configuredInsight(
       {
-        aggregation: 'Test string',
+        aggregation: 'AGGREGATION_UNSPECIFIED',
         'customGrouping.fieldFilter': 'Test string',
         'customGrouping.groupFields': 'Test string',
         endTime: 'Test string',
@@ -49,11 +49,11 @@ gapi.load('client', async () => {
     /** Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable. The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight. */
     await gapi.client.beyondcorp.organizations.locations.insights.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'INSIGHT_VIEW_UNSPECIFIED',
     });
     /** Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight metadatas. */
     await gapi.client.beyondcorp.organizations.locations.insights.list({
-      aggregation: 'Test string',
+      aggregation: 'AGGREGATION_UNSPECIFIED',
       endTime: 'Test string',
       filter: 'Test string',
       orderBy: 'Test string',
@@ -61,7 +61,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       startTime: 'Test string',
-      view: 'Test string',
+      view: 'INSIGHT_VIEW_UNSPECIFIED',
     });
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.beyondcorp.organizations.locations.operations.cancel(
@@ -105,11 +105,11 @@ gapi.load('client', async () => {
         name: 'Test string',
         seatCount: 'Test string',
         signupSource: 'Test string',
-        sku: 'Test string',
+        sku: 'SKU_UNSPECIFIED',
         startTime: 'Test string',
-        state: 'Test string',
-        subscriberType: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        subscriberType: 'SUBSCRIBER_TYPE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Gets details of a single Subscription. */
@@ -138,11 +138,11 @@ gapi.load('client', async () => {
         name: 'Test string',
         seatCount: 'Test string',
         signupSource: 'Test string',
-        sku: 'Test string',
+        sku: 'SKU_UNSPECIFIED',
         startTime: 'Test string',
-        state: 'Test string',
-        subscriberType: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        subscriberType: 'SUBSCRIBER_TYPE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Restarts an existing BeyondCorp Enterprise Subscription in a given organization, that is scheduled for cancellation. Location will always be global as BeyondCorp subscriptions are per organization. Returns the timestamp for when the cancellation will become effective */
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -348,7 +348,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -400,7 +400,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -525,7 +525,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -590,7 +590,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -616,7 +616,7 @@ gapi.load('client', async () => {
     );
     /** Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. */
     await gapi.client.beyondcorp.projects.locations.insights.configuredInsight({
-      aggregation: 'Test string',
+      aggregation: 'AGGREGATION_UNSPECIFIED',
       'customGrouping.fieldFilter': 'Test string',
       'customGrouping.groupFields': 'Test string',
       endTime: 'Test string',
@@ -630,11 +630,11 @@ gapi.load('client', async () => {
     /** Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable. The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight. */
     await gapi.client.beyondcorp.projects.locations.insights.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'INSIGHT_VIEW_UNSPECIFIED',
     });
     /** Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight metadatas. */
     await gapi.client.beyondcorp.projects.locations.insights.list({
-      aggregation: 'Test string',
+      aggregation: 'AGGREGATION_UNSPECIFIED',
       endTime: 'Test string',
       filter: 'Test string',
       orderBy: 'Test string',
@@ -642,7 +642,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       startTime: 'Test string',
-      view: 'Test string',
+      view: 'INSIGHT_VIEW_UNSPECIFIED',
     });
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.beyondcorp.projects.locations.operations.cancel(
@@ -693,20 +693,20 @@ gapi.load('client', async () => {
           clientIp: true,
           contextualHeaders: {
             deviceInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             dispatchInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             groupInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
-            outputType: 'Test string',
+            outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             userInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
           },
-          gatewayIdentity: 'Test string',
+          gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
           metadataHeaders: {
             A: 'Test string',
           },
@@ -718,7 +718,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -773,20 +773,20 @@ gapi.load('client', async () => {
           clientIp: true,
           contextualHeaders: {
             deviceInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             dispatchInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             groupInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
-            outputType: 'Test string',
+            outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             userInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
           },
-          gatewayIdentity: 'Test string',
+          gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
           metadataHeaders: {
             A: 'Test string',
           },
@@ -798,7 +798,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -814,7 +814,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -864,7 +864,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        schema: 'Test string',
+        schema: 'SCHEMA_UNSPECIFIED',
         updateTime: 'Test string',
         upstreams: [
           {
@@ -887,20 +887,20 @@ gapi.load('client', async () => {
               clientIp: true,
               contextualHeaders: {
                 deviceInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 dispatchInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 groupInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
-                outputType: 'Test string',
+                outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 userInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
               },
-              gatewayIdentity: 'Test string',
+              gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
               metadataHeaders: {
                 A: 'Test string',
               },
@@ -957,7 +957,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        schema: 'Test string',
+        schema: 'SCHEMA_UNSPECIFIED',
         updateTime: 'Test string',
         upstreams: [
           {
@@ -980,20 +980,20 @@ gapi.load('client', async () => {
               clientIp: true,
               contextualHeaders: {
                 deviceInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 dispatchInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 groupInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
-                outputType: 'Test string',
+                outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 userInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
               },
-              gatewayIdentity: 'Test string',
+              gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
               metadataHeaders: {
                 A: 'Test string',
               },
@@ -1014,7 +1014,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

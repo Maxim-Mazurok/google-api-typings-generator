@@ -56,7 +56,7 @@ gapi.load('client', async () => {
       actorIpAddress: 'Test string',
       agentInfoFilter: 'Test string',
       applicationInfoFilter: 'Test string',
-      applicationName: 'Test string',
+      applicationName: 'access_transparency',
       customerId: 'Test string',
       deviceFilter: 'Test string',
       endTime: 'Test string',
@@ -77,7 +77,7 @@ gapi.load('client', async () => {
     await gapi.client.reports.activities.watch(
       {
         actorIpAddress: 'Test string',
-        applicationName: 'Test string',
+        applicationName: 'access_transparency',
         customerId: 'Test string',
         endTime: 'Test string',
         eventName: 'Test string',
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
       customerId: 'Test string',
       date: 'Test string',
       entityKey: 'Test string',
-      entityType: 'Test string',
+      entityType: 'gplus_communities',
       filters: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',

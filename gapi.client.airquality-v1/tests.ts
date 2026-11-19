@@ -41,13 +41,13 @@ gapi.load('client', async () => {
             regionCode: 'Test string',
           },
         ],
-        extraComputations: ['Test string'],
+        extraComputations: ['EXTRA_COMPUTATION_UNSPECIFIED'],
         languageCode: 'Test string',
         location: {
           latitude: 42,
           longitude: 42,
         },
-        uaqiColorPalette: 'Test string',
+        uaqiColorPalette: 'COLOR_PALETTE_UNSPECIFIED',
         universalAqi: true,
       },
     );
@@ -62,7 +62,7 @@ gapi.load('client', async () => {
           },
         ],
         dateTime: 'Test string',
-        extraComputations: ['Test string'],
+        extraComputations: ['EXTRA_COMPUTATION_UNSPECIFIED'],
         languageCode: 'Test string',
         location: {
           latitude: 42,
@@ -74,7 +74,7 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-        uaqiColorPalette: 'Test string',
+        uaqiColorPalette: 'COLOR_PALETTE_UNSPECIFIED',
         universalAqi: true,
       },
     );
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
           },
         ],
         dateTime: 'Test string',
-        extraComputations: ['Test string'],
+        extraComputations: ['EXTRA_COMPUTATION_UNSPECIFIED'],
         hours: 42,
         languageCode: 'Test string',
         location: {
@@ -102,13 +102,13 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-        uaqiColorPalette: 'Test string',
+        uaqiColorPalette: 'COLOR_PALETTE_UNSPECIFIED',
         universalAqi: true,
       },
     );
     /** Returns a bytes array containing the data of the tile PNG image. */
     await gapi.client.airquality.mapTypes.heatmapTiles.lookupHeatmapTile({
-      mapType: 'Test string',
+      mapType: 'MAP_TYPE_UNSPECIFIED',
       x: 42,
       y: 42,
       zoom: 42,

@@ -162,7 +162,8 @@ declare namespace gapi.client {
       /** The original requested URL prior to any normalization actions. */
       originalUrl?: string;
     }
-    interface RecordsResource {
+
+    const records: {
       /** Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to performance data about the requested site. */
       queryHistoryRecord(request: {
         /** V1 error format. */
@@ -271,8 +272,6 @@ declare namespace gapi.client {
         },
         body: QueryRequest,
       ): Request<QueryResponse>;
-    }
-
-    const records: RecordsResource;
+    };
   }
 }

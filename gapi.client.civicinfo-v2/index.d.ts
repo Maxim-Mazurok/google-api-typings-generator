@@ -620,7 +620,7 @@ declare namespace gapi.client {
       /** Information about the jurisdiction that this office has (as opposed to the set of voters that elect the office). */
       jurisdiction?: CivicinfoSchemaElectoralDistrict;
       /** The levels of government of the office for this contest. There may be more than one in cases where a jurisdiction effectively acts at two different levels of government; for example, the mayor of the District of Columbia acts at "locality" level, but also effectively at both "administrative-area-2" and "administrative-area-1". */
-      level?:
+      level?: (
         | 'international'
         | 'country'
         | 'administrativeArea1'
@@ -629,7 +629,8 @@ declare namespace gapi.client {
         | 'locality'
         | 'subLocality1'
         | 'subLocality2'
-        | 'special'[];
+        | 'special'
+      )[];
       /** The level of office for this contest. One of: federal, state, county, city, other */
       level_v1?: 'federal' | 'state' | 'county' | 'city' | 'other';
       /** Localized descriptions of the office this candidate is running for in 300 characters or less. The entries should be treated as a map. The same locale should not occur more than once. */
@@ -675,7 +676,7 @@ declare namespace gapi.client {
       /** A link to the referendum. This field is only populated for contests of type 'Referendum'. */
       referendumUrl?: string;
       /** The roles which this office fulfills. */
-      roles?:
+      roles?: (
         | 'headOfState'
         | 'headOfGovernment'
         | 'deputyHeadOfGovernment'
@@ -687,7 +688,8 @@ declare namespace gapi.client {
         | 'judge'
         | 'schoolBoard'
         | 'specialPurposeOfficer'
-        | 'otherRole'[];
+        | 'otherRole'
+      )[];
       /** Extra disambiguating text for distinct seats within the same office (and district, where applicable). */
       seat?: string;
       /** A list of sources for this contest. If multiple sources are listed, the data has been aggregated from those sources. */
@@ -796,7 +798,7 @@ declare namespace gapi.client {
       /** Whether to serve contests. This is further restricted by contest_scopes if set. */
       contests?: boolean;
       /** Which scopes of contest to serve. If missing, and contests above is true, we will serve all contests */
-      contestScope?:
+      contestScope?: (
         | 'statewide'
         | 'congressional'
         | 'stateUpper'
@@ -810,7 +812,8 @@ declare namespace gapi.client {
         | 'township'
         | 'ward'
         | 'cityCouncil'
-        | 'national'[];
+        | 'national'
+      )[];
       /** Whether to serve drop-off locations. */
       dropOff?: boolean;
       /** Whether to serve early-vote locations. */
@@ -818,13 +821,14 @@ declare namespace gapi.client {
       /** The dataset(s) to which this allowlist applies. If unset, applies to all datasets. Datasets control which entities are served, *not* which street segments are looked up. So you don't need to include the Targetsmart dataset ID to get voter-file-based objects. As a special case, 0 means "all positive-numbered datasets," to allow allowlisting all VIP data at once without having to worry about specific dataset IDs. */
       entityDatasetId?: string[];
       /** Entity types for expectation coverage. Does not affect what's served, but instructs our coverage monitoring to not alert for low coverage. */
-      expectLowCoverage?:
+      expectLowCoverage?: (
         | 'entityTypeUnspecified'
         | 'entityTypePollingLocation'
         | 'entityTypeEarlyVote'
         | 'entityTypeDropOff'
         | 'entityTypeContest'
-        | 'entityTypeRegion'[];
+        | 'entityTypeRegion'
+      )[];
       /** Whether to serve election-day polling locations. */
       pollingLocations?: boolean;
       /** Whether to serve regions. */
@@ -897,7 +901,7 @@ declare namespace gapi.client {
       /** The level of this elected office. One of: federal, state, county, city, other */
       level?: 'federal' | 'state' | 'county' | 'city' | 'other';
       /** The levels of government of which this office is part. There may be more than one in cases where a jurisdiction effectively acts at two different levels of government; for example, the mayor of the District of Columbia acts at "locality" level, but also effectively at both "administrative-area-2" and "administrative-area-1". */
-      levels?:
+      levels?: (
         | 'international'
         | 'country'
         | 'administrativeArea1'
@@ -906,7 +910,8 @@ declare namespace gapi.client {
         | 'locality'
         | 'subLocality1'
         | 'subLocality2'
-        | 'special'[];
+        | 'special'
+      )[];
       /** A unique identifier for this office, within the context of this request. Identifiers are *not* long-lived: the same office may get different IDs on different requests. */
       mapId?: string;
       name?: string;
@@ -919,7 +924,7 @@ declare namespace gapi.client {
       /** Only present in query responses. List of indices in the officials array of people who presently hold this office. */
       officialIndices?: number[];
       /** The roles which this office fulfills. Roles are not meant to be exhaustive, or to exactly specify the entire set of responsibilities of a given office, but are meant to be rough categories that are useful for general selection from or sorting of a list of offices. */
-      roles?:
+      roles?: (
         | 'headOfState'
         | 'headOfGovernment'
         | 'deputyHeadOfGovernment'
@@ -931,7 +936,8 @@ declare namespace gapi.client {
         | 'judge'
         | 'schoolBoard'
         | 'specialPurposeOfficer'
-        | 'otherRole'[];
+        | 'otherRole'
+      )[];
       /** A list of sources for this office. If multiple sources are listed, the data has been aggregated from those sources. */
       sources?: CivicinfoSchemaSource[];
     }
@@ -1118,8 +1124,9 @@ declare namespace gapi.client {
       /** Set these fields to block these entities before and/or after the specified dates for the specified surfaces. This can be used to automatically take data live at a future date, and to automatically take it down after an election is over. */
       startDate?: GoogleTypeDateTime;
       /** Surfaces to which this entity applies. Required. */
-      surface?:
-        'surfaceUnspecified' | 'surfaceApi' | 'surfaceSearch' | 'surfaceMaps'[];
+      surface?: (
+        'surfaceUnspecified' | 'surfaceApi' | 'surfaceSearch' | 'surfaceMaps'
+      )[];
     }
     interface CivicinfoSchemaTimeInterval {
       /** Closing time in ISO format (HH:mm:ss['Z'|('+'|'-')HH:mm]) e.g. 20:00:00-07:00 */
@@ -1285,13 +1292,14 @@ declare namespace gapi.client {
       /** If the access point is defined by a TYPE_SEGMENT feature, this is the location of the access point expressed as a fractional distance along the segment. The value runs from 0 to 1 inclusive. May be re-derived if necessary to maintain precise placement on segment. */
       segmentPosition?: number;
       /** This list represents the travel modes for which this access-point should be avoided. If this list is empty, the access-point is suitable for any travel mode. If all access points are unsuitable for the current travel mode, client should revert to other heuristics (e.g. feature center). This is only used for access points to TYPE_SEGMENT features; access points to non-TYPE_SEGMENT features, e.g. TYPE_ESTABLISHMENT_POI features with gcid:transit_station GConcepts are just identified by feature_type and feature_id. */
-      unsuitableTravelMode?:
+      unsuitableTravelMode?: (
         | 'travelModeMotorVehicle'
         | 'travelModeAuto'
         | 'travelModeTwoWheeler'
         | 'travelModeBicycle'
         | 'travelModePedestrian'
-        | 'travelModePublicTransit'[];
+        | 'travelModePublicTransit'
+      )[];
     }
     interface GeostoreAccidentProneSpotProto {
       /** Values must be in the range [0,1], with begin <= end. */
@@ -1460,13 +1468,14 @@ declare namespace gapi.client {
       synonym?: string;
     }
     interface GeostoreBarrierLogicalMaterialProto {
-      material?:
+      material?: (
         | 'unknownLogicalMaterial'
         | 'concrete'
         | 'metal'
         | 'plastic'
         | 'stone'
-        | 'timber'[];
+        | 'timber'
+      )[];
     }
     interface GeostoreBestLocaleProto {
       /** The ID of the best-match TYPE_LOCALE feature for this feature. */
@@ -4136,7 +4145,7 @@ declare namespace gapi.client {
       track?: GeostoreTrackProto;
     }
     interface GeostoreFoodMenuItemOptionProto {
-      allergenAbsent?:
+      allergenAbsent?: (
         | 'allergenDairy'
         | 'allergenEgg'
         | 'allergenFish'
@@ -4144,8 +4153,9 @@ declare namespace gapi.client {
         | 'allergenShellfish'
         | 'allergenSoy'
         | 'allergenTreeNut'
-        | 'allergenWheat'[];
-      allergenPresent?:
+        | 'allergenWheat'
+      )[];
+      allergenPresent?: (
         | 'allergenDairy'
         | 'allergenEgg'
         | 'allergenFish'
@@ -4153,7 +4163,8 @@ declare namespace gapi.client {
         | 'allergenShellfish'
         | 'allergenSoy'
         | 'allergenTreeNut'
-        | 'allergenWheat'[];
+        | 'allergenWheat'
+      )[];
       calories?: number;
       /** Ingredients of the food dish option. */
       ingredients?: GeostoreIngredient[];
@@ -4166,7 +4177,7 @@ declare namespace gapi.client {
       /** Size of the order, represented in units of items. (e.g. 4 "skewers”, 6 "pieces”) */
       portionSize?: GeostorePortionSize;
       /** Methods on how the food dish option is prepared. */
-      preparationMethods?:
+      preparationMethods?: (
         | 'methodUndefined'
         | 'baked'
         | 'boiled'
@@ -4191,17 +4202,19 @@ declare namespace gapi.client {
         | 'pickled'
         | 'basted'
         | 'kneaded'
-        | 'otherMethod'[];
+        | 'otherMethod'
+      )[];
       /** We use PriceRangeProto here but we expect the lower_price and upper_price to be both set to equal numbers because an option should have a single price. This field is not required because food item prices may be variable depending on season. */
       price?: GeostorePriceRangeProto;
-      restriction?:
+      restriction?: (
         | 'dietHalal'
         | 'dietKosher'
         | 'dietOrganic'
         | 'dietVegan'
         | 'dietVegetarian'
         | 'dietGlutenFree'
-        | 'dietLowLactose'[];
+        | 'dietLowLactose'
+      )[];
       /** Number of people can be served by this food dish option. */
       servesNumPeople?: number;
       spiciness?:
@@ -5214,13 +5227,14 @@ declare namespace gapi.client {
       /** The feature ID of the landmark feature. */
       landmark?: GeostoreFeatureIdProto;
       /** The mode(s) of travel for which this landmark is useful. */
-      travelMode?:
+      travelMode?: (
         | 'unknown'
         | 'travelMotorVehicle'
         | 'travelAuto'
         | 'travelTwoWheeler'
         | 'travelBicycle'
-        | 'travelPedestrian'[];
+        | 'travelPedestrian'
+      )[];
     }
     interface GeostoreLandUseProto {
       landUseCategory?:
@@ -5456,7 +5470,7 @@ declare namespace gapi.client {
     }
     interface GeostoreNameProto {
       /** The set of flags that apply to this name. */
-      flag?:
+      flag?: (
         | 'flagAny'
         | 'flagInLocalLanguage'
         | 'flagPreferred'
@@ -5494,7 +5508,8 @@ declare namespace gapi.client {
         | 'flagBicycleRoute'
         | 'flagMachineGenerated'
         | 'flagSuspicious'
-        | 'flagTraditional'[];
+        | 'flagTraditional'
+      )[];
       /** The language field asserts that a fluent speaker or writer of a language would recognize NameProto.text to name the given feature in that language. In other words, the name is appropriate to show to a speaker of the language. Importantly, the language field does **not** assert that the name is "in a given language". In this way, "Jeep"/"hi" is appropriate: "Jeep" is not in Hindi, but it is the appropriate name to show to Hindi speakers. The external form of a Google International Identifiers Initiative (III) LanguageCode object. See google3/i18n/identifiers/languagecode.h for details. These strings should be treated as opaque blobs. You can use LanguageCodeConverter::FromOther to convert the string to a LanguageCode reference. You can then call methods on the LanguageCode class to extract language/script/region subtags (if any). See also http://g3doc/i18n/identifiers/g3doc/using-iii. We place extra restrictions on languages in addition to what the III library requires. See go/geo-schema-reference/feature-properties/languages. This field may be missing if the name does not have a concept of language but should be set if the language is unknown. */
       language?: string;
       /** Field-level metadata for this name. NOTE: there are multiple NameProto fields in the Geo Schema. Metadata here is only expected to be present on FeatureProto.name[]. */
@@ -6402,12 +6417,13 @@ declare namespace gapi.client {
       /** Any additional details about the permit type; e.g. “Zone A”. In any local languages. Should only be set if allowance_type is PERMIT. */
       permitType?: GeostoreLanguageTaggedTextProto[];
       /** The types of services that this parking allowance applies to. For instance, some cities have streets that only allow traditional taxis to pick up passengers. */
-      serviceType?:
+      serviceType?: (
         | 'serviceAll'
         | 'serviceGeneralDriver'
         | 'serviceRideshare'
         | 'serviceTaxi'
-        | 'serviceCommercial'[];
+        | 'serviceCommercial'
+      )[];
       /** Describes the rate structures. Each TimeBasedRateProto defines a rate which may apply based on a particular arrival, departure or utilization time; for example, one rate might apply if arriving before 9am, and another might apply regardless of arrival or departure time. */
       timeBasedRate?: GeostoreTimeBasedRateProto[];
       /** Restrictions on which vehicle type(s) the allowance applies to. By default, the allowance applies to any vehicle types. */
@@ -6445,14 +6461,15 @@ declare namespace gapi.client {
         | 'restrictionPickupGoods'
         | 'restrictionPickupPassengers';
       /** The types of services that this parking restriction applies to. We expect most parking restrictions to apply to all services, but some airports have specific rideshare parking or taxi parking zones. */
-      serviceType?:
+      serviceType?: (
         | 'serviceAll'
         | 'serviceGeneralDriver'
         | 'serviceRideshare'
         | 'serviceTaxi'
-        | 'serviceCommercial'[];
+        | 'serviceCommercial'
+      )[];
       /** The types of vehicles that this parking restriction applies to. For instance, some streets may allow motorcycles to park but not automobiles or trucks. */
-      vehicleType?: 'any' | 'car' | 'motorcycle' | 'truck'[];
+      vehicleType?: ('any' | 'car' | 'motorcycle' | 'truck')[];
     }
     interface GeostorePavementLegendProto {
       /** The unique identifier of this pavement legend. This ID is only unique within a lane. Use `geostore::GeneratePavementLegendId()` to generate a new ID. See go/geo-vi:subfield-stable-id for more details. */
@@ -7128,8 +7145,9 @@ declare namespace gapi.client {
       gapColor?: GeostorePaintedElementLogicalColorProto;
       /** Applicable for DASHED, DOTTED, and DOTTED_DASHED lines. */
       gapLengthMeters?: number;
-      material?:
-        'unknownStripeMaterial' | 'paintStripe' | 'roundDot' | 'squareDot'[];
+      material?: (
+        'unknownStripeMaterial' | 'paintStripe' | 'roundDot' | 'squareDot'
+      )[];
       /** Color for the painted elements. Applicable to all types. */
       paintColor?: GeostorePaintedElementLogicalColorProto;
       pattern?:
@@ -7259,7 +7277,7 @@ declare namespace gapi.client {
       /** The time period when this price list is available. Establishments are not required to give available_time for any given price list, however, when this field is not set, the price list is understood as available any time the establishment is open. */
       availableTime?: GeostoreTimeScheduleProto;
       /** Cuisine information if the location the price lists attached to is an eligible feature for a food menu price list. Cuisine information should also only show up in a food price list. */
-      cuisines?:
+      cuisines?: (
         | 'cuisineUndefined'
         | 'fastFood'
         | 'american'
@@ -7291,7 +7309,8 @@ declare namespace gapi.client {
         | 'turkish'
         | 'brazilian'
         | 'pakistani'
-        | 'otherCuisine'[];
+        | 'otherCuisine'
+      )[];
       /** The repeated name_info field is for price lists listed in multiple languages. When a price list has no names or descriptions, the size of the repeated field name_info may be 0. There should be at most one name_info for any given language. */
       nameInfo?: GeostorePriceListNameInfoProto[];
       /** Each price list may have multiple sections. Note that these sections within the same price list should most times contain only the same type of items for sale, e.g. all sections should usually contain only food items if the enclosing price list is representing food menu. However, sometimes such a requirement may be wrong, for example, McDonald's may sell burgers as well as toys, and the toys may be in its own section. Thus we don't enforce any requirement that all sections contain only the same type of items. */
@@ -7307,13 +7326,14 @@ declare namespace gapi.client {
       /** To store any items when the containing PriceListSectionProto is not food / legacy services. */
       item?: GeostoreComposableItemProto[];
       /** This has to have at most one value. */
-      itemType?:
+      itemType?: (
         | 'typeAny'
         | 'typeFood'
         | 'typeService'
         | 'typeProduct'
         | 'typeJob'
-        | 'type3pJob'[];
+        | 'type3pJob'
+      )[];
       /** The external form of a Google International Identifiers Initiative (III) LanguageCode object. See google3/i18n/identifiers/languagecode.h for details. We place extra restrictions on languages in addition to what the III library requires. See go/geo-schema-reference/feature-properties/languages. When set, represents the language of the section and its items. Any section and item level name infos must match this language. Optional. */
       language?: string;
       /** One or more media items (photos, videos, etc.) describing this section / category. */
@@ -8390,7 +8410,7 @@ declare namespace gapi.client {
     }
     interface GeostoreRegulatedAreaProto {
       /** The emissions stickers a vehicle must have to enter or operate within this regulated area. The values are implicitly OR'd—a vehicle only needs one of the stickers to be allowed. */
-      requiredEmissionsSticker?:
+      requiredEmissionsSticker?: (
         | 'emissionsStickerUnknown'
         | 'euro0'
         | 'euro1'
@@ -8424,7 +8444,8 @@ declare namespace gapi.client {
         | 'spaCatEco'
         | 'spaCatZero'
         | 'spaCatB'
-        | 'spaCatC'[];
+        | 'spaCatC'
+      )[];
       /** The set of restrictions that apply to a zone. These restrictions may limit the routability of every segment contained within the defined feature.polygon. Repeated restrictions are treated collectively as an OR meaning that segments in the zone are only routable if none of the restrictions apply. If any segments within the defined polygon should not have these restrictions applied, they must list this regulated area's feature id in their feature.exempt_regulated_area field. */
       restriction?: GeostoreRestrictionProto[];
     }
@@ -8499,8 +8520,9 @@ declare namespace gapi.client {
     }
     interface GeostoreRestrictionProto {
       /** The restriction only applies in these specific autonomous driving product scenarios. NOTE: This should only be set on restrictions with TRAVEL_AUTONOMOUS_VEHICLE travel mode. */
-      autonomousDrivingProducts?:
-        'unknown' | 'hdL4' | 'hdL2' | 'adas' | 'autoDrivingExperience'[];
+      autonomousDrivingProducts?: (
+        'unknown' | 'hdL4' | 'hdL2' | 'adas' | 'autoDrivingExperience'
+      )[];
       /** Actually *required* if style=STYLE_IN_OUT, otherwise forbidden. Typically the intersection group type is artifact, but either artifact or logical groups can be used for STYLE_IN_OUT restrictions. */
       intersectionGroup?: GeostoreFeatureIdProto;
       /** Whether local indicators (e.g. an electronic road sign) is thought to affect the conditions or timing of this restriction, making the real-world restriction more specific or potentially different than is defined in this restriction. WARNING: For certain restriction types, this field is populated by a MapFacts trigger, which propagates the is_variable bool from the referenced restriction group. Edits by other editors will be overwritten. */
@@ -8529,7 +8551,7 @@ declare namespace gapi.client {
         | 'timeApplicabilityUnknown'
         | 'localIndicator';
       /** Restriction applies only to the given travel modes. This field is always set (ID_SEGMENT_RESTRICTION_MISSING_TRAVEL_MODE), but may be missing in historical feature reads. Historically, no travel modes has meant "all travel modes", except they didn't really even mean that, because Pathfinder would use a complex set of heuristics to interpret the "correct" travel modes. Pathfinder currently (last updated August 2013) has heuristics to cope with incomplete data that reduce or extend application of the specified restrictions to pedestrians or bicycles. We are actively working to remove these heuristics and replace them with explicit, correct travel modes in the data. See b/8746491. */
-      travelMode?:
+      travelMode?: (
         | 'travelAny'
         | 'travelMotorVehicle'
         | 'travelAuto'
@@ -8543,7 +8565,8 @@ declare namespace gapi.client {
         | 'travelThroughTraffic'
         | 'travelAutonomousVehicle'
         | 'travelPedestrian'
-        | 'travelBicycle'[];
+        | 'travelBicycle'
+      )[];
       /** The criteria under which this restriction applies. WARNING: For certain restriction types, this field is populated by a MapFacts trigger, which propagates the TravelPatternProto from the referenced restriction group. Edits by other editors will be overwritten. */
       travelPattern?: GeostoreTravelPatternProto;
       /** The type of restriction. This is not a condition, but rather tells you what kind of restriction it is. This field should always be set. */
@@ -8620,8 +8643,9 @@ declare namespace gapi.client {
       /** Additional attributes that apply to the applied vehicle types. */
       vehicleAttribute?: GeostoreVehicleAttributeFilterProto;
       /** Restrictions applying to specific types of vehicles. */
-      vehicleType?:
-        'unknown' | 'any' | 'car' | 'motorcycle' | 'truck' | 'bus'[];
+      vehicleType?: (
+        'unknown' | 'any' | 'car' | 'motorcycle' | 'truck' | 'bus'
+      )[];
     }
     interface GeostoreRoadDisruptionProto {
       /** The set of intersection traversals that are affected by this disruption. There must not be more than 750 total values among the 'effects' fields (affected_segment_portions and affected_intersection_traversals) to avoid making FeatureProtos inordinately expensive to read. At least one of affected_segment_portions or affected_intersection_traversals must be set. */
@@ -8629,11 +8653,12 @@ declare namespace gapi.client {
       /** The set of segments that are affected by this disruption and the portions of those segments that are affected. There must not be more than 750 total values among the 'effects' fields (affected_segment_portions and affected_intersection_traversals) to avoid making FeatureProtos inordinately expensive to read. At least one of affected_segment_portions or affected_intersection_traversals must be set. */
       affectedSegmentPortions?: GeostoreSegmentPortionProto[];
       /** The set of travel modes that are affected by this disruption. If empty, all travel modes are affected. */
-      affectedTravelModes?:
+      affectedTravelModes?: (
         | 'travelModeUnspecified'
         | 'travelModeMotorVehicle'
         | 'travelModeBicycle'
-        | 'travelModePedestrian'[];
+        | 'travelModePedestrian'
+      )[];
       /** The vehicles affected by this disruption. If unspecified, all vehicles are affected. Can only be present in affected_travel_modes is empty or includes TRAVEL_MOTOR_VEHICLE. */
       affectedVehicleFilter?: GeostoreVehicleAttributeFilterProto;
       /** The cause of this particular disruption. */
@@ -9849,7 +9874,7 @@ declare namespace gapi.client {
         | 'customerService'
         | 'reservations'
         | 'sales';
-      flag?: 'flagNoColdCalls' | 'flagPreferred'[];
+      flag?: ('flagNoColdCalls' | 'flagPreferred')[];
       /** True if this phone number is not unique to this establishment and might be shared with other features. In case an establishment shares a phone number with a business chain of which it is a member, and the number canonically belongs to that chain, it should be marked as shared for the establishment but not shared for the chain. */
       isSharedNumber?: boolean;
       /** RESERVED */
@@ -10207,7 +10232,7 @@ declare namespace gapi.client {
       /** Whether the applied vehicle types have a trailer attached to them. */
       hasTrailer?: boolean;
       /** List of prohibited hazardous goods for a vehicle to carry. A repeated value here is treated as an OR operation, meaning that they may not carry ANY of the goods listed. */
-      hazardousGoods?:
+      hazardousGoods?: (
         | 'hazardousGoodsTypeUnspecified'
         | 'explosives'
         | 'gases'
@@ -10219,11 +10244,12 @@ declare namespace gapi.client {
         | 'corrosive'
         | 'aspirationHazard'
         | 'environmentalHazard'
-        | 'other'[];
+        | 'other'
+      )[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "count <= 4" AND "count > 2" means "2 < count <= 4"). */
       numTrailers?: GeostoreCountComparisonProto[];
       /** The toll passes the vehicle has, e.g. via an electronic device attached to the windshield or as software embedded into the vehicle. A repeated value here is treated as an OR operation. */
-      tollPass?:
+      tollPass?: (
         | 'tollPassTypeUnspecified'
         | 'tollPassTypeEZpass'
         | 'tollPassTypeEZpassFlex'
@@ -10243,25 +10269,28 @@ declare namespace gapi.client {
         | 'tollPassTypeGoodToGo'
         | 'tollPassTypeGoodToGoFlexPass'
         | 'tollPassTypeTolltag'
-        | 'tollPassTypeExemptionDecal'[];
+        | 'tollPassTypeExemptionDecal'
+      )[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "length <= 53ft" AND "length > 48ft" means "48ft < length <= 53ft"). */
       trailerLength?: GeostoreDimensionComparisonProto[];
       /** List of acceptable vehicle emissions categories. A repeated value here is treated as an OR operation, meaning that the vehicle may fall into ANY of the categories listed. */
-      vehicleEmissionsCategory?:
+      vehicleEmissionsCategory?: (
         | 'vehicleEmissionsCategoryUnspecified'
         | 'vehicleEmissionsCategoryGas'
         | 'vehicleEmissionsCategoryDiesel'
         | 'vehicleEmissionsCategoryElectric'
         | 'vehicleEmissionsCategoryHydrogen'
         | 'vehicleEmissionsCategoryHybrid'
-        | 'vehicleEmissionsCategoryPluginHybrid'[];
+        | 'vehicleEmissionsCategoryPluginHybrid'
+      )[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "height > 3m" AND "height <= 5m" means "3m < height <= 5m"). */
       vehicleHeight?: GeostoreDimensionComparisonProto[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "length <= 40m" AND "length > 35m" means "35m < length <= 40m"). */
       vehicleLength?: GeostoreDimensionComparisonProto[];
       /** A repeated value here is treated as an OR operation (e.g. "bus OR truck"). */
-      vehicleType?:
-        'unknown' | 'any' | 'car' | 'motorcycle' | 'truck' | 'bus'[];
+      vehicleType?: (
+        'unknown' | 'any' | 'car' | 'motorcycle' | 'truck' | 'bus'
+      )[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "weight < 8T" AND "weight >= 3T" means "3T <= weight < 8T"). */
       vehicleWeight?: GeostoreWeightComparisonProto[];
       /** A repeated value here is treated as an AND operation. This allows for ranges to be represented by two values (ex: "width < 4m" AND "width >= 2m" means "2m <= width < 4m"). */
@@ -10407,10 +10436,11 @@ declare namespace gapi.client {
       policyMetadata?: StorageGraphBfgPolicyMetadata;
       /** An identifier for the process that asserted this triple. */
       process?: string;
-      restrictions?:
+      restrictions?: (
         | 'requiresCitation'
         | 'requiresPcounselReview'
-        | 'unrestrictedWithinGoogleNo3pUse'[];
+        | 'unrestrictedWithinGoogleNo3pUse'
+      )[];
       /** Used to measure impact of 3P contributions. See go/ke-metrics. */
       sourceCategory?: 'thirdParty' | 'curation' | 'partnerFeed' | 'extraction';
       /** Client provided reference to the particular piece of source data content this triple is linked to. It is intended to provide generic data lineage support between client source data and triples in SCP. WARNING: This field is WIP and please do not populate or consume it without consulting ke-data-governance@. */
@@ -10759,15 +10789,17 @@ declare namespace gapi.client {
       rankingToken?: string;
       /** When specified as part of triples input to Livegraph (go/livegraph), this indicates that the triple needs to be triangulated by 3 different sources before it can be served in production. A triple's source is identified by its URL(provenance.source).host(). Please see go/baike-triangulation for more background on this. WARNING: If you're a new client trying to enable triangulation for your feed, please contact lg-composition@/kashk@ before using this feature. */
       requiresTriangulation?: boolean;
-      restrictions?:
+      restrictions?: (
         | 'requiresCitation'
         | 'requiresPcounselReview'
         | 'requiresAccessControl'
-        | 'unrestrictedWithinGoogleNo3pUse'[];
+        | 'unrestrictedWithinGoogleNo3pUse'
+      )[];
       /** Freebase & KG: if the triples were extracted from the web, the source URL where the assertion was found. (generally empty in freebase-sourced triples) TopicServer will serve/populate/retain if REQUIRES_CITATION is also set, or if the process is explicitly allowed. http://g/topic-server/vn9PBWtVKqI/arQEDqKTAgAJ */
       source?: string;
-      sourceCategory?:
-        'thirdParty' | 'curation' | 'partnerFeed' | 'extraction'[];
+      sourceCategory?: (
+        'thirdParty' | 'curation' | 'partnerFeed' | 'extraction'
+      )[];
       /** Client provided reference to the particular piece of source data content this triple is linked to. It is intended to provide generic data linage support between client source data and triples in SCP. WARNING: This field is WIP and please do not populate or consume it without consulting ke-data-governance@. */
       sourceContentReference?: KnowledgeGraphSourceContentReference;
       sourceDocId?: string[];
@@ -10854,7 +10886,8 @@ declare namespace gapi.client {
       /** The actual number, broken down into sections as per local convention. Note that the actual formatting of these sections (hyphen vs space, usage of parentheses) will vary according to local custom. */
       number?: string[];
     }
-    interface DivisionsResource {
+
+    const divisions: {
       /** Lookup OCDIDs and names for divisions related to an address. */
       queryDivisionByAddress(request?: {
         /** V1 error format. */
@@ -10908,8 +10941,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CivicinfoApiprotosV2DivisionSearchResponse>;
-    }
-    interface ElectionsResource {
+    };
+
+    const elections: {
       /** List of available elections to query. */
       electionQuery(request?: {
         /** V1 error format. */
@@ -10972,10 +11006,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CivicinfoApiprotosV2VoterInfoResponse>;
-    }
-
-    const divisions: DivisionsResource;
-
-    const elections: ElectionsResource;
+    };
   }
 }

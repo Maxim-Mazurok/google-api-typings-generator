@@ -45,10 +45,10 @@ gapi.load('client', async () => {
         customerOnboardingState: {
           onboardingSteps: [
             {
-              completionState: 'Test string',
+              completionState: 'COMPLETION_STATE_UNSPECIFIED',
               completionTime: 'Test string',
               startTime: 'Test string',
-              step: 'Test string',
+              step: 'STEP_UNSPECIFIED',
             },
           ],
         },
@@ -90,10 +90,10 @@ gapi.load('client', async () => {
         customerOnboardingState: {
           onboardingSteps: [
             {
-              completionState: 'Test string',
+              completionState: 'COMPLETION_STATE_UNSPECIFIED',
               completionTime: 'Test string',
               startTime: 'Test string',
-              step: 'Test string',
+              step: 'STEP_UNSPECIFIED',
             },
           ],
         },

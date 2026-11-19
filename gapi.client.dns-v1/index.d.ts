@@ -712,7 +712,8 @@ declare namespace gapi.client {
       /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
       message?: string;
     }
-    interface ChangesResource {
+
+    const changes: {
       /** Atomically updates the ResourceRecordSet collection. Note: While `dns.changes.create` is the baseline permission required to invoke this method, additional permissions are checked depending on the specific additions or deletions contained in the payload. */
       create(request: {
         /** V1 error format. */
@@ -849,8 +850,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ChangesListResponse>;
-    }
-    interface DnsKeysResource {
+    };
+
+    const dnsKeys: {
       /** Fetches the representation of an existing DnsKey. */
       get(request?: {
         /** V1 error format. */
@@ -921,8 +923,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DnsKeysListResponse>;
-    }
-    interface LocationsResource {
+    };
+
+    const locations: {
       /** Gets information about a location. */
       get(request?: {
         /** V1 error format. */
@@ -985,8 +988,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListLocationsResponse>;
-    }
-    interface ManagedZoneOperationsResource {
+    };
+
+    const managedZoneOperations: {
       /** Fetches the representation of an existing Operation. */
       get(request?: {
         /** V1 error format. */
@@ -1055,8 +1059,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ManagedZoneOperationsListResponse>;
-    }
-    interface ManagedZonesResource {
+    };
+
+    const managedZones: {
       /** Creates a new ManagedZone. Note: While `dns.managedZones.create` is the baseline permission required to invoke this method, additional permissions are required if the managed zone configuration references other resources. */
       create(request: {
         /** V1 error format. */
@@ -1436,8 +1441,9 @@ declare namespace gapi.client {
         },
         body: ManagedZone,
       ): Request<Operation>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
       cancel(request?: {
         /** V1 error format. */
@@ -1554,8 +1560,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleLongrunningListOperationsResponse>;
-    }
-    interface OutboundEndpointsResource {
+    };
+
+    const outboundEndpoints: {
       /** Creates a new Outbound Endpoint. */
       create(request: {
         /** V1 error format. */
@@ -1788,8 +1795,9 @@ declare namespace gapi.client {
         },
         body: OutboundEndpoint,
       ): Request<GoogleLongrunningOperation>;
-    }
-    interface PoliciesResource {
+    };
+
+    const policies: {
       /** Creates a new policy. */
       create(request: {
         /** V1 error format. */
@@ -2077,8 +2085,9 @@ declare namespace gapi.client {
         },
         body: Policy,
       ): Request<PoliciesUpdateResponse>;
-    }
-    interface ProjectsResource {
+    };
+
+    const projects: {
       /** Fetches the representation of an existing Project. */
       get(request?: {
         /** V1 error format. */
@@ -2106,8 +2115,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Project>;
-    }
-    interface ResourceRecordSetsResource {
+    };
+
+    const resourceRecordSets: {
       /** Creates a new ResourceRecordSet. */
       create(request: {
         /** V1 error format. */
@@ -2357,8 +2367,9 @@ declare namespace gapi.client {
         },
         body: ResourceRecordSet,
       ): Request<ResourceRecordSet>;
-    }
-    interface ResponsePoliciesResource {
+    };
+
+    const responsePolicies: {
       /** Creates a new Response Policy */
       create(request: {
         /** V1 error format. */
@@ -2646,8 +2657,9 @@ declare namespace gapi.client {
         },
         body: ResponsePolicy,
       ): Request<ResponsePoliciesUpdateResponse>;
-    }
-    interface ResponsePolicyRulesResource {
+    };
+
+    const responsePolicyRules: {
       /** Creates a new Response Policy Rule. */
       create(request: {
         /** V1 error format. */
@@ -2953,30 +2965,6 @@ declare namespace gapi.client {
         },
         body: ResponsePolicyRule,
       ): Request<ResponsePolicyRulesUpdateResponse>;
-    }
-
-    const changes: ChangesResource;
-
-    const dnsKeys: DnsKeysResource;
-
-    const locations: LocationsResource;
-
-    const managedZoneOperations: ManagedZoneOperationsResource;
-
-    const managedZones: ManagedZonesResource;
-
-    const operations: OperationsResource;
-
-    const outboundEndpoints: OutboundEndpointsResource;
-
-    const policies: PoliciesResource;
-
-    const projects: ProjectsResource;
-
-    const resourceRecordSets: ResourceRecordSetsResource;
-
-    const responsePolicies: ResponsePoliciesResource;
-
-    const responsePolicyRules: ResponsePolicyRulesResource;
+    };
   }
 }

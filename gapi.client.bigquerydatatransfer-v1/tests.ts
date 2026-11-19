@@ -138,7 +138,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         metadataDestination: {
           dataplexConfiguration: {
             entryGroup: 'Test string',
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'TRANSFER_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userId: 'Test string',
       },
@@ -230,7 +230,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         metadataDestination: {
           dataplexConfiguration: {
             entryGroup: 'Test string',
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'TRANSFER_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userId: 'Test string',
       },
@@ -311,14 +311,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        runAttempt: 'Test string',
-        states: 'Test string',
+        runAttempt: 'RUN_ATTEMPT_UNSPECIFIED',
+        states: 'TRANSFER_STATE_UNSPECIFIED',
       },
     );
     /** Returns log messages for the transfer run. */
     await gapi.client.bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs.list(
       {
-        messageTypes: 'Test string',
+        messageTypes: 'MESSAGE_SEVERITY_UNSPECIFIED',
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         metadataDestination: {
           dataplexConfiguration: {
             entryGroup: 'Test string',
@@ -404,7 +404,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'TRANSFER_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userId: 'Test string',
       },
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         metadataDestination: {
           dataplexConfiguration: {
             entryGroup: 'Test string',
@@ -490,7 +490,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'TRANSFER_STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userId: 'Test string',
       },
@@ -533,13 +533,13 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      runAttempt: 'Test string',
-      states: 'Test string',
+      runAttempt: 'RUN_ATTEMPT_UNSPECIFIED',
+      states: 'TRANSFER_STATE_UNSPECIFIED',
     });
     /** Returns log messages for the transfer run. */
     await gapi.client.bigquerydatatransfer.projects.transferConfigs.runs.transferLogs.list(
       {
-        messageTypes: 'Test string',
+        messageTypes: 'MESSAGE_SEVERITY_UNSPECIFIED',
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',

@@ -92,7 +92,7 @@ gapi.load('client', async () => {
             },
             cloudRunConfig: {
               disabled: true,
-              loadBalancerType: 'Test string',
+              loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
             },
             configConnectorConfig: {
               enabled: true,
@@ -122,7 +122,7 @@ gapi.load('client', async () => {
               disabled: true,
             },
             istioConfig: {
-              auth: 'Test string',
+              auth: 'AUTH_NONE',
               disabled: true,
             },
             kalmConfig: {
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
           },
           alphaClusterFeatureGates: ['Test string'],
           anonymousAuthenticationConfig: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           authenticatorGroupsConfig: {
             enabled: true,
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
               noUnsafeWebhooks: true,
             },
             conversionStatus: {
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             enabled: true,
             privilegedAdmissionConfig: {
@@ -201,7 +201,7 @@ gapi.load('client', async () => {
             },
           },
           autoscaling: {
-            autopilotGeneralProfile: 'Test string',
+            autopilotGeneralProfile: 'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED',
             autoprovisioningLocations: ['Test string'],
             autoprovisioningNodePoolDefaults: {
               bootDiskKmsKey: 'Test string',
@@ -238,14 +238,15 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
             },
             autoprovisioningRestrictionConfig: {
               authorizedServiceAccounts: ['Test string'],
-              serviceAccountPermissionCheck: 'Test string',
+              serviceAccountPermissionCheck:
+                'PERMISSION_CHECK_MODE_UNSPECIFIED',
             },
-            autoscalingProfile: 'Test string',
+            autoscalingProfile: 'PROFILE_UNSPECIFIED',
             defaultComputeClassConfig: {
               enabled: true,
             },
@@ -260,7 +261,7 @@ gapi.load('client', async () => {
           },
           binaryAuthorization: {
             enabled: true,
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -269,7 +270,7 @@ gapi.load('client', async () => {
           },
           clusterIpv4Cidr: 'Test string',
           clusterTelemetry: {
-            type: 'Test string',
+            type: 'UNSPECIFIED',
           },
           compliancePostureConfig: {
             complianceStandards: [
@@ -277,21 +278,21 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           conditions: [
             {
-              canonicalCode: 'Test string',
-              code: 'Test string',
+              canonicalCode: 'OK',
+              code: 'UNKNOWN',
               message: 'Test string',
             },
           ],
           confidentialNodes: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
             enabled: true,
           },
           controlPlaneEgress: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           controlPlaneEndpointsConfig: {
             dnsEndpointConfig: {
@@ -329,7 +330,7 @@ gapi.load('client', async () => {
           currentNodeCount: 42,
           currentNodeVersion: 'Test string',
           databaseEncryption: {
-            currentState: 'Test string',
+            currentState: 'CURRENT_STATE_UNSPECIFIED',
             decryptionKeys: ['Test string'],
             keyName: 'Test string',
             lastOperationErrors: [
@@ -339,7 +340,7 @@ gapi.load('client', async () => {
                 timestamp: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'UNKNOWN',
           },
           defaultMaxPodsConstraint: {
             maxPodsPerNode: 'Test string',
@@ -352,19 +353,19 @@ gapi.load('client', async () => {
           enableTpu: true,
           endpoint: 'Test string',
           enterpriseConfig: {
-            clusterTier: 'Test string',
-            desiredTier: 'Test string',
+            clusterTier: 'CLUSTER_TIER_UNSPECIFIED',
+            desiredTier: 'CLUSTER_TIER_UNSPECIFIED',
           },
           etag: 'Test string',
           expireTime: 'Test string',
           fleet: {
             membership: 'Test string',
-            membershipType: 'Test string',
+            membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
             preRegistered: true,
             project: 'Test string',
           },
           gkeAutoUpgradeConfig: {
-            patchMode: 'Test string',
+            patchMode: 'PATCH_MODE_UNSPECIFIED',
           },
           id: 'Test string',
           identityServiceConfig: {
@@ -377,7 +378,7 @@ gapi.load('client', async () => {
             additionalIpRangesConfigs: [
               {
                 podIpv4RangeNames: ['Test string'],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -399,9 +400,9 @@ gapi.load('client', async () => {
             clusterSecondaryRangeName: 'Test string',
             createSubnetwork: true,
             defaultPodIpv4RangeUtilization: 42,
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'IPV6_ACCESS_TYPE_UNSPECIFIED',
             networkTierConfig: {
-              networkTier: 'Test string',
+              networkTier: 'NETWORK_TIER_UNSPECIFIED',
             },
             nodeIpv4Cidr: 'Test string',
             nodeIpv4CidrBlock: 'Test string',
@@ -412,7 +413,7 @@ gapi.load('client', async () => {
             servicesIpv4CidrBlock: 'Test string',
             servicesIpv6CidrBlock: 'Test string',
             servicesSecondaryRangeName: 'Test string',
-            stackType: 'Test string',
+            stackType: 'STACK_TYPE_UNSPECIFIED',
             subnetIpv6CidrBlock: 'Test string',
             subnetworkName: 'Test string',
             tpuIpv4CidrBlock: 'Test string',
@@ -427,7 +428,7 @@ gapi.load('client', async () => {
           locations: ['Test string'],
           loggingConfig: {
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
           },
           loggingService: 'Test string',
@@ -448,8 +449,8 @@ gapi.load('client', async () => {
                 A: {
                   endTime: 'Test string',
                   maintenanceExclusionOptions: {
-                    endTimeBehavior: 'Test string',
-                    scope: 'Test string',
+                    endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                    scope: 'NO_UPGRADES',
                   },
                   startTime: 'Test string',
                 },
@@ -474,8 +475,8 @@ gapi.load('client', async () => {
                 window: {
                   endTime: 'Test string',
                   maintenanceExclusionOptions: {
-                    endTimeBehavior: 'Test string',
-                    scope: 'Test string',
+                    endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                    scope: 'NO_UPGRADES',
                   },
                   startTime: 'Test string',
                 },
@@ -486,7 +487,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           managedOpentelemetryConfig: {
-            scope: 'Test string',
+            scope: 'SCOPE_UNSPECIFIED',
           },
           master: {
             compatibilityStatus: {
@@ -523,14 +524,14 @@ gapi.load('client', async () => {
             advancedDatapathObservabilityConfig: {
               enableMetrics: true,
               enableRelay: true,
-              relayMode: 'Test string',
+              relayMode: 'RELAY_MODE_UNSPECIFIED',
             },
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
             managedPrometheusConfig: {
               autoMonitoringConfig: {
-                scope: 'Test string',
+                scope: 'SCOPE_UNSPECIFIED',
               },
               enabled: true,
             },
@@ -542,9 +543,9 @@ gapi.load('client', async () => {
             ambientNetworkingConfig: {
               enabled: true,
             },
-            datapathProvider: 'Test string',
+            datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
             dataplaneV2Config: {
-              scalabilityMode: 'Test string',
+              scalabilityMode: 'SCALABILITY_MODE_UNSPECIFIED',
             },
             defaultEnablePrivateNodes: true,
             defaultSnatStatus: {
@@ -553,9 +554,9 @@ gapi.load('client', async () => {
             disableL4LbFirewallReconciliation: true,
             dnsConfig: {
               additiveVpcScopeDnsDomain: 'Test string',
-              clusterDns: 'Test string',
+              clusterDns: 'PROVIDER_UNSPECIFIED',
               clusterDnsDomain: 'Test string',
-              clusterDnsScope: 'Test string',
+              clusterDnsScope: 'DNS_SCOPE_UNSPECIFIED',
             },
             enableCiliumClusterwideNetworkPolicy: true,
             enableFqdnNetworkPolicy: true,
@@ -563,14 +564,15 @@ gapi.load('client', async () => {
             enableL4ilbSubsetting: true,
             enableMultiNetworking: true,
             gatewayApiConfig: {
-              channel: 'Test string',
+              channel: 'CHANNEL_UNSPECIFIED',
             },
-            inTransitEncryptionConfig: 'Test string',
+            inTransitEncryptionConfig:
+              'IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED',
             network: 'Test string',
             networkPerformanceConfig: {
-              totalEgressBandwidthTier: 'Test string',
+              totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
             },
-            privateIpv6GoogleAccess: 'Test string',
+            privateIpv6GoogleAccess: 'PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED',
             serviceExternalIpsConfig: {
               enabled: true,
             },
@@ -578,7 +580,7 @@ gapi.load('client', async () => {
           },
           networkPolicy: {
             enabled: true,
-            provider: 'Test string',
+            provider: 'PROVIDER_UNSPECIFIED',
           },
           nodeConfig: {
             accelerators: [
@@ -586,12 +588,12 @@ gapi.load('client', async () => {
                 acceleratorCount: 'Test string',
                 acceleratorType: 'Test string',
                 gpuDriverInstallationConfig: {
-                  gpuDriverVersion: 'Test string',
+                  gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                   specificVersion: 'Test string',
                 },
                 gpuPartitionSize: 'Test string',
                 gpuSharingConfig: {
-                  gpuSharingStrategy: 'Test string',
+                  gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                   maxSharedClientsPerGpu: 'Test string',
                 },
                 maxTimeSharedClientsPerGpu: 'Test string',
@@ -599,7 +601,8 @@ gapi.load('client', async () => {
             ],
             advancedMachineFeatures: {
               enableNestedVirtualization: true,
-              performanceMonitoringUnit: 'Test string',
+              performanceMonitoringUnit:
+                'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
               threadsPerCore: 'Test string',
             },
             bootDisk: {
@@ -610,7 +613,8 @@ gapi.load('client', async () => {
             },
             bootDiskKmsKey: 'Test string',
             confidentialNodes: {
-              confidentialInstanceType: 'Test string',
+              confidentialInstanceType:
+                'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
               enabled: true,
             },
             consolidationDelay: 'Test string',
@@ -635,7 +639,7 @@ gapi.load('client', async () => {
                           gcpSecretManagerSecretUri: 'Test string',
                         },
                       ],
-                      capabilities: ['Test string'],
+                      capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                       client: [
                         {
                           cert: {
@@ -666,7 +670,7 @@ gapi.load('client', async () => {
             },
             diskSizeGb: 42,
             diskType: 'Test string',
-            effectiveCgroupMode: 'Test string',
+            effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
             enableConfidentialStorage: true,
             ephemeralStorageConfig: {
               localSsdCount: 42,
@@ -684,13 +688,13 @@ gapi.load('client', async () => {
               enabled: true,
             },
             gpuDirectConfig: {
-              gpuDirectStrategy: 'Test string',
+              gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
             },
             gvnic: {
               enabled: true,
             },
             hostMaintenancePolicy: {
-              maintenanceInterval: 'Test string',
+              maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
               opportunisticMaintenanceStrategy: {
                 maintenanceAvailabilityWindow: 'Test string',
                 minNodesPerPool: 'Test string',
@@ -785,7 +789,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -804,8 +808,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -813,7 +817,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -839,17 +843,19 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             localNvmeSsdBlockConfig: {
               localSsdCount: 42,
             },
             localSsdCount: 42,
-            localSsdEncryptionMode: 'Test string',
+            localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
             loggingConfig: {
               variantConfig: {
-                variant: 'Test string',
+                variant: 'VARIANT_UNSPECIFIED',
               },
             },
             machineType: 'Test string',
@@ -866,7 +872,7 @@ gapi.load('client', async () => {
             oauthScopes: ['Test string'],
             preemptible: true,
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'UNSPECIFIED',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -880,12 +886,12 @@ gapi.load('client', async () => {
             },
             sandboxConfig: {
               sandboxType: 'Test string',
-              type: 'Test string',
+              type: 'UNSPECIFIED',
             },
             secondaryBootDisks: [
               {
                 diskImage: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             ],
             secondaryBootDiskUpdateStrategy: {},
@@ -899,7 +905,7 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
@@ -908,25 +914,26 @@ gapi.load('client', async () => {
             storagePools: ['Test string'],
             tags: ['Test string'],
             taintConfig: {
-              architectureTaintBehavior: 'Test string',
+              architectureTaintBehavior:
+                'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
             },
             taints: [
               {
-                effect: 'Test string',
+                effect: 'EFFECT_UNSPECIFIED',
                 key: 'Test string',
                 value: 'Test string',
               },
             ],
             windowsNodeConfig: {
-              osVersion: 'Test string',
+              osVersion: 'OS_VERSION_UNSPECIFIED',
             },
             workloadMetadataConfig: {
-              mode: 'Test string',
-              nodeMetadata: 'Test string',
+              mode: 'MODE_UNSPECIFIED',
+              nodeMetadata: 'UNSPECIFIED',
             },
           },
           nodeCreationConfig: {
-            nodeCreationMode: 'Test string',
+            nodeCreationMode: 'MODE_UNSPECIFIED',
           },
           nodeIpv4CidrSize: 42,
           nodePoolAutoConfig: {
@@ -952,7 +959,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -971,8 +978,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -980,7 +987,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -1006,8 +1013,10 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             networkTags: {
               tags: ['Test string'],
@@ -1103,7 +1112,7 @@ gapi.load('client', async () => {
                             gcpSecretManagerSecretUri: 'Test string',
                           },
                         ],
-                        capabilities: ['Test string'],
+                        capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                         client: [
                           {
                             cert: {
@@ -1136,7 +1145,7 @@ gapi.load('client', async () => {
                 enabled: true,
               },
               hostMaintenancePolicy: {
-                maintenanceInterval: 'Test string',
+                maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
                 opportunisticMaintenanceStrategy: {
                   maintenanceAvailabilityWindow: 'Test string',
                   minNodesPerPool: 'Test string',
@@ -1145,7 +1154,7 @@ gapi.load('client', async () => {
               },
               loggingConfig: {
                 variantConfig: {
-                  variant: 'Test string',
+                  variant: 'VARIANT_UNSPECIFIED',
                 },
               },
               nodeKubeletConfig: {
@@ -1220,7 +1229,7 @@ gapi.load('client', async () => {
               autoscaling: {
                 autoprovisioned: true,
                 enabled: true,
-                locationPolicy: 'Test string',
+                locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
                 maxNodeCount: 42,
                 minNodeCount: 42,
                 totalMaxNodeCount: 42,
@@ -1232,8 +1241,8 @@ gapi.load('client', async () => {
               },
               conditions: [
                 {
-                  canonicalCode: 'Test string',
-                  code: 'Test string',
+                  canonicalCode: 'OK',
+                  code: 'UNKNOWN',
                   message: 'Test string',
                 },
               ],
@@ -1243,12 +1252,12 @@ gapi.load('client', async () => {
                     acceleratorCount: 'Test string',
                     acceleratorType: 'Test string',
                     gpuDriverInstallationConfig: {
-                      gpuDriverVersion: 'Test string',
+                      gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                       specificVersion: 'Test string',
                     },
                     gpuPartitionSize: 'Test string',
                     gpuSharingConfig: {
-                      gpuSharingStrategy: 'Test string',
+                      gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                       maxSharedClientsPerGpu: 'Test string',
                     },
                     maxTimeSharedClientsPerGpu: 'Test string',
@@ -1256,7 +1265,8 @@ gapi.load('client', async () => {
                 ],
                 advancedMachineFeatures: {
                   enableNestedVirtualization: true,
-                  performanceMonitoringUnit: 'Test string',
+                  performanceMonitoringUnit:
+                    'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
                   threadsPerCore: 'Test string',
                 },
                 bootDisk: {
@@ -1267,7 +1277,8 @@ gapi.load('client', async () => {
                 },
                 bootDiskKmsKey: 'Test string',
                 confidentialNodes: {
-                  confidentialInstanceType: 'Test string',
+                  confidentialInstanceType:
+                    'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
                   enabled: true,
                 },
                 consolidationDelay: 'Test string',
@@ -1292,7 +1303,7 @@ gapi.load('client', async () => {
                               gcpSecretManagerSecretUri: 'Test string',
                             },
                           ],
-                          capabilities: ['Test string'],
+                          capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                           client: [
                             {
                               cert: {
@@ -1323,7 +1334,7 @@ gapi.load('client', async () => {
                 },
                 diskSizeGb: 42,
                 diskType: 'Test string',
-                effectiveCgroupMode: 'Test string',
+                effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
                 enableConfidentialStorage: true,
                 ephemeralStorageConfig: {
                   localSsdCount: 42,
@@ -1341,13 +1352,13 @@ gapi.load('client', async () => {
                   enabled: true,
                 },
                 gpuDirectConfig: {
-                  gpuDirectStrategy: 'Test string',
+                  gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
                 },
                 gvnic: {
                   enabled: true,
                 },
                 hostMaintenancePolicy: {
-                  maintenanceInterval: 'Test string',
+                  maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
                   opportunisticMaintenanceStrategy: {
                     maintenanceAvailabilityWindow: 'Test string',
                     minNodesPerPool: 'Test string',
@@ -1442,7 +1453,7 @@ gapi.load('client', async () => {
                       value: ['Test string'],
                     },
                   ],
-                  cgroupMode: 'Test string',
+                  cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
                   customNodeInit: {
                     initScript: {
                       args: ['Test string'],
@@ -1461,8 +1472,8 @@ gapi.load('client', async () => {
                   },
                   kernelOverrides: {
                     kernelCommandlineOverrides: {
-                      initOnAlloc: 'Test string',
-                      specRstackOverflow: 'Test string',
+                      initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                      specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                     },
                     lruGen: {
                       enabled: true,
@@ -1470,7 +1481,7 @@ gapi.load('client', async () => {
                     },
                   },
                   nodeKernelModuleLoading: {
-                    policy: 'Test string',
+                    policy: 'POLICY_UNSPECIFIED',
                   },
                   nodeVfioConfig: {
                     dmaEntryLimit: 42,
@@ -1496,17 +1507,19 @@ gapi.load('client', async () => {
                     A: 'Test string',
                   },
                   timeZone: 'Test string',
-                  transparentHugepageDefrag: 'Test string',
-                  transparentHugepageEnabled: 'Test string',
+                  transparentHugepageDefrag:
+                    'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+                  transparentHugepageEnabled:
+                    'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
                 },
                 localNvmeSsdBlockConfig: {
                   localSsdCount: 42,
                 },
                 localSsdCount: 42,
-                localSsdEncryptionMode: 'Test string',
+                localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
                 loggingConfig: {
                   variantConfig: {
-                    variant: 'Test string',
+                    variant: 'VARIANT_UNSPECIFIED',
                   },
                 },
                 machineType: 'Test string',
@@ -1523,7 +1536,7 @@ gapi.load('client', async () => {
                 oauthScopes: ['Test string'],
                 preemptible: true,
                 reservationAffinity: {
-                  consumeReservationType: 'Test string',
+                  consumeReservationType: 'UNSPECIFIED',
                   key: 'Test string',
                   values: ['Test string'],
                 },
@@ -1537,12 +1550,12 @@ gapi.load('client', async () => {
                 },
                 sandboxConfig: {
                   sandboxType: 'Test string',
-                  type: 'Test string',
+                  type: 'UNSPECIFIED',
                 },
                 secondaryBootDisks: [
                   {
                     diskImage: 'Test string',
-                    mode: 'Test string',
+                    mode: 'MODE_UNSPECIFIED',
                   },
                 ],
                 secondaryBootDiskUpdateStrategy: {},
@@ -1556,7 +1569,7 @@ gapi.load('client', async () => {
                   nodeAffinities: [
                     {
                       key: 'Test string',
-                      operator: 'Test string',
+                      operator: 'OPERATOR_UNSPECIFIED',
                       values: ['Test string'],
                     },
                   ],
@@ -1565,21 +1578,22 @@ gapi.load('client', async () => {
                 storagePools: ['Test string'],
                 tags: ['Test string'],
                 taintConfig: {
-                  architectureTaintBehavior: 'Test string',
+                  architectureTaintBehavior:
+                    'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
                 },
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
                 ],
                 windowsNodeConfig: {
-                  osVersion: 'Test string',
+                  osVersion: 'OS_VERSION_UNSPECIFIED',
                 },
                 workloadMetadataConfig: {
-                  mode: 'Test string',
-                  nodeMetadata: 'Test string',
+                  mode: 'MODE_UNSPECIFIED',
+                  nodeMetadata: 'UNSPECIFIED',
                 },
               },
               etag: 'Test string',
@@ -1614,7 +1628,7 @@ gapi.load('client', async () => {
                 additionalNodeNetworkConfigs: [
                   {
                     network: 'Test string',
-                    stackType: 'Test string',
+                    stackType: 'STACK_TYPE_UNSPECIFIED',
                     subnetwork: 'Test string',
                   },
                 ],
@@ -1629,15 +1643,15 @@ gapi.load('client', async () => {
                   },
                 ],
                 createPodRange: true,
-                datapathProvider: 'Test string',
+                datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
                 enablePrivateNodes: true,
                 network: 'Test string',
                 networkPerformanceConfig: {
-                  externalIpEgressBandwidthTier: 'Test string',
-                  totalEgressBandwidthTier: 'Test string',
+                  externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+                  totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
                 },
                 networkTierConfig: {
-                  networkTier: 'Test string',
+                  networkTier: 'NETWORK_TIER_UNSPECIFIED',
                 },
                 podCidrOverprovisionConfig: {
                   disable: true,
@@ -1655,14 +1669,14 @@ gapi.load('client', async () => {
               placementPolicy: {
                 policyName: 'Test string',
                 tpuTopology: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               podIpv4CidrSize: 42,
               queuedProvisioning: {
                 enabled: true,
               },
               selfLink: 'Test string',
-              status: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
               statusMessage: 'Test string',
               updateInfo: {
                 blueGreenInfo: {
@@ -1670,7 +1684,7 @@ gapi.load('client', async () => {
                   bluePoolDeletionStartTime: 'Test string',
                   greenInstanceGroupUrls: ['Test string'],
                   greenPoolVersion: 'Test string',
-                  phase: 'Test string',
+                  phase: 'PHASE_UNSPECIFIED',
                 },
               },
               upgradeSettings: {
@@ -1687,7 +1701,7 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -1699,7 +1713,7 @@ gapi.load('client', async () => {
             pubsub: {
               enabled: true,
               filter: {
-                eventType: ['Test string'],
+                eventType: ['EVENT_TYPE_UNSPECIFIED'],
               },
               topic: 'Test string',
             },
@@ -1711,7 +1725,7 @@ gapi.load('client', async () => {
             productName: 'Test string',
           },
           podAutoscaling: {
-            hpaProfile: 'Test string',
+            hpaProfile: 'HPA_PROFILE_UNSPECIFIED',
           },
           podSecurityPolicyConfig: {
             enabled: true,
@@ -1731,16 +1745,17 @@ gapi.load('client', async () => {
           },
           protectConfig: {
             workloadConfig: {
-              auditMode: 'Test string',
+              auditMode: 'MODE_UNSPECIFIED',
             },
-            workloadVulnerabilityMode: 'Test string',
+            workloadVulnerabilityMode:
+              'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED',
           },
           rbacBindingConfig: {
             enableInsecureBindingSystemAuthenticated: true,
             enableInsecureBindingSystemUnauthenticated: true,
           },
           releaseChannel: {
-            channel: 'Test string',
+            channel: 'UNSPECIFIED',
           },
           resourceLabels: {
             A: 'Test string',
@@ -1777,15 +1792,15 @@ gapi.load('client', async () => {
             },
           },
           securityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
           selfLink: 'Test string',
           servicesIpv4Cidr: 'Test string',
           shieldedNodes: {
             enabled: true,
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           statusMessage: 'Test string',
           subnetwork: 'Test string',
           targetNodeVersion: 'Test string',
@@ -1870,7 +1885,7 @@ gapi.load('client', async () => {
           },
           cloudRunConfig: {
             disabled: true,
-            loadBalancerType: 'Test string',
+            loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
           },
           configConnectorConfig: {
             enabled: true,
@@ -1900,7 +1915,7 @@ gapi.load('client', async () => {
             disabled: true,
           },
           istioConfig: {
-            auth: 'Test string',
+            auth: 'AUTH_NONE',
             disabled: true,
           },
           kalmConfig: {
@@ -2020,8 +2035,8 @@ gapi.load('client', async () => {
               A: {
                 endTime: 'Test string',
                 maintenanceExclusionOptions: {
-                  endTimeBehavior: 'Test string',
-                  scope: 'Test string',
+                  endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                  scope: 'NO_UPGRADES',
                 },
                 startTime: 'Test string',
               },
@@ -2046,8 +2061,8 @@ gapi.load('client', async () => {
               window: {
                 endTime: 'Test string',
                 maintenanceExclusionOptions: {
-                  endTimeBehavior: 'Test string',
-                  scope: 'Test string',
+                  endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                  scope: 'NO_UPGRADES',
                 },
                 startTime: 'Test string',
               },
@@ -2065,7 +2080,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'UNKNOWN',
         clusterId: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
@@ -2105,7 +2120,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         networkPolicy: {
           enabled: true,
-          provider: 'Test string',
+          provider: 'PROVIDER_UNSPECIFIED',
         },
         projectId: 'Test string',
         zone: 'Test string',
@@ -2163,7 +2178,7 @@ gapi.load('client', async () => {
             additionalIpRangesConfigs: [
               {
                 podIpv4RangeNames: ['Test string'],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -2174,7 +2189,7 @@ gapi.load('client', async () => {
             },
             cloudRunConfig: {
               disabled: true,
-              loadBalancerType: 'Test string',
+              loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
             },
             configConnectorConfig: {
               enabled: true,
@@ -2204,7 +2219,7 @@ gapi.load('client', async () => {
               disabled: true,
             },
             istioConfig: {
-              auth: 'Test string',
+              auth: 'AUTH_NONE',
               disabled: true,
             },
             kalmConfig: {
@@ -2259,7 +2274,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredAnonymousAuthenticationConfig: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredAuthenticatorGroupsConfig: {
             enabled: true,
@@ -2280,7 +2295,7 @@ gapi.load('client', async () => {
           },
           desiredBinaryAuthorization: {
             enabled: true,
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -2288,7 +2303,7 @@ gapi.load('client', async () => {
             ],
           },
           desiredClusterAutoscaling: {
-            autopilotGeneralProfile: 'Test string',
+            autopilotGeneralProfile: 'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED',
             autoprovisioningLocations: ['Test string'],
             autoprovisioningNodePoolDefaults: {
               bootDiskKmsKey: 'Test string',
@@ -2325,14 +2340,15 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
             },
             autoprovisioningRestrictionConfig: {
               authorizedServiceAccounts: ['Test string'],
-              serviceAccountPermissionCheck: 'Test string',
+              serviceAccountPermissionCheck:
+                'PERMISSION_CHECK_MODE_UNSPECIFIED',
             },
-            autoscalingProfile: 'Test string',
+            autoscalingProfile: 'PROFILE_UNSPECIFIED',
             defaultComputeClassConfig: {
               enabled: true,
             },
@@ -2346,7 +2362,7 @@ gapi.load('client', async () => {
             ],
           },
           desiredClusterTelemetry: {
-            type: 'Test string',
+            type: 'UNSPECIFIED',
           },
           desiredCompliancePostureConfig: {
             complianceStandards: [
@@ -2354,7 +2370,7 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredContainerdConfig: {
             privateRegistryAccessConfig: {
@@ -2377,7 +2393,7 @@ gapi.load('client', async () => {
                         gcpSecretManagerSecretUri: 'Test string',
                       },
                     ],
-                    capabilities: ['Test string'],
+                    capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                     client: [
                       {
                         cert: {
@@ -2407,7 +2423,7 @@ gapi.load('client', async () => {
             },
           },
           desiredControlPlaneEgress: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredControlPlaneEndpointsConfig: {
             dnsEndpointConfig: {
@@ -2440,7 +2456,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredDatabaseEncryption: {
-            currentState: 'Test string',
+            currentState: 'CURRENT_STATE_UNSPECIFIED',
             decryptionKeys: ['Test string'],
             keyName: 'Test string',
             lastOperationErrors: [
@@ -2450,9 +2466,9 @@ gapi.load('client', async () => {
                 timestamp: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'UNKNOWN',
           },
-          desiredDatapathProvider: 'Test string',
+          desiredDatapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
           desiredDefaultEnablePrivateNodes: true,
           desiredDefaultSnatStatus: {
             disabled: true,
@@ -2460,9 +2476,9 @@ gapi.load('client', async () => {
           desiredDisableL4LbFirewallReconciliation: true,
           desiredDnsConfig: {
             additiveVpcScopeDnsDomain: 'Test string',
-            clusterDns: 'Test string',
+            clusterDns: 'PROVIDER_UNSPECIFIED',
             clusterDnsDomain: 'Test string',
-            clusterDnsScope: 'Test string',
+            clusterDnsScope: 'DNS_SCOPE_UNSPECIFIED',
           },
           desiredEmulatedVersion: 'Test string',
           desiredEnableCiliumClusterwideNetworkPolicy: true,
@@ -2470,22 +2486,22 @@ gapi.load('client', async () => {
           desiredEnableMultiNetworking: true,
           desiredEnablePrivateEndpoint: true,
           desiredEnterpriseConfig: {
-            desiredTier: 'Test string',
+            desiredTier: 'CLUSTER_TIER_UNSPECIFIED',
           },
           desiredFleet: {
             membership: 'Test string',
-            membershipType: 'Test string',
+            membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
             preRegistered: true,
             project: 'Test string',
           },
           desiredGatewayApiConfig: {
-            channel: 'Test string',
+            channel: 'CHANNEL_UNSPECIFIED',
           },
           desiredGcfsConfig: {
             enabled: true,
           },
           desiredHostMaintenancePolicy: {
-            maintenanceInterval: 'Test string',
+            maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
             opportunisticMaintenanceStrategy: {
               maintenanceAvailabilityWindow: 'Test string',
               minNodesPerPool: 'Test string',
@@ -2501,7 +2517,8 @@ gapi.load('client', async () => {
           desiredIntraNodeVisibilityConfig: {
             enabled: true,
           },
-          desiredInTransitEncryptionConfig: 'Test string',
+          desiredInTransitEncryptionConfig:
+            'IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED',
           desiredK8sBetaApis: {
             enabledApis: ['Test string'],
           },
@@ -2511,7 +2528,7 @@ gapi.load('client', async () => {
           desiredLocations: ['Test string'],
           desiredLoggingConfig: {
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
           },
           desiredLoggingService: 'Test string',
@@ -2519,7 +2536,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredManagedOpentelemetryConfig: {
-            scope: 'Test string',
+            scope: 'SCOPE_UNSPECIFIED',
           },
           desiredMaster: {
             compatibilityStatus: {
@@ -2546,27 +2563,27 @@ gapi.load('client', async () => {
             advancedDatapathObservabilityConfig: {
               enableMetrics: true,
               enableRelay: true,
-              relayMode: 'Test string',
+              relayMode: 'RELAY_MODE_UNSPECIFIED',
             },
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
             managedPrometheusConfig: {
               autoMonitoringConfig: {
-                scope: 'Test string',
+                scope: 'SCOPE_UNSPECIFIED',
               },
               enabled: true,
             },
           },
           desiredMonitoringService: 'Test string',
           desiredNetworkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
           },
           desiredNetworkTierConfig: {
-            networkTier: 'Test string',
+            networkTier: 'NETWORK_TIER_UNSPECIFIED',
           },
           desiredNodeCreationConfig: {
-            nodeCreationMode: 'Test string',
+            nodeCreationMode: 'MODE_UNSPECIFIED',
           },
           desiredNodeKubeletConfig: {
             allowedUnsafeSysctls: ['Test string'],
@@ -2714,7 +2731,7 @@ gapi.load('client', async () => {
                 value: ['Test string'],
               },
             ],
-            cgroupMode: 'Test string',
+            cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
             customNodeInit: {
               initScript: {
                 args: ['Test string'],
@@ -2733,8 +2750,8 @@ gapi.load('client', async () => {
             },
             kernelOverrides: {
               kernelCommandlineOverrides: {
-                initOnAlloc: 'Test string',
-                specRstackOverflow: 'Test string',
+                initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
               },
               lruGen: {
                 enabled: true,
@@ -2742,7 +2759,7 @@ gapi.load('client', async () => {
               },
             },
             nodeKernelModuleLoading: {
-              policy: 'Test string',
+              policy: 'POLICY_UNSPECIFIED',
             },
             nodeVfioConfig: {
               dmaEntryLimit: 42,
@@ -2768,8 +2785,10 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             timeZone: 'Test string',
-            transparentHugepageDefrag: 'Test string',
-            transparentHugepageEnabled: 'Test string',
+            transparentHugepageDefrag:
+              'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+            transparentHugepageEnabled:
+              'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
           },
           desiredNodePoolAutoConfigNetworkTags: {
             tags: ['Test string'],
@@ -2782,7 +2801,7 @@ gapi.load('client', async () => {
           desiredNodePoolAutoscaling: {
             autoprovisioned: true,
             enabled: true,
-            locationPolicy: 'Test string',
+            locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
             maxNodeCount: 42,
             minNodeCount: 42,
             totalMaxNodeCount: 42,
@@ -2791,7 +2810,7 @@ gapi.load('client', async () => {
           desiredNodePoolId: 'Test string',
           desiredNodePoolLoggingConfig: {
             variantConfig: {
-              variant: 'Test string',
+              variant: 'VARIANT_UNSPECIFIED',
             },
           },
           desiredNodePoolUpgradeConcurrencyConfig: {
@@ -2802,7 +2821,7 @@ gapi.load('client', async () => {
             pubsub: {
               enabled: true,
               filter: {
-                eventType: ['Test string'],
+                eventType: ['EVENT_TYPE_UNSPECIFIED'],
               },
               topic: 'Test string',
             },
@@ -2814,7 +2833,7 @@ gapi.load('client', async () => {
             productName: 'Test string',
           },
           desiredPodAutoscaling: {
-            hpaProfile: 'Test string',
+            hpaProfile: 'HPA_PROFILE_UNSPECIFIED',
           },
           desiredPodSecurityPolicyConfig: {
             enabled: true,
@@ -2831,22 +2850,24 @@ gapi.load('client', async () => {
             privateEndpointSubnetwork: 'Test string',
             publicEndpoint: 'Test string',
           },
-          desiredPrivateIpv6GoogleAccess: 'Test string',
+          desiredPrivateIpv6GoogleAccess:
+            'PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED',
           desiredPrivilegedAdmissionConfig: {
             allowlistPaths: ['Test string'],
           },
           desiredProtectConfig: {
             workloadConfig: {
-              auditMode: 'Test string',
+              auditMode: 'MODE_UNSPECIFIED',
             },
-            workloadVulnerabilityMode: 'Test string',
+            workloadVulnerabilityMode:
+              'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED',
           },
           desiredRbacBindingConfig: {
             enableInsecureBindingSystemAuthenticated: true,
             enableInsecureBindingSystemUnauthenticated: true,
           },
           desiredReleaseChannel: {
-            channel: 'Test string',
+            channel: 'UNSPECIFIED',
           },
           desiredResourceUsageExportConfig: {
             bigqueryDestination: {
@@ -2878,8 +2899,8 @@ gapi.load('client', async () => {
             },
           },
           desiredSecurityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
           desiredServiceExternalIpsConfig: {
             enabled: true,
@@ -2887,7 +2908,7 @@ gapi.load('client', async () => {
           desiredShieldedNodes: {
             enabled: true,
           },
-          desiredStackType: 'Test string',
+          desiredStackType: 'STACK_TYPE_UNSPECIFIED',
           desiredTpuConfig: {
             enabled: true,
             ipv4CidrBlock: 'Test string',
@@ -2923,7 +2944,7 @@ gapi.load('client', async () => {
           },
           etag: 'Test string',
           gkeAutoUpgradeConfig: {
-            patchMode: 'Test string',
+            patchMode: 'PATCH_MODE_UNSPECIFIED',
           },
           privateClusterConfig: {
             enablePrivateEndpoint: true,
@@ -2995,7 +3016,7 @@ gapi.load('client', async () => {
           autoscaling: {
             autoprovisioned: true,
             enabled: true,
-            locationPolicy: 'Test string',
+            locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
             maxNodeCount: 42,
             minNodeCount: 42,
             totalMaxNodeCount: 42,
@@ -3007,8 +3028,8 @@ gapi.load('client', async () => {
           },
           conditions: [
             {
-              canonicalCode: 'Test string',
-              code: 'Test string',
+              canonicalCode: 'OK',
+              code: 'UNKNOWN',
               message: 'Test string',
             },
           ],
@@ -3018,12 +3039,12 @@ gapi.load('client', async () => {
                 acceleratorCount: 'Test string',
                 acceleratorType: 'Test string',
                 gpuDriverInstallationConfig: {
-                  gpuDriverVersion: 'Test string',
+                  gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                   specificVersion: 'Test string',
                 },
                 gpuPartitionSize: 'Test string',
                 gpuSharingConfig: {
-                  gpuSharingStrategy: 'Test string',
+                  gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                   maxSharedClientsPerGpu: 'Test string',
                 },
                 maxTimeSharedClientsPerGpu: 'Test string',
@@ -3031,7 +3052,8 @@ gapi.load('client', async () => {
             ],
             advancedMachineFeatures: {
               enableNestedVirtualization: true,
-              performanceMonitoringUnit: 'Test string',
+              performanceMonitoringUnit:
+                'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
               threadsPerCore: 'Test string',
             },
             bootDisk: {
@@ -3042,7 +3064,8 @@ gapi.load('client', async () => {
             },
             bootDiskKmsKey: 'Test string',
             confidentialNodes: {
-              confidentialInstanceType: 'Test string',
+              confidentialInstanceType:
+                'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
               enabled: true,
             },
             consolidationDelay: 'Test string',
@@ -3067,7 +3090,7 @@ gapi.load('client', async () => {
                           gcpSecretManagerSecretUri: 'Test string',
                         },
                       ],
-                      capabilities: ['Test string'],
+                      capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                       client: [
                         {
                           cert: {
@@ -3098,7 +3121,7 @@ gapi.load('client', async () => {
             },
             diskSizeGb: 42,
             diskType: 'Test string',
-            effectiveCgroupMode: 'Test string',
+            effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
             enableConfidentialStorage: true,
             ephemeralStorageConfig: {
               localSsdCount: 42,
@@ -3116,13 +3139,13 @@ gapi.load('client', async () => {
               enabled: true,
             },
             gpuDirectConfig: {
-              gpuDirectStrategy: 'Test string',
+              gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
             },
             gvnic: {
               enabled: true,
             },
             hostMaintenancePolicy: {
-              maintenanceInterval: 'Test string',
+              maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
               opportunisticMaintenanceStrategy: {
                 maintenanceAvailabilityWindow: 'Test string',
                 minNodesPerPool: 'Test string',
@@ -3217,7 +3240,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -3236,8 +3259,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -3245,7 +3268,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -3271,17 +3294,19 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             localNvmeSsdBlockConfig: {
               localSsdCount: 42,
             },
             localSsdCount: 42,
-            localSsdEncryptionMode: 'Test string',
+            localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
             loggingConfig: {
               variantConfig: {
-                variant: 'Test string',
+                variant: 'VARIANT_UNSPECIFIED',
               },
             },
             machineType: 'Test string',
@@ -3298,7 +3323,7 @@ gapi.load('client', async () => {
             oauthScopes: ['Test string'],
             preemptible: true,
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'UNSPECIFIED',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -3312,12 +3337,12 @@ gapi.load('client', async () => {
             },
             sandboxConfig: {
               sandboxType: 'Test string',
-              type: 'Test string',
+              type: 'UNSPECIFIED',
             },
             secondaryBootDisks: [
               {
                 diskImage: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             ],
             secondaryBootDiskUpdateStrategy: {},
@@ -3331,7 +3356,7 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
@@ -3340,21 +3365,22 @@ gapi.load('client', async () => {
             storagePools: ['Test string'],
             tags: ['Test string'],
             taintConfig: {
-              architectureTaintBehavior: 'Test string',
+              architectureTaintBehavior:
+                'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
             },
             taints: [
               {
-                effect: 'Test string',
+                effect: 'EFFECT_UNSPECIFIED',
                 key: 'Test string',
                 value: 'Test string',
               },
             ],
             windowsNodeConfig: {
-              osVersion: 'Test string',
+              osVersion: 'OS_VERSION_UNSPECIFIED',
             },
             workloadMetadataConfig: {
-              mode: 'Test string',
-              nodeMetadata: 'Test string',
+              mode: 'MODE_UNSPECIFIED',
+              nodeMetadata: 'UNSPECIFIED',
             },
           },
           etag: 'Test string',
@@ -3389,7 +3415,7 @@ gapi.load('client', async () => {
             additionalNodeNetworkConfigs: [
               {
                 network: 'Test string',
-                stackType: 'Test string',
+                stackType: 'STACK_TYPE_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -3404,15 +3430,15 @@ gapi.load('client', async () => {
               },
             ],
             createPodRange: true,
-            datapathProvider: 'Test string',
+            datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
             enablePrivateNodes: true,
             network: 'Test string',
             networkPerformanceConfig: {
-              externalIpEgressBandwidthTier: 'Test string',
-              totalEgressBandwidthTier: 'Test string',
+              externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+              totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
             },
             networkTierConfig: {
-              networkTier: 'Test string',
+              networkTier: 'NETWORK_TIER_UNSPECIFIED',
             },
             podCidrOverprovisionConfig: {
               disable: true,
@@ -3430,14 +3456,14 @@ gapi.load('client', async () => {
           placementPolicy: {
             policyName: 'Test string',
             tpuTopology: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           podIpv4CidrSize: 42,
           queuedProvisioning: {
             enabled: true,
           },
           selfLink: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           statusMessage: 'Test string',
           updateInfo: {
             blueGreenInfo: {
@@ -3445,7 +3471,7 @@ gapi.load('client', async () => {
               bluePoolDeletionStartTime: 'Test string',
               greenInstanceGroupUrls: ['Test string'],
               greenPoolVersion: 'Test string',
-              phase: 'Test string',
+              phase: 'PHASE_UNSPECIFIED',
             },
           },
           upgradeSettings: {
@@ -3462,7 +3488,7 @@ gapi.load('client', async () => {
             },
             maxSurge: 42,
             maxUnavailable: 42,
-            strategy: 'Test string',
+            strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
           },
           version: 'Test string',
         },
@@ -3524,7 +3550,7 @@ gapi.load('client', async () => {
         autoscaling: {
           autoprovisioned: true,
           enabled: true,
-          locationPolicy: 'Test string',
+          locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
           maxNodeCount: 42,
           minNodeCount: 42,
           totalMaxNodeCount: 42,
@@ -3583,12 +3609,12 @@ gapi.load('client', async () => {
             acceleratorCount: 'Test string',
             acceleratorType: 'Test string',
             gpuDriverInstallationConfig: {
-              gpuDriverVersion: 'Test string',
+              gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
               specificVersion: 'Test string',
             },
             gpuPartitionSize: 'Test string',
             gpuSharingConfig: {
-              gpuSharingStrategy: 'Test string',
+              gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
               maxSharedClientsPerGpu: 'Test string',
             },
             maxTimeSharedClientsPerGpu: 'Test string',
@@ -3602,7 +3628,7 @@ gapi.load('client', async () => {
         },
         clusterId: 'Test string',
         confidentialNodes: {
-          confidentialInstanceType: 'Test string',
+          confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
           enabled: true,
         },
         consolidationDelay: 'Test string',
@@ -3627,7 +3653,7 @@ gapi.load('client', async () => {
                       gcpSecretManagerSecretUri: 'Test string',
                     },
                   ],
-                  capabilities: ['Test string'],
+                  capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                   client: [
                     {
                       cert: {
@@ -3761,7 +3787,7 @@ gapi.load('client', async () => {
               value: ['Test string'],
             },
           ],
-          cgroupMode: 'Test string',
+          cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
           customNodeInit: {
             initScript: {
               args: ['Test string'],
@@ -3780,8 +3806,8 @@ gapi.load('client', async () => {
           },
           kernelOverrides: {
             kernelCommandlineOverrides: {
-              initOnAlloc: 'Test string',
-              specRstackOverflow: 'Test string',
+              initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+              specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
             },
             lruGen: {
               enabled: true,
@@ -3789,7 +3815,7 @@ gapi.load('client', async () => {
             },
           },
           nodeKernelModuleLoading: {
-            policy: 'Test string',
+            policy: 'POLICY_UNSPECIFIED',
           },
           nodeVfioConfig: {
             dmaEntryLimit: 42,
@@ -3815,13 +3841,14 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           timeZone: 'Test string',
-          transparentHugepageDefrag: 'Test string',
-          transparentHugepageEnabled: 'Test string',
+          transparentHugepageDefrag: 'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+          transparentHugepageEnabled:
+            'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
         },
         locations: ['Test string'],
         loggingConfig: {
           variantConfig: {
-            variant: 'Test string',
+            variant: 'VARIANT_UNSPECIFIED',
           },
         },
         machineType: 'Test string',
@@ -3834,7 +3861,7 @@ gapi.load('client', async () => {
         },
         maxRunDuration: 'Test string',
         name: 'Test string',
-        nodeConfigUpdateMode: 'Test string',
+        nodeConfigUpdateMode: 'NODE_CONFIG_UPDATE_MODE_UNSPECIFIED',
         nodeDrainConfig: {
           graceTerminationDuration: 'Test string',
           pdbTimeoutDuration: 'Test string',
@@ -3845,7 +3872,7 @@ gapi.load('client', async () => {
           additionalNodeNetworkConfigs: [
             {
               network: 'Test string',
-              stackType: 'Test string',
+              stackType: 'STACK_TYPE_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -3860,15 +3887,15 @@ gapi.load('client', async () => {
             },
           ],
           createPodRange: true,
-          datapathProvider: 'Test string',
+          datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
           enablePrivateNodes: true,
           network: 'Test string',
           networkPerformanceConfig: {
-            externalIpEgressBandwidthTier: 'Test string',
-            totalEgressBandwidthTier: 'Test string',
+            externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+            totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
           },
           networkTierConfig: {
-            networkTier: 'Test string',
+            networkTier: 'NETWORK_TIER_UNSPECIFIED',
           },
           podCidrOverprovisionConfig: {
             disable: true,
@@ -3900,12 +3927,12 @@ gapi.load('client', async () => {
           tags: ['Test string'],
         },
         taintConfig: {
-          architectureTaintBehavior: 'Test string',
+          architectureTaintBehavior: 'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
         },
         taints: {
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
@@ -3925,14 +3952,14 @@ gapi.load('client', async () => {
           },
           maxSurge: 42,
           maxUnavailable: 42,
-          strategy: 'Test string',
+          strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
         },
         windowsNodeConfig: {
-          osVersion: 'Test string',
+          osVersion: 'OS_VERSION_UNSPECIFIED',
         },
         workloadMetadataConfig: {
-          mode: 'Test string',
-          nodeMetadata: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
+          nodeMetadata: 'UNSPECIFIED',
         },
         zone: 'Test string',
       },
@@ -3988,7 +4015,7 @@ gapi.load('client', async () => {
           },
           cloudRunConfig: {
             disabled: true,
-            loadBalancerType: 'Test string',
+            loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
           },
           configConnectorConfig: {
             enabled: true,
@@ -4018,7 +4045,7 @@ gapi.load('client', async () => {
             disabled: true,
           },
           istioConfig: {
-            auth: 'Test string',
+            auth: 'AUTH_NONE',
             disabled: true,
           },
           kalmConfig: {
@@ -4112,7 +4139,7 @@ gapi.load('client', async () => {
             },
             cloudRunConfig: {
               disabled: true,
-              loadBalancerType: 'Test string',
+              loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
             },
             configConnectorConfig: {
               enabled: true,
@@ -4142,7 +4169,7 @@ gapi.load('client', async () => {
               disabled: true,
             },
             istioConfig: {
-              auth: 'Test string',
+              auth: 'AUTH_NONE',
               disabled: true,
             },
             kalmConfig: {
@@ -4195,7 +4222,7 @@ gapi.load('client', async () => {
           },
           alphaClusterFeatureGates: ['Test string'],
           anonymousAuthenticationConfig: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           authenticatorGroupsConfig: {
             enabled: true,
@@ -4209,7 +4236,7 @@ gapi.load('client', async () => {
               noUnsafeWebhooks: true,
             },
             conversionStatus: {
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             enabled: true,
             privilegedAdmissionConfig: {
@@ -4221,7 +4248,7 @@ gapi.load('client', async () => {
             },
           },
           autoscaling: {
-            autopilotGeneralProfile: 'Test string',
+            autopilotGeneralProfile: 'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED',
             autoprovisioningLocations: ['Test string'],
             autoprovisioningNodePoolDefaults: {
               bootDiskKmsKey: 'Test string',
@@ -4258,14 +4285,15 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
             },
             autoprovisioningRestrictionConfig: {
               authorizedServiceAccounts: ['Test string'],
-              serviceAccountPermissionCheck: 'Test string',
+              serviceAccountPermissionCheck:
+                'PERMISSION_CHECK_MODE_UNSPECIFIED',
             },
-            autoscalingProfile: 'Test string',
+            autoscalingProfile: 'PROFILE_UNSPECIFIED',
             defaultComputeClassConfig: {
               enabled: true,
             },
@@ -4280,7 +4308,7 @@ gapi.load('client', async () => {
           },
           binaryAuthorization: {
             enabled: true,
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -4289,7 +4317,7 @@ gapi.load('client', async () => {
           },
           clusterIpv4Cidr: 'Test string',
           clusterTelemetry: {
-            type: 'Test string',
+            type: 'UNSPECIFIED',
           },
           compliancePostureConfig: {
             complianceStandards: [
@@ -4297,21 +4325,21 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           conditions: [
             {
-              canonicalCode: 'Test string',
-              code: 'Test string',
+              canonicalCode: 'OK',
+              code: 'UNKNOWN',
               message: 'Test string',
             },
           ],
           confidentialNodes: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
             enabled: true,
           },
           controlPlaneEgress: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           controlPlaneEndpointsConfig: {
             dnsEndpointConfig: {
@@ -4349,7 +4377,7 @@ gapi.load('client', async () => {
           currentNodeCount: 42,
           currentNodeVersion: 'Test string',
           databaseEncryption: {
-            currentState: 'Test string',
+            currentState: 'CURRENT_STATE_UNSPECIFIED',
             decryptionKeys: ['Test string'],
             keyName: 'Test string',
             lastOperationErrors: [
@@ -4359,7 +4387,7 @@ gapi.load('client', async () => {
                 timestamp: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'UNKNOWN',
           },
           defaultMaxPodsConstraint: {
             maxPodsPerNode: 'Test string',
@@ -4372,19 +4400,19 @@ gapi.load('client', async () => {
           enableTpu: true,
           endpoint: 'Test string',
           enterpriseConfig: {
-            clusterTier: 'Test string',
-            desiredTier: 'Test string',
+            clusterTier: 'CLUSTER_TIER_UNSPECIFIED',
+            desiredTier: 'CLUSTER_TIER_UNSPECIFIED',
           },
           etag: 'Test string',
           expireTime: 'Test string',
           fleet: {
             membership: 'Test string',
-            membershipType: 'Test string',
+            membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
             preRegistered: true,
             project: 'Test string',
           },
           gkeAutoUpgradeConfig: {
-            patchMode: 'Test string',
+            patchMode: 'PATCH_MODE_UNSPECIFIED',
           },
           id: 'Test string',
           identityServiceConfig: {
@@ -4397,7 +4425,7 @@ gapi.load('client', async () => {
             additionalIpRangesConfigs: [
               {
                 podIpv4RangeNames: ['Test string'],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -4419,9 +4447,9 @@ gapi.load('client', async () => {
             clusterSecondaryRangeName: 'Test string',
             createSubnetwork: true,
             defaultPodIpv4RangeUtilization: 42,
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'IPV6_ACCESS_TYPE_UNSPECIFIED',
             networkTierConfig: {
-              networkTier: 'Test string',
+              networkTier: 'NETWORK_TIER_UNSPECIFIED',
             },
             nodeIpv4Cidr: 'Test string',
             nodeIpv4CidrBlock: 'Test string',
@@ -4432,7 +4460,7 @@ gapi.load('client', async () => {
             servicesIpv4CidrBlock: 'Test string',
             servicesIpv6CidrBlock: 'Test string',
             servicesSecondaryRangeName: 'Test string',
-            stackType: 'Test string',
+            stackType: 'STACK_TYPE_UNSPECIFIED',
             subnetIpv6CidrBlock: 'Test string',
             subnetworkName: 'Test string',
             tpuIpv4CidrBlock: 'Test string',
@@ -4447,7 +4475,7 @@ gapi.load('client', async () => {
           locations: ['Test string'],
           loggingConfig: {
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
           },
           loggingService: 'Test string',
@@ -4468,8 +4496,8 @@ gapi.load('client', async () => {
                 A: {
                   endTime: 'Test string',
                   maintenanceExclusionOptions: {
-                    endTimeBehavior: 'Test string',
-                    scope: 'Test string',
+                    endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                    scope: 'NO_UPGRADES',
                   },
                   startTime: 'Test string',
                 },
@@ -4494,8 +4522,8 @@ gapi.load('client', async () => {
                 window: {
                   endTime: 'Test string',
                   maintenanceExclusionOptions: {
-                    endTimeBehavior: 'Test string',
-                    scope: 'Test string',
+                    endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                    scope: 'NO_UPGRADES',
                   },
                   startTime: 'Test string',
                 },
@@ -4506,7 +4534,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           managedOpentelemetryConfig: {
-            scope: 'Test string',
+            scope: 'SCOPE_UNSPECIFIED',
           },
           master: {
             compatibilityStatus: {
@@ -4543,14 +4571,14 @@ gapi.load('client', async () => {
             advancedDatapathObservabilityConfig: {
               enableMetrics: true,
               enableRelay: true,
-              relayMode: 'Test string',
+              relayMode: 'RELAY_MODE_UNSPECIFIED',
             },
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
             managedPrometheusConfig: {
               autoMonitoringConfig: {
-                scope: 'Test string',
+                scope: 'SCOPE_UNSPECIFIED',
               },
               enabled: true,
             },
@@ -4562,9 +4590,9 @@ gapi.load('client', async () => {
             ambientNetworkingConfig: {
               enabled: true,
             },
-            datapathProvider: 'Test string',
+            datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
             dataplaneV2Config: {
-              scalabilityMode: 'Test string',
+              scalabilityMode: 'SCALABILITY_MODE_UNSPECIFIED',
             },
             defaultEnablePrivateNodes: true,
             defaultSnatStatus: {
@@ -4573,9 +4601,9 @@ gapi.load('client', async () => {
             disableL4LbFirewallReconciliation: true,
             dnsConfig: {
               additiveVpcScopeDnsDomain: 'Test string',
-              clusterDns: 'Test string',
+              clusterDns: 'PROVIDER_UNSPECIFIED',
               clusterDnsDomain: 'Test string',
-              clusterDnsScope: 'Test string',
+              clusterDnsScope: 'DNS_SCOPE_UNSPECIFIED',
             },
             enableCiliumClusterwideNetworkPolicy: true,
             enableFqdnNetworkPolicy: true,
@@ -4583,14 +4611,15 @@ gapi.load('client', async () => {
             enableL4ilbSubsetting: true,
             enableMultiNetworking: true,
             gatewayApiConfig: {
-              channel: 'Test string',
+              channel: 'CHANNEL_UNSPECIFIED',
             },
-            inTransitEncryptionConfig: 'Test string',
+            inTransitEncryptionConfig:
+              'IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED',
             network: 'Test string',
             networkPerformanceConfig: {
-              totalEgressBandwidthTier: 'Test string',
+              totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
             },
-            privateIpv6GoogleAccess: 'Test string',
+            privateIpv6GoogleAccess: 'PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED',
             serviceExternalIpsConfig: {
               enabled: true,
             },
@@ -4598,7 +4627,7 @@ gapi.load('client', async () => {
           },
           networkPolicy: {
             enabled: true,
-            provider: 'Test string',
+            provider: 'PROVIDER_UNSPECIFIED',
           },
           nodeConfig: {
             accelerators: [
@@ -4606,12 +4635,12 @@ gapi.load('client', async () => {
                 acceleratorCount: 'Test string',
                 acceleratorType: 'Test string',
                 gpuDriverInstallationConfig: {
-                  gpuDriverVersion: 'Test string',
+                  gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                   specificVersion: 'Test string',
                 },
                 gpuPartitionSize: 'Test string',
                 gpuSharingConfig: {
-                  gpuSharingStrategy: 'Test string',
+                  gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                   maxSharedClientsPerGpu: 'Test string',
                 },
                 maxTimeSharedClientsPerGpu: 'Test string',
@@ -4619,7 +4648,8 @@ gapi.load('client', async () => {
             ],
             advancedMachineFeatures: {
               enableNestedVirtualization: true,
-              performanceMonitoringUnit: 'Test string',
+              performanceMonitoringUnit:
+                'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
               threadsPerCore: 'Test string',
             },
             bootDisk: {
@@ -4630,7 +4660,8 @@ gapi.load('client', async () => {
             },
             bootDiskKmsKey: 'Test string',
             confidentialNodes: {
-              confidentialInstanceType: 'Test string',
+              confidentialInstanceType:
+                'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
               enabled: true,
             },
             consolidationDelay: 'Test string',
@@ -4655,7 +4686,7 @@ gapi.load('client', async () => {
                           gcpSecretManagerSecretUri: 'Test string',
                         },
                       ],
-                      capabilities: ['Test string'],
+                      capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                       client: [
                         {
                           cert: {
@@ -4686,7 +4717,7 @@ gapi.load('client', async () => {
             },
             diskSizeGb: 42,
             diskType: 'Test string',
-            effectiveCgroupMode: 'Test string',
+            effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
             enableConfidentialStorage: true,
             ephemeralStorageConfig: {
               localSsdCount: 42,
@@ -4704,13 +4735,13 @@ gapi.load('client', async () => {
               enabled: true,
             },
             gpuDirectConfig: {
-              gpuDirectStrategy: 'Test string',
+              gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
             },
             gvnic: {
               enabled: true,
             },
             hostMaintenancePolicy: {
-              maintenanceInterval: 'Test string',
+              maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
               opportunisticMaintenanceStrategy: {
                 maintenanceAvailabilityWindow: 'Test string',
                 minNodesPerPool: 'Test string',
@@ -4805,7 +4836,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -4824,8 +4855,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -4833,7 +4864,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -4859,17 +4890,19 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             localNvmeSsdBlockConfig: {
               localSsdCount: 42,
             },
             localSsdCount: 42,
-            localSsdEncryptionMode: 'Test string',
+            localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
             loggingConfig: {
               variantConfig: {
-                variant: 'Test string',
+                variant: 'VARIANT_UNSPECIFIED',
               },
             },
             machineType: 'Test string',
@@ -4886,7 +4919,7 @@ gapi.load('client', async () => {
             oauthScopes: ['Test string'],
             preemptible: true,
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'UNSPECIFIED',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -4900,12 +4933,12 @@ gapi.load('client', async () => {
             },
             sandboxConfig: {
               sandboxType: 'Test string',
-              type: 'Test string',
+              type: 'UNSPECIFIED',
             },
             secondaryBootDisks: [
               {
                 diskImage: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             ],
             secondaryBootDiskUpdateStrategy: {},
@@ -4919,7 +4952,7 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
@@ -4928,25 +4961,26 @@ gapi.load('client', async () => {
             storagePools: ['Test string'],
             tags: ['Test string'],
             taintConfig: {
-              architectureTaintBehavior: 'Test string',
+              architectureTaintBehavior:
+                'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
             },
             taints: [
               {
-                effect: 'Test string',
+                effect: 'EFFECT_UNSPECIFIED',
                 key: 'Test string',
                 value: 'Test string',
               },
             ],
             windowsNodeConfig: {
-              osVersion: 'Test string',
+              osVersion: 'OS_VERSION_UNSPECIFIED',
             },
             workloadMetadataConfig: {
-              mode: 'Test string',
-              nodeMetadata: 'Test string',
+              mode: 'MODE_UNSPECIFIED',
+              nodeMetadata: 'UNSPECIFIED',
             },
           },
           nodeCreationConfig: {
-            nodeCreationMode: 'Test string',
+            nodeCreationMode: 'MODE_UNSPECIFIED',
           },
           nodeIpv4CidrSize: 42,
           nodePoolAutoConfig: {
@@ -4972,7 +5006,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -4991,8 +5025,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -5000,7 +5034,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -5026,8 +5060,10 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             networkTags: {
               tags: ['Test string'],
@@ -5123,7 +5159,7 @@ gapi.load('client', async () => {
                             gcpSecretManagerSecretUri: 'Test string',
                           },
                         ],
-                        capabilities: ['Test string'],
+                        capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                         client: [
                           {
                             cert: {
@@ -5156,7 +5192,7 @@ gapi.load('client', async () => {
                 enabled: true,
               },
               hostMaintenancePolicy: {
-                maintenanceInterval: 'Test string',
+                maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
                 opportunisticMaintenanceStrategy: {
                   maintenanceAvailabilityWindow: 'Test string',
                   minNodesPerPool: 'Test string',
@@ -5165,7 +5201,7 @@ gapi.load('client', async () => {
               },
               loggingConfig: {
                 variantConfig: {
-                  variant: 'Test string',
+                  variant: 'VARIANT_UNSPECIFIED',
                 },
               },
               nodeKubeletConfig: {
@@ -5240,7 +5276,7 @@ gapi.load('client', async () => {
               autoscaling: {
                 autoprovisioned: true,
                 enabled: true,
-                locationPolicy: 'Test string',
+                locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
                 maxNodeCount: 42,
                 minNodeCount: 42,
                 totalMaxNodeCount: 42,
@@ -5252,8 +5288,8 @@ gapi.load('client', async () => {
               },
               conditions: [
                 {
-                  canonicalCode: 'Test string',
-                  code: 'Test string',
+                  canonicalCode: 'OK',
+                  code: 'UNKNOWN',
                   message: 'Test string',
                 },
               ],
@@ -5263,12 +5299,12 @@ gapi.load('client', async () => {
                     acceleratorCount: 'Test string',
                     acceleratorType: 'Test string',
                     gpuDriverInstallationConfig: {
-                      gpuDriverVersion: 'Test string',
+                      gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                       specificVersion: 'Test string',
                     },
                     gpuPartitionSize: 'Test string',
                     gpuSharingConfig: {
-                      gpuSharingStrategy: 'Test string',
+                      gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                       maxSharedClientsPerGpu: 'Test string',
                     },
                     maxTimeSharedClientsPerGpu: 'Test string',
@@ -5276,7 +5312,8 @@ gapi.load('client', async () => {
                 ],
                 advancedMachineFeatures: {
                   enableNestedVirtualization: true,
-                  performanceMonitoringUnit: 'Test string',
+                  performanceMonitoringUnit:
+                    'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
                   threadsPerCore: 'Test string',
                 },
                 bootDisk: {
@@ -5287,7 +5324,8 @@ gapi.load('client', async () => {
                 },
                 bootDiskKmsKey: 'Test string',
                 confidentialNodes: {
-                  confidentialInstanceType: 'Test string',
+                  confidentialInstanceType:
+                    'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
                   enabled: true,
                 },
                 consolidationDelay: 'Test string',
@@ -5312,7 +5350,7 @@ gapi.load('client', async () => {
                               gcpSecretManagerSecretUri: 'Test string',
                             },
                           ],
-                          capabilities: ['Test string'],
+                          capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                           client: [
                             {
                               cert: {
@@ -5343,7 +5381,7 @@ gapi.load('client', async () => {
                 },
                 diskSizeGb: 42,
                 diskType: 'Test string',
-                effectiveCgroupMode: 'Test string',
+                effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
                 enableConfidentialStorage: true,
                 ephemeralStorageConfig: {
                   localSsdCount: 42,
@@ -5361,13 +5399,13 @@ gapi.load('client', async () => {
                   enabled: true,
                 },
                 gpuDirectConfig: {
-                  gpuDirectStrategy: 'Test string',
+                  gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
                 },
                 gvnic: {
                   enabled: true,
                 },
                 hostMaintenancePolicy: {
-                  maintenanceInterval: 'Test string',
+                  maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
                   opportunisticMaintenanceStrategy: {
                     maintenanceAvailabilityWindow: 'Test string',
                     minNodesPerPool: 'Test string',
@@ -5462,7 +5500,7 @@ gapi.load('client', async () => {
                       value: ['Test string'],
                     },
                   ],
-                  cgroupMode: 'Test string',
+                  cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
                   customNodeInit: {
                     initScript: {
                       args: ['Test string'],
@@ -5481,8 +5519,8 @@ gapi.load('client', async () => {
                   },
                   kernelOverrides: {
                     kernelCommandlineOverrides: {
-                      initOnAlloc: 'Test string',
-                      specRstackOverflow: 'Test string',
+                      initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                      specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                     },
                     lruGen: {
                       enabled: true,
@@ -5490,7 +5528,7 @@ gapi.load('client', async () => {
                     },
                   },
                   nodeKernelModuleLoading: {
-                    policy: 'Test string',
+                    policy: 'POLICY_UNSPECIFIED',
                   },
                   nodeVfioConfig: {
                     dmaEntryLimit: 42,
@@ -5516,17 +5554,19 @@ gapi.load('client', async () => {
                     A: 'Test string',
                   },
                   timeZone: 'Test string',
-                  transparentHugepageDefrag: 'Test string',
-                  transparentHugepageEnabled: 'Test string',
+                  transparentHugepageDefrag:
+                    'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+                  transparentHugepageEnabled:
+                    'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
                 },
                 localNvmeSsdBlockConfig: {
                   localSsdCount: 42,
                 },
                 localSsdCount: 42,
-                localSsdEncryptionMode: 'Test string',
+                localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
                 loggingConfig: {
                   variantConfig: {
-                    variant: 'Test string',
+                    variant: 'VARIANT_UNSPECIFIED',
                   },
                 },
                 machineType: 'Test string',
@@ -5543,7 +5583,7 @@ gapi.load('client', async () => {
                 oauthScopes: ['Test string'],
                 preemptible: true,
                 reservationAffinity: {
-                  consumeReservationType: 'Test string',
+                  consumeReservationType: 'UNSPECIFIED',
                   key: 'Test string',
                   values: ['Test string'],
                 },
@@ -5557,12 +5597,12 @@ gapi.load('client', async () => {
                 },
                 sandboxConfig: {
                   sandboxType: 'Test string',
-                  type: 'Test string',
+                  type: 'UNSPECIFIED',
                 },
                 secondaryBootDisks: [
                   {
                     diskImage: 'Test string',
-                    mode: 'Test string',
+                    mode: 'MODE_UNSPECIFIED',
                   },
                 ],
                 secondaryBootDiskUpdateStrategy: {},
@@ -5576,7 +5616,7 @@ gapi.load('client', async () => {
                   nodeAffinities: [
                     {
                       key: 'Test string',
-                      operator: 'Test string',
+                      operator: 'OPERATOR_UNSPECIFIED',
                       values: ['Test string'],
                     },
                   ],
@@ -5585,21 +5625,22 @@ gapi.load('client', async () => {
                 storagePools: ['Test string'],
                 tags: ['Test string'],
                 taintConfig: {
-                  architectureTaintBehavior: 'Test string',
+                  architectureTaintBehavior:
+                    'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
                 },
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
                 ],
                 windowsNodeConfig: {
-                  osVersion: 'Test string',
+                  osVersion: 'OS_VERSION_UNSPECIFIED',
                 },
                 workloadMetadataConfig: {
-                  mode: 'Test string',
-                  nodeMetadata: 'Test string',
+                  mode: 'MODE_UNSPECIFIED',
+                  nodeMetadata: 'UNSPECIFIED',
                 },
               },
               etag: 'Test string',
@@ -5634,7 +5675,7 @@ gapi.load('client', async () => {
                 additionalNodeNetworkConfigs: [
                   {
                     network: 'Test string',
-                    stackType: 'Test string',
+                    stackType: 'STACK_TYPE_UNSPECIFIED',
                     subnetwork: 'Test string',
                   },
                 ],
@@ -5649,15 +5690,15 @@ gapi.load('client', async () => {
                   },
                 ],
                 createPodRange: true,
-                datapathProvider: 'Test string',
+                datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
                 enablePrivateNodes: true,
                 network: 'Test string',
                 networkPerformanceConfig: {
-                  externalIpEgressBandwidthTier: 'Test string',
-                  totalEgressBandwidthTier: 'Test string',
+                  externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+                  totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
                 },
                 networkTierConfig: {
-                  networkTier: 'Test string',
+                  networkTier: 'NETWORK_TIER_UNSPECIFIED',
                 },
                 podCidrOverprovisionConfig: {
                   disable: true,
@@ -5675,14 +5716,14 @@ gapi.load('client', async () => {
               placementPolicy: {
                 policyName: 'Test string',
                 tpuTopology: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               podIpv4CidrSize: 42,
               queuedProvisioning: {
                 enabled: true,
               },
               selfLink: 'Test string',
-              status: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
               statusMessage: 'Test string',
               updateInfo: {
                 blueGreenInfo: {
@@ -5690,7 +5731,7 @@ gapi.load('client', async () => {
                   bluePoolDeletionStartTime: 'Test string',
                   greenInstanceGroupUrls: ['Test string'],
                   greenPoolVersion: 'Test string',
-                  phase: 'Test string',
+                  phase: 'PHASE_UNSPECIFIED',
                 },
               },
               upgradeSettings: {
@@ -5707,7 +5748,7 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -5719,7 +5760,7 @@ gapi.load('client', async () => {
             pubsub: {
               enabled: true,
               filter: {
-                eventType: ['Test string'],
+                eventType: ['EVENT_TYPE_UNSPECIFIED'],
               },
               topic: 'Test string',
             },
@@ -5731,7 +5772,7 @@ gapi.load('client', async () => {
             productName: 'Test string',
           },
           podAutoscaling: {
-            hpaProfile: 'Test string',
+            hpaProfile: 'HPA_PROFILE_UNSPECIFIED',
           },
           podSecurityPolicyConfig: {
             enabled: true,
@@ -5751,16 +5792,17 @@ gapi.load('client', async () => {
           },
           protectConfig: {
             workloadConfig: {
-              auditMode: 'Test string',
+              auditMode: 'MODE_UNSPECIFIED',
             },
-            workloadVulnerabilityMode: 'Test string',
+            workloadVulnerabilityMode:
+              'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED',
           },
           rbacBindingConfig: {
             enableInsecureBindingSystemAuthenticated: true,
             enableInsecureBindingSystemUnauthenticated: true,
           },
           releaseChannel: {
-            channel: 'Test string',
+            channel: 'UNSPECIFIED',
           },
           resourceLabels: {
             A: 'Test string',
@@ -5797,15 +5839,15 @@ gapi.load('client', async () => {
             },
           },
           securityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
           selfLink: 'Test string',
           servicesIpv4Cidr: 'Test string',
           shieldedNodes: {
             enabled: true,
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           statusMessage: 'Test string',
           subnetwork: 'Test string',
           targetNodeVersion: 'Test string',
@@ -5993,8 +6035,8 @@ gapi.load('client', async () => {
               A: {
                 endTime: 'Test string',
                 maintenanceExclusionOptions: {
-                  endTimeBehavior: 'Test string',
-                  scope: 'Test string',
+                  endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                  scope: 'NO_UPGRADES',
                 },
                 startTime: 'Test string',
               },
@@ -6019,8 +6061,8 @@ gapi.load('client', async () => {
               window: {
                 endTime: 'Test string',
                 maintenanceExclusionOptions: {
-                  endTimeBehavior: 'Test string',
-                  scope: 'Test string',
+                  endTimeBehavior: 'END_TIME_BEHAVIOR_UNSPECIFIED',
+                  scope: 'NO_UPGRADES',
                 },
                 startTime: 'Test string',
               },
@@ -6040,7 +6082,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'UNKNOWN',
         clusterId: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
@@ -6069,7 +6111,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         networkPolicy: {
           enabled: true,
-          provider: 'Test string',
+          provider: 'PROVIDER_UNSPECIFIED',
         },
         projectId: 'Test string',
         zone: 'Test string',
@@ -6115,7 +6157,7 @@ gapi.load('client', async () => {
             additionalIpRangesConfigs: [
               {
                 podIpv4RangeNames: ['Test string'],
-                status: 'Test string',
+                status: 'STATUS_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -6126,7 +6168,7 @@ gapi.load('client', async () => {
             },
             cloudRunConfig: {
               disabled: true,
-              loadBalancerType: 'Test string',
+              loadBalancerType: 'LOAD_BALANCER_TYPE_UNSPECIFIED',
             },
             configConnectorConfig: {
               enabled: true,
@@ -6156,7 +6198,7 @@ gapi.load('client', async () => {
               disabled: true,
             },
             istioConfig: {
-              auth: 'Test string',
+              auth: 'AUTH_NONE',
               disabled: true,
             },
             kalmConfig: {
@@ -6211,7 +6253,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredAnonymousAuthenticationConfig: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredAuthenticatorGroupsConfig: {
             enabled: true,
@@ -6232,7 +6274,7 @@ gapi.load('client', async () => {
           },
           desiredBinaryAuthorization: {
             enabled: true,
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -6240,7 +6282,7 @@ gapi.load('client', async () => {
             ],
           },
           desiredClusterAutoscaling: {
-            autopilotGeneralProfile: 'Test string',
+            autopilotGeneralProfile: 'AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED',
             autoprovisioningLocations: ['Test string'],
             autoprovisioningNodePoolDefaults: {
               bootDiskKmsKey: 'Test string',
@@ -6277,14 +6319,15 @@ gapi.load('client', async () => {
                 },
                 maxSurge: 42,
                 maxUnavailable: 42,
-                strategy: 'Test string',
+                strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
               },
             },
             autoprovisioningRestrictionConfig: {
               authorizedServiceAccounts: ['Test string'],
-              serviceAccountPermissionCheck: 'Test string',
+              serviceAccountPermissionCheck:
+                'PERMISSION_CHECK_MODE_UNSPECIFIED',
             },
-            autoscalingProfile: 'Test string',
+            autoscalingProfile: 'PROFILE_UNSPECIFIED',
             defaultComputeClassConfig: {
               enabled: true,
             },
@@ -6298,7 +6341,7 @@ gapi.load('client', async () => {
             ],
           },
           desiredClusterTelemetry: {
-            type: 'Test string',
+            type: 'UNSPECIFIED',
           },
           desiredCompliancePostureConfig: {
             complianceStandards: [
@@ -6306,7 +6349,7 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredContainerdConfig: {
             privateRegistryAccessConfig: {
@@ -6329,7 +6372,7 @@ gapi.load('client', async () => {
                         gcpSecretManagerSecretUri: 'Test string',
                       },
                     ],
-                    capabilities: ['Test string'],
+                    capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                     client: [
                       {
                         cert: {
@@ -6359,7 +6402,7 @@ gapi.load('client', async () => {
             },
           },
           desiredControlPlaneEgress: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           desiredControlPlaneEndpointsConfig: {
             dnsEndpointConfig: {
@@ -6392,7 +6435,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredDatabaseEncryption: {
-            currentState: 'Test string',
+            currentState: 'CURRENT_STATE_UNSPECIFIED',
             decryptionKeys: ['Test string'],
             keyName: 'Test string',
             lastOperationErrors: [
@@ -6402,9 +6445,9 @@ gapi.load('client', async () => {
                 timestamp: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'UNKNOWN',
           },
-          desiredDatapathProvider: 'Test string',
+          desiredDatapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
           desiredDefaultEnablePrivateNodes: true,
           desiredDefaultSnatStatus: {
             disabled: true,
@@ -6412,9 +6455,9 @@ gapi.load('client', async () => {
           desiredDisableL4LbFirewallReconciliation: true,
           desiredDnsConfig: {
             additiveVpcScopeDnsDomain: 'Test string',
-            clusterDns: 'Test string',
+            clusterDns: 'PROVIDER_UNSPECIFIED',
             clusterDnsDomain: 'Test string',
-            clusterDnsScope: 'Test string',
+            clusterDnsScope: 'DNS_SCOPE_UNSPECIFIED',
           },
           desiredEmulatedVersion: 'Test string',
           desiredEnableCiliumClusterwideNetworkPolicy: true,
@@ -6422,22 +6465,22 @@ gapi.load('client', async () => {
           desiredEnableMultiNetworking: true,
           desiredEnablePrivateEndpoint: true,
           desiredEnterpriseConfig: {
-            desiredTier: 'Test string',
+            desiredTier: 'CLUSTER_TIER_UNSPECIFIED',
           },
           desiredFleet: {
             membership: 'Test string',
-            membershipType: 'Test string',
+            membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
             preRegistered: true,
             project: 'Test string',
           },
           desiredGatewayApiConfig: {
-            channel: 'Test string',
+            channel: 'CHANNEL_UNSPECIFIED',
           },
           desiredGcfsConfig: {
             enabled: true,
           },
           desiredHostMaintenancePolicy: {
-            maintenanceInterval: 'Test string',
+            maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
             opportunisticMaintenanceStrategy: {
               maintenanceAvailabilityWindow: 'Test string',
               minNodesPerPool: 'Test string',
@@ -6453,7 +6496,8 @@ gapi.load('client', async () => {
           desiredIntraNodeVisibilityConfig: {
             enabled: true,
           },
-          desiredInTransitEncryptionConfig: 'Test string',
+          desiredInTransitEncryptionConfig:
+            'IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED',
           desiredK8sBetaApis: {
             enabledApis: ['Test string'],
           },
@@ -6463,7 +6507,7 @@ gapi.load('client', async () => {
           desiredLocations: ['Test string'],
           desiredLoggingConfig: {
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
           },
           desiredLoggingService: 'Test string',
@@ -6471,7 +6515,7 @@ gapi.load('client', async () => {
             enabled: true,
           },
           desiredManagedOpentelemetryConfig: {
-            scope: 'Test string',
+            scope: 'SCOPE_UNSPECIFIED',
           },
           desiredMaster: {
             compatibilityStatus: {
@@ -6498,27 +6542,27 @@ gapi.load('client', async () => {
             advancedDatapathObservabilityConfig: {
               enableMetrics: true,
               enableRelay: true,
-              relayMode: 'Test string',
+              relayMode: 'RELAY_MODE_UNSPECIFIED',
             },
             componentConfig: {
-              enableComponents: ['Test string'],
+              enableComponents: ['COMPONENT_UNSPECIFIED'],
             },
             managedPrometheusConfig: {
               autoMonitoringConfig: {
-                scope: 'Test string',
+                scope: 'SCOPE_UNSPECIFIED',
               },
               enabled: true,
             },
           },
           desiredMonitoringService: 'Test string',
           desiredNetworkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
           },
           desiredNetworkTierConfig: {
-            networkTier: 'Test string',
+            networkTier: 'NETWORK_TIER_UNSPECIFIED',
           },
           desiredNodeCreationConfig: {
-            nodeCreationMode: 'Test string',
+            nodeCreationMode: 'MODE_UNSPECIFIED',
           },
           desiredNodeKubeletConfig: {
             allowedUnsafeSysctls: ['Test string'],
@@ -6666,7 +6710,7 @@ gapi.load('client', async () => {
                 value: ['Test string'],
               },
             ],
-            cgroupMode: 'Test string',
+            cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
             customNodeInit: {
               initScript: {
                 args: ['Test string'],
@@ -6685,8 +6729,8 @@ gapi.load('client', async () => {
             },
             kernelOverrides: {
               kernelCommandlineOverrides: {
-                initOnAlloc: 'Test string',
-                specRstackOverflow: 'Test string',
+                initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
               },
               lruGen: {
                 enabled: true,
@@ -6694,7 +6738,7 @@ gapi.load('client', async () => {
               },
             },
             nodeKernelModuleLoading: {
-              policy: 'Test string',
+              policy: 'POLICY_UNSPECIFIED',
             },
             nodeVfioConfig: {
               dmaEntryLimit: 42,
@@ -6720,8 +6764,10 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             timeZone: 'Test string',
-            transparentHugepageDefrag: 'Test string',
-            transparentHugepageEnabled: 'Test string',
+            transparentHugepageDefrag:
+              'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+            transparentHugepageEnabled:
+              'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
           },
           desiredNodePoolAutoConfigNetworkTags: {
             tags: ['Test string'],
@@ -6734,7 +6780,7 @@ gapi.load('client', async () => {
           desiredNodePoolAutoscaling: {
             autoprovisioned: true,
             enabled: true,
-            locationPolicy: 'Test string',
+            locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
             maxNodeCount: 42,
             minNodeCount: 42,
             totalMaxNodeCount: 42,
@@ -6743,7 +6789,7 @@ gapi.load('client', async () => {
           desiredNodePoolId: 'Test string',
           desiredNodePoolLoggingConfig: {
             variantConfig: {
-              variant: 'Test string',
+              variant: 'VARIANT_UNSPECIFIED',
             },
           },
           desiredNodePoolUpgradeConcurrencyConfig: {
@@ -6754,7 +6800,7 @@ gapi.load('client', async () => {
             pubsub: {
               enabled: true,
               filter: {
-                eventType: ['Test string'],
+                eventType: ['EVENT_TYPE_UNSPECIFIED'],
               },
               topic: 'Test string',
             },
@@ -6766,7 +6812,7 @@ gapi.load('client', async () => {
             productName: 'Test string',
           },
           desiredPodAutoscaling: {
-            hpaProfile: 'Test string',
+            hpaProfile: 'HPA_PROFILE_UNSPECIFIED',
           },
           desiredPodSecurityPolicyConfig: {
             enabled: true,
@@ -6783,22 +6829,24 @@ gapi.load('client', async () => {
             privateEndpointSubnetwork: 'Test string',
             publicEndpoint: 'Test string',
           },
-          desiredPrivateIpv6GoogleAccess: 'Test string',
+          desiredPrivateIpv6GoogleAccess:
+            'PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED',
           desiredPrivilegedAdmissionConfig: {
             allowlistPaths: ['Test string'],
           },
           desiredProtectConfig: {
             workloadConfig: {
-              auditMode: 'Test string',
+              auditMode: 'MODE_UNSPECIFIED',
             },
-            workloadVulnerabilityMode: 'Test string',
+            workloadVulnerabilityMode:
+              'WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED',
           },
           desiredRbacBindingConfig: {
             enableInsecureBindingSystemAuthenticated: true,
             enableInsecureBindingSystemUnauthenticated: true,
           },
           desiredReleaseChannel: {
-            channel: 'Test string',
+            channel: 'UNSPECIFIED',
           },
           desiredResourceUsageExportConfig: {
             bigqueryDestination: {
@@ -6830,8 +6878,8 @@ gapi.load('client', async () => {
             },
           },
           desiredSecurityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
           desiredServiceExternalIpsConfig: {
             enabled: true,
@@ -6839,7 +6887,7 @@ gapi.load('client', async () => {
           desiredShieldedNodes: {
             enabled: true,
           },
-          desiredStackType: 'Test string',
+          desiredStackType: 'STACK_TYPE_UNSPECIFIED',
           desiredTpuConfig: {
             enabled: true,
             ipv4CidrBlock: 'Test string',
@@ -6875,7 +6923,7 @@ gapi.load('client', async () => {
           },
           etag: 'Test string',
           gkeAutoUpgradeConfig: {
-            patchMode: 'Test string',
+            patchMode: 'PATCH_MODE_UNSPECIFIED',
           },
           privateClusterConfig: {
             enablePrivateEndpoint: true,
@@ -6925,7 +6973,7 @@ gapi.load('client', async () => {
         autoscaling: {
           autoprovisioned: true,
           enabled: true,
-          locationPolicy: 'Test string',
+          locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
           maxNodeCount: 42,
           minNodeCount: 42,
           totalMaxNodeCount: 42,
@@ -6954,7 +7002,7 @@ gapi.load('client', async () => {
           autoscaling: {
             autoprovisioned: true,
             enabled: true,
-            locationPolicy: 'Test string',
+            locationPolicy: 'LOCATION_POLICY_UNSPECIFIED',
             maxNodeCount: 42,
             minNodeCount: 42,
             totalMaxNodeCount: 42,
@@ -6966,8 +7014,8 @@ gapi.load('client', async () => {
           },
           conditions: [
             {
-              canonicalCode: 'Test string',
-              code: 'Test string',
+              canonicalCode: 'OK',
+              code: 'UNKNOWN',
               message: 'Test string',
             },
           ],
@@ -6977,12 +7025,12 @@ gapi.load('client', async () => {
                 acceleratorCount: 'Test string',
                 acceleratorType: 'Test string',
                 gpuDriverInstallationConfig: {
-                  gpuDriverVersion: 'Test string',
+                  gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
                   specificVersion: 'Test string',
                 },
                 gpuPartitionSize: 'Test string',
                 gpuSharingConfig: {
-                  gpuSharingStrategy: 'Test string',
+                  gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
                   maxSharedClientsPerGpu: 'Test string',
                 },
                 maxTimeSharedClientsPerGpu: 'Test string',
@@ -6990,7 +7038,8 @@ gapi.load('client', async () => {
             ],
             advancedMachineFeatures: {
               enableNestedVirtualization: true,
-              performanceMonitoringUnit: 'Test string',
+              performanceMonitoringUnit:
+                'PERFORMANCE_MONITORING_UNIT_UNSPECIFIED',
               threadsPerCore: 'Test string',
             },
             bootDisk: {
@@ -7001,7 +7050,8 @@ gapi.load('client', async () => {
             },
             bootDiskKmsKey: 'Test string',
             confidentialNodes: {
-              confidentialInstanceType: 'Test string',
+              confidentialInstanceType:
+                'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
               enabled: true,
             },
             consolidationDelay: 'Test string',
@@ -7026,7 +7076,7 @@ gapi.load('client', async () => {
                           gcpSecretManagerSecretUri: 'Test string',
                         },
                       ],
-                      capabilities: ['Test string'],
+                      capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                       client: [
                         {
                           cert: {
@@ -7057,7 +7107,7 @@ gapi.load('client', async () => {
             },
             diskSizeGb: 42,
             diskType: 'Test string',
-            effectiveCgroupMode: 'Test string',
+            effectiveCgroupMode: 'EFFECTIVE_CGROUP_MODE_UNSPECIFIED',
             enableConfidentialStorage: true,
             ephemeralStorageConfig: {
               localSsdCount: 42,
@@ -7075,13 +7125,13 @@ gapi.load('client', async () => {
               enabled: true,
             },
             gpuDirectConfig: {
-              gpuDirectStrategy: 'Test string',
+              gpuDirectStrategy: 'GPU_DIRECT_STRATEGY_UNSPECIFIED',
             },
             gvnic: {
               enabled: true,
             },
             hostMaintenancePolicy: {
-              maintenanceInterval: 'Test string',
+              maintenanceInterval: 'MAINTENANCE_INTERVAL_UNSPECIFIED',
               opportunisticMaintenanceStrategy: {
                 maintenanceAvailabilityWindow: 'Test string',
                 minNodesPerPool: 'Test string',
@@ -7176,7 +7226,7 @@ gapi.load('client', async () => {
                   value: ['Test string'],
                 },
               ],
-              cgroupMode: 'Test string',
+              cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
               customNodeInit: {
                 initScript: {
                   args: ['Test string'],
@@ -7195,8 +7245,8 @@ gapi.load('client', async () => {
               },
               kernelOverrides: {
                 kernelCommandlineOverrides: {
-                  initOnAlloc: 'Test string',
-                  specRstackOverflow: 'Test string',
+                  initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+                  specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
                 },
                 lruGen: {
                   enabled: true,
@@ -7204,7 +7254,7 @@ gapi.load('client', async () => {
                 },
               },
               nodeKernelModuleLoading: {
-                policy: 'Test string',
+                policy: 'POLICY_UNSPECIFIED',
               },
               nodeVfioConfig: {
                 dmaEntryLimit: 42,
@@ -7230,17 +7280,19 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               timeZone: 'Test string',
-              transparentHugepageDefrag: 'Test string',
-              transparentHugepageEnabled: 'Test string',
+              transparentHugepageDefrag:
+                'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+              transparentHugepageEnabled:
+                'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
             },
             localNvmeSsdBlockConfig: {
               localSsdCount: 42,
             },
             localSsdCount: 42,
-            localSsdEncryptionMode: 'Test string',
+            localSsdEncryptionMode: 'LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED',
             loggingConfig: {
               variantConfig: {
-                variant: 'Test string',
+                variant: 'VARIANT_UNSPECIFIED',
               },
             },
             machineType: 'Test string',
@@ -7257,7 +7309,7 @@ gapi.load('client', async () => {
             oauthScopes: ['Test string'],
             preemptible: true,
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'UNSPECIFIED',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -7271,12 +7323,12 @@ gapi.load('client', async () => {
             },
             sandboxConfig: {
               sandboxType: 'Test string',
-              type: 'Test string',
+              type: 'UNSPECIFIED',
             },
             secondaryBootDisks: [
               {
                 diskImage: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             ],
             secondaryBootDiskUpdateStrategy: {},
@@ -7290,7 +7342,7 @@ gapi.load('client', async () => {
               nodeAffinities: [
                 {
                   key: 'Test string',
-                  operator: 'Test string',
+                  operator: 'OPERATOR_UNSPECIFIED',
                   values: ['Test string'],
                 },
               ],
@@ -7299,21 +7351,22 @@ gapi.load('client', async () => {
             storagePools: ['Test string'],
             tags: ['Test string'],
             taintConfig: {
-              architectureTaintBehavior: 'Test string',
+              architectureTaintBehavior:
+                'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
             },
             taints: [
               {
-                effect: 'Test string',
+                effect: 'EFFECT_UNSPECIFIED',
                 key: 'Test string',
                 value: 'Test string',
               },
             ],
             windowsNodeConfig: {
-              osVersion: 'Test string',
+              osVersion: 'OS_VERSION_UNSPECIFIED',
             },
             workloadMetadataConfig: {
-              mode: 'Test string',
-              nodeMetadata: 'Test string',
+              mode: 'MODE_UNSPECIFIED',
+              nodeMetadata: 'UNSPECIFIED',
             },
           },
           etag: 'Test string',
@@ -7348,7 +7401,7 @@ gapi.load('client', async () => {
             additionalNodeNetworkConfigs: [
               {
                 network: 'Test string',
-                stackType: 'Test string',
+                stackType: 'STACK_TYPE_UNSPECIFIED',
                 subnetwork: 'Test string',
               },
             ],
@@ -7363,15 +7416,15 @@ gapi.load('client', async () => {
               },
             ],
             createPodRange: true,
-            datapathProvider: 'Test string',
+            datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
             enablePrivateNodes: true,
             network: 'Test string',
             networkPerformanceConfig: {
-              externalIpEgressBandwidthTier: 'Test string',
-              totalEgressBandwidthTier: 'Test string',
+              externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+              totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
             },
             networkTierConfig: {
-              networkTier: 'Test string',
+              networkTier: 'NETWORK_TIER_UNSPECIFIED',
             },
             podCidrOverprovisionConfig: {
               disable: true,
@@ -7389,14 +7442,14 @@ gapi.load('client', async () => {
           placementPolicy: {
             policyName: 'Test string',
             tpuTopology: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           podIpv4CidrSize: 42,
           queuedProvisioning: {
             enabled: true,
           },
           selfLink: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           statusMessage: 'Test string',
           updateInfo: {
             blueGreenInfo: {
@@ -7404,7 +7457,7 @@ gapi.load('client', async () => {
               bluePoolDeletionStartTime: 'Test string',
               greenInstanceGroupUrls: ['Test string'],
               greenPoolVersion: 'Test string',
-              phase: 'Test string',
+              phase: 'PHASE_UNSPECIFIED',
             },
           },
           upgradeSettings: {
@@ -7421,7 +7474,7 @@ gapi.load('client', async () => {
             },
             maxSurge: 42,
             maxUnavailable: 42,
-            strategy: 'Test string',
+            strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
           },
           version: 'Test string',
         },
@@ -7532,12 +7585,12 @@ gapi.load('client', async () => {
             acceleratorCount: 'Test string',
             acceleratorType: 'Test string',
             gpuDriverInstallationConfig: {
-              gpuDriverVersion: 'Test string',
+              gpuDriverVersion: 'GPU_DRIVER_VERSION_UNSPECIFIED',
               specificVersion: 'Test string',
             },
             gpuPartitionSize: 'Test string',
             gpuSharingConfig: {
-              gpuSharingStrategy: 'Test string',
+              gpuSharingStrategy: 'GPU_SHARING_STRATEGY_UNSPECIFIED',
               maxSharedClientsPerGpu: 'Test string',
             },
             maxTimeSharedClientsPerGpu: 'Test string',
@@ -7551,7 +7604,7 @@ gapi.load('client', async () => {
         },
         clusterId: 'Test string',
         confidentialNodes: {
-          confidentialInstanceType: 'Test string',
+          confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
           enabled: true,
         },
         consolidationDelay: 'Test string',
@@ -7576,7 +7629,7 @@ gapi.load('client', async () => {
                       gcpSecretManagerSecretUri: 'Test string',
                     },
                   ],
-                  capabilities: ['Test string'],
+                  capabilities: ['HOST_CAPABILITY_UNSPECIFIED'],
                   client: [
                     {
                       cert: {
@@ -7710,7 +7763,7 @@ gapi.load('client', async () => {
               value: ['Test string'],
             },
           ],
-          cgroupMode: 'Test string',
+          cgroupMode: 'CGROUP_MODE_UNSPECIFIED',
           customNodeInit: {
             initScript: {
               args: ['Test string'],
@@ -7729,8 +7782,8 @@ gapi.load('client', async () => {
           },
           kernelOverrides: {
             kernelCommandlineOverrides: {
-              initOnAlloc: 'Test string',
-              specRstackOverflow: 'Test string',
+              initOnAlloc: 'INIT_ON_ALLOC_UNSPECIFIED',
+              specRstackOverflow: 'SPEC_RSTACK_OVERFLOW_UNSPECIFIED',
             },
             lruGen: {
               enabled: true,
@@ -7738,7 +7791,7 @@ gapi.load('client', async () => {
             },
           },
           nodeKernelModuleLoading: {
-            policy: 'Test string',
+            policy: 'POLICY_UNSPECIFIED',
           },
           nodeVfioConfig: {
             dmaEntryLimit: 42,
@@ -7764,13 +7817,14 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           timeZone: 'Test string',
-          transparentHugepageDefrag: 'Test string',
-          transparentHugepageEnabled: 'Test string',
+          transparentHugepageDefrag: 'TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED',
+          transparentHugepageEnabled:
+            'TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED',
         },
         locations: ['Test string'],
         loggingConfig: {
           variantConfig: {
-            variant: 'Test string',
+            variant: 'VARIANT_UNSPECIFIED',
           },
         },
         machineType: 'Test string',
@@ -7783,7 +7837,7 @@ gapi.load('client', async () => {
         },
         maxRunDuration: 'Test string',
         name: 'Test string',
-        nodeConfigUpdateMode: 'Test string',
+        nodeConfigUpdateMode: 'NODE_CONFIG_UPDATE_MODE_UNSPECIFIED',
         nodeDrainConfig: {
           graceTerminationDuration: 'Test string',
           pdbTimeoutDuration: 'Test string',
@@ -7794,7 +7848,7 @@ gapi.load('client', async () => {
           additionalNodeNetworkConfigs: [
             {
               network: 'Test string',
-              stackType: 'Test string',
+              stackType: 'STACK_TYPE_UNSPECIFIED',
               subnetwork: 'Test string',
             },
           ],
@@ -7809,15 +7863,15 @@ gapi.load('client', async () => {
             },
           ],
           createPodRange: true,
-          datapathProvider: 'Test string',
+          datapathProvider: 'DATAPATH_PROVIDER_UNSPECIFIED',
           enablePrivateNodes: true,
           network: 'Test string',
           networkPerformanceConfig: {
-            externalIpEgressBandwidthTier: 'Test string',
-            totalEgressBandwidthTier: 'Test string',
+            externalIpEgressBandwidthTier: 'TIER_UNSPECIFIED',
+            totalEgressBandwidthTier: 'TIER_UNSPECIFIED',
           },
           networkTierConfig: {
-            networkTier: 'Test string',
+            networkTier: 'NETWORK_TIER_UNSPECIFIED',
           },
           podCidrOverprovisionConfig: {
             disable: true,
@@ -7849,12 +7903,12 @@ gapi.load('client', async () => {
           tags: ['Test string'],
         },
         taintConfig: {
-          architectureTaintBehavior: 'Test string',
+          architectureTaintBehavior: 'ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED',
         },
         taints: {
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
@@ -7874,14 +7928,14 @@ gapi.load('client', async () => {
           },
           maxSurge: 42,
           maxUnavailable: 42,
-          strategy: 'Test string',
+          strategy: 'NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED',
         },
         windowsNodeConfig: {
-          osVersion: 'Test string',
+          osVersion: 'OS_VERSION_UNSPECIFIED',
         },
         workloadMetadataConfig: {
-          mode: 'Test string',
-          nodeMetadata: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
+          nodeMetadata: 'UNSPECIFIED',
         },
         zone: 'Test string',
       },

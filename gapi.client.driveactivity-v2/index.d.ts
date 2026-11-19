@@ -97,12 +97,13 @@ declare namespace gapi.client {
       /** The human-readable title of the label that changed. */
       title?: string;
       /** The types of changes made to the Label on the Target. */
-      types?:
+      types?: (
         | 'TYPE_UNSPECIFIED'
         | 'LABEL_ADDED'
         | 'LABEL_REMOVED'
         | 'LABEL_FIELD_VALUE_CHANGED'
-        | 'LABEL_APPLIED_BY_ITEM_CREATE'[];
+        | 'LABEL_APPLIED_BY_ITEM_CREATE'
+      )[];
     }
     interface Assignment {
       /** The user to whom the comment was assigned. */
@@ -500,7 +501,8 @@ declare namespace gapi.client {
       /** User values. */
       values?: SingleUser[];
     }
-    interface ActivityResource {
+
+    const activity: {
       /** Query past activity in Google Drive. */
       query(request: {
         /** V1 error format. */
@@ -555,8 +557,6 @@ declare namespace gapi.client {
         },
         body: QueryDriveActivityRequest,
       ): Request<QueryDriveActivityResponse>;
-    }
-
-    const activity: ActivityResource;
+    };
   }
 }

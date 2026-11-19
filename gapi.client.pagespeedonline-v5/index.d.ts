@@ -373,7 +373,8 @@ declare namespace gapi.client {
       /** We use this field to store certain percentile value for this metric. For v4, this field contains pc50. For v5, this field contains pc90. */
       percentile?: number;
     }
-    interface PagespeedapiResource {
+
+    const pagespeedapi: {
       /** Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information. */
       runpagespeed(request?: {
         /** V1 error format. */
@@ -429,8 +430,6 @@ declare namespace gapi.client {
         /** Campaign source for analytics. */
         utm_source?: string;
       }): Request<PagespeedApiPagespeedResponseV5>;
-    }
-
-    const pagespeedapi: PagespeedapiResource;
+    };
   }
 }

@@ -107,12 +107,12 @@ gapi.load('client', async () => {
       },
       {
         deliveryConfig: {
-          deliveryRequirement: 'Test string',
+          deliveryRequirement: 'DELIVERY_REQUIREMENT_UNSPECIFIED',
         },
         exportConfig: {
-          currentState: 'Test string',
+          currentState: 'STATE_UNSPECIFIED',
           deadLetterTopic: 'Test string',
-          desiredState: 'Test string',
+          desiredState: 'STATE_UNSPECIFIED',
           pubsubConfig: {
             topic: 'Test string',
           },
@@ -143,12 +143,12 @@ gapi.load('client', async () => {
       },
       {
         deliveryConfig: {
-          deliveryRequirement: 'Test string',
+          deliveryRequirement: 'DELIVERY_REQUIREMENT_UNSPECIFIED',
         },
         exportConfig: {
-          currentState: 'Test string',
+          currentState: 'STATE_UNSPECIFIED',
           deadLetterTopic: 'Test string',
-          desiredState: 'Test string',
+          desiredState: 'STATE_UNSPECIFIED',
           pubsubConfig: {
             topic: 'Test string',
           },
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        namedTarget: 'Test string',
+        namedTarget: 'NAMED_TARGET_UNSPECIFIED',
         timeTarget: {
           eventTime: 'Test string',
           publishTime: 'Test string',

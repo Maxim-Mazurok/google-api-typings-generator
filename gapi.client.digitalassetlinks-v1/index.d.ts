@@ -77,7 +77,7 @@ declare namespace gapi.client {
       /** Human-readable message containing information intended to help end users understand, reproduce and debug the result. The message will be in English and we are currently not planning to offer any translations. Please note that no guarantees are made about the contents or format of this string. Any aspect of it may be subject to change without notice. You should not attempt to programmatically parse this data. For programmatic access, use the error_code field below. */
       debugString?: string;
       /** Error codes that describe the result of the Check operation. NOTE: Error codes may be populated even when `linked` is true. The error codes do not necessarily imply that the request failed, but rather, specify any errors encountered in the statements file(s) which may or may not impact whether the server determines the requested source and target to be linked. */
-      errorCode?:
+      errorCode?: (
         | 'ERROR_CODE_UNSPECIFIED'
         | 'ERROR_CODE_INVALID_QUERY'
         | 'ERROR_CODE_FETCH_ERROR'
@@ -88,7 +88,8 @@ declare namespace gapi.client {
         | 'ERROR_CODE_WRONG_CONTENT_TYPE'
         | 'ERROR_CODE_MALFORMED_CONTENT'
         | 'ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE'
-        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'[];
+        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'
+      )[];
       /** Set to true if the assets specified in the request are linked by the relation specified in the request. */
       linked?: boolean;
       /** From serving time, how much longer the response should be considered valid barring further updates. REQUIRED */
@@ -100,7 +101,7 @@ declare namespace gapi.client {
       /** Human-readable message containing information intended to help end users understand, reproduce and debug the result. The message will be in English and we are currently not planning to offer any translations. Please note that no guarantees are made about the contents or format of this string. Any aspect of it may be subject to change without notice. You should not attempt to programmatically parse this data. For programmatic access, use the error_code field below. */
       debugString?: string;
       /** Error codes that describe the result of the List operation. */
-      errorCode?:
+      errorCode?: (
         | 'ERROR_CODE_UNSPECIFIED'
         | 'ERROR_CODE_INVALID_QUERY'
         | 'ERROR_CODE_FETCH_ERROR'
@@ -111,7 +112,8 @@ declare namespace gapi.client {
         | 'ERROR_CODE_WRONG_CONTENT_TYPE'
         | 'ERROR_CODE_MALFORMED_CONTENT'
         | 'ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE'
-        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'[];
+        | 'ERROR_CODE_FETCH_BUDGET_EXHAUSTED'
+      )[];
       /** From serving time, how much longer the response should be considered valid barring further updates. REQUIRED */
       maxAge?: string;
       /** A list of all the matching statements that have been found. */
@@ -139,7 +141,8 @@ declare namespace gapi.client {
       /** Web assets are identified by a URL that contains only the scheme, hostname and port parts. The format is http[s]://[:] Hostnames must be fully qualified: they must end in a single period ("`.`"). Only the schemes "http" and "https" are currently allowed. Port numbers are given as a decimal number, and they must be omitted if the standard port numbers are used: 80 for http and 443 for https. We call this limited URL the "site". All URLs that share the same scheme, hostname and port are considered to be a part of the site and thus belong to the web asset. Example: the asset with the site `https://www.google.com` contains all these URLs: * `https://www.google.com/` * `https://www.google.com:443/` * `https://www.google.com/foo` * `https://www.google.com/foo?bar` * `https://www.google.com/foo#bar` * `https://user@password:www.google.com/` But it does not contain these URLs: * `http://www.google.com/` (wrong scheme) * `https://google.com/` (hostname does not match) * `https://www.google.com:444/` (port does not match) REQUIRED */
       site?: string;
     }
-    interface AssetlinksResource {
+
+    const assetlinks: {
       /** Send a bundle of statement checks in a single RPC to minimize latency and service load. Statements need not be all for the same source and/or target. We recommend using this method when you need to check more than one statement in a short period of time. */
       bulkCheck(request: {
         /** V1 error format. */
@@ -235,8 +238,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CheckResponse>;
-    }
-    interface StatementsResource {
+    };
+
+    const statements: {
       /** Retrieves a list of all statements from a given source that match the specified target and statement string. The API guarantees that all statements with secure source assets, such as HTTPS websites or Android apps, have been made in a secure way by the owner of those assets, as described in the [Digital Asset Links technical design specification](https://github.com/google/digitalassetlinks/blob/master/well-known/details.md). Specifically, you should consider that for insecure websites (that is, where the URL starts with `http://` instead of `https://`), this guarantee cannot be made. The `List` command is most useful in cases where the API client wants to know all the ways in which two assets are related, or enumerate all the relationships from a particular source asset. Example: a feature that helps users navigate to related items. When a mobile app is running on a device, the feature would make it easy to navigate to the corresponding web site or Google+ profile. */
       list(request?: {
         /** V1 error format. */
@@ -272,10 +276,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListResponse>;
-    }
-
-    const assetlinks: AssetlinksResource;
-
-    const statements: StatementsResource;
+    };
   }
 }

@@ -80,17 +80,17 @@ gapi.load('client', async () => {
           acceleratorConfigs: [
             {
               coreCount: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
           ],
           bootDisk: {
-            diskEncryption: 'Test string',
+            diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
             diskSizeGb: 'Test string',
-            diskType: 'Test string',
+            diskType: 'DISK_TYPE_UNSPECIFIED',
             kmsKey: 'Test string',
           },
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
           },
           containerImage: {
             repository: 'Test string',
@@ -98,9 +98,9 @@ gapi.load('client', async () => {
           },
           dataDisks: [
             {
-              diskEncryption: 'Test string',
+              diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
               diskSizeGb: 'Test string',
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               kmsKey: 'Test string',
               resourcePolicies: ['Test string'],
             },
@@ -126,12 +126,12 @@ gapi.load('client', async () => {
               ],
               internalIp: 'Test string',
               network: 'Test string',
-              nicType: 'Test string',
+              nicType: 'NIC_TYPE_UNSPECIFIED',
               subnet: 'Test string',
             },
           ],
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'RESERVATION_UNSPECIFIED',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
         healthInfo: {
           A: 'Test string',
         },
-        healthState: 'Test string',
+        healthState: 'HEALTH_STATE_UNSPECIFIED',
         id: 'Test string',
         instanceOwners: ['Test string'],
         labels: {
@@ -171,17 +171,17 @@ gapi.load('client', async () => {
         proxyUri: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         thirdPartyProxyUrl: 'Test string',
         updateTime: 'Test string',
         upgradeHistory: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             containerImage: 'Test string',
             createTime: 'Test string',
             framework: 'Test string',
             snapshot: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             targetVersion: 'Test string',
             version: 'Test string',
             vmImage: 'Test string',
@@ -258,17 +258,17 @@ gapi.load('client', async () => {
           acceleratorConfigs: [
             {
               coreCount: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
           ],
           bootDisk: {
-            diskEncryption: 'Test string',
+            diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
             diskSizeGb: 'Test string',
-            diskType: 'Test string',
+            diskType: 'DISK_TYPE_UNSPECIFIED',
             kmsKey: 'Test string',
           },
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED',
           },
           containerImage: {
             repository: 'Test string',
@@ -276,9 +276,9 @@ gapi.load('client', async () => {
           },
           dataDisks: [
             {
-              diskEncryption: 'Test string',
+              diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
               diskSizeGb: 'Test string',
-              diskType: 'Test string',
+              diskType: 'DISK_TYPE_UNSPECIFIED',
               kmsKey: 'Test string',
               resourcePolicies: ['Test string'],
             },
@@ -304,12 +304,12 @@ gapi.load('client', async () => {
               ],
               internalIp: 'Test string',
               network: 'Test string',
-              nicType: 'Test string',
+              nicType: 'NIC_TYPE_UNSPECIFIED',
               subnet: 'Test string',
             },
           ],
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'RESERVATION_UNSPECIFIED',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -339,7 +339,7 @@ gapi.load('client', async () => {
         healthInfo: {
           A: 'Test string',
         },
-        healthState: 'Test string',
+        healthState: 'HEALTH_STATE_UNSPECIFIED',
         id: 'Test string',
         instanceOwners: ['Test string'],
         labels: {
@@ -349,17 +349,17 @@ gapi.load('client', async () => {
         proxyUri: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         thirdPartyProxyUrl: 'Test string',
         updateTime: 'Test string',
         upgradeHistory: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             containerImage: 'Test string',
             createTime: 'Test string',
             framework: 'Test string',
             snapshot: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             targetVersion: 'Test string',
             version: 'Test string',
             vmImage: 'Test string',
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           reportTime: 'Test string',
-          type: 'Test string',
+          type: 'EVENT_TYPE_UNSPECIFIED',
         },
         vmId: 'Test string',
       },
@@ -397,15 +397,15 @@ gapi.load('client', async () => {
       },
       {
         bootDisk: {
-          diskEncryption: 'Test string',
+          diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
           diskSizeGb: 'Test string',
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           kmsKey: 'Test string',
         },
         dataDisk: {
-          diskEncryption: 'Test string',
+          diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
           diskSizeGb: 'Test string',
-          diskType: 'Test string',
+          diskType: 'DISK_TYPE_UNSPECIFIED',
           kmsKey: 'Test string',
           resourcePolicies: ['Test string'],
         },

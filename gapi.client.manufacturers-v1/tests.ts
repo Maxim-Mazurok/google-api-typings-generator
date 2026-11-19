@@ -79,7 +79,7 @@ gapi.load('client', async () => {
             destination: 'Test string',
             disapprovedCountries: ['Test string'],
             pendingCountries: ['Test string'],
-            status: 'Test string',
+            status: 'UNKNOWN',
           },
         ],
         issues: [
@@ -88,8 +88,8 @@ gapi.load('client', async () => {
             attribute: 'Test string',
             description: 'Test string',
             destination: 'Test string',
-            resolution: 'Test string',
-            severity: 'Test string',
+            resolution: 'RESOLUTION_UNSPECIFIED',
+            severity: 'SEVERITY_UNSPECIFIED',
             timestamp: 'Test string',
             title: 'Test string',
             type: 'Test string',
@@ -109,13 +109,13 @@ gapi.load('client', async () => {
     });
     /** Gets the product from a Manufacturer Center account, including product issues. A recently updated product takes around 15 minutes to process. Changes are only visible after it has been processed. While some issues may be available once the product has been processed, other issues may take days to appear. */
     await gapi.client.manufacturers.accounts.products.get({
-      include: 'Test string',
+      include: 'UNKNOWN',
       name: 'Test string',
       parent: 'Test string',
     });
     /** Lists all the products in a Manufacturer Center account. */
     await gapi.client.manufacturers.accounts.products.list({
-      include: 'Test string',
+      include: 'UNKNOWN',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
@@ -130,8 +130,8 @@ gapi.load('client', async () => {
         additionalImageLink: [
           {
             imageUrl: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         ageGroup: 'Test string',
@@ -167,8 +167,8 @@ gapi.load('client', async () => {
             headline: 'Test string',
             image: {
               imageUrl: 'Test string',
-              status: 'Test string',
-              type: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
+              type: 'TYPE_UNSPECIFIED',
             },
             text: 'Test string',
           },
@@ -190,8 +190,8 @@ gapi.load('client', async () => {
         gtin: ['Test string'],
         imageLink: {
           imageUrl: 'Test string',
-          status: 'Test string',
-          type: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
+          type: 'TYPE_UNSPECIFIED',
         },
         includedDestination: ['Test string'],
         intendedCountry: ['Test string'],

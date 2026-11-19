@@ -47,9 +47,9 @@ gapi.load('client', async () => {
               month: 42,
               year: 42,
             },
-            range: 'Test string',
+            range: 'RANGE_UNSPECIFIED',
           },
-          format: 'Test string',
+          format: 'FORMAT_UNSPECIFIED',
           sendNotification: true,
           shareEmailAddress: ['Test string'],
           title: 'Test string',
@@ -66,7 +66,7 @@ gapi.load('client', async () => {
           options: {
             includeOnlyTargetedUserLists: true,
           },
-          type: 'Test string',
+          type: 'REPORT_TYPE_UNSPECIFIED',
         },
         queryId: 'Test string',
         schedule: {
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
             month: 42,
             year: 42,
           },
-          frequency: 'Test string',
+          frequency: 'FREQUENCY_UNSPECIFIED',
           nextRunTimezoneCode: 'Test string',
           startDate: {
             day: 42,
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
             month: 42,
             year: 42,
           },
-          range: 'Test string',
+          range: 'RANGE_UNSPECIFIED',
         },
       },
     );

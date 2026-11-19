@@ -33,23 +33,23 @@ gapi.load('client', async () => {
   async function run() {
     /** Locates the building whose centroid is closest to a query point. Returns an error with code `NOT_FOUND` if there are no buildings within approximately 50m of the query point. */
     await gapi.client.solar.buildingInsights.findClosest({
-      additionalInsights: 'Test string',
+      additionalInsights: 'ADDITIONAL_INSIGHTS_UNSPECIFIED',
       exactQualityRequired: true,
-      experiments: 'Test string',
+      experiments: 'EXPERIMENT_UNSPECIFIED',
       'location.latitude': 42,
       'location.longitude': 42,
-      requiredQuality: 'Test string',
+      requiredQuality: 'IMAGERY_QUALITY_UNSPECIFIED',
     });
     /** Gets solar information for a region surrounding a location. Returns an error with code `NOT_FOUND` if the location is outside the coverage area. */
     await gapi.client.solar.dataLayers.get({
       exactQualityRequired: true,
-      experiments: 'Test string',
+      experiments: 'EXPERIMENT_UNSPECIFIED',
       'location.latitude': 42,
       'location.longitude': 42,
       pixelSizeMeters: 42,
       radiusMeters: 42,
-      requiredQuality: 'Test string',
-      view: 'Test string',
+      requiredQuality: 'IMAGERY_QUALITY_UNSPECIFIED',
+      view: 'DATA_LAYER_VIEW_UNSPECIFIED',
     });
     /** Returns an image by its ID. */
     await gapi.client.solar.geoTiff.get({

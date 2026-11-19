@@ -58,7 +58,7 @@ gapi.load('client', async () => {
               ],
               cohortsRange: {
                 endOffset: 42,
-                granularity: 'Test string',
+                granularity: 'GRANULARITY_UNSPECIFIED',
                 startOffset: 42,
               },
             },
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
                       values: ['Test string'],
                     },
                     numericFilter: {
-                      operation: 'Test string',
+                      operation: 'OPERATION_UNSPECIFIED',
                       value: {
                         doubleValue: 42,
                         int64Value: 'Test string',
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
                     },
                     stringFilter: {
                       caseSensitive: true,
-                      matchType: 'Test string',
+                      matchType: 'MATCH_TYPE_UNSPECIFIED',
                       value: 'Test string',
                     },
                   },
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -222,14 +222,14 @@ gapi.load('client', async () => {
               {
                 fieldNames: ['Test string'],
                 limit: 'Test string',
-                metricAggregations: ['Test string'],
+                metricAggregations: ['METRIC_AGGREGATION_UNSPECIFIED'],
                 offset: 'Test string',
                 orderBys: [
                   {
                     desc: true,
                     dimension: {
                       dimensionName: 'Test string',
-                      orderType: 'Test string',
+                      orderType: 'ORDER_TYPE_UNSPECIFIED',
                     },
                     metric: {
                       metricName: 'Test string',
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
               ],
               cohortsRange: {
                 endOffset: 42,
-                granularity: 'Test string',
+                granularity: 'GRANULARITY_UNSPECIFIED',
                 startOffset: 42,
               },
             },
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
                       values: ['Test string'],
                     },
                     numericFilter: {
-                      operation: 'Test string',
+                      operation: 'OPERATION_UNSPECIFIED',
                       value: {
                         doubleValue: 42,
                         int64Value: 'Test string',
@@ -315,7 +315,7 @@ gapi.load('client', async () => {
                     },
                     stringFilter: {
                       caseSensitive: true,
-                      matchType: 'Test string',
+                      matchType: 'MATCH_TYPE_UNSPECIFIED',
                       value: 'Test string',
                     },
                   },
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -365,7 +365,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
             ],
             keepEmptyRows: true,
             limit: 'Test string',
-            metricAggregations: ['Test string'],
+            metricAggregations: ['METRIC_AGGREGATION_UNSPECIFIED'],
             metricFilter: {
               andGroup: {
                 expressions: undefined,
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -424,7 +424,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
                 desc: true,
                 dimension: {
                   dimensionName: 'Test string',
-                  orderType: 'Test string',
+                  orderType: 'ORDER_TYPE_UNSPECIFIED',
                 },
                 metric: {
                   metricName: 'Test string',
@@ -474,7 +474,7 @@ gapi.load('client', async () => {
         property: 'Test string',
       },
       {
-        compatibilityFilter: 'Test string',
+        compatibilityFilter: 'COMPATIBILITY_UNSPECIFIED',
         dimensionFilter: {
           andGroup: {
             expressions: undefined,
@@ -497,7 +497,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -606,7 +606,7 @@ gapi.load('client', async () => {
           ],
           cohortsRange: {
             endOffset: 42,
-            granularity: 'Test string',
+            granularity: 'GRANULARITY_UNSPECIFIED',
             startOffset: 42,
           },
         },
@@ -635,7 +635,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -643,7 +643,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -685,7 +685,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -742,7 +742,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -750,7 +750,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -770,14 +770,14 @@ gapi.load('client', async () => {
           {
             fieldNames: ['Test string'],
             limit: 'Test string',
-            metricAggregations: ['Test string'],
+            metricAggregations: ['METRIC_AGGREGATION_UNSPECIFIED'],
             offset: 'Test string',
             orderBys: [
               {
                 desc: true,
                 dimension: {
                   dimensionName: 'Test string',
-                  orderType: 'Test string',
+                  orderType: 'ORDER_TYPE_UNSPECIFIED',
                 },
                 metric: {
                   metricName: 'Test string',
@@ -827,7 +827,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -835,7 +835,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -862,7 +862,7 @@ gapi.load('client', async () => {
           },
         ],
         limit: 'Test string',
-        metricAggregations: ['Test string'],
+        metricAggregations: ['METRIC_AGGREGATION_UNSPECIFIED'],
         metricFilter: {
           andGroup: {
             expressions: undefined,
@@ -885,7 +885,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -893,7 +893,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -921,7 +921,7 @@ gapi.load('client', async () => {
             desc: true,
             dimension: {
               dimensionName: 'Test string',
-              orderType: 'Test string',
+              orderType: 'ORDER_TYPE_UNSPECIFIED',
             },
             metric: {
               metricName: 'Test string',
@@ -963,7 +963,7 @@ gapi.load('client', async () => {
           ],
           cohortsRange: {
             endOffset: 42,
-            granularity: 'Test string',
+            granularity: 'GRANULARITY_UNSPECIFIED',
             startOffset: 42,
           },
         },
@@ -992,7 +992,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 numericFilter: {
-                  operation: 'Test string',
+                  operation: 'OPERATION_UNSPECIFIED',
                   value: {
                     doubleValue: 42,
                     int64Value: 'Test string',
@@ -1000,7 +1000,7 @@ gapi.load('client', async () => {
                 },
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -1042,7 +1042,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -1050,7 +1050,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -1078,7 +1078,7 @@ gapi.load('client', async () => {
         ],
         keepEmptyRows: true,
         limit: 'Test string',
-        metricAggregations: ['Test string'],
+        metricAggregations: ['METRIC_AGGREGATION_UNSPECIFIED'],
         metricFilter: {
           andGroup: {
             expressions: undefined,
@@ -1101,7 +1101,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -1109,7 +1109,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -1131,7 +1131,7 @@ gapi.load('client', async () => {
             desc: true,
             dimension: {
               dimensionName: 'Test string',
-              orderType: 'Test string',
+              orderType: 'ORDER_TYPE_UNSPECIFIED',
             },
             metric: {
               metricName: 'Test string',
@@ -1170,7 +1170,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         percentageCompleted: 42,
         rowCount: 42,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets configuration metadata about a specific audience export. This method can be used to understand an audience export after it has been created. See [Creating an Audience Export](https://developers.google.com/analytics/devguides/reporting/data/v1/audience-list-basics) for an introduction to Audience Exports with examples. Audience Export APIs have some methods at alpha and other methods at beta stability. The intention is to advance methods to beta stability after some feedback and adoption. To give your feedback on this API, complete the [Google Analytics Audience Export API Feedback](https://forms.gle/EeA5u5LW6PEggtCEA) form. */

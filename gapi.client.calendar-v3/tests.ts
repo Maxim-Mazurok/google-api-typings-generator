@@ -214,7 +214,7 @@ gapi.load('client', async () => {
     /** Returns the calendars on the user's calendar list. */
     await gapi.client.calendar.calendarList.list({
       maxResults: 42,
-      minAccessRole: 'Test string',
+      minAccessRole: 'freeBusyReader',
       pageToken: 'Test string',
       showDeleted: true,
       showHidden: true,
@@ -313,7 +313,7 @@ gapi.load('client', async () => {
     await gapi.client.calendar.calendarList.watch(
       {
         maxResults: 42,
-        minAccessRole: 'Test string',
+        minAccessRole: 'freeBusyReader',
         pageToken: 'Test string',
         showDeleted: true,
         showHidden: true,
@@ -502,7 +502,7 @@ gapi.load('client', async () => {
       calendarId: 'Test string',
       eventId: 'Test string',
       sendNotifications: true,
-      sendUpdates: 'Test string',
+      sendUpdates: 'all',
     });
     /** Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter. */
     await gapi.client.calendar.events.get({
@@ -716,7 +716,7 @@ gapi.load('client', async () => {
         eventLabelVersion: 42,
         maxAttendees: 42,
         sendNotifications: true,
-        sendUpdates: 'Test string',
+        sendUpdates: 'all',
         supportsAttachments: true,
       },
       {
@@ -922,11 +922,11 @@ gapi.load('client', async () => {
     await gapi.client.calendar.events.list({
       alwaysIncludeEmail: true,
       calendarId: 'Test string',
-      eventTypes: 'Test string',
+      eventTypes: 'birthday',
       iCalUID: 'Test string',
       maxAttendees: 42,
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'startTime',
       pageToken: 'Test string',
       privateExtendedProperty: 'Test string',
       q: 'Test string',
@@ -946,7 +946,7 @@ gapi.load('client', async () => {
       destination: 'Test string',
       eventId: 'Test string',
       sendNotifications: true,
-      sendUpdates: 'Test string',
+      sendUpdates: 'all',
     });
     /** Updates an event. This method supports patch semantics. */
     await gapi.client.calendar.events.patch(
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         eventLabelVersion: 42,
         maxAttendees: 42,
         sendNotifications: true,
-        sendUpdates: 'Test string',
+        sendUpdates: 'all',
         supportsAttachments: true,
       },
       {
@@ -1150,7 +1150,7 @@ gapi.load('client', async () => {
     await gapi.client.calendar.events.quickAdd({
       calendarId: 'Test string',
       sendNotifications: true,
-      sendUpdates: 'Test string',
+      sendUpdates: 'all',
       text: 'Test string',
     });
     /** Updates an event. */
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
         eventLabelVersion: 42,
         maxAttendees: 42,
         sendNotifications: true,
-        sendUpdates: 'Test string',
+        sendUpdates: 'all',
         supportsAttachments: true,
       },
       {
@@ -1356,11 +1356,11 @@ gapi.load('client', async () => {
       {
         alwaysIncludeEmail: true,
         calendarId: 'Test string',
-        eventTypes: 'Test string',
+        eventTypes: 'birthday',
         iCalUID: 'Test string',
         maxAttendees: 42,
         maxResults: 42,
-        orderBy: 'Test string',
+        orderBy: 'startTime',
         pageToken: 'Test string',
         privateExtendedProperty: 'Test string',
         q: 'Test string',

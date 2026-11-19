@@ -937,7 +937,8 @@ declare namespace gapi.client {
        */
       permissions?: string[];
     }
-    interface AnywhereCachesResource {
+
+    const anywhereCaches: {
       /** Disables an Anywhere Cache instance. */
       disable(request?: {
         /** Data format for the response. */
@@ -1128,8 +1129,9 @@ declare namespace gapi.client {
         },
         body: AnywhereCache,
       ): Request<GoogleLongrunningOperation>;
-    }
-    interface BucketAccessControlsResource {
+    };
+
+    const bucketAccessControls: {
       /** Permanently deletes the ACL entry for the specified entity on the specified bucket. */
       delete(request?: {
         /** Data format for the response. */
@@ -1361,8 +1363,9 @@ declare namespace gapi.client {
         },
         body: BucketAccessControl,
       ): Request<BucketAccessControl>;
-    }
-    interface BucketsResource {
+    };
+
+    const buckets: {
       /** Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket. */
       delete(request?: {
         /** Data format for the response. */
@@ -1951,8 +1954,9 @@ declare namespace gapi.client {
         },
         body: Bucket,
       ): Request<Bucket>;
-    }
-    interface DefaultObjectAccessControlsResource {
+    };
+
+    const defaultObjectAccessControls: {
       /** Permanently deletes the default object ACL entry for the specified entity on the specified bucket. */
       delete(request?: {
         /** Data format for the response. */
@@ -2188,8 +2192,9 @@ declare namespace gapi.client {
         },
         body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
-    }
-    interface FoldersResource {
+    };
+
+    const folders: {
       /** Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled. */
       delete(request?: {
         /** Data format for the response. */
@@ -2383,8 +2388,9 @@ declare namespace gapi.client {
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<GoogleLongrunningOperation>;
-    }
-    interface ManagedFoldersResource {
+    };
+
+    const managedFolders: {
       /** Permanently deletes a managed folder. */
       delete(request?: {
         /** Allows the deletion of a managed folder even if it is not empty. A managed folder is empty if there are no objects or managed folders that it applies to. Callers must have storage.managedFolders.setIamPolicy permission. */
@@ -2680,8 +2686,9 @@ declare namespace gapi.client {
         },
         body: ManagedFolder,
       ): Request<ManagedFolder>;
-    }
-    interface NotificationsResource {
+    };
+
+    const notifications: {
       /** Permanently deletes a notification subscription. */
       delete(request?: {
         /** Data format for the response. */
@@ -2805,8 +2812,9 @@ declare namespace gapi.client {
         /** The project to be billed for this request. Required for Requester Pays buckets. */
         userProject?: string;
       }): Request<Notifications>;
-    }
-    interface ObjectAccessControlsResource {
+    };
+
+    const objectAccessControls: {
       /** Permanently deletes the ACL entry for the specified entity on the specified object. */
       delete(request?: {
         /** Data format for the response. */
@@ -3074,8 +3082,9 @@ declare namespace gapi.client {
         },
         body: ObjectAccessControl,
       ): Request<ObjectAccessControl>;
-    }
-    interface ObjectsResource {
+    };
+
+    const objects: {
       /** Initiates a long-running bulk restore operation on the specified bucket. */
       bulkRestore(request: {
         /** Data format for the response. */
@@ -4132,8 +4141,9 @@ declare namespace gapi.client {
         /** The project to be billed for this request. Required for Requester Pays buckets. */
         userProject?: string;
       }): Request<ObjectFullContext>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Starts asynchronous advancement of the relocate bucket operation in the case of required write downtime, to allow it to lock the bucket at the source location, and proceed with the bucket location swap. The server makes a best effort to advance the relocate bucket operation, but success is not guaranteed. */
       advanceRelocateBucket(request: {
         /** Data format for the response. */
@@ -4257,143 +4267,118 @@ declare namespace gapi.client {
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<GoogleLongrunningListOperationsResponse>;
-    }
-    interface HmacKeysResource {
-      /** Creates a new HMAC key for the specified service account. */
-      create(request?: {
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID owning the service account. */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** Email address of the service account. */
-        serviceAccountEmail: string;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-      }): Request<HmacKey>;
-      /** Deletes an HMAC key. */
-      delete(request?: {
-        /** Name of the HMAC key to be deleted. */
-        accessId: string;
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID owning the requested key */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-      }): Request<void>;
-      /** Retrieves an HMAC key's metadata */
-      get(request?: {
-        /** Name of the HMAC key. */
-        accessId: string;
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID owning the service account of the requested key. */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-      }): Request<HmacKeyMetadata>;
-      /** Retrieves a list of HMAC keys matching the criteria. */
-      list(request?: {
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of items to return in a single page of responses. The service uses this parameter or 250 items, whichever is smaller. The max number of items per page will also be limited by the number of distinct service accounts in the response. If the number of service accounts in a single response is too high, the page will truncated and a next page token will be returned. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** A previously-returned page token representing part of the larger set of results to view. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Name of the project in which to look for HMAC keys. */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** If present, only keys for the given service account are returned. */
-        serviceAccountEmail?: string;
-        /** Whether or not to show keys in the DELETED state. */
-        showDeletedKeys?: boolean;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-      }): Request<HmacKeysMetadata>;
-      /** Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states. */
-      update(request: {
-        /** Name of the HMAC key being updated. */
-        accessId: string;
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID owning the service account of the updated key. */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-        /** Request body */
-        resource: HmacKeyMetadata;
-      }): Request<HmacKeyMetadata>;
-      update(
-        request: {
+    };
+
+    const projects: {
+      hmacKeys: {
+        /** Creates a new HMAC key for the specified service account. */
+        create(request?: {
+          /** Data format for the response. */
+          alt?: 'json' | 'media';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID owning the service account. */
+          projectId: string;
+          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+          quotaUser?: string;
+          /** Email address of the service account. */
+          serviceAccountEmail: string;
+          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+          uploadType?: string;
+          /** Deprecated. Please use quotaUser instead. */
+          userIp?: string;
+          /** The project to be billed for this request. */
+          userProject?: string;
+        }): Request<HmacKey>;
+        /** Deletes an HMAC key. */
+        delete(request?: {
+          /** Name of the HMAC key to be deleted. */
+          accessId: string;
+          /** Data format for the response. */
+          alt?: 'json' | 'media';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID owning the requested key */
+          projectId: string;
+          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+          uploadType?: string;
+          /** Deprecated. Please use quotaUser instead. */
+          userIp?: string;
+          /** The project to be billed for this request. */
+          userProject?: string;
+        }): Request<void>;
+        /** Retrieves an HMAC key's metadata */
+        get(request?: {
+          /** Name of the HMAC key. */
+          accessId: string;
+          /** Data format for the response. */
+          alt?: 'json' | 'media';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID owning the service account of the requested key. */
+          projectId: string;
+          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+          uploadType?: string;
+          /** Deprecated. Please use quotaUser instead. */
+          userIp?: string;
+          /** The project to be billed for this request. */
+          userProject?: string;
+        }): Request<HmacKeyMetadata>;
+        /** Retrieves a list of HMAC keys matching the criteria. */
+        list(request?: {
+          /** Data format for the response. */
+          alt?: 'json' | 'media';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of items to return in a single page of responses. The service uses this parameter or 250 items, whichever is smaller. The max number of items per page will also be limited by the number of distinct service accounts in the response. If the number of service accounts in a single response is too high, the page will truncated and a next page token will be returned. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** A previously-returned page token representing part of the larger set of results to view. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Name of the project in which to look for HMAC keys. */
+          projectId: string;
+          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+          quotaUser?: string;
+          /** If present, only keys for the given service account are returned. */
+          serviceAccountEmail?: string;
+          /** Whether or not to show keys in the DELETED state. */
+          showDeletedKeys?: boolean;
+          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+          uploadType?: string;
+          /** Deprecated. Please use quotaUser instead. */
+          userIp?: string;
+          /** The project to be billed for this request. */
+          userProject?: string;
+        }): Request<HmacKeysMetadata>;
+        /** Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states. */
+        update(request: {
           /** Name of the HMAC key being updated. */
           accessId: string;
           /** Data format for the response. */
@@ -4416,40 +4401,65 @@ declare namespace gapi.client {
           userIp?: string;
           /** The project to be billed for this request. */
           userProject?: string;
-        },
-        body: HmacKeyMetadata,
-      ): Request<HmacKeyMetadata>;
-    }
-    interface ServiceAccountResource {
-      /** Get the email address of this project's Google Cloud Storage service account. */
-      get(request?: {
-        /** Data format for the response. */
-        alt?: 'json' | 'media';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID */
-        projectId: string;
-        /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
-        uploadType?: string;
-        /** Deprecated. Please use quotaUser instead. */
-        userIp?: string;
-        /** The project to be billed for this request. */
-        userProject?: string;
-      }): Request<ServiceAccount>;
-    }
-    interface ProjectsResource {
-      hmacKeys: HmacKeysResource;
-      serviceAccount: ServiceAccountResource;
-    }
-    interface RapidCachesResource {
+          /** Request body */
+          resource: HmacKeyMetadata;
+        }): Request<HmacKeyMetadata>;
+        update(
+          request: {
+            /** Name of the HMAC key being updated. */
+            accessId: string;
+            /** Data format for the response. */
+            alt?: 'json' | 'media';
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Project ID owning the service account of the updated key. */
+            projectId: string;
+            /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+            uploadType?: string;
+            /** Deprecated. Please use quotaUser instead. */
+            userIp?: string;
+            /** The project to be billed for this request. */
+            userProject?: string;
+          },
+          body: HmacKeyMetadata,
+        ): Request<HmacKeyMetadata>;
+      };
+      serviceAccount: {
+        /** Get the email address of this project's Google Cloud Storage service account. */
+        get(request?: {
+          /** Data format for the response. */
+          alt?: 'json' | 'media';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID */
+          projectId: string;
+          /** An opaque string that represents a user for quota purposes. Must not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "media", "multipart", "resumable"). */
+          uploadType?: string;
+          /** Deprecated. Please use quotaUser instead. */
+          userIp?: string;
+          /** The project to be billed for this request. */
+          userProject?: string;
+        }): Request<ServiceAccount>;
+      };
+    };
+
+    const rapidCaches: {
       /** Disables a Rapid Cache instance. */
       disable(request?: {
         /** Data format for the response. */
@@ -4617,30 +4627,6 @@ declare namespace gapi.client {
         },
         body: RapidCache,
       ): Request<GoogleLongrunningOperation>;
-    }
-
-    const anywhereCaches: AnywhereCachesResource;
-
-    const bucketAccessControls: BucketAccessControlsResource;
-
-    const buckets: BucketsResource;
-
-    const defaultObjectAccessControls: DefaultObjectAccessControlsResource;
-
-    const folders: FoldersResource;
-
-    const managedFolders: ManagedFoldersResource;
-
-    const notifications: NotificationsResource;
-
-    const objectAccessControls: ObjectAccessControlsResource;
-
-    const objects: ObjectsResource;
-
-    const operations: OperationsResource;
-
-    const projects: ProjectsResource;
-
-    const rapidCaches: RapidCachesResource;
+    };
   }
 }

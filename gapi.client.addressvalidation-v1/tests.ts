@@ -37,7 +37,7 @@ gapi.load('client', async () => {
     await gapi.client.addressvalidation.v1.provideValidationFeedback(
       {},
       {
-        conclusion: 'Test string',
+        conclusion: 'VALIDATION_CONCLUSION_UNSPECIFIED',
         responseId: 'Test string',
       },
     );

@@ -91,7 +91,7 @@ declare namespace gapi.client {
       /** Non-seasonal order. */
       nonSeasonalOrder?: ArimaOrder[];
       /** Seasonal periods. Repeated because multiple periods are supported for one time series. */
-      seasonalPeriods?:
+      seasonalPeriods?: (
         | 'SEASONAL_PERIOD_TYPE_UNSPECIFIED'
         | 'NO_SEASONALITY'
         | 'DAILY'
@@ -99,7 +99,8 @@ declare namespace gapi.client {
         | 'MONTHLY'
         | 'QUARTERLY'
         | 'YEARLY'
-        | 'HOURLY'[];
+        | 'HOURLY'
+      )[];
       /** Id to differentiate different time series for the large-scale case. */
       timeSeriesId?: string[];
     }
@@ -119,7 +120,7 @@ declare namespace gapi.client {
       /** Non-seasonal order. */
       nonSeasonalOrder?: ArimaOrder;
       /** Seasonal periods. Repeated because multiple periods are supported for one time series. */
-      seasonalPeriods?:
+      seasonalPeriods?: (
         | 'SEASONAL_PERIOD_TYPE_UNSPECIFIED'
         | 'NO_SEASONALITY'
         | 'DAILY'
@@ -127,7 +128,8 @@ declare namespace gapi.client {
         | 'MONTHLY'
         | 'QUARTERLY'
         | 'YEARLY'
-        | 'HOURLY'[];
+        | 'HOURLY'
+      )[];
       /** The time_series_id value for this time series. It will be one of the unique values from the time_series_id_column specified during ARIMA model training. Only present when time_series_id_column training option was used. */
       timeSeriesId?: string;
       /** The tuple of time_series_ids identifying this time series. It will be one of the unique tuples of values present in the time_series_id_columns specified during ARIMA model training. Only present when time_series_id_columns training option was used and the order of values here are same as the order of time_series_id_columns. */
@@ -145,7 +147,7 @@ declare namespace gapi.client {
       /** This message is repeated because there are multiple arima models fitted in auto-arima. For non-auto-arima model, its size is one. */
       arimaModelInfo?: ArimaModelInfo[];
       /** Seasonal periods. Repeated because multiple periods are supported for one time series. */
-      seasonalPeriods?:
+      seasonalPeriods?: (
         | 'SEASONAL_PERIOD_TYPE_UNSPECIFIED'
         | 'NO_SEASONALITY'
         | 'DAILY'
@@ -153,7 +155,8 @@ declare namespace gapi.client {
         | 'MONTHLY'
         | 'QUARTERLY'
         | 'YEARLY'
-        | 'HOURLY'[];
+        | 'HOURLY'
+      )[];
     }
     interface ArimaSingleModelForecastingMetrics {
       /** Arima fitting metrics. */
@@ -169,7 +172,7 @@ declare namespace gapi.client {
       /** Non-seasonal order. */
       nonSeasonalOrder?: ArimaOrder;
       /** Seasonal periods. Repeated because multiple periods are supported for one time series. */
-      seasonalPeriods?:
+      seasonalPeriods?: (
         | 'SEASONAL_PERIOD_TYPE_UNSPECIFIED'
         | 'NO_SEASONALITY'
         | 'DAILY'
@@ -177,7 +180,8 @@ declare namespace gapi.client {
         | 'MONTHLY'
         | 'QUARTERLY'
         | 'YEARLY'
-        | 'HOURLY'[];
+        | 'HOURLY'
+      )[];
       /** The time_series_id value for this time series. It will be one of the unique values from the time_series_id_column specified during ARIMA model training. Only present when time_series_id_column training option was used. */
       timeSeriesId?: string;
       /** The tuple of time_series_ids identifying this time series. It will be one of the unique tuples of values present in the time_series_id_columns specified during ARIMA model training. Only present when time_series_id_columns training option was used and the order of values here are same as the order of time_series_id_columns. */
@@ -588,7 +592,7 @@ declare namespace gapi.client {
       /** The dataset this entry applies to */
       dataset?: DatasetReference;
       /** Which resources in the dataset this entry applies to. Currently, only views are supported, but additional target types may be added in the future. */
-      targetTypes?: 'TARGET_TYPE_UNSPECIFIED' | 'VIEWS' | 'ROUTINES'[];
+      targetTypes?: ('TARGET_TYPE_UNSPECIFIED' | 'VIEWS' | 'ROUTINES')[];
     }
     interface DatasetList {
       /** An array of the dataset resources in the project. Each resource contains basic information. For full information about a particular dataset resource, use the Datasets: get method. This property is omitted when there are no datasets in the project. */
@@ -860,11 +864,9 @@ declare namespace gapi.client {
       /** Optional. Format used to parse DATETIME values. Supports C-style and SQL-style values. */
       datetimeFormat?: string;
       /** Defines the list of possible SQL data types to which the source decimal values are converted. This list and the precision and the scale parameters of the decimal field determine the target type. In the order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified list and if it supports the precision and the scale. STRING supports all precision and scale values. If none of the listed types supports the precision and the scale, the type supporting the widest range in the specified list is picked, and if a value exceeds the supported range when reading the data, an error will be thrown. Example: Suppose the value of this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value exceeds supported range). This field cannot contain duplicate types. The order of the types in this field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for the other file formats. */
-      decimalTargetTypes?:
-        | 'DECIMAL_TARGET_TYPE_UNSPECIFIED'
-        | 'NUMERIC'
-        | 'BIGNUMERIC'
-        | 'STRING'[];
+      decimalTargetTypes?: (
+        'DECIMAL_TARGET_TYPE_UNSPECIFIED' | 'NUMERIC' | 'BIGNUMERIC' | 'STRING'
+      )[];
       /** Optional. Specifies how source URIs are interpreted for constructing the file set to load. By default source URIs are expanded against the underlying storage. Other options include specifying manifest files. Only applicable to object storage systems. */
       fileSetSpecType?:
         | 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH'
@@ -1385,11 +1387,9 @@ declare namespace gapi.client {
       /** Optional. Date format used for parsing DATETIME values. */
       datetimeFormat?: string;
       /** Defines the list of possible SQL data types to which the source decimal values are converted. This list and the precision and the scale parameters of the decimal field determine the target type. In the order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified list and if it supports the precision and the scale. STRING supports all precision and scale values. If none of the listed types supports the precision and the scale, the type supporting the widest range in the specified list is picked, and if a value exceeds the supported range when reading the data, an error will be thrown. Example: Suppose the value of this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value exceeds supported range). This field cannot contain duplicate types. The order of the types in this field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for the other file formats. */
-      decimalTargetTypes?:
-        | 'DECIMAL_TARGET_TYPE_UNSPECIFIED'
-        | 'NUMERIC'
-        | 'BIGNUMERIC'
-        | 'STRING'[];
+      decimalTargetTypes?: (
+        'DECIMAL_TARGET_TYPE_UNSPECIFIED' | 'NUMERIC' | 'BIGNUMERIC' | 'STRING'
+      )[];
       /** Custom encryption configuration (e.g., Cloud KMS keys) */
       destinationEncryptionConfiguration?: EncryptionConfiguration;
       /** [Required] The destination table to load the data into. */
@@ -3337,7 +3337,7 @@ declare namespace gapi.client {
         | 'VN'
         | 'ZA';
       /** A list of geographical regions that are used for time series modeling. */
-      holidayRegions?:
+      holidayRegions?: (
         | 'HOLIDAY_REGION_UNSPECIFIED'
         | 'GLOBAL'
         | 'NA'
@@ -3406,11 +3406,12 @@ declare namespace gapi.client {
         | 'US'
         | 'VE'
         | 'VN'
-        | 'ZA'[];
+        | 'ZA'
+      )[];
       /** The number of periods ahead that need to be forecasted. */
       horizon?: string;
       /** The target evaluation metrics to optimize the hyperparameters for. */
-      hparamTuningObjectives?:
+      hparamTuningObjectives?: (
         | 'HPARAM_TUNING_OBJECTIVE_UNSPECIFIED'
         | 'MEAN_ABSOLUTE_ERROR'
         | 'MEAN_SQUARED_ERROR'
@@ -3427,7 +3428,8 @@ declare namespace gapi.client {
         | 'DAVIES_BOULDIN_INDEX'
         | 'MEAN_AVERAGE_PRECISION'
         | 'NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN'
-        | 'AVERAGE_RANK'[];
+        | 'AVERAGE_RANK'
+      )[];
       /** The id of a Hugging Face model. For example, `google/gemma-2-2b-it`. */
       huggingFaceModelId?: string;
       /** Include drift when fitting an ARIMA model. */
@@ -3643,7 +3645,8 @@ declare namespace gapi.client {
       /** Describes user-defined function resources used in the query. */
       userDefinedFunctionResources?: UserDefinedFunctionResource[];
     }
-    interface DatasetsResource {
+
+    const datasets: {
       /** Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name. # IAM Permissions Requires the `bigquery.datasets.delete` permission on the dataset. */
       delete(request?: {
         /** V1 error format. */
@@ -4029,8 +4032,9 @@ declare namespace gapi.client {
         },
         body: Dataset,
       ): Request<Dataset>;
-    }
-    interface JobsResource {
+    };
+
+    const jobs: {
       /** Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may still incur costs. # IAM Permissions Requires the `bigquery.jobs.update` permission on the job resource. If the user matches the creator of the job, the `bigquery.jobs.create` permission on the project is required instead. */
       cancel(request?: {
         /** V1 error format. */
@@ -4331,8 +4335,9 @@ declare namespace gapi.client {
         },
         body: QueryRequest,
       ): Request<QueryResponse>;
-    }
-    interface ModelsResource {
+    };
+
+    const models: {
       /** Deletes the model specified by modelId from the dataset. # IAM Permissions Requires the `bigquery.models.delete` permission on the model. */
       delete(request?: {
         /** V1 error format. */
@@ -4494,8 +4499,9 @@ declare namespace gapi.client {
         },
         body: Model,
       ): Request<Model>;
-    }
-    interface ProjectsResource {
+    };
+
+    const projects: {
       /** RPC to get the service account for a project used for interactions with Google Cloud KMS. Requires the `bigquery.jobs.create` permission on the project resource. This permission is required to authorize the retrieval of the project's service identity for technical management tasks like encryption configuration. */
       getServiceAccount(request?: {
         /** V1 error format. */
@@ -4552,8 +4558,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ProjectList>;
-    }
-    interface RoutinesResource {
+    };
+
+    const routines: {
       /** Deletes the routine specified by routineId from the dataset. # IAM Permissions Requires the `bigquery.routines.delete` permission on the routine. */
       delete(request?: {
         /** V1 error format. */
@@ -4873,8 +4880,9 @@ declare namespace gapi.client {
         },
         body: Routine,
       ): Request<Routine>;
-    }
-    interface RowAccessPoliciesResource {
+    };
+
+    const rowAccessPolicies: {
       /** Deletes provided row access policies. # IAM Permissions Requires the following IAM permission(s) on the table: - `bigquery.rowAccessPolicies.delete` - `bigquery.rowAccessPolicies.setIamPolicy` */
       batchDelete(request: {
         /** V1 error format. */
@@ -5240,8 +5248,9 @@ declare namespace gapi.client {
         },
         body: RowAccessPolicy,
       ): Request<RowAccessPolicy>;
-    }
-    interface TabledataResource {
+    };
+
+    const tabledata: {
       /** Streams data into BigQuery one record at a time without needing to run a load job. # IAM Permissions Requires the following IAM permission(s) to use this method: - `bigquery.tables.updateData` on the table. - `bigquery.tables.get` on the table. - `bigquery.datasets.get` on the dataset. */
       insertAll(request: {
         /** V1 error format. */
@@ -5355,8 +5364,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TableDataList>;
-    }
-    interface TablesResource {
+    };
+
+    const tables: {
       /** Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted. # IAM Permissions Requires the `bigquery.tables.delete` permission on the table. */
       delete(request?: {
         /** V1 error format. */
@@ -5752,22 +5762,6 @@ declare namespace gapi.client {
         },
         body: Table,
       ): Request<Table>;
-    }
-
-    const datasets: DatasetsResource;
-
-    const jobs: JobsResource;
-
-    const models: ModelsResource;
-
-    const projects: ProjectsResource;
-
-    const routines: RoutinesResource;
-
-    const rowAccessPolicies: RowAccessPoliciesResource;
-
-    const tabledata: TabledataResource;
-
-    const tables: TablesResource;
+    };
   }
 }

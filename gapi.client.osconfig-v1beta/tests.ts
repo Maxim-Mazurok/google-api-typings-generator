@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         packageRepositories: [
           {
             apt: {
-              archiveType: 'Test string',
+              archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
               components: ['Test string'],
               distribution: 'Test string',
               gpgKey: 'Test string',
@@ -90,8 +90,8 @@ gapi.load('client', async () => {
         ],
         packages: [
           {
-            desiredState: 'Test string',
-            manager: 'Test string',
+            desiredState: 'DESIRED_STATE_UNSPECIFIED',
+            manager: 'MANAGER_UNSPECIFIED',
             name: 'Test string',
           },
         ],
@@ -112,13 +112,13 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            desiredState: 'Test string',
+            desiredState: 'DESIRED_STATE_UNSPECIFIED',
             installSteps: [
               {
                 archiveExtraction: {
                   artifactId: 'Test string',
                   destination: 'Test string',
-                  type: 'Test string',
+                  type: 'ARCHIVE_TYPE_UNSPECIFIED',
                 },
                 dpkgInstallation: {
                   artifactId: 'Test string',
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
                 },
                 scriptRun: {
                   allowedExitCodes: [42],
-                  interpreter: 'Test string',
+                  interpreter: 'INTERPRETER_UNSPECIFIED',
                   script: 'Test string',
                 },
               },
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
                 archiveExtraction: {
                   artifactId: 'Test string',
                   destination: 'Test string',
-                  type: 'Test string',
+                  type: 'ARCHIVE_TYPE_UNSPECIFIED',
                 },
                 dpkgInstallation: {
                   artifactId: 'Test string',
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
                 },
                 scriptRun: {
                   allowedExitCodes: [42],
-                  interpreter: 'Test string',
+                  interpreter: 'INTERPRETER_UNSPECIFIED',
                   script: 'Test string',
                 },
               },
@@ -241,7 +241,7 @@ gapi.load('client', async () => {
         packageRepositories: [
           {
             apt: {
-              archiveType: 'Test string',
+              archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
               components: ['Test string'],
               distribution: 'Test string',
               gpgKey: 'Test string',
@@ -267,8 +267,8 @@ gapi.load('client', async () => {
         ],
         packages: [
           {
-            desiredState: 'Test string',
-            manager: 'Test string',
+            desiredState: 'DESIRED_STATE_UNSPECIFIED',
+            manager: 'MANAGER_UNSPECIFIED',
             name: 'Test string',
           },
         ],
@@ -289,13 +289,13 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            desiredState: 'Test string',
+            desiredState: 'DESIRED_STATE_UNSPECIFIED',
             installSteps: [
               {
                 archiveExtraction: {
                   artifactId: 'Test string',
                   destination: 'Test string',
-                  type: 'Test string',
+                  type: 'ARCHIVE_TYPE_UNSPECIFIED',
                 },
                 dpkgInstallation: {
                   artifactId: 'Test string',
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
                 },
                 scriptRun: {
                   allowedExitCodes: [42],
-                  interpreter: 'Test string',
+                  interpreter: 'INTERPRETER_UNSPECIFIED',
                   script: 'Test string',
                 },
               },
@@ -333,7 +333,7 @@ gapi.load('client', async () => {
                 archiveExtraction: {
                   artifactId: 'Test string',
                   destination: 'Test string',
-                  type: 'Test string',
+                  type: 'ARCHIVE_TYPE_UNSPECIFIED',
                 },
                 dpkgInstallation: {
                   artifactId: 'Test string',
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
                 },
                 scriptRun: {
                   allowedExitCodes: [42],
-                  interpreter: 'Test string',
+                  interpreter: 'INTERPRETER_UNSPECIFIED',
                   script: 'Test string',
                 },
               },
@@ -403,7 +403,7 @@ gapi.load('client', async () => {
           apt: {
             excludes: ['Test string'],
             exclusivePackages: ['Test string'],
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           goo: {},
           migInstancesAllowed: true,
@@ -415,7 +415,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
@@ -437,7 +437,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -447,14 +447,14 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
-          rebootConfig: 'Test string',
+          rebootConfig: 'REBOOT_CONFIG_UNSPECIFIED',
           skipUnpatchableVms: true,
           windowsUpdate: {
-            classifications: ['Test string'],
+            classifications: ['CLASSIFICATION_UNSPECIFIED'],
             excludes: ['Test string'],
             exclusivePatches: ['Test string'],
           },
@@ -475,13 +475,13 @@ gapi.load('client', async () => {
         },
         recurringSchedule: {
           endTime: 'Test string',
-          frequency: 'Test string',
+          frequency: 'FREQUENCY_UNSPECIFIED',
           lastExecuteTime: 'Test string',
           monthly: {
             monthDay: 42,
             weekDayOfMonth: {
               dayOffset: 42,
-              dayOfWeek: 'Test string',
+              dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
               weekOrdinal: 42,
             },
           },
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
             version: 'Test string',
           },
           weekly: {
-            dayOfWeek: 'Test string',
+            dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           },
         },
         rollout: {
@@ -506,9 +506,9 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -558,7 +558,7 @@ gapi.load('client', async () => {
           apt: {
             excludes: ['Test string'],
             exclusivePackages: ['Test string'],
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           goo: {},
           migInstancesAllowed: true,
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -580,7 +580,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
@@ -592,7 +592,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -602,14 +602,14 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
-          rebootConfig: 'Test string',
+          rebootConfig: 'REBOOT_CONFIG_UNSPECIFIED',
           skipUnpatchableVms: true,
           windowsUpdate: {
-            classifications: ['Test string'],
+            classifications: ['CLASSIFICATION_UNSPECIFIED'],
             excludes: ['Test string'],
             exclusivePatches: ['Test string'],
           },
@@ -630,13 +630,13 @@ gapi.load('client', async () => {
         },
         recurringSchedule: {
           endTime: 'Test string',
-          frequency: 'Test string',
+          frequency: 'FREQUENCY_UNSPECIFIED',
           lastExecuteTime: 'Test string',
           monthly: {
             monthDay: 42,
             weekDayOfMonth: {
               dayOffset: 42,
-              dayOfWeek: 'Test string',
+              dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
               weekOrdinal: 42,
             },
           },
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
             version: 'Test string',
           },
           weekly: {
-            dayOfWeek: 'Test string',
+            dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           },
         },
         rollout: {
@@ -661,9 +661,9 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -715,7 +715,7 @@ gapi.load('client', async () => {
           apt: {
             excludes: ['Test string'],
             exclusivePackages: ['Test string'],
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           goo: {},
           migInstancesAllowed: true,
@@ -727,7 +727,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -737,7 +737,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
@@ -749,7 +749,7 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
             windowsExecStepConfig: {
@@ -759,14 +759,14 @@ gapi.load('client', async () => {
                 generationNumber: 'Test string',
                 object: 'Test string',
               },
-              interpreter: 'Test string',
+              interpreter: 'INTERPRETER_UNSPECIFIED',
               localPath: 'Test string',
             },
           },
-          rebootConfig: 'Test string',
+          rebootConfig: 'REBOOT_CONFIG_UNSPECIFIED',
           skipUnpatchableVms: true,
           windowsUpdate: {
-            classifications: ['Test string'],
+            classifications: ['CLASSIFICATION_UNSPECIFIED'],
             excludes: ['Test string'],
             exclusivePatches: ['Test string'],
           },
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
       },
     );

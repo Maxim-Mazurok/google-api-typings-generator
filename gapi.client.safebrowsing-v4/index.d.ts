@@ -99,7 +99,9 @@ declare namespace gapi.client {
       /** Requests the list for a specific geographic location. If not set the server may pick that value based on the user's IP address. Expects ISO 3166-1 alpha-2 format. */
       region?: string;
       /** The compression types supported by the client. */
-      supportedCompressions?: 'COMPRESSION_TYPE_UNSPECIFIED' | 'RAW' | 'RICE'[];
+      supportedCompressions?: (
+        'COMPRESSION_TYPE_UNSPECIFIED' | 'RAW' | 'RICE'
+      )[];
     }
     interface GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse {
       /** The list updates requested by the clients. The number of responses here may be less than the number of requests sent by clients. This is the case, for example, if the server has no updates for a particular list. */
@@ -306,7 +308,7 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV4ThreatInfo {
       /** The platform types to be checked. */
-      platformTypes?:
+      platformTypes?: (
         | 'PLATFORM_TYPE_UNSPECIFIED'
         | 'WINDOWS'
         | 'LINUX'
@@ -315,20 +317,22 @@ declare namespace gapi.client {
         | 'IOS'
         | 'ANY_PLATFORM'
         | 'ALL_PLATFORMS'
-        | 'CHROME'[];
+        | 'CHROME'
+      )[];
       /** The threat entries to be checked. */
       threatEntries?: GoogleSecuritySafebrowsingV4ThreatEntry[];
       /** The entry types to be checked. */
-      threatEntryTypes?:
+      threatEntryTypes?: (
         | 'THREAT_ENTRY_TYPE_UNSPECIFIED'
         | 'URL'
         | 'EXECUTABLE'
         | 'IP_RANGE'
         | 'CHROME_EXTENSION'
         | 'FILENAME'
-        | 'CERT'[];
+        | 'CERT'
+      )[];
       /** The threat types to be checked. */
-      threatTypes?:
+      threatTypes?: (
         | 'THREAT_TYPE_UNSPECIFIED'
         | 'MALWARE'
         | 'SOCIAL_ENGINEERING'
@@ -346,7 +350,8 @@ declare namespace gapi.client {
         | 'SUSPICIOUS'
         | 'TRICK_TO_BILL'
         | 'HIGH_CONFIDENCE_ALLOWLIST'
-        | 'ACCURACY_TIPS'[];
+        | 'ACCURACY_TIPS'
+      )[];
     }
     interface GoogleSecuritySafebrowsingV4ThreatListDescriptor {
       /** The platform type targeted by the list's entries. */
@@ -438,7 +443,8 @@ declare namespace gapi.client {
         | 'HIGH_CONFIDENCE_ALLOWLIST'
         | 'ACCURACY_TIPS';
     }
-    interface EncodedFullHashesResource {
+
+    const encodedFullHashes: {
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -469,8 +475,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
-    }
-    interface EncodedUpdatesResource {
+    };
+
+    const encodedUpdates: {
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -501,8 +508,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
-    }
-    interface FullHashesResource {
+    };
+
+    const fullHashes: {
       /** Finds the full hashes that match the requested hash prefixes. */
       find(request: {
         /** V1 error format. */
@@ -557,8 +565,9 @@ declare namespace gapi.client {
         },
         body: GoogleSecuritySafebrowsingV4FindFullHashesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FindFullHashesResponse>;
-    }
-    interface ThreatHitsResource {
+    };
+
+    const threatHits: {
       /** Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method. */
       create(request: {
         /** V1 error format. */
@@ -613,35 +622,9 @@ declare namespace gapi.client {
         },
         body: GoogleSecuritySafebrowsingV4ThreatHit,
       ): Request<{}>;
-    }
-    interface ThreatListsResource {
-      /** Lists the Safe Browsing threat lists available for download. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleSecuritySafebrowsingV4ListThreatListsResponse>;
-    }
-    interface ThreatListUpdatesResource {
+    };
+
+    const threatListUpdates: {
       /** Fetches the most recent threat list updates. A client can request updates for multiple lists at once. */
       fetch(request: {
         /** V1 error format. */
@@ -696,8 +679,37 @@ declare namespace gapi.client {
         },
         body: GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse>;
-    }
-    interface ThreatMatchesResource {
+    };
+
+    const threatLists: {
+      /** Lists the Safe Browsing threat lists available for download. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleSecuritySafebrowsingV4ListThreatListsResponse>;
+    };
+
+    const threatMatches: {
       /** Finds the threat entries that match the Safe Browsing lists. */
       find(request: {
         /** V1 error format. */
@@ -752,20 +764,6 @@ declare namespace gapi.client {
         },
         body: GoogleSecuritySafebrowsingV4FindThreatMatchesRequest,
       ): Request<GoogleSecuritySafebrowsingV4FindThreatMatchesResponse>;
-    }
-
-    const encodedFullHashes: EncodedFullHashesResource;
-
-    const encodedUpdates: EncodedUpdatesResource;
-
-    const fullHashes: FullHashesResource;
-
-    const threatHits: ThreatHitsResource;
-
-    const threatListUpdates: ThreatListUpdatesResource;
-
-    const threatLists: ThreatListsResource;
-
-    const threatMatches: ThreatMatchesResource;
+    };
   }
 }

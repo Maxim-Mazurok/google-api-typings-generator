@@ -74,27 +74,28 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        appEngineIntegrationMode: 'Test string',
+        appEngineIntegrationMode: 'APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED',
         cmekConfig: {
           activeKeyVersion: ['Test string'],
           kmsKeyName: 'Test string',
         },
-        concurrencyMode: 'Test string',
+        concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
         createTime: 'Test string',
-        databaseEdition: 'Test string',
-        deleteProtectionState: 'Test string',
+        databaseEdition: 'DATABASE_EDITION_UNSPECIFIED',
+        deleteProtectionState: 'DELETE_PROTECTION_STATE_UNSPECIFIED',
         deleteTime: 'Test string',
         earliestVersionTime: 'Test string',
         etag: 'Test string',
-        firestoreDataAccessMode: 'Test string',
+        firestoreDataAccessMode: 'DATA_ACCESS_MODE_UNSPECIFIED',
         freeTier: true,
         keyPrefix: 'Test string',
         locationId: 'Test string',
-        mongodbCompatibleDataAccessMode: 'Test string',
+        mongodbCompatibleDataAccessMode: 'DATA_ACCESS_MODE_UNSPECIFIED',
         name: 'Test string',
-        pointInTimeRecoveryEnablement: 'Test string',
+        pointInTimeRecoveryEnablement:
+          'POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED',
         previousId: 'Test string',
-        realtimeUpdatesMode: 'Test string',
+        realtimeUpdatesMode: 'REALTIME_UPDATES_MODE_UNSPECIFIED',
         sourceInfo: {
           backup: {
             backup: 'Test string',
@@ -104,7 +105,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'DATABASE_TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         versionRetentionPeriod: 'Test string',
@@ -154,27 +155,28 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        appEngineIntegrationMode: 'Test string',
+        appEngineIntegrationMode: 'APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED',
         cmekConfig: {
           activeKeyVersion: ['Test string'],
           kmsKeyName: 'Test string',
         },
-        concurrencyMode: 'Test string',
+        concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
         createTime: 'Test string',
-        databaseEdition: 'Test string',
-        deleteProtectionState: 'Test string',
+        databaseEdition: 'DATABASE_EDITION_UNSPECIFIED',
+        deleteProtectionState: 'DELETE_PROTECTION_STATE_UNSPECIFIED',
         deleteTime: 'Test string',
         earliestVersionTime: 'Test string',
         etag: 'Test string',
-        firestoreDataAccessMode: 'Test string',
+        firestoreDataAccessMode: 'DATA_ACCESS_MODE_UNSPECIFIED',
         freeTier: true,
         keyPrefix: 'Test string',
         locationId: 'Test string',
-        mongodbCompatibleDataAccessMode: 'Test string',
+        mongodbCompatibleDataAccessMode: 'DATA_ACCESS_MODE_UNSPECIFIED',
         name: 'Test string',
-        pointInTimeRecoveryEnablement: 'Test string',
+        pointInTimeRecoveryEnablement:
+          'POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED',
         previousId: 'Test string',
-        realtimeUpdatesMode: 'Test string',
+        realtimeUpdatesMode: 'REALTIME_UPDATES_MODE_UNSPECIFIED',
         sourceInfo: {
           backup: {
             backup: 'Test string',
@@ -184,7 +186,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'DATABASE_TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         versionRetentionPeriod: 'Test string',
@@ -222,7 +224,7 @@ gapi.load('client', async () => {
         retention: 'Test string',
         updateTime: 'Test string',
         weeklyRecurrence: {
-          day: 'Test string',
+          day: 'DAY_OF_WEEK_UNSPECIFIED',
         },
       },
     );
@@ -251,7 +253,7 @@ gapi.load('client', async () => {
         retention: 'Test string',
         updateTime: 'Test string',
         weeklyRecurrence: {
-          day: 'Test string',
+          day: 'DAY_OF_WEEK_UNSPECIFIED',
         },
       },
     );
@@ -311,13 +313,13 @@ gapi.load('client', async () => {
           ancestorField: 'Test string',
           indexes: [
             {
-              apiScope: 'Test string',
-              density: 'Test string',
+              apiScope: 'ANY_API',
+              density: 'DENSITY_UNSPECIFIED',
               fields: [
                 {
-                  arrayConfig: 'Test string',
+                  arrayConfig: 'ARRAY_CONFIG_UNSPECIFIED',
                   fieldPath: 'Test string',
-                  order: 'Test string',
+                  order: 'ORDER_UNSPECIFIED',
                   searchConfig: {
                     geoSpec: {
                       geoJsonIndexingDisabled: true,
@@ -325,8 +327,8 @@ gapi.load('client', async () => {
                     textSpec: {
                       indexSpecs: [
                         {
-                          indexType: 'Test string',
-                          matchType: 'Test string',
+                          indexType: 'TEXT_INDEX_TYPE_UNSPECIFIED',
+                          matchType: 'TEXT_MATCH_TYPE_UNSPECIFIED',
                         },
                       ],
                     },
@@ -339,13 +341,13 @@ gapi.load('client', async () => {
               ],
               multikey: true,
               name: 'Test string',
-              queryScope: 'Test string',
+              queryScope: 'QUERY_SCOPE_UNSPECIFIED',
               searchIndexOptions: {
                 textLanguage: 'Test string',
                 textLanguageOverrideFieldPath: 'Test string',
               },
               shardCount: 42,
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               unique: true,
             },
           ],
@@ -355,7 +357,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         ttlConfig: {
           expirationOffset: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
       },
     );
@@ -365,13 +367,13 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        apiScope: 'Test string',
-        density: 'Test string',
+        apiScope: 'ANY_API',
+        density: 'DENSITY_UNSPECIFIED',
         fields: [
           {
-            arrayConfig: 'Test string',
+            arrayConfig: 'ARRAY_CONFIG_UNSPECIFIED',
             fieldPath: 'Test string',
-            order: 'Test string',
+            order: 'ORDER_UNSPECIFIED',
             searchConfig: {
               geoSpec: {
                 geoJsonIndexingDisabled: true,
@@ -379,8 +381,8 @@ gapi.load('client', async () => {
               textSpec: {
                 indexSpecs: [
                   {
-                    indexType: 'Test string',
-                    matchType: 'Test string',
+                    indexType: 'TEXT_INDEX_TYPE_UNSPECIFIED',
+                    matchType: 'TEXT_MATCH_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -393,13 +395,13 @@ gapi.load('client', async () => {
         ],
         multikey: true,
         name: 'Test string',
-        queryScope: 'Test string',
+        queryScope: 'QUERY_SCOPE_UNSPECIFIED',
         searchIndexOptions: {
           textLanguage: 'Test string',
           textLanguageOverrideFieldPath: 'Test string',
         },
         shardCount: 42,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         unique: true,
       },
     );
@@ -439,7 +441,7 @@ gapi.load('client', async () => {
             readTime: 'Test string',
           },
           readWrite: {
-            concurrencyMode: 'Test string',
+            concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
             retryTransaction: 'Test string',
           },
         },
@@ -494,7 +496,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -533,7 +535,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -569,7 +571,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -605,7 +607,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -641,7 +643,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -658,7 +660,7 @@ gapi.load('client', async () => {
                       },
                     ],
                   },
-                  setToServerValue: 'Test string',
+                  setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
                 },
               ],
             },
@@ -686,7 +688,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -731,7 +733,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -770,7 +772,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -806,7 +808,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -842,7 +844,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -878,7 +880,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -895,7 +897,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                setToServerValue: 'Test string',
+                setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
               },
             ],
           },
@@ -913,7 +915,7 @@ gapi.load('client', async () => {
             readTime: 'Test string',
           },
           readWrite: {
-            concurrencyMode: 'Test string',
+            concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
             retryTransaction: 'Test string',
           },
         },
@@ -964,7 +966,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -1003,7 +1005,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1039,7 +1041,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1075,7 +1077,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1111,7 +1113,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -1128,7 +1130,7 @@ gapi.load('client', async () => {
                       },
                     ],
                   },
-                  setToServerValue: 'Test string',
+                  setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
                 },
               ],
             },
@@ -1156,7 +1158,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -1201,7 +1203,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -1240,7 +1242,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -1276,7 +1278,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -1312,7 +1314,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -1348,7 +1350,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -1365,7 +1367,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                setToServerValue: 'Test string',
+                setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
               },
             ],
           },
@@ -1405,7 +1407,7 @@ gapi.load('client', async () => {
             mapValue: {
               fields: undefined,
             },
-            nullValue: 'Test string',
+            nullValue: 'NULL_VALUE',
             pipelineValue: {
               stages: [
                 {
@@ -1444,7 +1446,7 @@ gapi.load('client', async () => {
             readTime: 'Test string',
           },
           readWrite: {
-            concurrencyMode: 'Test string',
+            concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
             retryTransaction: 'Test string',
           },
         },
@@ -1475,7 +1477,7 @@ gapi.load('client', async () => {
               mapValue: {
                 fields: undefined,
               },
-              nullValue: 'Test string',
+              nullValue: 'NULL_VALUE',
               pipelineValue: {
                 stages: [
                   {
@@ -1516,7 +1518,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: undefined,
                     referenceValue: 'Test string',
                     stringValue: 'Test string',
@@ -1547,7 +1549,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: undefined,
                     referenceValue: 'Test string',
                     stringValue: 'Test string',
@@ -1651,7 +1653,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1669,7 +1671,7 @@ gapi.load('client', async () => {
                 ],
               },
               findNearest: {
-                distanceMeasure: 'Test string',
+                distanceMeasure: 'DISTANCE_MEASURE_UNSPECIFIED',
                 distanceResultField: 'Test string',
                 distanceThreshold: 42,
                 limit: 42,
@@ -1694,7 +1696,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -1723,7 +1725,7 @@ gapi.load('client', async () => {
               offset: 42,
               orderBy: [
                 {
-                  direction: 'Test string',
+                  direction: 'DIRECTION_UNSPECIFIED',
                   field: {
                     fieldPath: 'Test string',
                   },
@@ -1760,7 +1762,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1780,13 +1782,13 @@ gapi.load('client', async () => {
               where: {
                 compositeFilter: {
                   filters: undefined,
-                  op: 'Test string',
+                  op: 'OPERATOR_UNSPECIFIED',
                 },
                 fieldFilter: {
                   field: {
                     fieldPath: 'Test string',
                   },
-                  op: 'Test string',
+                  op: 'OPERATOR_UNSPECIFIED',
                   value: {
                     arrayValue: {
                       values: undefined,
@@ -1808,7 +1810,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -1828,7 +1830,7 @@ gapi.load('client', async () => {
                   field: {
                     fieldPath: 'Test string',
                   },
-                  op: 'Test string',
+                  op: 'OPERATOR_UNSPECIFIED',
                 },
               },
             },
@@ -1884,7 +1886,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -1902,7 +1904,7 @@ gapi.load('client', async () => {
             ],
           },
           findNearest: {
-            distanceMeasure: 'Test string',
+            distanceMeasure: 'DISTANCE_MEASURE_UNSPECIFIED',
             distanceResultField: 'Test string',
             distanceThreshold: 42,
             limit: 42,
@@ -1927,7 +1929,7 @@ gapi.load('client', async () => {
               mapValue: {
                 fields: undefined,
               },
-              nullValue: 'Test string',
+              nullValue: 'NULL_VALUE',
               pipelineValue: {
                 stages: [
                   {
@@ -1956,7 +1958,7 @@ gapi.load('client', async () => {
           offset: 42,
           orderBy: [
             {
-              direction: 'Test string',
+              direction: 'DIRECTION_UNSPECIFIED',
               field: {
                 fieldPath: 'Test string',
               },
@@ -1993,7 +1995,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2013,13 +2015,13 @@ gapi.load('client', async () => {
           where: {
             compositeFilter: {
               filters: undefined,
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
             },
             fieldFilter: {
               field: {
                 fieldPath: 'Test string',
               },
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
               value: {
                 arrayValue: {
                   values: undefined,
@@ -2041,7 +2043,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2061,7 +2063,7 @@ gapi.load('client', async () => {
               field: {
                 fieldPath: 'Test string',
               },
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
             },
           },
         },
@@ -2101,7 +2103,7 @@ gapi.load('client', async () => {
             mapValue: {
               fields: undefined,
             },
-            nullValue: 'Test string',
+            nullValue: 'NULL_VALUE',
             pipelineValue: {
               stages: [
                 {
@@ -2147,7 +2149,7 @@ gapi.load('client', async () => {
             readTime: 'Test string',
           },
           readWrite: {
-            concurrencyMode: 'Test string',
+            concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
             retryTransaction: 'Test string',
           },
         },
@@ -2199,7 +2201,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -2217,7 +2219,7 @@ gapi.load('client', async () => {
               ],
             },
             findNearest: {
-              distanceMeasure: 'Test string',
+              distanceMeasure: 'DISTANCE_MEASURE_UNSPECIFIED',
               distanceResultField: 'Test string',
               distanceThreshold: 42,
               limit: 42,
@@ -2242,7 +2244,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2271,7 +2273,7 @@ gapi.load('client', async () => {
             offset: 42,
             orderBy: [
               {
-                direction: 'Test string',
+                direction: 'DIRECTION_UNSPECIFIED',
                 field: {
                   fieldPath: 'Test string',
                 },
@@ -2308,7 +2310,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -2328,13 +2330,13 @@ gapi.load('client', async () => {
             where: {
               compositeFilter: {
                 filters: undefined,
-                op: 'Test string',
+                op: 'OPERATOR_UNSPECIFIED',
               },
               fieldFilter: {
                 field: {
                   fieldPath: 'Test string',
                 },
-                op: 'Test string',
+                op: 'OPERATOR_UNSPECIFIED',
                 value: {
                   arrayValue: {
                     values: undefined,
@@ -2356,7 +2358,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -2376,7 +2378,7 @@ gapi.load('client', async () => {
                 field: {
                   fieldPath: 'Test string',
                 },
-                op: 'Test string',
+                op: 'OPERATOR_UNSPECIFIED',
               },
             },
           },
@@ -2398,7 +2400,7 @@ gapi.load('client', async () => {
             readTime: 'Test string',
           },
           readWrite: {
-            concurrencyMode: 'Test string',
+            concurrencyMode: 'CONCURRENCY_MODE_UNSPECIFIED',
             retryTransaction: 'Test string',
           },
         },
@@ -2431,7 +2433,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2449,7 +2451,7 @@ gapi.load('client', async () => {
             ],
           },
           findNearest: {
-            distanceMeasure: 'Test string',
+            distanceMeasure: 'DISTANCE_MEASURE_UNSPECIFIED',
             distanceResultField: 'Test string',
             distanceThreshold: 42,
             limit: 42,
@@ -2474,7 +2476,7 @@ gapi.load('client', async () => {
               mapValue: {
                 fields: undefined,
               },
-              nullValue: 'Test string',
+              nullValue: 'NULL_VALUE',
               pipelineValue: {
                 stages: [
                   {
@@ -2503,7 +2505,7 @@ gapi.load('client', async () => {
           offset: 42,
           orderBy: [
             {
-              direction: 'Test string',
+              direction: 'DIRECTION_UNSPECIFIED',
               field: {
                 fieldPath: 'Test string',
               },
@@ -2540,7 +2542,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2560,13 +2562,13 @@ gapi.load('client', async () => {
           where: {
             compositeFilter: {
               filters: undefined,
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
             },
             fieldFilter: {
               field: {
                 fieldPath: 'Test string',
               },
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
               value: {
                 arrayValue: {
                   values: undefined,
@@ -2588,7 +2590,7 @@ gapi.load('client', async () => {
                 mapValue: {
                   fields: undefined,
                 },
-                nullValue: 'Test string',
+                nullValue: 'NULL_VALUE',
                 pipelineValue: {
                   stages: [
                     {
@@ -2608,7 +2610,7 @@ gapi.load('client', async () => {
               field: {
                 fieldPath: 'Test string',
               },
-              op: 'Test string',
+              op: 'OPERATOR_UNSPECIFIED',
             },
           },
         },
@@ -2661,7 +2663,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -2700,7 +2702,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -2736,7 +2738,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -2772,7 +2774,7 @@ gapi.load('client', async () => {
                     mapValue: {
                       fields: undefined,
                     },
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     pipelineValue: {
                       stages: [
                         {
@@ -2808,7 +2810,7 @@ gapi.load('client', async () => {
                         mapValue: {
                           fields: undefined,
                         },
-                        nullValue: 'Test string',
+                        nullValue: 'NULL_VALUE',
                         pipelineValue: {
                           stages: [
                             {
@@ -2825,7 +2827,7 @@ gapi.load('client', async () => {
                       },
                     ],
                   },
-                  setToServerValue: 'Test string',
+                  setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
                 },
               ],
             },
@@ -2853,7 +2855,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -2898,7 +2900,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -2937,7 +2939,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -2973,7 +2975,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -3009,7 +3011,7 @@ gapi.load('client', async () => {
                   mapValue: {
                     fields: undefined,
                   },
-                  nullValue: 'Test string',
+                  nullValue: 'NULL_VALUE',
                   pipelineValue: {
                     stages: [
                       {
@@ -3045,7 +3047,7 @@ gapi.load('client', async () => {
                       mapValue: {
                         fields: undefined,
                       },
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       pipelineValue: {
                         stages: [
                           {
@@ -3062,7 +3064,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                setToServerValue: 'Test string',
+                setToServerValue: 'SERVER_VALUE_UNSPECIFIED',
               },
             ],
           },
@@ -3105,7 +3107,7 @@ gapi.load('client', async () => {
           principal: 'Test string',
         },
         securePassword: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

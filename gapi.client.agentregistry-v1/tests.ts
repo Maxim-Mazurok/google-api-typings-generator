@@ -103,7 +103,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         createTime: 'Test string',
         description: 'Test string',
@@ -355,11 +355,11 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         interfaces: [
           {
-            protocolBinding: 'Test string',
+            protocolBinding: 'PROTOCOL_BINDING_UNSPECIFIED',
             url: 'Test string',
           },
         ],
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         registryResource: 'Test string',
@@ -402,7 +402,7 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         createTime: 'Test string',
         description: 'Test string',
@@ -411,11 +411,11 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         interfaces: [
           {
-            protocolBinding: 'Test string',
+            protocolBinding: 'PROTOCOL_BINDING_UNSPECIFIED',
             url: 'Test string',
           },
         ],
@@ -423,7 +423,7 @@ gapi.load('client', async () => {
           content: {
             A: 42,
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         registryResource: 'Test string',
@@ -473,23 +473,23 @@ gapi.load('client', async () => {
           scanResult: {
             errorMessage: 'Test string',
             findings: ['Test string'],
-            scanState: 'Test string',
+            scanState: 'SCAN_STATE_UNSPECIFIED',
             scanTime: 'Test string',
           },
           sha256Hash: 'Test string',
           sizeBytes: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           uid: 'Test string',
         },
         name: 'Test string',
         publisher: 'Test string',
         scanningConfig: {
-          policy: 'Test string',
+          policy: 'POLICY_UNSPECIFIED',
         },
         skillId: 'Test string',
-        state: 'Test string',
-        targetState: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        targetState: 'TARGET_STATE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -560,23 +560,23 @@ gapi.load('client', async () => {
           scanResult: {
             errorMessage: 'Test string',
             findings: ['Test string'],
-            scanState: 'Test string',
+            scanState: 'SCAN_STATE_UNSPECIFIED',
             scanTime: 'Test string',
           },
           sha256Hash: 'Test string',
           sizeBytes: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           uid: 'Test string',
         },
         name: 'Test string',
         publisher: 'Test string',
         scanningConfig: {
-          policy: 'Test string',
+          policy: 'POLICY_UNSPECIFIED',
         },
         skillId: 'Test string',
-        state: 'Test string',
-        targetState: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        targetState: 'TARGET_STATE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -588,7 +588,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       searchString: 'Test string',
-      searchType: 'Test string',
+      searchType: 'SEARCH_TYPE_UNSPECIFIED',
     });
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.agentregistry.projects.locations.skills.setIamPolicy(
@@ -602,7 +602,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -664,12 +664,12 @@ gapi.load('client', async () => {
         scanResult: {
           errorMessage: 'Test string',
           findings: ['Test string'],
-          scanState: 'Test string',
+          scanState: 'SCAN_STATE_UNSPECIFIED',
           scanTime: 'Test string',
         },
         sha256Hash: 'Test string',
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
       },
     );

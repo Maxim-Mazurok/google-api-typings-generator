@@ -95,8 +95,8 @@ gapi.load('client', async () => {
         userId: 'Test string',
       },
       {
-        labelFilterAction: 'Test string',
-        labelFilterBehavior: 'Test string',
+        labelFilterAction: 'include',
+        labelFilterBehavior: 'include',
         labelIds: ['Test string'],
         topicName: 'Test string',
       },
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
     });
     /** Gets the specified draft. For more information, see [Create and send draft emails](https://developers.google.com/workspace/gmail/api/guides/drafts). */
     await gapi.client.gmail.users.drafts.get({
-      format: 'Test string',
+      format: 'minimal',
       id: 'Test string',
       userId: 'Test string',
     });
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
     );
     /** Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing `historyId`). For more information, see [Synchronize clients with Gmail](https://developers.google.com/workspace/gmail/api/guides/sync). */
     await gapi.client.gmail.users.history.list({
-      historyTypes: 'Test string',
+      historyTypes: 'messageAdded',
       labelId: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
@@ -282,14 +282,14 @@ gapi.load('client', async () => {
           textColor: 'Test string',
         },
         id: 'Test string',
-        labelListVisibility: 'Test string',
-        messageListVisibility: 'Test string',
+        labelListVisibility: 'labelShow',
+        messageListVisibility: 'show',
         messagesTotal: 42,
         messagesUnread: 42,
         name: 'Test string',
         threadsTotal: 42,
         threadsUnread: 42,
-        type: 'Test string',
+        type: 'system',
       },
     );
     /** Immediately and permanently deletes the specified label and removes it from any messages and threads that it's applied to. For more information, see [Manage labels](https://developers.google.com/workspace/gmail/api/guides/labels). */
@@ -318,14 +318,14 @@ gapi.load('client', async () => {
           textColor: 'Test string',
         },
         id: 'Test string',
-        labelListVisibility: 'Test string',
-        messageListVisibility: 'Test string',
+        labelListVisibility: 'labelShow',
+        messageListVisibility: 'show',
         messagesTotal: 42,
         messagesUnread: 42,
         name: 'Test string',
         threadsTotal: 42,
         threadsUnread: 42,
-        type: 'Test string',
+        type: 'system',
       },
     );
     /** Updates the specified label. For more information, see [Manage labels](https://developers.google.com/workspace/gmail/api/guides/labels). */
@@ -340,14 +340,14 @@ gapi.load('client', async () => {
           textColor: 'Test string',
         },
         id: 'Test string',
-        labelListVisibility: 'Test string',
-        messageListVisibility: 'Test string',
+        labelListVisibility: 'labelShow',
+        messageListVisibility: 'show',
         messagesTotal: 42,
         messagesUnread: 42,
         name: 'Test string',
         threadsTotal: 42,
         threadsUnread: 42,
-        type: 'Test string',
+        type: 'system',
       },
     );
     /** Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all. */
@@ -389,7 +389,7 @@ gapi.load('client', async () => {
     });
     /** Gets the specified message. */
     await gapi.client.gmail.users.messages.get({
-      format: 'Test string',
+      format: 'minimal',
       id: 'Test string',
       metadataHeaders: 'Test string',
       userId: 'Test string',
@@ -398,7 +398,7 @@ gapi.load('client', async () => {
     await gapi.client.gmail.users.messages.import(
       {
         deleted: true,
-        internalDateSource: 'Test string',
+        internalDateSource: 'receivedTime',
         neverMarkSpam: true,
         processForCalendar: true,
         userId: 'Test string',
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
     await gapi.client.gmail.users.messages.insert(
       {
         deleted: true,
-        internalDateSource: 'Test string',
+        internalDateSource: 'receivedTime',
         userId: 'Test string',
       },
       {
@@ -606,7 +606,7 @@ gapi.load('client', async () => {
         userId: 'Test string',
       },
       {
-        disposition: 'Test string',
+        disposition: 'dispositionUnspecified',
         emailAddress: 'Test string',
         enabled: true,
       },
@@ -619,7 +619,7 @@ gapi.load('client', async () => {
       {
         autoExpunge: true,
         enabled: true,
-        expungeBehavior: 'Test string',
+        expungeBehavior: 'expungeBehaviorUnspecified',
         maxFolderSize: 42,
       },
     );
@@ -638,8 +638,8 @@ gapi.load('client', async () => {
         userId: 'Test string',
       },
       {
-        accessWindow: 'Test string',
-        disposition: 'Test string',
+        accessWindow: 'accessWindowUnspecified',
+        disposition: 'dispositionUnspecified',
       },
     );
     /** Updates vacation responder settings. For more information, see [Manage vacation settings with the Gmail API](https://developers.google.com/workspace/gmail/api/guides/vacation_settings). */
@@ -706,12 +706,12 @@ gapi.load('client', async () => {
     /** Creates and uploads a client-side encryption S/MIME public key certificate chain and private key metadata for the authenticated user. For administrators managing identities and keypairs for users in their organization, requests require authorization with a [service account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) that has [domain-wide delegation authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to impersonate users with the `https://www.googleapis.com/auth/gmail.settings.basic` scope. For users managing their own identities and keypairs, requests require [hardware key encryption](https://support.google.com/a/answer/14153163) turned on and configured. */
     await gapi.client.gmail.users.settings.cse.keypairs.create(
       {
-        chainValidation: 'Test string',
+        chainValidation: 'all',
         userId: 'Test string',
       },
       {
         disableTime: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'stateUnspecified',
         keyPairId: 'Test string',
         pem: 'Test string',
         pkcs7: 'Test string',
@@ -772,7 +772,7 @@ gapi.load('client', async () => {
       },
       {
         delegateEmail: 'Test string',
-        verificationStatus: 'Test string',
+        verificationStatus: 'verificationStatusUnspecified',
       },
     );
     /** Removes the specified delegate (which can be of any verification status), and revokes any verification that may have been required for using it. For more information, see [Manage delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings). A delegate user must be referred to by their primary email address, and not an email alias. This method is only available to service account clients that have been delegated domain-wide authority. */
@@ -807,7 +807,7 @@ gapi.load('client', async () => {
           negatedQuery: 'Test string',
           query: 'Test string',
           size: 42,
-          sizeComparison: 'Test string',
+          sizeComparison: 'unspecified',
           subject: 'Test string',
           to: 'Test string',
         },
@@ -835,7 +835,7 @@ gapi.load('client', async () => {
       },
       {
         forwardingEmail: 'Test string',
-        verificationStatus: 'Test string',
+        verificationStatus: 'verificationStatusUnspecified',
       },
     );
     /** Deletes the specified forwarding address and revokes any verification that may have been required. For more information, see [Manage email forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings). This method is only available to service account clients that have been delegated domain-wide authority. */
@@ -868,11 +868,11 @@ gapi.load('client', async () => {
           host: 'Test string',
           password: 'Test string',
           port: 42,
-          securityMode: 'Test string',
+          securityMode: 'securityModeUnspecified',
           username: 'Test string',
         },
         treatAsAlias: true,
-        verificationStatus: 'Test string',
+        verificationStatus: 'verificationStatusUnspecified',
       },
     );
     /** Deletes the specified send-as alias. Revokes any verification that may have been required for using it. For more information, see [Manage aliases and signatures with the Gmail API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings). This method is only available to service account clients that have been delegated domain-wide authority. */
@@ -906,11 +906,11 @@ gapi.load('client', async () => {
           host: 'Test string',
           password: 'Test string',
           port: 42,
-          securityMode: 'Test string',
+          securityMode: 'securityModeUnspecified',
           username: 'Test string',
         },
         treatAsAlias: true,
-        verificationStatus: 'Test string',
+        verificationStatus: 'verificationStatusUnspecified',
       },
     );
     /** Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. For more information, see [Manage aliases and signatures with the Gmail API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings). Addresses other than the primary address for the account can only be updated by service account clients that have been delegated domain-wide authority. */
@@ -930,11 +930,11 @@ gapi.load('client', async () => {
           host: 'Test string',
           password: 'Test string',
           port: 42,
-          securityMode: 'Test string',
+          securityMode: 'securityModeUnspecified',
           username: 'Test string',
         },
         treatAsAlias: true,
-        verificationStatus: 'Test string',
+        verificationStatus: 'verificationStatusUnspecified',
       },
     );
     /** Sends a verification email to the specified send-as alias address. The verification status must be `pending`. For more information, see [Manage aliases and signatures with the Gmail API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings). This method is only available to service account clients that have been delegated domain-wide authority. */
@@ -988,7 +988,7 @@ gapi.load('client', async () => {
     });
     /** Gets the specified thread. For more information, see [Manage threads](https://developers.google.com/workspace/gmail/api/guides/threads). */
     await gapi.client.gmail.users.threads.get({
-      format: 'Test string',
+      format: 'full',
       id: 'Test string',
       metadataHeaders: 'Test string',
       userId: 'Test string',

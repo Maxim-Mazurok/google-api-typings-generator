@@ -117,7 +117,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
             desc: true,
             dimension: {
               dimensionName: 'Test string',
-              orderType: 'Test string',
+              orderType: 'ORDER_TYPE_UNSPECIFIED',
             },
             metric: {
               metricName: 'Test string',
@@ -211,14 +211,14 @@ gapi.load('client', async () => {
         account: 'Test string',
       },
       {
-        action: ['Test string'],
+        action: ['ACTION_TYPE_UNSPECIFIED'],
         actorEmail: ['Test string'],
         earliestChangeTime: 'Test string',
         latestChangeTime: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         property: 'Test string',
-        resourceType: ['Test string'],
+        resourceType: ['CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED'],
       },
     );
     /** Creates information about multiple access bindings to an account or property. This method is transactional. If any AccessBinding cannot be created, none of the AccessBindings will be created. */
@@ -334,11 +334,11 @@ gapi.load('client', async () => {
         deleteTime: 'Test string',
         displayName: 'Test string',
         expireTime: 'Test string',
-        industryCategory: 'Test string',
+        industryCategory: 'INDUSTRY_CATEGORY_UNSPECIFIED',
         name: 'Test string',
         parent: 'Test string',
-        propertyType: 'Test string',
-        serviceLevel: 'Test string',
+        propertyType: 'PROPERTY_TYPE_UNSPECIFIED',
+        serviceLevel: 'SERVICE_LEVEL_UNSPECIFIED',
         timeZone: 'Test string',
         updateTime: 'Test string',
       },
@@ -354,11 +354,11 @@ gapi.load('client', async () => {
           deleteTime: 'Test string',
           displayName: 'Test string',
           expireTime: 'Test string',
-          industryCategory: 'Test string',
+          industryCategory: 'INDUSTRY_CATEGORY_UNSPECIFIED',
           name: 'Test string',
           parent: 'Test string',
-          propertyType: 'Test string',
-          serviceLevel: 'Test string',
+          propertyType: 'PROPERTY_TYPE_UNSPECIFIED',
+          serviceLevel: 'SERVICE_LEVEL_UNSPECIFIED',
           timeZone: 'Test string',
           updateTime: 'Test string',
         },
@@ -413,11 +413,11 @@ gapi.load('client', async () => {
         deleteTime: 'Test string',
         displayName: 'Test string',
         expireTime: 'Test string',
-        industryCategory: 'Test string',
+        industryCategory: 'INDUSTRY_CATEGORY_UNSPECIFIED',
         name: 'Test string',
         parent: 'Test string',
-        propertyType: 'Test string',
-        serviceLevel: 'Test string',
+        propertyType: 'PROPERTY_TYPE_UNSPECIFIED',
+        serviceLevel: 'SERVICE_LEVEL_UNSPECIFIED',
         timeZone: 'Test string',
         updateTime: 'Test string',
       },
@@ -426,7 +426,8 @@ gapi.load('client', async () => {
     await gapi.client.analyticsadmin.properties.provisionSubproperty(
       {},
       {
-        customDimensionAndMetricSynchronizationMode: 'Test string',
+        customDimensionAndMetricSynchronizationMode:
+          'SYNCHRONIZATION_MODE_UNSPECIFIED',
         subproperty: {
           account: 'Test string',
           createTime: 'Test string',
@@ -434,11 +435,11 @@ gapi.load('client', async () => {
           deleteTime: 'Test string',
           displayName: 'Test string',
           expireTime: 'Test string',
-          industryCategory: 'Test string',
+          industryCategory: 'INDUSTRY_CATEGORY_UNSPECIFIED',
           name: 'Test string',
           parent: 'Test string',
-          propertyType: 'Test string',
-          serviceLevel: 'Test string',
+          propertyType: 'PROPERTY_TYPE_UNSPECIFIED',
+          serviceLevel: 'SERVICE_LEVEL_UNSPECIFIED',
           timeZone: 'Test string',
           updateTime: 'Test string',
         },
@@ -446,14 +447,14 @@ gapi.load('client', async () => {
           applyToProperty: 'Test string',
           filterClauses: [
             {
-              filterClauseType: 'Test string',
+              filterClauseType: 'FILTER_CLAUSE_TYPE_UNSPECIFIED',
               filterExpression: {
                 filterCondition: {
                   fieldName: 'Test string',
                   nullFilter: true,
                   stringFilter: {
                     caseSensitive: true,
-                    matchType: 'Test string',
+                    matchType: 'MATCH_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -498,7 +499,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -506,7 +507,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -544,7 +545,7 @@ gapi.load('client', async () => {
               values: ['Test string'],
             },
             numericFilter: {
-              operation: 'Test string',
+              operation: 'OPERATION_UNSPECIFIED',
               value: {
                 doubleValue: 42,
                 int64Value: 'Test string',
@@ -552,7 +553,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -575,7 +576,7 @@ gapi.load('client', async () => {
             desc: true,
             dimension: {
               dimensionName: 'Test string',
-              orderType: 'Test string',
+              orderType: 'ORDER_TYPE_UNSPECIFIED',
             },
             metric: {
               metricName: 'Test string',
@@ -605,11 +606,14 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        acquisitionConversionEventLookbackWindow: 'Test string',
-        adsWebConversionDataExportScope: 'Test string',
+        acquisitionConversionEventLookbackWindow:
+          'ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED',
+        adsWebConversionDataExportScope:
+          'ADS_WEB_CONVERSION_DATA_EXPORT_SCOPE_UNSPECIFIED',
         name: 'Test string',
-        otherConversionEventLookbackWindow: 'Test string',
-        reportingAttributionModel: 'Test string',
+        otherConversionEventLookbackWindow:
+          'OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED',
+        reportingAttributionModel: 'REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED',
       },
     );
     /** Updates the singleton data retention settings for this property. */
@@ -619,10 +623,10 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        eventDataRetention: 'Test string',
+        eventDataRetention: 'RETENTION_DURATION_UNSPECIFIED',
         name: 'Test string',
         resetUserDataOnNewActivity: true,
-        userDataRetention: 'Test string',
+        userDataRetention: 'RETENTION_DURATION_UNSPECIFIED',
       },
     );
     /** Updates Google Signals settings for a property. */
@@ -632,9 +636,9 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        consent: 'Test string',
+        consent: 'GOOGLE_SIGNALS_CONSENT_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'GOOGLE_SIGNALS_STATE_UNSPECIFIED',
       },
     );
     /** Updates the reporting identity settings for this property. */
@@ -645,7 +649,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        reportingIdentity: 'Test string',
+        reportingIdentity: 'IDENTITY_BLENDING_STRATEGY_UNSPECIFIED',
       },
     );
     /** Creates information about multiple access bindings to an account or property. This method is transactional. If any AccessBinding cannot be created, none of the AccessBindings will be created. */
@@ -780,14 +784,14 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         eventTrigger: {
           eventName: 'Test string',
-          logCondition: 'Test string',
+          logCondition: 'LOG_CONDITION_UNSPECIFIED',
         },
-        exclusionDurationMode: 'Test string',
+        exclusionDurationMode: 'AUDIENCE_EXCLUSION_DURATION_MODE_UNSPECIFIED',
         filterClauses: [
           {
-            clauseType: 'Test string',
+            clauseType: 'AUDIENCE_CLAUSE_TYPE_UNSPECIFIED',
             sequenceFilter: {
-              scope: 'Test string',
+              scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
               sequenceMaximumDuration: 'Test string',
               sequenceSteps: [
                 {
@@ -815,7 +819,7 @@ gapi.load('client', async () => {
                         values: ['Test string'],
                       },
                       numericFilter: {
-                        operation: 'Test string',
+                        operation: 'OPERATION_UNSPECIFIED',
                         value: {
                           doubleValue: 42,
                           int64Value: 'Test string',
@@ -823,7 +827,7 @@ gapi.load('client', async () => {
                       },
                       stringFilter: {
                         caseSensitive: true,
-                        matchType: 'Test string',
+                        matchType: 'MATCH_TYPE_UNSPECIFIED',
                         value: 'Test string',
                       },
                     },
@@ -837,7 +841,7 @@ gapi.load('client', async () => {
                     },
                   },
                   immediatelyFollows: true,
-                  scope: 'Test string',
+                  scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
                 },
               ],
             },
@@ -865,7 +869,7 @@ gapi.load('client', async () => {
                     values: ['Test string'],
                   },
                   numericFilter: {
-                    operation: 'Test string',
+                    operation: 'OPERATION_UNSPECIFIED',
                     value: {
                       doubleValue: 42,
                       int64Value: 'Test string',
@@ -873,7 +877,7 @@ gapi.load('client', async () => {
                   },
                   stringFilter: {
                     caseSensitive: true,
-                    matchType: 'Test string',
+                    matchType: 'MATCH_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -886,7 +890,7 @@ gapi.load('client', async () => {
                   filterExpressions: undefined,
                 },
               },
-              scope: 'Test string',
+              scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
             },
           },
         ],
@@ -917,14 +921,14 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         eventTrigger: {
           eventName: 'Test string',
-          logCondition: 'Test string',
+          logCondition: 'LOG_CONDITION_UNSPECIFIED',
         },
-        exclusionDurationMode: 'Test string',
+        exclusionDurationMode: 'AUDIENCE_EXCLUSION_DURATION_MODE_UNSPECIFIED',
         filterClauses: [
           {
-            clauseType: 'Test string',
+            clauseType: 'AUDIENCE_CLAUSE_TYPE_UNSPECIFIED',
             sequenceFilter: {
-              scope: 'Test string',
+              scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
               sequenceMaximumDuration: 'Test string',
               sequenceSteps: [
                 {
@@ -952,7 +956,7 @@ gapi.load('client', async () => {
                         values: ['Test string'],
                       },
                       numericFilter: {
-                        operation: 'Test string',
+                        operation: 'OPERATION_UNSPECIFIED',
                         value: {
                           doubleValue: 42,
                           int64Value: 'Test string',
@@ -960,7 +964,7 @@ gapi.load('client', async () => {
                       },
                       stringFilter: {
                         caseSensitive: true,
-                        matchType: 'Test string',
+                        matchType: 'MATCH_TYPE_UNSPECIFIED',
                         value: 'Test string',
                       },
                     },
@@ -974,7 +978,7 @@ gapi.load('client', async () => {
                     },
                   },
                   immediatelyFollows: true,
-                  scope: 'Test string',
+                  scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1002,7 +1006,7 @@ gapi.load('client', async () => {
                     values: ['Test string'],
                   },
                   numericFilter: {
-                    operation: 'Test string',
+                    operation: 'OPERATION_UNSPECIFIED',
                     value: {
                       doubleValue: 42,
                       int64Value: 'Test string',
@@ -1010,7 +1014,7 @@ gapi.load('client', async () => {
                   },
                   stringFilter: {
                     caseSensitive: true,
-                    matchType: 'Test string',
+                    matchType: 'MATCH_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -1023,7 +1027,7 @@ gapi.load('client', async () => {
                   filterExpressions: undefined,
                 },
               },
-              scope: 'Test string',
+              scope: 'AUDIENCE_FILTER_SCOPE_UNSPECIFIED',
             },
           },
         ],
@@ -1094,9 +1098,9 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         formula: 'Test string',
         invalidMetricReference: true,
-        metricUnit: 'Test string',
+        metricUnit: 'METRIC_UNIT_UNSPECIFIED',
         name: 'Test string',
-        restrictedMetricType: ['Test string'],
+        restrictedMetricType: ['RESTRICTED_METRIC_TYPE_UNSPECIFIED'],
       },
     );
     /** Deletes a CalculatedMetric on a property. */
@@ -1125,9 +1129,9 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         formula: 'Test string',
         invalidMetricReference: true,
-        metricUnit: 'Test string',
+        metricUnit: 'METRIC_UNIT_UNSPECIFIED',
         name: 'Test string',
-        restrictedMetricType: ['Test string'],
+        restrictedMetricType: ['RESTRICTED_METRIC_TYPE_UNSPECIFIED'],
       },
     );
     /** Creates a ChannelGroup. */
@@ -1151,7 +1155,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 stringFilter: {
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -1203,7 +1207,7 @@ gapi.load('client', async () => {
                   values: ['Test string'],
                 },
                 stringFilter: {
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -1225,7 +1229,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        countingMethod: 'Test string',
+        countingMethod: 'CONVERSION_COUNTING_METHOD_UNSPECIFIED',
         createTime: 'Test string',
         custom: true,
         defaultConversionValue: {
@@ -1258,7 +1262,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        countingMethod: 'Test string',
+        countingMethod: 'CONVERSION_COUNTING_METHOD_UNSPECIFIED',
         createTime: 'Test string',
         custom: true,
         defaultConversionValue: {
@@ -1288,7 +1292,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         parameterName: 'Test string',
-        scope: 'Test string',
+        scope: 'DIMENSION_SCOPE_UNSPECIFIED',
       },
     );
     /** Lookup for a single CustomDimension. */
@@ -1313,7 +1317,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         parameterName: 'Test string',
-        scope: 'Test string',
+        scope: 'DIMENSION_SCOPE_UNSPECIFIED',
       },
     );
     /** Archives a CustomMetric on a property. */
@@ -1331,11 +1335,11 @@ gapi.load('client', async () => {
       {
         description: 'Test string',
         displayName: 'Test string',
-        measurementUnit: 'Test string',
+        measurementUnit: 'MEASUREMENT_UNIT_UNSPECIFIED',
         name: 'Test string',
         parameterName: 'Test string',
-        restrictedMetricType: ['Test string'],
-        scope: 'Test string',
+        restrictedMetricType: ['RESTRICTED_METRIC_TYPE_UNSPECIFIED'],
+        scope: 'METRIC_SCOPE_UNSPECIFIED',
       },
     );
     /** Lookup for a single CustomMetric. */
@@ -1357,11 +1361,11 @@ gapi.load('client', async () => {
       {
         description: 'Test string',
         displayName: 'Test string',
-        measurementUnit: 'Test string',
+        measurementUnit: 'MEASUREMENT_UNIT_UNSPECIFIED',
         name: 'Test string',
         parameterName: 'Test string',
-        restrictedMetricType: ['Test string'],
-        scope: 'Test string',
+        restrictedMetricType: ['RESTRICTED_METRIC_TYPE_UNSPECIFIED'],
+        scope: 'METRIC_SCOPE_UNSPECIFIED',
       },
     );
     /** Creates a DataStream. */
@@ -1381,7 +1385,7 @@ gapi.load('client', async () => {
           firebaseAppId: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'DATA_STREAM_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         webStreamData: {
           defaultUri: 'Test string',
@@ -1438,7 +1442,7 @@ gapi.load('client', async () => {
           firebaseAppId: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'DATA_STREAM_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         webStreamData: {
           defaultUri: 'Test string',
@@ -1489,7 +1493,7 @@ gapi.load('client', async () => {
         destinationEvent: 'Test string',
         eventConditions: [
           {
-            comparisonType: 'Test string',
+            comparisonType: 'COMPARISON_TYPE_UNSPECIFIED',
             field: 'Test string',
             negated: true,
             value: 'Test string',
@@ -1535,7 +1539,7 @@ gapi.load('client', async () => {
         destinationEvent: 'Test string',
         eventConditions: [
           {
-            comparisonType: 'Test string',
+            comparisonType: 'COMPARISON_TYPE_UNSPECIFIED',
             field: 'Test string',
             negated: true,
             value: 'Test string',
@@ -1560,7 +1564,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         eventConditions: [
           {
-            comparisonType: 'Test string',
+            comparisonType: 'COMPARISON_TYPE_UNSPECIFIED',
             field: 'Test string',
             negated: true,
             value: 'Test string',
@@ -1604,7 +1608,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         eventConditions: [
           {
-            comparisonType: 'Test string',
+            comparisonType: 'COMPARISON_TYPE_UNSPECIFIED',
             field: 'Test string',
             negated: true,
             value: 'Test string',
@@ -1683,7 +1687,7 @@ gapi.load('client', async () => {
         postbackWindowOne: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1703,7 +1707,7 @@ gapi.load('client', async () => {
         postbackWindowThree: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1723,7 +1727,7 @@ gapi.load('client', async () => {
         postbackWindowTwo: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1774,7 +1778,7 @@ gapi.load('client', async () => {
         postbackWindowOne: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1794,7 +1798,7 @@ gapi.load('client', async () => {
         postbackWindowThree: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1814,7 +1818,7 @@ gapi.load('client', async () => {
         postbackWindowTwo: {
           conversionValues: [
             {
-              coarseValue: 'Test string',
+              coarseValue: 'COARSE_VALUE_UNSPECIFIED',
               displayName: 'Test string',
               eventMappings: [
                 {
@@ -1859,8 +1863,9 @@ gapi.load('client', async () => {
         campaignDataSharingEnabled: true,
         costDataSharingEnabled: true,
         linkProposalStatusDetails: {
-          linkProposalInitiatingProduct: 'Test string',
-          linkProposalState: 'Test string',
+          linkProposalInitiatingProduct:
+            'LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED',
+          linkProposalState: 'LINK_PROPOSAL_STATE_UNSPECIFIED',
           requestorEmail: 'Test string',
         },
         name: 'Test string',
@@ -1956,7 +1961,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -2003,7 +2008,7 @@ gapi.load('client', async () => {
             },
             stringFilter: {
               caseSensitive: true,
-              matchType: 'Test string',
+              matchType: 'MATCH_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
@@ -2083,7 +2088,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        countingMethod: 'Test string',
+        countingMethod: 'COUNTING_METHOD_UNSPECIFIED',
         createTime: 'Test string',
         custom: true,
         defaultValue: {
@@ -2116,7 +2121,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        countingMethod: 'Test string',
+        countingMethod: 'COUNTING_METHOD_UNSPECIFIED',
         createTime: 'Test string',
         custom: true,
         defaultValue: {
@@ -2151,7 +2156,7 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-        color: 'Test string',
+        color: 'COLOR_UNSPECIFIED',
         description: 'Test string',
         name: 'Test string',
         systemGenerated: true,
@@ -2199,7 +2204,7 @@ gapi.load('client', async () => {
             year: 42,
           },
         },
-        color: 'Test string',
+        color: 'COLOR_UNSPECIFIED',
         description: 'Test string',
         name: 'Test string',
         systemGenerated: true,
@@ -2286,14 +2291,14 @@ gapi.load('client', async () => {
         applyToProperty: 'Test string',
         filterClauses: [
           {
-            filterClauseType: 'Test string',
+            filterClauseType: 'FILTER_CLAUSE_TYPE_UNSPECIFIED',
             filterExpression: {
               filterCondition: {
                 fieldName: 'Test string',
                 nullFilter: true,
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -2331,14 +2336,14 @@ gapi.load('client', async () => {
         applyToProperty: 'Test string',
         filterClauses: [
           {
-            filterClauseType: 'Test string',
+            filterClauseType: 'FILTER_CLAUSE_TYPE_UNSPECIFIED',
             filterExpression: {
               filterCondition: {
                 fieldName: 'Test string',
                 nullFilter: true,
                 stringFilter: {
                   caseSensitive: true,
-                  matchType: 'Test string',
+                  matchType: 'MATCH_TYPE_UNSPECIFIED',
                   value: 'Test string',
                 },
               },
@@ -2370,7 +2375,7 @@ gapi.load('client', async () => {
       },
       {
         applyToProperty: 'Test string',
-        customDimensionAndMetricSyncMode: 'Test string',
+        customDimensionAndMetricSyncMode: 'SYNCHRONIZATION_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );

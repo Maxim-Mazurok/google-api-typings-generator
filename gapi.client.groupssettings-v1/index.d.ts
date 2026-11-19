@@ -466,7 +466,8 @@ declare namespace gapi.client {
        */
       whoCanViewMembership?: string;
     }
-    interface GroupsResource {
+
+    const groups: {
       /** Gets one resource by id. */
       get(request?: {
         /** Data format for the response. */
@@ -570,8 +571,6 @@ declare namespace gapi.client {
         },
         body: Groups,
       ): Request<Groups>;
-    }
-
-    const groups: GroupsResource;
+    };
   }
 }

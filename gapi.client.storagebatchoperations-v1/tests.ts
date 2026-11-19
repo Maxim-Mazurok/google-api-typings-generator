@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         dryRun: true,
         errorSummaries: [
           {
-            errorCode: 'Test string',
+            errorCode: 'OK',
             errorCount: 'Test string',
             errorLogEntries: [
               {
@@ -104,8 +104,8 @@ gapi.load('client', async () => {
         ],
         isMultiBucketJob: true,
         loggingConfig: {
-          logActions: ['Test string'],
-          logActionStates: ['Test string'],
+          logActions: ['LOGGABLE_ACTION_UNSPECIFIED'],
+          logActionStates: ['LOGGABLE_ACTION_STATE_UNSPECIFIED'],
         },
         name: 'Test string',
         projectSource: {
@@ -142,16 +142,16 @@ gapi.load('client', async () => {
           customTime: 'Test string',
           objectRetention: {
             retainUntilTime: 'Test string',
-            retentionMode: 'Test string',
+            retentionMode: 'RETENTION_MODE_UNSPECIFIED',
           },
         },
         putObjectHold: {
-          eventBasedHold: 'Test string',
-          temporaryHold: 'Test string',
+          eventBasedHold: 'HOLD_STATUS_UNSPECIFIED',
+          temporaryHold: 'HOLD_STATUS_UNSPECIFIED',
         },
         rewriteObject: {
           kmsKey: 'Test string',
-          storageClass: 'Test string',
+          storageClass: 'STORAGE_CLASS_UNSPECIFIED',
         },
         scheduleTime: 'Test string',
         setObjectAcls: {
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
             removeEntities: ['Test string'],
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateObjectCustomContext: {
           clearAll: true,
           customContextUpdates: {

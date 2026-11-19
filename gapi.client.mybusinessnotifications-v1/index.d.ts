@@ -32,7 +32,7 @@ declare namespace gapi.client {
       /** Required. The resource name this setting is for. This is of the form `accounts/{account_id}/notificationSetting`. */
       name?: string;
       /** The types of notifications that will be sent to the Pub/Sub topic. To stop receiving notifications entirely, use NotificationSettings.UpdateNotificationSetting with an empty notification_types or set the pubsub_topic to an empty string. */
-      notificationTypes?:
+      notificationTypes?: (
         | 'NOTIFICATION_TYPE_UNSPECIFIED'
         | 'GOOGLE_UPDATE'
         | 'NEW_REVIEW'
@@ -44,11 +44,13 @@ declare namespace gapi.client {
         | 'UPDATED_ANSWER'
         | 'DUPLICATE_LOCATION'
         | 'LOSS_OF_VOICE_OF_MERCHANT'
-        | 'VOICE_OF_MERCHANT_UPDATED'[];
+        | 'VOICE_OF_MERCHANT_UPDATED'
+      )[];
       /** Optional. The Google Pub/Sub topic that will receive notifications when locations managed by this account are updated. If unset, no notifications will be posted. The account mybusiness-api-pubsub@system.gserviceaccount.com must have at least Publish permissions on the Pub/Sub topic. */
       pubsubTopic?: string;
     }
-    interface AccountsResource {
+
+    const accounts: {
       /** Returns the pubsub notification settings for the account. */
       getNotificationSetting(request?: {
         /** V1 error format. */
@@ -138,8 +140,6 @@ declare namespace gapi.client {
         },
         body: NotificationSetting,
       ): Request<NotificationSetting>;
-    }
-
-    const accounts: AccountsResource;
+    };
   }
 }

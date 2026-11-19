@@ -41,7 +41,7 @@ gapi.load('client', async () => {
       {
         authDomain: 'Test string',
         codeBucket: 'Test string',
-        databaseType: 'Test string',
+        databaseType: 'DATABASE_TYPE_UNSPECIFIED',
         defaultBucket: 'Test string',
         defaultCookieExpiration: 'Test string',
         defaultHostname: 'Test string',
@@ -70,19 +70,19 @@ gapi.load('client', async () => {
         locationId: 'Test string',
         name: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
-        sslPolicy: 'Test string',
+        servingStatus: 'UNSPECIFIED',
+        sslPolicy: 'SSL_POLICY_UNSPECIFIED',
       },
     );
     /** Gets information about an application. */
     await gapi.client.appengine.apps.get({
       appsId: 'Test string',
-      includeExtraData: 'Test string',
+      includeExtraData: 'INCLUDE_EXTRA_DATA_UNSPECIFIED',
     });
     /** Lists all the available runtimes for the application. */
     await gapi.client.appengine.apps.listRuntimes({
       appsId: 'Test string',
-      environment: 'Test string',
+      environment: 'ENVIRONMENT_UNSPECIFIED',
     });
     /** Updates the specified Application resource. You can update the following fields: auth_domain - Google authentication domain for controlling user access to the application. default_cookie_expiration - Cookie expiration policy for the application. iap - Identity-Aware Proxy properties for the application. */
     await gapi.client.appengine.apps.patch(
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
       {
         authDomain: 'Test string',
         codeBucket: 'Test string',
-        databaseType: 'Test string',
+        databaseType: 'DATABASE_TYPE_UNSPECIFIED',
         defaultBucket: 'Test string',
         defaultCookieExpiration: 'Test string',
         defaultHostname: 'Test string',
@@ -122,8 +122,8 @@ gapi.load('client', async () => {
         locationId: 'Test string',
         name: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
-        sslPolicy: 'Test string',
+        servingStatus: 'UNSPECIFIED',
+        sslPolicy: 'SSL_POLICY_UNSPECIFIED',
       },
     );
     /** Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account. If you have deleted your App Engine service account, this will not be able to recreate it. Instead, you should attempt to use the IAM undelete API if possible at https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D . If the deletion was recent, the numeric ID can be found in the Cloud Console Activity Log. */
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'MANAGEMENT_STATUS_UNSPECIFIED',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -165,14 +165,14 @@ gapi.load('client', async () => {
     await gapi.client.appengine.apps.authorizedCertificates.get({
       appsId: 'Test string',
       authorizedCertificatesId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC_CERTIFICATE',
     });
     /** Lists all SSL certificates the user is authorized to administer. */
     await gapi.client.appengine.apps.authorizedCertificates.list({
       appsId: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'BASIC_CERTIFICATE',
     });
     /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
     await gapi.client.appengine.apps.authorizedCertificates.patch(
@@ -193,7 +193,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'MANAGEMENT_STATUS_UNSPECIFIED',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
     await gapi.client.appengine.apps.domainMappings.create(
       {
         appsId: 'Test string',
-        overrideStrategy: 'Test string',
+        overrideStrategy: 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY',
       },
       {
         id: 'Test string',
@@ -218,13 +218,13 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'RECORD_TYPE_UNSPECIFIED',
           },
         ],
         sslSettings: {
           certificateId: 'Test string',
           pendingManagedCertificateId: 'Test string',
-          sslManagementType: 'Test string',
+          sslManagementType: 'SSL_MANAGEMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -258,13 +258,13 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'RECORD_TYPE_UNSPECIFIED',
           },
         ],
         sslSettings: {
           certificateId: 'Test string',
           pendingManagedCertificateId: 'Test string',
-          sslManagementType: 'Test string',
+          sslManagementType: 'SSL_MANAGEMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
       {
         ingressRules: [
           {
-            action: 'Test string',
+            action: 'UNSPECIFIED_ACTION',
             description: 'Test string',
             priority: 42,
             sourceRange: 'Test string',
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
         appsId: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'UNSPECIFIED_ACTION',
         description: 'Test string',
         priority: 42,
         sourceRange: 'Test string',
@@ -321,7 +321,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'UNSPECIFIED_ACTION',
         description: 'Test string',
         priority: 42,
         sourceRange: 'Test string',
@@ -387,13 +387,13 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         networkSettings: {
-          ingressTrafficAllowed: 'Test string',
+          ingressTrafficAllowed: 'INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED',
         },
         split: {
           allocations: {
             A: 42,
           },
-          shardBy: 'Test string',
+          shardBy: 'UNSPECIFIED',
         },
       },
     );
@@ -405,14 +405,14 @@ gapi.load('client', async () => {
       },
       {
         apiConfig: {
-          authFailAction: 'Test string',
-          login: 'Test string',
+          authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+          login: 'LOGIN_UNSPECIFIED',
           script: 'Test string',
-          securityLevel: 'Test string',
+          securityLevel: 'SECURE_UNSPECIFIED',
           url: 'Test string',
         },
         appEngineApis: true,
-        appEngineBundledServices: ['Test string'],
+        appEngineBundledServices: ['BUNDLED_SERVICE_TYPE_UNSPECIFIED'],
         automaticScaling: {
           coolDownPeriod: 'Test string',
           cpuUtilization: {
@@ -487,7 +487,7 @@ gapi.load('client', async () => {
           configId: 'Test string',
           disableTraceSampling: true,
           name: 'Test string',
-          rolloutStrategy: 'Test string',
+          rolloutStrategy: 'UNSPECIFIED_ROLLOUT_STRATEGY',
         },
         entrypoint: {
           shell: 'Test string',
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
         },
         errorHandlers: [
           {
-            errorCode: 'Test string',
+            errorCode: 'ERROR_CODE_UNSPECIFIED',
             mimeType: 'Test string',
             staticFile: 'Test string',
           },
@@ -515,13 +515,13 @@ gapi.load('client', async () => {
             apiEndpoint: {
               scriptPath: 'Test string',
             },
-            authFailAction: 'Test string',
-            login: 'Test string',
-            redirectHttpResponseCode: 'Test string',
+            authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+            login: 'LOGIN_UNSPECIFIED',
+            redirectHttpResponseCode: 'REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED',
             script: {
               scriptPath: 'Test string',
             },
-            securityLevel: 'Test string',
+            securityLevel: 'SECURE_UNSPECIFIED',
             staticFiles: {
               applicationReadable: true,
               expiration: 'Test string',
@@ -546,7 +546,7 @@ gapi.load('client', async () => {
           unhealthyThreshold: 42,
         },
         id: 'Test string',
-        inboundServices: ['Test string'],
+        inboundServices: ['INBOUND_SERVICE_UNSPECIFIED'],
         instanceClass: 'Test string',
         libraries: [
           {
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: {
           forwardedPorts: ['Test string'],
-          instanceIpMode: 'Test string',
+          instanceIpMode: 'INSTANCE_IP_MODE_UNSPECIFIED',
           instanceTag: 'Test string',
           name: 'Test string',
           sessionAffinity: true,
@@ -603,7 +603,7 @@ gapi.load('client', async () => {
         runtimeChannel: 'Test string',
         runtimeMainExecutablePath: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
+        servingStatus: 'SERVING_STATUS_UNSPECIFIED',
         threadsafe: true,
         versionUrl: 'Test string',
         vm: true,
@@ -615,10 +615,10 @@ gapi.load('client', async () => {
               tags: ['Test string'],
             },
           ],
-          vpcEgress: 'Test string',
+          vpcEgress: 'VPC_EGRESS_UNSPECIFIED',
         },
         vpcAccessConnector: {
-          egressSetting: 'Test string',
+          egressSetting: 'EGRESS_SETTING_UNSPECIFIED',
           name: 'Test string',
         },
         zones: ['Test string'],
@@ -646,7 +646,7 @@ gapi.load('client', async () => {
       appsId: 'Test string',
       servicesId: 'Test string',
       versionsId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Lists the versions of a service. */
     await gapi.client.appengine.apps.services.versions.list({
@@ -654,7 +654,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       servicesId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment instance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment: automatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings) automaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment: serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status) manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible environment serving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment: automatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling) automatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual scaling in the flexible environment: manual_scaling.instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling) */
     await gapi.client.appengine.apps.services.versions.patch(
@@ -666,14 +666,14 @@ gapi.load('client', async () => {
       },
       {
         apiConfig: {
-          authFailAction: 'Test string',
-          login: 'Test string',
+          authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+          login: 'LOGIN_UNSPECIFIED',
           script: 'Test string',
-          securityLevel: 'Test string',
+          securityLevel: 'SECURE_UNSPECIFIED',
           url: 'Test string',
         },
         appEngineApis: true,
-        appEngineBundledServices: ['Test string'],
+        appEngineBundledServices: ['BUNDLED_SERVICE_TYPE_UNSPECIFIED'],
         automaticScaling: {
           coolDownPeriod: 'Test string',
           cpuUtilization: {
@@ -748,7 +748,7 @@ gapi.load('client', async () => {
           configId: 'Test string',
           disableTraceSampling: true,
           name: 'Test string',
-          rolloutStrategy: 'Test string',
+          rolloutStrategy: 'UNSPECIFIED_ROLLOUT_STRATEGY',
         },
         entrypoint: {
           shell: 'Test string',
@@ -759,7 +759,7 @@ gapi.load('client', async () => {
         },
         errorHandlers: [
           {
-            errorCode: 'Test string',
+            errorCode: 'ERROR_CODE_UNSPECIFIED',
             mimeType: 'Test string',
             staticFile: 'Test string',
           },
@@ -776,13 +776,13 @@ gapi.load('client', async () => {
             apiEndpoint: {
               scriptPath: 'Test string',
             },
-            authFailAction: 'Test string',
-            login: 'Test string',
-            redirectHttpResponseCode: 'Test string',
+            authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+            login: 'LOGIN_UNSPECIFIED',
+            redirectHttpResponseCode: 'REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED',
             script: {
               scriptPath: 'Test string',
             },
-            securityLevel: 'Test string',
+            securityLevel: 'SECURE_UNSPECIFIED',
             staticFiles: {
               applicationReadable: true,
               expiration: 'Test string',
@@ -807,7 +807,7 @@ gapi.load('client', async () => {
           unhealthyThreshold: 42,
         },
         id: 'Test string',
-        inboundServices: ['Test string'],
+        inboundServices: ['INBOUND_SERVICE_UNSPECIFIED'],
         instanceClass: 'Test string',
         libraries: [
           {
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: {
           forwardedPorts: ['Test string'],
-          instanceIpMode: 'Test string',
+          instanceIpMode: 'INSTANCE_IP_MODE_UNSPECIFIED',
           instanceTag: 'Test string',
           name: 'Test string',
           sessionAffinity: true,
@@ -864,7 +864,7 @@ gapi.load('client', async () => {
         runtimeChannel: 'Test string',
         runtimeMainExecutablePath: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
+        servingStatus: 'SERVING_STATUS_UNSPECIFIED',
         threadsafe: true,
         versionUrl: 'Test string',
         vm: true,
@@ -876,10 +876,10 @@ gapi.load('client', async () => {
               tags: ['Test string'],
             },
           ],
-          vpcEgress: 'Test string',
+          vpcEgress: 'VPC_EGRESS_UNSPECIFIED',
         },
         vpcAccessConnector: {
-          egressSetting: 'Test string',
+          egressSetting: 'EGRESS_SETTING_UNSPECIFIED',
           name: 'Test string',
         },
         zones: ['Test string'],
@@ -930,7 +930,7 @@ gapi.load('client', async () => {
       {
         authDomain: 'Test string',
         codeBucket: 'Test string',
-        databaseType: 'Test string',
+        databaseType: 'DATABASE_TYPE_UNSPECIFIED',
         defaultBucket: 'Test string',
         defaultCookieExpiration: 'Test string',
         defaultHostname: 'Test string',
@@ -959,8 +959,8 @@ gapi.load('client', async () => {
         locationId: 'Test string',
         name: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
-        sslPolicy: 'Test string',
+        servingStatus: 'UNSPECIFIED',
+        sslPolicy: 'SSL_POLICY_UNSPECIFIED',
       },
     );
     /** Uploads the specified SSL certificate. */
@@ -982,7 +982,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'MANAGEMENT_STATUS_UNSPECIFIED',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -1004,7 +1004,7 @@ gapi.load('client', async () => {
         authorizedCertificatesId: 'Test string',
         locationsId: 'Test string',
         projectsId: 'Test string',
-        view: 'Test string',
+        view: 'BASIC_CERTIFICATE',
       },
     );
     /** Lists all SSL certificates the user is authorized to administer. */
@@ -1015,7 +1015,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         projectsId: 'Test string',
-        view: 'Test string',
+        view: 'BASIC_CERTIFICATE',
       },
     );
     /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
@@ -1039,7 +1039,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'MANAGEMENT_STATUS_UNSPECIFIED',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -1060,7 +1060,7 @@ gapi.load('client', async () => {
       {
         applicationsId: 'Test string',
         locationsId: 'Test string',
-        overrideStrategy: 'Test string',
+        overrideStrategy: 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY',
         projectsId: 'Test string',
       },
       {
@@ -1070,13 +1070,13 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'RECORD_TYPE_UNSPECIFIED',
           },
         ],
         sslSettings: {
           certificateId: 'Test string',
           pendingManagedCertificateId: 'Test string',
-          sslManagementType: 'Test string',
+          sslManagementType: 'SSL_MANAGEMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -1124,13 +1124,13 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'RECORD_TYPE_UNSPECIFIED',
           },
         ],
         sslSettings: {
           certificateId: 'Test string',
           pendingManagedCertificateId: 'Test string',
-          sslManagementType: 'Test string',
+          sslManagementType: 'SSL_MANAGEMENT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -1163,13 +1163,13 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         networkSettings: {
-          ingressTrafficAllowed: 'Test string',
+          ingressTrafficAllowed: 'INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED',
         },
         split: {
           allocations: {
             A: 42,
           },
-          shardBy: 'Test string',
+          shardBy: 'UNSPECIFIED',
         },
       },
     );
@@ -1208,14 +1208,14 @@ gapi.load('client', async () => {
       },
       {
         apiConfig: {
-          authFailAction: 'Test string',
-          login: 'Test string',
+          authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+          login: 'LOGIN_UNSPECIFIED',
           script: 'Test string',
-          securityLevel: 'Test string',
+          securityLevel: 'SECURE_UNSPECIFIED',
           url: 'Test string',
         },
         appEngineApis: true,
-        appEngineBundledServices: ['Test string'],
+        appEngineBundledServices: ['BUNDLED_SERVICE_TYPE_UNSPECIFIED'],
         automaticScaling: {
           coolDownPeriod: 'Test string',
           cpuUtilization: {
@@ -1290,7 +1290,7 @@ gapi.load('client', async () => {
           configId: 'Test string',
           disableTraceSampling: true,
           name: 'Test string',
-          rolloutStrategy: 'Test string',
+          rolloutStrategy: 'UNSPECIFIED_ROLLOUT_STRATEGY',
         },
         entrypoint: {
           shell: 'Test string',
@@ -1301,7 +1301,7 @@ gapi.load('client', async () => {
         },
         errorHandlers: [
           {
-            errorCode: 'Test string',
+            errorCode: 'ERROR_CODE_UNSPECIFIED',
             mimeType: 'Test string',
             staticFile: 'Test string',
           },
@@ -1318,13 +1318,13 @@ gapi.load('client', async () => {
             apiEndpoint: {
               scriptPath: 'Test string',
             },
-            authFailAction: 'Test string',
-            login: 'Test string',
-            redirectHttpResponseCode: 'Test string',
+            authFailAction: 'AUTH_FAIL_ACTION_UNSPECIFIED',
+            login: 'LOGIN_UNSPECIFIED',
+            redirectHttpResponseCode: 'REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED',
             script: {
               scriptPath: 'Test string',
             },
-            securityLevel: 'Test string',
+            securityLevel: 'SECURE_UNSPECIFIED',
             staticFiles: {
               applicationReadable: true,
               expiration: 'Test string',
@@ -1349,7 +1349,7 @@ gapi.load('client', async () => {
           unhealthyThreshold: 42,
         },
         id: 'Test string',
-        inboundServices: ['Test string'],
+        inboundServices: ['INBOUND_SERVICE_UNSPECIFIED'],
         instanceClass: 'Test string',
         libraries: [
           {
@@ -1372,7 +1372,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: {
           forwardedPorts: ['Test string'],
-          instanceIpMode: 'Test string',
+          instanceIpMode: 'INSTANCE_IP_MODE_UNSPECIFIED',
           instanceTag: 'Test string',
           name: 'Test string',
           sessionAffinity: true,
@@ -1406,7 +1406,7 @@ gapi.load('client', async () => {
         runtimeChannel: 'Test string',
         runtimeMainExecutablePath: 'Test string',
         serviceAccount: 'Test string',
-        servingStatus: 'Test string',
+        servingStatus: 'SERVING_STATUS_UNSPECIFIED',
         threadsafe: true,
         versionUrl: 'Test string',
         vm: true,
@@ -1418,10 +1418,10 @@ gapi.load('client', async () => {
               tags: ['Test string'],
             },
           ],
-          vpcEgress: 'Test string',
+          vpcEgress: 'VPC_EGRESS_UNSPECIFIED',
         },
         vpcAccessConnector: {
-          egressSetting: 'Test string',
+          egressSetting: 'EGRESS_SETTING_UNSPECIFIED',
           name: 'Test string',
         },
         zones: ['Test string'],

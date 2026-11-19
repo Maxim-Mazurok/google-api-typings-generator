@@ -283,7 +283,8 @@ declare namespace gapi.client {
       /** Sub-resources on this resource. */
       resources?: {[P in string]: RestResource};
     }
-    interface ApisResource {
+
+    const apis: {
       /** Retrieve the description of a particular version of an api. */
       getRest(request?: {
         /** Data format for the response. */
@@ -326,8 +327,6 @@ declare namespace gapi.client {
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<DirectoryList>;
-    }
-
-    const apis: ApisResource;
+    };
   }
 }

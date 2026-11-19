@@ -85,7 +85,7 @@ gapi.load('client', async () => {
           deviceId: 'Test string',
           deviceIdentifier: {
             chromeOsAttestedDeviceId: 'Test string',
-            deviceType: 'Test string',
+            deviceType: 'DEVICE_TYPE_UNSPECIFIED',
             imei: 'Test string',
             imei2: 'Test string',
             manufacturer: 'Test string',
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
           deviceId: 'Test string',
           deviceIdentifier: {
             chromeOsAttestedDeviceId: 'Test string',
-            deviceType: 'Test string',
+            deviceType: 'DEVICE_TYPE_UNSPECIFIED',
             imei: 'Test string',
             imei2: 'Test string',
             manufacturer: 'Test string',
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
           deviceId: 'Test string',
           deviceIdentifier: {
             chromeOsAttestedDeviceId: 'Test string',
-            deviceType: 'Test string',
+            deviceType: 'DEVICE_TYPE_UNSPECIFIED',
             imei: 'Test string',
             imei2: 'Test string',
             manufacturer: 'Test string',
@@ -177,7 +177,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           ownerEmails: ['Test string'],
           skipWelcomeEmail: true,
-          termsStatus: 'Test string',
+          termsStatus: 'TERMS_STATUS_UNSPECIFIED',
         },
       },
     );
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
         customerId: 'Test string',
         deviceIdentifier: {
           chromeOsAttestedDeviceId: 'Test string',
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           imei: 'Test string',
           imei2: 'Test string',
           manufacturer: 'Test string',
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
         },
         googleWorkspaceCustomerId: 'Test string',
         preProvisioningToken: 'Test string',
-        sectionType: 'Test string',
+        sectionType: 'SECTION_TYPE_UNSPECIFIED',
         simlockProfileId: 'Test string',
       },
     );
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
             customerId: 'Test string',
             deviceIdentifier: {
               chromeOsAttestedDeviceId: 'Test string',
-              deviceType: 'Test string',
+              deviceType: 'DEVICE_TYPE_UNSPECIFIED',
               imei: 'Test string',
               imei2: 'Test string',
               manufacturer: 'Test string',
@@ -245,7 +245,7 @@ gapi.load('client', async () => {
             },
             googleWorkspaceCustomerId: 'Test string',
             preProvisioningToken: 'Test string',
-            sectionType: 'Test string',
+            sectionType: 'SECTION_TYPE_UNSPECIFIED',
             simlockProfileId: 'Test string',
           },
         ],
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
       {
         deviceIdentifier: {
           chromeOsAttestedDeviceId: 'Test string',
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           imei: 'Test string',
           imei2: 'Test string',
           manufacturer: 'Test string',
@@ -282,7 +282,7 @@ gapi.load('client', async () => {
         googleWorkspaceCustomerId: ['Test string'],
         limit: 'Test string',
         pageToken: 'Test string',
-        sectionType: 'Test string',
+        sectionType: 'SECTION_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a device. */
@@ -297,7 +297,7 @@ gapi.load('client', async () => {
       {
         deviceIdentifier: {
           chromeOsAttestedDeviceId: 'Test string',
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           imei: 'Test string',
           imei2: 'Test string',
           manufacturer: 'Test string',
@@ -331,7 +331,7 @@ gapi.load('client', async () => {
         deviceId: 'Test string',
         deviceIdentifier: {
           chromeOsAttestedDeviceId: 'Test string',
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           imei: 'Test string',
           imei2: 'Test string',
           manufacturer: 'Test string',
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
           model: 'Test string',
           serialNumber: 'Test string',
         },
-        sectionType: 'Test string',
+        sectionType: 'SECTION_TYPE_UNSPECIFIED',
         vacationModeDays: 42,
         vacationModeExpireTime: 'Test string',
       },
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
             deviceId: 'Test string',
             deviceIdentifier: {
               chromeOsAttestedDeviceId: 'Test string',
-              deviceType: 'Test string',
+              deviceType: 'DEVICE_TYPE_UNSPECIFIED',
               imei: 'Test string',
               imei2: 'Test string',
               manufacturer: 'Test string',
@@ -365,7 +365,7 @@ gapi.load('client', async () => {
               model: 'Test string',
               serialNumber: 'Test string',
             },
-            sectionType: 'Test string',
+            sectionType: 'SECTION_TYPE_UNSPECIFIED',
             vacationModeDays: 42,
             vacationModeExpireTime: 'Test string',
           },
@@ -383,7 +383,7 @@ gapi.load('client', async () => {
             deviceId: 'Test string',
             deviceIdentifier: {
               chromeOsAttestedDeviceId: 'Test string',
-              deviceType: 'Test string',
+              deviceType: 'DEVICE_TYPE_UNSPECIFIED',
               imei: 'Test string',
               imei2: 'Test string',
               manufacturer: 'Test string',

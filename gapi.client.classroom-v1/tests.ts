@@ -116,14 +116,14 @@ gapi.load('client', async () => {
             title: 'Test string',
           },
         ],
-        courseState: 'Test string',
+        courseState: 'COURSE_STATE_UNSPECIFIED',
         creationTime: 'Test string',
         description: 'Test string',
         descriptionHeading: 'Test string',
         enrollmentCode: 'Test string',
         gradebookSettings: {
-          calculationType: 'Test string',
-          displaySetting: 'Test string',
+          calculationType: 'CALCULATION_TYPE_UNSPECIFIED',
+          displaySetting: 'DISPLAY_SETTING_UNSPECIFIED',
           gradeCategories: [
             {
               defaultGradeDenominator: 42,
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
     });
     /** Returns a list of courses that the requesting user is permitted to view, restricted to those that match the request. Returned courses are ordered by creation time, with the most recently created coming first. This method returns the following error codes: * `PERMISSION_DENIED` for access errors. * `INVALID_ARGUMENT` if the query argument is malformed. * `NOT_FOUND` if any users specified in the query arguments do not exist. */
     await gapi.client.classroom.courses.list({
-      courseStates: 'Test string',
+      courseStates: 'COURSE_STATE_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       studentId: 'Test string',
@@ -212,14 +212,14 @@ gapi.load('client', async () => {
             title: 'Test string',
           },
         ],
-        courseState: 'Test string',
+        courseState: 'COURSE_STATE_UNSPECIFIED',
         creationTime: 'Test string',
         description: 'Test string',
         descriptionHeading: 'Test string',
         enrollmentCode: 'Test string',
         gradebookSettings: {
-          calculationType: 'Test string',
-          displaySetting: 'Test string',
+          calculationType: 'CALCULATION_TYPE_UNSPECIFIED',
+          displaySetting: 'DISPLAY_SETTING_UNSPECIFIED',
           gradeCategories: [
             {
               defaultGradeDenominator: 42,
@@ -287,14 +287,14 @@ gapi.load('client', async () => {
             title: 'Test string',
           },
         ],
-        courseState: 'Test string',
+        courseState: 'COURSE_STATE_UNSPECIFIED',
         creationTime: 'Test string',
         description: 'Test string',
         descriptionHeading: 'Test string',
         enrollmentCode: 'Test string',
         gradebookSettings: {
-          calculationType: 'Test string',
-          displaySetting: 'Test string',
+          calculationType: 'CALCULATION_TYPE_UNSPECIFIED',
+          displaySetting: 'DISPLAY_SETTING_UNSPECIFIED',
           gradeCategories: [
             {
               defaultGradeDenominator: 42,
@@ -374,7 +374,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         courseId: 'Test string',
         creationTime: 'Test string',
         creatorUserId: 'Test string',
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -423,7 +423,7 @@ gapi.load('client', async () => {
           },
         ],
         scheduledTime: 'Test string',
-        state: 'Test string',
+        state: 'ANNOUNCEMENT_STATE_UNSPECIFIED',
         text: 'Test string',
         updateTime: 'Test string',
       },
@@ -448,7 +448,7 @@ gapi.load('client', async () => {
     });
     /** Returns a list of announcements that the requester is permitted to view. Course students may only view `PUBLISHED` announcements. Course teachers and domain administrators may view all announcements. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist. */
     await gapi.client.classroom.courses.announcements.list({
-      announcementStates: 'Test string',
+      announcementStates: 'ANNOUNCEMENT_STATE_UNSPECIFIED',
       courseId: 'Test string',
       orderBy: 'Test string',
       pageSize: 42,
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
         id: 'Test string',
       },
       {
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         modifyIndividualStudentsOptions: {
           addStudentIds: ['Test string'],
           removeStudentIds: ['Test string'],
@@ -477,7 +477,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         courseId: 'Test string',
         creationTime: 'Test string',
         creatorUserId: 'Test string',
@@ -494,7 +494,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
           },
         ],
         scheduledTime: 'Test string',
-        state: 'Test string',
+        state: 'ANNOUNCEMENT_STATE_UNSPECIFIED',
         text: 'Test string',
         updateTime: 'Test string',
       },
@@ -653,7 +653,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         assignment: {
           studentWorkFolder: {
             alternateLink: 'Test string',
@@ -697,7 +697,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -733,12 +733,12 @@ gapi.load('client', async () => {
           choices: ['Test string'],
         },
         scheduledTime: 'Test string',
-        state: 'Test string',
-        submissionModificationMode: 'Test string',
+        state: 'COURSE_WORK_STATE_UNSPECIFIED',
+        submissionModificationMode: 'SUBMISSION_MODIFICATION_MODE_UNSPECIFIED',
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-        workType: 'Test string',
+        workType: 'COURSE_WORK_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a course work. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project did not create the corresponding course work, if the requesting user is not permitted to delete the requested course or for access errors. * `FAILED_PRECONDITION` if the requested course work has already been deleted. * `NOT_FOUND` if no course exists with the requested ID. */
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
     /** Returns a list of course work that the requester is permitted to view. Course students may only view `PUBLISHED` course work. Course teachers and domain administrators may view all course work. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist. */
     await gapi.client.classroom.courses.courseWork.list({
       courseId: 'Test string',
-      courseWorkStates: 'Test string',
+      courseWorkStates: 'COURSE_WORK_STATE_UNSPECIFIED',
       orderBy: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -774,7 +774,7 @@ gapi.load('client', async () => {
         id: 'Test string',
       },
       {
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         modifyIndividualStudentsOptions: {
           addStudentIds: ['Test string'],
           removeStudentIds: ['Test string'],
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         assignment: {
           studentWorkFolder: {
             alternateLink: 'Test string',
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -870,12 +870,12 @@ gapi.load('client', async () => {
           choices: ['Test string'],
         },
         scheduledTime: 'Test string',
-        state: 'Test string',
-        submissionModificationMode: 'Test string',
+        state: 'COURSE_WORK_STATE_UNSPECIFIED',
+        submissionModificationMode: 'SUBMISSION_MODIFICATION_MODE_UNSPECIFIED',
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
-        workType: 'Test string',
+        workType: 'COURSE_WORK_TYPE_UNSPECIFIED',
       },
     );
     /** Updates a rubric. See google.classroom.v1.Rubric for details of which fields can be updated. Rubric update capabilities are [limited](/classroom/rubrics/limitations) once grading has started. The requesting user and course owner must have rubrics creation capabilities. For details, see [licensing requirements](https://developers.google.com/workspace/classroom/rubrics/limitations#license-requirements). This request must be made by the Google Cloud console of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the parent course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting developer project didn't create the corresponding course work, if the user isn't permitted to make the requested modification to the rubric, or for access errors. This error code is also returned if grading has already started on the rubric. * `INVALID_ARGUMENT` if the request is malformed and for the following request error: * `RubricCriteriaInvalidFormat` * `NOT_FOUND` if the requested course, course work, or rubric doesn't exist or if the user doesn't have access to the corresponding course work. * `INTERNAL` if grading has already started on the rubric. */
@@ -1059,7 +1059,7 @@ gapi.load('client', async () => {
         courseWorkSubmissionId: 'Test string',
         id: 'Test string',
         pointsEarned: 42,
-        postSubmissionState: 'Test string',
+        postSubmissionState: 'SUBMISSION_STATE_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -1154,10 +1154,10 @@ gapi.load('client', async () => {
     await gapi.client.classroom.courses.courseWork.studentSubmissions.list({
       courseId: 'Test string',
       courseWorkId: 'Test string',
-      late: 'Test string',
+      late: 'LATE_VALUES_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
-      states: 'Test string',
+      states: 'SUBMISSION_STATE_UNSPECIFIED',
       userId: 'Test string',
     });
     /** Modifies attachments of student submission. Attachments may only be added to student submissions belonging to course work objects with a `workType` of `ASSIGNMENT`. This request must be made by the Developer Console project of the [OAuth client ID](https://support.google.com/cloud/answer/6158849) used to create the corresponding course work item or an add-on attachment on the corresponding course work item. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or course work, if the user is not permitted to modify attachments on the requested student submission, or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course, course work, or student submission does not exist. */
@@ -1247,7 +1247,7 @@ gapi.load('client', async () => {
         associatedWithDeveloper: true,
         courseId: 'Test string',
         courseWorkId: 'Test string',
-        courseWorkType: 'Test string',
+        courseWorkType: 'COURSE_WORK_TYPE_UNSPECIFIED',
         creationTime: 'Test string',
         draftGrade: 42,
         draftRubricGrades: {
@@ -1265,19 +1265,19 @@ gapi.load('client', async () => {
         shortAnswerSubmission: {
           answer: 'Test string',
         },
-        state: 'Test string',
+        state: 'SUBMISSION_STATE_UNSPECIFIED',
         submissionHistory: [
           {
             gradeHistory: {
               actorUserId: 'Test string',
-              gradeChangeType: 'Test string',
+              gradeChangeType: 'UNKNOWN_GRADE_CHANGE_TYPE',
               gradeTimestamp: 'Test string',
               maxPoints: 42,
               pointsEarned: 42,
             },
             stateHistory: {
               actorUserId: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               stateTimestamp: 'Test string',
             },
           },
@@ -1320,7 +1320,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         courseId: 'Test string',
         creationTime: 'Test string',
         creatorUserId: 'Test string',
@@ -1338,7 +1338,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -1370,7 +1370,7 @@ gapi.load('client', async () => {
           },
         ],
         scheduledTime: 'Test string',
-        state: 'Test string',
+        state: 'COURSEWORK_MATERIAL_STATE_UNSPECIFIED',
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
@@ -1397,7 +1397,7 @@ gapi.load('client', async () => {
     /** Returns a list of course work material that the requester is permitted to view. Course students may only view `PUBLISHED` course work material. Course teachers and domain administrators may view all course work material. This method returns the following error codes: * `PERMISSION_DENIED` if the requesting user is not permitted to access the requested course or for access errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the requested course does not exist. */
     await gapi.client.classroom.courses.courseWorkMaterials.list({
       courseId: 'Test string',
-      courseWorkMaterialStates: 'Test string',
+      courseWorkMaterialStates: 'COURSEWORK_MATERIAL_STATE_UNSPECIFIED',
       materialDriveId: 'Test string',
       materialLink: 'Test string',
       orderBy: 'Test string',
@@ -1413,7 +1413,7 @@ gapi.load('client', async () => {
       },
       {
         alternateLink: 'Test string',
-        assigneeMode: 'Test string',
+        assigneeMode: 'ASSIGNEE_MODE_UNSPECIFIED',
         courseId: 'Test string',
         creationTime: 'Test string',
         creatorUserId: 'Test string',
@@ -1431,7 +1431,7 @@ gapi.load('client', async () => {
                 thumbnailUrl: 'Test string',
                 title: 'Test string',
               },
-              shareMode: 'Test string',
+              shareMode: 'UNKNOWN_SHARE_MODE',
             },
             form: {
               formUrl: 'Test string',
@@ -1463,7 +1463,7 @@ gapi.load('client', async () => {
           },
         ],
         scheduledTime: 'Test string',
-        state: 'Test string',
+        state: 'COURSEWORK_MATERIAL_STATE_UNSPECIFIED',
         title: 'Test string',
         topicId: 'Test string',
         updateTime: 'Test string',
@@ -1737,7 +1737,7 @@ gapi.load('client', async () => {
         courseWorkSubmissionId: 'Test string',
         id: 'Test string',
         pointsEarned: 42,
-        postSubmissionState: 'Test string',
+        postSubmissionState: 'SUBMISSION_STATE_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -1821,7 +1821,7 @@ gapi.load('client', async () => {
           },
           permissions: [
             {
-              permission: 'Test string',
+              permission: 'PERMISSION_UNSPECIFIED',
             },
           ],
           photoUrl: 'Test string',
@@ -1868,7 +1868,7 @@ gapi.load('client', async () => {
           },
           permissions: [
             {
-              permission: 'Test string',
+              permission: 'PERMISSION_UNSPECIFIED',
             },
           ],
           photoUrl: 'Test string',
@@ -1945,7 +1945,7 @@ gapi.load('client', async () => {
       {
         courseId: 'Test string',
         id: 'Test string',
-        role: 'Test string',
+        role: 'COURSE_ROLE_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -1979,7 +1979,7 @@ gapi.load('client', async () => {
           courseWorkChangesInfo: {
             courseId: 'Test string',
           },
-          feedType: 'Test string',
+          feedType: 'FEED_TYPE_UNSPECIFIED',
         },
         registrationId: 'Test string',
       },
@@ -2001,7 +2001,7 @@ gapi.load('client', async () => {
         creationTime: 'Test string',
         invitationId: 'Test string',
         invitedEmailAddress: 'Test string',
-        state: 'Test string',
+        state: 'GUARDIAN_INVITATION_STATE_UNSPECIFIED',
         studentId: 'Test string',
       },
     );
@@ -2015,7 +2015,7 @@ gapi.load('client', async () => {
       invitedEmailAddress: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      states: 'Test string',
+      states: 'GUARDIAN_INVITATION_STATE_UNSPECIFIED',
       studentId: 'Test string',
     });
     /** Modifies a guardian invitation. Currently, the only valid modification is to change the `state` from `PENDING` to `COMPLETE`. This has the effect of withdrawing the invitation. This method returns the following error codes: * `PERMISSION_DENIED` if the current user does not have permission to manage guardians, if guardians are not enabled for the domain in question or for other access errors. * `FAILED_PRECONDITION` if the guardian link is not in the `PENDING` state. * `INVALID_ARGUMENT` if the format of the student ID provided cannot be recognized (it is not an email address, nor a `user_id` from this API), or if the passed `GuardianInvitation` has a `state` other than `COMPLETE`, or if it modifies fields other than `state`. * `NOT_FOUND` if the student ID provided is a valid student ID, but Classroom has no record of that student, or if the `id` field does not refer to a guardian invitation known to Classroom. */
@@ -2029,7 +2029,7 @@ gapi.load('client', async () => {
         creationTime: 'Test string',
         invitationId: 'Test string',
         invitedEmailAddress: 'Test string',
-        state: 'Test string',
+        state: 'GUARDIAN_INVITATION_STATE_UNSPECIFIED',
         studentId: 'Test string',
       },
     );

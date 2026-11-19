@@ -79,21 +79,21 @@ gapi.load('client', async () => {
                 },
               },
             },
-            defaultStorageType: 'Test string',
+            defaultStorageType: 'STORAGE_TYPE_UNSPECIFIED',
             encryptionConfig: {
               kmsKeyName: 'Test string',
             },
             location: 'Test string',
             name: 'Test string',
-            nodeScalingFactor: 'Test string',
+            nodeScalingFactor: 'NODE_SCALING_FACTOR_UNSPECIFIED',
             serveNodes: 42,
-            state: 'Test string',
+            state: 'STATE_NOT_KNOWN',
           },
         },
         instance: {
           createTime: 'Test string',
           displayName: 'Test string',
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           knowledgeCatalogRegion: 'Test string',
           labels: {
             A: 'Test string',
@@ -101,11 +101,11 @@ gapi.load('client', async () => {
           name: 'Test string',
           satisfiesPzi: true,
           satisfiesPzs: true,
-          state: 'Test string',
+          state: 'STATE_NOT_KNOWN',
           tags: {
             A: 'Test string',
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         instanceId: 'Test string',
         parent: 'Test string',
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         displayName: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         knowledgeCatalogRegion: 'Test string',
         labels: {
           A: 'Test string',
@@ -152,11 +152,11 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Sets the access control policy on an instance resource. Replaces any existing policy. */
@@ -171,7 +171,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -212,7 +212,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         displayName: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         knowledgeCatalogRegion: 'Test string',
         labels: {
           A: 'Test string',
@@ -220,11 +220,11 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Creates an app profile within an instance. */
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
       },
       {
         dataBoostIsolationReadOnly: {
-          computeBillingOwner: 'Test string',
+          computeBillingOwner: 'COMPUTE_BILLING_OWNER_UNSPECIFIED',
         },
         description: 'Test string',
         etag: 'Test string',
@@ -245,14 +245,14 @@ gapi.load('client', async () => {
           rowAffinity: {},
         },
         name: 'Test string',
-        priority: 'Test string',
+        priority: 'PRIORITY_UNSPECIFIED',
         singleClusterRouting: {
           allowTransactionalWrites: true,
           clusterId: 'Test string',
         },
         standardIsolation: {
           memoryConfig: {},
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
         },
       },
     );
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
       },
       {
         dataBoostIsolationReadOnly: {
-          computeBillingOwner: 'Test string',
+          computeBillingOwner: 'COMPUTE_BILLING_OWNER_UNSPECIFIED',
         },
         description: 'Test string',
         etag: 'Test string',
@@ -289,14 +289,14 @@ gapi.load('client', async () => {
           rowAffinity: {},
         },
         name: 'Test string',
-        priority: 'Test string',
+        priority: 'PRIORITY_UNSPECIFIED',
         singleClusterRouting: {
           allowTransactionalWrites: true,
           clusterId: 'Test string',
         },
         standardIsolation: {
           memoryConfig: {},
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
         },
       },
     );
@@ -319,15 +319,15 @@ gapi.load('client', async () => {
             },
           },
         },
-        defaultStorageType: 'Test string',
+        defaultStorageType: 'STORAGE_TYPE_UNSPECIFIED',
         encryptionConfig: {
           kmsKeyName: 'Test string',
         },
         location: 'Test string',
         name: 'Test string',
-        nodeScalingFactor: 'Test string',
+        nodeScalingFactor: 'NODE_SCALING_FACTOR_UNSPECIFIED',
         serveNodes: 42,
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
       },
     );
     /** Deletes a cluster from an instance. */
@@ -366,15 +366,15 @@ gapi.load('client', async () => {
             },
           },
         },
-        defaultStorageType: 'Test string',
+        defaultStorageType: 'STORAGE_TYPE_UNSPECIFIED',
         encryptionConfig: {
           kmsKeyName: 'Test string',
         },
         location: 'Test string',
         name: 'Test string',
-        nodeScalingFactor: 'Test string',
+        nodeScalingFactor: 'NODE_SCALING_FACTOR_UNSPECIFIED',
         serveNodes: 42,
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
       },
     );
     /** Updates a cluster within an instance. This method updates only the serve_nodes for a Cluster, and can only be used on manually scaled clusters. To update autoscaled clusters or enable autoscaling via cluster_config.cluster_autoscaling_config, use PartialUpdateCluster. */
@@ -395,15 +395,15 @@ gapi.load('client', async () => {
             },
           },
         },
-        defaultStorageType: 'Test string',
+        defaultStorageType: 'STORAGE_TYPE_UNSPECIFIED',
         encryptionConfig: {
           kmsKeyName: 'Test string',
         },
         location: 'Test string',
         name: 'Test string',
-        nodeScalingFactor: 'Test string',
+        nodeScalingFactor: 'NODE_SCALING_FACTOR_UNSPECIFIED',
         serveNodes: 42,
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
       },
     );
     /** Updates the memory layer of a cluster. To enable the memory layer, set the memory_config. To disable the memory layer, unset the memory_config. */
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
           storageSizeGib: 42,
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_NOT_KNOWN',
       },
     );
     /** Copy a Cloud Bigtable backup to a new backup in the destination cluster located in the destination instance and project. */
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        backupType: 'Test string',
+        backupType: 'BACKUP_TYPE_UNSPECIFIED',
         encryptionInfo: {
           encryptionStatus: {
             code: 42,
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
             ],
             message: 'Test string',
           },
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyVersion: 'Test string',
         },
         endTime: 'Test string',
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
         sourceBackup: 'Test string',
         sourceTable: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a pending or completed Cloud Bigtable backup. */
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        backupType: 'Test string',
+        backupType: 'BACKUP_TYPE_UNSPECIFIED',
         encryptionInfo: {
           encryptionStatus: {
             code: 42,
@@ -509,7 +509,7 @@ gapi.load('client', async () => {
             ],
             message: 'Test string',
           },
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyVersion: 'Test string',
         },
         endTime: 'Test string',
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
         sourceBackup: 'Test string',
         sourceTable: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Sets the access control policy on a Bigtable resource. Replaces any existing policy. */
@@ -535,7 +535,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -650,7 +650,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
       {
         clusterStates: {
           A: {
-            replicationState: 'Test string',
+            replicationState: 'STATE_NOT_KNOWN',
           },
         },
         deletionProtection: true,
@@ -712,7 +712,7 @@ gapi.load('client', async () => {
     /** Gets information about a materialized view. */
     await gapi.client.bigtableadmin.projects.instances.materializedViews.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for an instance resource. Returns an empty policy if an instance exists but does not have a policy set. */
     await gapi.client.bigtableadmin.projects.instances.materializedViews.getIamPolicy(
@@ -730,7 +730,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Updates a materialized view within an instance. */
     await gapi.client.bigtableadmin.projects.instances.materializedViews.patch(
@@ -741,7 +741,7 @@ gapi.load('client', async () => {
       {
         clusterStates: {
           A: {
-            replicationState: 'Test string',
+            replicationState: 'STATE_NOT_KNOWN',
           },
         },
         deletionProtection: true,
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -841,11 +841,11 @@ gapi.load('client', async () => {
                     ],
                     message: 'Test string',
                   },
-                  encryptionType: 'Test string',
+                  encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
                   kmsKeyVersion: 'Test string',
                 },
               ],
-              replicationState: 'Test string',
+              replicationState: 'STATE_NOT_KNOWN',
             },
           },
           columnFamilies: {
@@ -975,7 +975,7 @@ gapi.load('client', async () => {
             locations: ['Test string'],
             retentionPeriod: 'Test string',
           },
-          granularity: 'Test string',
+          granularity: 'TIMESTAMP_GRANULARITY_UNSPECIFIED',
           name: 'Test string',
           restoreInfo: {
             backupInfo: {
@@ -985,7 +985,7 @@ gapi.load('client', async () => {
               sourceTable: 'Test string',
               startTime: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'RESTORE_SOURCE_TYPE_UNSPECIFIED',
           },
           rowKeySchema: {
             encoding: {
@@ -1124,7 +1124,7 @@ gapi.load('client', async () => {
     /** Gets metadata information about the specified table. */
     await gapi.client.bigtableadmin.projects.instances.tables.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a Bigtable resource. Returns an empty policy if the resource exists but does not have a policy set. */
     await gapi.client.bigtableadmin.projects.instances.tables.getIamPolicy(
@@ -1142,7 +1142,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Performs a series of column family modifications on the specified table. Either all or none of the modifications will occur before this method returns, but data requests received prior to that point may see a table where only some modifications have taken effect. */
     await gapi.client.bigtableadmin.projects.instances.tables.modifyColumnFamilies(
@@ -1425,11 +1425,11 @@ gapi.load('client', async () => {
                   ],
                   message: 'Test string',
                 },
-                encryptionType: 'Test string',
+                encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
                 kmsKeyVersion: 'Test string',
               },
             ],
-            replicationState: 'Test string',
+            replicationState: 'STATE_NOT_KNOWN',
           },
         },
         columnFamilies: {
@@ -1559,7 +1559,7 @@ gapi.load('client', async () => {
           locations: ['Test string'],
           retentionPeriod: 'Test string',
         },
-        granularity: 'Test string',
+        granularity: 'TIMESTAMP_GRANULARITY_UNSPECIFIED',
         name: 'Test string',
         restoreInfo: {
           backupInfo: {
@@ -1569,7 +1569,7 @@ gapi.load('client', async () => {
             sourceTable: 'Test string',
             startTime: 'Test string',
           },
-          sourceType: 'Test string',
+          sourceType: 'RESTORE_SOURCE_TYPE_UNSPECIFIED',
         },
         rowKeySchema: {
           encoding: {
@@ -1704,7 +1704,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1776,7 +1776,7 @@ gapi.load('client', async () => {
     await gapi.client.bigtableadmin.projects.instances.tables.authorizedViews.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'RESPONSE_VIEW_UNSPECIFIED',
       },
     );
     /** Gets the access control policy for a Bigtable resource. Returns an empty policy if the resource exists but does not have a policy set. */
@@ -1796,7 +1796,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'RESPONSE_VIEW_UNSPECIFIED',
       },
     );
     /** Updates an AuthorizedView in a table. */
@@ -1833,7 +1833,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1913,7 +1913,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'SCHEMA_BUNDLE_VIEW_UNSPECIFIED',
       },
     );
     /** Updates a schema bundle in the specified table. */
@@ -1946,7 +1946,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

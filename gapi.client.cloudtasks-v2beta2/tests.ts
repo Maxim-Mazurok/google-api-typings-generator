@@ -100,7 +100,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -118,8 +118,8 @@ gapi.load('client', async () => {
             queryOverride: {
               queryParams: 'Test string',
             },
-            scheme: 'Test string',
-            uriOverrideEnforceMode: 'Test string',
+            scheme: 'SCHEME_UNSPECIFIED',
+            uriOverrideEnforceMode: 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED',
           },
         },
         name: 'Test string',
@@ -138,7 +138,7 @@ gapi.load('client', async () => {
           minBackoff: 'Test string',
           unlimitedAttempts: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stats: {
           concurrentDispatchesCount: 'Test string',
           effectiveExecutionRate: 42,
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -220,8 +220,8 @@ gapi.load('client', async () => {
             queryOverride: {
               queryParams: 'Test string',
             },
-            scheme: 'Test string',
-            uriOverrideEnforceMode: 'Test string',
+            scheme: 'SCHEME_UNSPECIFIED',
+            uriOverrideEnforceMode: 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED',
           },
         },
         name: 'Test string',
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
           minBackoff: 'Test string',
           unlimitedAttempts: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stats: {
           concurrentDispatchesCount: 'Test string',
           effectiveExecutionRate: 42,
@@ -325,7 +325,7 @@ gapi.load('client', async () => {
         requests: [
           {
             parent: 'Test string',
-            responseView: 'Test string',
+            responseView: 'VIEW_UNSPECIFIED',
             task: {
               appEngineHttpRequest: {
                 appEngineRouting: {
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
                 headers: {
                   A: 'Test string',
                 },
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 payload: 'Test string',
                 relativeUrl: 'Test string',
               },
@@ -347,7 +347,7 @@ gapi.load('client', async () => {
                 headers: {
                   A: 'Test string',
                 },
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 oauthToken: {
                   scope: 'Test string',
                   serviceAccountEmail: 'Test string',
@@ -404,7 +404,7 @@ gapi.load('client', async () => {
                   scheduleTime: 'Test string',
                 },
               },
-              view: 'Test string',
+              view: 'VIEW_UNSPECIFIED',
             },
           },
         ],
@@ -444,7 +444,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
         scheduleTime: 'Test string',
       },
     );
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
       },
       {
         parent: 'Test string',
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
         task: {
           appEngineHttpRequest: {
             appEngineRouting: {
@@ -467,7 +467,7 @@ gapi.load('client', async () => {
             headers: {
               A: 'Test string',
             },
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             payload: 'Test string',
             relativeUrl: 'Test string',
           },
@@ -477,7 +477,7 @@ gapi.load('client', async () => {
             headers: {
               A: 'Test string',
             },
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             oauthToken: {
               scope: 'Test string',
               serviceAccountEmail: 'Test string',
@@ -534,7 +534,7 @@ gapi.load('client', async () => {
               scheduleTime: 'Test string',
             },
           },
-          view: 'Test string',
+          view: 'VIEW_UNSPECIFIED',
         },
       },
     );
@@ -545,7 +545,7 @@ gapi.load('client', async () => {
     /** Gets a task. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.get({
       name: 'Test string',
-      responseView: 'Test string',
+      responseView: 'VIEW_UNSPECIFIED',
     });
     /** Leases tasks from a pull queue for lease_duration. This method is invoked by the worker to obtain a lease. The worker must acknowledge the task via AcknowledgeTask after they have performed the work associated with the task. The payload is intended to store data that the worker needs to perform the work associated with the task. To return the payloads in the response, set response_view to FULL. A maximum of 10 qps of LeaseTasks requests are allowed per queue. RESOURCE_EXHAUSTED is returned when this limit is exceeded. RESOURCE_EXHAUSTED is also returned when max_tasks_dispatched_per_second is exceeded. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.lease(
@@ -556,7 +556,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         leaseDuration: 'Test string',
         maxTasks: 42,
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
       },
     );
     /** Lists the tasks in a queue. By default, only the BASIC view is retrieved due to performance considerations; response_view controls the subset of information which is returned. The tasks may be returned in any order. The ordering may change at any time. */
@@ -564,7 +564,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      responseView: 'Test string',
+      responseView: 'VIEW_UNSPECIFIED',
     });
     /** Renew the current lease of a pull task. The worker can use this method to extend the lease by a new duration, starting from now. The new task lease will be returned in the task's schedule_time. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.renewLease(
@@ -573,7 +573,7 @@ gapi.load('client', async () => {
       },
       {
         leaseDuration: 'Test string',
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
         scheduleTime: 'Test string',
       },
     );
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
       },
     );
   }

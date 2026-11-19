@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           allowlistedMediaPlanners: ['Test string'],
         },
         createTime: 'Test string',
-        curationFeeVisibility: 'Test string',
+        curationFeeVisibility: 'CURATION_FEE_VISIBILITY_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         feeCpm: {
@@ -63,31 +63,34 @@ gapi.load('client', async () => {
         },
         millipercentOfMediaFee: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           geoTargeting: {
             excludedCriteriaIds: ['Test string'],
             targetedCriteriaIds: ['Test string'],
           },
-          includedAcceleratedMobilePageType: 'Test string',
+          includedAcceleratedMobilePageType:
+            'ACCELERATED_MOBILE_PAGE_TYPE_UNSPECIFIED',
           includedAdSizes: [
             {
               height: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               width: 'Test string',
             },
           ],
-          includedAuthorizedSellerStatuses: ['Test string'],
-          includedCreativeFormat: 'Test string',
+          includedAuthorizedSellerStatuses: [
+            'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
+          ],
+          includedCreativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
           includedDataSegments: ['Test string'],
-          includedDeviceTypes: ['Test string'],
-          includedEnvironment: 'Test string',
-          includedNativeInventoryTypes: ['Test string'],
-          includedOpenMeasurementTypes: ['Test string'],
-          includedRestrictedCategories: ['Test string'],
-          includedRewardedType: 'Test string',
+          includedDeviceTypes: ['DEVICE_TYPE_UNSPECIFIED'],
+          includedEnvironment: 'ENVIRONMENT_UNSPECIFIED',
+          includedNativeInventoryTypes: ['NATIVE_INVENTORY_TYPE_UNSPECIFIED'],
+          includedOpenMeasurementTypes: ['OPEN_MEASUREMENT_TYPE_UNSPECIFIED'],
+          includedRestrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
+          includedRewardedType: 'REWARDED_TYPE_UNSPECIFIED',
           languageTargeting: {
-            selectionType: 'Test string',
+            selectionType: 'SELECTION_TYPE_UNSPECIFIED',
             values: ['Test string'],
           },
           minimumPredictedClickThroughRatePercentageMillis: 'Test string',
@@ -95,11 +98,11 @@ gapi.load('client', async () => {
           placementTargeting: {
             includedMobileAppCategoryTargeting: ['Test string'],
             mobileAppTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
             uriTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
           },
@@ -113,12 +116,12 @@ gapi.load('client', async () => {
               targetedTaxonomyIds: ['Test string'],
             },
             videoAndAudioSignalsTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
           },
           publisherTargeting: {
-            selectionType: 'Test string',
+            selectionType: 'SELECTION_TYPE_UNSPECIFIED',
             values: ['Test string'],
           },
           verticalTargeting: {
@@ -126,19 +129,21 @@ gapi.load('client', async () => {
             targetedCriteriaIds: ['Test string'],
           },
           videoTargeting: {
-            includedContentDeliveryMethod: 'Test string',
-            includedMaximumAdDurationTargeting: 'Test string',
-            includedMimeTypes: ['Test string'],
-            includedPlaybackMethods: ['Test string'],
+            includedContentDeliveryMethod:
+              'CONTENT_DELIVERY_METHOD_UNSPECIFIED',
+            includedMaximumAdDurationTargeting:
+              'MAXIMUM_VIDEO_AD_DURATION_UNSPECIFIED',
+            includedMimeTypes: ['VIDEO_MIME_TYPE_UNSPECIFIED'],
+            includedPlaybackMethods: ['PLAYBACK_METHOD_UNSPECIFIED'],
             includedPlayerSizeTargeting: {
               minimumHeight: 'Test string',
               minimumWidth: 'Test string',
             },
-            includedPositionTypes: ['Test string'],
+            includedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
             minimumPredictedCompletionRatePercentage: 'Test string',
             plcmtTargeting: {
-              selectionType: 'Test string',
-              videoPlcmtTypes: ['Test string'],
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
+              videoPlcmtTypes: ['VIDEO_PLCMT_TYPE_UNSPECIFIED'],
             },
           },
         },
@@ -174,7 +179,7 @@ gapi.load('client', async () => {
           allowlistedMediaPlanners: ['Test string'],
         },
         createTime: 'Test string',
-        curationFeeVisibility: 'Test string',
+        curationFeeVisibility: 'CURATION_FEE_VISIBILITY_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         feeCpm: {
@@ -189,31 +194,34 @@ gapi.load('client', async () => {
         },
         millipercentOfMediaFee: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           geoTargeting: {
             excludedCriteriaIds: ['Test string'],
             targetedCriteriaIds: ['Test string'],
           },
-          includedAcceleratedMobilePageType: 'Test string',
+          includedAcceleratedMobilePageType:
+            'ACCELERATED_MOBILE_PAGE_TYPE_UNSPECIFIED',
           includedAdSizes: [
             {
               height: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               width: 'Test string',
             },
           ],
-          includedAuthorizedSellerStatuses: ['Test string'],
-          includedCreativeFormat: 'Test string',
+          includedAuthorizedSellerStatuses: [
+            'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
+          ],
+          includedCreativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
           includedDataSegments: ['Test string'],
-          includedDeviceTypes: ['Test string'],
-          includedEnvironment: 'Test string',
-          includedNativeInventoryTypes: ['Test string'],
-          includedOpenMeasurementTypes: ['Test string'],
-          includedRestrictedCategories: ['Test string'],
-          includedRewardedType: 'Test string',
+          includedDeviceTypes: ['DEVICE_TYPE_UNSPECIFIED'],
+          includedEnvironment: 'ENVIRONMENT_UNSPECIFIED',
+          includedNativeInventoryTypes: ['NATIVE_INVENTORY_TYPE_UNSPECIFIED'],
+          includedOpenMeasurementTypes: ['OPEN_MEASUREMENT_TYPE_UNSPECIFIED'],
+          includedRestrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
+          includedRewardedType: 'REWARDED_TYPE_UNSPECIFIED',
           languageTargeting: {
-            selectionType: 'Test string',
+            selectionType: 'SELECTION_TYPE_UNSPECIFIED',
             values: ['Test string'],
           },
           minimumPredictedClickThroughRatePercentageMillis: 'Test string',
@@ -221,11 +229,11 @@ gapi.load('client', async () => {
           placementTargeting: {
             includedMobileAppCategoryTargeting: ['Test string'],
             mobileAppTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
             uriTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
           },
@@ -239,12 +247,12 @@ gapi.load('client', async () => {
               targetedTaxonomyIds: ['Test string'],
             },
             videoAndAudioSignalsTargeting: {
-              selectionType: 'Test string',
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
               values: ['Test string'],
             },
           },
           publisherTargeting: {
-            selectionType: 'Test string',
+            selectionType: 'SELECTION_TYPE_UNSPECIFIED',
             values: ['Test string'],
           },
           verticalTargeting: {
@@ -252,19 +260,21 @@ gapi.load('client', async () => {
             targetedCriteriaIds: ['Test string'],
           },
           videoTargeting: {
-            includedContentDeliveryMethod: 'Test string',
-            includedMaximumAdDurationTargeting: 'Test string',
-            includedMimeTypes: ['Test string'],
-            includedPlaybackMethods: ['Test string'],
+            includedContentDeliveryMethod:
+              'CONTENT_DELIVERY_METHOD_UNSPECIFIED',
+            includedMaximumAdDurationTargeting:
+              'MAXIMUM_VIDEO_AD_DURATION_UNSPECIFIED',
+            includedMimeTypes: ['VIDEO_MIME_TYPE_UNSPECIFIED'],
+            includedPlaybackMethods: ['PLAYBACK_METHOD_UNSPECIFIED'],
             includedPlayerSizeTargeting: {
               minimumHeight: 'Test string',
               minimumWidth: 'Test string',
             },
-            includedPositionTypes: ['Test string'],
+            includedPositionTypes: ['POSITION_TYPE_UNSPECIFIED'],
             minimumPredictedCompletionRatePercentage: 'Test string',
             plcmtTargeting: {
-              selectionType: 'Test string',
-              videoPlcmtTypes: ['Test string'],
+              selectionType: 'SELECTION_TYPE_UNSPECIFIED',
+              videoPlcmtTypes: ['VIDEO_PLCMT_TYPE_UNSPECIFIED'],
             },
           },
         },
@@ -292,7 +302,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         millipercentOfMediaFee: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userListId: 'Test string',
       },
@@ -329,7 +339,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         millipercentOfMediaFee: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         userListId: 'Test string',
       },
@@ -359,9 +369,9 @@ gapi.load('client', async () => {
                 year: 42,
               },
             },
-            relative: 'Test string',
+            relative: 'RELATIVE_DATE_RANGE_UNSPECIFIED',
           },
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           filters: [
             {
               andFilter: {
@@ -369,10 +379,10 @@ gapi.load('client', async () => {
               },
               fieldFilter: {
                 field: {
-                  dimension: 'Test string',
-                  metric: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
+                  metric: 'METRIC_UNSPECIFIED',
                 },
-                operation: 'Test string',
+                operation: 'IN',
                 values: [
                   {
                     boolValue: true,
@@ -398,18 +408,18 @@ gapi.load('client', async () => {
               },
             },
           ],
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sorts: [
             {
               descending: true,
               field: {
-                dimension: 'Test string',
-                metric: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
+                metric: 'METRIC_UNSPECIFIED',
               },
             },
           ],
           timeZone: 'Test string',
-          timeZoneSource: 'Test string',
+          timeZoneSource: 'TIME_ZONE_SOURCE_UNSPECIFIED',
         },
         reportId: 'Test string',
         updateTime: 'Test string',
@@ -458,9 +468,9 @@ gapi.load('client', async () => {
                 year: 42,
               },
             },
-            relative: 'Test string',
+            relative: 'RELATIVE_DATE_RANGE_UNSPECIFIED',
           },
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           filters: [
             {
               andFilter: {
@@ -468,10 +478,10 @@ gapi.load('client', async () => {
               },
               fieldFilter: {
                 field: {
-                  dimension: 'Test string',
-                  metric: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
+                  metric: 'METRIC_UNSPECIFIED',
                 },
-                operation: 'Test string',
+                operation: 'IN',
                 values: [
                   {
                     boolValue: true,
@@ -497,18 +507,18 @@ gapi.load('client', async () => {
               },
             },
           ],
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sorts: [
             {
               descending: true,
               field: {
-                dimension: 'Test string',
-                metric: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
+                metric: 'METRIC_UNSPECIFIED',
               },
             },
           ],
           timeZone: 'Test string',
-          timeZoneSource: 'Test string',
+          timeZoneSource: 'TIME_ZONE_SOURCE_UNSPECIFIED',
         },
         reportId: 'Test string',
         updateTime: 'Test string',

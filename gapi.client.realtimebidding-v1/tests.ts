@@ -42,12 +42,12 @@ gapi.load('client', async () => {
     });
     /** Lists creatives as they are at the time of the initial request. This call may take multiple hours to complete. For large, paginated requests, this method returns a snapshot of creatives at the time of request for the first page. `lastStatusUpdate` and `creativeServingDecision` may be outdated for creatives on sequential pages. We recommend [Google Cloud Pub/Sub](//cloud.google.com/pubsub/docs/overview) to view the latest status. */
     await gapi.client.realtimebidding.bidders.creatives.list({
-      adCategoryTaxonomyOverride: 'Test string',
+      adCategoryTaxonomyOverride: 'AD_CATEGORY_TAXONOMY_UNSPECIFIED',
       filter: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CREATIVE_VIEW_UNSPECIFIED',
     });
     /** Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the existing Pub/Sub configuration. */
     await gapi.client.realtimebidding.bidders.creatives.watch(
@@ -73,10 +73,10 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        bidProtocol: 'Test string',
+        bidProtocol: 'BID_PROTOCOL_UNSPECIFIED',
         maximumQps: 'Test string',
         name: 'Test string',
-        tradingLocation: 'Test string',
+        tradingLocation: 'TRADING_LOCATION_UNSPECIFIED',
         url: 'Test string',
       },
     );
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       },
       {
         appIds: ['Test string'],
-        targetingMode: 'Test string',
+        targetingMode: 'TARGETING_MODE_UNSPECIFIED',
       },
     );
     /** Adds targeted publishers to the pretargeting config. */
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
       },
       {
         publisherIds: ['Test string'],
-        targetingMode: 'Test string',
+        targetingMode: 'TARGETING_MODE_UNSPECIFIED',
       },
     );
     /** Adds targeted sites to the pretargeting configuration. */
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
       },
       {
         sites: ['Test string'],
-        targetingMode: 'Test string',
+        targetingMode: 'TARGETING_MODE_UNSPECIFIED',
       },
     );
     /** Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error. */
@@ -123,14 +123,14 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        allowedUserTargetingModes: ['Test string'],
+        allowedUserTargetingModes: ['USER_TARGETING_MODE_UNSPECIFIED'],
         appTargeting: {
           mobileAppCategoryTargeting: {
             excludedIds: ['Test string'],
             includedIds: ['Test string'],
           },
           mobileAppTargeting: {
-            targetingMode: 'Test string',
+            targetingMode: 'TARGETING_MODE_UNSPECIFIED',
             values: ['Test string'],
           },
         },
@@ -147,22 +147,22 @@ gapi.load('client', async () => {
             width: 'Test string',
           },
         ],
-        includedEnvironments: ['Test string'],
-        includedFormats: ['Test string'],
+        includedEnvironments: ['ENVIRONMENT_UNSPECIFIED'],
+        includedFormats: ['CREATIVE_FORMAT_UNSPECIFIED'],
         includedLanguages: ['Test string'],
         includedMobileOperatingSystemIds: ['Test string'],
-        includedPlatforms: ['Test string'],
-        includedUserIdTypes: ['Test string'],
-        interstitialTargeting: 'Test string',
+        includedPlatforms: ['PLATFORM_UNSPECIFIED'],
+        includedUserIdTypes: ['USER_ID_TYPE_UNSPECIFIED'],
+        interstitialTargeting: 'INTERSTITIAL_TARGETING_UNSPECIFIED',
         invalidGeoIds: ['Test string'],
         maximumQps: 'Test string',
         minimumViewabilityDecile: 42,
         name: 'Test string',
         publisherTargeting: {
-          targetingMode: 'Test string',
+          targetingMode: 'TARGETING_MODE_UNSPECIFIED',
           values: ['Test string'],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         userListTargeting: {
           excludedIds: ['Test string'],
           includedIds: ['Test string'],
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
           includedIds: ['Test string'],
         },
         webTargeting: {
-          targetingMode: 'Test string',
+          targetingMode: 'TARGETING_MODE_UNSPECIFIED',
           values: ['Test string'],
         },
       },
@@ -198,14 +198,14 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        allowedUserTargetingModes: ['Test string'],
+        allowedUserTargetingModes: ['USER_TARGETING_MODE_UNSPECIFIED'],
         appTargeting: {
           mobileAppCategoryTargeting: {
             excludedIds: ['Test string'],
             includedIds: ['Test string'],
           },
           mobileAppTargeting: {
-            targetingMode: 'Test string',
+            targetingMode: 'TARGETING_MODE_UNSPECIFIED',
             values: ['Test string'],
           },
         },
@@ -222,22 +222,22 @@ gapi.load('client', async () => {
             width: 'Test string',
           },
         ],
-        includedEnvironments: ['Test string'],
-        includedFormats: ['Test string'],
+        includedEnvironments: ['ENVIRONMENT_UNSPECIFIED'],
+        includedFormats: ['CREATIVE_FORMAT_UNSPECIFIED'],
         includedLanguages: ['Test string'],
         includedMobileOperatingSystemIds: ['Test string'],
-        includedPlatforms: ['Test string'],
-        includedUserIdTypes: ['Test string'],
-        interstitialTargeting: 'Test string',
+        includedPlatforms: ['PLATFORM_UNSPECIFIED'],
+        includedUserIdTypes: ['USER_ID_TYPE_UNSPECIFIED'],
+        interstitialTargeting: 'INTERSTITIAL_TARGETING_UNSPECIFIED',
         invalidGeoIds: ['Test string'],
         maximumQps: 'Test string',
         minimumViewabilityDecile: 42,
         name: 'Test string',
         publisherTargeting: {
-          targetingMode: 'Test string',
+          targetingMode: 'TARGETING_MODE_UNSPECIFIED',
           values: ['Test string'],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         userListTargeting: {
           excludedIds: ['Test string'],
           includedIds: ['Test string'],
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
           includedIds: ['Test string'],
         },
         webTargeting: {
-          targetingMode: 'Test string',
+          targetingMode: 'TARGETING_MODE_UNSPECIFIED',
           values: ['Test string'],
         },
       },
@@ -349,7 +349,7 @@ gapi.load('client', async () => {
         advertiserName: 'Test string',
         agencyId: 'Test string',
         apiUpdateTime: 'Test string',
-        creativeFormat: 'Test string',
+        creativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
         creativeId: 'Test string',
         creativeServingDecision: {
           adTechnologyProviders: {
@@ -358,7 +358,7 @@ gapi.load('client', async () => {
             unidentifiedProviderDomains: ['Test string'],
           },
           chinaPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -366,17 +366,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -415,7 +415,7 @@ gapi.load('client', async () => {
             ],
           },
           dealsPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -423,17 +423,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -479,9 +479,9 @@ gapi.load('client', async () => {
               brandName: 'Test string',
             },
           ],
-          detectedAttributes: ['Test string'],
+          detectedAttributes: ['ATTRIBUTE_UNSPECIFIED'],
           detectedCategories: ['Test string'],
-          detectedCategoriesTaxonomy: 'Test string',
+          detectedCategoriesTaxonomy: 'AD_CATEGORY_TAXONOMY_UNSPECIFIED',
           detectedClickThroughUrls: ['Test string'],
           detectedDomains: ['Test string'],
           detectedLanguages: ['Test string'],
@@ -490,7 +490,7 @@ gapi.load('client', async () => {
           detectedVendorIds: [42],
           lastStatusUpdate: 'Test string',
           networkPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -498,17 +498,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
             ],
           },
           platformPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -555,17 +555,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -604,7 +604,7 @@ gapi.load('client', async () => {
             ],
           },
           russiaPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -612,17 +612,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -662,9 +662,9 @@ gapi.load('client', async () => {
           },
         },
         dealIds: ['Test string'],
-        declaredAttributes: ['Test string'],
+        declaredAttributes: ['ATTRIBUTE_UNSPECIFIED'],
         declaredClickThroughUrls: ['Test string'],
-        declaredRestrictedCategories: ['Test string'],
+        declaredRestrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
         declaredVendorIds: [42],
         html: {
           height: 42,
@@ -701,7 +701,7 @@ gapi.load('client', async () => {
           videoVastXml: 'Test string',
         },
         renderUrl: 'Test string',
-        restrictedCategories: ['Test string'],
+        restrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
         version: 42,
         video: {
           videoMetadata: {
@@ -711,11 +711,11 @@ gapi.load('client', async () => {
             mediaFiles: [
               {
                 bitrate: 'Test string',
-                mimeType: 'Test string',
+                mimeType: 'VIDEO_MIME_TYPE_UNSPECIFIED',
               },
             ],
             skipOffset: 'Test string',
-            vastVersion: 'Test string',
+            vastVersion: 'VAST_VERSION_UNSPECIFIED',
           },
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
@@ -724,18 +724,18 @@ gapi.load('client', async () => {
     );
     /** Gets a creative. */
     await gapi.client.realtimebidding.buyers.creatives.get({
-      adCategoryTaxonomyOverride: 'Test string',
+      adCategoryTaxonomyOverride: 'AD_CATEGORY_TAXONOMY_UNSPECIFIED',
       name: 'Test string',
-      view: 'Test string',
+      view: 'CREATIVE_VIEW_UNSPECIFIED',
     });
     /** Lists creatives as they are at the time of the initial request. This call may take multiple hours to complete. For large, paginated requests, this method returns a snapshot of creatives at the time of request for the first page. `lastStatusUpdate` and `creativeServingDecision` may be outdated for creatives on sequential pages. We recommend [Google Cloud Pub/Sub](//cloud.google.com/pubsub/docs/overview) to view the latest status. */
     await gapi.client.realtimebidding.buyers.creatives.list({
-      adCategoryTaxonomyOverride: 'Test string',
+      adCategoryTaxonomyOverride: 'AD_CATEGORY_TAXONOMY_UNSPECIFIED',
       filter: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CREATIVE_VIEW_UNSPECIFIED',
     });
     /** Updates a creative. */
     await gapi.client.realtimebidding.buyers.creatives.patch(
@@ -749,7 +749,7 @@ gapi.load('client', async () => {
         advertiserName: 'Test string',
         agencyId: 'Test string',
         apiUpdateTime: 'Test string',
-        creativeFormat: 'Test string',
+        creativeFormat: 'CREATIVE_FORMAT_UNSPECIFIED',
         creativeId: 'Test string',
         creativeServingDecision: {
           adTechnologyProviders: {
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
             unidentifiedProviderDomains: ['Test string'],
           },
           chinaPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -766,17 +766,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -815,7 +815,7 @@ gapi.load('client', async () => {
             ],
           },
           dealsPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -823,17 +823,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -879,9 +879,9 @@ gapi.load('client', async () => {
               brandName: 'Test string',
             },
           ],
-          detectedAttributes: ['Test string'],
+          detectedAttributes: ['ATTRIBUTE_UNSPECIFIED'],
           detectedCategories: ['Test string'],
-          detectedCategoriesTaxonomy: 'Test string',
+          detectedCategoriesTaxonomy: 'AD_CATEGORY_TAXONOMY_UNSPECIFIED',
           detectedClickThroughUrls: ['Test string'],
           detectedDomains: ['Test string'],
           detectedLanguages: ['Test string'],
@@ -890,7 +890,7 @@ gapi.load('client', async () => {
           detectedVendorIds: [42],
           lastStatusUpdate: 'Test string',
           networkPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -898,17 +898,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -947,7 +947,7 @@ gapi.load('client', async () => {
             ],
           },
           platformPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -955,17 +955,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -1004,7 +1004,7 @@ gapi.load('client', async () => {
             ],
           },
           russiaPolicyCompliance: {
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             topics: [
               {
                 evidences: [
@@ -1012,17 +1012,17 @@ gapi.load('client', async () => {
                     destinationNotCrawlable: {
                       crawledUrl: 'Test string',
                       crawlTime: 'Test string',
-                      reason: 'Test string',
+                      reason: 'REASON_UNSPECIFIED',
                     },
                     destinationNotWorking: {
-                      dnsError: 'Test string',
+                      dnsError: 'DNS_ERROR_UNSPECIFIED',
                       expandedUrl: 'Test string',
                       httpError: 42,
-                      invalidPage: 'Test string',
+                      invalidPage: 'INVALID_PAGE_UNSPECIFIED',
                       lastCheckTime: 'Test string',
-                      platform: 'Test string',
-                      redirectionError: 'Test string',
-                      urlRejected: 'Test string',
+                      platform: 'PLATFORM_UNSPECIFIED',
+                      redirectionError: 'REDIRECTION_ERROR_UNSPECIFIED',
+                      urlRejected: 'URL_REJECTED_UNSPECIFIED',
                     },
                     destinationUrl: {
                       destinationUrl: 'Test string',
@@ -1062,9 +1062,9 @@ gapi.load('client', async () => {
           },
         },
         dealIds: ['Test string'],
-        declaredAttributes: ['Test string'],
+        declaredAttributes: ['ATTRIBUTE_UNSPECIFIED'],
         declaredClickThroughUrls: ['Test string'],
-        declaredRestrictedCategories: ['Test string'],
+        declaredRestrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
         declaredVendorIds: [42],
         html: {
           height: 42,
@@ -1101,7 +1101,7 @@ gapi.load('client', async () => {
           videoVastXml: 'Test string',
         },
         renderUrl: 'Test string',
-        restrictedCategories: ['Test string'],
+        restrictedCategories: ['RESTRICTED_CATEGORY_UNSPECIFIED'],
         version: 42,
         video: {
           videoMetadata: {
@@ -1111,11 +1111,11 @@ gapi.load('client', async () => {
             mediaFiles: [
               {
                 bitrate: 'Test string',
-                mimeType: 'Test string',
+                mimeType: 'VIDEO_MIME_TYPE_UNSPECIFIED',
               },
             ],
             skipOffset: 'Test string',
-            vastVersion: 'Test string',
+            vastVersion: 'VAST_VERSION_UNSPECIFIED',
           },
           videoUrl: 'Test string',
           videoVastXml: 'Test string',
@@ -1139,14 +1139,14 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         membershipDurationDays: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'STATUS_UNSPECIFIED',
         urlRestriction: {
           endDate: {
             day: 42,
             month: 42,
             year: 42,
           },
-          restrictionType: 'Test string',
+          restrictionType: 'RESTRICTION_TYPE_UNSPECIFIED',
           startDate: {
             day: 42,
             month: 42,
@@ -1187,14 +1187,14 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         membershipDurationDays: 'Test string',
         name: 'Test string',
-        status: 'Test string',
+        status: 'STATUS_UNSPECIFIED',
         urlRestriction: {
           endDate: {
             day: 42,
             month: 42,
             year: 42,
           },
-          restrictionType: 'Test string',
+          restrictionType: 'RESTRICTION_TYPE_UNSPECIFIED',
           startDate: {
             day: 42,
             month: 42,

@@ -69,7 +69,7 @@ gapi.load('client', async () => {
           {
             adGroupId: 'Test string',
             adId: 'Test string',
-            adUserDataConsent: 'Test string',
+            adUserDataConsent: 'UNKNOWN',
             advertiserId: 'Test string',
             agencyId: 'Test string',
             attributionModel: 'Test string',
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
           {
             adGroupId: 'Test string',
             adId: 'Test string',
-            adUserDataConsent: 'Test string',
+            adUserDataConsent: 'UNKNOWN',
             advertiserId: 'Test string',
             agencyId: 'Test string',
             attributionModel: 'Test string',

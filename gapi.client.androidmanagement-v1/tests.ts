@@ -50,27 +50,30 @@ gapi.load('client', async () => {
           euRepresentativeName: 'Test string',
           euRepresentativePhone: 'Test string',
         },
-        enabledNotificationTypes: ['Test string'],
+        enabledNotificationTypes: ['NOTIFICATION_TYPE_UNSPECIFIED'],
         enterpriseDisplayName: 'Test string',
-        enterpriseType: 'Test string',
+        enterpriseType: 'ENTERPRISE_TYPE_UNSPECIFIED',
         googleAuthenticationSettings: {
-          googleAuthenticationRequired: 'Test string',
+          googleAuthenticationRequired:
+            'GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED',
         },
         logo: {
           sha256Hash: 'Test string',
           url: 'Test string',
         },
-        managedGoogleDomainType: 'Test string',
-        managedGooglePlayAccountsEnterpriseType: 'Test string',
+        managedGoogleDomainType: 'MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED',
+        managedGooglePlayAccountsEnterpriseType:
+          'MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED',
         name: 'Test string',
         primaryColor: 42,
         pubsubTopic: 'Test string',
         signinDetails: [
           {
-            allowPersonalUsage: 'Test string',
-            defaultStatus: 'Test string',
+            allowPersonalUsage: 'ALLOW_PERSONAL_USAGE_UNSPECIFIED',
+            defaultStatus: 'SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED',
             googleAuthenticationOptions: {
-              authenticationRequirement: 'Test string',
+              authenticationRequirement:
+                'AUTHENTICATION_REQUIREMENT_UNSPECIFIED',
             },
             qrCode: 'Test string',
             signinEnrollmentToken: 'Test string',
@@ -119,7 +122,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       projectId: 'Test string',
-      view: 'Test string',
+      view: 'ENTERPRISE_VIEW_UNSPECIFIED',
     });
     /** Updates an enterprise. See also: SigninDetail */
     await gapi.client.androidmanagement.enterprises.patch(
@@ -138,27 +141,30 @@ gapi.load('client', async () => {
           euRepresentativeName: 'Test string',
           euRepresentativePhone: 'Test string',
         },
-        enabledNotificationTypes: ['Test string'],
+        enabledNotificationTypes: ['NOTIFICATION_TYPE_UNSPECIFIED'],
         enterpriseDisplayName: 'Test string',
-        enterpriseType: 'Test string',
+        enterpriseType: 'ENTERPRISE_TYPE_UNSPECIFIED',
         googleAuthenticationSettings: {
-          googleAuthenticationRequired: 'Test string',
+          googleAuthenticationRequired:
+            'GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED',
         },
         logo: {
           sha256Hash: 'Test string',
           url: 'Test string',
         },
-        managedGoogleDomainType: 'Test string',
-        managedGooglePlayAccountsEnterpriseType: 'Test string',
+        managedGoogleDomainType: 'MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED',
+        managedGooglePlayAccountsEnterpriseType:
+          'MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED',
         name: 'Test string',
         primaryColor: 42,
         pubsubTopic: 'Test string',
         signinDetails: [
           {
-            allowPersonalUsage: 'Test string',
-            defaultStatus: 'Test string',
+            allowPersonalUsage: 'ALLOW_PERSONAL_USAGE_UNSPECIFIED',
+            defaultStatus: 'SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED',
             googleAuthenticationOptions: {
-              authenticationRequirement: 'Test string',
+              authenticationRequirement:
+                'AUTHENTICATION_REQUIREMENT_UNSPECIFIED',
             },
             qrCode: 'Test string',
             signinEnrollmentToken: 'Test string',
@@ -192,7 +198,7 @@ gapi.load('client', async () => {
     /** Deletes a device. This operation attempts to wipe the device but this is not guaranteed to succeed if the device is offline for an extended period. Deleted devices do not show up in enterprises.devices.list calls and a 404 is returned from enterprises.devices.get. */
     await gapi.client.androidmanagement.enterprises.devices.delete({
       name: 'Test string',
-      wipeDataFlags: 'Test string',
+      wipeDataFlags: 'WIPE_DATA_FLAG_UNSPECIFIED',
       wipeReasonMessage: 'Test string',
     });
     /** Gets a device. Deleted devices will respond with a 404 error. */
@@ -207,7 +213,7 @@ gapi.load('client', async () => {
       {
         addEsimParams: {
           activationCode: 'Test string',
-          activationState: 'Test string',
+          activationState: 'ACTIVATION_STATE_UNSPECIFIED',
         },
         clearAppsDataParams: {
           packageNames: ['Test string'],
@@ -215,31 +221,31 @@ gapi.load('client', async () => {
         clearAppsDataStatus: {
           results: {
             A: {
-              clearingResult: 'Test string',
+              clearingResult: 'CLEARING_RESULT_UNSPECIFIED',
             },
           },
         },
         createTime: 'Test string',
         duration: 'Test string',
-        errorCode: 'Test string',
+        errorCode: 'COMMAND_ERROR_CODE_UNSPECIFIED',
         esimStatus: {
           esimInfo: {
             iccId: 'Test string',
           },
           internalErrorDetails: {
             errorCode: 'Test string',
-            errorCodeDetail: 'Test string',
+            errorCodeDetail: 'ERROR_CODE_DETAIL_UNSPECIFIED',
             operationCode: 'Test string',
-            operationCodeDetail: 'Test string',
+            operationCodeDetail: 'OPERATION_CODE_DETAIL_UNSPECIFIED',
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
         },
         newPassword: 'Test string',
         removeEsimParams: {
           iccId: 'Test string',
         },
         requestDeviceInfoParams: {
-          deviceInfo: 'Test string',
+          deviceInfo: 'DEVICE_INFO_UNSPECIFIED',
         },
         requestDeviceInfoStatus: {
           eidInfo: {
@@ -249,9 +255,9 @@ gapi.load('client', async () => {
               },
             ],
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
         },
-        resetPasswordFlags: ['Test string'],
+        resetPasswordFlags: ['RESET_PASSWORD_FLAG_UNSPECIFIED'],
         startLostModeParams: {
           lostEmailAddress: 'Test string',
           lostMessage: {
@@ -280,16 +286,16 @@ gapi.load('client', async () => {
           },
         },
         startLostModeStatus: {
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
         },
         stopLostModeParams: {},
         stopLostModeStatus: {
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
         },
-        type: 'Test string',
+        type: 'COMMAND_TYPE_UNSPECIFIED',
         userName: 'Test string',
         wipeParams: {
-          wipeDataFlags: ['Test string'],
+          wipeDataFlags: ['WIPE_DATA_FLAG_UNSPECIFIED'],
           wipeReason: {
             defaultMessage: 'Test string',
             localizedMessages: {
@@ -315,12 +321,12 @@ gapi.load('client', async () => {
         apiLevel: 42,
         applicationReports: [
           {
-            applicationSource: 'Test string',
+            applicationSource: 'APPLICATION_SOURCE_UNSPECIFIED',
             displayName: 'Test string',
             events: [
               {
                 createTime: 'Test string',
-                eventType: 'Test string',
+                eventType: 'APPLICATION_EVENT_TYPE_UNSPECIFIED',
               },
             ],
             installerPackageName: 'Test string',
@@ -331,7 +337,7 @@ gapi.load('client', async () => {
                 key: 'Test string',
                 lastUpdateTime: 'Test string',
                 message: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
             packageName: 'Test string',
@@ -342,8 +348,8 @@ gapi.load('client', async () => {
                 signingKeyCertFingerprintSha256: 'Test string',
               },
             ],
-            state: 'Test string',
-            userFacingType: 'Test string',
+            state: 'APPLICATION_STATE_UNSPECIFIED',
+            userFacingType: 'USER_FACING_TYPE_UNSPECIFIED',
             versionCode: 42,
             versionName: 'Test string',
           },
@@ -360,35 +366,36 @@ gapi.load('client', async () => {
             passwordMinimumNumeric: 42,
             passwordMinimumSymbols: 42,
             passwordMinimumUpperCase: 42,
-            passwordQuality: 'Test string',
-            passwordScope: 'Test string',
-            requirePasswordUnlock: 'Test string',
-            unifiedLockSettings: 'Test string',
+            passwordQuality: 'PASSWORD_QUALITY_UNSPECIFIED',
+            passwordScope: 'SCOPE_UNSPECIFIED',
+            requirePasswordUnlock: 'REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED',
+            unifiedLockSettings: 'UNIFIED_LOCK_SETTINGS_UNSPECIFIED',
           },
         ],
         appliedPolicyName: 'Test string',
         appliedPolicyVersion: 'Test string',
-        appliedState: 'Test string',
+        appliedState: 'DEVICE_STATE_UNSPECIFIED',
         commonCriteriaModeInfo: {
-          commonCriteriaModeStatus: 'Test string',
-          policySignatureVerificationStatus: 'Test string',
+          commonCriteriaModeStatus: 'COMMON_CRITERIA_MODE_STATUS_UNKNOWN',
+          policySignatureVerificationStatus:
+            'POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED',
         },
         defaultApplicationInfo: [
           {
             defaultApplicationSettingAttempts: [
               {
-                attemptOutcome: 'Test string',
+                attemptOutcome: 'ATTEMPT_OUTCOME_UNSPECIFIED',
                 packageName: 'Test string',
               },
             ],
-            defaultApplicationType: 'Test string',
+            defaultApplicationType: 'DEFAULT_APPLICATION_TYPE_UNSPECIFIED',
             packageName: 'Test string',
           },
         ],
         deviceSettings: {
           adbEnabled: true,
           developmentSettingsEnabled: true,
-          encryptionStatus: 'Test string',
+          encryptionStatus: 'ENCRYPTION_STATUS_UNSPECIFIED',
           isDeviceSecure: true,
           isEncrypted: true,
           unknownSourcesEnabled: true,
@@ -407,7 +414,7 @@ gapi.load('client', async () => {
             height: 42,
             name: 'Test string',
             refreshRate: 42,
-            state: 'Test string',
+            state: 'DISPLAY_STATE_UNSPECIFIED',
             width: 42,
           },
         ],
@@ -454,12 +461,12 @@ gapi.load('client', async () => {
         lastPolicyComplianceReportTime: 'Test string',
         lastPolicySyncTime: 'Test string',
         lastStatusReportTime: 'Test string',
-        managementMode: 'Test string',
+        managementMode: 'MANAGEMENT_MODE_UNSPECIFIED',
         memoryEvents: [
           {
             byteCount: 'Test string',
             createTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'MEMORY_EVENT_TYPE_UNSPECIFIED',
           },
         ],
         memoryInfo: {
@@ -473,9 +480,9 @@ gapi.load('client', async () => {
           networkOperatorName: 'Test string',
           telephonyInfos: [
             {
-              activationState: 'Test string',
+              activationState: 'ACTIVATION_STATE_UNSPECIFIED',
               carrierName: 'Test string',
-              configMode: 'Test string',
+              configMode: 'CONFIG_MODE_UNSPECIFIED',
               iccId: 'Test string',
               phoneNumber: 'Test string',
             },
@@ -486,37 +493,40 @@ gapi.load('client', async () => {
           {
             currentValue: 42,
             fieldPath: 'Test string',
-            installationFailureReason: 'Test string',
-            nonComplianceReason: 'Test string',
+            installationFailureReason:
+              'INSTALLATION_FAILURE_REASON_UNSPECIFIED',
+            nonComplianceReason: 'NON_COMPLIANCE_REASON_UNSPECIFIED',
             packageName: 'Test string',
             settingName: 'Test string',
             specificNonComplianceContext: {
               defaultApplicationContext: {
-                defaultApplicationScope: 'Test string',
+                defaultApplicationScope:
+                  'DEFAULT_APPLICATION_SCOPE_UNSPECIFIED',
               },
               oncWifiContext: {
                 wifiGuid: 'Test string',
               },
               passwordPoliciesContext: {
-                passwordPolicyScope: 'Test string',
+                passwordPolicyScope: 'SCOPE_UNSPECIFIED',
               },
             },
-            specificNonComplianceReason: 'Test string',
+            specificNonComplianceReason:
+              'SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED',
           },
         ],
-        ownership: 'Test string',
+        ownership: 'OWNERSHIP_UNSPECIFIED',
         policyCompliant: true,
         policyName: 'Test string',
         powerManagementEvents: [
           {
             batteryLevel: 42,
             createTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED',
           },
         ],
         previousDeviceNames: ['Test string'],
         securityPosture: {
-          devicePosture: 'Test string',
+          devicePosture: 'POSTURE_UNSPECIFIED',
           postureDetails: [
             {
               advice: [
@@ -527,7 +537,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              securityRisk: 'Test string',
+              securityRisk: 'SECURITY_RISK_UNSPECIFIED',
             },
           ],
         },
@@ -544,10 +554,10 @@ gapi.load('client', async () => {
           securityPatchLevel: 'Test string',
           systemUpdateInfo: {
             updateReceivedTime: 'Test string',
-            updateStatus: 'Test string',
+            updateStatus: 'UPDATE_STATUS_UNKNOWN',
           },
         },
-        state: 'Test string',
+        state: 'DEVICE_STATE_UNSPECIFIED',
         systemProperties: {
           A: 'Test string',
         },
@@ -580,11 +590,11 @@ gapi.load('client', async () => {
       },
       {
         additionalData: 'Test string',
-        allowPersonalUsage: 'Test string',
+        allowPersonalUsage: 'ALLOW_PERSONAL_USAGE_UNSPECIFIED',
         duration: 'Test string',
         expirationTimestamp: 'Test string',
         googleAuthenticationOptions: {
-          authenticationRequirement: 'Test string',
+          authenticationRequirement: 'AUTHENTICATION_REQUIREMENT_UNSPECIFIED',
           requiredAccountEmail: 'Test string',
         },
         name: 'Test string',
@@ -622,7 +632,7 @@ gapi.load('client', async () => {
         device: 'Test string',
         deviceId: 'Test string',
         expireTime: 'Test string',
-        managementMode: 'Test string',
+        managementMode: 'MANAGEMENT_MODE_UNSPECIFIED',
         name: 'Test string',
         policy: 'Test string',
         ttl: 'Test string',
@@ -664,15 +674,18 @@ gapi.load('client', async () => {
           {
             application: {
               accessibleTrackIds: ['Test string'],
-              alwaysOnVpnLockdownExemption: 'Test string',
-              autoUpdateMode: 'Test string',
-              connectedWorkAndPersonalApp: 'Test string',
-              credentialProviderPolicy: 'Test string',
+              alwaysOnVpnLockdownExemption:
+                'ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED',
+              autoUpdateMode: 'AUTO_UPDATE_MODE_UNSPECIFIED',
+              connectedWorkAndPersonalApp:
+                'CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED',
+              credentialProviderPolicy:
+                'CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED',
               customAppConfig: {
-                userUninstallSettings: 'Test string',
+                userUninstallSettings: 'USER_UNINSTALL_SETTINGS_UNSPECIFIED',
               },
-              defaultPermissionPolicy: 'Test string',
-              delegatedScopes: ['Test string'],
+              defaultPermissionPolicy: 'PERMISSION_POLICY_UNSPECIFIED',
+              delegatedScopes: ['DELEGATED_SCOPE_UNSPECIFIED'],
               disabled: true,
               extensionConfig: {
                 notificationReceiver: 'Test string',
@@ -680,13 +693,13 @@ gapi.load('client', async () => {
               },
               installConstraint: [
                 {
-                  chargingConstraint: 'Test string',
-                  deviceIdleConstraint: 'Test string',
-                  networkTypeConstraint: 'Test string',
+                  chargingConstraint: 'CHARGING_CONSTRAINT_UNSPECIFIED',
+                  deviceIdleConstraint: 'DEVICE_IDLE_CONSTRAINT_UNSPECIFIED',
+                  networkTypeConstraint: 'NETWORK_TYPE_CONSTRAINT_UNSPECIFIED',
                 },
               ],
               installPriority: 42,
-              installType: 'Test string',
+              installType: 'INSTALL_TYPE_UNSPECIFIED',
               lockTaskAllowed: true,
               managedConfiguration: {
                 A: 42,
@@ -702,16 +715,17 @@ gapi.load('client', async () => {
               permissionGrants: [
                 {
                   permission: 'Test string',
-                  policy: 'Test string',
+                  policy: 'PERMISSION_POLICY_UNSPECIFIED',
                 },
               ],
-              preferentialNetworkId: 'Test string',
+              preferentialNetworkId: 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED',
               roles: [
                 {
                   extraCapabilities: {
-                    localDeviceWipeCommand: 'Test string',
+                    localDeviceWipeCommand:
+                      'LOCAL_DEVICE_WIPE_COMMAND_UNSPECIFIED',
                   },
-                  roleType: 'Test string',
+                  roleType: 'ROLE_TYPE_UNSPECIFIED',
                 },
               ],
               signingKeyCerts: [
@@ -719,8 +733,8 @@ gapi.load('client', async () => {
                   signingKeyCertFingerprintSha256: 'Test string',
                 },
               ],
-              userControlSettings: 'Test string',
-              workProfileWidgets: 'Test string',
+              userControlSettings: 'USER_CONTROL_SETTINGS_UNSPECIFIED',
+              workProfileWidgets: 'WORK_PROFILE_WIDGETS_UNSPECIFIED',
             },
             updateMask: 'Test string',
           },
@@ -738,33 +752,36 @@ gapi.load('client', async () => {
         addUserDisabled: true,
         adjustVolumeDisabled: true,
         advancedSecurityOverrides: {
-          commonCriteriaMode: 'Test string',
-          contentProtectionPolicy: 'Test string',
-          developerSettings: 'Test string',
-          googlePlayProtectVerifyApps: 'Test string',
-          mtePolicy: 'Test string',
+          commonCriteriaMode: 'COMMON_CRITERIA_MODE_UNSPECIFIED',
+          contentProtectionPolicy: 'CONTENT_PROTECTION_POLICY_UNSPECIFIED',
+          developerSettings: 'DEVELOPER_SETTINGS_UNSPECIFIED',
+          googlePlayProtectVerifyApps:
+            'GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED',
+          mtePolicy: 'MTE_POLICY_UNSPECIFIED',
           personalAppsThatCanReadWorkNotifications: ['Test string'],
-          untrustedAppsPolicy: 'Test string',
+          untrustedAppsPolicy: 'UNTRUSTED_APPS_POLICY_UNSPECIFIED',
         },
         alwaysOnVpnPackage: {
           lockdownEnabled: true,
           packageName: 'Test string',
         },
-        androidDevicePolicyTracks: ['Test string'],
-        appAutoUpdatePolicy: 'Test string',
-        appFunctions: 'Test string',
+        androidDevicePolicyTracks: ['APP_TRACK_UNSPECIFIED'],
+        appAutoUpdatePolicy: 'APP_AUTO_UPDATE_POLICY_UNSPECIFIED',
+        appFunctions: 'APP_FUNCTIONS_UNSPECIFIED',
         applications: [
           {
             accessibleTrackIds: ['Test string'],
-            alwaysOnVpnLockdownExemption: 'Test string',
-            autoUpdateMode: 'Test string',
-            connectedWorkAndPersonalApp: 'Test string',
-            credentialProviderPolicy: 'Test string',
+            alwaysOnVpnLockdownExemption:
+              'ALWAYS_ON_VPN_LOCKDOWN_EXEMPTION_UNSPECIFIED',
+            autoUpdateMode: 'AUTO_UPDATE_MODE_UNSPECIFIED',
+            connectedWorkAndPersonalApp:
+              'CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED',
+            credentialProviderPolicy: 'CREDENTIAL_PROVIDER_POLICY_UNSPECIFIED',
             customAppConfig: {
-              userUninstallSettings: 'Test string',
+              userUninstallSettings: 'USER_UNINSTALL_SETTINGS_UNSPECIFIED',
             },
-            defaultPermissionPolicy: 'Test string',
-            delegatedScopes: ['Test string'],
+            defaultPermissionPolicy: 'PERMISSION_POLICY_UNSPECIFIED',
+            delegatedScopes: ['DELEGATED_SCOPE_UNSPECIFIED'],
             disabled: true,
             extensionConfig: {
               notificationReceiver: 'Test string',
@@ -772,13 +789,13 @@ gapi.load('client', async () => {
             },
             installConstraint: [
               {
-                chargingConstraint: 'Test string',
-                deviceIdleConstraint: 'Test string',
-                networkTypeConstraint: 'Test string',
+                chargingConstraint: 'CHARGING_CONSTRAINT_UNSPECIFIED',
+                deviceIdleConstraint: 'DEVICE_IDLE_CONSTRAINT_UNSPECIFIED',
+                networkTypeConstraint: 'NETWORK_TYPE_CONSTRAINT_UNSPECIFIED',
               },
             ],
             installPriority: 42,
-            installType: 'Test string',
+            installType: 'INSTALL_TYPE_UNSPECIFIED',
             lockTaskAllowed: true,
             managedConfiguration: {
               A: 42,
@@ -794,16 +811,17 @@ gapi.load('client', async () => {
             permissionGrants: [
               {
                 permission: 'Test string',
-                policy: 'Test string',
+                policy: 'PERMISSION_POLICY_UNSPECIFIED',
               },
             ],
-            preferentialNetworkId: 'Test string',
+            preferentialNetworkId: 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED',
             roles: [
               {
                 extraCapabilities: {
-                  localDeviceWipeCommand: 'Test string',
+                  localDeviceWipeCommand:
+                    'LOCAL_DEVICE_WIPE_COMMAND_UNSPECIFIED',
                 },
-                roleType: 'Test string',
+                roleType: 'ROLE_TYPE_UNSPECIFIED',
               },
             ],
             signingKeyCerts: [
@@ -811,20 +829,20 @@ gapi.load('client', async () => {
                 signingKeyCertFingerprintSha256: 'Test string',
               },
             ],
-            userControlSettings: 'Test string',
-            workProfileWidgets: 'Test string',
+            userControlSettings: 'USER_CONTROL_SETTINGS_UNSPECIFIED',
+            workProfileWidgets: 'WORK_PROFILE_WIDGETS_UNSPECIFIED',
           },
         ],
-        assistContentPolicy: 'Test string',
-        autoDateAndTimeZone: 'Test string',
-        autofillPolicy: 'Test string',
+        assistContentPolicy: 'ASSIST_CONTENT_POLICY_UNSPECIFIED',
+        autoDateAndTimeZone: 'AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED',
+        autofillPolicy: 'AUTOFILL_POLICY_UNSPECIFIED',
         autoTimeRequired: true,
-        backupService: 'Test string',
+        backupService: 'BACKUP_SERVICE_UNSPECIFIED',
         blockApplicationsEnabled: true,
         bluetoothConfigDisabled: true,
         bluetoothContactSharingDisabled: true,
         bluetoothDisabled: true,
-        cameraAccess: 'Test string',
+        cameraAccess: 'CAMERA_ACCESS_UNSPECIFIED',
         cameraDisabled: true,
         cellBroadcastsConfigDisabled: true,
         choosePrivateKeyRules: [
@@ -841,7 +859,7 @@ gapi.load('client', async () => {
             },
             disableApps: true,
             nonComplianceDetailCondition: {
-              nonComplianceReason: 'Test string',
+              nonComplianceReason: 'NON_COMPLIANCE_REASON_UNSPECIFIED',
               packageName: 'Test string',
               settingName: 'Test string',
             },
@@ -849,22 +867,25 @@ gapi.load('client', async () => {
           },
         ],
         createWindowsDisabled: true,
-        credentialProviderPolicyDefault: 'Test string',
+        credentialProviderPolicyDefault:
+          'CREDENTIAL_PROVIDER_POLICY_DEFAULT_UNSPECIFIED',
         credentialsConfigDisabled: true,
         crossDevicePolicies: {
-          nearbyAppStreaming: 'Test string',
-          nearbyNotificationStreaming: 'Test string',
-          taskContinuityHandoff: 'Test string',
+          nearbyAppStreaming: 'NEARBY_APP_STREAMING_UNSPECIFIED',
+          nearbyNotificationStreaming:
+            'NEARBY_NOTIFICATION_STREAMING_UNSPECIFIED',
+          taskContinuityHandoff: 'TASK_CONTINUITY_HANDOFF_UNSPECIFIED',
         },
         crossProfilePolicies: {
-          crossProfileAppFunctions: 'Test string',
-          crossProfileCopyPaste: 'Test string',
-          crossProfileDataSharing: 'Test string',
+          crossProfileAppFunctions: 'CROSS_PROFILE_APP_FUNCTIONS_UNSPECIFIED',
+          crossProfileCopyPaste: 'CROSS_PROFILE_COPY_PASTE_UNSPECIFIED',
+          crossProfileDataSharing: 'CROSS_PROFILE_DATA_SHARING_UNSPECIFIED',
           exemptionsToShowWorkContactsInPersonalProfile: {
             packageNames: ['Test string'],
           },
-          showWorkContactsInPersonalProfile: 'Test string',
-          workProfileWidgetsDefault: 'Test string',
+          showWorkContactsInPersonalProfile:
+            'SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED',
+          workProfileWidgetsDefault: 'WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED',
         },
         dataRoamingDisabled: true,
         debuggingFeaturesAllowed: true,
@@ -875,19 +896,19 @@ gapi.load('client', async () => {
                 packageName: 'Test string',
               },
             ],
-            defaultApplicationScopes: ['Test string'],
-            defaultApplicationType: 'Test string',
+            defaultApplicationScopes: ['DEFAULT_APPLICATION_SCOPE_UNSPECIFIED'],
+            defaultApplicationType: 'DEFAULT_APPLICATION_TYPE_UNSPECIFIED',
           },
         ],
-        defaultPermissionPolicy: 'Test string',
+        defaultPermissionPolicy: 'PERMISSION_POLICY_UNSPECIFIED',
         deviceConnectivityManagement: {
           apnPolicy: {
             apnSettings: [
               {
-                alwaysOnSetting: 'Test string',
+                alwaysOnSetting: 'ALWAYS_ON_SETTING_UNSPECIFIED',
                 apn: 'Test string',
-                apnTypes: ['Test string'],
-                authType: 'Test string',
+                apnTypes: ['APN_TYPE_UNSPECIFIED'],
+                authType: 'AUTH_TYPE_UNSPECIFIED',
                 carrierId: 42,
                 displayName: 'Test string',
                 mmsc: 'Test string',
@@ -895,48 +916,49 @@ gapi.load('client', async () => {
                 mmsProxyPort: 42,
                 mtuV4: 42,
                 mtuV6: 42,
-                mvnoType: 'Test string',
-                networkTypes: ['Test string'],
+                mvnoType: 'MVNO_TYPE_UNSPECIFIED',
+                networkTypes: ['NETWORK_TYPE_UNSPECIFIED'],
                 numericOperatorId: 'Test string',
                 password: 'Test string',
-                protocol: 'Test string',
+                protocol: 'PROTOCOL_UNSPECIFIED',
                 proxyAddress: 'Test string',
                 proxyPort: 42,
-                roamingProtocol: 'Test string',
+                roamingProtocol: 'PROTOCOL_UNSPECIFIED',
                 username: 'Test string',
               },
             ],
-            overrideApns: 'Test string',
+            overrideApns: 'OVERRIDE_APNS_UNSPECIFIED',
           },
-          bluetoothSharing: 'Test string',
-          configureWifi: 'Test string',
+          bluetoothSharing: 'BLUETOOTH_SHARING_UNSPECIFIED',
+          configureWifi: 'CONFIGURE_WIFI_UNSPECIFIED',
           preferentialNetworkServiceSettings: {
-            defaultPreferentialNetworkId: 'Test string',
+            defaultPreferentialNetworkId: 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED',
             preferentialNetworkServiceConfigs: [
               {
-                fallbackToDefaultConnection: 'Test string',
-                nonMatchingNetworks: 'Test string',
-                preferentialNetworkId: 'Test string',
+                fallbackToDefaultConnection:
+                  'FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED',
+                nonMatchingNetworks: 'NON_MATCHING_NETWORKS_UNSPECIFIED',
+                preferentialNetworkId: 'PREFERENTIAL_NETWORK_ID_UNSPECIFIED',
               },
             ],
           },
           privateDnsSettings: {
             privateDnsHost: 'Test string',
-            privateDnsMode: 'Test string',
+            privateDnsMode: 'PRIVATE_DNS_MODE_UNSPECIFIED',
           },
-          tetheringSettings: 'Test string',
-          usbDataAccess: 'Test string',
-          wifiDirectSettings: 'Test string',
+          tetheringSettings: 'TETHERING_SETTINGS_UNSPECIFIED',
+          usbDataAccess: 'USB_DATA_ACCESS_UNSPECIFIED',
+          wifiDirectSettings: 'WIFI_DIRECT_SETTINGS_UNSPECIFIED',
           wifiRoamingPolicy: {
             wifiRoamingSettings: [
               {
-                wifiRoamingMode: 'Test string',
+                wifiRoamingMode: 'WIFI_ROAMING_MODE_UNSPECIFIED',
                 wifiSsid: 'Test string',
               },
             ],
           },
           wifiSsidPolicy: {
-            wifiSsidPolicyType: 'Test string',
+            wifiSsidPolicyType: 'WIFI_SSID_POLICY_TYPE_UNSPECIFIED',
             wifiSsids: [
               {
                 wifiSsid: 'Test string',
@@ -951,48 +973,50 @@ gapi.load('client', async () => {
           },
         },
         deviceRadioState: {
-          airplaneModeState: 'Test string',
-          cellularTwoGState: 'Test string',
-          minimumWifiSecurityLevel: 'Test string',
-          nfc: 'Test string',
-          ultraWidebandState: 'Test string',
-          userInitiatedAddEsimSettings: 'Test string',
-          wifiState: 'Test string',
+          airplaneModeState: 'AIRPLANE_MODE_STATE_UNSPECIFIED',
+          cellularTwoGState: 'CELLULAR_TWO_G_STATE_UNSPECIFIED',
+          minimumWifiSecurityLevel: 'MINIMUM_WIFI_SECURITY_LEVEL_UNSPECIFIED',
+          nfc: 'NFC_UNSPECIFIED',
+          ultraWidebandState: 'ULTRA_WIDEBAND_STATE_UNSPECIFIED',
+          userInitiatedAddEsimSettings:
+            'USER_INITIATED_ADD_ESIM_SETTINGS_UNSPECIFIED',
+          wifiState: 'WIFI_STATE_UNSPECIFIED',
         },
         deviceWidePolicies: {
           deviceRadioState: {
-            nfc: 'Test string',
+            nfc: 'NFC_UNSPECIFIED',
           },
         },
         displaySettings: {
           screenBrightnessSettings: {
             screenBrightness: 42,
-            screenBrightnessMode: 'Test string',
+            screenBrightnessMode: 'SCREEN_BRIGHTNESS_MODE_UNSPECIFIED',
           },
           screenTimeoutSettings: {
             screenTimeout: 'Test string',
-            screenTimeoutMode: 'Test string',
+            screenTimeoutMode: 'SCREEN_TIMEOUT_MODE_UNSPECIFIED',
           },
         },
-        encryptionPolicy: 'Test string',
+        encryptionPolicy: 'ENCRYPTION_POLICY_UNSPECIFIED',
         ensureVerifyAppsEnabled: true,
-        enterpriseDisplayNameVisibility: 'Test string',
+        enterpriseDisplayNameVisibility:
+          'ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED',
         factoryResetDisabled: true,
         frpAdminEmails: ['Test string'],
         funDisabled: true,
         installAppsDisabled: true,
         installUnknownSourcesAllowed: true,
         keyguardDisabled: true,
-        keyguardDisabledFeatures: ['Test string'],
+        keyguardDisabledFeatures: ['KEYGUARD_DISABLED_FEATURE_UNSPECIFIED'],
         kioskCustomization: {
-          deviceSettings: 'Test string',
-          powerButtonActions: 'Test string',
-          statusBar: 'Test string',
-          systemErrorWarnings: 'Test string',
-          systemNavigation: 'Test string',
+          deviceSettings: 'DEVICE_SETTINGS_UNSPECIFIED',
+          powerButtonActions: 'POWER_BUTTON_ACTIONS_UNSPECIFIED',
+          statusBar: 'STATUS_BAR_UNSPECIFIED',
+          systemErrorWarnings: 'SYSTEM_ERROR_WARNINGS_UNSPECIFIED',
+          systemNavigation: 'SYSTEM_NAVIGATION_UNSPECIFIED',
         },
         kioskCustomLauncherEnabled: true,
-        locationMode: 'Test string',
+        locationMode: 'LOCATION_MODE_UNSPECIFIED',
         longSupportMessage: {
           defaultMessage: 'Test string',
           localizedMessages: {
@@ -1000,7 +1024,7 @@ gapi.load('client', async () => {
           },
         },
         maximumTimeToLock: 'Test string',
-        microphoneAccess: 'Test string',
+        microphoneAccess: 'MICROPHONE_ACCESS_UNSPECIFIED',
         minimumApiLevel: 42,
         mobileNetworksConfigDisabled: true,
         modifyAccountsDisabled: true,
@@ -1035,10 +1059,10 @@ gapi.load('client', async () => {
             passwordMinimumNumeric: 42,
             passwordMinimumSymbols: 42,
             passwordMinimumUpperCase: 42,
-            passwordQuality: 'Test string',
-            passwordScope: 'Test string',
-            requirePasswordUnlock: 'Test string',
-            unifiedLockSettings: 'Test string',
+            passwordQuality: 'PASSWORD_QUALITY_UNSPECIFIED',
+            passwordScope: 'SCOPE_UNSPECIFIED',
+            requirePasswordUnlock: 'REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED',
+            unifiedLockSettings: 'UNIFIED_LOCK_SETTINGS_UNSPECIFIED',
           },
         ],
         passwordRequirements: {
@@ -1052,15 +1076,15 @@ gapi.load('client', async () => {
           passwordMinimumNumeric: 42,
           passwordMinimumSymbols: 42,
           passwordMinimumUpperCase: 42,
-          passwordQuality: 'Test string',
-          passwordScope: 'Test string',
-          requirePasswordUnlock: 'Test string',
-          unifiedLockSettings: 'Test string',
+          passwordQuality: 'PASSWORD_QUALITY_UNSPECIFIED',
+          passwordScope: 'SCOPE_UNSPECIFIED',
+          requirePasswordUnlock: 'REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED',
+          unifiedLockSettings: 'UNIFIED_LOCK_SETTINGS_UNSPECIFIED',
         },
         permissionGrants: [
           {
             permission: 'Test string',
-            policy: 'Test string',
+            policy: 'PERMISSION_POLICY_UNSPECIFIED',
           },
         ],
         permittedAccessibilityServices: {
@@ -1078,28 +1102,28 @@ gapi.load('client', async () => {
         ],
         personalUsagePolicies: {
           accountTypesWithManagementDisabled: ['Test string'],
-          bluetoothSharing: 'Test string',
+          bluetoothSharing: 'BLUETOOTH_SHARING_UNSPECIFIED',
           cameraDisabled: true,
           crossDevicePolicies: {
-            taskContinuityHandoff: 'Test string',
+            taskContinuityHandoff: 'TASK_CONTINUITY_HANDOFF_UNSPECIFIED',
           },
           maxDaysWithWorkOff: 42,
           personalApplications: [
             {
-              installType: 'Test string',
+              installType: 'INSTALL_TYPE_UNSPECIFIED',
               packageName: 'Test string',
             },
           ],
-          personalPlayStoreMode: 'Test string',
-          privateSpacePolicy: 'Test string',
+          personalPlayStoreMode: 'PLAY_STORE_MODE_UNSPECIFIED',
+          privateSpacePolicy: 'PRIVATE_SPACE_POLICY_UNSPECIFIED',
           screenCaptureDisabled: true,
         },
-        playStoreMode: 'Test string',
+        playStoreMode: 'PLAY_STORE_MODE_UNSPECIFIED',
         policyEnforcementRules: [
           {
             blockAction: {
               blockAfterDays: 42,
-              blockScope: 'Test string',
+              blockScope: 'BLOCK_SCOPE_UNSPECIFIED',
             },
             settingName: 'Test string',
             wipeAction: {
@@ -1108,8 +1132,8 @@ gapi.load('client', async () => {
             },
           },
         ],
-        preferentialNetworkService: 'Test string',
-        printingPolicy: 'Test string',
+        preferentialNetworkService: 'PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED',
+        printingPolicy: 'PRINTING_POLICY_UNSPECIFIED',
         privateKeySelectionEnabled: true,
         recommendedGlobalProxy: {
           excludedHosts: ['Test string'],
@@ -1167,7 +1191,7 @@ gapi.load('client', async () => {
           softwareInfoEnabled: true,
           systemPropertiesEnabled: true,
         },
-        stayOnPluggedModes: ['Test string'],
+        stayOnPluggedModes: ['BATTERY_PLUGGED_MODE_UNSPECIFIED'],
         systemUpdate: {
           endMinutes: 42,
           freezePeriods: [
@@ -1185,7 +1209,7 @@ gapi.load('client', async () => {
             },
           ],
           startMinutes: 42,
-          type: 'Test string',
+          type: 'SYSTEM_UPDATE_TYPE_UNSPECIFIED',
         },
         tetheringConfigDisabled: true,
         unifiedUpdatePolicy: {
@@ -1193,7 +1217,7 @@ gapi.load('client', async () => {
             {
               id: 'Test string',
               outcome: {
-                outcomeType: 'Test string',
+                outcomeType: 'OUTCOME_TYPE_UNSPECIFIED',
               },
               predicate: {
                 dateLowerBound: {
@@ -1206,7 +1230,7 @@ gapi.load('client', async () => {
                   month: 42,
                   year: 42,
                 },
-                daysOfWeek: ['Test string'],
+                daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
                 timeOfDayLowerBound: {
                   hours: 42,
                   minutes: 42,
@@ -1222,13 +1246,13 @@ gapi.load('client', async () => {
                 updateAgeLowerBound: 'Test string',
                 updateAgeUpperBound: 'Test string',
               },
-              stages: ['Test string'],
+              stages: ['STAGE_UNSPECIFIED'],
               targets: [
                 {
                   singleApp: {
                     packageName: 'Test string',
                   },
-                  targetType: 'Test string',
+                  targetType: 'TARGET_TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1237,8 +1261,8 @@ gapi.load('client', async () => {
         uninstallAppsDisabled: true,
         unmuteMicrophoneDisabled: true,
         usageLog: {
-          enabledLogTypes: ['Test string'],
-          uploadOnCellularAllowed: ['Test string'],
+          enabledLogTypes: ['LOG_TYPE_UNSPECIFIED'],
+          uploadOnCellularAllowed: ['LOG_TYPE_UNSPECIFIED'],
         },
         usbFileTransferDisabled: true,
         usbMassStorageEnabled: true,
@@ -1246,9 +1270,9 @@ gapi.load('client', async () => {
         vpnConfigDisabled: true,
         wifiConfigDisabled: true,
         wifiConfigsLockdownEnabled: true,
-        wipeDataFlags: ['Test string'],
+        wipeDataFlags: ['WIPE_DATA_FLAG_UNSPECIFIED'],
         workAccountSetupConfig: {
-          authenticationType: 'Test string',
+          authenticationType: 'AUTHENTICATION_TYPE_UNSPECIFIED',
           requiredAccountEmail: 'Test string',
         },
       },
@@ -1268,7 +1292,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        displayMode: 'Test string',
+        displayMode: 'DISPLAY_MODE_UNSPECIFIED',
         icons: [
           {
             imageData: 'Test string',
@@ -1301,7 +1325,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        displayMode: 'Test string',
+        displayMode: 'DISPLAY_MODE_UNSPECIFIED',
         icons: [
           {
             imageData: 'Test string',
@@ -1319,10 +1343,10 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        enabledFeatures: ['Test string'],
+        enabledFeatures: ['FEATURE_UNSPECIFIED'],
         name: 'Test string',
         parentFrameUrl: 'Test string',
-        permissions: ['Test string'],
+        permissions: ['WEB_TOKEN_PERMISSION_UNSPECIFIED'],
         value: 'Test string',
       },
     );

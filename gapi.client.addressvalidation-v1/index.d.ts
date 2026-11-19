@@ -322,7 +322,8 @@ declare namespace gapi.client {
       /** Optional. Sublocality of the address. For example, this can be a neighborhood, borough, or district. */
       sublocality?: string;
     }
-    interface V1Resource {
+
+    const v1: {
       /** Feedback about the outcome of the sequence of validation attempts. This should be the last call made after a sequence of validation calls for the same address, and should be called once the transaction is concluded. This should only be sent once for the sequence of `ValidateAddress` requests needed to validate an address fully. */
       provideValidationFeedback(request: {
         /** V1 error format. */
@@ -431,8 +432,6 @@ declare namespace gapi.client {
         },
         body: GoogleMapsAddressvalidationV1ValidateAddressRequest,
       ): Request<GoogleMapsAddressvalidationV1ValidateAddressResponse>;
-    }
-
-    const v1: V1Resource;
+    };
   }
 }

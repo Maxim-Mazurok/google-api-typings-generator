@@ -56,14 +56,14 @@ gapi.load('client', async () => {
           privateIp: 'Test string',
           publicIp: 'Test string',
           settings: {
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             autoStorageIncrease: true,
             databaseFlags: {
               A: 'Test string',
             },
-            databaseVersion: 'Test string',
+            databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             ipConfig: {
               authorizedNetworks: [
                 {
@@ -112,13 +112,13 @@ gapi.load('client', async () => {
             caCertificate: 'Test string',
             clientCertificate: 'Test string',
             clientKey: 'Test string',
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           username: 'Test string',
         },
         name: 'Test string',
-        provider: 'Test string',
-        state: 'Test string',
+        provider: 'DATABASE_PROVIDER_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -162,14 +162,14 @@ gapi.load('client', async () => {
           privateIp: 'Test string',
           publicIp: 'Test string',
           settings: {
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             autoStorageIncrease: true,
             databaseFlags: {
               A: 'Test string',
             },
-            databaseVersion: 'Test string',
+            databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             ipConfig: {
               authorizedNetworks: [
                 {
@@ -218,13 +218,13 @@ gapi.load('client', async () => {
             caCertificate: 'Test string',
             clientCertificate: 'Test string',
             clientKey: 'Test string',
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           username: 'Test string',
         },
         name: 'Test string',
-        provider: 'Test string',
-        state: 'Test string',
+        provider: 'DATABASE_PROVIDER_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -284,8 +284,8 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         destination: 'Test string',
         destinationDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         displayName: 'Test string',
         dumpPath: 'Test string',
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        phase: 'Test string',
+        phase: 'PHASE_UNSPECIFIED',
         reverseSshConnectivity: {
           vm: 'Test string',
           vmIp: 'Test string',
@@ -313,12 +313,12 @@ gapi.load('client', async () => {
         },
         source: 'Test string',
         sourceDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         staticIpConnectivity: {},
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConnectivity: {
           vpc: 'Test string',
@@ -379,8 +379,8 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         destination: 'Test string',
         destinationDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         displayName: 'Test string',
         dumpPath: 'Test string',
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        phase: 'Test string',
+        phase: 'PHASE_UNSPECIFIED',
         reverseSshConnectivity: {
           vm: 'Test string',
           vmIp: 'Test string',
@@ -408,12 +408,12 @@ gapi.load('client', async () => {
         },
         source: 'Test string',
         sourceDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         staticIpConnectivity: {},
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConnectivity: {
           vpc: 'Test string',
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

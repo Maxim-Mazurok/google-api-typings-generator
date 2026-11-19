@@ -53,14 +53,14 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        activatedPolicyTypes: ['Test string'],
+        activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
         policyTagCount: 42,
         service: {
           identity: 'Test string',
-          name: 'Test string',
+          name: 'MANAGING_SYSTEM_UNSPECIFIED',
         },
         taxonomyTimestamps: {
           createTime: 'Test string',
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         inlineSource: {
           taxonomies: [
             {
-              activatedPolicyTypes: ['Test string'],
+              activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
               description: 'Test string',
               displayName: 'Test string',
               policyTags: [
@@ -133,14 +133,14 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        activatedPolicyTypes: ['Test string'],
+        activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
         policyTagCount: 42,
         service: {
           identity: 'Test string',
-          name: 'Test string',
+          name: 'MANAGING_SYSTEM_UNSPECIFIED',
         },
         taxonomyTimestamps: {
           createTime: 'Test string',

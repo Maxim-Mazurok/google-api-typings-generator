@@ -51,8 +51,8 @@ gapi.load('client', async () => {
           timeZone: 'Test string',
         },
         schedulerServiceAccountEmail: 'Test string',
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'PIPELINE_TYPE_UNSPECIFIED',
         workload: {
           dataflowFlexTemplateRequest: {
             launchParameter: {
@@ -63,8 +63,8 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 enableStreamingEngine: true,
-                flexrsGoal: 'Test string',
-                ipConfiguration: 'Test string',
+                flexrsGoal: 'FLEXRS_UNSPECIFIED',
+                ipConfiguration: 'WORKER_IP_UNSPECIFIED',
                 kmsKeyName: 'Test string',
                 machineType: 'Test string',
                 maxWorkers: 42,
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
                 },
                 bypassTempDirValidation: true,
                 enableStreamingEngine: true,
-                ipConfiguration: 'Test string',
+                ipConfiguration: 'WORKER_IP_UNSPECIFIED',
                 kmsKeyName: 'Test string',
                 machineType: 'Test string',
                 maxWorkers: 42,
@@ -168,8 +168,8 @@ gapi.load('client', async () => {
           timeZone: 'Test string',
         },
         schedulerServiceAccountEmail: 'Test string',
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'PIPELINE_TYPE_UNSPECIFIED',
         workload: {
           dataflowFlexTemplateRequest: {
             launchParameter: {
@@ -180,8 +180,8 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 enableStreamingEngine: true,
-                flexrsGoal: 'Test string',
-                ipConfiguration: 'Test string',
+                flexrsGoal: 'FLEXRS_UNSPECIFIED',
+                ipConfiguration: 'WORKER_IP_UNSPECIFIED',
                 kmsKeyName: 'Test string',
                 machineType: 'Test string',
                 maxWorkers: 42,
@@ -220,7 +220,7 @@ gapi.load('client', async () => {
                 },
                 bypassTempDirValidation: true,
                 enableStreamingEngine: true,
-                ipConfiguration: 'Test string',
+                ipConfiguration: 'WORKER_IP_UNSPECIFIED',
                 kmsKeyName: 'Test string',
                 machineType: 'Test string',
                 maxWorkers: 42,

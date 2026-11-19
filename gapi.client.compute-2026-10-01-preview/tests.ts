@@ -93,12 +93,12 @@ gapi.load('client', async () => {
               resources: ['Test string'],
             },
           },
-          reactivationMode: 'Test string',
+          reactivationMode: 'MANUAL',
           selfLink: 'Test string',
           selfLinkWithId: 'Test string',
           status: {
             acceleratorType: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVATING',
             stateDetails: {
               error: {
                 errors: [
@@ -133,7 +133,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -248,13 +248,13 @@ gapi.load('client', async () => {
       },
       {
         address: 'Test string',
-        addressType: 'Test string',
+        addressType: 'EXTERNAL',
         creationTimestamp: 'Test string',
         description: 'Test string',
         id: 'Test string',
         ipCollection: 'Test string',
-        ipv6EndpointType: 'Test string',
-        ipVersion: 'Test string',
+        ipv6EndpointType: 'NETLB',
+        ipVersion: 'IPV4',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
@@ -263,13 +263,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         prefixLength: 42,
-        purpose: 'Test string',
+        purpose: 'DNS_RESOLVER',
         region: 'Test string',
         selfLink: 'Test string',
         serviceClassId: 'Test string',
-        status: 'Test string',
+        status: 'IN_USE',
         subnetwork: 'Test string',
         users: ['Test string'],
       },
@@ -342,25 +342,25 @@ gapi.load('client', async () => {
       {
         futureResourcesSpecs: {
           A: {
-            deploymentType: 'Test string',
+            deploymentType: 'DENSE',
             locationPolicy: {
               locations: {
                 A: {
-                  preference: 'Test string',
+                  preference: 'ALLOW',
                 },
               },
             },
             targetResources: {
               aggregateResources: {
                 acceleratorCount: 'Test string',
-                vmFamily: 'Test string',
-                workloadType: 'Test string',
+                vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+                workloadType: 'BATCH',
               },
               specificSkuResources: {
                 instanceCount: 'Test string',
                 localSsdPartitions: [
                   {
-                    diskInterface: 'Test string',
+                    diskInterface: 'NVME',
                     diskSizeGb: 'Test string',
                   },
                 ],
@@ -389,7 +389,7 @@ gapi.load('client', async () => {
       },
       {
         distributionPolicy: {
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -401,7 +401,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  type: 'Test string',
+                  type: 'DISK_TYPE_UNSPECIFIED',
                 },
               ],
               guestAccelerators: [
@@ -417,7 +417,7 @@ gapi.load('client', async () => {
         },
         instanceProperties: {
           scheduling: {
-            provisioningModel: 'Test string',
+            provisioningModel: 'FLEX_START',
           },
         },
         sessionId: 'Test string',
@@ -434,7 +434,7 @@ gapi.load('client', async () => {
         instanceProperties: {
           disks: [
             {
-              type: 'Test string',
+              type: 'DISK_TYPE_UNSPECIFIED',
             },
           ],
           guestAccelerators: [
@@ -445,13 +445,13 @@ gapi.load('client', async () => {
           ],
           machineType: 'Test string',
           scheduling: {
-            provisioningModel: 'Test string',
+            provisioningModel: 'FLEX_START',
           },
         },
         locationPolicy: {
           location: 'Test string',
         },
-        types: ['Test string'],
+        types: ['HISTORY_TYPE_UNSPECIFIED'],
       },
     );
     /** Deletes the specified AliasNetworkEndpoint. */
@@ -483,7 +483,7 @@ gapi.load('client', async () => {
             effectiveIpAddress: 'Test string',
             effectiveSubnetworkRangeName: 'Test string',
             ipAddress: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             subnetworkRangeNames: ['Test string'],
           },
         },
@@ -500,11 +500,11 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        securityTagInheritance: 'Test string',
+        securityTagInheritance: 'INHERITED',
         selfLink: 'Test string',
         status: {
           network: 'Test string',
-          state: 'Test string',
+          state: 'ACTIVE',
         },
         subnetwork: 'Test string',
         updateTime: 'Test string',
@@ -564,7 +564,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -575,7 +575,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -615,15 +615,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -659,7 +659,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -670,7 +670,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -678,7 +678,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -710,15 +710,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -751,7 +751,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -770,7 +770,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -802,15 +802,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
             includeHttpHeaders: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -915,7 +915,7 @@ gapi.load('client', async () => {
           signedUrlCacheMaxAgeSec: 'Test string',
           signedUrlKeyNames: ['Test string'],
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         creationTimestamp: 'Test string',
         customResponseHeaders: ['Test string'],
         description: 'Test string',
@@ -923,7 +923,7 @@ gapi.load('client', async () => {
         enableCdn: true,
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL_MANAGED',
         name: 'Test string',
         params: {
           resourceManagerTags: {
@@ -982,7 +982,7 @@ gapi.load('client', async () => {
             includeHttpHeaders: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -998,7 +998,7 @@ gapi.load('client', async () => {
           signedUrlCacheMaxAgeSec: 'Test string',
           signedUrlKeyNames: ['Test string'],
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         creationTimestamp: 'Test string',
         customResponseHeaders: ['Test string'],
         description: 'Test string',
@@ -1006,7 +1006,7 @@ gapi.load('client', async () => {
         enableCdn: true,
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL_MANAGED',
         name: 'Test string',
         params: {
           resourceManagerTags: {
@@ -1062,7 +1062,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -1117,7 +1117,7 @@ gapi.load('client', async () => {
             includeHttpHeaders: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -1133,7 +1133,7 @@ gapi.load('client', async () => {
           signedUrlCacheMaxAgeSec: 'Test string',
           signedUrlKeyNames: ['Test string'],
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         creationTimestamp: 'Test string',
         customResponseHeaders: ['Test string'],
         description: 'Test string',
@@ -1141,7 +1141,7 @@ gapi.load('client', async () => {
         enableCdn: true,
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL_MANAGED',
         name: 'Test string',
         params: {
           resourceManagerTags: {
@@ -1256,7 +1256,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -1281,8 +1281,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -1300,7 +1300,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -1323,15 +1323,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -1357,7 +1357,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -1366,7 +1366,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -1382,9 +1382,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -1392,11 +1392,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -1410,7 +1410,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -1425,7 +1425,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -1458,7 +1458,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -1475,7 +1475,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -1485,7 +1485,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -1547,7 +1547,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -1572,8 +1572,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -1591,7 +1591,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -1614,15 +1614,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -1648,7 +1648,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -1657,7 +1657,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -1673,9 +1673,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -1683,11 +1683,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -1701,7 +1701,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -1716,7 +1716,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -1749,7 +1749,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -1766,7 +1766,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -1776,7 +1776,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -1837,7 +1837,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -1900,7 +1900,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -1925,8 +1925,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -1944,7 +1944,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -1967,15 +1967,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -2001,7 +2001,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -2010,7 +2010,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -2026,9 +2026,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -2036,11 +2036,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -2054,7 +2054,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -2069,7 +2069,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -2102,7 +2102,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -2119,7 +2119,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -2129,7 +2129,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -2298,7 +2298,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         autoCreated: true,
         chainName: 'Test string',
         creationSizeBytes: 'Test string',
@@ -2310,7 +2310,7 @@ gapi.load('client', async () => {
         guestFlush: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -2341,7 +2341,7 @@ gapi.load('client', async () => {
         },
         snapshotGroupId: 'Test string',
         snapshotGroupName: 'Test string',
-        snapshotType: 'Test string',
+        snapshotType: 'ARCHIVE',
         sourceDisk: 'Test string',
         sourceDiskEncryptionKey: {
           kmsKeyName: 'Test string',
@@ -2363,9 +2363,9 @@ gapi.load('client', async () => {
         sourceInstantSnapshotId: 'Test string',
         sourceSnapshotSchedulePolicy: 'Test string',
         sourceSnapshotSchedulePolicyId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storageBytes: 'Test string',
-        storageBytesStatus: 'Test string',
+        storageBytesStatus: 'UPDATING',
         storageLocations: ['Test string'],
       },
     );
@@ -2413,8 +2413,8 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        accessMode: 'Test string',
-        architecture: 'Test string',
+        accessMode: 'READ_ONLY_MANY',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         asyncPrimaryDisk: {
           consistencyGroupPolicy: 'Test string',
           consistencyGroupPolicyId: 'Test string',
@@ -2443,7 +2443,7 @@ gapi.load('client', async () => {
         enableConfidentialCompute: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -2472,11 +2472,11 @@ gapi.load('client', async () => {
         resourcePolicies: ['Test string'],
         resourceStatus: {
           asyncPrimaryDisk: {
-            state: 'Test string',
+            state: 'ACTIVE',
           },
           asyncSecondaryDisks: {
             A: {
-              state: 'Test string',
+              state: 'ACTIVE',
             },
           },
         },
@@ -2509,7 +2509,7 @@ gapi.load('client', async () => {
         },
         sourceSnapshotId: 'Test string',
         sourceStorageObject: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storagePool: 'Test string',
         type: 'Test string',
         users: ['Test string'],
@@ -2585,7 +2585,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -2691,8 +2691,8 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        accessMode: 'Test string',
-        architecture: 'Test string',
+        accessMode: 'READ_ONLY_MANY',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         asyncPrimaryDisk: {
           consistencyGroupPolicy: 'Test string',
           consistencyGroupPolicyId: 'Test string',
@@ -2721,7 +2721,7 @@ gapi.load('client', async () => {
         enableConfidentialCompute: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -2750,11 +2750,11 @@ gapi.load('client', async () => {
         resourcePolicies: ['Test string'],
         resourceStatus: {
           asyncPrimaryDisk: {
-            state: 'Test string',
+            state: 'ACTIVE',
           },
           asyncSecondaryDisks: {
             A: {
-              state: 'Test string',
+              state: 'ACTIVE',
             },
           },
         },
@@ -2787,7 +2787,7 @@ gapi.load('client', async () => {
         },
         sourceSnapshotId: 'Test string',
         sourceStorageObject: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storagePool: 'Test string',
         type: 'Test string',
         users: ['Test string'],
@@ -2887,7 +2887,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        redundancyType: 'Test string',
+        redundancyType: 'FOUR_IPS_REDUNDANCY',
         selfLink: 'Test string',
       },
     );
@@ -2954,7 +2954,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -2962,8 +2962,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -2975,14 +2975,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -2996,11 +2996,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -3068,7 +3068,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -3076,8 +3076,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -3089,14 +3089,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -3110,22 +3110,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -3133,8 +3133,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -3146,14 +3146,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -3167,11 +3167,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -3231,7 +3231,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -3239,8 +3239,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -3252,14 +3252,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -3273,22 +3273,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -3296,8 +3296,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -3309,14 +3309,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -3330,11 +3330,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -3354,7 +3354,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -3362,8 +3362,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -3375,14 +3375,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -3396,11 +3396,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -3444,7 +3444,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -3512,13 +3512,13 @@ gapi.load('client', async () => {
         ],
         description: 'Test string',
         destinationRanges: ['Test string'],
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         id: 'Test string',
         kind: 'Test string',
         logConfig: {
           enable: true,
-          metadata: 'Test string',
+          metadata: 'EXCLUDE_ALL_METADATA',
         },
         name: 'Test string',
         network: 'Test string',
@@ -3575,13 +3575,13 @@ gapi.load('client', async () => {
         ],
         description: 'Test string',
         destinationRanges: ['Test string'],
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         id: 'Test string',
         kind: 'Test string',
         logConfig: {
           enable: true,
-          metadata: 'Test string',
+          metadata: 'EXCLUDE_ALL_METADATA',
         },
         name: 'Test string',
         network: 'Test string',
@@ -3637,13 +3637,13 @@ gapi.load('client', async () => {
         ],
         description: 'Test string',
         destinationRanges: ['Test string'],
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         id: 'Test string',
         kind: 'Test string',
         logConfig: {
           enable: true,
-          metadata: 'Test string',
+          metadata: 'EXCLUDE_ALL_METADATA',
         },
         name: 'Test string',
         network: 'Test string',
@@ -3694,7 +3694,7 @@ gapi.load('client', async () => {
       {
         conflictBehavior: 'Test string',
         name: 'Test string',
-        predefinedRolloutPlan: 'Test string',
+        predefinedRolloutPlan: 'FAST_ROLLOUT',
         retryUuid: 'Test string',
       },
     );
@@ -3740,7 +3740,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -3748,27 +3748,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -3826,7 +3826,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -3834,27 +3834,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -3882,7 +3882,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        locationScope: 'Test string',
+        locationScope: 'LOCATION_SCOPE_UNSPECIFIED',
         name: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -3893,9 +3893,9 @@ gapi.load('client', async () => {
             orchestrationOptions: {
               delays: [
                 {
-                  delimiter: 'Test string',
+                  delimiter: 'DELIMITER_BATCH',
                   duration: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_MINIMUM',
                 },
               ],
               maxConcurrentLocations: 'Test string',
@@ -4030,7 +4030,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );
@@ -4089,7 +4089,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );
@@ -4120,7 +4120,7 @@ gapi.load('client', async () => {
       forwardingRule: 'Test string',
       project: 'Test string',
       region: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /**
      * Creates a ForwardingRule resource in the specified project and region using
@@ -4145,21 +4145,21 @@ gapi.load('client', async () => {
         baseForwardingRule: 'Test string',
         creationTimestamp: 'Test string',
         description: 'Test string',
-        externalManagedBackendBucketMigrationState: 'Test string',
+        externalManagedBackendBucketMigrationState: 'PREPARE',
         externalManagedBackendBucketMigrationTestingPercentage: 42,
         fingerprint: 'Test string',
         id: 'Test string',
         IPAddress: 'Test string',
         ipCollection: 'Test string',
-        IPProtocol: 'Test string',
-        ipVersion: 'Test string',
+        IPProtocol: 'AH',
+        ipVersion: 'IPV4',
         isMirroringCollector: true,
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         metadataFilters: [
           {
             filterLabels: [
@@ -4168,18 +4168,18 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            filterMatchCriteria: 'Test string',
+            filterMatchCriteria: 'MATCH_ALL',
           },
         ],
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         noAutomateDnsZone: true,
         portRange: 'Test string',
         ports: ['Test string'],
         pscConnectionId: 'Test string',
-        pscConnectionStatus: 'Test string',
+        pscConnectionStatus: 'ACCEPTED',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -4237,21 +4237,21 @@ gapi.load('client', async () => {
         baseForwardingRule: 'Test string',
         creationTimestamp: 'Test string',
         description: 'Test string',
-        externalManagedBackendBucketMigrationState: 'Test string',
+        externalManagedBackendBucketMigrationState: 'PREPARE',
         externalManagedBackendBucketMigrationTestingPercentage: 42,
         fingerprint: 'Test string',
         id: 'Test string',
         IPAddress: 'Test string',
         ipCollection: 'Test string',
-        IPProtocol: 'Test string',
-        ipVersion: 'Test string',
+        IPProtocol: 'AH',
+        ipVersion: 'IPV4',
         isMirroringCollector: true,
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         metadataFilters: [
           {
             filterLabels: [
@@ -4260,18 +4260,18 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            filterMatchCriteria: 'Test string',
+            filterMatchCriteria: 'MATCH_ALL',
           },
         ],
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         noAutomateDnsZone: true,
         portRange: 'Test string',
         ports: ['Test string'],
         pscConnectionId: 'Test string',
-        pscConnectionStatus: 'Test string',
+        pscConnectionStatus: 'ACCEPTED',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -4384,8 +4384,8 @@ gapi.load('client', async () => {
               },
             },
           ],
-          vmFamily: 'Test string',
-          workloadType: 'Test string',
+          vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+          workloadType: 'BATCH',
         },
         autoCreatedReservationsDeleteTime: 'Test string',
         autoCreatedReservationsDuration: {
@@ -4396,12 +4396,12 @@ gapi.load('client', async () => {
         colocationResource: 'Test string',
         commitmentInfo: {
           commitmentName: 'Test string',
-          commitmentPlan: 'Test string',
-          previousCommitmentTerms: 'Test string',
+          commitmentPlan: 'INVALID',
+          previousCommitmentTerms: 'EXTEND',
         },
-        confidentialComputeType: 'Test string',
+        confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
         creationTimestamp: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DENSE',
         description: 'Test string',
         enableEmergentMaintenance: true,
         id: 'Test string',
@@ -4413,15 +4413,15 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        planningStatus: 'Test string',
-        reservationMode: 'Test string',
+        planningStatus: 'DRAFT',
+        reservationMode: 'CALENDAR',
         reservationName: 'Test string',
         resourceMetadata: {
           apiVersion: 'Test string',
           resourceType: 'Test string',
         },
         resourceName: 'Test string',
-        schedulingType: 'Test string',
+        schedulingType: 'GROUPED',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shareSettings: {
@@ -4430,7 +4430,7 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         specificReservationRequired: true,
         specificSkuProperties: {
@@ -4444,7 +4444,7 @@ gapi.load('client', async () => {
             localSsds: [
               {
                 diskSizeGb: 'Test string',
-                interface: 'Test string',
+                interface: 'NVME',
               },
             ],
             locationHint: 'Test string',
@@ -4455,7 +4455,7 @@ gapi.load('client', async () => {
           totalCount: 'Test string',
         },
         status: {
-          amendmentStatus: 'Test string',
+          amendmentStatus: 'AMENDMENT_APPROVED',
           autoCreatedReservations: ['Test string'],
           exapoolProvisionedCapacityGb: {
             capacityOptimized: 'Test string',
@@ -4480,7 +4480,7 @@ gapi.load('client', async () => {
                     projectId: 'Test string',
                   },
                 },
-                shareType: 'Test string',
+                shareType: 'LOCAL',
               },
               specificSkuProperties: {
                 instanceProperties: {
@@ -4493,7 +4493,7 @@ gapi.load('client', async () => {
                   localSsds: [
                     {
                       diskSizeGb: 'Test string',
-                      interface: 'Test string',
+                      interface: 'NVME',
                     },
                   ],
                   locationHint: 'Test string',
@@ -4514,10 +4514,10 @@ gapi.load('client', async () => {
             },
             lockTime: 'Test string',
             namePrefix: 'Test string',
-            procurementStatus: 'Test string',
+            procurementStatus: 'APPROVED',
           },
           lockTime: 'Test string',
-          procurementStatus: 'Test string',
+          procurementStatus: 'APPROVED',
           specificSkuProperties: {
             sourceInstanceTemplateId: 'Test string',
           },
@@ -4590,8 +4590,8 @@ gapi.load('client', async () => {
               },
             },
           ],
-          vmFamily: 'Test string',
-          workloadType: 'Test string',
+          vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+          workloadType: 'BATCH',
         },
         autoCreatedReservationsDeleteTime: 'Test string',
         autoCreatedReservationsDuration: {
@@ -4602,12 +4602,12 @@ gapi.load('client', async () => {
         colocationResource: 'Test string',
         commitmentInfo: {
           commitmentName: 'Test string',
-          commitmentPlan: 'Test string',
-          previousCommitmentTerms: 'Test string',
+          commitmentPlan: 'INVALID',
+          previousCommitmentTerms: 'EXTEND',
         },
-        confidentialComputeType: 'Test string',
+        confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
         creationTimestamp: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DENSE',
         description: 'Test string',
         enableEmergentMaintenance: true,
         id: 'Test string',
@@ -4619,15 +4619,15 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        planningStatus: 'Test string',
-        reservationMode: 'Test string',
+        planningStatus: 'DRAFT',
+        reservationMode: 'CALENDAR',
         reservationName: 'Test string',
         resourceMetadata: {
           apiVersion: 'Test string',
           resourceType: 'Test string',
         },
         resourceName: 'Test string',
-        schedulingType: 'Test string',
+        schedulingType: 'GROUPED',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         shareSettings: {
@@ -4636,7 +4636,7 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         specificReservationRequired: true,
         specificSkuProperties: {
@@ -4650,7 +4650,7 @@ gapi.load('client', async () => {
             localSsds: [
               {
                 diskSizeGb: 'Test string',
-                interface: 'Test string',
+                interface: 'NVME',
               },
             ],
             locationHint: 'Test string',
@@ -4661,7 +4661,7 @@ gapi.load('client', async () => {
           totalCount: 'Test string',
         },
         status: {
-          amendmentStatus: 'Test string',
+          amendmentStatus: 'AMENDMENT_APPROVED',
           autoCreatedReservations: ['Test string'],
           exapoolProvisionedCapacityGb: {
             capacityOptimized: 'Test string',
@@ -4686,7 +4686,7 @@ gapi.load('client', async () => {
                     projectId: 'Test string',
                   },
                 },
-                shareType: 'Test string',
+                shareType: 'LOCAL',
               },
               specificSkuProperties: {
                 instanceProperties: {
@@ -4699,7 +4699,7 @@ gapi.load('client', async () => {
                   localSsds: [
                     {
                       diskSizeGb: 'Test string',
-                      interface: 'Test string',
+                      interface: 'NVME',
                     },
                   ],
                   locationHint: 'Test string',
@@ -4720,10 +4720,10 @@ gapi.load('client', async () => {
             },
             lockTime: 'Test string',
             namePrefix: 'Test string',
-            procurementStatus: 'Test string',
+            procurementStatus: 'APPROVED',
           },
           lockTime: 'Test string',
-          procurementStatus: 'Test string',
+          procurementStatus: 'APPROVED',
           specificSkuProperties: {
             sourceInstanceTemplateId: 'Test string',
           },
@@ -4779,13 +4779,13 @@ gapi.load('client', async () => {
       },
       {
         address: 'Test string',
-        addressType: 'Test string',
+        addressType: 'EXTERNAL',
         creationTimestamp: 'Test string',
         description: 'Test string',
         id: 'Test string',
         ipCollection: 'Test string',
-        ipv6EndpointType: 'Test string',
-        ipVersion: 'Test string',
+        ipv6EndpointType: 'NETLB',
+        ipVersion: 'IPV4',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
@@ -4794,13 +4794,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         prefixLength: 42,
-        purpose: 'Test string',
+        purpose: 'DNS_RESOLVER',
         region: 'Test string',
         selfLink: 'Test string',
         serviceClassId: 'Test string',
-        status: 'Test string',
+        status: 'IN_USE',
         subnetwork: 'Test string',
         users: ['Test string'],
       },
@@ -4880,7 +4880,7 @@ gapi.load('client', async () => {
     await gapi.client.compute.globalForwardingRules.get({
       forwardingRule: 'Test string',
       project: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /**
      * Creates a GlobalForwardingRule resource in the specified project using
@@ -4904,21 +4904,21 @@ gapi.load('client', async () => {
         baseForwardingRule: 'Test string',
         creationTimestamp: 'Test string',
         description: 'Test string',
-        externalManagedBackendBucketMigrationState: 'Test string',
+        externalManagedBackendBucketMigrationState: 'PREPARE',
         externalManagedBackendBucketMigrationTestingPercentage: 42,
         fingerprint: 'Test string',
         id: 'Test string',
         IPAddress: 'Test string',
         ipCollection: 'Test string',
-        IPProtocol: 'Test string',
-        ipVersion: 'Test string',
+        IPProtocol: 'AH',
+        ipVersion: 'IPV4',
         isMirroringCollector: true,
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         metadataFilters: [
           {
             filterLabels: [
@@ -4927,18 +4927,18 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            filterMatchCriteria: 'Test string',
+            filterMatchCriteria: 'MATCH_ALL',
           },
         ],
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         noAutomateDnsZone: true,
         portRange: 'Test string',
         ports: ['Test string'],
         pscConnectionId: 'Test string',
-        pscConnectionStatus: 'Test string',
+        pscConnectionStatus: 'ACCEPTED',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -4994,21 +4994,21 @@ gapi.load('client', async () => {
         baseForwardingRule: 'Test string',
         creationTimestamp: 'Test string',
         description: 'Test string',
-        externalManagedBackendBucketMigrationState: 'Test string',
+        externalManagedBackendBucketMigrationState: 'PREPARE',
         externalManagedBackendBucketMigrationTestingPercentage: 42,
         fingerprint: 'Test string',
         id: 'Test string',
         IPAddress: 'Test string',
         ipCollection: 'Test string',
-        IPProtocol: 'Test string',
-        ipVersion: 'Test string',
+        IPProtocol: 'AH',
+        ipVersion: 'IPV4',
         isMirroringCollector: true,
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         metadataFilters: [
           {
             filterLabels: [
@@ -5017,18 +5017,18 @@ gapi.load('client', async () => {
                 value: 'Test string',
               },
             ],
-            filterMatchCriteria: 'Test string',
+            filterMatchCriteria: 'MATCH_ALL',
           },
         ],
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         noAutomateDnsZone: true,
         portRange: 'Test string',
         ports: ['Test string'],
         pscConnectionId: 'Test string',
-        pscConnectionStatus: 'Test string',
+        pscConnectionStatus: 'ACCEPTED',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -5090,7 +5090,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        bundleType: 'Test string',
+        bundleType: 'BUNDLE_TYPE_UNSPECIFIED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         etag: 'Test string',
@@ -5208,12 +5208,12 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkEndpointType: 'Test string',
+        networkEndpointType: 'GCE_VM_IP',
         pscData: {
           consumerPscAddress: 'Test string',
           producerPort: 42,
           pscConnectionId: 'Test string',
-          pscConnectionStatus: 'Test string',
+          pscConnectionStatus: 'ACCEPTED',
         },
         pscTargetService: 'Test string',
         region: 'Test string',
@@ -5348,17 +5348,17 @@ gapi.load('client', async () => {
       },
       {
         allocatablePrefixLength: 42,
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         enableEnhancedIpv4Allocation: true,
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         isLiveMigration: true,
         kind: 'Test string',
-        mode: 'Test string',
+        mode: 'DELEGATION',
         name: 'Test string',
         parentPrefix: 'Test string',
         publicDelegatedSubPrefixs: [
@@ -5368,17 +5368,17 @@ gapi.load('client', async () => {
             description: 'Test string',
             enableEnhancedIpv4Allocation: true,
             ipCidrRange: 'Test string',
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             isAddress: true,
-            mode: 'Test string',
+            mode: 'DELEGATION',
             name: 'Test string',
             region: 'Test string',
-            status: 'Test string',
+            status: 'ACTIVE',
           },
         ],
         region: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
       },
     );
     /** Lists the global PublicDelegatedPrefixes for a project. */
@@ -5403,17 +5403,17 @@ gapi.load('client', async () => {
       },
       {
         allocatablePrefixLength: 42,
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         enableEnhancedIpv4Allocation: true,
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         isLiveMigration: true,
         kind: 'Test string',
-        mode: 'Test string',
+        mode: 'DELEGATION',
         name: 'Test string',
         parentPrefix: 'Test string',
         publicDelegatedSubPrefixs: [
@@ -5423,17 +5423,17 @@ gapi.load('client', async () => {
             description: 'Test string',
             enableEnhancedIpv4Allocation: true,
             ipCidrRange: 'Test string',
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             isAddress: true,
-            mode: 'Test string',
+            mode: 'DELEGATION',
             name: 'Test string',
             region: 'Test string',
-            status: 'Test string',
+            status: 'ACTIVE',
           },
         ],
         region: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
       },
     );
     /**
@@ -5469,7 +5469,7 @@ gapi.load('client', async () => {
       {
         conflictBehavior: 'Test string',
         name: 'Test string',
-        predefinedRolloutPlan: 'Test string',
+        predefinedRolloutPlan: 'FAST_ROLLOUT',
         retryUuid: 'Test string',
       },
     );
@@ -5515,7 +5515,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -5523,27 +5523,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -5601,7 +5601,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -5609,27 +5609,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -5688,7 +5688,7 @@ gapi.load('client', async () => {
         backendServices: ['Test string'],
         creationTimestamp: 'Test string',
         description: 'Test string',
-        failoverInitiation: 'Test string',
+        failoverInitiation: 'AUTOMATIC',
         id: 'Test string',
         instanceName: 'Test string',
         kind: 'Test string',
@@ -5697,7 +5697,7 @@ gapi.load('client', async () => {
           internal: {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
-            stackType: 'Test string',
+            stackType: 'IPV4_IPV6',
           },
         },
         params: {
@@ -5706,12 +5706,12 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         status: {
           failoverProgress: {
             failoverCompleteTimestamp: 'Test string',
             failoverDuration: 'Test string',
-            failoverTrigger: 'Test string',
+            failoverTrigger: 'AUTOMATIC',
             failoverTriggerTimestamp: 'Test string',
             lastFailoverAttempt: {
               errors: {
@@ -5747,7 +5747,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -5762,7 +5762,7 @@ gapi.load('client', async () => {
           lastFailoverInfo: {
             failoverCompleteTimestamp: 'Test string',
             failoverDuration: 'Test string',
-            failoverTrigger: 'Test string',
+            failoverTrigger: 'AUTOMATIC',
             failoverTriggerTimestamp: 'Test string',
             lastFailoverAttempt: {
               errors: {
@@ -5798,7 +5798,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -5852,7 +5852,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -5877,12 +5877,12 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'ANY_RESERVATION',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -5912,7 +5912,7 @@ gapi.load('client', async () => {
         backendServices: ['Test string'],
         creationTimestamp: 'Test string',
         description: 'Test string',
-        failoverInitiation: 'Test string',
+        failoverInitiation: 'AUTOMATIC',
         id: 'Test string',
         instanceName: 'Test string',
         kind: 'Test string',
@@ -5921,7 +5921,7 @@ gapi.load('client', async () => {
           internal: {
             ipAddress: 'Test string',
             ipv6Address: 'Test string',
-            stackType: 'Test string',
+            stackType: 'IPV4_IPV6',
           },
         },
         params: {
@@ -5930,12 +5930,12 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         status: {
           failoverProgress: {
             failoverCompleteTimestamp: 'Test string',
             failoverDuration: 'Test string',
-            failoverTrigger: 'Test string',
+            failoverTrigger: 'AUTOMATIC',
             failoverTriggerTimestamp: 'Test string',
             lastFailoverAttempt: {
               errors: {
@@ -5971,7 +5971,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -5986,7 +5986,7 @@ gapi.load('client', async () => {
           lastFailoverInfo: {
             failoverCompleteTimestamp: 'Test string',
             failoverDuration: 'Test string',
-            failoverTrigger: 'Test string',
+            failoverTrigger: 'AUTOMATIC',
             failoverTriggerTimestamp: 'Test string',
             lastFailoverAttempt: {
               errors: {
@@ -6022,7 +6022,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -6076,7 +6076,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -6101,12 +6101,12 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
             reservationAffinity: {
-              consumeReservationType: 'Test string',
+              consumeReservationType: 'ANY_RESERVATION',
               key: 'Test string',
               values: ['Test string'],
             },
@@ -6158,20 +6158,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6179,8 +6179,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6188,8 +6188,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6205,21 +6205,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -6254,20 +6254,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6275,8 +6275,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6284,8 +6284,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6301,21 +6301,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -6347,20 +6347,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6368,8 +6368,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6377,8 +6377,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -6394,21 +6394,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -6429,7 +6429,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        sbomSelections: ['Test string'],
+        sbomSelections: ['SBOM_SELECTION_CURRENT'],
       },
     );
     /** Retrieves a list of hosts. */
@@ -6695,7 +6695,7 @@ gapi.load('client', async () => {
         deprecated: 'Test string',
         obsolete: 'Test string',
         replacement: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
       },
     );
     /** Returns the specified image. */
@@ -6732,7 +6732,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         archiveSizeBytes: 'Test string',
         creationTimestamp: 'Test string',
         deprecated: {
@@ -6740,7 +6740,7 @@ gapi.load('client', async () => {
           deprecated: 'Test string',
           obsolete: 'Test string',
           replacement: 'Test string',
-          state: 'Test string',
+          state: 'ACTIVE',
         },
         description: 'Test string',
         diskSizeGb: 'Test string',
@@ -6748,7 +6748,7 @@ gapi.load('client', async () => {
         family: 'Test string',
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -6773,7 +6773,7 @@ gapi.load('client', async () => {
           },
         },
         rawDisk: {
-          containerType: 'Test string',
+          containerType: 'TAR',
           sha1Checksum: 'Test string',
           source: 'Test string',
         },
@@ -6784,24 +6784,24 @@ gapi.load('client', async () => {
           dbs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           dbxs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           keks: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           pk: {
             content: 'Test string',
-            fileType: 'Test string',
+            fileType: 'BIN',
           },
         },
         sourceDisk: 'Test string',
@@ -6831,8 +6831,8 @@ gapi.load('client', async () => {
           sha256: 'Test string',
         },
         sourceSnapshotId: 'Test string',
-        sourceType: 'Test string',
-        status: 'Test string',
+        sourceType: 'RAW',
+        status: 'DELETING',
         storageLocations: ['Test string'],
       },
     );
@@ -6864,7 +6864,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         archiveSizeBytes: 'Test string',
         creationTimestamp: 'Test string',
         deprecated: {
@@ -6872,7 +6872,7 @@ gapi.load('client', async () => {
           deprecated: 'Test string',
           obsolete: 'Test string',
           replacement: 'Test string',
-          state: 'Test string',
+          state: 'ACTIVE',
         },
         description: 'Test string',
         diskSizeGb: 'Test string',
@@ -6880,7 +6880,7 @@ gapi.load('client', async () => {
         family: 'Test string',
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -6905,7 +6905,7 @@ gapi.load('client', async () => {
           },
         },
         rawDisk: {
-          containerType: 'Test string',
+          containerType: 'TAR',
           sha1Checksum: 'Test string',
           source: 'Test string',
         },
@@ -6916,24 +6916,24 @@ gapi.load('client', async () => {
           dbs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           dbxs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           keks: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           pk: {
             content: 'Test string',
-            fileType: 'Test string',
+            fileType: 'BIN',
           },
         },
         sourceDisk: 'Test string',
@@ -6963,8 +6963,8 @@ gapi.load('client', async () => {
           sha256: 'Test string',
         },
         sourceSnapshotId: 'Test string',
-        sourceType: 'Test string',
-        status: 'Test string',
+        sourceType: 'RAW',
+        status: 'DELETING',
         storageLocations: ['Test string'],
       },
     );
@@ -6997,7 +6997,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -7121,14 +7121,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -7137,7 +7137,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -7148,7 +7148,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
         kind: 'Test string',
@@ -7161,7 +7161,7 @@ gapi.load('client', async () => {
         resizeBy: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACCEPTED',
         status: {
           error: {
             errors: [
@@ -7196,7 +7196,7 @@ gapi.load('client', async () => {
                       limit: 42,
                       limitName: 'Test string',
                       metricName: 'Test string',
-                      rolloutStatus: 'Test string',
+                      rolloutStatus: 'IN_PROGRESS',
                     },
                   },
                 ],
@@ -7239,7 +7239,7 @@ gapi.load('client', async () => {
                         limit: 42,
                         limitName: 'Test string',
                         metricName: 'Test string',
-                        rolloutStatus: 'Test string',
+                        rolloutStatus: 'IN_PROGRESS',
                       },
                     },
                   ],
@@ -7321,10 +7321,10 @@ gapi.load('client', async () => {
       },
       {
         allInstances: true,
-        allowedActions: ['Test string'],
+        allowedActions: ['NONE'],
         instances: ['Test string'],
-        minimalAction: 'Test string',
-        mostDisruptiveAllowedAction: 'Test string',
+        minimalAction: 'NONE',
+        mostDisruptiveAllowedAction: 'NONE',
       },
     );
     /**
@@ -7348,14 +7348,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -7364,7 +7364,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -7375,7 +7375,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -7499,7 +7499,7 @@ gapi.load('client', async () => {
         },
         description: 'Test string',
         distributionPolicy: {
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -7513,7 +7513,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -7528,12 +7528,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -7543,7 +7543,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -7569,37 +7569,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -7610,16 +7610,16 @@ gapi.load('client', async () => {
         },
         instanceGroup: 'Test string',
         instanceLifecyclePolicy: {
-          defaultActionOnFailure: 'Test string',
-          forceUpdateOnRepair: 'Test string',
-          onFailedHealthCheck: 'Test string',
+          defaultActionOnFailure: 'DO_NOTHING',
+          forceUpdateOnRepair: 'NO',
+          onFailedHealthCheck: 'DEFAULT_ACTION',
           onRepair: {
-            allowChangingZone: 'Test string',
+            allowChangingZone: 'NO',
           },
         },
         instanceTemplate: 'Test string',
         kind: 'Test string',
-        listManagedInstancesResults: 'Test string',
+        listManagedInstancesResults: 'PAGELESS',
         name: 'Test string',
         namedPorts: [
           {
@@ -7636,23 +7636,23 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         standbyPolicy: {
           initialDelaySec: 42,
-          mode: 'Test string',
+          mode: 'MANUAL',
         },
         statefulPolicy: {
           preservedState: {
             disks: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             externalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             internalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
           },
@@ -7665,7 +7665,7 @@ gapi.load('client', async () => {
           appliedAcceleratorTopologies: [
             {
               acceleratorTopology: 'Test string',
-              state: 'Test string',
+              state: 'ACTIVATING',
               stateDetails: {
                 error: {
                   errors: [
@@ -7700,7 +7700,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -7750,7 +7750,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -7791,13 +7791,13 @@ gapi.load('client', async () => {
         targetPools: ['Test string'],
         targetSize: 42,
         targetSizePolicy: {
-          mode: 'Test string',
+          mode: 'BULK',
         },
         targetStoppedSize: 42,
         targetSuspendedSize: 42,
         updatePolicy: {
-          allowedActions: ['Test string'],
-          instanceRedistributionType: 'Test string',
+          allowedActions: ['NONE'],
+          instanceRedistributionType: 'NONE',
           maxSurge: {
             calculated: 42,
             fixed: 42,
@@ -7808,10 +7808,10 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          minimalAction: 'Test string',
-          mostDisruptiveAllowedAction: 'Test string',
-          replacementMethod: 'Test string',
-          type: 'Test string',
+          minimalAction: 'NONE',
+          mostDisruptiveAllowedAction: 'NONE',
+          replacementMethod: 'RECREATE',
+          type: 'OPPORTUNISTIC',
         },
         versions: [
           {
@@ -7947,7 +7947,7 @@ gapi.load('client', async () => {
         },
         description: 'Test string',
         distributionPolicy: {
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -7961,7 +7961,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -7976,12 +7976,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -7991,7 +7991,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -8017,37 +8017,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -8058,16 +8058,16 @@ gapi.load('client', async () => {
         },
         instanceGroup: 'Test string',
         instanceLifecyclePolicy: {
-          defaultActionOnFailure: 'Test string',
-          forceUpdateOnRepair: 'Test string',
-          onFailedHealthCheck: 'Test string',
+          defaultActionOnFailure: 'DO_NOTHING',
+          forceUpdateOnRepair: 'NO',
+          onFailedHealthCheck: 'DEFAULT_ACTION',
           onRepair: {
-            allowChangingZone: 'Test string',
+            allowChangingZone: 'NO',
           },
         },
         instanceTemplate: 'Test string',
         kind: 'Test string',
-        listManagedInstancesResults: 'Test string',
+        listManagedInstancesResults: 'PAGELESS',
         name: 'Test string',
         namedPorts: [
           {
@@ -8084,23 +8084,23 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         standbyPolicy: {
           initialDelaySec: 42,
-          mode: 'Test string',
+          mode: 'MANUAL',
         },
         statefulPolicy: {
           preservedState: {
             disks: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             externalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             internalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
           },
@@ -8113,7 +8113,7 @@ gapi.load('client', async () => {
           appliedAcceleratorTopologies: [
             {
               acceleratorTopology: 'Test string',
-              state: 'Test string',
+              state: 'ACTIVATING',
               stateDetails: {
                 error: {
                   errors: [
@@ -8148,7 +8148,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -8198,7 +8198,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -8239,13 +8239,13 @@ gapi.load('client', async () => {
         targetPools: ['Test string'],
         targetSize: 42,
         targetSizePolicy: {
-          mode: 'Test string',
+          mode: 'BULK',
         },
         targetStoppedSize: 42,
         targetSuspendedSize: 42,
         updatePolicy: {
-          allowedActions: ['Test string'],
-          instanceRedistributionType: 'Test string',
+          allowedActions: ['NONE'],
+          instanceRedistributionType: 'NONE',
           maxSurge: {
             calculated: 42,
             fixed: 42,
@@ -8256,10 +8256,10 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          minimalAction: 'Test string',
-          mostDisruptiveAllowedAction: 'Test string',
-          replacementMethod: 'Test string',
-          type: 'Test string',
+          minimalAction: 'NONE',
+          mostDisruptiveAllowedAction: 'NONE',
+          replacementMethod: 'RECREATE',
+          type: 'OPPORTUNISTIC',
         },
         versions: [
           {
@@ -8295,14 +8295,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -8311,7 +8311,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -8322,7 +8322,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -8579,14 +8579,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -8595,7 +8595,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -8606,7 +8606,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -8736,7 +8736,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        instanceState: 'Test string',
+        instanceState: 'ALL',
       },
     );
     /**
@@ -8808,11 +8808,11 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         natIP: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         publicPtrDomainName: 'Test string',
         securityPolicy: 'Test string',
         setPublicPtr: true,
-        type: 'Test string',
+        type: 'DIRECT_IPV6',
       },
     );
     /** Adds one dynamic network interface to an active instance. */
@@ -8832,11 +8832,11 @@ gapi.load('client', async () => {
             kind: 'Test string',
             name: 'Test string',
             natIP: 'Test string',
-            networkTier: 'Test string',
+            networkTier: 'FIXED_STANDARD',
             publicPtrDomainName: 'Test string',
             securityPolicy: 'Test string',
             setPublicPtr: true,
-            type: 'Test string',
+            type: 'DIRECT_IPV6',
           },
         ],
         aliasIpRanges: [
@@ -8853,7 +8853,7 @@ gapi.load('client', async () => {
         ],
         enableVpcScopedDns: true,
         fingerprint: 'Test string',
-        igmpQuery: 'Test string',
+        igmpQuery: 'IGMP_QUERY_DISABLED',
         internalIpv6PrefixLength: 42,
         ipv6AccessConfigs: [
           {
@@ -8863,25 +8863,25 @@ gapi.load('client', async () => {
             kind: 'Test string',
             name: 'Test string',
             natIP: 'Test string',
-            networkTier: 'Test string',
+            networkTier: 'FIXED_STANDARD',
             publicPtrDomainName: 'Test string',
             securityPolicy: 'Test string',
             setPublicPtr: true,
-            type: 'Test string',
+            type: 'DIRECT_IPV6',
           },
         ],
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         ipv6Address: 'Test string',
         kind: 'Test string',
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
         networkIP: 'Test string',
-        nicType: 'Test string',
+        nicType: 'GVNIC',
         parentNicName: 'Test string',
         queueCount: 42,
         serviceClassId: 'Test string',
-        stackType: 'Test string',
+        stackType: 'IPV4_IPV6',
         subnetwork: 'Test string',
         vlan: 42,
       },
@@ -8936,7 +8936,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         autoDelete: true,
         boot: true,
         deviceName: 'Test string',
@@ -8951,12 +8951,12 @@ gapi.load('client', async () => {
         forceAttach: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         index: 42,
         initializeParams: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           description: 'Test string',
           diskName: 'Test string',
           diskSizeGb: 'Test string',
@@ -8966,7 +8966,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           licenses: ['Test string'],
-          onUpdateAction: 'Test string',
+          onUpdateAction: 'RECREATE_DISK',
           provisionedIops: 'Test string',
           provisionedThroughput: 'Test string',
           replicaZones: ['Test string'],
@@ -8992,37 +8992,37 @@ gapi.load('client', async () => {
           },
           storagePool: 'Test string',
         },
-        interface: 'Test string',
+        interface: 'NVME',
         kind: 'Test string',
         licenses: ['Test string'],
-        mode: 'Test string',
-        savedState: 'Test string',
+        mode: 'READ_ONLY',
+        savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
         shieldedInstanceInitialState: {
           dbs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           dbxs: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           keks: [
             {
               content: 'Test string',
-              fileType: 'Test string',
+              fileType: 'BIN',
             },
           ],
           pk: {
             content: 'Test string',
-            fileType: 'Test string',
+            fileType: 'BIN',
           },
         },
         source: 'Test string',
-        type: 'Test string',
+        type: 'PERSISTENT',
       },
     );
     /**
@@ -9043,7 +9043,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -9058,12 +9058,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -9073,7 +9073,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -9099,37 +9099,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -9148,17 +9148,17 @@ gapi.load('client', async () => {
           advancedMachineFeatures: {
             enableNestedVirtualization: true,
             enableUefiNetworking: true,
-            performanceMonitoringUnit: 'Test string',
+            performanceMonitoringUnit: 'ARCHITECTURAL',
             threadsPerCore: 42,
             turboMode: 'Test string',
             visibleCoreCount: 42,
           },
           canIpForward: true,
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'BMSAI',
             confidentialParavisorConfig: {
-              confidentialTpmType: 'Test string',
-              sevSnpIrqMode: 'Test string',
+              confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+              sevSnpIrqMode: 'RESTRICTED',
             },
             enableConfidentialCompute: true,
           },
@@ -9166,7 +9166,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           disks: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               autoDelete: true,
               boot: true,
               deviceName: 'Test string',
@@ -9181,12 +9181,12 @@ gapi.load('client', async () => {
               forceAttach: true,
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
               initializeParams: {
-                architecture: 'Test string',
+                architecture: 'ARCHITECTURE_UNSPECIFIED',
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
@@ -9196,7 +9196,7 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 licenses: ['Test string'],
-                onUpdateAction: 'Test string',
+                onUpdateAction: 'RECREATE_DISK',
                 provisionedIops: 'Test string',
                 provisionedThroughput: 'Test string',
                 replicaZones: ['Test string'],
@@ -9222,37 +9222,37 @@ gapi.load('client', async () => {
                 },
                 storagePool: 'Test string',
               },
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
-              savedState: 'Test string',
+              mode: 'READ_ONLY',
+              savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
               shieldedInstanceInitialState: {
                 dbs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 dbxs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 keks: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 pk: {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               },
               source: 'Test string',
-              type: 'Test string',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -9261,11 +9261,11 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
-          localSsdEncryptionMode: 'Test string',
+          localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
           machineType: 'Test string',
           metadata: {
             fingerprint: 'Test string',
@@ -9288,11 +9288,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -9309,7 +9309,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -9319,35 +9319,35 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
           networkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'DEFAULT',
           },
-          privateIpv6GoogleAccess: 'Test string',
+          privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'ANY_RESERVATION',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -9367,7 +9367,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -9381,11 +9381,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -9394,8 +9394,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -9417,7 +9417,7 @@ gapi.load('client', async () => {
           workloadIdentityConfig: {
             identity: 'Test string',
             identityCertificateEnabled: true,
-            identityType: 'Test string',
+            identityType: 'AGENT_IDENTITY',
           },
         },
         locationPolicy: {
@@ -9426,10 +9426,10 @@ gapi.load('client', async () => {
               constraints: {
                 maxCount: 42,
               },
-              preference: 'Test string',
+              preference: 'ALLOW',
             },
           },
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -9556,17 +9556,17 @@ gapi.load('client', async () => {
         advancedMachineFeatures: {
           enableNestedVirtualization: true,
           enableUefiNetworking: true,
-          performanceMonitoringUnit: 'Test string',
+          performanceMonitoringUnit: 'ARCHITECTURAL',
           threadsPerCore: 42,
           turboMode: 'Test string',
           visibleCoreCount: 42,
         },
         canIpForward: true,
         confidentialInstanceConfig: {
-          confidentialInstanceType: 'Test string',
+          confidentialInstanceType: 'BMSAI',
           confidentialParavisorConfig: {
-            confidentialTpmType: 'Test string',
-            sevSnpIrqMode: 'Test string',
+            confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+            sevSnpIrqMode: 'RESTRICTED',
           },
           enableConfidentialCompute: true,
         },
@@ -9576,7 +9576,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         disks: [
           {
-            architecture: 'Test string',
+            architecture: 'ARCHITECTURE_UNSPECIFIED',
             autoDelete: true,
             boot: true,
             deviceName: 'Test string',
@@ -9591,12 +9591,12 @@ gapi.load('client', async () => {
             forceAttach: true,
             guestOsFeatures: [
               {
-                type: 'Test string',
+                type: 'BARE_METAL_LINUX_COMPATIBLE',
               },
             ],
             index: 42,
             initializeParams: {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               description: 'Test string',
               diskName: 'Test string',
               diskSizeGb: 'Test string',
@@ -9606,7 +9606,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               licenses: ['Test string'],
-              onUpdateAction: 'Test string',
+              onUpdateAction: 'RECREATE_DISK',
               provisionedIops: 'Test string',
               provisionedThroughput: 'Test string',
               replicaZones: ['Test string'],
@@ -9632,37 +9632,37 @@ gapi.load('client', async () => {
               },
               storagePool: 'Test string',
             },
-            interface: 'Test string',
+            interface: 'NVME',
             kind: 'Test string',
             licenses: ['Test string'],
-            mode: 'Test string',
-            savedState: 'Test string',
+            mode: 'READ_ONLY',
+            savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
             shieldedInstanceInitialState: {
               dbs: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               dbxs: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               keks: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               pk: {
                 content: 'Test string',
-                fileType: 'Test string',
+                fileType: 'BIN',
               },
             },
             source: 'Test string',
-            type: 'Test string',
+            type: 'PERSISTENT',
           },
         ],
         displayDevice: {
@@ -9684,7 +9684,7 @@ gapi.load('client', async () => {
           rsaEncryptedKey: 'Test string',
           sha256: 'Test string',
         },
-        keyRevocationActionType: 'Test string',
+        keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
@@ -9693,7 +9693,7 @@ gapi.load('client', async () => {
         lastStartTimestamp: 'Test string',
         lastStopTimestamp: 'Test string',
         lastSuspendedTimestamp: 'Test string',
-        localSsdEncryptionMode: 'Test string',
+        localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
         machineType: 'Test string',
         metadata: {
           fingerprint: 'Test string',
@@ -9717,11 +9717,11 @@ gapi.load('client', async () => {
                 kind: 'Test string',
                 name: 'Test string',
                 natIP: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'FIXED_STANDARD',
                 publicPtrDomainName: 'Test string',
                 securityPolicy: 'Test string',
                 setPublicPtr: true,
-                type: 'Test string',
+                type: 'DIRECT_IPV6',
               },
             ],
             aliasIpRanges: [
@@ -9738,7 +9738,7 @@ gapi.load('client', async () => {
             ],
             enableVpcScopedDns: true,
             fingerprint: 'Test string',
-            igmpQuery: 'Test string',
+            igmpQuery: 'IGMP_QUERY_DISABLED',
             internalIpv6PrefixLength: 42,
             ipv6AccessConfigs: [
               {
@@ -9748,31 +9748,31 @@ gapi.load('client', async () => {
                 kind: 'Test string',
                 name: 'Test string',
                 natIP: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'FIXED_STANDARD',
                 publicPtrDomainName: 'Test string',
                 securityPolicy: 'Test string',
                 setPublicPtr: true,
-                type: 'Test string',
+                type: 'DIRECT_IPV6',
               },
             ],
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             ipv6Address: 'Test string',
             kind: 'Test string',
             name: 'Test string',
             network: 'Test string',
             networkAttachment: 'Test string',
             networkIP: 'Test string',
-            nicType: 'Test string',
+            nicType: 'GVNIC',
             parentNicName: 'Test string',
             queueCount: 42,
             serviceClassId: 'Test string',
-            stackType: 'Test string',
+            stackType: 'IPV4_IPV6',
             subnetwork: 'Test string',
             vlan: 42,
           },
         ],
         networkPerformanceConfig: {
-          totalEgressBandwidthTier: 'Test string',
+          totalEgressBandwidthTier: 'DEFAULT',
         },
         params: {
           requestValidForDuration: {
@@ -9783,9 +9783,9 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        privateIpv6GoogleAccess: 'Test string',
+        privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
         reservationAffinity: {
-          consumeReservationType: 'Test string',
+          consumeReservationType: 'ANY_RESERVATION',
           key: 'Test string',
           values: ['Test string'],
         },
@@ -9822,7 +9822,7 @@ gapi.load('client', async () => {
           scheduling: {
             availabilityDomain: 42,
             gracefulShutdownTimestamp: 'Test string',
-            protectionTier: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
             terminationTimestamp: 'Test string',
           },
           shutdownDetails: {
@@ -9831,16 +9831,16 @@ gapi.load('client', async () => {
               seconds: 'Test string',
             },
             requestTimestamp: 'Test string',
-            stopState: 'Test string',
-            targetState: 'Test string',
+            stopState: 'PENDING_STOP',
+            targetState: 'DELETED',
           },
           upcomingMaintenance: {
             canReschedule: true,
             latestWindowStartTime: 'Test string',
             maintenanceOnShutdown: true,
-            maintenanceReasons: ['Test string'],
-            maintenanceStatus: 'Test string',
-            type: 'Test string',
+            maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+            maintenanceStatus: 'ONGOING',
+            type: 'MULTIPLE',
             windowEndTime: 'Test string',
             windowStartTime: 'Test string',
           },
@@ -9859,7 +9859,7 @@ gapi.load('client', async () => {
             },
           },
           hostErrorTimeoutSeconds: 42,
-          instanceTerminationAction: 'Test string',
+          instanceTerminationAction: 'DELETE',
           localSsdRecoveryTimeout: {
             nanos: 42,
             seconds: 'Test string',
@@ -9873,11 +9873,11 @@ gapi.load('client', async () => {
           nodeAffinities: [
             {
               key: 'Test string',
-              operator: 'Test string',
+              operator: 'IN',
               values: ['Test string'],
             },
           ],
-          onHostMaintenance: 'Test string',
+          onHostMaintenance: 'MIGRATE',
           onInstanceStopAction: {
             discardLocalSsd: true,
           },
@@ -9886,8 +9886,8 @@ gapi.load('client', async () => {
             nanos: 42,
             seconds: 'Test string',
           },
-          protectionTier: 'Test string',
-          provisioningModel: 'Test string',
+          protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+          provisioningModel: 'FLEX_START',
           skipGuestOsShutdown: true,
           terminationTime: 'Test string',
         },
@@ -9915,7 +9915,7 @@ gapi.load('client', async () => {
           sha256: 'Test string',
         },
         startRestricted: true,
-        status: 'Test string',
+        status: 'DEPROVISIONING',
         statusMessage: 'Test string',
         tags: {
           fingerprint: 'Test string',
@@ -9924,7 +9924,7 @@ gapi.load('client', async () => {
         workloadIdentityConfig: {
           identity: 'Test string',
           identityCertificateEnabled: true,
-          identityType: 'Test string',
+          identityType: 'AGENT_IDENTITY',
         },
         zone: 'Test string',
       },
@@ -9985,10 +9985,10 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        disruptionSchedule: 'Test string',
+        disruptionSchedule: 'DISRUPTION_SCHEDULE_UNSPECIFIED',
         faultReasons: [
           {
-            behavior: 'Test string',
+            behavior: 'BEHAVIOR_UNSPECIFIED',
             description: 'Test string',
           },
         ],
@@ -10003,7 +10003,7 @@ gapi.load('client', async () => {
       instance: 'Test string',
       project: 'Test string',
       requestId: 'Test string',
-      resetMode: 'Test string',
+      resetMode: 'HARD_RESET',
       zone: 'Test string',
     });
     /**
@@ -10069,7 +10069,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -10223,7 +10223,7 @@ gapi.load('client', async () => {
           },
         },
         hostErrorTimeoutSeconds: 42,
-        instanceTerminationAction: 'Test string',
+        instanceTerminationAction: 'DELETE',
         localSsdRecoveryTimeout: {
           nanos: 42,
           seconds: 'Test string',
@@ -10237,11 +10237,11 @@ gapi.load('client', async () => {
         nodeAffinities: [
           {
             key: 'Test string',
-            operator: 'Test string',
+            operator: 'IN',
             values: ['Test string'],
           },
         ],
-        onHostMaintenance: 'Test string',
+        onHostMaintenance: 'MIGRATE',
         onInstanceStopAction: {
           discardLocalSsd: true,
         },
@@ -10250,8 +10250,8 @@ gapi.load('client', async () => {
           nanos: 42,
           seconds: 'Test string',
         },
-        protectionTier: 'Test string',
-        provisioningModel: 'Test string',
+        protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+        provisioningModel: 'FLEX_START',
         skipGuestOsShutdown: true,
         terminationTime: 'Test string',
       },
@@ -10426,8 +10426,8 @@ gapi.load('client', async () => {
       {
         discardLocalSsd: true,
         instance: 'Test string',
-        minimalAction: 'Test string',
-        mostDisruptiveAllowedAction: 'Test string',
+        minimalAction: 'INVALID',
+        mostDisruptiveAllowedAction: 'INVALID',
         project: 'Test string',
         requestId: 'Test string',
         zone: 'Test string',
@@ -10436,17 +10436,17 @@ gapi.load('client', async () => {
         advancedMachineFeatures: {
           enableNestedVirtualization: true,
           enableUefiNetworking: true,
-          performanceMonitoringUnit: 'Test string',
+          performanceMonitoringUnit: 'ARCHITECTURAL',
           threadsPerCore: 42,
           turboMode: 'Test string',
           visibleCoreCount: 42,
         },
         canIpForward: true,
         confidentialInstanceConfig: {
-          confidentialInstanceType: 'Test string',
+          confidentialInstanceType: 'BMSAI',
           confidentialParavisorConfig: {
-            confidentialTpmType: 'Test string',
-            sevSnpIrqMode: 'Test string',
+            confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+            sevSnpIrqMode: 'RESTRICTED',
           },
           enableConfidentialCompute: true,
         },
@@ -10456,7 +10456,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         disks: [
           {
-            architecture: 'Test string',
+            architecture: 'ARCHITECTURE_UNSPECIFIED',
             autoDelete: true,
             boot: true,
             deviceName: 'Test string',
@@ -10471,12 +10471,12 @@ gapi.load('client', async () => {
             forceAttach: true,
             guestOsFeatures: [
               {
-                type: 'Test string',
+                type: 'BARE_METAL_LINUX_COMPATIBLE',
               },
             ],
             index: 42,
             initializeParams: {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               description: 'Test string',
               diskName: 'Test string',
               diskSizeGb: 'Test string',
@@ -10486,7 +10486,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               licenses: ['Test string'],
-              onUpdateAction: 'Test string',
+              onUpdateAction: 'RECREATE_DISK',
               provisionedIops: 'Test string',
               provisionedThroughput: 'Test string',
               replicaZones: ['Test string'],
@@ -10512,37 +10512,37 @@ gapi.load('client', async () => {
               },
               storagePool: 'Test string',
             },
-            interface: 'Test string',
+            interface: 'NVME',
             kind: 'Test string',
             licenses: ['Test string'],
-            mode: 'Test string',
-            savedState: 'Test string',
+            mode: 'READ_ONLY',
+            savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
             shieldedInstanceInitialState: {
               dbs: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               dbxs: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               keks: [
                 {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               ],
               pk: {
                 content: 'Test string',
-                fileType: 'Test string',
+                fileType: 'BIN',
               },
             },
             source: 'Test string',
-            type: 'Test string',
+            type: 'PERSISTENT',
           },
         ],
         displayDevice: {
@@ -10564,7 +10564,7 @@ gapi.load('client', async () => {
           rsaEncryptedKey: 'Test string',
           sha256: 'Test string',
         },
-        keyRevocationActionType: 'Test string',
+        keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
@@ -10573,7 +10573,7 @@ gapi.load('client', async () => {
         lastStartTimestamp: 'Test string',
         lastStopTimestamp: 'Test string',
         lastSuspendedTimestamp: 'Test string',
-        localSsdEncryptionMode: 'Test string',
+        localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
         machineType: 'Test string',
         metadata: {
           fingerprint: 'Test string',
@@ -10597,11 +10597,11 @@ gapi.load('client', async () => {
                 kind: 'Test string',
                 name: 'Test string',
                 natIP: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'FIXED_STANDARD',
                 publicPtrDomainName: 'Test string',
                 securityPolicy: 'Test string',
                 setPublicPtr: true,
-                type: 'Test string',
+                type: 'DIRECT_IPV6',
               },
             ],
             aliasIpRanges: [
@@ -10618,7 +10618,7 @@ gapi.load('client', async () => {
             ],
             enableVpcScopedDns: true,
             fingerprint: 'Test string',
-            igmpQuery: 'Test string',
+            igmpQuery: 'IGMP_QUERY_DISABLED',
             internalIpv6PrefixLength: 42,
             ipv6AccessConfigs: [
               {
@@ -10628,31 +10628,31 @@ gapi.load('client', async () => {
                 kind: 'Test string',
                 name: 'Test string',
                 natIP: 'Test string',
-                networkTier: 'Test string',
+                networkTier: 'FIXED_STANDARD',
                 publicPtrDomainName: 'Test string',
                 securityPolicy: 'Test string',
                 setPublicPtr: true,
-                type: 'Test string',
+                type: 'DIRECT_IPV6',
               },
             ],
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             ipv6Address: 'Test string',
             kind: 'Test string',
             name: 'Test string',
             network: 'Test string',
             networkAttachment: 'Test string',
             networkIP: 'Test string',
-            nicType: 'Test string',
+            nicType: 'GVNIC',
             parentNicName: 'Test string',
             queueCount: 42,
             serviceClassId: 'Test string',
-            stackType: 'Test string',
+            stackType: 'IPV4_IPV6',
             subnetwork: 'Test string',
             vlan: 42,
           },
         ],
         networkPerformanceConfig: {
-          totalEgressBandwidthTier: 'Test string',
+          totalEgressBandwidthTier: 'DEFAULT',
         },
         params: {
           requestValidForDuration: {
@@ -10663,9 +10663,9 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        privateIpv6GoogleAccess: 'Test string',
+        privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
         reservationAffinity: {
-          consumeReservationType: 'Test string',
+          consumeReservationType: 'ANY_RESERVATION',
           key: 'Test string',
           values: ['Test string'],
         },
@@ -10702,7 +10702,7 @@ gapi.load('client', async () => {
           scheduling: {
             availabilityDomain: 42,
             gracefulShutdownTimestamp: 'Test string',
-            protectionTier: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
             terminationTimestamp: 'Test string',
           },
           shutdownDetails: {
@@ -10711,16 +10711,16 @@ gapi.load('client', async () => {
               seconds: 'Test string',
             },
             requestTimestamp: 'Test string',
-            stopState: 'Test string',
-            targetState: 'Test string',
+            stopState: 'PENDING_STOP',
+            targetState: 'DELETED',
           },
           upcomingMaintenance: {
             canReschedule: true,
             latestWindowStartTime: 'Test string',
             maintenanceOnShutdown: true,
-            maintenanceReasons: ['Test string'],
-            maintenanceStatus: 'Test string',
-            type: 'Test string',
+            maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+            maintenanceStatus: 'ONGOING',
+            type: 'MULTIPLE',
             windowEndTime: 'Test string',
             windowStartTime: 'Test string',
           },
@@ -10739,7 +10739,7 @@ gapi.load('client', async () => {
             },
           },
           hostErrorTimeoutSeconds: 42,
-          instanceTerminationAction: 'Test string',
+          instanceTerminationAction: 'DELETE',
           localSsdRecoveryTimeout: {
             nanos: 42,
             seconds: 'Test string',
@@ -10753,11 +10753,11 @@ gapi.load('client', async () => {
           nodeAffinities: [
             {
               key: 'Test string',
-              operator: 'Test string',
+              operator: 'IN',
               values: ['Test string'],
             },
           ],
-          onHostMaintenance: 'Test string',
+          onHostMaintenance: 'MIGRATE',
           onInstanceStopAction: {
             discardLocalSsd: true,
           },
@@ -10766,8 +10766,8 @@ gapi.load('client', async () => {
             nanos: 42,
             seconds: 'Test string',
           },
-          protectionTier: 'Test string',
-          provisioningModel: 'Test string',
+          protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+          provisioningModel: 'FLEX_START',
           skipGuestOsShutdown: true,
           terminationTime: 'Test string',
         },
@@ -10795,7 +10795,7 @@ gapi.load('client', async () => {
           sha256: 'Test string',
         },
         startRestricted: true,
-        status: 'Test string',
+        status: 'DEPROVISIONING',
         statusMessage: 'Test string',
         tags: {
           fingerprint: 'Test string',
@@ -10804,7 +10804,7 @@ gapi.load('client', async () => {
         workloadIdentityConfig: {
           identity: 'Test string',
           identityCertificateEnabled: true,
-          identityType: 'Test string',
+          identityType: 'AGENT_IDENTITY',
         },
         zone: 'Test string',
       },
@@ -10830,11 +10830,11 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         natIP: 'Test string',
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
         publicPtrDomainName: 'Test string',
         securityPolicy: 'Test string',
         setPublicPtr: true,
-        type: 'Test string',
+        type: 'DIRECT_IPV6',
       },
     );
     /**
@@ -10879,11 +10879,11 @@ gapi.load('client', async () => {
             kind: 'Test string',
             name: 'Test string',
             natIP: 'Test string',
-            networkTier: 'Test string',
+            networkTier: 'FIXED_STANDARD',
             publicPtrDomainName: 'Test string',
             securityPolicy: 'Test string',
             setPublicPtr: true,
-            type: 'Test string',
+            type: 'DIRECT_IPV6',
           },
         ],
         aliasIpRanges: [
@@ -10900,7 +10900,7 @@ gapi.load('client', async () => {
         ],
         enableVpcScopedDns: true,
         fingerprint: 'Test string',
-        igmpQuery: 'Test string',
+        igmpQuery: 'IGMP_QUERY_DISABLED',
         internalIpv6PrefixLength: 42,
         ipv6AccessConfigs: [
           {
@@ -10910,25 +10910,25 @@ gapi.load('client', async () => {
             kind: 'Test string',
             name: 'Test string',
             natIP: 'Test string',
-            networkTier: 'Test string',
+            networkTier: 'FIXED_STANDARD',
             publicPtrDomainName: 'Test string',
             securityPolicy: 'Test string',
             setPublicPtr: true,
-            type: 'Test string',
+            type: 'DIRECT_IPV6',
           },
         ],
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         ipv6Address: 'Test string',
         kind: 'Test string',
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
         networkIP: 'Test string',
-        nicType: 'Test string',
+        nicType: 'GVNIC',
         parentNicName: 'Test string',
         queueCount: 42,
         serviceClassId: 'Test string',
-        stackType: 'Test string',
+        stackType: 'IPV4_IPV6',
         subnetwork: 'Test string',
         vlan: 42,
       },
@@ -11039,17 +11039,17 @@ gapi.load('client', async () => {
           advancedMachineFeatures: {
             enableNestedVirtualization: true,
             enableUefiNetworking: true,
-            performanceMonitoringUnit: 'Test string',
+            performanceMonitoringUnit: 'ARCHITECTURAL',
             threadsPerCore: 42,
             turboMode: 'Test string',
             visibleCoreCount: 42,
           },
           canIpForward: true,
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'BMSAI',
             confidentialParavisorConfig: {
-              confidentialTpmType: 'Test string',
-              sevSnpIrqMode: 'Test string',
+              confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+              sevSnpIrqMode: 'RESTRICTED',
             },
             enableConfidentialCompute: true,
           },
@@ -11057,7 +11057,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           disks: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               autoDelete: true,
               boot: true,
               deviceName: 'Test string',
@@ -11072,12 +11072,12 @@ gapi.load('client', async () => {
               forceAttach: true,
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
               initializeParams: {
-                architecture: 'Test string',
+                architecture: 'ARCHITECTURE_UNSPECIFIED',
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
@@ -11087,7 +11087,7 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 licenses: ['Test string'],
-                onUpdateAction: 'Test string',
+                onUpdateAction: 'RECREATE_DISK',
                 provisionedIops: 'Test string',
                 provisionedThroughput: 'Test string',
                 replicaZones: ['Test string'],
@@ -11113,37 +11113,37 @@ gapi.load('client', async () => {
                 },
                 storagePool: 'Test string',
               },
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
-              savedState: 'Test string',
+              mode: 'READ_ONLY',
+              savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
               shieldedInstanceInitialState: {
                 dbs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 dbxs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 keks: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 pk: {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               },
               source: 'Test string',
-              type: 'Test string',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -11152,11 +11152,11 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
-          localSsdEncryptionMode: 'Test string',
+          localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
           machineType: 'Test string',
           metadata: {
             fingerprint: 'Test string',
@@ -11179,11 +11179,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -11200,7 +11200,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -11210,35 +11210,35 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
           networkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'DEFAULT',
           },
-          privateIpv6GoogleAccess: 'Test string',
+          privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'ANY_RESERVATION',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -11258,7 +11258,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -11272,11 +11272,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -11285,8 +11285,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -11308,7 +11308,7 @@ gapi.load('client', async () => {
           workloadIdentityConfig: {
             identity: 'Test string',
             identityCertificateEnabled: true,
-            identityType: 'Test string',
+            identityType: 'AGENT_IDENTITY',
           },
         },
         region: 'Test string',
@@ -11320,7 +11320,7 @@ gapi.load('client', async () => {
               autoDelete: true,
               customImage: 'Test string',
               deviceName: 'Test string',
-              instantiateFrom: 'Test string',
+              instantiateFrom: 'ATTACH_READ_ONLY',
             },
           ],
         },
@@ -11366,7 +11366,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -11447,7 +11447,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         sourceConsistencyGroup: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -11493,7 +11493,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -11582,7 +11582,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         diskSizeGb: 'Test string',
@@ -11610,7 +11610,7 @@ gapi.load('client', async () => {
         sourceDiskId: 'Test string',
         sourceInstantSnapshotGroup: 'Test string',
         sourceInstantSnapshotGroupId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -11656,7 +11656,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -11759,11 +11759,11 @@ gapi.load('client', async () => {
         },
         configured: {
           availabilitySla: {
-            effectiveSla: 'Test string',
+            effectiveSla: 'EFFECTIVE_SLA_UNSPECIFIED',
             intendedSlaBlockers: [
               {
                 attachments: ['Test string'],
-                blockerType: 'Test string',
+                blockerType: 'BLOCKER_TYPE_UNSPECIFIED',
                 documentationLink: 'Test string',
                 explanation: 'Test string',
                 metros: ['Test string'],
@@ -11778,7 +11778,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         id: 'Test string',
         intent: {
-          availabilitySla: 'Test string',
+          availabilitySla: 'AVAILABILITY_SLA_UNSPECIFIED',
         },
         interconnectGroup: 'Test string',
         kind: 'Test string',
@@ -11838,11 +11838,11 @@ gapi.load('client', async () => {
         },
         configured: {
           availabilitySla: {
-            effectiveSla: 'Test string',
+            effectiveSla: 'EFFECTIVE_SLA_UNSPECIFIED',
             intendedSlaBlockers: [
               {
                 attachments: ['Test string'],
-                blockerType: 'Test string',
+                blockerType: 'BLOCKER_TYPE_UNSPECIFIED',
                 documentationLink: 'Test string',
                 explanation: 'Test string',
                 metros: ['Test string'],
@@ -11857,7 +11857,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         id: 'Test string',
         intent: {
-          availabilitySla: 'Test string',
+          availabilitySla: 'AVAILABILITY_SLA_UNSPECIFIED',
         },
         interconnectGroup: 'Test string',
         kind: 'Test string',
@@ -11917,7 +11917,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -11992,7 +11992,7 @@ gapi.load('client', async () => {
       {
         adminEnabled: true,
         attachmentGroup: 'Test string',
-        bandwidth: 'Test string',
+        bandwidth: 'BPS_100G',
         candidateCloudRouterIpAddress: 'Test string',
         candidateCloudRouterIpv6Address: 'Test string',
         candidateCustomerRouterIpAddress: 'Test string',
@@ -12003,7 +12003,7 @@ gapi.load('client', async () => {
         cloudRouterIpv6Address: 'Test string',
         cloudRouterIpv6InterfaceId: 'Test string',
         configurationConstraints: {
-          bgpMd5: 'Test string',
+          bgpMd5: 'MD5_OPTIONAL',
           bgpPeerAsnRanges: [
             {
               max: 42,
@@ -12017,8 +12017,8 @@ gapi.load('client', async () => {
         customerRouterIpv6InterfaceId: 'Test string',
         dataplaneVersion: 42,
         description: 'Test string',
-        edgeAvailabilityDomain: 'Test string',
-        encryption: 'Test string',
+        edgeAvailabilityDomain: 'AVAILABILITY_DOMAIN_1',
+        encryption: 'IPSEC',
         googleReferenceId: 'Test string',
         id: 'Test string',
         interconnect: 'Test string',
@@ -12050,7 +12050,7 @@ gapi.load('client', async () => {
         },
         mtu: 42,
         name: 'Test string',
-        operationalStatus: 'Test string',
+        operationalStatus: 'OS_ACTIVE',
         pairingKey: 'Test string',
         params: {
           resourceManagerTags: {
@@ -12071,10 +12071,10 @@ gapi.load('client', async () => {
         router: 'Test string',
         satisfiesPzs: true,
         selfLink: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'IPV4_IPV6',
+        state: 'ACTIVE',
         subnetLength: 42,
-        type: 'Test string',
+        type: 'DEDICATED',
         vlanTag8021q: 42,
       },
     );
@@ -12106,7 +12106,7 @@ gapi.load('client', async () => {
       {
         adminEnabled: true,
         attachmentGroup: 'Test string',
-        bandwidth: 'Test string',
+        bandwidth: 'BPS_100G',
         candidateCloudRouterIpAddress: 'Test string',
         candidateCloudRouterIpv6Address: 'Test string',
         candidateCustomerRouterIpAddress: 'Test string',
@@ -12117,7 +12117,7 @@ gapi.load('client', async () => {
         cloudRouterIpv6Address: 'Test string',
         cloudRouterIpv6InterfaceId: 'Test string',
         configurationConstraints: {
-          bgpMd5: 'Test string',
+          bgpMd5: 'MD5_OPTIONAL',
           bgpPeerAsnRanges: [
             {
               max: 42,
@@ -12131,8 +12131,8 @@ gapi.load('client', async () => {
         customerRouterIpv6InterfaceId: 'Test string',
         dataplaneVersion: 42,
         description: 'Test string',
-        edgeAvailabilityDomain: 'Test string',
-        encryption: 'Test string',
+        edgeAvailabilityDomain: 'AVAILABILITY_DOMAIN_1',
+        encryption: 'IPSEC',
         googleReferenceId: 'Test string',
         id: 'Test string',
         interconnect: 'Test string',
@@ -12164,7 +12164,7 @@ gapi.load('client', async () => {
         },
         mtu: 42,
         name: 'Test string',
-        operationalStatus: 'Test string',
+        operationalStatus: 'OS_ACTIVE',
         pairingKey: 'Test string',
         params: {
           resourceManagerTags: {
@@ -12185,10 +12185,10 @@ gapi.load('client', async () => {
         router: 'Test string',
         satisfiesPzs: true,
         selfLink: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'IPV4_IPV6',
+        state: 'ACTIVE',
         subnetLength: 42,
-        type: 'Test string',
+        type: 'DEDICATED',
         vlanTag8021q: 42,
       },
     );
@@ -12222,19 +12222,19 @@ gapi.load('client', async () => {
       },
       {
         request: {
-          intentMismatchBehavior: 'Test string',
+          intentMismatchBehavior: 'CREATE',
           interconnects: [
             {
               adminEnabled: true,
               customerName: 'Test string',
               description: 'Test string',
               facility: 'Test string',
-              interconnectType: 'Test string',
-              linkType: 'Test string',
+              interconnectType: 'DEDICATED',
+              linkType: 'LINK_TYPE_ETHERNET_100G_LR',
               name: 'Test string',
               nocContactEmail: 'Test string',
               remoteLocation: 'Test string',
-              requestedFeatures: ['Test string'],
+              requestedFeatures: ['IF_CROSS_SITE_NETWORK'],
               requestedLinkCount: 42,
             },
           ],
@@ -12243,12 +12243,12 @@ gapi.load('client', async () => {
             customerName: 'Test string',
             description: 'Test string',
             facility: 'Test string',
-            interconnectType: 'Test string',
-            linkType: 'Test string',
+            interconnectType: 'DEDICATED',
+            linkType: 'LINK_TYPE_ETHERNET_100G_LR',
             name: 'Test string',
             nocContactEmail: 'Test string',
             remoteLocation: 'Test string',
-            requestedFeatures: ['Test string'],
+            requestedFeatures: ['IF_CROSS_SITE_NETWORK'],
             requestedLinkCount: 42,
           },
         },
@@ -12296,7 +12296,7 @@ gapi.load('client', async () => {
           topologyCapability: {
             intendedCapabilityBlockers: [
               {
-                blockerType: 'Test string',
+                blockerType: 'INCOMPATIBLE_METROS',
                 documentationLink: 'Test string',
                 explanation: 'Test string',
                 facilities: ['Test string'],
@@ -12305,7 +12305,7 @@ gapi.load('client', async () => {
                 zones: ['Test string'],
               },
             ],
-            supportedSla: 'Test string',
+            supportedSla: 'NO_SLA',
           },
         },
         creationTimestamp: 'Test string',
@@ -12313,7 +12313,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         id: 'Test string',
         intent: {
-          topologyCapability: 'Test string',
+          topologyCapability: 'NO_SLA',
         },
         interconnects: {
           A: {
@@ -12369,7 +12369,7 @@ gapi.load('client', async () => {
           topologyCapability: {
             intendedCapabilityBlockers: [
               {
-                blockerType: 'Test string',
+                blockerType: 'INCOMPATIBLE_METROS',
                 documentationLink: 'Test string',
                 explanation: 'Test string',
                 facilities: ['Test string'],
@@ -12378,7 +12378,7 @@ gapi.load('client', async () => {
                 zones: ['Test string'],
               },
             ],
-            supportedSla: 'Test string',
+            supportedSla: 'NO_SLA',
           },
         },
         creationTimestamp: 'Test string',
@@ -12386,7 +12386,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         id: 'Test string',
         intent: {
-          topologyCapability: 'Test string',
+          topologyCapability: 'NO_SLA',
         },
         interconnects: {
           A: {
@@ -12445,7 +12445,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -12571,7 +12571,7 @@ gapi.load('client', async () => {
             bandwidthPercentages: [
               {
                 percentage: 42,
-                trafficClass: 'Test string',
+                trafficClass: 'TC1',
               },
             ],
           },
@@ -12579,12 +12579,12 @@ gapi.load('client', async () => {
           shapeAveragePercentages: [
             {
               percentage: 42,
-              trafficClass: 'Test string',
+              trafficClass: 'TC1',
             },
           ],
           strictPriorityPolicy: {},
         },
-        availableFeatures: ['Test string'],
+        availableFeatures: ['IF_CROSS_SITE_NETWORK'],
         circuitInfos: [
           {
             customerDemarcId: 'Test string',
@@ -12601,11 +12601,11 @@ gapi.load('client', async () => {
             affectedCircuits: ['Test string'],
             description: 'Test string',
             endTime: 'Test string',
-            issueType: 'Test string',
+            issueType: 'IT_OUTAGE',
             name: 'Test string',
-            source: 'Test string',
+            source: 'GOOGLE',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         ],
         googleIpAddress: 'Test string',
@@ -12613,13 +12613,13 @@ gapi.load('client', async () => {
         id: 'Test string',
         interconnectAttachments: ['Test string'],
         interconnectGroups: ['Test string'],
-        interconnectType: 'Test string',
+        interconnectType: 'DEDICATED',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        linkType: 'Test string',
+        linkType: 'LINK_TYPE_ETHERNET_100G_LR',
         location: 'Test string',
         macsec: {
           failOpen: true,
@@ -12633,7 +12633,7 @@ gapi.load('client', async () => {
         macsecEnabled: true,
         name: 'Test string',
         nocContactEmail: 'Test string',
-        operationalStatus: 'Test string',
+        operationalStatus: 'OS_ACTIVE',
         params: {
           resourceManagerTags: {
             A: 'Test string',
@@ -12642,13 +12642,13 @@ gapi.load('client', async () => {
         peerIpAddress: 'Test string',
         provisionedLinkCount: 42,
         remoteLocation: 'Test string',
-        requestedFeatures: ['Test string'],
+        requestedFeatures: ['IF_CROSS_SITE_NETWORK'],
         requestedLinkCount: 42,
         satisfiesPzs: true,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
-        subzone: 'Test string',
+        state: 'ACTIVE',
+        subzone: 'SUBZONE_A',
         wireGroups: ['Test string'],
       },
     );
@@ -12680,7 +12680,7 @@ gapi.load('client', async () => {
             bandwidthPercentages: [
               {
                 percentage: 42,
-                trafficClass: 'Test string',
+                trafficClass: 'TC1',
               },
             ],
           },
@@ -12688,12 +12688,12 @@ gapi.load('client', async () => {
           shapeAveragePercentages: [
             {
               percentage: 42,
-              trafficClass: 'Test string',
+              trafficClass: 'TC1',
             },
           ],
           strictPriorityPolicy: {},
         },
-        availableFeatures: ['Test string'],
+        availableFeatures: ['IF_CROSS_SITE_NETWORK'],
         circuitInfos: [
           {
             customerDemarcId: 'Test string',
@@ -12710,11 +12710,11 @@ gapi.load('client', async () => {
             affectedCircuits: ['Test string'],
             description: 'Test string',
             endTime: 'Test string',
-            issueType: 'Test string',
+            issueType: 'IT_OUTAGE',
             name: 'Test string',
-            source: 'Test string',
+            source: 'GOOGLE',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         ],
         googleIpAddress: 'Test string',
@@ -12722,13 +12722,13 @@ gapi.load('client', async () => {
         id: 'Test string',
         interconnectAttachments: ['Test string'],
         interconnectGroups: ['Test string'],
-        interconnectType: 'Test string',
+        interconnectType: 'DEDICATED',
         kind: 'Test string',
         labelFingerprint: 'Test string',
         labels: {
           A: 'Test string',
         },
-        linkType: 'Test string',
+        linkType: 'LINK_TYPE_ETHERNET_100G_LR',
         location: 'Test string',
         macsec: {
           failOpen: true,
@@ -12742,7 +12742,7 @@ gapi.load('client', async () => {
         macsecEnabled: true,
         name: 'Test string',
         nocContactEmail: 'Test string',
-        operationalStatus: 'Test string',
+        operationalStatus: 'OS_ACTIVE',
         params: {
           resourceManagerTags: {
             A: 'Test string',
@@ -12751,13 +12751,13 @@ gapi.load('client', async () => {
         peerIpAddress: 'Test string',
         provisionedLinkCount: 42,
         remoteLocation: 'Test string',
-        requestedFeatures: ['Test string'],
+        requestedFeatures: ['IF_CROSS_SITE_NETWORK'],
         requestedLinkCount: 42,
         satisfiesPzs: true,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
-        subzone: 'Test string',
+        state: 'ACTIVE',
+        subzone: 'SUBZONE_A',
         wireGroups: ['Test string'],
       },
     );
@@ -12845,7 +12845,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -13012,7 +13012,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -13143,17 +13143,17 @@ gapi.load('client', async () => {
           advancedMachineFeatures: {
             enableNestedVirtualization: true,
             enableUefiNetworking: true,
-            performanceMonitoringUnit: 'Test string',
+            performanceMonitoringUnit: 'ARCHITECTURAL',
             threadsPerCore: 42,
             turboMode: 'Test string',
             visibleCoreCount: 42,
           },
           canIpForward: true,
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'BMSAI',
             confidentialParavisorConfig: {
-              confidentialTpmType: 'Test string',
-              sevSnpIrqMode: 'Test string',
+              confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+              sevSnpIrqMode: 'RESTRICTED',
             },
             enableConfidentialCompute: true,
           },
@@ -13161,7 +13161,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           disks: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               autoDelete: true,
               boot: true,
               deviceName: 'Test string',
@@ -13176,12 +13176,12 @@ gapi.load('client', async () => {
               forceAttach: true,
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
               initializeParams: {
-                architecture: 'Test string',
+                architecture: 'ARCHITECTURE_UNSPECIFIED',
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
@@ -13191,7 +13191,7 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 licenses: ['Test string'],
-                onUpdateAction: 'Test string',
+                onUpdateAction: 'RECREATE_DISK',
                 provisionedIops: 'Test string',
                 provisionedThroughput: 'Test string',
                 replicaZones: ['Test string'],
@@ -13217,37 +13217,37 @@ gapi.load('client', async () => {
                 },
                 storagePool: 'Test string',
               },
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
-              savedState: 'Test string',
+              mode: 'READ_ONLY',
+              savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
               shieldedInstanceInitialState: {
                 dbs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 dbxs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 keks: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 pk: {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               },
               source: 'Test string',
-              type: 'Test string',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -13256,11 +13256,11 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
-          localSsdEncryptionMode: 'Test string',
+          localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
           machineType: 'Test string',
           metadata: {
             fingerprint: 'Test string',
@@ -13283,11 +13283,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -13304,7 +13304,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -13314,35 +13314,35 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
           networkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'DEFAULT',
           },
-          privateIpv6GoogleAccess: 'Test string',
+          privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'ANY_RESERVATION',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -13362,7 +13362,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -13376,11 +13376,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -13389,8 +13389,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -13412,7 +13412,7 @@ gapi.load('client', async () => {
           workloadIdentityConfig: {
             identity: 'Test string',
             identityCertificateEnabled: true,
-            identityType: 'Test string',
+            identityType: 'AGENT_IDENTITY',
           },
         },
         kind: 'Test string',
@@ -13437,11 +13437,11 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         savedDisks: [
           {
-            architecture: 'Test string',
+            architecture: 'ARCHITECTURE_UNSPECIFIED',
             kind: 'Test string',
             sourceDisk: 'Test string',
             storageBytes: 'Test string',
-            storageBytesStatus: 'Test string',
+            storageBytesStatus: 'UPDATING',
           },
         ],
         selfLink: 'Test string',
@@ -13478,18 +13478,18 @@ gapi.load('client', async () => {
               diskType: 'Test string',
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
+              mode: 'READ_ONLY',
               source: 'Test string',
               storageBytes: 'Test string',
-              storageBytesStatus: 'Test string',
-              type: 'Test string',
+              storageBytesStatus: 'UPDATING',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -13498,7 +13498,7 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
@@ -13524,11 +13524,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -13545,7 +13545,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -13555,30 +13555,30 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
-          postKeyRevocationActionType: 'Test string',
+          postKeyRevocationActionType: 'NOOP',
           scheduling: {
             automaticRestart: true,
             availabilityDomain: 42,
@@ -13591,7 +13591,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -13605,11 +13605,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -13618,8 +13618,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -13634,7 +13634,7 @@ gapi.load('client', async () => {
             items: ['Test string'],
           },
         },
-        status: 'Test string',
+        status: 'CREATING',
         storageLocations: ['Test string'],
         totalStorageBytes: 'Test string',
       },
@@ -13679,7 +13679,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -13831,12 +13831,12 @@ gapi.load('client', async () => {
             projectIdOrNum: 'Test string',
             secondaryIpCidrRanges: ['Test string'],
             serviceClassId: 'Test string',
-            status: 'Test string',
+            status: 'ACCEPTED',
             subnetwork: 'Test string',
             subnetworkCidrRange: 'Test string',
           },
         ],
-        connectionPreference: 'Test string',
+        connectionPreference: 'ACCEPT_AUTOMATIC',
         creationTimestamp: 'Test string',
         description: 'Test string',
         fingerprint: 'Test string',
@@ -13882,12 +13882,12 @@ gapi.load('client', async () => {
             projectIdOrNum: 'Test string',
             secondaryIpCidrRanges: ['Test string'],
             serviceClassId: 'Test string',
-            status: 'Test string',
+            status: 'ACCEPTED',
             subnetwork: 'Test string',
             subnetworkCidrRange: 'Test string',
           },
         ],
-        connectionPreference: 'Test string',
+        connectionPreference: 'ACCEPT_AUTOMATIC',
         creationTimestamp: 'Test string',
         description: 'Test string',
         fingerprint: 'Test string',
@@ -13933,7 +13933,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -14187,12 +14187,12 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkEndpointType: 'Test string',
+        networkEndpointType: 'GCE_VM_IP',
         pscData: {
           consumerPscAddress: 'Test string',
           producerPort: 42,
           pscConnectionId: 'Test string',
-          pscConnectionStatus: 'Test string',
+          pscConnectionStatus: 'ACCEPTED',
         },
         pscTargetService: 'Test string',
         region: 'Test string',
@@ -14227,7 +14227,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        healthStatus: 'Test string',
+        healthStatus: 'SHOW',
       },
     );
     /** Returns permissions that a caller has on the specified resource. */
@@ -14270,7 +14270,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -14278,8 +14278,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -14291,14 +14291,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -14312,11 +14312,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -14332,7 +14332,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -14340,8 +14340,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -14353,14 +14353,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -14374,11 +14374,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -14475,7 +14475,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -14483,8 +14483,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -14496,14 +14496,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -14517,22 +14517,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -14540,8 +14540,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -14553,14 +14553,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -14574,11 +14574,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -14625,7 +14625,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -14633,8 +14633,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -14646,14 +14646,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -14667,22 +14667,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -14690,8 +14690,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -14703,14 +14703,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -14724,11 +14724,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -14749,7 +14749,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -14757,8 +14757,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -14770,14 +14770,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -14791,11 +14791,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -14810,7 +14810,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -14818,8 +14818,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -14831,14 +14831,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -14852,11 +14852,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -14912,7 +14912,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -14990,17 +14990,17 @@ gapi.load('client', async () => {
           autoCreateRoutes: true,
           connectionStatus: {
             consensusState: {
-              deleteStatus: 'Test string',
-              updateStatus: 'Test string',
+              deleteStatus: 'DELETE_ACKNOWLEDGED',
+              updateStatus: 'IN_SYNC',
             },
             trafficConfiguration: {
               exportCustomRoutesToPeer: true,
               exportSubnetRoutesWithPublicIpToPeer: true,
               importCustomRoutesFromPeer: true,
               importSubnetRoutesWithPublicIpFromPeer: true,
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
             },
-            updateStrategy: 'Test string',
+            updateStrategy: 'CONSENSUS',
           },
           exchangeSubnetRoutes: true,
           exportCustomRoutes: true,
@@ -15010,10 +15010,10 @@ gapi.load('client', async () => {
           name: 'Test string',
           network: 'Test string',
           peerMtu: 42,
-          stackType: 'Test string',
-          state: 'Test string',
+          stackType: 'IPV4_IPV6',
+          state: 'ACTIVE',
           stateDetails: 'Test string',
-          updateStrategy: 'Test string',
+          updateStrategy: 'CONSENSUS',
         },
         peerNetwork: 'Test string',
       },
@@ -15071,7 +15071,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         mtu: 42,
         name: 'Test string',
-        networkFirewallPolicyEnforcementOrder: 'Test string',
+        networkFirewallPolicyEnforcementOrder: 'AFTER_CLASSIC_FIREWALL',
         networkLocationBindings: ['Test string'],
         networkProfile: 'Test string',
         params: {
@@ -15084,17 +15084,17 @@ gapi.load('client', async () => {
             autoCreateRoutes: true,
             connectionStatus: {
               consensusState: {
-                deleteStatus: 'Test string',
-                updateStatus: 'Test string',
+                deleteStatus: 'DELETE_ACKNOWLEDGED',
+                updateStatus: 'IN_SYNC',
               },
               trafficConfiguration: {
                 exportCustomRoutesToPeer: true,
                 exportSubnetRoutesWithPublicIpToPeer: true,
                 importCustomRoutesFromPeer: true,
                 importSubnetRoutesWithPublicIpFromPeer: true,
-                stackType: 'Test string',
+                stackType: 'IPV4_IPV6',
               },
-              updateStrategy: 'Test string',
+              updateStrategy: 'CONSENSUS',
             },
             exchangeSubnetRoutes: true,
             exportCustomRoutes: true,
@@ -15104,19 +15104,19 @@ gapi.load('client', async () => {
             name: 'Test string',
             network: 'Test string',
             peerMtu: 42,
-            stackType: 'Test string',
-            state: 'Test string',
+            stackType: 'IPV4_IPV6',
+            state: 'ACTIVE',
             stateDetails: 'Test string',
-            updateStrategy: 'Test string',
+            updateStrategy: 'CONSENSUS',
           },
         ],
         routingConfig: {
           bgpAlwaysCompareMed: true,
-          bgpBestPathSelectionMode: 'Test string',
-          bgpInterRegionCost: 'Test string',
+          bgpBestPathSelectionMode: 'LEGACY',
+          bgpInterRegionCost: 'ADD_COST_TO_MED',
           effectiveBgpAlwaysCompareMed: true,
-          effectiveBgpInterRegionCost: 'Test string',
-          routingMode: 'Test string',
+          effectiveBgpInterRegionCost: 'ADD_COST_TO_MED',
+          routingMode: 'GLOBAL',
         },
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -15133,7 +15133,7 @@ gapi.load('client', async () => {
     });
     /** Lists the peering routes exchanged over peering connection. */
     await gapi.client.compute.networks.listPeeringRoutes({
-      direction: 'Test string',
+      direction: 'INCOMING',
       filter: 'Test string',
       maxResults: 42,
       network: 'Test string',
@@ -15166,7 +15166,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         mtu: 42,
         name: 'Test string',
-        networkFirewallPolicyEnforcementOrder: 'Test string',
+        networkFirewallPolicyEnforcementOrder: 'AFTER_CLASSIC_FIREWALL',
         networkLocationBindings: ['Test string'],
         networkProfile: 'Test string',
         params: {
@@ -15179,17 +15179,17 @@ gapi.load('client', async () => {
             autoCreateRoutes: true,
             connectionStatus: {
               consensusState: {
-                deleteStatus: 'Test string',
-                updateStatus: 'Test string',
+                deleteStatus: 'DELETE_ACKNOWLEDGED',
+                updateStatus: 'IN_SYNC',
               },
               trafficConfiguration: {
                 exportCustomRoutesToPeer: true,
                 exportSubnetRoutesWithPublicIpToPeer: true,
                 importCustomRoutesFromPeer: true,
                 importSubnetRoutesWithPublicIpFromPeer: true,
-                stackType: 'Test string',
+                stackType: 'IPV4_IPV6',
               },
-              updateStrategy: 'Test string',
+              updateStrategy: 'CONSENSUS',
             },
             exchangeSubnetRoutes: true,
             exportCustomRoutes: true,
@@ -15199,19 +15199,19 @@ gapi.load('client', async () => {
             name: 'Test string',
             network: 'Test string',
             peerMtu: 42,
-            stackType: 'Test string',
-            state: 'Test string',
+            stackType: 'IPV4_IPV6',
+            state: 'ACTIVE',
             stateDetails: 'Test string',
-            updateStrategy: 'Test string',
+            updateStrategy: 'CONSENSUS',
           },
         ],
         routingConfig: {
           bgpAlwaysCompareMed: true,
-          bgpBestPathSelectionMode: 'Test string',
-          bgpInterRegionCost: 'Test string',
+          bgpBestPathSelectionMode: 'LEGACY',
+          bgpInterRegionCost: 'ADD_COST_TO_MED',
           effectiveBgpAlwaysCompareMed: true,
-          effectiveBgpInterRegionCost: 'Test string',
-          routingMode: 'Test string',
+          effectiveBgpInterRegionCost: 'ADD_COST_TO_MED',
+          routingMode: 'GLOBAL',
         },
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -15281,17 +15281,17 @@ gapi.load('client', async () => {
           autoCreateRoutes: true,
           connectionStatus: {
             consensusState: {
-              deleteStatus: 'Test string',
-              updateStatus: 'Test string',
+              deleteStatus: 'DELETE_ACKNOWLEDGED',
+              updateStatus: 'IN_SYNC',
             },
             trafficConfiguration: {
               exportCustomRoutesToPeer: true,
               exportSubnetRoutesWithPublicIpToPeer: true,
               importCustomRoutesFromPeer: true,
               importSubnetRoutesWithPublicIpFromPeer: true,
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
             },
-            updateStrategy: 'Test string',
+            updateStrategy: 'CONSENSUS',
           },
           exchangeSubnetRoutes: true,
           exportCustomRoutes: true,
@@ -15301,10 +15301,10 @@ gapi.load('client', async () => {
           name: 'Test string',
           network: 'Test string',
           peerMtu: 42,
-          stackType: 'Test string',
-          state: 'Test string',
+          stackType: 'IPV4_IPV6',
+          state: 'ACTIVE',
           stateDetails: 'Test string',
-          updateStrategy: 'Test string',
+          updateStrategy: 'CONSENSUS',
         },
       },
     );
@@ -15391,7 +15391,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           maxNodes: 42,
           minNodes: 42,
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
         creationTimestamp: 'Test string',
         description: 'Test string',
@@ -15399,8 +15399,8 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         locationHint: 'Test string',
-        maintenanceInterval: 'Test string',
-        maintenancePolicy: 'Test string',
+        maintenanceInterval: 'AS_NEEDED',
+        maintenancePolicy: 'DEFAULT',
         maintenanceWindow: {
           maintenanceDuration: {
             nanos: 42,
@@ -15417,10 +15417,10 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         size: 42,
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -15458,7 +15458,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           maxNodes: 42,
           minNodes: 42,
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
         creationTimestamp: 'Test string',
         description: 'Test string',
@@ -15466,8 +15466,8 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         locationHint: 'Test string',
-        maintenanceInterval: 'Test string',
-        maintenancePolicy: 'Test string',
+        maintenanceInterval: 'AS_NEEDED',
+        maintenancePolicy: 'DEFAULT',
         maintenanceWindow: {
           maintenanceDuration: {
             nanos: 42,
@@ -15484,10 +15484,10 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         size: 42,
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -15534,7 +15534,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -15647,7 +15647,7 @@ gapi.load('client', async () => {
             acceleratorType: 'Test string',
           },
         ],
-        cpuOvercommitType: 'Test string',
+        cpuOvercommitType: 'CPU_OVERCOMMIT_TYPE_UNSPECIFIED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         disks: [
@@ -15672,9 +15672,9 @@ gapi.load('client', async () => {
         region: 'Test string',
         selfLink: 'Test string',
         serverBinding: {
-          type: 'Test string',
+          type: 'RESTART_NODE_ON_ANY_SERVER',
         },
-        status: 'Test string',
+        status: 'CREATING',
         statusMessage: 'Test string',
       },
     );
@@ -15720,7 +15720,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -15822,7 +15822,7 @@ gapi.load('client', async () => {
       {
         conflictBehavior: 'Test string',
         name: 'Test string',
-        predefinedRolloutPlan: 'Test string',
+        predefinedRolloutPlan: 'FAST_ROLLOUT',
         retryUuid: 'Test string',
       },
     );
@@ -15870,7 +15870,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -15878,27 +15878,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -15958,7 +15958,7 @@ gapi.load('client', async () => {
           rolloutInput: {
             conflictBehavior: 'Test string',
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'FAST_ROLLOUT',
             retryUuid: 'Test string',
           },
           rolloutStatus: {
@@ -15966,27 +15966,27 @@ gapi.load('client', async () => {
               {
                 locationRolloutStatus: {
                   A: {
-                    state: 'Test string',
+                    state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                   },
                 },
                 rollout: 'Test string',
                 rolloutPlan: 'Test string',
-                state: 'Test string',
+                state: 'STATE_CANCELLED',
               },
             ],
             previousRollout: {
               locationRolloutStatus: {
                 A: {
-                  state: 'Test string',
+                  state: 'LOCATION_ROLLOUT_STATE_COMPLETED',
                 },
               },
               rollout: 'Test string',
               rolloutPlan: 'Test string',
-              state: 'Test string',
+              state: 'STATE_CANCELLED',
             },
           },
         },
-        scopedResourceStatus: 'Test string',
+        scopedResourceStatus: 'SCOPED_RESOURCE_STATUS_DELETING',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         updateTimestamp: 'Test string',
@@ -16060,7 +16060,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -16082,31 +16082,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -16124,18 +16124,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -16144,7 +16144,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -16222,7 +16222,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -16236,7 +16236,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -16248,8 +16248,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -16266,9 +16266,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -16318,7 +16318,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -16340,31 +16340,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -16382,18 +16382,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -16402,16 +16402,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -16487,7 +16487,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -16501,7 +16501,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -16513,8 +16513,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -16531,9 +16531,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -16583,7 +16583,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -16605,31 +16605,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -16647,18 +16647,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -16667,16 +16667,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -16727,7 +16727,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -16749,31 +16749,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -16791,18 +16791,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -16811,7 +16811,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -16898,7 +16898,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );
@@ -16959,7 +16959,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );
@@ -17008,10 +17008,10 @@ gapi.load('client', async () => {
         },
         creationTimestamp: 'Test string',
         description: 'Test string',
-        enable: 'Test string',
+        enable: 'FALSE',
         filter: {
           cidrRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'BOTH',
           IPProtocols: ['Test string'],
         },
         id: 'Test string',
@@ -17073,10 +17073,10 @@ gapi.load('client', async () => {
         },
         creationTimestamp: 'Test string',
         description: 'Test string',
-        enable: 'Test string',
+        enable: 'FALSE',
         filter: {
           cidrRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'BOTH',
           IPProtocols: ['Test string'],
         },
         id: 'Test string',
@@ -17141,7 +17141,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        activationStatus: 'Test string',
+        activationStatus: 'ACTIVATION_STATE_UNSPECIFIED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         id: 'Test string',
@@ -17150,7 +17150,7 @@ gapi.load('client', async () => {
         rolloutOperation: {
           rolloutInput: {
             name: 'Test string',
-            predefinedRolloutPlan: 'Test string',
+            predefinedRolloutPlan: 'ROLLOUT_PLAN_FAST_ROLLOUT',
           },
         },
         selfLink: 'Test string',
@@ -17158,7 +17158,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           helpLink: 'Test string',
           releaseStatus: {
-            stage: 'Test string',
+            stage: 'DEPRECATED',
             updateDate: {
               day: 42,
               month: 42,
@@ -17185,7 +17185,7 @@ gapi.load('client', async () => {
       {
         xpnResource: {
           id: 'Test string',
-          type: 'Test string',
+          type: 'PROJECT',
         },
       },
     );
@@ -17207,7 +17207,7 @@ gapi.load('client', async () => {
       {
         xpnResource: {
           id: 'Test string',
-          type: 'Test string',
+          type: 'PROJECT',
         },
       },
     );
@@ -17313,7 +17313,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        cloudArmorTier: 'Test string',
+        cloudArmorTier: 'CA_ENTERPRISE_ANNUAL',
       },
     );
     /**
@@ -17347,7 +17347,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        networkTier: 'Test string',
+        networkTier: 'FIXED_STANDARD',
       },
     );
     /**
@@ -17406,17 +17406,17 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         dnsVerificationIp: 'Test string',
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         kind: 'Test string',
         name: 'Test string',
-        pdpScope: 'Test string',
+        pdpScope: 'GLOBAL',
         publicDelegatedPrefixs: [
           {
             ipRange: 'Test string',
@@ -17428,7 +17428,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         sharedSecret: 'Test string',
-        status: 'Test string',
+        status: 'ANNOUNCED_TO_INTERNET',
       },
     );
     /** Lists the PublicAdvertisedPrefixes for a project. */
@@ -17452,17 +17452,17 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         dnsVerificationIp: 'Test string',
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         kind: 'Test string',
         name: 'Test string',
-        pdpScope: 'Test string',
+        pdpScope: 'GLOBAL',
         publicDelegatedPrefixs: [
           {
             ipRange: 'Test string',
@@ -17474,7 +17474,7 @@ gapi.load('client', async () => {
         ],
         selfLink: 'Test string',
         sharedSecret: 'Test string',
-        status: 'Test string',
+        status: 'ANNOUNCED_TO_INTERNET',
       },
     );
     /** Withdraws the specified PublicAdvertisedPrefix */
@@ -17531,17 +17531,17 @@ gapi.load('client', async () => {
       },
       {
         allocatablePrefixLength: 42,
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         enableEnhancedIpv4Allocation: true,
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         isLiveMigration: true,
         kind: 'Test string',
-        mode: 'Test string',
+        mode: 'DELEGATION',
         name: 'Test string',
         parentPrefix: 'Test string',
         publicDelegatedSubPrefixs: [
@@ -17551,17 +17551,17 @@ gapi.load('client', async () => {
             description: 'Test string',
             enableEnhancedIpv4Allocation: true,
             ipCidrRange: 'Test string',
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             isAddress: true,
-            mode: 'Test string',
+            mode: 'DELEGATION',
             name: 'Test string',
             region: 'Test string',
-            status: 'Test string',
+            status: 'ACTIVE',
           },
         ],
         region: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
       },
     );
     /** Lists the PublicDelegatedPrefixes for a project in the given region. */
@@ -17588,17 +17588,17 @@ gapi.load('client', async () => {
       },
       {
         allocatablePrefixLength: 42,
-        byoipApiVersion: 'Test string',
+        byoipApiVersion: 'V1',
         creationTimestamp: 'Test string',
         description: 'Test string',
         enableEnhancedIpv4Allocation: true,
         fingerprint: 'Test string',
         id: 'Test string',
         ipCidrRange: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         isLiveMigration: true,
         kind: 'Test string',
-        mode: 'Test string',
+        mode: 'DELEGATION',
         name: 'Test string',
         parentPrefix: 'Test string',
         publicDelegatedSubPrefixs: [
@@ -17608,17 +17608,17 @@ gapi.load('client', async () => {
             description: 'Test string',
             enableEnhancedIpv4Allocation: true,
             ipCidrRange: 'Test string',
-            ipv6AccessType: 'Test string',
+            ipv6AccessType: 'EXTERNAL',
             isAddress: true,
-            mode: 'Test string',
+            mode: 'DELEGATION',
             name: 'Test string',
             region: 'Test string',
-            status: 'Test string',
+            status: 'ACTIVE',
           },
         ],
         region: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
       },
     );
     /** Withdraws the specified PublicDelegatedPrefix in the given region. */
@@ -17655,7 +17655,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -17666,7 +17666,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -17674,7 +17674,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -17706,15 +17706,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -17750,7 +17750,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -17761,7 +17761,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -17769,7 +17769,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -17801,15 +17801,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -17842,7 +17842,7 @@ gapi.load('client', async () => {
         autoscalingPolicy: {
           coolDownPeriodSec: 42,
           cpuUtilization: {
-            predictiveMethod: 'Test string',
+            predictiveMethod: 'NONE',
             utilizationMax: 42,
             utilizationMin: 42,
             utilizationTarget: 42,
@@ -17853,7 +17853,7 @@ gapi.load('client', async () => {
               metric: 'Test string',
               singleInstanceAssignment: 42,
               utilizationTarget: 42,
-              utilizationTargetType: 'Test string',
+              utilizationTargetType: 'DELTA_PER_MINUTE',
             },
           ],
           loadBalancingUtilization: {
@@ -17861,7 +17861,7 @@ gapi.load('client', async () => {
           },
           maxNumReplicas: 42,
           minNumReplicas: 42,
-          mode: 'Test string',
+          mode: 'OFF',
           scaleInControl: {
             maxScaledInReplicas: {
               calculated: 42,
@@ -17893,15 +17893,15 @@ gapi.load('client', async () => {
           A: {
             lastStartTime: 'Test string',
             nextStartTime: 'Test string',
-            state: 'Test string',
+            state: 'ACTIVE',
           },
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusDetails: [
           {
             message: 'Test string',
-            type: 'Test string',
+            type: 'ALL_INSTANCES_UNHEALTHY',
           },
         ],
         target: 'Test string',
@@ -17953,7 +17953,7 @@ gapi.load('client', async () => {
             includeHttpHeaders: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -17969,7 +17969,7 @@ gapi.load('client', async () => {
           signedUrlCacheMaxAgeSec: 'Test string',
           signedUrlKeyNames: ['Test string'],
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         creationTimestamp: 'Test string',
         customResponseHeaders: ['Test string'],
         description: 'Test string',
@@ -17977,7 +17977,7 @@ gapi.load('client', async () => {
         enableCdn: true,
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL_MANAGED',
         name: 'Test string',
         params: {
           resourceManagerTags: {
@@ -18042,7 +18042,7 @@ gapi.load('client', async () => {
             includeHttpHeaders: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -18058,7 +18058,7 @@ gapi.load('client', async () => {
           signedUrlCacheMaxAgeSec: 'Test string',
           signedUrlKeyNames: ['Test string'],
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         creationTimestamp: 'Test string',
         customResponseHeaders: ['Test string'],
         description: 'Test string',
@@ -18066,7 +18066,7 @@ gapi.load('client', async () => {
         enableCdn: true,
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL_MANAGED',
         name: 'Test string',
         params: {
           resourceManagerTags: {
@@ -18112,7 +18112,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -18198,7 +18198,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -18223,8 +18223,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -18242,7 +18242,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -18265,15 +18265,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -18299,7 +18299,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -18308,7 +18308,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -18324,9 +18324,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -18334,11 +18334,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -18352,7 +18352,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -18367,7 +18367,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -18400,7 +18400,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -18417,7 +18417,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -18427,7 +18427,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -18492,7 +18492,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -18517,8 +18517,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -18536,7 +18536,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -18559,15 +18559,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -18593,7 +18593,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -18602,7 +18602,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -18618,9 +18618,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -18628,11 +18628,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -18646,7 +18646,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -18661,7 +18661,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -18694,7 +18694,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -18711,7 +18711,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -18721,7 +18721,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -18772,7 +18772,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -18839,7 +18839,7 @@ gapi.load('client', async () => {
         affinityCookieTtlSec: 42,
         backends: [
           {
-            balancingMode: 'Test string',
+            balancingMode: 'CONNECTION',
             capacityScaler: 42,
             customMetrics: [
               {
@@ -18864,8 +18864,8 @@ gapi.load('client', async () => {
             orchestrationInfo: {
               resourceUri: 'Test string',
             },
-            preference: 'Test string',
-            trafficDuration: 'Test string',
+            preference: 'DEFAULT',
+            trafficDuration: 'LONG',
           },
         ],
         cdnPolicy: {
@@ -18883,7 +18883,7 @@ gapi.load('client', async () => {
             queryStringBlacklist: ['Test string'],
             queryStringWhitelist: ['Test string'],
           },
-          cacheMode: 'Test string',
+          cacheMode: 'CACHE_ALL_STATIC',
           clientTtl: 42,
           defaultTtl: 42,
           maxTtl: 42,
@@ -18906,15 +18906,15 @@ gapi.load('client', async () => {
           maxRequestsPerConnection: 42,
           maxRetries: 42,
         },
-        compressionMode: 'Test string',
+        compressionMode: 'AUTOMATIC',
         connectionDraining: {
           drainingTimeoutSec: 42,
         },
         connectionTrackingPolicy: {
-          connectionPersistenceOnUnhealthyBackends: 'Test string',
+          connectionPersistenceOnUnhealthyBackends: 'ALWAYS_PERSIST',
           enableStrongAffinity: true,
           idleTimeoutSec: 42,
-          trackingMode: 'Test string',
+          trackingMode: 'INVALID_TRACKING_MODE',
         },
         consistentHash: {
           httpCookie: {
@@ -18940,7 +18940,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         edgeSecurityPolicy: 'Test string',
         enableCDN: true,
-        externalManagedMigrationState: 'Test string',
+        externalManagedMigrationState: 'PREPARE',
         externalManagedMigrationTestingPercentage: 42,
         failoverPolicy: {
           disableConnectionDrainOnFailover: true,
@@ -18949,7 +18949,7 @@ gapi.load('client', async () => {
         },
         fingerprint: 'Test string',
         haPolicy: {
-          fastIPMove: 'Test string',
+          fastIPMove: 'DISABLED',
           leader: {
             backendGroup: 'Test string',
             networkEndpoint: {
@@ -18965,9 +18965,9 @@ gapi.load('client', async () => {
           oauth2ClientSecretSha256: 'Test string',
         },
         id: 'Test string',
-        ipAddressSelectionPolicy: 'Test string',
+        ipAddressSelectionPolicy: 'IPV4_ONLY',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         localityLbPolicies: [
           {
             customPolicy: {
@@ -18975,11 +18975,11 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
             policy: {
-              name: 'Test string',
+              name: 'INVALID_LB_POLICY',
             },
           },
         ],
-        localityLbPolicy: 'Test string',
+        localityLbPolicy: 'INVALID_LB_POLICY',
         logConfig: {
           enable: true,
           loggingHttpRequestHeaders: [
@@ -18993,7 +18993,7 @@ gapi.load('client', async () => {
             },
           ],
           optionalFields: ['Test string'],
-          optionalMode: 'Test string',
+          optionalMode: 'CUSTOM',
           sampleRate: 42,
         },
         maxStreamDuration: {
@@ -19008,7 +19008,7 @@ gapi.load('client', async () => {
         networkAttachment: 'Test string',
         networkPassThroughLbTrafficPolicy: {
           zonalAffinity: {
-            spillover: 'Test string',
+            spillover: 'ZONAL_AFFINITY_DISABLED',
             spilloverRatio: 42,
           },
         },
@@ -19041,7 +19041,7 @@ gapi.load('client', async () => {
         },
         port: 42,
         portName: 'Test string',
-        protocol: 'Test string',
+        protocol: 'GRPC',
         region: 'Test string',
         securityPolicy: 'Test string',
         securitySettings: {
@@ -19058,7 +19058,7 @@ gapi.load('client', async () => {
         serviceBindings: ['Test string'],
         serviceClassId: 'Test string',
         serviceLbPolicy: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
         strongSessionAffinityCookie: {
           name: 'Test string',
           path: 'Test string',
@@ -19068,7 +19068,7 @@ gapi.load('client', async () => {
           },
         },
         subsetting: {
-          policy: 'Test string',
+          policy: 'CONSISTENT_HASH_SUBSETTING',
         },
         timeoutSec: 42,
         tlsSettings: {
@@ -19122,7 +19122,7 @@ gapi.load('client', async () => {
       },
       {
         autoRenew: true,
-        category: 'Test string',
+        category: 'CATEGORY_UNSPECIFIED',
         creationTimestamp: 'Test string',
         customEndTimestamp: 'Test string',
         description: 'Test string',
@@ -19142,12 +19142,12 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        plan: 'Test string',
+        plan: 'INVALID',
         region: 'Test string',
         reservations: [
           {
             advancedDeploymentControl: {
-              reservationOperationalMode: 'Test string',
+              reservationOperationalMode: 'ALL_CAPACITY',
             },
             aggregateReservation: {
               inUseResources: [
@@ -19166,20 +19166,20 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              vmFamily: 'Test string',
-              workloadType: 'Test string',
+              vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+              workloadType: 'BATCH',
             },
             commitment: 'Test string',
-            confidentialComputeType: 'Test string',
+            confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
             creationTimestamp: 'Test string',
             deleteAfterDuration: {
               nanos: 42,
               seconds: 'Test string',
             },
             deleteAtTime: 'Test string',
-            deploymentType: 'Test string',
+            deploymentType: 'DENSE',
             description: 'Test string',
-            earlyAccessMaintenance: 'Test string',
+            earlyAccessMaintenance: 'NO_EARLY_ACCESS',
             enableEmergentMaintenance: true,
             id: 'Test string',
             kind: 'Test string',
@@ -19190,9 +19190,9 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            protectionTier: 'Test string',
+            protectionTier: 'CAPACITY_OPTIMIZED',
             reservationSharingPolicy: {
-              serviceShareType: 'Test string',
+              serviceShareType: 'ALLOW_ALL',
             },
             resourceMetadata: {
               apiVersion: 'Test string',
@@ -19204,7 +19204,7 @@ gapi.load('client', async () => {
             resourceStatus: {
               healthInfo: {
                 degradedBlockCount: 42,
-                healthStatus: 'Test string',
+                healthStatus: 'DEGRADED',
                 healthyBlockCount: 42,
               },
               machineCount: 42,
@@ -19214,16 +19214,16 @@ gapi.load('client', async () => {
                 instanceMaintenancePendingCount: 42,
                 maintenanceOngoingCount: 42,
                 maintenancePendingCount: 42,
-                schedulingType: 'Test string',
+                schedulingType: 'GROUPED',
                 subblockInfraMaintenanceOngoingCount: 42,
                 subblockInfraMaintenancePendingCount: 42,
                 upcomingGroupMaintenance: {
                   canReschedule: true,
                   latestWindowStartTime: 'Test string',
                   maintenanceOnShutdown: true,
-                  maintenanceReasons: ['Test string'],
-                  maintenanceStatus: 'Test string',
-                  type: 'Test string',
+                  maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+                  maintenanceStatus: 'ONGOING',
+                  type: 'MULTIPLE',
                   windowEndTime: 'Test string',
                   windowStartTime: 'Test string',
                 },
@@ -19236,7 +19236,7 @@ gapi.load('client', async () => {
               },
             },
             satisfiesPzs: true,
-            schedulingType: 'Test string',
+            schedulingType: 'GROUPED',
             selfLink: 'Test string',
             shareSettings: {
               projectMap: {
@@ -19244,7 +19244,7 @@ gapi.load('client', async () => {
                   projectId: 'Test string',
                 },
               },
-              shareType: 'Test string',
+              shareType: 'LOCAL',
             },
             specificReservation: {
               assuredCount: 'Test string',
@@ -19259,7 +19259,7 @@ gapi.load('client', async () => {
                 localSsds: [
                   {
                     diskSizeGb: 'Test string',
-                    interface: 'Test string',
+                    interface: 'NVME',
                   },
                 ],
                 locationHint: 'Test string',
@@ -19270,7 +19270,7 @@ gapi.load('client', async () => {
               sourceInstanceTemplate: 'Test string',
             },
             specificReservationRequired: true,
-            status: 'Test string',
+            status: 'CREATING',
             zone: 'Test string',
           },
         ],
@@ -19278,7 +19278,7 @@ gapi.load('client', async () => {
           {
             acceleratorType: 'Test string',
             amount: 'Test string',
-            type: 'Test string',
+            type: 'ACCELERATOR',
           },
         ],
         resourceStatus: {
@@ -19287,9 +19287,9 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         splitSourceCommitment: 'Test string',
         startTimestamp: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusMessage: 'Test string',
-        type: 'Test string',
+        type: 'ACCELERATOR_OPTIMIZED',
       },
     );
     /**
@@ -19320,7 +19320,7 @@ gapi.load('client', async () => {
       },
       {
         autoRenew: true,
-        category: 'Test string',
+        category: 'CATEGORY_UNSPECIFIED',
         creationTimestamp: 'Test string',
         customEndTimestamp: 'Test string',
         description: 'Test string',
@@ -19340,12 +19340,12 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        plan: 'Test string',
+        plan: 'INVALID',
         region: 'Test string',
         reservations: [
           {
             advancedDeploymentControl: {
-              reservationOperationalMode: 'Test string',
+              reservationOperationalMode: 'ALL_CAPACITY',
             },
             aggregateReservation: {
               inUseResources: [
@@ -19364,20 +19364,20 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              vmFamily: 'Test string',
-              workloadType: 'Test string',
+              vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+              workloadType: 'BATCH',
             },
             commitment: 'Test string',
-            confidentialComputeType: 'Test string',
+            confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
             creationTimestamp: 'Test string',
             deleteAfterDuration: {
               nanos: 42,
               seconds: 'Test string',
             },
             deleteAtTime: 'Test string',
-            deploymentType: 'Test string',
+            deploymentType: 'DENSE',
             description: 'Test string',
-            earlyAccessMaintenance: 'Test string',
+            earlyAccessMaintenance: 'NO_EARLY_ACCESS',
             enableEmergentMaintenance: true,
             id: 'Test string',
             kind: 'Test string',
@@ -19388,9 +19388,9 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            protectionTier: 'Test string',
+            protectionTier: 'CAPACITY_OPTIMIZED',
             reservationSharingPolicy: {
-              serviceShareType: 'Test string',
+              serviceShareType: 'ALLOW_ALL',
             },
             resourceMetadata: {
               apiVersion: 'Test string',
@@ -19402,7 +19402,7 @@ gapi.load('client', async () => {
             resourceStatus: {
               healthInfo: {
                 degradedBlockCount: 42,
-                healthStatus: 'Test string',
+                healthStatus: 'DEGRADED',
                 healthyBlockCount: 42,
               },
               machineCount: 42,
@@ -19412,16 +19412,16 @@ gapi.load('client', async () => {
                 instanceMaintenancePendingCount: 42,
                 maintenanceOngoingCount: 42,
                 maintenancePendingCount: 42,
-                schedulingType: 'Test string',
+                schedulingType: 'GROUPED',
                 subblockInfraMaintenanceOngoingCount: 42,
                 subblockInfraMaintenancePendingCount: 42,
                 upcomingGroupMaintenance: {
                   canReschedule: true,
                   latestWindowStartTime: 'Test string',
                   maintenanceOnShutdown: true,
-                  maintenanceReasons: ['Test string'],
-                  maintenanceStatus: 'Test string',
-                  type: 'Test string',
+                  maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+                  maintenanceStatus: 'ONGOING',
+                  type: 'MULTIPLE',
                   windowEndTime: 'Test string',
                   windowStartTime: 'Test string',
                 },
@@ -19434,7 +19434,7 @@ gapi.load('client', async () => {
               },
             },
             satisfiesPzs: true,
-            schedulingType: 'Test string',
+            schedulingType: 'GROUPED',
             selfLink: 'Test string',
             shareSettings: {
               projectMap: {
@@ -19442,7 +19442,7 @@ gapi.load('client', async () => {
                   projectId: 'Test string',
                 },
               },
-              shareType: 'Test string',
+              shareType: 'LOCAL',
             },
             specificReservation: {
               assuredCount: 'Test string',
@@ -19457,7 +19457,7 @@ gapi.load('client', async () => {
                 localSsds: [
                   {
                     diskSizeGb: 'Test string',
-                    interface: 'Test string',
+                    interface: 'NVME',
                   },
                 ],
                 locationHint: 'Test string',
@@ -19468,7 +19468,7 @@ gapi.load('client', async () => {
               sourceInstanceTemplate: 'Test string',
             },
             specificReservationRequired: true,
-            status: 'Test string',
+            status: 'CREATING',
             zone: 'Test string',
           },
         ],
@@ -19476,7 +19476,7 @@ gapi.load('client', async () => {
           {
             acceleratorType: 'Test string',
             amount: 'Test string',
-            type: 'Test string',
+            type: 'ACCELERATOR',
           },
         ],
         resourceStatus: {
@@ -19485,9 +19485,9 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         splitSourceCommitment: 'Test string',
         startTimestamp: 'Test string',
-        status: 'Test string',
+        status: 'ACTIVE',
         statusMessage: 'Test string',
-        type: 'Test string',
+        type: 'ACCELERATOR_OPTIMIZED',
       },
     );
     /**
@@ -19648,7 +19648,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         autoCreated: true,
         chainName: 'Test string',
         creationSizeBytes: 'Test string',
@@ -19660,7 +19660,7 @@ gapi.load('client', async () => {
         guestFlush: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -19691,7 +19691,7 @@ gapi.load('client', async () => {
         },
         snapshotGroupId: 'Test string',
         snapshotGroupName: 'Test string',
-        snapshotType: 'Test string',
+        snapshotType: 'ARCHIVE',
         sourceDisk: 'Test string',
         sourceDiskEncryptionKey: {
           kmsKeyName: 'Test string',
@@ -19713,9 +19713,9 @@ gapi.load('client', async () => {
         sourceInstantSnapshotId: 'Test string',
         sourceSnapshotSchedulePolicy: 'Test string',
         sourceSnapshotSchedulePolicyId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storageBytes: 'Test string',
-        storageBytesStatus: 'Test string',
+        storageBytesStatus: 'UPDATING',
         storageLocations: ['Test string'],
       },
     );
@@ -19760,8 +19760,8 @@ gapi.load('client', async () => {
         sourceImage: 'Test string',
       },
       {
-        accessMode: 'Test string',
-        architecture: 'Test string',
+        accessMode: 'READ_ONLY_MANY',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         asyncPrimaryDisk: {
           consistencyGroupPolicy: 'Test string',
           consistencyGroupPolicyId: 'Test string',
@@ -19790,7 +19790,7 @@ gapi.load('client', async () => {
         enableConfidentialCompute: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -19819,11 +19819,11 @@ gapi.load('client', async () => {
         resourcePolicies: ['Test string'],
         resourceStatus: {
           asyncPrimaryDisk: {
-            state: 'Test string',
+            state: 'ACTIVE',
           },
           asyncSecondaryDisks: {
             A: {
-              state: 'Test string',
+              state: 'ACTIVE',
             },
           },
         },
@@ -19856,7 +19856,7 @@ gapi.load('client', async () => {
         },
         sourceSnapshotId: 'Test string',
         sourceStorageObject: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storagePool: 'Test string',
         type: 'Test string',
         users: ['Test string'],
@@ -19929,7 +19929,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -20031,8 +20031,8 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        accessMode: 'Test string',
-        architecture: 'Test string',
+        accessMode: 'READ_ONLY_MANY',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         asyncPrimaryDisk: {
           consistencyGroupPolicy: 'Test string',
           consistencyGroupPolicyId: 'Test string',
@@ -20061,7 +20061,7 @@ gapi.load('client', async () => {
         enableConfidentialCompute: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -20090,11 +20090,11 @@ gapi.load('client', async () => {
         resourcePolicies: ['Test string'],
         resourceStatus: {
           asyncPrimaryDisk: {
-            state: 'Test string',
+            state: 'ACTIVE',
           },
           asyncSecondaryDisks: {
             A: {
-              state: 'Test string',
+              state: 'ACTIVE',
             },
           },
         },
@@ -20127,7 +20127,7 @@ gapi.load('client', async () => {
         },
         sourceSnapshotId: 'Test string',
         sourceStorageObject: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storagePool: 'Test string',
         type: 'Test string',
         users: ['Test string'],
@@ -20212,7 +20212,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         minHealthyThreshold: 42,
         name: 'Test string',
-        policyType: 'Test string',
+        policyType: 'BACKEND_SERVICE_POLICY',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -20249,7 +20249,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         minHealthyThreshold: 42,
         name: 'Test string',
-        policyType: 'Test string',
+        policyType: 'BACKEND_SERVICE_POLICY',
         region: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -20297,20 +20297,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20318,8 +20318,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20327,8 +20327,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20344,21 +20344,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -20395,20 +20395,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20416,8 +20416,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20425,8 +20425,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20442,21 +20442,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -20490,20 +20490,20 @@ gapi.load('client', async () => {
           grpcServiceName: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         grpcTlsHealthCheck: {
           grpcServiceName: 'Test string',
           port: 42,
-          portSpecification: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
         },
         healthyThreshold: 42,
         http2HealthCheck: {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20511,8 +20511,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20520,8 +20520,8 @@ gapi.load('client', async () => {
           host: 'Test string',
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           requestPath: 'Test string',
           response: 'Test string',
         },
@@ -20537,21 +20537,21 @@ gapi.load('client', async () => {
         sslHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         tcpHealthCheck: {
           port: 42,
           portName: 'Test string',
-          portSpecification: 'Test string',
-          proxyHeader: 'Test string',
+          portSpecification: 'USE_FIXED_PORT',
+          proxyHeader: 'NONE',
           request: 'Test string',
           response: 'Test string',
         },
         timeoutSec: 42,
-        type: 'Test string',
+        type: 'GRPC',
         unhealthyThreshold: 42,
       },
     );
@@ -20599,7 +20599,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         fingerprint: 'Test string',
         healthChecks: ['Test string'],
-        healthStatusAggregationPolicy: 'Test string',
+        healthStatusAggregationPolicy: 'AND',
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
@@ -20639,7 +20639,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         fingerprint: 'Test string',
         healthChecks: ['Test string'],
-        healthStatusAggregationPolicy: 'Test string',
+        healthStatusAggregationPolicy: 'AND',
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
@@ -20720,7 +20720,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         sources: ['Test string'],
-        sourceType: 'Test string',
+        sourceType: 'BACKEND_SERVICE',
       },
     );
     /** Lists the HealthSources for a project in the given region. */
@@ -20757,7 +20757,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         sources: ['Test string'],
-        sourceType: 'Test string',
+        sourceType: 'BACKEND_SERVICE',
       },
     );
     /** Returns permissions that a caller has on the specified resource. */
@@ -20825,14 +20825,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -20841,7 +20841,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -20852,7 +20852,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
         kind: 'Test string',
@@ -20865,7 +20865,7 @@ gapi.load('client', async () => {
         resizeBy: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACCEPTED',
         status: {
           error: {
             errors: [
@@ -20900,7 +20900,7 @@ gapi.load('client', async () => {
                       limit: 42,
                       limitName: 'Test string',
                       metricName: 'Test string',
-                      rolloutStatus: 'Test string',
+                      rolloutStatus: 'IN_PROGRESS',
                     },
                   },
                 ],
@@ -20943,7 +20943,7 @@ gapi.load('client', async () => {
                         limit: 42,
                         limitName: 'Test string',
                         metricName: 'Test string',
-                        rolloutStatus: 'Test string',
+                        rolloutStatus: 'IN_PROGRESS',
                       },
                     },
                   ],
@@ -21007,10 +21007,10 @@ gapi.load('client', async () => {
       },
       {
         allInstances: true,
-        allowedActions: ['Test string'],
+        allowedActions: ['NONE'],
         instances: ['Test string'],
-        minimalAction: 'Test string',
-        mostDisruptiveAllowedAction: 'Test string',
+        minimalAction: 'NONE',
+        mostDisruptiveAllowedAction: 'NONE',
       },
     );
     /**
@@ -21036,14 +21036,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -21052,7 +21052,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -21063,7 +21063,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -21183,7 +21183,7 @@ gapi.load('client', async () => {
         },
         description: 'Test string',
         distributionPolicy: {
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -21197,7 +21197,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -21212,12 +21212,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -21227,7 +21227,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -21253,37 +21253,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -21294,16 +21294,16 @@ gapi.load('client', async () => {
         },
         instanceGroup: 'Test string',
         instanceLifecyclePolicy: {
-          defaultActionOnFailure: 'Test string',
-          forceUpdateOnRepair: 'Test string',
-          onFailedHealthCheck: 'Test string',
+          defaultActionOnFailure: 'DO_NOTHING',
+          forceUpdateOnRepair: 'NO',
+          onFailedHealthCheck: 'DEFAULT_ACTION',
           onRepair: {
-            allowChangingZone: 'Test string',
+            allowChangingZone: 'NO',
           },
         },
         instanceTemplate: 'Test string',
         kind: 'Test string',
-        listManagedInstancesResults: 'Test string',
+        listManagedInstancesResults: 'PAGELESS',
         name: 'Test string',
         namedPorts: [
           {
@@ -21320,23 +21320,23 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         standbyPolicy: {
           initialDelaySec: 42,
-          mode: 'Test string',
+          mode: 'MANUAL',
         },
         statefulPolicy: {
           preservedState: {
             disks: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             externalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             internalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
           },
@@ -21349,7 +21349,7 @@ gapi.load('client', async () => {
           appliedAcceleratorTopologies: [
             {
               acceleratorTopology: 'Test string',
-              state: 'Test string',
+              state: 'ACTIVATING',
               stateDetails: {
                 error: {
                   errors: [
@@ -21384,7 +21384,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -21434,7 +21434,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -21475,13 +21475,13 @@ gapi.load('client', async () => {
         targetPools: ['Test string'],
         targetSize: 42,
         targetSizePolicy: {
-          mode: 'Test string',
+          mode: 'BULK',
         },
         targetStoppedSize: 42,
         targetSuspendedSize: 42,
         updatePolicy: {
-          allowedActions: ['Test string'],
-          instanceRedistributionType: 'Test string',
+          allowedActions: ['NONE'],
+          instanceRedistributionType: 'NONE',
           maxSurge: {
             calculated: 42,
             fixed: 42,
@@ -21492,10 +21492,10 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          minimalAction: 'Test string',
-          mostDisruptiveAllowedAction: 'Test string',
-          replacementMethod: 'Test string',
-          type: 'Test string',
+          minimalAction: 'NONE',
+          mostDisruptiveAllowedAction: 'NONE',
+          replacementMethod: 'RECREATE',
+          type: 'OPPORTUNISTIC',
         },
         versions: [
           {
@@ -21629,7 +21629,7 @@ gapi.load('client', async () => {
         },
         description: 'Test string',
         distributionPolicy: {
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -21643,7 +21643,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -21658,12 +21658,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -21673,7 +21673,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -21699,37 +21699,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -21740,16 +21740,16 @@ gapi.load('client', async () => {
         },
         instanceGroup: 'Test string',
         instanceLifecyclePolicy: {
-          defaultActionOnFailure: 'Test string',
-          forceUpdateOnRepair: 'Test string',
-          onFailedHealthCheck: 'Test string',
+          defaultActionOnFailure: 'DO_NOTHING',
+          forceUpdateOnRepair: 'NO',
+          onFailedHealthCheck: 'DEFAULT_ACTION',
           onRepair: {
-            allowChangingZone: 'Test string',
+            allowChangingZone: 'NO',
           },
         },
         instanceTemplate: 'Test string',
         kind: 'Test string',
-        listManagedInstancesResults: 'Test string',
+        listManagedInstancesResults: 'PAGELESS',
         name: 'Test string',
         namedPorts: [
           {
@@ -21766,23 +21766,23 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         standbyPolicy: {
           initialDelaySec: 42,
-          mode: 'Test string',
+          mode: 'MANUAL',
         },
         statefulPolicy: {
           preservedState: {
             disks: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             externalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
             internalIPs: {
               A: {
-                autoDelete: 'Test string',
+                autoDelete: 'NEVER',
               },
             },
           },
@@ -21795,7 +21795,7 @@ gapi.load('client', async () => {
           appliedAcceleratorTopologies: [
             {
               acceleratorTopology: 'Test string',
-              state: 'Test string',
+              state: 'ACTIVATING',
               stateDetails: {
                 error: {
                   errors: [
@@ -21830,7 +21830,7 @@ gapi.load('client', async () => {
                             limit: 42,
                             limitName: 'Test string',
                             metricName: 'Test string',
-                            rolloutStatus: 'Test string',
+                            rolloutStatus: 'IN_PROGRESS',
                           },
                         },
                       ],
@@ -21880,7 +21880,7 @@ gapi.load('client', async () => {
                           limit: 42,
                           limitName: 'Test string',
                           metricName: 'Test string',
-                          rolloutStatus: 'Test string',
+                          rolloutStatus: 'IN_PROGRESS',
                         },
                       },
                     ],
@@ -21921,13 +21921,13 @@ gapi.load('client', async () => {
         targetPools: ['Test string'],
         targetSize: 42,
         targetSizePolicy: {
-          mode: 'Test string',
+          mode: 'BULK',
         },
         targetStoppedSize: 42,
         targetSuspendedSize: 42,
         updatePolicy: {
-          allowedActions: ['Test string'],
-          instanceRedistributionType: 'Test string',
+          allowedActions: ['NONE'],
+          instanceRedistributionType: 'NONE',
           maxSurge: {
             calculated: 42,
             fixed: 42,
@@ -21938,10 +21938,10 @@ gapi.load('client', async () => {
             fixed: 42,
             percent: 42,
           },
-          minimalAction: 'Test string',
-          mostDisruptiveAllowedAction: 'Test string',
-          replacementMethod: 'Test string',
-          type: 'Test string',
+          minimalAction: 'NONE',
+          mostDisruptiveAllowedAction: 'NONE',
+          replacementMethod: 'RECREATE',
+          type: 'OPPORTUNISTIC',
         },
         versions: [
           {
@@ -21977,14 +21977,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -21993,7 +21993,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -22004,7 +22004,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -22246,14 +22246,14 @@ gapi.load('client', async () => {
             preservedState: {
               disks: {
                 A: {
-                  autoDelete: 'Test string',
-                  mode: 'Test string',
+                  autoDelete: 'NEVER',
+                  mode: 'READ_ONLY',
                   source: 'Test string',
                 },
               },
               externalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -22262,7 +22262,7 @@ gapi.load('client', async () => {
               },
               internalIPs: {
                 A: {
-                  autoDelete: 'Test string',
+                  autoDelete: 'NEVER',
                   ipAddress: {
                     address: 'Test string',
                     literal: 'Test string',
@@ -22273,7 +22273,7 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
             },
-            status: 'Test string',
+            status: 'APPLYING',
           },
         ],
       },
@@ -22313,7 +22313,7 @@ gapi.load('client', async () => {
         region: 'Test string',
       },
       {
-        instanceState: 'Test string',
+        instanceState: 'ALL',
         portName: 'Test string',
       },
     );
@@ -22363,7 +22363,7 @@ gapi.load('client', async () => {
             A: {
               disks: [
                 {
-                  architecture: 'Test string',
+                  architecture: 'ARCHITECTURE_UNSPECIFIED',
                   autoDelete: true,
                   boot: true,
                   deviceName: 'Test string',
@@ -22378,12 +22378,12 @@ gapi.load('client', async () => {
                   forceAttach: true,
                   guestOsFeatures: [
                     {
-                      type: 'Test string',
+                      type: 'BARE_METAL_LINUX_COMPATIBLE',
                     },
                   ],
                   index: 42,
                   initializeParams: {
-                    architecture: 'Test string',
+                    architecture: 'ARCHITECTURE_UNSPECIFIED',
                     description: 'Test string',
                     diskName: 'Test string',
                     diskSizeGb: 'Test string',
@@ -22393,7 +22393,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     licenses: ['Test string'],
-                    onUpdateAction: 'Test string',
+                    onUpdateAction: 'RECREATE_DISK',
                     provisionedIops: 'Test string',
                     provisionedThroughput: 'Test string',
                     replicaZones: ['Test string'],
@@ -22419,37 +22419,37 @@ gapi.load('client', async () => {
                     },
                     storagePool: 'Test string',
                   },
-                  interface: 'Test string',
+                  interface: 'NVME',
                   kind: 'Test string',
                   licenses: ['Test string'],
-                  mode: 'Test string',
-                  savedState: 'Test string',
+                  mode: 'READ_ONLY',
+                  savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
                   shieldedInstanceInitialState: {
                     dbs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     dbxs: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     keks: [
                       {
                         content: 'Test string',
-                        fileType: 'Test string',
+                        fileType: 'BIN',
                       },
                     ],
                     pk: {
                       content: 'Test string',
-                      fileType: 'Test string',
+                      fileType: 'BIN',
                     },
                   },
                   source: 'Test string',
-                  type: 'Test string',
+                  type: 'PERSISTENT',
                 },
               ],
               machineTypes: ['Test string'],
@@ -22468,17 +22468,17 @@ gapi.load('client', async () => {
           advancedMachineFeatures: {
             enableNestedVirtualization: true,
             enableUefiNetworking: true,
-            performanceMonitoringUnit: 'Test string',
+            performanceMonitoringUnit: 'ARCHITECTURAL',
             threadsPerCore: 42,
             turboMode: 'Test string',
             visibleCoreCount: 42,
           },
           canIpForward: true,
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'BMSAI',
             confidentialParavisorConfig: {
-              confidentialTpmType: 'Test string',
-              sevSnpIrqMode: 'Test string',
+              confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+              sevSnpIrqMode: 'RESTRICTED',
             },
             enableConfidentialCompute: true,
           },
@@ -22486,7 +22486,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           disks: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               autoDelete: true,
               boot: true,
               deviceName: 'Test string',
@@ -22501,12 +22501,12 @@ gapi.load('client', async () => {
               forceAttach: true,
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
               initializeParams: {
-                architecture: 'Test string',
+                architecture: 'ARCHITECTURE_UNSPECIFIED',
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
@@ -22516,7 +22516,7 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 licenses: ['Test string'],
-                onUpdateAction: 'Test string',
+                onUpdateAction: 'RECREATE_DISK',
                 provisionedIops: 'Test string',
                 provisionedThroughput: 'Test string',
                 replicaZones: ['Test string'],
@@ -22542,37 +22542,37 @@ gapi.load('client', async () => {
                 },
                 storagePool: 'Test string',
               },
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
-              savedState: 'Test string',
+              mode: 'READ_ONLY',
+              savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
               shieldedInstanceInitialState: {
                 dbs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 dbxs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 keks: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 pk: {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               },
               source: 'Test string',
-              type: 'Test string',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -22581,11 +22581,11 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
-          localSsdEncryptionMode: 'Test string',
+          localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
           machineType: 'Test string',
           metadata: {
             fingerprint: 'Test string',
@@ -22608,11 +22608,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -22629,7 +22629,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -22639,35 +22639,35 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
           networkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'DEFAULT',
           },
-          privateIpv6GoogleAccess: 'Test string',
+          privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'ANY_RESERVATION',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -22687,7 +22687,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -22701,11 +22701,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -22714,8 +22714,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -22737,7 +22737,7 @@ gapi.load('client', async () => {
           workloadIdentityConfig: {
             identity: 'Test string',
             identityCertificateEnabled: true,
-            identityType: 'Test string',
+            identityType: 'AGENT_IDENTITY',
           },
         },
         locationPolicy: {
@@ -22746,10 +22746,10 @@ gapi.load('client', async () => {
               constraints: {
                 maxCount: 42,
               },
-              preference: 'Test string',
+              preference: 'ALLOW',
             },
           },
-          targetShape: 'Test string',
+          targetShape: 'ANY',
           zones: [
             {
               zone: 'Test string',
@@ -22803,17 +22803,17 @@ gapi.load('client', async () => {
           advancedMachineFeatures: {
             enableNestedVirtualization: true,
             enableUefiNetworking: true,
-            performanceMonitoringUnit: 'Test string',
+            performanceMonitoringUnit: 'ARCHITECTURAL',
             threadsPerCore: 42,
             turboMode: 'Test string',
             visibleCoreCount: 42,
           },
           canIpForward: true,
           confidentialInstanceConfig: {
-            confidentialInstanceType: 'Test string',
+            confidentialInstanceType: 'BMSAI',
             confidentialParavisorConfig: {
-              confidentialTpmType: 'Test string',
-              sevSnpIrqMode: 'Test string',
+              confidentialTpmType: 'CONFIDENTIAL_TPM_TYPE_UNSPECIFIED',
+              sevSnpIrqMode: 'RESTRICTED',
             },
             enableConfidentialCompute: true,
           },
@@ -22821,7 +22821,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           disks: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               autoDelete: true,
               boot: true,
               deviceName: 'Test string',
@@ -22836,12 +22836,12 @@ gapi.load('client', async () => {
               forceAttach: true,
               guestOsFeatures: [
                 {
-                  type: 'Test string',
+                  type: 'BARE_METAL_LINUX_COMPATIBLE',
                 },
               ],
               index: 42,
               initializeParams: {
-                architecture: 'Test string',
+                architecture: 'ARCHITECTURE_UNSPECIFIED',
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
@@ -22851,7 +22851,7 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 licenses: ['Test string'],
-                onUpdateAction: 'Test string',
+                onUpdateAction: 'RECREATE_DISK',
                 provisionedIops: 'Test string',
                 provisionedThroughput: 'Test string',
                 replicaZones: ['Test string'],
@@ -22877,37 +22877,37 @@ gapi.load('client', async () => {
                 },
                 storagePool: 'Test string',
               },
-              interface: 'Test string',
+              interface: 'NVME',
               kind: 'Test string',
               licenses: ['Test string'],
-              mode: 'Test string',
-              savedState: 'Test string',
+              mode: 'READ_ONLY',
+              savedState: 'DISK_SAVED_STATE_UNSPECIFIED',
               shieldedInstanceInitialState: {
                 dbs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 dbxs: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 keks: [
                   {
                     content: 'Test string',
-                    fileType: 'Test string',
+                    fileType: 'BIN',
                   },
                 ],
                 pk: {
                   content: 'Test string',
-                  fileType: 'Test string',
+                  fileType: 'BIN',
                 },
               },
               source: 'Test string',
-              type: 'Test string',
+              type: 'PERSISTENT',
             },
           ],
           guestAccelerators: [
@@ -22916,11 +22916,11 @@ gapi.load('client', async () => {
               acceleratorType: 'Test string',
             },
           ],
-          keyRevocationActionType: 'Test string',
+          keyRevocationActionType: 'KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
-          localSsdEncryptionMode: 'Test string',
+          localSsdEncryptionMode: 'EPHEMERAL_KEY_ENCRYPTION',
           machineType: 'Test string',
           metadata: {
             fingerprint: 'Test string',
@@ -22943,11 +22943,11 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
               aliasIpRanges: [
@@ -22964,7 +22964,7 @@ gapi.load('client', async () => {
               ],
               enableVpcScopedDns: true,
               fingerprint: 'Test string',
-              igmpQuery: 'Test string',
+              igmpQuery: 'IGMP_QUERY_DISABLED',
               internalIpv6PrefixLength: 42,
               ipv6AccessConfigs: [
                 {
@@ -22974,35 +22974,35 @@ gapi.load('client', async () => {
                   kind: 'Test string',
                   name: 'Test string',
                   natIP: 'Test string',
-                  networkTier: 'Test string',
+                  networkTier: 'FIXED_STANDARD',
                   publicPtrDomainName: 'Test string',
                   securityPolicy: 'Test string',
                   setPublicPtr: true,
-                  type: 'Test string',
+                  type: 'DIRECT_IPV6',
                 },
               ],
-              ipv6AccessType: 'Test string',
+              ipv6AccessType: 'EXTERNAL',
               ipv6Address: 'Test string',
               kind: 'Test string',
               name: 'Test string',
               network: 'Test string',
               networkAttachment: 'Test string',
               networkIP: 'Test string',
-              nicType: 'Test string',
+              nicType: 'GVNIC',
               parentNicName: 'Test string',
               queueCount: 42,
               serviceClassId: 'Test string',
-              stackType: 'Test string',
+              stackType: 'IPV4_IPV6',
               subnetwork: 'Test string',
               vlan: 42,
             },
           ],
           networkPerformanceConfig: {
-            totalEgressBandwidthTier: 'Test string',
+            totalEgressBandwidthTier: 'DEFAULT',
           },
-          privateIpv6GoogleAccess: 'Test string',
+          privateIpv6GoogleAccess: 'ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE',
           reservationAffinity: {
-            consumeReservationType: 'Test string',
+            consumeReservationType: 'ANY_RESERVATION',
             key: 'Test string',
             values: ['Test string'],
           },
@@ -23022,7 +23022,7 @@ gapi.load('client', async () => {
               },
             },
             hostErrorTimeoutSeconds: 42,
-            instanceTerminationAction: 'Test string',
+            instanceTerminationAction: 'DELETE',
             localSsdRecoveryTimeout: {
               nanos: 42,
               seconds: 'Test string',
@@ -23036,11 +23036,11 @@ gapi.load('client', async () => {
             nodeAffinities: [
               {
                 key: 'Test string',
-                operator: 'Test string',
+                operator: 'IN',
                 values: ['Test string'],
               },
             ],
-            onHostMaintenance: 'Test string',
+            onHostMaintenance: 'MIGRATE',
             onInstanceStopAction: {
               discardLocalSsd: true,
             },
@@ -23049,8 +23049,8 @@ gapi.load('client', async () => {
               nanos: 42,
               seconds: 'Test string',
             },
-            protectionTier: 'Test string',
-            provisioningModel: 'Test string',
+            protectionTier: 'PROTECTION_TIER_CAPACITY_OPTIMIZED',
+            provisioningModel: 'FLEX_START',
             skipGuestOsShutdown: true,
             terminationTime: 'Test string',
           },
@@ -23072,7 +23072,7 @@ gapi.load('client', async () => {
           workloadIdentityConfig: {
             identity: 'Test string',
             identityCertificateEnabled: true,
-            identityType: 'Test string',
+            identityType: 'AGENT_IDENTITY',
           },
         },
         region: 'Test string',
@@ -23084,7 +23084,7 @@ gapi.load('client', async () => {
               autoDelete: true,
               customImage: 'Test string',
               deviceName: 'Test string',
-              instantiateFrom: 'Test string',
+              instantiateFrom: 'ATTACH_READ_ONLY',
             },
           ],
         },
@@ -23153,7 +23153,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
         sourceConsistencyGroup: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -23199,7 +23199,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -23273,7 +23273,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         diskSizeGb: 'Test string',
@@ -23301,7 +23301,7 @@ gapi.load('client', async () => {
         sourceDiskId: 'Test string',
         sourceInstantSnapshotGroup: 'Test string',
         sourceInstantSnapshotGroupId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -23347,7 +23347,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -23514,12 +23514,12 @@ gapi.load('client', async () => {
         name: 'Test string',
         network: 'Test string',
         networkAttachment: 'Test string',
-        networkEndpointType: 'Test string',
+        networkEndpointType: 'GCE_VM_IP',
         pscData: {
           consumerPscAddress: 'Test string',
           producerPort: 42,
           pscConnectionId: 'Test string',
-          pscConnectionStatus: 'Test string',
+          pscConnectionStatus: 'ACCEPTED',
         },
         pscTargetService: 'Test string',
         region: 'Test string',
@@ -23584,7 +23584,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -23592,8 +23592,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -23605,14 +23605,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -23626,11 +23626,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -23716,7 +23716,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -23724,8 +23724,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -23737,14 +23737,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -23758,22 +23758,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -23781,8 +23781,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -23794,14 +23794,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -23815,11 +23815,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -23871,7 +23871,7 @@ gapi.load('client', async () => {
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -23879,8 +23879,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -23892,14 +23892,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -23913,22 +23913,22 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
         parent: 'Test string',
-        policyType: 'Test string',
+        policyType: 'NCC_GATEWAY_POLICY',
         region: 'Test string',
         rules: [
           {
             action: 'Test string',
             description: 'Test string',
-            direction: 'Test string',
+            direction: 'EGRESS',
             disabled: true,
             enableLogging: true,
             kind: 'Test string',
@@ -23936,8 +23936,8 @@ gapi.load('client', async () => {
               destAddressGroups: ['Test string'],
               destFqdns: ['Test string'],
               destIpRanges: ['Test string'],
-              destNetworkContext: 'Test string',
-              destNetworkType: 'Test string',
+              destNetworkContext: 'INTERNET',
+              destNetworkType: 'INTERNET',
               destRegionCodes: ['Test string'],
               destThreatIntelligences: ['Test string'],
               layer4Configs: [
@@ -23949,14 +23949,14 @@ gapi.load('client', async () => {
               srcAddressGroups: ['Test string'],
               srcFqdns: ['Test string'],
               srcIpRanges: ['Test string'],
-              srcNetworkContext: 'Test string',
+              srcNetworkContext: 'INTERNET',
               srcNetworks: ['Test string'],
-              srcNetworkType: 'Test string',
+              srcNetworkType: 'INTERNET',
               srcRegionCodes: ['Test string'],
               srcSecureTags: [
                 {
                   name: 'Test string',
-                  state: 'Test string',
+                  state: 'EFFECTIVE',
                 },
               ],
               srcThreatIntelligences: ['Test string'],
@@ -23970,11 +23970,11 @@ gapi.load('client', async () => {
             targetSecureTags: [
               {
                 name: 'Test string',
-                state: 'Test string',
+                state: 'EFFECTIVE',
               },
             ],
             targetServiceAccounts: ['Test string'],
-            targetType: 'Test string',
+            targetType: 'INSTANCES',
             tlsInspect: true,
           },
         ],
@@ -24013,7 +24013,7 @@ gapi.load('client', async () => {
       {
         action: 'Test string',
         description: 'Test string',
-        direction: 'Test string',
+        direction: 'EGRESS',
         disabled: true,
         enableLogging: true,
         kind: 'Test string',
@@ -24021,8 +24021,8 @@ gapi.load('client', async () => {
           destAddressGroups: ['Test string'],
           destFqdns: ['Test string'],
           destIpRanges: ['Test string'],
-          destNetworkContext: 'Test string',
-          destNetworkType: 'Test string',
+          destNetworkContext: 'INTERNET',
+          destNetworkType: 'INTERNET',
           destRegionCodes: ['Test string'],
           destThreatIntelligences: ['Test string'],
           layer4Configs: [
@@ -24034,14 +24034,14 @@ gapi.load('client', async () => {
           srcAddressGroups: ['Test string'],
           srcFqdns: ['Test string'],
           srcIpRanges: ['Test string'],
-          srcNetworkContext: 'Test string',
+          srcNetworkContext: 'INTERNET',
           srcNetworks: ['Test string'],
-          srcNetworkType: 'Test string',
+          srcNetworkType: 'INTERNET',
           srcRegionCodes: ['Test string'],
           srcSecureTags: [
             {
               name: 'Test string',
-              state: 'Test string',
+              state: 'EFFECTIVE',
             },
           ],
           srcThreatIntelligences: ['Test string'],
@@ -24055,11 +24055,11 @@ gapi.load('client', async () => {
         targetSecureTags: [
           {
             name: 'Test string',
-            state: 'Test string',
+            state: 'EFFECTIVE',
           },
         ],
         targetServiceAccounts: ['Test string'],
-        targetType: 'Test string',
+        targetType: 'INSTANCES',
         tlsInspect: true,
       },
     );
@@ -24109,7 +24109,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -24354,7 +24354,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -24376,31 +24376,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -24418,18 +24418,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -24438,7 +24438,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -24477,7 +24477,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -24491,7 +24491,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -24503,8 +24503,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -24521,9 +24521,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -24573,7 +24573,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -24595,31 +24595,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -24637,18 +24637,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -24657,16 +24657,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -24706,7 +24706,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -24720,7 +24720,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -24732,8 +24732,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -24750,9 +24750,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -24802,7 +24802,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -24824,31 +24824,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -24866,18 +24866,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -24886,16 +24886,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -24945,7 +24945,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -24967,31 +24967,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -25009,18 +25009,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -25029,7 +25029,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -25102,7 +25102,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         autoCreated: true,
         chainName: 'Test string',
         creationSizeBytes: 'Test string',
@@ -25114,7 +25114,7 @@ gapi.load('client', async () => {
         guestFlush: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -25145,7 +25145,7 @@ gapi.load('client', async () => {
         },
         snapshotGroupId: 'Test string',
         snapshotGroupName: 'Test string',
-        snapshotType: 'Test string',
+        snapshotType: 'ARCHIVE',
         sourceDisk: 'Test string',
         sourceDiskEncryptionKey: {
           kmsKeyName: 'Test string',
@@ -25167,9 +25167,9 @@ gapi.load('client', async () => {
         sourceInstantSnapshotId: 'Test string',
         sourceSnapshotSchedulePolicy: 'Test string',
         sourceSnapshotSchedulePolicyId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storageBytes: 'Test string',
-        storageBytesStatus: 'Test string',
+        storageBytesStatus: 'UPDATING',
         storageLocations: ['Test string'],
       },
     );
@@ -25215,7 +25215,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -25303,7 +25303,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
-          policy: 'Test string',
+          policy: 'ALL_REGIONS',
         },
         storageLocation: {
           locations: {
@@ -25311,7 +25311,7 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
           },
-          policy: 'Test string',
+          policy: 'LOCAL_REGION',
         },
       },
     );
@@ -25361,9 +25361,9 @@ gapi.load('client', async () => {
         managed: {
           domains: ['Test string'],
           domainStatus: {
-            A: 'Test string',
+            A: 'ACTIVE',
           },
-          status: 'Test string',
+          status: 'ACTIVE',
         },
         name: 'Test string',
         privateKey: 'Test string',
@@ -25375,7 +25375,7 @@ gapi.load('client', async () => {
           privateKey: 'Test string',
         },
         subjectAlternativeNames: ['Test string'],
-        type: 'Test string',
+        type: 'MANAGED',
       },
     );
     /**
@@ -25425,15 +25425,15 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        minTlsVersion: 'Test string',
+        minTlsVersion: 'TLS_1_0',
         name: 'Test string',
-        postQuantumKeyExchange: 'Test string',
-        profile: 'Test string',
+        postQuantumKeyExchange: 'DEFAULT',
+        profile: 'COMPATIBLE',
         region: 'Test string',
         selfLink: 'Test string',
         warnings: [
           {
-            code: 'Test string',
+            code: 'CLEANUP_FAILED',
             data: [
               {
                 key: 'Test string',
@@ -25485,15 +25485,15 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        minTlsVersion: 'Test string',
+        minTlsVersion: 'TLS_1_0',
         name: 'Test string',
-        postQuantumKeyExchange: 'Test string',
-        profile: 'Test string',
+        postQuantumKeyExchange: 'DEFAULT',
+        profile: 'COMPATIBLE',
         region: 'Test string',
         selfLink: 'Test string',
         warnings: [
           {
-            code: 'Test string',
+            code: 'CLEANUP_FAILED',
             data: [
               {
                 key: 'Test string',
@@ -25600,13 +25600,13 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         proxyBind: true,
-        quicOverride: 'Test string',
+        quicOverride: 'DISABLE',
         region: 'Test string',
         selfLink: 'Test string',
         serverTlsPolicy: 'Test string',
         sslCertificates: ['Test string'],
         sslPolicy: 'Test string',
-        tlsEarlyData: 'Test string',
+        tlsEarlyData: 'DISABLED',
         urlMap: 'Test string',
       },
     );
@@ -25646,13 +25646,13 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         proxyBind: true,
-        quicOverride: 'Test string',
+        quicOverride: 'DISABLE',
         region: 'Test string',
         selfLink: 'Test string',
         serverTlsPolicy: 'Test string',
         sslCertificates: ['Test string'],
         sslPolicy: 'Test string',
-        tlsEarlyData: 'Test string',
+        tlsEarlyData: 'DISABLED',
         urlMap: 'Test string',
       },
     );
@@ -25708,10 +25708,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         name: 'Test string',
         proxyBind: true,
-        proxyHeader: 'Test string',
+        proxyHeader: 'NONE',
         region: 'Test string',
         selfLink: 'Test string',
         service: 'Test string',
@@ -25776,7 +25776,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -25888,7 +25888,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -25945,7 +25945,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -26057,7 +26057,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -26105,7 +26105,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -26217,7 +26217,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -26280,7 +26280,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -26309,7 +26309,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -26421,7 +26421,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -26497,7 +26497,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -26609,7 +26609,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -26666,7 +26666,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -26778,7 +26778,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -26826,7 +26826,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -26938,7 +26938,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -27001,7 +27001,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -27030,7 +27030,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -27142,7 +27142,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -27204,7 +27204,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -27316,7 +27316,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -27373,7 +27373,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -27485,7 +27485,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -27533,7 +27533,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -27645,7 +27645,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -27708,7 +27708,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -27737,7 +27737,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -27849,7 +27849,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -27912,7 +27912,7 @@ gapi.load('client', async () => {
                 includeProtocol: true,
                 includeQueryString: true,
               },
-              cacheMode: 'Test string',
+              cacheMode: 'BYPASS_CACHE',
               clientTtl: {
                 nanos: 42,
                 seconds: 'Test string',
@@ -28024,7 +28024,7 @@ gapi.load('client', async () => {
             httpsRedirect: true,
             pathRedirect: 'Test string',
             prefixRedirect: 'Test string',
-            redirectResponseCode: 'Test string',
+            redirectResponseCode: 'FOUND',
             stripQuery: true,
           },
           description: 'Test string',
@@ -28081,7 +28081,7 @@ gapi.load('client', async () => {
                     includeProtocol: true,
                     includeQueryString: true,
                   },
-                  cacheMode: 'Test string',
+                  cacheMode: 'BYPASS_CACHE',
                   clientTtl: {
                     nanos: 42,
                     seconds: 'Test string',
@@ -28193,7 +28193,7 @@ gapi.load('client', async () => {
                 httpsRedirect: true,
                 pathRedirect: 'Test string',
                 prefixRedirect: 'Test string',
-                redirectResponseCode: 'Test string',
+                redirectResponseCode: 'FOUND',
                 stripQuery: true,
               },
               description: 'Test string',
@@ -28241,7 +28241,7 @@ gapi.load('client', async () => {
                         includeProtocol: true,
                         includeQueryString: true,
                       },
-                      cacheMode: 'Test string',
+                      cacheMode: 'BYPASS_CACHE',
                       clientTtl: {
                         nanos: 42,
                         seconds: 'Test string',
@@ -28353,7 +28353,7 @@ gapi.load('client', async () => {
                     httpsRedirect: true,
                     pathRedirect: 'Test string',
                     prefixRedirect: 'Test string',
-                    redirectResponseCode: 'Test string',
+                    redirectResponseCode: 'FOUND',
                     stripQuery: true,
                   },
                 },
@@ -28416,7 +28416,7 @@ gapi.load('client', async () => {
                               value: 'Test string',
                             },
                           ],
-                          filterMatchCriteria: 'Test string',
+                          filterMatchCriteria: 'MATCH_ALL',
                         },
                       ],
                       pathTemplateMatch: 'Test string',
@@ -28445,7 +28445,7 @@ gapi.load('client', async () => {
                         includeProtocol: true,
                         includeQueryString: true,
                       },
-                      cacheMode: 'Test string',
+                      cacheMode: 'BYPASS_CACHE',
                       clientTtl: {
                         nanos: 42,
                         seconds: 'Test string',
@@ -28557,7 +28557,7 @@ gapi.load('client', async () => {
                     httpsRedirect: true,
                     pathRedirect: 'Test string',
                     prefixRedirect: 'Test string',
-                    redirectResponseCode: 'Test string',
+                    redirectResponseCode: 'FOUND',
                     stripQuery: true,
                   },
                 },
@@ -28615,7 +28615,7 @@ gapi.load('client', async () => {
       project: 'Test string',
       reservation: 'Test string',
       reservationBlock: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
       zone: 'Test string',
     });
     /**
@@ -28649,7 +28649,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        maintenanceScope: 'Test string',
+        maintenanceScope: 'ALL',
       },
     );
     /**
@@ -28683,7 +28683,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -28768,7 +28768,7 @@ gapi.load('client', async () => {
       },
       {
         advancedDeploymentControl: {
-          reservationOperationalMode: 'Test string',
+          reservationOperationalMode: 'ALL_CAPACITY',
         },
         aggregateReservation: {
           inUseResources: [
@@ -28787,20 +28787,20 @@ gapi.load('client', async () => {
               },
             },
           ],
-          vmFamily: 'Test string',
-          workloadType: 'Test string',
+          vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+          workloadType: 'BATCH',
         },
         commitment: 'Test string',
-        confidentialComputeType: 'Test string',
+        confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
         creationTimestamp: 'Test string',
         deleteAfterDuration: {
           nanos: 42,
           seconds: 'Test string',
         },
         deleteAtTime: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DENSE',
         description: 'Test string',
-        earlyAccessMaintenance: 'Test string',
+        earlyAccessMaintenance: 'NO_EARLY_ACCESS',
         enableEmergentMaintenance: true,
         id: 'Test string',
         kind: 'Test string',
@@ -28811,9 +28811,9 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        protectionTier: 'Test string',
+        protectionTier: 'CAPACITY_OPTIMIZED',
         reservationSharingPolicy: {
-          serviceShareType: 'Test string',
+          serviceShareType: 'ALLOW_ALL',
         },
         resourceMetadata: {
           apiVersion: 'Test string',
@@ -28825,7 +28825,7 @@ gapi.load('client', async () => {
         resourceStatus: {
           healthInfo: {
             degradedBlockCount: 42,
-            healthStatus: 'Test string',
+            healthStatus: 'DEGRADED',
             healthyBlockCount: 42,
           },
           machineCount: 42,
@@ -28835,16 +28835,16 @@ gapi.load('client', async () => {
             instanceMaintenancePendingCount: 42,
             maintenanceOngoingCount: 42,
             maintenancePendingCount: 42,
-            schedulingType: 'Test string',
+            schedulingType: 'GROUPED',
             subblockInfraMaintenanceOngoingCount: 42,
             subblockInfraMaintenancePendingCount: 42,
             upcomingGroupMaintenance: {
               canReschedule: true,
               latestWindowStartTime: 'Test string',
               maintenanceOnShutdown: true,
-              maintenanceReasons: ['Test string'],
-              maintenanceStatus: 'Test string',
-              type: 'Test string',
+              maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+              maintenanceStatus: 'ONGOING',
+              type: 'MULTIPLE',
               windowEndTime: 'Test string',
               windowStartTime: 'Test string',
             },
@@ -28857,7 +28857,7 @@ gapi.load('client', async () => {
           },
         },
         satisfiesPzs: true,
-        schedulingType: 'Test string',
+        schedulingType: 'GROUPED',
         selfLink: 'Test string',
         shareSettings: {
           projectMap: {
@@ -28865,7 +28865,7 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         specificReservation: {
           assuredCount: 'Test string',
@@ -28880,7 +28880,7 @@ gapi.load('client', async () => {
             localSsds: [
               {
                 diskSizeGb: 'Test string',
-                interface: 'Test string',
+                interface: 'NVME',
               },
             ],
             locationHint: 'Test string',
@@ -28891,7 +28891,7 @@ gapi.load('client', async () => {
           sourceInstanceTemplate: 'Test string',
         },
         specificReservationRequired: true,
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -28916,7 +28916,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        maintenanceScope: 'Test string',
+        maintenanceScope: 'ALL',
       },
     );
     /**
@@ -28965,7 +28965,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -29011,7 +29011,7 @@ gapi.load('client', async () => {
       },
       {
         advancedDeploymentControl: {
-          reservationOperationalMode: 'Test string',
+          reservationOperationalMode: 'ALL_CAPACITY',
         },
         aggregateReservation: {
           inUseResources: [
@@ -29030,20 +29030,20 @@ gapi.load('client', async () => {
               },
             },
           ],
-          vmFamily: 'Test string',
-          workloadType: 'Test string',
+          vmFamily: 'VM_FAMILY_CLOUD_TPU_DEVICE_CT3',
+          workloadType: 'BATCH',
         },
         commitment: 'Test string',
-        confidentialComputeType: 'Test string',
+        confidentialComputeType: 'CONFIDENTIAL_COMPUTE_TYPE_BMSAI',
         creationTimestamp: 'Test string',
         deleteAfterDuration: {
           nanos: 42,
           seconds: 'Test string',
         },
         deleteAtTime: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DENSE',
         description: 'Test string',
-        earlyAccessMaintenance: 'Test string',
+        earlyAccessMaintenance: 'NO_EARLY_ACCESS',
         enableEmergentMaintenance: true,
         id: 'Test string',
         kind: 'Test string',
@@ -29054,9 +29054,9 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        protectionTier: 'Test string',
+        protectionTier: 'CAPACITY_OPTIMIZED',
         reservationSharingPolicy: {
-          serviceShareType: 'Test string',
+          serviceShareType: 'ALLOW_ALL',
         },
         resourceMetadata: {
           apiVersion: 'Test string',
@@ -29068,7 +29068,7 @@ gapi.load('client', async () => {
         resourceStatus: {
           healthInfo: {
             degradedBlockCount: 42,
-            healthStatus: 'Test string',
+            healthStatus: 'DEGRADED',
             healthyBlockCount: 42,
           },
           machineCount: 42,
@@ -29078,16 +29078,16 @@ gapi.load('client', async () => {
             instanceMaintenancePendingCount: 42,
             maintenanceOngoingCount: 42,
             maintenancePendingCount: 42,
-            schedulingType: 'Test string',
+            schedulingType: 'GROUPED',
             subblockInfraMaintenanceOngoingCount: 42,
             subblockInfraMaintenancePendingCount: 42,
             upcomingGroupMaintenance: {
               canReschedule: true,
               latestWindowStartTime: 'Test string',
               maintenanceOnShutdown: true,
-              maintenanceReasons: ['Test string'],
-              maintenanceStatus: 'Test string',
-              type: 'Test string',
+              maintenanceReasons: ['FAILURE_CUSTOMER_REPORTED'],
+              maintenanceStatus: 'ONGOING',
+              type: 'MULTIPLE',
               windowEndTime: 'Test string',
               windowStartTime: 'Test string',
             },
@@ -29100,7 +29100,7 @@ gapi.load('client', async () => {
           },
         },
         satisfiesPzs: true,
-        schedulingType: 'Test string',
+        schedulingType: 'GROUPED',
         selfLink: 'Test string',
         shareSettings: {
           projectMap: {
@@ -29108,7 +29108,7 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
         specificReservation: {
           assuredCount: 'Test string',
@@ -29123,7 +29123,7 @@ gapi.load('client', async () => {
             localSsds: [
               {
                 diskSizeGb: 'Test string',
-                interface: 'Test string',
+                interface: 'NVME',
               },
             ],
             locationHint: 'Test string',
@@ -29134,7 +29134,7 @@ gapi.load('client', async () => {
           sourceInstanceTemplate: 'Test string',
         },
         specificReservationRequired: true,
-        status: 'Test string',
+        status: 'CREATING',
         zone: 'Test string',
       },
     );
@@ -29163,7 +29163,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        sbomSelections: ['Test string'],
+        sbomSelections: ['SBOM_SELECTION_CURRENT'],
       },
     );
     /** Retrieves a list of reservation slots under a single reservation. */
@@ -29204,9 +29204,9 @@ gapi.load('client', async () => {
               projectId: 'Test string',
             },
           },
-          shareType: 'Test string',
+          shareType: 'LOCAL',
         },
-        state: 'Test string',
+        state: 'ACTIVE',
         status: {
           physicalTopology: {
             block: 'Test string',
@@ -29225,7 +29225,7 @@ gapi.load('client', async () => {
       parentName: 'Test string',
       project: 'Test string',
       reservationSubBlock: 'Test string',
-      view: 'Test string',
+      view: 'SUB_BLOCK_VIEW_BASIC',
       zone: 'Test string',
     });
     /**
@@ -29249,7 +29249,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        sbomSelections: ['Test string'],
+        sbomSelections: ['SBOM_SELECTION_CURRENT'],
       },
     );
     /** Retrieves a list of reservation subBlocks under a single reservation. */
@@ -29280,11 +29280,11 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        disruptionSchedule: 'Test string',
-        failureComponent: 'Test string',
+        disruptionSchedule: 'DISRUPTION_SCHEDULE_UNSPECIFIED',
+        failureComponent: 'FAILURE_COMPONENT_UNSPECIFIED',
         faultReasons: [
           {
-            behavior: 'Test string',
+            behavior: 'FAULT_BEHAVIOR_UNSPECIFIED',
             componentId: 'Test string',
             description: 'Test string',
           },
@@ -29322,7 +29322,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -29407,9 +29407,9 @@ gapi.load('client', async () => {
         description: 'Test string',
         diskConsistencyGroupPolicy: {},
         groupPlacementPolicy: {
-          acceleratorTopologyMode: 'Test string',
+          acceleratorTopologyMode: 'AUTO_CONNECT',
           availabilityDomainCount: 42,
-          collocation: 'Test string',
+          collocation: 'COLLOCATED',
           gpuTopology: 'Test string',
           vmCount: 42,
         },
@@ -29438,7 +29438,7 @@ gapi.load('client', async () => {
         snapshotSchedulePolicy: {
           retentionPolicy: {
             maxRetentionDays: 42,
-            onSourceDiskDelete: 'Test string',
+            onSourceDiskDelete: 'APPLY_RETENTION_POLICY',
           },
           schedule: {
             dailySchedule: {
@@ -29454,7 +29454,7 @@ gapi.load('client', async () => {
             weeklySchedule: {
               dayOfWeeks: [
                 {
-                  day: 'Test string',
+                  day: 'FRIDAY',
                   duration: 'Test string',
                   startTime: 'Test string',
                 },
@@ -29470,12 +29470,12 @@ gapi.load('client', async () => {
             storageLocations: ['Test string'],
           },
         },
-        status: 'Test string',
+        status: 'CREATING',
         workloadPolicy: {
           acceleratorTopology: 'Test string',
-          acceleratorTopologyMode: 'Test string',
-          maxTopologyDistance: 'Test string',
-          type: 'Test string',
+          acceleratorTopologyMode: 'AUTO_CONNECT',
+          maxTopologyDistance: 'BLOCK',
+          type: 'HIGH_AVAILABILITY',
         },
       },
     );
@@ -29505,9 +29505,9 @@ gapi.load('client', async () => {
         description: 'Test string',
         diskConsistencyGroupPolicy: {},
         groupPlacementPolicy: {
-          acceleratorTopologyMode: 'Test string',
+          acceleratorTopologyMode: 'AUTO_CONNECT',
           availabilityDomainCount: 42,
-          collocation: 'Test string',
+          collocation: 'COLLOCATED',
           gpuTopology: 'Test string',
           vmCount: 42,
         },
@@ -29536,7 +29536,7 @@ gapi.load('client', async () => {
         snapshotSchedulePolicy: {
           retentionPolicy: {
             maxRetentionDays: 42,
-            onSourceDiskDelete: 'Test string',
+            onSourceDiskDelete: 'APPLY_RETENTION_POLICY',
           },
           schedule: {
             dailySchedule: {
@@ -29552,7 +29552,7 @@ gapi.load('client', async () => {
             weeklySchedule: {
               dayOfWeeks: [
                 {
-                  day: 'Test string',
+                  day: 'FRIDAY',
                   duration: 'Test string',
                   startTime: 'Test string',
                 },
@@ -29568,12 +29568,12 @@ gapi.load('client', async () => {
             storageLocations: ['Test string'],
           },
         },
-        status: 'Test string',
+        status: 'CREATING',
         workloadPolicy: {
           acceleratorTopology: 'Test string',
-          acceleratorTopologyMode: 'Test string',
-          maxTopologyDistance: 'Test string',
-          type: 'Test string',
+          acceleratorTopologyMode: 'AUTO_CONNECT',
+          maxTopologyDistance: 'BLOCK',
+          type: 'HIGH_AVAILABILITY',
         },
       },
     );
@@ -29607,7 +29607,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -29663,7 +29663,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        locationScope: 'Test string',
+        locationScope: 'LOCATION_SCOPE_UNSPECIFIED',
         name: 'Test string',
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
@@ -29674,9 +29674,9 @@ gapi.load('client', async () => {
             orchestrationOptions: {
               delays: [
                 {
-                  delimiter: 'Test string',
+                  delimiter: 'DELIMITER_BATCH',
                   duration: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_MINIMUM',
                 },
               ],
               maxConcurrentLocations: 'Test string',
@@ -29853,21 +29853,21 @@ gapi.load('client', async () => {
       },
       {
         bgp: {
-          advertisedGroups: ['Test string'],
+          advertisedGroups: ['ALL_SUBNETS'],
           advertisedIpRanges: [
             {
               description: 'Test string',
               range: 'Test string',
             },
           ],
-          advertiseMode: 'Test string',
+          advertiseMode: 'CUSTOM',
           asn: 42,
           identifierRange: 'Test string',
           keepaliveInterval: 42,
         },
         bgpPeers: [
           {
-            advertisedGroups: ['Test string'],
+            advertisedGroups: ['ALL_SUBNETS'],
             advertisedIpRanges: [
               {
                 description: 'Test string',
@@ -29875,12 +29875,12 @@ gapi.load('client', async () => {
               },
             ],
             advertisedRoutePriority: 42,
-            advertiseMode: 'Test string',
+            advertiseMode: 'CUSTOM',
             bfd: {
               minReceiveInterval: 42,
               minTransmitInterval: 42,
               multiplier: 42,
-              sessionInitializationMode: 'Test string',
+              sessionInitializationMode: 'ACTIVE',
             },
             customLearnedIpRanges: [
               {
@@ -29888,7 +29888,7 @@ gapi.load('client', async () => {
               },
             ],
             customLearnedRoutePriority: 42,
-            enable: 'Test string',
+            enable: 'FALSE',
             enableIpv4: true,
             enableIpv6: true,
             exportPolicies: ['Test string'],
@@ -29897,7 +29897,7 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv4NexthopAddress: 'Test string',
             ipv6NexthopAddress: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             md5AuthenticationKeyName: 'Test string',
             name: 'Test string',
             peerAsn: 42,
@@ -29914,10 +29914,10 @@ gapi.load('client', async () => {
         interfaces: [
           {
             ipRange: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             linkedInterconnectAttachment: 'Test string',
             linkedVpnTunnel: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             name: 'Test string',
             privateIpAddress: 'Test string',
             redundantInterface: 'Test string',
@@ -29934,16 +29934,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nats: [
           {
-            autoNetworkTier: 'Test string',
+            autoNetworkTier: 'FIXED_STANDARD',
             drainNatIps: ['Test string'],
             effectiveTcpTimeWaitTimeoutSec: 42,
             enableDynamicPortAllocation: true,
             enableEndpointIndependentMapping: true,
-            endpointTypes: ['Test string'],
+            endpointTypes: ['ENDPOINT_TYPE_MANAGED_PROXY_LB'],
             icmpIdleTimeoutSec: 42,
             logConfig: {
               enable: true,
-              filter: 'Test string',
+              filter: 'ALL',
             },
             maxPortsPerVm: 42,
             minPortsPerVm: 42,
@@ -29953,7 +29953,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            natIpAllocateOption: 'Test string',
+            natIpAllocateOption: 'AUTO_ONLY',
             natIps: ['Test string'],
             rules: [
               {
@@ -29968,19 +29968,19 @@ gapi.load('client', async () => {
                 ruleNumber: 42,
               },
             ],
-            sourceSubnetworkIpRangesToNat: 'Test string',
-            sourceSubnetworkIpRangesToNat64: 'Test string',
+            sourceSubnetworkIpRangesToNat: 'ALL_SUBNETWORKS_ALL_IP_RANGES',
+            sourceSubnetworkIpRangesToNat64: 'ALL_IPV6_SUBNETWORKS',
             subnetworks: [
               {
                 name: 'Test string',
                 secondaryIpRangeNames: ['Test string'],
-                sourceIpRangesToNat: ['Test string'],
+                sourceIpRangesToNat: ['ALL_IP_RANGES'],
               },
             ],
             tcpEstablishedIdleTimeoutSec: 42,
             tcpTimeWaitTimeoutSec: 42,
             tcpTransitoryIdleTimeoutSec: 42,
-            type: 'Test string',
+            type: 'PRIVATE',
             udpIdleTimeoutSec: 42,
           },
         ],
@@ -30006,7 +30006,7 @@ gapi.load('client', async () => {
     });
     /** Retrieves a list of router bgp routes available to the specified project. */
     await gapi.client.compute.routers.listBgpRoutes({
-      addressFamily: 'Test string',
+      addressFamily: 'IPV4',
       destinationPrefix: 'Test string',
       filter: 'Test string',
       maxResults: 42,
@@ -30017,7 +30017,7 @@ gapi.load('client', async () => {
       project: 'Test string',
       region: 'Test string',
       router: 'Test string',
-      routeType: 'Test string',
+      routeType: 'ADVERTISED',
     });
     /**
      * Retrieves a list of router named set subresources available to the
@@ -30060,21 +30060,21 @@ gapi.load('client', async () => {
       },
       {
         bgp: {
-          advertisedGroups: ['Test string'],
+          advertisedGroups: ['ALL_SUBNETS'],
           advertisedIpRanges: [
             {
               description: 'Test string',
               range: 'Test string',
             },
           ],
-          advertiseMode: 'Test string',
+          advertiseMode: 'CUSTOM',
           asn: 42,
           identifierRange: 'Test string',
           keepaliveInterval: 42,
         },
         bgpPeers: [
           {
-            advertisedGroups: ['Test string'],
+            advertisedGroups: ['ALL_SUBNETS'],
             advertisedIpRanges: [
               {
                 description: 'Test string',
@@ -30082,12 +30082,12 @@ gapi.load('client', async () => {
               },
             ],
             advertisedRoutePriority: 42,
-            advertiseMode: 'Test string',
+            advertiseMode: 'CUSTOM',
             bfd: {
               minReceiveInterval: 42,
               minTransmitInterval: 42,
               multiplier: 42,
-              sessionInitializationMode: 'Test string',
+              sessionInitializationMode: 'ACTIVE',
             },
             customLearnedIpRanges: [
               {
@@ -30095,7 +30095,7 @@ gapi.load('client', async () => {
               },
             ],
             customLearnedRoutePriority: 42,
-            enable: 'Test string',
+            enable: 'FALSE',
             enableIpv4: true,
             enableIpv6: true,
             exportPolicies: ['Test string'],
@@ -30104,7 +30104,7 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv4NexthopAddress: 'Test string',
             ipv6NexthopAddress: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             md5AuthenticationKeyName: 'Test string',
             name: 'Test string',
             peerAsn: 42,
@@ -30121,10 +30121,10 @@ gapi.load('client', async () => {
         interfaces: [
           {
             ipRange: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             linkedInterconnectAttachment: 'Test string',
             linkedVpnTunnel: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             name: 'Test string',
             privateIpAddress: 'Test string',
             redundantInterface: 'Test string',
@@ -30141,16 +30141,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nats: [
           {
-            autoNetworkTier: 'Test string',
+            autoNetworkTier: 'FIXED_STANDARD',
             drainNatIps: ['Test string'],
             effectiveTcpTimeWaitTimeoutSec: 42,
             enableDynamicPortAllocation: true,
             enableEndpointIndependentMapping: true,
-            endpointTypes: ['Test string'],
+            endpointTypes: ['ENDPOINT_TYPE_MANAGED_PROXY_LB'],
             icmpIdleTimeoutSec: 42,
             logConfig: {
               enable: true,
-              filter: 'Test string',
+              filter: 'ALL',
             },
             maxPortsPerVm: 42,
             minPortsPerVm: 42,
@@ -30160,7 +30160,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            natIpAllocateOption: 'Test string',
+            natIpAllocateOption: 'AUTO_ONLY',
             natIps: ['Test string'],
             rules: [
               {
@@ -30175,19 +30175,19 @@ gapi.load('client', async () => {
                 ruleNumber: 42,
               },
             ],
-            sourceSubnetworkIpRangesToNat: 'Test string',
-            sourceSubnetworkIpRangesToNat64: 'Test string',
+            sourceSubnetworkIpRangesToNat: 'ALL_SUBNETWORKS_ALL_IP_RANGES',
+            sourceSubnetworkIpRangesToNat64: 'ALL_IPV6_SUBNETWORKS',
             subnetworks: [
               {
                 name: 'Test string',
                 secondaryIpRangeNames: ['Test string'],
-                sourceIpRangesToNat: ['Test string'],
+                sourceIpRangesToNat: ['ALL_IP_RANGES'],
               },
             ],
             tcpEstablishedIdleTimeoutSec: 42,
             tcpTimeWaitTimeoutSec: 42,
             tcpTransitoryIdleTimeoutSec: 42,
-            type: 'Test string',
+            type: 'PRIVATE',
             udpIdleTimeoutSec: 42,
           },
         ],
@@ -30222,7 +30222,7 @@ gapi.load('client', async () => {
         ],
         fingerprint: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'NAMED_SET_TYPE_COMMUNITY',
       },
     );
     /** Patches Route Policy */
@@ -30256,7 +30256,7 @@ gapi.load('client', async () => {
             priority: 42,
           },
         ],
-        type: 'Test string',
+        type: 'ROUTE_POLICY_TYPE_EXPORT',
       },
     );
     /**
@@ -30271,21 +30271,21 @@ gapi.load('client', async () => {
       },
       {
         bgp: {
-          advertisedGroups: ['Test string'],
+          advertisedGroups: ['ALL_SUBNETS'],
           advertisedIpRanges: [
             {
               description: 'Test string',
               range: 'Test string',
             },
           ],
-          advertiseMode: 'Test string',
+          advertiseMode: 'CUSTOM',
           asn: 42,
           identifierRange: 'Test string',
           keepaliveInterval: 42,
         },
         bgpPeers: [
           {
-            advertisedGroups: ['Test string'],
+            advertisedGroups: ['ALL_SUBNETS'],
             advertisedIpRanges: [
               {
                 description: 'Test string',
@@ -30293,12 +30293,12 @@ gapi.load('client', async () => {
               },
             ],
             advertisedRoutePriority: 42,
-            advertiseMode: 'Test string',
+            advertiseMode: 'CUSTOM',
             bfd: {
               minReceiveInterval: 42,
               minTransmitInterval: 42,
               multiplier: 42,
-              sessionInitializationMode: 'Test string',
+              sessionInitializationMode: 'ACTIVE',
             },
             customLearnedIpRanges: [
               {
@@ -30306,7 +30306,7 @@ gapi.load('client', async () => {
               },
             ],
             customLearnedRoutePriority: 42,
-            enable: 'Test string',
+            enable: 'FALSE',
             enableIpv4: true,
             enableIpv6: true,
             exportPolicies: ['Test string'],
@@ -30315,7 +30315,7 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv4NexthopAddress: 'Test string',
             ipv6NexthopAddress: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             md5AuthenticationKeyName: 'Test string',
             name: 'Test string',
             peerAsn: 42,
@@ -30332,10 +30332,10 @@ gapi.load('client', async () => {
         interfaces: [
           {
             ipRange: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             linkedInterconnectAttachment: 'Test string',
             linkedVpnTunnel: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             name: 'Test string',
             privateIpAddress: 'Test string',
             redundantInterface: 'Test string',
@@ -30352,16 +30352,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nats: [
           {
-            autoNetworkTier: 'Test string',
+            autoNetworkTier: 'FIXED_STANDARD',
             drainNatIps: ['Test string'],
             effectiveTcpTimeWaitTimeoutSec: 42,
             enableDynamicPortAllocation: true,
             enableEndpointIndependentMapping: true,
-            endpointTypes: ['Test string'],
+            endpointTypes: ['ENDPOINT_TYPE_MANAGED_PROXY_LB'],
             icmpIdleTimeoutSec: 42,
             logConfig: {
               enable: true,
-              filter: 'Test string',
+              filter: 'ALL',
             },
             maxPortsPerVm: 42,
             minPortsPerVm: 42,
@@ -30371,7 +30371,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            natIpAllocateOption: 'Test string',
+            natIpAllocateOption: 'AUTO_ONLY',
             natIps: ['Test string'],
             rules: [
               {
@@ -30386,19 +30386,19 @@ gapi.load('client', async () => {
                 ruleNumber: 42,
               },
             ],
-            sourceSubnetworkIpRangesToNat: 'Test string',
-            sourceSubnetworkIpRangesToNat64: 'Test string',
+            sourceSubnetworkIpRangesToNat: 'ALL_SUBNETWORKS_ALL_IP_RANGES',
+            sourceSubnetworkIpRangesToNat64: 'ALL_IPV6_SUBNETWORKS',
             subnetworks: [
               {
                 name: 'Test string',
                 secondaryIpRangeNames: ['Test string'],
-                sourceIpRangesToNat: ['Test string'],
+                sourceIpRangesToNat: ['ALL_IP_RANGES'],
               },
             ],
             tcpEstablishedIdleTimeoutSec: 42,
             tcpTimeWaitTimeoutSec: 42,
             tcpTransitoryIdleTimeoutSec: 42,
-            type: 'Test string',
+            type: 'PRIVATE',
             udpIdleTimeoutSec: 42,
           },
         ],
@@ -30428,21 +30428,21 @@ gapi.load('client', async () => {
       },
       {
         bgp: {
-          advertisedGroups: ['Test string'],
+          advertisedGroups: ['ALL_SUBNETS'],
           advertisedIpRanges: [
             {
               description: 'Test string',
               range: 'Test string',
             },
           ],
-          advertiseMode: 'Test string',
+          advertiseMode: 'CUSTOM',
           asn: 42,
           identifierRange: 'Test string',
           keepaliveInterval: 42,
         },
         bgpPeers: [
           {
-            advertisedGroups: ['Test string'],
+            advertisedGroups: ['ALL_SUBNETS'],
             advertisedIpRanges: [
               {
                 description: 'Test string',
@@ -30450,12 +30450,12 @@ gapi.load('client', async () => {
               },
             ],
             advertisedRoutePriority: 42,
-            advertiseMode: 'Test string',
+            advertiseMode: 'CUSTOM',
             bfd: {
               minReceiveInterval: 42,
               minTransmitInterval: 42,
               multiplier: 42,
-              sessionInitializationMode: 'Test string',
+              sessionInitializationMode: 'ACTIVE',
             },
             customLearnedIpRanges: [
               {
@@ -30463,7 +30463,7 @@ gapi.load('client', async () => {
               },
             ],
             customLearnedRoutePriority: 42,
-            enable: 'Test string',
+            enable: 'FALSE',
             enableIpv4: true,
             enableIpv6: true,
             exportPolicies: ['Test string'],
@@ -30472,7 +30472,7 @@ gapi.load('client', async () => {
             ipAddress: 'Test string',
             ipv4NexthopAddress: 'Test string',
             ipv6NexthopAddress: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             md5AuthenticationKeyName: 'Test string',
             name: 'Test string',
             peerAsn: 42,
@@ -30489,10 +30489,10 @@ gapi.load('client', async () => {
         interfaces: [
           {
             ipRange: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             linkedInterconnectAttachment: 'Test string',
             linkedVpnTunnel: 'Test string',
-            managementType: 'Test string',
+            managementType: 'MANAGED_BY_ATTACHMENT',
             name: 'Test string',
             privateIpAddress: 'Test string',
             redundantInterface: 'Test string',
@@ -30509,16 +30509,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nats: [
           {
-            autoNetworkTier: 'Test string',
+            autoNetworkTier: 'FIXED_STANDARD',
             drainNatIps: ['Test string'],
             effectiveTcpTimeWaitTimeoutSec: 42,
             enableDynamicPortAllocation: true,
             enableEndpointIndependentMapping: true,
-            endpointTypes: ['Test string'],
+            endpointTypes: ['ENDPOINT_TYPE_MANAGED_PROXY_LB'],
             icmpIdleTimeoutSec: 42,
             logConfig: {
               enable: true,
-              filter: 'Test string',
+              filter: 'ALL',
             },
             maxPortsPerVm: 42,
             minPortsPerVm: 42,
@@ -30528,7 +30528,7 @@ gapi.load('client', async () => {
                 name: 'Test string',
               },
             ],
-            natIpAllocateOption: 'Test string',
+            natIpAllocateOption: 'AUTO_ONLY',
             natIps: ['Test string'],
             rules: [
               {
@@ -30543,19 +30543,19 @@ gapi.load('client', async () => {
                 ruleNumber: 42,
               },
             ],
-            sourceSubnetworkIpRangesToNat: 'Test string',
-            sourceSubnetworkIpRangesToNat64: 'Test string',
+            sourceSubnetworkIpRangesToNat: 'ALL_SUBNETWORKS_ALL_IP_RANGES',
+            sourceSubnetworkIpRangesToNat64: 'ALL_IPV6_SUBNETWORKS',
             subnetworks: [
               {
                 name: 'Test string',
                 secondaryIpRangeNames: ['Test string'],
-                sourceIpRangesToNat: ['Test string'],
+                sourceIpRangesToNat: ['ALL_IP_RANGES'],
               },
             ],
             tcpEstablishedIdleTimeoutSec: 42,
             tcpTimeWaitTimeoutSec: 42,
             tcpTransitoryIdleTimeoutSec: 42,
-            type: 'Test string',
+            type: 'PRIVATE',
             udpIdleTimeoutSec: 42,
           },
         ],
@@ -30590,7 +30590,7 @@ gapi.load('client', async () => {
         ],
         fingerprint: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'NAMED_SET_TYPE_COMMUNITY',
       },
     );
     /** Updates or creates new Route Policy */
@@ -30624,7 +30624,7 @@ gapi.load('client', async () => {
             priority: 42,
           },
         ],
-        type: 'Test string',
+        type: 'ROUTE_POLICY_TYPE_EXPORT',
       },
     );
     /** Deletes the specified Route resource. */
@@ -30651,7 +30651,7 @@ gapi.load('client', async () => {
         asPaths: [
           {
             asLists: [42],
-            pathSegmentType: 'Test string',
+            pathSegmentType: 'AS_CONFED_SEQUENCE',
           },
         ],
         creationTimestamp: 'Test string',
@@ -30670,7 +30670,7 @@ gapi.load('client', async () => {
         nextHopIp: 'Test string',
         nextHopMed: 42,
         nextHopNetwork: 'Test string',
-        nextHopOrigin: 'Test string',
+        nextHopOrigin: 'EGP',
         nextHopPeering: 'Test string',
         nextHopVpnTunnel: 'Test string',
         params: {
@@ -30679,13 +30679,13 @@ gapi.load('client', async () => {
           },
         },
         priority: 42,
-        routeStatus: 'Test string',
-        routeType: 'Test string',
+        routeStatus: 'ACTIVE',
+        routeType: 'BGP',
         selfLink: 'Test string',
         tags: ['Test string'],
         warnings: [
           {
-            code: 'Test string',
+            code: 'CLEANUP_FAILED',
             data: [
               {
                 key: 'Test string',
@@ -30750,7 +30750,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -30772,31 +30772,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -30814,18 +30814,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -30834,7 +30834,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -30885,7 +30885,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -30899,7 +30899,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -30911,8 +30911,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -30929,9 +30929,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -30981,7 +30981,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -31003,31 +31003,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -31045,18 +31045,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -31065,16 +31065,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -31120,7 +31120,7 @@ gapi.load('client', async () => {
         adaptiveProtectionConfig: {
           layer7DdosDefenseConfig: {
             enable: true,
-            ruleVisibility: 'Test string',
+            ruleVisibility: 'PREMIUM',
             thresholdConfigs: [
               {
                 autoDeployConfidenceThreshold: 42,
@@ -31134,7 +31134,7 @@ gapi.load('client', async () => {
                 trafficGranularityConfigs: [
                   {
                     enableEachUniqueValue: true,
-                    type: 'Test string',
+                    type: 'HTTP_HEADER_HOST',
                     value: 'Test string',
                   },
                 ],
@@ -31146,8 +31146,8 @@ gapi.load('client', async () => {
           jsonCustomConfig: {
             contentTypes: ['Test string'],
           },
-          jsonParsing: 'Test string',
-          logLevel: 'Test string',
+          jsonParsing: 'DISABLED',
+          logLevel: 'NORMAL',
           requestBodyInspectionSize: 'Test string',
           userIpRequestHeaders: ['Test string'],
         },
@@ -31164,9 +31164,9 @@ gapi.load('client', async () => {
         ],
         creationTimestamp: 'Test string',
         ddosProtectionConfig: {
-          ddosAdaptiveProtection: 'Test string',
+          ddosAdaptiveProtection: 'DDOS_ADAPTIVE_PROTECTION_UNSPECIFIED',
           ddosImpactedBaselineThreshold: 42,
-          ddosProtection: 'Test string',
+          ddosProtection: 'ADVANCED',
         },
         description: 'Test string',
         fingerprint: 'Test string',
@@ -31216,7 +31216,7 @@ gapi.load('client', async () => {
                   sessionTokenSiteKeys: ['Test string'],
                 },
               },
-              versionedExpr: 'Test string',
+              versionedExpr: 'SRC_IPS_V1',
             },
             networkMatch: {
               destIpRanges: ['Test string'],
@@ -31238,31 +31238,31 @@ gapi.load('client', async () => {
                 {
                   requestBodiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestCookiesToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestHeadersToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestQueryParamsToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
                   requestUrisToExclude: [
                     {
-                      op: 'Test string',
+                      op: 'CONTAINS',
                       val: 'Test string',
                     },
                   ],
@@ -31280,18 +31280,18 @@ gapi.load('client', async () => {
                 intervalSec: 42,
               },
               conformAction: 'Test string',
-              enforceOnKey: 'Test string',
+              enforceOnKey: 'ALL',
               enforceOnKeyConfigs: [
                 {
                   enforceOnKeyName: 'Test string',
-                  enforceOnKeyType: 'Test string',
+                  enforceOnKeyType: 'ALL',
                 },
               ],
               enforceOnKeyName: 'Test string',
               exceedAction: 'Test string',
               exceedRedirectOptions: {
                 target: 'Test string',
-                type: 'Test string',
+                type: 'EXTERNAL_302',
               },
               rateLimitThreshold: {
                 count: 42,
@@ -31300,16 +31300,16 @@ gapi.load('client', async () => {
             },
             redirectOptions: {
               target: 'Test string',
-              type: 'Test string',
+              type: 'EXTERNAL_302',
             },
           },
         ],
         selfLink: 'Test string',
         shortName: 'Test string',
-        type: 'Test string',
+        type: 'CLOUD_ARMOR',
         userDefinedFields: [
           {
-            base: 'Test string',
+            base: 'IPV4',
             mask: 'Test string',
             name: 'Test string',
             offset: 42,
@@ -31358,7 +31358,7 @@ gapi.load('client', async () => {
               sessionTokenSiteKeys: ['Test string'],
             },
           },
-          versionedExpr: 'Test string',
+          versionedExpr: 'SRC_IPS_V1',
         },
         networkMatch: {
           destIpRanges: ['Test string'],
@@ -31380,31 +31380,31 @@ gapi.load('client', async () => {
             {
               requestBodiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestCookiesToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestHeadersToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestQueryParamsToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
               requestUrisToExclude: [
                 {
-                  op: 'Test string',
+                  op: 'CONTAINS',
                   val: 'Test string',
                 },
               ],
@@ -31422,18 +31422,18 @@ gapi.load('client', async () => {
             intervalSec: 42,
           },
           conformAction: 'Test string',
-          enforceOnKey: 'Test string',
+          enforceOnKey: 'ALL',
           enforceOnKeyConfigs: [
             {
               enforceOnKeyName: 'Test string',
-              enforceOnKeyType: 'Test string',
+              enforceOnKeyType: 'ALL',
             },
           ],
           enforceOnKeyName: 'Test string',
           exceedAction: 'Test string',
           exceedRedirectOptions: {
             target: 'Test string',
-            type: 'Test string',
+            type: 'EXTERNAL_302',
           },
           rateLimitThreshold: {
             count: 42,
@@ -31442,7 +31442,7 @@ gapi.load('client', async () => {
         },
         redirectOptions: {
           target: 'Test string',
-          type: 'Test string',
+          type: 'EXTERNAL_302',
         },
       },
     );
@@ -31528,10 +31528,10 @@ gapi.load('client', async () => {
             natIps: ['Test string'],
             propagatedConnectionCount: 42,
             pscConnectionId: 'Test string',
-            status: 'Test string',
+            status: 'ACCEPTED',
           },
         ],
-        connectionPreference: 'Test string',
+        connectionPreference: 'ACCEPT_AUTOMATIC',
         consumerAcceptLists: [
           {
             connectionLimit: 42,
@@ -31551,7 +31551,7 @@ gapi.load('client', async () => {
         metadata: {
           A: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'DIRECT',
         name: 'Test string',
         natIpsPerEndpoint: 42,
         natSubnets: ['Test string'],
@@ -31598,10 +31598,10 @@ gapi.load('client', async () => {
             natIps: ['Test string'],
             propagatedConnectionCount: 42,
             pscConnectionId: 'Test string',
-            status: 'Test string',
+            status: 'ACCEPTED',
           },
         ],
-        connectionPreference: 'Test string',
+        connectionPreference: 'ACCEPT_AUTOMATIC',
         consumerAcceptLists: [
           {
             connectionLimit: 42,
@@ -31621,7 +31621,7 @@ gapi.load('client', async () => {
         metadata: {
           A: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'DIRECT',
         name: 'Test string',
         natIpsPerEndpoint: 42,
         natSubnets: ['Test string'],
@@ -31667,7 +31667,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -31743,7 +31743,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        architecture: 'Test string',
+        architecture: 'ARCHITECTURE_UNSPECIFIED',
         autoCreated: true,
         chainName: 'Test string',
         creationSizeBytes: 'Test string',
@@ -31755,7 +31755,7 @@ gapi.load('client', async () => {
         guestFlush: true,
         guestOsFeatures: [
           {
-            type: 'Test string',
+            type: 'BARE_METAL_LINUX_COMPATIBLE',
           },
         ],
         id: 'Test string',
@@ -31786,7 +31786,7 @@ gapi.load('client', async () => {
         },
         snapshotGroupId: 'Test string',
         snapshotGroupName: 'Test string',
-        snapshotType: 'Test string',
+        snapshotType: 'ARCHIVE',
         sourceDisk: 'Test string',
         sourceDiskEncryptionKey: {
           kmsKeyName: 'Test string',
@@ -31808,9 +31808,9 @@ gapi.load('client', async () => {
         sourceInstantSnapshotId: 'Test string',
         sourceSnapshotSchedulePolicy: 'Test string',
         sourceSnapshotSchedulePolicyId: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         storageBytes: 'Test string',
-        storageBytesStatus: 'Test string',
+        storageBytesStatus: 'UPDATING',
         storageLocations: ['Test string'],
       },
     );
@@ -31854,7 +31854,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -31935,7 +31935,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
-          policy: 'Test string',
+          policy: 'ALL_REGIONS',
         },
         storageLocation: {
           locations: {
@@ -31943,7 +31943,7 @@ gapi.load('client', async () => {
               name: 'Test string',
             },
           },
-          policy: 'Test string',
+          policy: 'LOCAL_REGION',
         },
       },
     );
@@ -32001,9 +32001,9 @@ gapi.load('client', async () => {
         managed: {
           domains: ['Test string'],
           domainStatus: {
-            A: 'Test string',
+            A: 'ACTIVE',
           },
-          status: 'Test string',
+          status: 'ACTIVE',
         },
         name: 'Test string',
         privateKey: 'Test string',
@@ -32015,7 +32015,7 @@ gapi.load('client', async () => {
           privateKey: 'Test string',
         },
         subjectAlternativeNames: ['Test string'],
-        type: 'Test string',
+        type: 'MANAGED',
       },
     );
     /**
@@ -32074,15 +32074,15 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        minTlsVersion: 'Test string',
+        minTlsVersion: 'TLS_1_0',
         name: 'Test string',
-        postQuantumKeyExchange: 'Test string',
-        profile: 'Test string',
+        postQuantumKeyExchange: 'DEFAULT',
+        profile: 'COMPATIBLE',
         region: 'Test string',
         selfLink: 'Test string',
         warnings: [
           {
-            code: 'Test string',
+            code: 'CLEANUP_FAILED',
             data: [
               {
                 key: 'Test string',
@@ -32131,15 +32131,15 @@ gapi.load('client', async () => {
         fingerprint: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        minTlsVersion: 'Test string',
+        minTlsVersion: 'TLS_1_0',
         name: 'Test string',
-        postQuantumKeyExchange: 'Test string',
-        profile: 'Test string',
+        postQuantumKeyExchange: 'DEFAULT',
+        profile: 'COMPATIBLE',
         region: 'Test string',
         selfLink: 'Test string',
         warnings: [
           {
-            code: 'Test string',
+            code: 'CLEANUP_FAILED',
             data: [
               {
                 key: 'Test string',
@@ -32209,7 +32209,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        capacityProvisioningType: 'Test string',
+        capacityProvisioningType: 'ADVANCED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         exapoolProvisionedCapacityGb: {
@@ -32229,7 +32229,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        performanceProvisioningType: 'Test string',
+        performanceProvisioningType: 'ADVANCED',
         poolProvisionedCapacityGb: 'Test string',
         poolProvisionedIops: 'Test string',
         poolProvisionedThroughput: 'Test string',
@@ -32258,7 +32258,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'CREATING',
         status: {
           diskCount: 'Test string',
           exapoolMaxReadIops: 'Test string',
@@ -32331,7 +32331,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -32381,7 +32381,7 @@ gapi.load('client', async () => {
         zone: 'Test string',
       },
       {
-        capacityProvisioningType: 'Test string',
+        capacityProvisioningType: 'ADVANCED',
         creationTimestamp: 'Test string',
         description: 'Test string',
         exapoolProvisionedCapacityGb: {
@@ -32401,7 +32401,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        performanceProvisioningType: 'Test string',
+        performanceProvisioningType: 'ADVANCED',
         poolProvisionedCapacityGb: 'Test string',
         poolProvisionedIops: 'Test string',
         poolProvisionedThroughput: 'Test string',
@@ -32430,7 +32430,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'CREATING',
         status: {
           diskCount: 'Test string',
           exapoolMaxReadIops: 'Test string',
@@ -32498,7 +32498,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       project: 'Test string',
       serviceProjectNumber: 'Test string',
-      views: 'Test string',
+      views: 'DEFAULT',
     });
     /** Deletes the specified subnetwork. */
     await gapi.client.compute.subnetworks.delete({
@@ -32524,7 +32524,7 @@ gapi.load('client', async () => {
       project: 'Test string',
       region: 'Test string',
       subnetwork: 'Test string',
-      views: 'Test string',
+      views: 'DEFAULT',
     });
     /**
      * Gets the access control policy for a resource. May be empty if no such
@@ -32558,16 +32558,16 @@ gapi.load('client', async () => {
         internalIpv6Prefix: 'Test string',
         ipCidrRange: 'Test string',
         ipCollection: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         ipv6CidrRange: 'Test string',
-        ipv6GceEndpoint: 'Test string',
+        ipv6GceEndpoint: 'VM_AND_FR',
         kind: 'Test string',
         logConfig: {
-          aggregationInterval: 'Test string',
+          aggregationInterval: 'INTERVAL_10_MIN',
           enable: true,
           filterExpr: 'Test string',
           flowSampling: 42,
-          metadata: 'Test string',
+          metadata: 'CUSTOM_METADATA',
           metadataFields: ['Test string'],
         },
         name: 'Test string',
@@ -32578,24 +32578,24 @@ gapi.load('client', async () => {
           },
         },
         privateIpGoogleAccess: true,
-        privateIpv6GoogleAccess: 'Test string',
-        purpose: 'Test string',
+        privateIpv6GoogleAccess: 'DISABLE_GOOGLE_ACCESS',
+        purpose: 'GLOBAL_MANAGED_PROXY',
         region: 'Test string',
         reservedInternalRange: 'Test string',
-        resolveSubnetMask: 'Test string',
-        role: 'Test string',
+        resolveSubnetMask: 'ARP_ALL_RANGES',
+        role: 'ACTIVE',
         secondaryIpRanges: [
           {
             ipCidrRange: 'Test string',
             ipCollection: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             rangeName: 'Test string',
             reservedInternalRange: 'Test string',
           },
         ],
         selfLink: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'IPV4_IPV6',
+        state: 'DRAINING',
         systemReservedExternalIpv6Ranges: ['Test string'],
         systemReservedInternalIpv6Ranges: ['Test string'],
         utilizationDetails: {
@@ -32650,7 +32650,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       project: 'Test string',
       region: 'Test string',
-      views: 'Test string',
+      views: 'DEFAULT',
     });
     /** Retrieves an aggregated list of all usable subnetworks in the project. */
     await gapi.client.compute.subnetworks.listUsable({
@@ -32688,16 +32688,16 @@ gapi.load('client', async () => {
         internalIpv6Prefix: 'Test string',
         ipCidrRange: 'Test string',
         ipCollection: 'Test string',
-        ipv6AccessType: 'Test string',
+        ipv6AccessType: 'EXTERNAL',
         ipv6CidrRange: 'Test string',
-        ipv6GceEndpoint: 'Test string',
+        ipv6GceEndpoint: 'VM_AND_FR',
         kind: 'Test string',
         logConfig: {
-          aggregationInterval: 'Test string',
+          aggregationInterval: 'INTERVAL_10_MIN',
           enable: true,
           filterExpr: 'Test string',
           flowSampling: 42,
-          metadata: 'Test string',
+          metadata: 'CUSTOM_METADATA',
           metadataFields: ['Test string'],
         },
         name: 'Test string',
@@ -32708,24 +32708,24 @@ gapi.load('client', async () => {
           },
         },
         privateIpGoogleAccess: true,
-        privateIpv6GoogleAccess: 'Test string',
-        purpose: 'Test string',
+        privateIpv6GoogleAccess: 'DISABLE_GOOGLE_ACCESS',
+        purpose: 'GLOBAL_MANAGED_PROXY',
         region: 'Test string',
         reservedInternalRange: 'Test string',
-        resolveSubnetMask: 'Test string',
-        role: 'Test string',
+        resolveSubnetMask: 'ARP_ALL_RANGES',
+        role: 'ACTIVE',
         secondaryIpRanges: [
           {
             ipCidrRange: 'Test string',
             ipCollection: 'Test string',
-            ipVersion: 'Test string',
+            ipVersion: 'IPV4',
             rangeName: 'Test string',
             reservedInternalRange: 'Test string',
           },
         ],
         selfLink: 'Test string',
-        stackType: 'Test string',
-        state: 'Test string',
+        stackType: 'IPV4_IPV6',
+        state: 'DRAINING',
         systemReservedExternalIpv6Ranges: ['Test string'],
         systemReservedInternalIpv6Ranges: ['Test string'],
         utilizationDetails: {
@@ -32799,7 +32799,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'ADMIN_READ',
                 },
               ],
               service: 'Test string',
@@ -33059,13 +33059,13 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         proxyBind: true,
-        quicOverride: 'Test string',
+        quicOverride: 'DISABLE',
         region: 'Test string',
         selfLink: 'Test string',
         serverTlsPolicy: 'Test string',
         sslCertificates: ['Test string'],
         sslPolicy: 'Test string',
-        tlsEarlyData: 'Test string',
+        tlsEarlyData: 'DISABLED',
         urlMap: 'Test string',
       },
     );
@@ -33103,13 +33103,13 @@ gapi.load('client', async () => {
         kind: 'Test string',
         name: 'Test string',
         proxyBind: true,
-        quicOverride: 'Test string',
+        quicOverride: 'DISABLE',
         region: 'Test string',
         selfLink: 'Test string',
         serverTlsPolicy: 'Test string',
         sslCertificates: ['Test string'],
         sslPolicy: 'Test string',
-        tlsEarlyData: 'Test string',
+        tlsEarlyData: 'DISABLED',
         urlMap: 'Test string',
       },
     );
@@ -33132,7 +33132,7 @@ gapi.load('client', async () => {
         targetHttpsProxy: 'Test string',
       },
       {
-        quicOverride: 'Test string',
+        quicOverride: 'DISABLE',
       },
     );
     /** Replaces SslCertificates for TargetHttpsProxy. */
@@ -33218,7 +33218,7 @@ gapi.load('client', async () => {
         instance: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-        natPolicy: 'Test string',
+        natPolicy: 'NO_NAT',
         network: 'Test string',
         params: {
           resourceManagerTags: {
@@ -33371,7 +33371,7 @@ gapi.load('client', async () => {
         region: 'Test string',
         securityPolicy: 'Test string',
         selfLink: 'Test string',
-        sessionAffinity: 'Test string',
+        sessionAffinity: 'CLIENT_IP',
       },
     );
     /**
@@ -33485,7 +33485,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         kind: 'Test string',
         name: 'Test string',
-        proxyHeader: 'Test string',
+        proxyHeader: 'NONE',
         selfLink: 'Test string',
         service: 'Test string',
         sslCertificates: ['Test string'],
@@ -33533,7 +33533,7 @@ gapi.load('client', async () => {
         targetSslProxy: 'Test string',
       },
       {
-        proxyHeader: 'Test string',
+        proxyHeader: 'NONE',
       },
     );
     /** Changes SslCertificates for TargetSslProxy. */
@@ -33614,10 +33614,10 @@ gapi.load('client', async () => {
         description: 'Test string',
         id: 'Test string',
         kind: 'Test string',
-        loadBalancingScheme: 'Test string',
+        loadBalancingScheme: 'EXTERNAL',
         name: 'Test string',
         proxyBind: true,
-        proxyHeader: 'Test string',
+        proxyHeader: 'NONE',
         region: 'Test string',
         selfLink: 'Test string',
         service: 'Test string',
@@ -33653,7 +33653,7 @@ gapi.load('client', async () => {
         targetTcpProxy: 'Test string',
       },
       {
-        proxyHeader: 'Test string',
+        proxyHeader: 'NONE',
       },
     );
     /** Returns permissions that a caller has on the specified resource. */
@@ -33723,7 +33723,7 @@ gapi.load('client', async () => {
         },
         region: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'CREATING',
         tunnels: ['Test string'],
       },
     );
@@ -33817,7 +33817,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -33929,7 +33929,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -33986,7 +33986,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -34098,7 +34098,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -34146,7 +34146,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -34258,7 +34258,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -34321,7 +34321,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -34350,7 +34350,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -34462,7 +34462,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -34555,7 +34555,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -34667,7 +34667,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -34724,7 +34724,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -34836,7 +34836,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -34884,7 +34884,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -34996,7 +34996,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -35059,7 +35059,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -35088,7 +35088,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -35200,7 +35200,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -35271,7 +35271,7 @@ gapi.load('client', async () => {
               includeProtocol: true,
               includeQueryString: true,
             },
-            cacheMode: 'Test string',
+            cacheMode: 'BYPASS_CACHE',
             clientTtl: {
               nanos: 42,
               seconds: 'Test string',
@@ -35383,7 +35383,7 @@ gapi.load('client', async () => {
           httpsRedirect: true,
           pathRedirect: 'Test string',
           prefixRedirect: 'Test string',
-          redirectResponseCode: 'Test string',
+          redirectResponseCode: 'FOUND',
           stripQuery: true,
         },
         description: 'Test string',
@@ -35440,7 +35440,7 @@ gapi.load('client', async () => {
                   includeProtocol: true,
                   includeQueryString: true,
                 },
-                cacheMode: 'Test string',
+                cacheMode: 'BYPASS_CACHE',
                 clientTtl: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -35552,7 +35552,7 @@ gapi.load('client', async () => {
               httpsRedirect: true,
               pathRedirect: 'Test string',
               prefixRedirect: 'Test string',
-              redirectResponseCode: 'Test string',
+              redirectResponseCode: 'FOUND',
               stripQuery: true,
             },
             description: 'Test string',
@@ -35600,7 +35600,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -35712,7 +35712,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -35775,7 +35775,7 @@ gapi.load('client', async () => {
                             value: 'Test string',
                           },
                         ],
-                        filterMatchCriteria: 'Test string',
+                        filterMatchCriteria: 'MATCH_ALL',
                       },
                     ],
                     pathTemplateMatch: 'Test string',
@@ -35804,7 +35804,7 @@ gapi.load('client', async () => {
                       includeProtocol: true,
                       includeQueryString: true,
                     },
-                    cacheMode: 'Test string',
+                    cacheMode: 'BYPASS_CACHE',
                     clientTtl: {
                       nanos: 42,
                       seconds: 'Test string',
@@ -35916,7 +35916,7 @@ gapi.load('client', async () => {
                   httpsRedirect: true,
                   pathRedirect: 'Test string',
                   prefixRedirect: 'Test string',
-                  redirectResponseCode: 'Test string',
+                  redirectResponseCode: 'FOUND',
                   stripQuery: true,
                 },
               },
@@ -35954,7 +35954,7 @@ gapi.load('client', async () => {
         urlMap: 'Test string',
       },
       {
-        loadBalancingSchemes: ['Test string'],
+        loadBalancingSchemes: ['EXTERNAL'],
         resource: {
           creationTimestamp: 'Test string',
           defaultCustomErrorResponsePolicy: {
@@ -35979,7 +35979,7 @@ gapi.load('client', async () => {
                 includeProtocol: true,
                 includeQueryString: true,
               },
-              cacheMode: 'Test string',
+              cacheMode: 'BYPASS_CACHE',
               clientTtl: {
                 nanos: 42,
                 seconds: 'Test string',
@@ -36091,7 +36091,7 @@ gapi.load('client', async () => {
             httpsRedirect: true,
             pathRedirect: 'Test string',
             prefixRedirect: 'Test string',
-            redirectResponseCode: 'Test string',
+            redirectResponseCode: 'FOUND',
             stripQuery: true,
           },
           description: 'Test string',
@@ -36148,7 +36148,7 @@ gapi.load('client', async () => {
                     includeProtocol: true,
                     includeQueryString: true,
                   },
-                  cacheMode: 'Test string',
+                  cacheMode: 'BYPASS_CACHE',
                   clientTtl: {
                     nanos: 42,
                     seconds: 'Test string',
@@ -36260,7 +36260,7 @@ gapi.load('client', async () => {
                 httpsRedirect: true,
                 pathRedirect: 'Test string',
                 prefixRedirect: 'Test string',
-                redirectResponseCode: 'Test string',
+                redirectResponseCode: 'FOUND',
                 stripQuery: true,
               },
               description: 'Test string',
@@ -36308,7 +36308,7 @@ gapi.load('client', async () => {
                         includeProtocol: true,
                         includeQueryString: true,
                       },
-                      cacheMode: 'Test string',
+                      cacheMode: 'BYPASS_CACHE',
                       clientTtl: {
                         nanos: 42,
                         seconds: 'Test string',
@@ -36420,7 +36420,7 @@ gapi.load('client', async () => {
                     httpsRedirect: true,
                     pathRedirect: 'Test string',
                     prefixRedirect: 'Test string',
-                    redirectResponseCode: 'Test string',
+                    redirectResponseCode: 'FOUND',
                     stripQuery: true,
                   },
                 },
@@ -36483,7 +36483,7 @@ gapi.load('client', async () => {
                               value: 'Test string',
                             },
                           ],
-                          filterMatchCriteria: 'Test string',
+                          filterMatchCriteria: 'MATCH_ALL',
                         },
                       ],
                       pathTemplateMatch: 'Test string',
@@ -36512,7 +36512,7 @@ gapi.load('client', async () => {
                         includeProtocol: true,
                         includeQueryString: true,
                       },
-                      cacheMode: 'Test string',
+                      cacheMode: 'BYPASS_CACHE',
                       clientTtl: {
                         nanos: 42,
                         seconds: 'Test string',
@@ -36624,7 +36624,7 @@ gapi.load('client', async () => {
                     httpsRedirect: true,
                     pathRedirect: 'Test string',
                     prefixRedirect: 'Test string',
-                    redirectResponseCode: 'Test string',
+                    redirectResponseCode: 'FOUND',
                     stripQuery: true,
                   },
                 },
@@ -36699,7 +36699,7 @@ gapi.load('client', async () => {
       {
         creationTimestamp: 'Test string',
         description: 'Test string',
-        gatewayIpVersion: 'Test string',
+        gatewayIpVersion: 'IPV4',
         id: 'Test string',
         kind: 'Test string',
         labelFingerprint: 'Test string',
@@ -36715,7 +36715,7 @@ gapi.load('client', async () => {
         },
         region: 'Test string',
         selfLink: 'Test string',
-        stackType: 'Test string',
+        stackType: 'IPV4_IPV6',
         vpnInterfaces: [
           {
             id: 42,
@@ -36842,27 +36842,27 @@ gapi.load('client', async () => {
         peerIp: 'Test string',
         pqcPhase1: {
           keys: {
-            ke1s: ['Test string'],
-            ke2s: ['Test string'],
-            ke3s: ['Test string'],
-            ke4s: ['Test string'],
-            ke5s: ['Test string'],
-            ke6s: ['Test string'],
-            ke7s: ['Test string'],
+            ke1s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke2s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke3s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke4s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke5s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke6s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke7s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
           },
-          mode: 'Test string',
+          mode: 'DISABLED',
         },
         pqcPhase2: {
           keys: {
-            ke1s: ['Test string'],
-            ke2s: ['Test string'],
-            ke3s: ['Test string'],
-            ke4s: ['Test string'],
-            ke5s: ['Test string'],
-            ke6s: ['Test string'],
-            ke7s: ['Test string'],
+            ke1s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke2s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke3s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke4s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke5s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke6s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
+            ke7s: ['KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'],
           },
-          mode: 'Test string',
+          mode: 'DISABLED',
         },
         region: 'Test string',
         remoteTrafficSelector: ['Test string'],
@@ -36870,7 +36870,7 @@ gapi.load('client', async () => {
         selfLink: 'Test string',
         sharedSecret: 'Test string',
         sharedSecretHash: 'Test string',
-        status: 'Test string',
+        status: 'ALLOCATING_RESOURCES',
         targetVpnGateway: 'Test string',
         vpnGateway: 'Test string',
         vpnGatewayInterface: 42,
@@ -36958,10 +36958,10 @@ gapi.load('client', async () => {
           ],
         },
         wireProperties: {
-          bandwidthAllocation: 'Test string',
+          bandwidthAllocation: 'ALLOCATE_PER_WIRE',
           bandwidthUnmetered: 'Test string',
-          faultResponse: 'Test string',
-          flowManagement: 'Test string',
+          faultResponse: 'DISABLE_PORT',
+          flowManagement: 'DYNAMIC_PATH',
         },
         wires: [
           {
@@ -36974,10 +36974,10 @@ gapi.load('client', async () => {
             ],
             label: 'Test string',
             wireProperties: {
-              bandwidthAllocation: 'Test string',
+              bandwidthAllocation: 'ALLOCATE_PER_WIRE',
               bandwidthUnmetered: 'Test string',
-              faultResponse: 'Test string',
-              flowManagement: 'Test string',
+              faultResponse: 'DISABLE_PORT',
+              flowManagement: 'DYNAMIC_PATH',
             },
           },
         ],
@@ -37035,10 +37035,10 @@ gapi.load('client', async () => {
           ],
         },
         wireProperties: {
-          bandwidthAllocation: 'Test string',
+          bandwidthAllocation: 'ALLOCATE_PER_WIRE',
           bandwidthUnmetered: 'Test string',
-          faultResponse: 'Test string',
-          flowManagement: 'Test string',
+          faultResponse: 'DISABLE_PORT',
+          flowManagement: 'DYNAMIC_PATH',
         },
         wires: [
           {
@@ -37051,10 +37051,10 @@ gapi.load('client', async () => {
             ],
             label: 'Test string',
             wireProperties: {
-              bandwidthAllocation: 'Test string',
+              bandwidthAllocation: 'ALLOCATE_PER_WIRE',
               bandwidthUnmetered: 'Test string',
-              faultResponse: 'Test string',
-              flowManagement: 'Test string',
+              faultResponse: 'DISABLE_PORT',
+              flowManagement: 'DYNAMIC_PATH',
             },
           },
         ],
@@ -37207,7 +37207,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );
@@ -37266,7 +37266,7 @@ gapi.load('client', async () => {
         priority: 42,
         selfLink: 'Test string',
         selfLinkWithId: 'Test string',
-        state: 'Test string',
+        state: 'ACTIVE',
         updateTimestamp: 'Test string',
       },
     );

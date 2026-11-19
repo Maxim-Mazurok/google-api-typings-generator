@@ -50,7 +50,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -278,7 +278,7 @@ gapi.load('client', async () => {
           },
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -313,7 +313,7 @@ gapi.load('client', async () => {
           },
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
           tableType: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'TABLE_VIEW_UNSPECIFIED',
       },
     );
     /** Updates an existing table specified by the table ID. */
@@ -392,7 +392,7 @@ gapi.load('client', async () => {
           tableType: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

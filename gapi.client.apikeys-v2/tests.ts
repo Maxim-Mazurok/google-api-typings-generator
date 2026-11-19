@@ -93,7 +93,7 @@ gapi.load('client', async () => {
     );
     /** Deletes an API key. Deleted key can be retrieved within 30 days of deletion. Afterward, key will be purged from the project. The key string of the API key isn't included in the response and can only be retrieved through the `GetKeyString` method. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
     await gapi.client.apikeys.projects.locations.keys.delete({
-      checkExistingUsage: 'Test string',
+      checkExistingUsage: 'CHECK_EXISTING_USAGE_UNSPECIFIED',
       etag: 'Test string',
       name: 'Test string',
     });
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
     /** Patches the modifiable fields of an API key. The key string of the API key isn't included in the response and can only be retrieved through the `GetKeyString` method. NOTE: Key is a global resource; hence the only supported value for location is `global`. */
     await gapi.client.apikeys.projects.locations.keys.patch(
       {
-        checkExistingUsage: 'Test string',
+        checkExistingUsage: 'CHECK_EXISTING_USAGE_UNSPECIFIED',
         name: 'Test string',
         updateMask: 'Test string',
       },

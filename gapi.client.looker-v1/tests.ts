@@ -59,7 +59,7 @@ gapi.load('client', async () => {
           workforceAuthEnabled: true,
         },
         catalogIntegrationOptOut: true,
-        classType: 'Test string',
+        classType: 'CLASS_TYPE_UNSPECIFIED',
         consumerNetwork: 'Test string',
         controlledEgressConfig: {
           egressFqdns: ['Test string'],
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         customDomain: {
           domain: 'Test string',
-          state: 'Test string',
+          state: 'CUSTOM_DOMAIN_STATE_UNSPECIFIED',
         },
         denyMaintenancePeriod: {
           endDate: {
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
         encryptionConfig: {
           kmsKeyName: 'Test string',
           kmsKeyNameVersion: 'Test string',
-          kmsKeyState: 'Test string',
+          kmsKeyState: 'KMS_KEY_STATE_UNSPECIFIED',
         },
         fipsEnabled: true,
         geminiEnabled: true,
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         maintenanceWindow: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           startTime: {
             hours: 42,
             minutes: 42,
@@ -160,14 +160,14 @@ gapi.load('client', async () => {
             seconds: 42,
           },
         },
-        platformEdition: 'Test string',
+        platformEdition: 'PLATFORM_EDITION_UNSPECIFIED',
         privateIpEnabled: true,
         pscConfig: {
           allowedVpcs: ['Test string'],
           lookerServiceAttachmentUri: 'Test string',
           serviceAttachments: [
             {
-              connectionStatus: 'Test string',
+              connectionStatus: 'UNKNOWN',
               failureReason: 'Test string',
               localFqdn: 'Test string',
               localFqdns: ['Test string'],
@@ -177,12 +177,12 @@ gapi.load('client', async () => {
         },
         pscEnabled: true,
         publicIpEnabled: true,
-        releaseChannel: 'Test string',
+        releaseChannel: 'RELEASE_CHANNEL_UNSPECIFIED',
         reservedRange: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        softDeleteReason: 'Test string',
-        state: 'Test string',
+        softDeleteReason: 'SOFT_DELETE_REASON_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         suspendedTime: 'Test string',
         updateTime: 'Test string',
         userMetadata: {
@@ -245,7 +245,7 @@ gapi.load('client', async () => {
           workforceAuthEnabled: true,
         },
         catalogIntegrationOptOut: true,
-        classType: 'Test string',
+        classType: 'CLASS_TYPE_UNSPECIFIED',
         consumerNetwork: 'Test string',
         controlledEgressConfig: {
           egressFqdns: ['Test string'],
@@ -256,7 +256,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         customDomain: {
           domain: 'Test string',
-          state: 'Test string',
+          state: 'CUSTOM_DOMAIN_STATE_UNSPECIFIED',
         },
         denyMaintenancePeriod: {
           endDate: {
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
         encryptionConfig: {
           kmsKeyName: 'Test string',
           kmsKeyNameVersion: 'Test string',
-          kmsKeyState: 'Test string',
+          kmsKeyState: 'KMS_KEY_STATE_UNSPECIFIED',
         },
         fipsEnabled: true,
         geminiEnabled: true,
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
           startTime: 'Test string',
         },
         maintenanceWindow: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           startTime: {
             hours: 42,
             minutes: 42,
@@ -346,14 +346,14 @@ gapi.load('client', async () => {
             seconds: 42,
           },
         },
-        platformEdition: 'Test string',
+        platformEdition: 'PLATFORM_EDITION_UNSPECIFIED',
         privateIpEnabled: true,
         pscConfig: {
           allowedVpcs: ['Test string'],
           lookerServiceAttachmentUri: 'Test string',
           serviceAttachments: [
             {
-              connectionStatus: 'Test string',
+              connectionStatus: 'UNKNOWN',
               failureReason: 'Test string',
               localFqdn: 'Test string',
               localFqdns: ['Test string'],
@@ -363,12 +363,12 @@ gapi.load('client', async () => {
         },
         pscEnabled: true,
         publicIpEnabled: true,
-        releaseChannel: 'Test string',
+        releaseChannel: 'RELEASE_CHANNEL_UNSPECIFIED',
         reservedRange: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        softDeleteReason: 'Test string',
-        state: 'Test string',
+        softDeleteReason: 'SOFT_DELETE_REASON_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         suspendedTime: 'Test string',
         updateTime: 'Test string',
         userMetadata: {
@@ -411,11 +411,11 @@ gapi.load('client', async () => {
         encryptionConfig: {
           kmsKeyName: 'Test string',
           kmsKeyNameVersion: 'Test string',
-          kmsKeyState: 'Test string',
+          kmsKeyState: 'KMS_KEY_STATE_UNSPECIFIED',
         },
         expireTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Delete backup. */

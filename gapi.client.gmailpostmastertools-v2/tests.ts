@@ -59,7 +59,7 @@ gapi.load('client', async () => {
     /** [Developer Preview](https://developers.google.com/workspace/preview): Gets a verification token used for verifying a user's ownership over a domain. */
     await gapi.client.gmailpostmastertools.domains.getVerificationToken({
       name: 'Test string',
-      verificationMethod: 'Test string',
+      verificationMethod: 'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED',
     });
     /** Retrieves a list of all domains registered by you, along with their corresponding metadata. The order of domains in the response is unspecified and non-deterministic. Newly registered domains will not necessarily be added to the end of this list. */
     await gapi.client.gmailpostmastertools.domains.list({
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        verificationMethod: 'Test string',
+        verificationMethod: 'DOMAIN_VERIFICATION_METHOD_UNSPECIFIED',
       },
     );
     /** Retrieves a list of domain statistics for a given domain and time period. Returns statistics only for dates where data is available. Returns PERMISSION_DENIED if you don't have permission to access DomainStats for the domain. */
@@ -81,11 +81,11 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        aggregationGranularity: 'Test string',
+        aggregationGranularity: 'AGGREGATION_GRANULARITY_UNSPECIFIED',
         metricDefinitions: [
           {
             baseMetric: {
-              standardMetric: 'Test string',
+              standardMetric: 'STANDARD_METRIC_UNSPECIFIED',
             },
             filter: 'Test string',
             name: 'Test string',
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        permission: 'Test string',
+        permission: 'PERMISSION_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
         accessGranter: 'Test string',
         createTime: 'Test string',
         name: 'Test string',
-        permission: 'Test string',
+        permission: 'PERMISSION_UNSPECIFIED',
         user: 'Test string',
       },
     );
@@ -167,11 +167,11 @@ gapi.load('client', async () => {
       {
         requests: [
           {
-            aggregationGranularity: 'Test string',
+            aggregationGranularity: 'AGGREGATION_GRANULARITY_UNSPECIFIED',
             metricDefinitions: [
               {
                 baseMetric: {
-                  standardMetric: 'Test string',
+                  standardMetric: 'STANDARD_METRIC_UNSPECIFIED',
                 },
                 filter: 'Test string',
                 name: 'Test string',

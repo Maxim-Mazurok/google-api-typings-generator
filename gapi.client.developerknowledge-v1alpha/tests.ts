@@ -34,12 +34,12 @@ gapi.load('client', async () => {
     /** Retrieves multiple documents, each with its full Markdown content. */
     await gapi.client.developerknowledge.documents.batchGet({
       names: 'Test string',
-      view: 'Test string',
+      view: 'DOCUMENT_VIEW_UNSPECIFIED',
     });
     /** Retrieves a single document with its full Markdown content. */
     await gapi.client.developerknowledge.documents.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'DOCUMENT_VIEW_UNSPECIFIED',
     });
     /** Searches for developer knowledge across Google's developer documentation. Returns DocumentChunks based on the user's query. There may be many chunks from the same Document. To retrieve full documents, use DeveloperKnowledge.GetDocument or DeveloperKnowledge.BatchGetDocuments with the DocumentChunk.parent returned in the SearchDocumentChunksResponse.results. */
     await gapi.client.developerknowledge.documents.searchDocumentChunks({

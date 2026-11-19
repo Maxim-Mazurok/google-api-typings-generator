@@ -74,7 +74,7 @@ gapi.load('client', async () => {
         serverId: 'Test string',
       },
       {
-        accessType: 'Test string',
+        accessType: 'ACCESS_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         displayName: 'Test string',
         externalConfig: {
@@ -111,13 +111,13 @@ gapi.load('client', async () => {
         },
         loggingConfig: {
           enabled: true,
-          verbosity: 'Test string',
+          verbosity: 'LOG_VERBOSITY_UNSPECIFIED',
         },
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
         serviceAgent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -128,7 +128,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Server. */
     await gapi.client.ftp.projects.locations.servers.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'SERVER_VIEW_UNSPECIFIED',
     });
     /** Lists Servers in a given project and location. */
     await gapi.client.ftp.projects.locations.servers.list({
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'SERVER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single Server. */
     await gapi.client.ftp.projects.locations.servers.patch(
@@ -147,7 +147,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        accessType: 'Test string',
+        accessType: 'ACCESS_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         displayName: 'Test string',
         externalConfig: {
@@ -184,13 +184,13 @@ gapi.load('client', async () => {
         },
         loggingConfig: {
           enabled: true,
-          verbosity: 'Test string',
+          verbosity: 'LOG_VERBOSITY_UNSPECIFIED',
         },
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
         serviceAgent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -222,20 +222,20 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageDirectoryMappings: [
           {
             bucket: 'Test string',
             bucketPrefix: 'Test string',
             directory: 'Test string',
-            permission: 'Test string',
+            permission: 'PERMISSION_UNSPECIFIED',
           },
         ],
         updateTime: 'Test string',
         userCredentials: [
           {
             credentialName: 'Test string',
-            credentialType: 'Test string',
+            credentialType: 'TYPE_UNSPECIFIED',
             sshPublicKeyBody: 'Test string',
           },
         ],
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
     /** Gets details of a single User. */
     await gapi.client.ftp.projects.locations.servers.users.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'USER_VIEW_UNSPECIFIED',
     });
     /** Lists Users in a given project and location. */
     await gapi.client.ftp.projects.locations.servers.users.list({
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'USER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single User. */
     await gapi.client.ftp.projects.locations.servers.users.patch(
@@ -274,20 +274,20 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageDirectoryMappings: [
           {
             bucket: 'Test string',
             bucketPrefix: 'Test string',
             directory: 'Test string',
-            permission: 'Test string',
+            permission: 'PERMISSION_UNSPECIFIED',
           },
         ],
         updateTime: 'Test string',
         userCredentials: [
           {
             credentialName: 'Test string',
-            credentialType: 'Test string',
+            credentialType: 'TYPE_UNSPECIFIED',
             sshPublicKeyBody: 'Test string',
           },
         ],

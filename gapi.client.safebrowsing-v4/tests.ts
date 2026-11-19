@@ -40,7 +40,7 @@ gapi.load('client', async () => {
         },
         clientStates: ['Test string'],
         threatInfo: {
-          platformTypes: ['Test string'],
+          platformTypes: ['PLATFORM_TYPE_UNSPECIFIED'],
           threatEntries: [
             {
               digest: 'Test string',
@@ -48,8 +48,8 @@ gapi.load('client', async () => {
               url: 'Test string',
             },
           ],
-          threatEntryTypes: ['Test string'],
-          threatTypes: ['Test string'],
+          threatEntryTypes: ['THREAT_ENTRY_TYPE_UNSPECIFIED'],
+          threatTypes: ['THREAT_TYPE_UNSPECIFIED'],
         },
       },
     );
@@ -66,16 +66,16 @@ gapi.load('client', async () => {
           hash: 'Test string',
           url: 'Test string',
         },
-        platformType: 'Test string',
+        platformType: 'PLATFORM_TYPE_UNSPECIFIED',
         resources: [
           {
             referrer: 'Test string',
             remoteIp: 'Test string',
-            type: 'Test string',
+            type: 'THREAT_SOURCE_TYPE_UNSPECIFIED',
             url: 'Test string',
           },
         ],
-        threatType: 'Test string',
+        threatType: 'THREAT_TYPE_UNSPECIFIED',
         userInfo: {
           regionCode: 'Test string',
           userId: 'Test string',
@@ -100,12 +100,12 @@ gapi.load('client', async () => {
               maxDatabaseEntries: 42,
               maxUpdateEntries: 42,
               region: 'Test string',
-              supportedCompressions: ['Test string'],
+              supportedCompressions: ['COMPRESSION_TYPE_UNSPECIFIED'],
             },
-            platformType: 'Test string',
+            platformType: 'PLATFORM_TYPE_UNSPECIFIED',
             state: 'Test string',
-            threatEntryType: 'Test string',
-            threatType: 'Test string',
+            threatEntryType: 'THREAT_ENTRY_TYPE_UNSPECIFIED',
+            threatType: 'THREAT_TYPE_UNSPECIFIED',
           },
         ],
       },
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           clientVersion: 'Test string',
         },
         threatInfo: {
-          platformTypes: ['Test string'],
+          platformTypes: ['PLATFORM_TYPE_UNSPECIFIED'],
           threatEntries: [
             {
               digest: 'Test string',
@@ -127,8 +127,8 @@ gapi.load('client', async () => {
               url: 'Test string',
             },
           ],
-          threatEntryTypes: ['Test string'],
-          threatTypes: ['Test string'],
+          threatEntryTypes: ['THREAT_ENTRY_TYPE_UNSPECIFIED'],
+          threatTypes: ['THREAT_TYPE_UNSPECIFIED'],
         },
       },
     );

@@ -107,7 +107,8 @@ declare namespace gapi.client {
       /** Text translated into the target language. */
       translatedText?: string;
     }
-    interface DetectionsResource {
+
+    const detections: {
       /** Detects the language of text within a request. */
       detect(request: {
         /** V1 error format. */
@@ -204,8 +205,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DetectionsListResponse>;
-    }
-    interface LanguagesResource {
+    };
+
+    const languages: {
       /** Returns a list of supported languages for translation. */
       list(request?: {
         /** V1 error format. */
@@ -242,8 +244,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<LanguagesListResponse>;
-    }
-    interface TranslationsResource {
+    };
+
+    const translations: {
       /** Translates input text, returning translated text. */
       list(request?: {
         /** V1 error format. */
@@ -364,12 +367,6 @@ declare namespace gapi.client {
         },
         body: TranslateTextRequest,
       ): Request<TranslationsListResponse>;
-    }
-
-    const detections: DetectionsResource;
-
-    const languages: LanguagesResource;
-
-    const translations: TranslationsResource;
+    };
   }
 }

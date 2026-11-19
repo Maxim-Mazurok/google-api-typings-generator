@@ -57,10 +57,10 @@ gapi.load('client', async () => {
             },
           ],
           baseConfig: 'Test string',
-          configType: 'Test string',
+          configType: 'TYPE_UNSPECIFIED',
           displayName: 'Test string',
           etag: 'Test string',
-          freeInstanceAvailability: 'Test string',
+          freeInstanceAvailability: 'FREE_INSTANCE_AVAILABILITY_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
@@ -70,19 +70,19 @@ gapi.load('client', async () => {
             {
               defaultLeaderLocation: true,
               location: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
-          quorumType: 'Test string',
+          quorumType: 'QUORUM_TYPE_UNSPECIFIED',
           reconciling: true,
           replicas: [
             {
               defaultLeaderLocation: true,
               location: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           storageLimitPerProcessingUnit: 'Test string',
         },
         instanceConfigId: 'Test string',
@@ -120,10 +120,10 @@ gapi.load('client', async () => {
             },
           ],
           baseConfig: 'Test string',
-          configType: 'Test string',
+          configType: 'TYPE_UNSPECIFIED',
           displayName: 'Test string',
           etag: 'Test string',
-          freeInstanceAvailability: 'Test string',
+          freeInstanceAvailability: 'FREE_INSTANCE_AVAILABILITY_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
@@ -133,19 +133,19 @@ gapi.load('client', async () => {
             {
               defaultLeaderLocation: true,
               location: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
-          quorumType: 'Test string',
+          quorumType: 'QUORUM_TYPE_UNSPECIFIED',
           reconciling: true,
           replicas: [
             {
               defaultLeaderLocation: true,
               location: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           storageLimitPerProcessingUnit: 'Test string',
         },
         updateMask: 'Test string',
@@ -241,16 +241,16 @@ gapi.load('client', async () => {
           },
           config: 'Test string',
           createTime: 'Test string',
-          defaultBackupScheduleType: 'Test string',
+          defaultBackupScheduleType: 'DEFAULT_BACKUP_SCHEDULE_TYPE_UNSPECIFIED',
           displayName: 'Test string',
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           endpointUris: ['Test string'],
           freeInstanceMetadata: {
-            expireBehavior: 'Test string',
+            expireBehavior: 'EXPIRE_BEHAVIOR_UNSPECIFIED',
             expireTime: 'Test string',
             upgradeTime: 'Test string',
           },
-          instanceType: 'Test string',
+          instanceType: 'INSTANCE_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },
@@ -363,16 +363,16 @@ gapi.load('client', async () => {
           },
           config: 'Test string',
           createTime: 'Test string',
-          defaultBackupScheduleType: 'Test string',
+          defaultBackupScheduleType: 'DEFAULT_BACKUP_SCHEDULE_TYPE_UNSPECIFIED',
           displayName: 'Test string',
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           endpointUris: ['Test string'],
           freeInstanceMetadata: {
-            expireBehavior: 'Test string',
+            expireBehavior: 'EXPIRE_BEHAVIOR_UNSPECIFIED',
             expireTime: 'Test string',
             upgradeTime: 'Test string',
           },
-          instanceType: 'Test string',
+          instanceType: 'INSTANCE_TYPE_UNSPECIFIED',
           labels: {
             A: 'Test string',
           },
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },
@@ -444,7 +444,7 @@ gapi.load('client', async () => {
       {
         backupId: 'Test string',
         encryptionConfig: {
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
         },
@@ -456,7 +456,7 @@ gapi.load('client', async () => {
     await gapi.client.spanner.projects.instances.backups.create(
       {
         backupId: 'Test string',
-        'encryptionConfig.encryptionType': 'Test string',
+        'encryptionConfig.encryptionType': 'ENCRYPTION_TYPE_UNSPECIFIED',
         'encryptionConfig.kmsKeyName': 'Test string',
         'encryptionConfig.kmsKeyNames': 'Test string',
         parent: 'Test string',
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
         backupSchedules: ['Test string'],
         createTime: 'Test string',
         database: 'Test string',
-        databaseDialect: 'Test string',
+        databaseDialect: 'DATABASE_DIALECT_UNSPECIFIED',
         encryptionInfo: {
           encryptionStatus: {
             code: 42,
@@ -476,7 +476,7 @@ gapi.load('client', async () => {
             ],
             message: 'Test string',
           },
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersion: 'Test string',
         },
         encryptionInformation: [
@@ -490,7 +490,7 @@ gapi.load('client', async () => {
               ],
               message: 'Test string',
             },
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersion: 'Test string',
           },
         ],
@@ -504,13 +504,13 @@ gapi.load('client', async () => {
           },
         ],
         maxExpireTime: 'Test string',
-        minimumRestorableEdition: 'Test string',
+        minimumRestorableEdition: 'EDITION_UNSPECIFIED',
         name: 'Test string',
         oldestVersionTime: 'Test string',
         referencingBackups: ['Test string'],
         referencingDatabases: ['Test string'],
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         versionTime: 'Test string',
       },
     );
@@ -550,7 +550,7 @@ gapi.load('client', async () => {
         backupSchedules: ['Test string'],
         createTime: 'Test string',
         database: 'Test string',
-        databaseDialect: 'Test string',
+        databaseDialect: 'DATABASE_DIALECT_UNSPECIFIED',
         encryptionInfo: {
           encryptionStatus: {
             code: 42,
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
             ],
             message: 'Test string',
           },
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersion: 'Test string',
         },
         encryptionInformation: [
@@ -575,7 +575,7 @@ gapi.load('client', async () => {
               ],
               message: 'Test string',
             },
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersion: 'Test string',
           },
         ],
@@ -589,13 +589,13 @@ gapi.load('client', async () => {
           },
         ],
         maxExpireTime: 'Test string',
-        minimumRestorableEdition: 'Test string',
+        minimumRestorableEdition: 'EDITION_UNSPECIFIED',
         name: 'Test string',
         oldestVersionTime: 'Test string',
         referencingBackups: ['Test string'],
         referencingDatabases: ['Test string'],
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         versionTime: 'Test string',
       },
     );
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
       },
       {
         createStatement: 'Test string',
-        databaseDialect: 'Test string',
+        databaseDialect: 'DATABASE_DIALECT_UNSPECIFIED',
         encryptionConfig: {
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
@@ -740,7 +740,7 @@ gapi.load('client', async () => {
       endTime: 'Test string',
       name: 'Test string',
       startTime: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Lists Cloud Spanner databases. */
     await gapi.client.spanner.projects.instances.databases.list({
@@ -756,10 +756,10 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        databaseDialect: 'Test string',
+        databaseDialect: 'DATABASE_DIALECT_UNSPECIFIED',
         defaultLeader: 'Test string',
-        defaultReadLockMode: 'Test string',
-        defaultTransactionIsolation: 'Test string',
+        defaultReadLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
+        defaultTransactionIsolation: 'ISOLATION_LEVEL_UNSPECIFIED',
         earliestVersionTime: 'Test string',
         enableDropProtection: true,
         encryptionConfig: {
@@ -777,14 +777,14 @@ gapi.load('client', async () => {
               ],
               message: 'Test string',
             },
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersion: 'Test string',
           },
         ],
         name: 'Test string',
         quorumInfo: {
           etag: 'Test string',
-          initiator: 'Test string',
+          initiator: 'INITIATOR_UNSPECIFIED',
           quorumType: {
             dualRegion: {},
             singleRegion: {
@@ -801,9 +801,9 @@ gapi.load('client', async () => {
             sourceDatabase: 'Test string',
             versionTime: 'Test string',
           },
-          sourceType: 'Test string',
+          sourceType: 'TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         versionRetentionPeriod: 'Test string',
       },
     );
@@ -816,7 +816,7 @@ gapi.load('client', async () => {
         backup: 'Test string',
         databaseId: 'Test string',
         encryptionConfig: {
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
         },
@@ -874,7 +874,7 @@ gapi.load('client', async () => {
       },
       {
         encryptionConfig: {
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
         },
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
       },
       {
         encryptionConfig: {
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyName: 'Test string',
           kmsKeyNames: ['Test string'],
         },
@@ -1123,7 +1123,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1185,7 +1185,7 @@ gapi.load('client', async () => {
         },
         options: {
           excludeTxnFromChangeStreams: true,
-          isolationLevel: 'Test string',
+          isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
           partitionedDml: {},
           readOnly: {
             exactStaleness: 'Test string',
@@ -1197,7 +1197,7 @@ gapi.load('client', async () => {
           },
           readWrite: {
             multiplexedSessionPreviousTransactionId: 'Test string',
-            readLockMode: 'Test string',
+            readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
           },
         },
         requestOptions: {
@@ -1206,7 +1206,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1279,14 +1279,14 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
         returnCommitStats: true,
         singleUseTransaction: {
           excludeTxnFromChangeStreams: true,
-          isolationLevel: 'Test string',
+          isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
           partitionedDml: {},
           readOnly: {
             exactStaleness: 'Test string',
@@ -1298,7 +1298,7 @@ gapi.load('client', async () => {
           },
           readWrite: {
             multiplexedSessionPreviousTransactionId: 'Test string',
-            readLockMode: 'Test string',
+            readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
           },
         },
         transactionId: 'Test string',
@@ -1339,7 +1339,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
             paramTypes: {
               A: {
                 arrayElementType: undefined,
-                code: 'Test string',
+                code: 'TYPE_CODE_UNSPECIFIED',
                 protoTypeFqn: 'Test string',
                 structType: {
                   fields: [
@@ -1362,7 +1362,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                typeAnnotation: 'Test string',
+                typeAnnotation: 'TYPE_ANNOTATION_CODE_UNSPECIFIED',
               },
             },
             sql: 'Test string',
@@ -1371,7 +1371,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1383,13 +1383,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1401,7 +1401,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1419,7 +1419,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1428,7 +1428,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1440,7 +1440,7 @@ gapi.load('client', async () => {
         paramTypes: {
           A: {
             arrayElementType: undefined,
-            code: 'Test string',
+            code: 'TYPE_CODE_UNSPECIFIED',
             protoTypeFqn: 'Test string',
             structType: {
               fields: [
@@ -1450,11 +1450,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            typeAnnotation: 'Test string',
+            typeAnnotation: 'TYPE_ANNOTATION_CODE_UNSPECIFIED',
           },
         },
         partitionToken: 'Test string',
-        queryMode: 'Test string',
+        queryMode: 'NORMAL',
         queryOptions: {
           optimizerStatisticsPackage: 'Test string',
           optimizerVersion: 'Test string',
@@ -1465,7 +1465,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1475,7 +1475,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1487,13 +1487,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1505,7 +1505,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1523,7 +1523,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1544,7 +1544,7 @@ gapi.load('client', async () => {
         paramTypes: {
           A: {
             arrayElementType: undefined,
-            code: 'Test string',
+            code: 'TYPE_CODE_UNSPECIFIED',
             protoTypeFqn: 'Test string',
             structType: {
               fields: [
@@ -1554,11 +1554,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            typeAnnotation: 'Test string',
+            typeAnnotation: 'TYPE_ANNOTATION_CODE_UNSPECIFIED',
           },
         },
         partitionToken: 'Test string',
-        queryMode: 'Test string',
+        queryMode: 'NORMAL',
         queryOptions: {
           optimizerStatisticsPackage: 'Test string',
           optimizerVersion: 'Test string',
@@ -1569,7 +1569,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1579,7 +1579,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1591,13 +1591,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1609,7 +1609,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1638,7 +1638,7 @@ gapi.load('client', async () => {
         paramTypes: {
           A: {
             arrayElementType: undefined,
-            code: 'Test string',
+            code: 'TYPE_CODE_UNSPECIFIED',
             protoTypeFqn: 'Test string',
             structType: {
               fields: [
@@ -1648,7 +1648,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            typeAnnotation: 'Test string',
+            typeAnnotation: 'TYPE_ANNOTATION_CODE_UNSPECIFIED',
           },
         },
         partitionOptions: {
@@ -1659,7 +1659,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1671,13 +1671,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1689,7 +1689,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1723,7 +1723,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1735,13 +1735,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1753,7 +1753,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1772,7 +1772,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1781,7 +1781,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1800,8 +1800,8 @@ gapi.load('client', async () => {
           ],
         },
         limit: 'Test string',
-        lockHint: 'Test string',
-        orderBy: 'Test string',
+        lockHint: 'LOCK_HINT_UNSPECIFIED',
+        orderBy: 'ORDER_BY_UNSPECIFIED',
         partitionToken: 'Test string',
         requestOptions: {
           clientContext: {
@@ -1809,7 +1809,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1818,7 +1818,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1830,13 +1830,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1848,7 +1848,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -1876,7 +1876,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1885,7 +1885,7 @@ gapi.load('client', async () => {
             replicaSelections: [
               {
                 location: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1904,8 +1904,8 @@ gapi.load('client', async () => {
           ],
         },
         limit: 'Test string',
-        lockHint: 'Test string',
-        orderBy: 'Test string',
+        lockHint: 'LOCK_HINT_UNSPECIFIED',
+        orderBy: 'ORDER_BY_UNSPECIFIED',
         partitionToken: 'Test string',
         requestOptions: {
           clientContext: {
@@ -1913,7 +1913,7 @@ gapi.load('client', async () => {
               A: 42,
             },
           },
-          priority: 'Test string',
+          priority: 'PRIORITY_UNSPECIFIED',
           requestTag: 'Test string',
           transactionTag: 'Test string',
         },
@@ -1922,7 +1922,7 @@ gapi.load('client', async () => {
         transaction: {
           begin: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1934,13 +1934,13 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
           id: 'Test string',
           singleUse: {
             excludeTxnFromChangeStreams: true,
-            isolationLevel: 'Test string',
+            isolationLevel: 'ISOLATION_LEVEL_UNSPECIFIED',
             partitionedDml: {},
             readOnly: {
               exactStaleness: 'Test string',
@@ -1952,7 +1952,7 @@ gapi.load('client', async () => {
             },
             readWrite: {
               multiplexedSessionPreviousTransactionId: 'Test string',
-              readLockMode: 'Test string',
+              readLockMode: 'READ_LOCK_MODE_UNSPECIFIED',
             },
           },
         },
@@ -2016,7 +2016,7 @@ gapi.load('client', async () => {
           processingUnits: 42,
           referencingBackups: ['Test string'],
           referencingDatabases: ['Test string'],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           updateTime: 'Test string',
         },
         instancePartitionId: 'Test string',
@@ -2087,7 +2087,7 @@ gapi.load('client', async () => {
           processingUnits: 42,
           referencingBackups: ['Test string'],
           referencingDatabases: ['Test string'],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           updateTime: 'Test string',
         },
       },
@@ -2146,7 +2146,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
   }
 });

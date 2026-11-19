@@ -180,7 +180,8 @@ declare namespace gapi.client {
       /** The subscriptions in this page of results. */
       subscriptions?: Subscription[];
     }
-    interface CustomersResource {
+
+    const customers: {
       /** Gets a customer account. Use this operation to see a customer account already in your reseller management, or to see the minimal account information for an existing customer that you do not manage. For more information about the API response for existing customers, see [retrieving a customer account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#get_customer). */
       get(request?: {
         /** V1 error format. */
@@ -382,8 +383,9 @@ declare namespace gapi.client {
         },
         body: Customer,
       ): Request<Customer>;
-    }
-    interface ResellernotifyResource {
+    };
+
+    const resellernotify: {
       /** Returns all the details of the watch corresponding to the reseller. */
       getwatchdetails(request?: {
         /** V1 error format. */
@@ -463,8 +465,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ResellernotifyResource>;
-    }
-    interface SubscriptionsResource {
+    };
+
+    const subscriptions: {
       /** Activates a subscription previously suspended by the reseller. If you did not suspend the customer subscription and it is suspended for any other reason, such as for abuse or a pending ToS acceptance, this call will not reactivate the customer subscription. */
       activate(request?: {
         /** V1 error format. */
@@ -904,12 +907,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Subscription>;
-    }
-
-    const customers: CustomersResource;
-
-    const resellernotify: ResellernotifyResource;
-
-    const subscriptions: SubscriptionsResource;
+    };
   }
 }

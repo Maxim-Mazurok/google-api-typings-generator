@@ -50,7 +50,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          logSource: 'Test string',
+          logSource: 'LOG_SOURCE_UNSPECIFIED',
           policyOverlay: {
             A: {
               auditConfigs: [
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
                   auditLogConfigs: [
                     {
                       exemptedMembers: ['Test string'],
-                      logType: 'Test string',
+                      logType: 'LOG_TYPE_UNSPECIFIED',
                     },
                   ],
                   service: 'Test string',
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
           },
           unchangedCount: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
@@ -157,11 +157,11 @@ gapi.load('client', async () => {
           customConstraints: [
             {
               customConstraint: {
-                actionType: 'Test string',
+                actionType: 'ACTION_TYPE_UNSPECIFIED',
                 condition: 'Test string',
                 description: 'Test string',
                 displayName: 'Test string',
-                methodTypes: ['Test string'],
+                methodTypes: ['METHOD_TYPE_UNSPECIFIED'],
                 name: 'Test string',
                 resourceTypes: ['Test string'],
                 updateTime: 'Test string',
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
           scanned: 42,
           unenforced: 42,
         },
-        state: 'Test string',
+        state: 'PREVIEW_STATE_UNSPECIFIED',
         violationsCount: 42,
       },
     );
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          logSource: 'Test string',
+          logSource: 'LOG_SOURCE_UNSPECIFIED',
           policyOverlay: {
             A: {
               auditConfigs: [
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
                   auditLogConfigs: [
                     {
                       exemptedMembers: ['Test string'],
-                      logType: 'Test string',
+                      logType: 'LOG_TYPE_UNSPECIFIED',
                     },
                   ],
                   service: 'Test string',
@@ -354,7 +354,7 @@ gapi.load('client', async () => {
           },
           unchangedCount: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
@@ -404,7 +404,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          logSource: 'Test string',
+          logSource: 'LOG_SOURCE_UNSPECIFIED',
           policyOverlay: {
             A: {
               auditConfigs: [
@@ -412,7 +412,7 @@ gapi.load('client', async () => {
                   auditLogConfigs: [
                     {
                       exemptedMembers: ['Test string'],
-                      logType: 'Test string',
+                      logType: 'LOG_TYPE_UNSPECIFIED',
                     },
                   ],
                   service: 'Test string',
@@ -452,7 +452,7 @@ gapi.load('client', async () => {
           },
           unchangedCount: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */

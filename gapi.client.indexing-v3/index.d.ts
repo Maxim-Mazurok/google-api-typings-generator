@@ -45,7 +45,8 @@ declare namespace gapi.client {
       /** URL to which this metadata refers. */
       url?: string;
     }
-    interface UrlNotificationsResource {
+
+    const urlNotifications: {
       /** Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest `UrlNotification` received via this API. */
       getMetadata(request?: {
         /** V1 error format. */
@@ -127,8 +128,6 @@ declare namespace gapi.client {
         },
         body: UrlNotification,
       ): Request<PublishUrlNotificationResponse>;
-    }
-
-    const urlNotifications: UrlNotificationsResource;
+    };
   }
 }

@@ -113,7 +113,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
         provider: 'Test string',
         pubsubTopic: 'Test string',
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -208,7 +208,7 @@ gapi.load('client', async () => {
         provider: 'Test string',
         pubsubTopic: 'Test string',
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -345,7 +345,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -398,7 +398,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         name: 'Test string',
         organizationSubscription: {
@@ -458,7 +458,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         name: 'Test string',
         organizationSubscription: {
@@ -483,7 +483,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -535,7 +535,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         name: 'Test string',
         uid: 'Test string',
@@ -592,7 +592,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         name: 'Test string',
         uid: 'Test string',
@@ -611,7 +611,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -728,7 +728,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         mediations: [
           {
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         loggingConfig: {
-          logSeverity: 'Test string',
+          logSeverity: 'LOG_SEVERITY_UNSPECIFIED',
         },
         mediations: [
           {
@@ -866,7 +866,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -922,7 +922,7 @@ gapi.load('client', async () => {
         channel: 'Test string',
         conditions: {
           A: {
-            code: 'Test string',
+            code: 'OK',
             message: 'Test string',
           },
         },
@@ -1013,7 +1013,7 @@ gapi.load('client', async () => {
         channel: 'Test string',
         conditions: {
           A: {
-            code: 'Test string',
+            code: 'OK',
             message: 'Test string',
           },
         },
@@ -1080,7 +1080,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

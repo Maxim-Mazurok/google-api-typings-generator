@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         spreadsheetId: 'Test string',
       },
       {
-        commentsViewMode: 'Test string',
+        commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
         includeSpreadsheetInResponse: true,
         requests: [
           {
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -82,7 +82,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 range: {
@@ -136,7 +136,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -181,7 +181,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 chartId: 42,
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   basicChart: {
                     axis: [
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -267,30 +267,30 @@ gapi.load('client', async () => {
                           strikethrough: true,
                           underline: true,
                         },
-                        position: 'Test string',
+                        position: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
                         title: 'Test string',
                         titleTextPosition: {
-                          horizontalAlignment: 'Test string',
+                          horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                         },
                         viewWindowOptions: {
                           viewWindowMax: 42,
                           viewWindowMin: 42,
-                          viewWindowMode: 'Test string',
+                          viewWindowMode: 'DEFAULT_VIEW_WINDOW_MODE',
                         },
                       },
                     ],
-                    chartType: 'Test string',
-                    compareMode: 'Test string',
+                    chartType: 'BASIC_CHART_TYPE_UNSPECIFIED',
+                    compareMode: 'BASIC_CHART_COMPARE_MODE_UNSPECIFIED',
                     domains: [
                       {
                         domain: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -315,7 +315,7 @@ gapi.load('client', async () => {
                     ],
                     headerCount: 42,
                     interpolateNulls: true,
-                    legendPosition: 'Test string',
+                    legendPosition: 'BASIC_CHART_LEGEND_POSITION_UNSPECIFIED',
                     lineSmoothing: true,
                     series: [
                       {
@@ -332,17 +332,17 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         dataLabel: {
                           customLabelData: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -362,7 +362,7 @@ gapi.load('client', async () => {
                               ],
                             },
                           },
-                          placement: 'Test string',
+                          placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -380,7 +380,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -389,24 +389,24 @@ gapi.load('client', async () => {
                             strikethrough: true,
                             underline: true,
                           },
-                          type: 'Test string',
+                          type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                         },
                         lineStyle: {
-                          type: 'Test string',
+                          type: 'LINE_DASH_TYPE_UNSPECIFIED',
                           width: 42,
                         },
                         pointStyle: {
-                          shape: 'Test string',
+                          shape: 'POINT_SHAPE_UNSPECIFIED',
                           size: 42,
                         },
                         series: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -441,30 +441,30 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             index: 42,
                             pointStyle: {
-                              shape: 'Test string',
+                              shape: 'POINT_SHAPE_UNSPECIFIED',
                               size: 42,
                             },
                           },
                         ],
-                        targetAxis: 'Test string',
-                        type: 'Test string',
+                        targetAxis: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
+                        type: 'BASIC_CHART_TYPE_UNSPECIFIED',
                       },
                     ],
-                    stackedType: 'Test string',
+                    stackedType: 'BASIC_CHART_STACKED_TYPE_UNSPECIFIED',
                     threeDimensional: true,
                     totalDataLabel: {
                       customLabelData: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -484,7 +484,7 @@ gapi.load('client', async () => {
                           ],
                         },
                       },
-                      placement: 'Test string',
+                      placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                       textFormat: {
                         bold: true,
                         fontFamily: 'Test string',
@@ -502,7 +502,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -511,7 +511,7 @@ gapi.load('client', async () => {
                         strikethrough: true,
                         underline: true,
                       },
-                      type: 'Test string',
+                      type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                     },
                   },
                   bubbleChart: {
@@ -528,16 +528,16 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     bubbleLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -561,13 +561,13 @@ gapi.load('client', async () => {
                     bubbleMinRadiusSize: 42,
                     bubbleOpacity: 42,
                     bubbleSizes: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -604,7 +604,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -614,13 +614,13 @@ gapi.load('client', async () => {
                       underline: true,
                     },
                     domain: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -641,13 +641,13 @@ gapi.load('client', async () => {
                       },
                     },
                     groupIds: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -667,15 +667,15 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    legendPosition: 'Test string',
+                    legendPosition: 'BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED',
                     series: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -701,13 +701,13 @@ gapi.load('client', async () => {
                       {
                         closeSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -730,13 +730,13 @@ gapi.load('client', async () => {
                         },
                         highSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -759,13 +759,13 @@ gapi.load('client', async () => {
                         },
                         lowSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -788,13 +788,13 @@ gapi.load('client', async () => {
                         },
                         openSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -819,13 +819,13 @@ gapi.load('client', async () => {
                     ],
                     domain: {
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -850,10 +850,10 @@ gapi.load('client', async () => {
                   },
                   dataSourceChartProperties: {
                     dataExecutionStatus: {
-                      errorCode: 'Test string',
+                      errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                       errorMessage: 'Test string',
                       lastRefreshTime: 'Test string',
-                      state: 'Test string',
+                      state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                     },
                     dataSourceId: 'Test string',
                   },
@@ -865,10 +865,10 @@ gapi.load('client', async () => {
                       },
                       filterCriteria: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -887,7 +887,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         visibleForegroundColor: {
                           alpha: 42,
@@ -902,16 +902,18 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                   ],
                   fontName: 'Test string',
-                  hiddenDimensionStrategy: 'Test string',
+                  hiddenDimensionStrategy:
+                    'CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED',
                   histogramChart: {
                     bucketSize: 42,
-                    legendPosition: 'Test string',
+                    legendPosition:
+                      'HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED',
                     outlierPercentile: 42,
                     series: [
                       {
@@ -928,16 +930,16 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -964,13 +966,13 @@ gapi.load('client', async () => {
                   maximized: true,
                   orgChart: {
                     labels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1003,17 +1005,17 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    nodeSize: 'Test string',
+                    nodeSize: 'ORG_CHART_LABEL_SIZE_UNSPECIFIED',
                     parentLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1046,16 +1048,16 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     tooltips: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1078,13 +1080,13 @@ gapi.load('client', async () => {
                   },
                   pieChart: {
                     domain: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1104,16 +1106,16 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    legendPosition: 'Test string',
+                    legendPosition: 'PIE_CHART_LEGEND_POSITION_UNSPECIFIED',
                     pieHole: 42,
                     series: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1136,15 +1138,15 @@ gapi.load('client', async () => {
                     threeDimensional: true,
                   },
                   scorecardChart: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     baselineValueData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1165,7 +1167,7 @@ gapi.load('client', async () => {
                       },
                     },
                     baselineValueFormat: {
-                      comparisonType: 'Test string',
+                      comparisonType: 'COMPARISON_TYPE_UNDEFINED',
                       description: 'Test string',
                       negativeColor: {
                         alpha: 42,
@@ -1180,10 +1182,10 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       position: {
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                       },
                       positiveColor: {
                         alpha: 42,
@@ -1198,7 +1200,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       textFormat: {
                         bold: true,
@@ -1217,7 +1219,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -1232,13 +1234,13 @@ gapi.load('client', async () => {
                       suffix: 'Test string',
                     },
                     keyValueData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1260,7 +1262,7 @@ gapi.load('client', async () => {
                     },
                     keyValueFormat: {
                       position: {
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                       },
                       textFormat: {
                         bold: true,
@@ -1279,7 +1281,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -1289,7 +1291,7 @@ gapi.load('client', async () => {
                         underline: true,
                       },
                     },
-                    numberFormatSource: 'Test string',
+                    numberFormatSource: 'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED',
                     scaleFactor: 42,
                   },
                   sortSpecs: [
@@ -1307,7 +1309,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       dataSourceColumnReference: {
                         name: 'Test string',
@@ -1326,9 +1328,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     },
                   ],
                   subtitle: 'Test string',
@@ -1349,7 +1351,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -1359,7 +1361,7 @@ gapi.load('client', async () => {
                     underline: true,
                   },
                   subtitleTextPosition: {
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   },
                   title: 'Test string',
                   titleTextFormat: {
@@ -1379,7 +1381,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -1389,17 +1391,17 @@ gapi.load('client', async () => {
                     underline: true,
                   },
                   titleTextPosition: {
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   },
                   treemapChart: {
                     colorData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1433,7 +1435,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       midValueColor: {
                         alpha: 42,
@@ -1448,7 +1450,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       minValueColor: {
                         alpha: 42,
@@ -1463,7 +1465,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       noDataColor: {
                         alpha: 42,
@@ -1478,7 +1480,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                     headerColor: {
@@ -1494,18 +1496,18 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     hideTooltips: true,
                     hintedLevels: 42,
                     labels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1529,13 +1531,13 @@ gapi.load('client', async () => {
                     maxValue: 42,
                     minValue: 42,
                     parentLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1556,13 +1558,13 @@ gapi.load('client', async () => {
                       },
                     },
                     sizeData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -1599,7 +1601,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -1611,18 +1613,18 @@ gapi.load('client', async () => {
                   },
                   waterfallChart: {
                     connectorLineStyle: {
-                      type: 'Test string',
+                      type: 'LINE_DASH_TYPE_UNSPECIFIED',
                       width: 42,
                     },
                     domain: {
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -1656,13 +1658,13 @@ gapi.load('client', async () => {
                           },
                         ],
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -1684,13 +1686,13 @@ gapi.load('client', async () => {
                         },
                         dataLabel: {
                           customLabelData: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -1710,7 +1712,7 @@ gapi.load('client', async () => {
                               ],
                             },
                           },
-                          placement: 'Test string',
+                          placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -1728,7 +1730,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -1737,7 +1739,7 @@ gapi.load('client', async () => {
                             strikethrough: true,
                             underline: true,
                           },
-                          type: 'Test string',
+                          type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                         },
                         hideTrailingSubtotal: true,
                         negativeColumnsStyle: {
@@ -1754,7 +1756,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
@@ -1772,7 +1774,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
@@ -1790,22 +1792,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
                       },
                     ],
-                    stackedType: 'Test string',
+                    stackedType: 'WATERFALL_STACKED_TYPE_UNSPECIFIED',
                     totalDataLabel: {
                       customLabelData: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -1825,7 +1827,7 @@ gapi.load('client', async () => {
                           ],
                         },
                       },
-                      placement: 'Test string',
+                      placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                       textFormat: {
                         bold: true,
                         fontFamily: 'Test string',
@@ -1843,7 +1845,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -1852,7 +1854,7 @@ gapi.load('client', async () => {
                         strikethrough: true,
                         underline: true,
                       },
-                      type: 'Test string',
+                      type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -1868,7 +1870,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -1884,10 +1886,10 @@ gapi.load('client', async () => {
               rule: {
                 booleanRule: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -1906,7 +1908,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     borders: {
                       bottom: {
@@ -1923,9 +1925,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       left: {
@@ -1942,9 +1944,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       right: {
@@ -1961,9 +1963,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       top: {
@@ -1980,17 +1982,17 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                     },
-                    horizontalAlignment: 'Test string',
-                    hyperlinkDisplayType: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                    hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                     numberFormat: {
                       pattern: 'Test string',
-                      type: 'Test string',
+                      type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                     },
                     padding: {
                       bottom: 42,
@@ -1998,7 +2000,7 @@ gapi.load('client', async () => {
                       right: 42,
                       top: 42,
                     },
-                    textDirection: 'Test string',
+                    textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                     textFormat: {
                       bold: true,
                       fontFamily: 'Test string',
@@ -2016,7 +2018,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -2029,8 +2031,8 @@ gapi.load('client', async () => {
                       angle: 42,
                       vertical: true,
                     },
-                    verticalAlignment: 'Test string',
-                    wrapStrategy: 'Test string',
+                    verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                    wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                   },
                 },
                 gradientRule: {
@@ -2048,9 +2050,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   midpoint: {
@@ -2067,9 +2069,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   minpoint: {
@@ -2086,9 +2088,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -2150,7 +2152,7 @@ gapi.load('client', async () => {
             },
             addDimensionGroup: {
               range: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -2161,10 +2163,10 @@ gapi.load('client', async () => {
                 criteria: {
                   A: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -2183,7 +2185,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -2198,7 +2200,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -2210,10 +2212,10 @@ gapi.load('client', async () => {
                     },
                     filterCriteria: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -2232,7 +2234,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       visibleForegroundColor: {
                         alpha: 42,
@@ -2247,7 +2249,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
@@ -2276,7 +2278,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     dataSourceColumnReference: {
                       name: 'Test string',
@@ -2295,9 +2297,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 tableId: 'Test string',
@@ -2360,10 +2362,10 @@ gapi.load('client', async () => {
                     },
                   ],
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                 },
@@ -2380,7 +2382,7 @@ gapi.load('client', async () => {
                 index: 42,
                 rightToLeft: true,
                 sheetId: 42,
-                sheetType: 'Test string',
+                sheetType: 'SHEET_TYPE_UNSPECIFIED',
                 tabColor: {
                   alpha: 42,
                   blue: 42,
@@ -2394,7 +2396,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
                 title: 'Test string',
               },
@@ -2432,7 +2434,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   columnIndex: 42,
                   dataRange: {
@@ -2444,10 +2446,10 @@ gapi.load('client', async () => {
                   },
                   filterCriteria: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -2466,7 +2468,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -2481,10 +2483,10 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   textFormat: {
                     bold: true,
                     fontFamily: 'Test string',
@@ -2502,7 +2504,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -2521,13 +2523,13 @@ gapi.load('client', async () => {
                   {
                     columnIndex: 42,
                     columnName: 'Test string',
-                    columnType: 'Test string',
+                    columnType: 'COLUMN_TYPE_UNSPECIFIED',
                     dataValidationRule: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -2551,7 +2553,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColorStyle: {
                     rgbColor: {
@@ -2560,7 +2562,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColorStyle: {
                     rgbColor: {
@@ -2569,7 +2571,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColorStyle: {
                     rgbColor: {
@@ -2578,7 +2580,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 tableId: 'Test string',
@@ -2594,7 +2596,7 @@ gapi.load('client', async () => {
                         {
                           chip: {
                             personProperties: {
-                              displayFormat: 'Test string',
+                              displayFormat: 'DISPLAY_FORMAT_UNSPECIFIED',
                               email: 'Test string',
                             },
                             richLinkProperties: {
@@ -2607,10 +2609,10 @@ gapi.load('client', async () => {
                       ],
                       dataSourceFormula: {
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                       },
@@ -2620,12 +2622,13 @@ gapi.load('client', async () => {
                             name: 'Test string',
                           },
                         ],
-                        columnSelectionType: 'Test string',
+                        columnSelectionType:
+                          'DATA_SOURCE_TABLE_COLUMN_SELECTION_TYPE_UNSPECIFIED',
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                         filterSpecs: [
@@ -2636,10 +2639,10 @@ gapi.load('client', async () => {
                             },
                             filterCriteria: {
                               condition: {
-                                type: 'Test string',
+                                type: 'CONDITION_TYPE_UNSPECIFIED',
                                 values: [
                                   {
-                                    relativeDate: 'Test string',
+                                    relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                     userEnteredValue: 'Test string',
                                   },
                                 ],
@@ -2658,7 +2661,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                               visibleForegroundColor: {
                                 alpha: 42,
@@ -2673,7 +2676,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
@@ -2694,7 +2697,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             dataSourceColumnReference: {
                               name: 'Test string',
@@ -2713,18 +2716,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                       },
                       dataValidation: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -2747,7 +2750,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         borders: {
                           bottom: {
@@ -2764,9 +2767,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           left: {
@@ -2783,9 +2786,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           right: {
@@ -2802,9 +2805,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           top: {
@@ -2821,17 +2824,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                         },
-                        horizontalAlignment: 'Test string',
-                        hyperlinkDisplayType: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                        hyperlinkDisplayType:
+                          'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                         numberFormat: {
                           pattern: 'Test string',
-                          type: 'Test string',
+                          type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                         },
                         padding: {
                           bottom: 42,
@@ -2839,7 +2843,7 @@ gapi.load('client', async () => {
                           right: 42,
                           top: 42,
                         },
-                        textDirection: 'Test string',
+                        textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -2857,7 +2861,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -2870,14 +2874,14 @@ gapi.load('client', async () => {
                           angle: 42,
                           vertical: true,
                         },
-                        verticalAlignment: 'Test string',
-                        wrapStrategy: 'Test string',
+                        verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                        wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                       },
                       effectiveValue: {
                         boolValue: true,
                         errorValue: {
                           message: 'Test string',
-                          type: 'Test string',
+                          type: 'ERROR_TYPE_UNSPECIFIED',
                         },
                         formulaValue: 'Test string',
                         numberValue: 42,
@@ -2898,7 +2902,7 @@ gapi.load('client', async () => {
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 end: 42,
@@ -2912,7 +2916,7 @@ gapi.load('client', async () => {
                                       boolValue: true,
                                       errorValue: {
                                         message: 'Test string',
-                                        type: 'Test string',
+                                        type: 'ERROR_TYPE_UNSPECIFIED',
                                       },
                                       formulaValue: 'Test string',
                                       numberValue: 42,
@@ -2923,7 +2927,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -2937,7 +2941,7 @@ gapi.load('client', async () => {
                             label: 'Test string',
                             repeatHeadings: true,
                             showTotals: true,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             sourceColumnOffset: 42,
                             valueBucket: {
                               buckets: [
@@ -2945,7 +2949,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -2961,7 +2965,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -2974,10 +2978,10 @@ gapi.load('client', async () => {
                         criteria: {
                           A: {
                             condition: {
-                              type: 'Test string',
+                              type: 'CONDITION_TYPE_UNSPECIFIED',
                               values: [
                                 {
-                                  relativeDate: 'Test string',
+                                  relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                   userEnteredValue: 'Test string',
                                 },
                               ],
@@ -2987,10 +2991,10 @@ gapi.load('client', async () => {
                           },
                         },
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                         filterSpecs: [
@@ -3001,10 +3005,10 @@ gapi.load('client', async () => {
                             },
                             filterCriteria: {
                               condition: {
-                                type: 'Test string',
+                                type: 'CONDITION_TYPE_UNSPECIFIED',
                                 values: [
                                   {
-                                    relativeDate: 'Test string',
+                                    relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                     userEnteredValue: 'Test string',
                                   },
                                 ],
@@ -3025,7 +3029,7 @@ gapi.load('client', async () => {
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 end: 42,
@@ -3039,7 +3043,7 @@ gapi.load('client', async () => {
                                       boolValue: true,
                                       errorValue: {
                                         message: 'Test string',
-                                        type: 'Test string',
+                                        type: 'ERROR_TYPE_UNSPECIFIED',
                                       },
                                       formulaValue: 'Test string',
                                       numberValue: 42,
@@ -3050,7 +3054,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -3064,7 +3068,7 @@ gapi.load('client', async () => {
                             label: 'Test string',
                             repeatHeadings: true,
                             showTotals: true,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             sourceColumnOffset: 42,
                             valueBucket: {
                               buckets: [
@@ -3072,7 +3076,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -3088,7 +3092,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -3105,17 +3109,19 @@ gapi.load('client', async () => {
                           startColumnIndex: 42,
                           startRowIndex: 42,
                         },
-                        valueLayout: 'Test string',
+                        valueLayout: 'HORIZONTAL',
                         values: [
                           {
-                            calculatedDisplayType: 'Test string',
+                            calculatedDisplayType:
+                              'PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED',
                             dataSourceColumnReference: {
                               name: 'Test string',
                             },
                             formula: 'Test string',
                             name: 'Test string',
                             sourceColumnOffset: 42,
-                            summarizeFunction: 'Test string',
+                            summarizeFunction:
+                              'PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED',
                           },
                         ],
                       },
@@ -3138,7 +3144,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -3164,7 +3170,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         borders: {
                           bottom: {
@@ -3181,9 +3187,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           left: {
@@ -3200,9 +3206,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           right: {
@@ -3219,9 +3225,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           top: {
@@ -3238,17 +3244,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                         },
-                        horizontalAlignment: 'Test string',
-                        hyperlinkDisplayType: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                        hyperlinkDisplayType:
+                          'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                         numberFormat: {
                           pattern: 'Test string',
-                          type: 'Test string',
+                          type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                         },
                         padding: {
                           bottom: 42,
@@ -3256,7 +3263,7 @@ gapi.load('client', async () => {
                           right: 42,
                           top: 42,
                         },
-                        textDirection: 'Test string',
+                        textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -3274,7 +3281,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -3287,14 +3294,14 @@ gapi.load('client', async () => {
                           angle: 42,
                           vertical: true,
                         },
-                        verticalAlignment: 'Test string',
-                        wrapStrategy: 'Test string',
+                        verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                        wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                       },
                       userEnteredValue: {
                         boolValue: true,
                         errorValue: {
                           message: 'Test string',
-                          type: 'Test string',
+                          type: 'ERROR_TYPE_UNSPECIFIED',
                         },
                         formulaValue: 'Test string',
                         numberValue: 42,
@@ -3308,7 +3315,7 @@ gapi.load('client', async () => {
               tableId: 'Test string',
             },
             appendDimension: {
-              dimension: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
               length: 42,
               sheetId: 42,
             },
@@ -3321,7 +3328,7 @@ gapi.load('client', async () => {
                 startRowIndex: 42,
               },
               sourceAndDestination: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 fillLength: 42,
                 source: {
                   endColumnIndex: 42,
@@ -3343,7 +3350,7 @@ gapi.load('client', async () => {
                 sheetId: 42,
               },
               dimensions: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -3387,8 +3394,8 @@ gapi.load('client', async () => {
                 startColumnIndex: 42,
                 startRowIndex: 42,
               },
-              pasteOrientation: 'Test string',
-              pasteType: 'Test string',
+              pasteOrientation: 'NORMAL',
+              pasteType: 'PASTE_NORMAL',
               source: {
                 endColumnIndex: 42,
                 endRowIndex: 42,
@@ -3401,19 +3408,19 @@ gapi.load('client', async () => {
               developerMetadata: {
                 location: {
                   dimensionRange: {
-                    dimension: 'Test string',
+                    dimension: 'DIMENSION_UNSPECIFIED',
                     endIndex: 42,
                     sheetId: 42,
                     startIndex: 42,
                   },
-                  locationType: 'Test string',
+                  locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                   sheetId: 42,
                   spreadsheet: true,
                 },
                 metadataId: 42,
                 metadataKey: 'Test string',
                 metadataValue: 'Test string',
-                visibility: 'Test string',
+                visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
               },
             },
             cutPaste: {
@@ -3422,7 +3429,7 @@ gapi.load('client', async () => {
                 rowIndex: 42,
                 sheetId: 42,
               },
-              pasteType: 'Test string',
+              pasteType: 'PASTE_NORMAL',
               source: {
                 endColumnIndex: 42,
                 endRowIndex: 42,
@@ -3452,23 +3459,25 @@ gapi.load('client', async () => {
               dataFilter: {
                 a1Range: 'Test string',
                 developerMetadataLookup: {
-                  locationMatchingStrategy: 'Test string',
-                  locationType: 'Test string',
+                  locationMatchingStrategy:
+                    'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+                  locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                   metadataId: 42,
                   metadataKey: 'Test string',
                   metadataLocation: {
                     dimensionRange: {
-                      dimension: 'Test string',
+                      dimension: 'DIMENSION_UNSPECIFIED',
                       endIndex: 42,
                       sheetId: 42,
                       startIndex: 42,
                     },
-                    locationType: 'Test string',
+                    locationType:
+                      'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                     sheetId: 42,
                     spreadsheet: true,
                   },
                   metadataValue: 'Test string',
-                  visibility: 'Test string',
+                  visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
                 },
                 gridRange: {
                   endColumnIndex: 42,
@@ -3481,7 +3490,7 @@ gapi.load('client', async () => {
             },
             deleteDimension: {
               range: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -3489,7 +3498,7 @@ gapi.load('client', async () => {
             },
             deleteDimensionGroup: {
               range: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -3498,7 +3507,7 @@ gapi.load('client', async () => {
             deleteDuplicates: {
               comparisonColumns: [
                 {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
@@ -3532,7 +3541,7 @@ gapi.load('client', async () => {
                 startColumnIndex: 42,
                 startRowIndex: 42,
               },
-              shiftDimension: 'Test string',
+              shiftDimension: 'DIMENSION_UNSPECIFIED',
             },
             deleteSheet: {
               sheetId: 42,
@@ -3578,7 +3587,7 @@ gapi.load('client', async () => {
             insertDimension: {
               inheritFromBefore: true,
               range: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -3592,10 +3601,10 @@ gapi.load('client', async () => {
                 startColumnIndex: 42,
                 startRowIndex: 42,
               },
-              shiftDimension: 'Test string',
+              shiftDimension: 'DIMENSION_UNSPECIFIED',
             },
             mergeCells: {
-              mergeType: 'Test string',
+              mergeType: 'MERGE_ALL',
               range: {
                 endColumnIndex: 42,
                 endRowIndex: 42,
@@ -3607,7 +3616,7 @@ gapi.load('client', async () => {
             moveDimension: {
               destinationIndex: 42,
               source: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -3622,7 +3631,7 @@ gapi.load('client', async () => {
               data: 'Test string',
               delimiter: 'Test string',
               html: true,
-              type: 'Test string',
+              type: 'PASTE_NORMAL',
             },
             randomizeRange: {
               range: {
@@ -3667,7 +3676,7 @@ gapi.load('client', async () => {
                   {
                     chip: {
                       personProperties: {
-                        displayFormat: 'Test string',
+                        displayFormat: 'DISPLAY_FORMAT_UNSPECIFIED',
                         email: 'Test string',
                       },
                       richLinkProperties: {
@@ -3680,10 +3689,10 @@ gapi.load('client', async () => {
                 ],
                 dataSourceFormula: {
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                 },
@@ -3693,12 +3702,13 @@ gapi.load('client', async () => {
                       name: 'Test string',
                     },
                   ],
-                  columnSelectionType: 'Test string',
+                  columnSelectionType:
+                    'DATA_SOURCE_TABLE_COLUMN_SELECTION_TYPE_UNSPECIFIED',
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                   filterSpecs: [
@@ -3709,10 +3719,10 @@ gapi.load('client', async () => {
                       },
                       filterCriteria: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -3731,7 +3741,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         visibleForegroundColor: {
                           alpha: 42,
@@ -3746,7 +3756,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
@@ -3767,7 +3777,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       dataSourceColumnReference: {
                         name: 'Test string',
@@ -3786,18 +3796,18 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     },
                   ],
                 },
                 dataValidation: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -3820,7 +3830,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   borders: {
                     bottom: {
@@ -3837,9 +3847,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     left: {
@@ -3856,9 +3866,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     right: {
@@ -3875,9 +3885,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     top: {
@@ -3894,17 +3904,17 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                   },
-                  horizontalAlignment: 'Test string',
-                  hyperlinkDisplayType: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                  hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                   numberFormat: {
                     pattern: 'Test string',
-                    type: 'Test string',
+                    type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                   },
                   padding: {
                     bottom: 42,
@@ -3912,7 +3922,7 @@ gapi.load('client', async () => {
                     right: 42,
                     top: 42,
                   },
-                  textDirection: 'Test string',
+                  textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                   textFormat: {
                     bold: true,
                     fontFamily: 'Test string',
@@ -3930,7 +3940,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -3943,14 +3953,14 @@ gapi.load('client', async () => {
                     angle: 42,
                     vertical: true,
                   },
-                  verticalAlignment: 'Test string',
-                  wrapStrategy: 'Test string',
+                  verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                  wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                 },
                 effectiveValue: {
                   boolValue: true,
                   errorValue: {
                     message: 'Test string',
-                    type: 'Test string',
+                    type: 'ERROR_TYPE_UNSPECIFIED',
                   },
                   formulaValue: 'Test string',
                   numberValue: 42,
@@ -3971,7 +3981,7 @@ gapi.load('client', async () => {
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           end: 42,
@@ -3985,7 +3995,7 @@ gapi.load('client', async () => {
                                 boolValue: true,
                                 errorValue: {
                                   message: 'Test string',
-                                  type: 'Test string',
+                                  type: 'ERROR_TYPE_UNSPECIFIED',
                                 },
                                 formulaValue: 'Test string',
                                 numberValue: 42,
@@ -3996,7 +4006,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -4010,7 +4020,7 @@ gapi.load('client', async () => {
                       label: 'Test string',
                       repeatHeadings: true,
                       showTotals: true,
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       sourceColumnOffset: 42,
                       valueBucket: {
                         buckets: [
@@ -4018,7 +4028,7 @@ gapi.load('client', async () => {
                             boolValue: true,
                             errorValue: {
                               message: 'Test string',
-                              type: 'Test string',
+                              type: 'ERROR_TYPE_UNSPECIFIED',
                             },
                             formulaValue: 'Test string',
                             numberValue: 42,
@@ -4034,7 +4044,7 @@ gapi.load('client', async () => {
                             boolValue: true,
                             errorValue: {
                               message: 'Test string',
-                              type: 'Test string',
+                              type: 'ERROR_TYPE_UNSPECIFIED',
                             },
                             formulaValue: 'Test string',
                             numberValue: 42,
@@ -4047,10 +4057,10 @@ gapi.load('client', async () => {
                   criteria: {
                     A: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -4060,10 +4070,10 @@ gapi.load('client', async () => {
                     },
                   },
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                   filterSpecs: [
@@ -4074,10 +4084,10 @@ gapi.load('client', async () => {
                       },
                       filterCriteria: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -4098,7 +4108,7 @@ gapi.load('client', async () => {
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           end: 42,
@@ -4112,7 +4122,7 @@ gapi.load('client', async () => {
                                 boolValue: true,
                                 errorValue: {
                                   message: 'Test string',
-                                  type: 'Test string',
+                                  type: 'ERROR_TYPE_UNSPECIFIED',
                                 },
                                 formulaValue: 'Test string',
                                 numberValue: 42,
@@ -4123,7 +4133,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -4137,7 +4147,7 @@ gapi.load('client', async () => {
                       label: 'Test string',
                       repeatHeadings: true,
                       showTotals: true,
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                       sourceColumnOffset: 42,
                       valueBucket: {
                         buckets: [
@@ -4145,7 +4155,7 @@ gapi.load('client', async () => {
                             boolValue: true,
                             errorValue: {
                               message: 'Test string',
-                              type: 'Test string',
+                              type: 'ERROR_TYPE_UNSPECIFIED',
                             },
                             formulaValue: 'Test string',
                             numberValue: 42,
@@ -4161,7 +4171,7 @@ gapi.load('client', async () => {
                             boolValue: true,
                             errorValue: {
                               message: 'Test string',
-                              type: 'Test string',
+                              type: 'ERROR_TYPE_UNSPECIFIED',
                             },
                             formulaValue: 'Test string',
                             numberValue: 42,
@@ -4178,17 +4188,19 @@ gapi.load('client', async () => {
                     startColumnIndex: 42,
                     startRowIndex: 42,
                   },
-                  valueLayout: 'Test string',
+                  valueLayout: 'HORIZONTAL',
                   values: [
                     {
-                      calculatedDisplayType: 'Test string',
+                      calculatedDisplayType:
+                        'PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED',
                       dataSourceColumnReference: {
                         name: 'Test string',
                       },
                       formula: 'Test string',
                       name: 'Test string',
                       sourceColumnOffset: 42,
-                      summarizeFunction: 'Test string',
+                      summarizeFunction:
+                        'PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED',
                     },
                   ],
                 },
@@ -4211,7 +4223,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -4237,7 +4249,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   borders: {
                     bottom: {
@@ -4254,9 +4266,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     left: {
@@ -4273,9 +4285,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     right: {
@@ -4292,9 +4304,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     top: {
@@ -4311,17 +4323,17 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                   },
-                  horizontalAlignment: 'Test string',
-                  hyperlinkDisplayType: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                  hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                   numberFormat: {
                     pattern: 'Test string',
-                    type: 'Test string',
+                    type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                   },
                   padding: {
                     bottom: 42,
@@ -4329,7 +4341,7 @@ gapi.load('client', async () => {
                     right: 42,
                     top: 42,
                   },
-                  textDirection: 'Test string',
+                  textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                   textFormat: {
                     bold: true,
                     fontFamily: 'Test string',
@@ -4347,7 +4359,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -4360,14 +4372,14 @@ gapi.load('client', async () => {
                     angle: 42,
                     vertical: true,
                   },
-                  verticalAlignment: 'Test string',
-                  wrapStrategy: 'Test string',
+                  verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                  wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                 },
                 userEnteredValue: {
                   boolValue: true,
                   errorValue: {
                     message: 'Test string',
-                    type: 'Test string',
+                    type: 'ERROR_TYPE_UNSPECIFIED',
                   },
                   formulaValue: 'Test string',
                   numberValue: 42,
@@ -4388,10 +4400,10 @@ gapi.load('client', async () => {
                 criteria: {
                   A: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -4410,7 +4422,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -4425,7 +4437,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -4437,10 +4449,10 @@ gapi.load('client', async () => {
                     },
                     filterCriteria: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -4459,7 +4471,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       visibleForegroundColor: {
                         alpha: 42,
@@ -4474,7 +4486,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
@@ -4501,7 +4513,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     dataSourceColumnReference: {
                       name: 'Test string',
@@ -4520,9 +4532,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 tableId: 'Test string',
@@ -4539,10 +4551,10 @@ gapi.load('client', async () => {
               },
               rule: {
                 condition: {
-                  type: 'Test string',
+                  type: 'CONDITION_TYPE_UNSPECIFIED',
                   values: [
                     {
-                      relativeDate: 'Test string',
+                      relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                       userEnteredValue: 'Test string',
                     },
                   ],
@@ -4575,7 +4587,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   dataSourceColumnReference: {
                     name: 'Test string',
@@ -4594,15 +4606,15 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
-                  sortOrder: 'Test string',
+                  sortOrder: 'SORT_ORDER_UNSPECIFIED',
                 },
               ],
             },
             textToColumns: {
               delimiter: 'Test string',
-              delimiterType: 'Test string',
+              delimiterType: 'DELIMITER_TYPE_UNSPECIFIED',
               source: {
                 endColumnIndex: 42,
                 endRowIndex: 42,
@@ -4647,7 +4659,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -4662,7 +4674,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -4677,7 +4689,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -4692,7 +4704,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 range: {
@@ -4716,7 +4728,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -4731,7 +4743,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -4746,7 +4758,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -4761,7 +4773,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -4782,9 +4794,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               innerHorizontal: {
@@ -4801,9 +4813,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               innerVertical: {
@@ -4820,9 +4832,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               left: {
@@ -4839,9 +4851,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               range: {
@@ -4865,9 +4877,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               top: {
@@ -4884,9 +4896,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
             },
@@ -4907,7 +4919,7 @@ gapi.load('client', async () => {
                         {
                           chip: {
                             personProperties: {
-                              displayFormat: 'Test string',
+                              displayFormat: 'DISPLAY_FORMAT_UNSPECIFIED',
                               email: 'Test string',
                             },
                             richLinkProperties: {
@@ -4920,10 +4932,10 @@ gapi.load('client', async () => {
                       ],
                       dataSourceFormula: {
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                       },
@@ -4933,12 +4945,13 @@ gapi.load('client', async () => {
                             name: 'Test string',
                           },
                         ],
-                        columnSelectionType: 'Test string',
+                        columnSelectionType:
+                          'DATA_SOURCE_TABLE_COLUMN_SELECTION_TYPE_UNSPECIFIED',
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                         filterSpecs: [
@@ -4949,10 +4962,10 @@ gapi.load('client', async () => {
                             },
                             filterCriteria: {
                               condition: {
-                                type: 'Test string',
+                                type: 'CONDITION_TYPE_UNSPECIFIED',
                                 values: [
                                   {
-                                    relativeDate: 'Test string',
+                                    relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                     userEnteredValue: 'Test string',
                                   },
                                 ],
@@ -4971,7 +4984,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                               visibleForegroundColor: {
                                 alpha: 42,
@@ -4986,7 +4999,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                             },
                           },
@@ -5007,7 +5020,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             dataSourceColumnReference: {
                               name: 'Test string',
@@ -5026,18 +5039,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                           },
                         ],
                       },
                       dataValidation: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -5060,7 +5073,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         borders: {
                           bottom: {
@@ -5077,9 +5090,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           left: {
@@ -5096,9 +5109,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           right: {
@@ -5115,9 +5128,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           top: {
@@ -5134,17 +5147,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                         },
-                        horizontalAlignment: 'Test string',
-                        hyperlinkDisplayType: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                        hyperlinkDisplayType:
+                          'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                         numberFormat: {
                           pattern: 'Test string',
-                          type: 'Test string',
+                          type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                         },
                         padding: {
                           bottom: 42,
@@ -5152,7 +5166,7 @@ gapi.load('client', async () => {
                           right: 42,
                           top: 42,
                         },
-                        textDirection: 'Test string',
+                        textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -5170,7 +5184,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -5183,14 +5197,14 @@ gapi.load('client', async () => {
                           angle: 42,
                           vertical: true,
                         },
-                        verticalAlignment: 'Test string',
-                        wrapStrategy: 'Test string',
+                        verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                        wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                       },
                       effectiveValue: {
                         boolValue: true,
                         errorValue: {
                           message: 'Test string',
-                          type: 'Test string',
+                          type: 'ERROR_TYPE_UNSPECIFIED',
                         },
                         formulaValue: 'Test string',
                         numberValue: 42,
@@ -5211,7 +5225,7 @@ gapi.load('client', async () => {
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 end: 42,
@@ -5225,7 +5239,7 @@ gapi.load('client', async () => {
                                       boolValue: true,
                                       errorValue: {
                                         message: 'Test string',
-                                        type: 'Test string',
+                                        type: 'ERROR_TYPE_UNSPECIFIED',
                                       },
                                       formulaValue: 'Test string',
                                       numberValue: 42,
@@ -5236,7 +5250,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -5250,7 +5264,7 @@ gapi.load('client', async () => {
                             label: 'Test string',
                             repeatHeadings: true,
                             showTotals: true,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             sourceColumnOffset: 42,
                             valueBucket: {
                               buckets: [
@@ -5258,7 +5272,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -5274,7 +5288,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -5287,10 +5301,10 @@ gapi.load('client', async () => {
                         criteria: {
                           A: {
                             condition: {
-                              type: 'Test string',
+                              type: 'CONDITION_TYPE_UNSPECIFIED',
                               values: [
                                 {
-                                  relativeDate: 'Test string',
+                                  relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                   userEnteredValue: 'Test string',
                                 },
                               ],
@@ -5300,10 +5314,10 @@ gapi.load('client', async () => {
                           },
                         },
                         dataExecutionStatus: {
-                          errorCode: 'Test string',
+                          errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                           errorMessage: 'Test string',
                           lastRefreshTime: 'Test string',
-                          state: 'Test string',
+                          state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                         },
                         dataSourceId: 'Test string',
                         filterSpecs: [
@@ -5314,10 +5328,10 @@ gapi.load('client', async () => {
                             },
                             filterCriteria: {
                               condition: {
-                                type: 'Test string',
+                                type: 'CONDITION_TYPE_UNSPECIFIED',
                                 values: [
                                   {
-                                    relativeDate: 'Test string',
+                                    relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                     userEnteredValue: 'Test string',
                                   },
                                 ],
@@ -5338,7 +5352,7 @@ gapi.load('client', async () => {
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 end: 42,
@@ -5352,7 +5366,7 @@ gapi.load('client', async () => {
                                       boolValue: true,
                                       errorValue: {
                                         message: 'Test string',
-                                        type: 'Test string',
+                                        type: 'ERROR_TYPE_UNSPECIFIED',
                                       },
                                       formulaValue: 'Test string',
                                       numberValue: 42,
@@ -5363,7 +5377,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -5377,7 +5391,7 @@ gapi.load('client', async () => {
                             label: 'Test string',
                             repeatHeadings: true,
                             showTotals: true,
-                            sortOrder: 'Test string',
+                            sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             sourceColumnOffset: 42,
                             valueBucket: {
                               buckets: [
@@ -5385,7 +5399,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -5401,7 +5415,7 @@ gapi.load('client', async () => {
                                   boolValue: true,
                                   errorValue: {
                                     message: 'Test string',
-                                    type: 'Test string',
+                                    type: 'ERROR_TYPE_UNSPECIFIED',
                                   },
                                   formulaValue: 'Test string',
                                   numberValue: 42,
@@ -5418,17 +5432,19 @@ gapi.load('client', async () => {
                           startColumnIndex: 42,
                           startRowIndex: 42,
                         },
-                        valueLayout: 'Test string',
+                        valueLayout: 'HORIZONTAL',
                         values: [
                           {
-                            calculatedDisplayType: 'Test string',
+                            calculatedDisplayType:
+                              'PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED',
                             dataSourceColumnReference: {
                               name: 'Test string',
                             },
                             formula: 'Test string',
                             name: 'Test string',
                             sourceColumnOffset: 42,
-                            summarizeFunction: 'Test string',
+                            summarizeFunction:
+                              'PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED',
                           },
                         ],
                       },
@@ -5451,7 +5467,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -5477,7 +5493,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         borders: {
                           bottom: {
@@ -5494,9 +5510,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           left: {
@@ -5513,9 +5529,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           right: {
@@ -5532,9 +5548,9 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                           top: {
@@ -5551,17 +5567,18 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
-                            style: 'Test string',
+                            style: 'STYLE_UNSPECIFIED',
                             width: 42,
                           },
                         },
-                        horizontalAlignment: 'Test string',
-                        hyperlinkDisplayType: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                        hyperlinkDisplayType:
+                          'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                         numberFormat: {
                           pattern: 'Test string',
-                          type: 'Test string',
+                          type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                         },
                         padding: {
                           bottom: 42,
@@ -5569,7 +5586,7 @@ gapi.load('client', async () => {
                           right: 42,
                           top: 42,
                         },
-                        textDirection: 'Test string',
+                        textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -5587,7 +5604,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -5600,14 +5617,14 @@ gapi.load('client', async () => {
                           angle: 42,
                           vertical: true,
                         },
-                        verticalAlignment: 'Test string',
-                        wrapStrategy: 'Test string',
+                        verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                        wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                       },
                       userEnteredValue: {
                         boolValue: true,
                         errorValue: {
                           message: 'Test string',
-                          type: 'Test string',
+                          type: 'ERROR_TYPE_UNSPECIFIED',
                         },
                         formulaValue: 'Test string',
                         numberValue: 42,
@@ -5640,7 +5657,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
                 basicChart: {
                   axis: [
@@ -5662,7 +5679,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -5671,30 +5688,30 @@ gapi.load('client', async () => {
                         strikethrough: true,
                         underline: true,
                       },
-                      position: 'Test string',
+                      position: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
                       title: 'Test string',
                       titleTextPosition: {
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                       },
                       viewWindowOptions: {
                         viewWindowMax: 42,
                         viewWindowMin: 42,
-                        viewWindowMode: 'Test string',
+                        viewWindowMode: 'DEFAULT_VIEW_WINDOW_MODE',
                       },
                     },
                   ],
-                  chartType: 'Test string',
-                  compareMode: 'Test string',
+                  chartType: 'BASIC_CHART_TYPE_UNSPECIFIED',
+                  compareMode: 'BASIC_CHART_COMPARE_MODE_UNSPECIFIED',
                   domains: [
                     {
                       domain: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -5719,7 +5736,7 @@ gapi.load('client', async () => {
                   ],
                   headerCount: 42,
                   interpolateNulls: true,
-                  legendPosition: 'Test string',
+                  legendPosition: 'BASIC_CHART_LEGEND_POSITION_UNSPECIFIED',
                   lineSmoothing: true,
                   series: [
                     {
@@ -5736,17 +5753,17 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       dataLabel: {
                         customLabelData: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -5766,7 +5783,7 @@ gapi.load('client', async () => {
                             ],
                           },
                         },
-                        placement: 'Test string',
+                        placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -5784,7 +5801,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -5793,24 +5810,24 @@ gapi.load('client', async () => {
                           strikethrough: true,
                           underline: true,
                         },
-                        type: 'Test string',
+                        type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                       },
                       lineStyle: {
-                        type: 'Test string',
+                        type: 'LINE_DASH_TYPE_UNSPECIFIED',
                         width: 42,
                       },
                       pointStyle: {
-                        shape: 'Test string',
+                        shape: 'POINT_SHAPE_UNSPECIFIED',
                         size: 42,
                       },
                       series: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -5845,30 +5862,30 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           index: 42,
                           pointStyle: {
-                            shape: 'Test string',
+                            shape: 'POINT_SHAPE_UNSPECIFIED',
                             size: 42,
                           },
                         },
                       ],
-                      targetAxis: 'Test string',
-                      type: 'Test string',
+                      targetAxis: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
+                      type: 'BASIC_CHART_TYPE_UNSPECIFIED',
                     },
                   ],
-                  stackedType: 'Test string',
+                  stackedType: 'BASIC_CHART_STACKED_TYPE_UNSPECIFIED',
                   threeDimensional: true,
                   totalDataLabel: {
                     customLabelData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -5888,7 +5905,7 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    placement: 'Test string',
+                    placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                     textFormat: {
                       bold: true,
                       fontFamily: 'Test string',
@@ -5906,7 +5923,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -5915,7 +5932,7 @@ gapi.load('client', async () => {
                       strikethrough: true,
                       underline: true,
                     },
-                    type: 'Test string',
+                    type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                   },
                 },
                 bubbleChart: {
@@ -5932,16 +5949,16 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   bubbleLabels: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -5965,13 +5982,13 @@ gapi.load('client', async () => {
                   bubbleMinRadiusSize: 42,
                   bubbleOpacity: 42,
                   bubbleSizes: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6008,7 +6025,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -6018,13 +6035,13 @@ gapi.load('client', async () => {
                     underline: true,
                   },
                   domain: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6045,13 +6062,13 @@ gapi.load('client', async () => {
                     },
                   },
                   groupIds: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6071,15 +6088,15 @@ gapi.load('client', async () => {
                       ],
                     },
                   },
-                  legendPosition: 'Test string',
+                  legendPosition: 'BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED',
                   series: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6105,13 +6122,13 @@ gapi.load('client', async () => {
                     {
                       closeSeries: {
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -6134,13 +6151,13 @@ gapi.load('client', async () => {
                       },
                       highSeries: {
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -6163,13 +6180,13 @@ gapi.load('client', async () => {
                       },
                       lowSeries: {
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -6192,13 +6209,13 @@ gapi.load('client', async () => {
                       },
                       openSeries: {
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -6223,13 +6240,13 @@ gapi.load('client', async () => {
                   ],
                   domain: {
                     data: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -6254,10 +6271,10 @@ gapi.load('client', async () => {
                 },
                 dataSourceChartProperties: {
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                 },
@@ -6269,10 +6286,10 @@ gapi.load('client', async () => {
                     },
                     filterCriteria: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -6291,7 +6308,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       visibleForegroundColor: {
                         alpha: 42,
@@ -6306,16 +6323,17 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
                 ],
                 fontName: 'Test string',
-                hiddenDimensionStrategy: 'Test string',
+                hiddenDimensionStrategy:
+                  'CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED',
                 histogramChart: {
                   bucketSize: 42,
-                  legendPosition: 'Test string',
+                  legendPosition: 'HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED',
                   outlierPercentile: 42,
                   series: [
                     {
@@ -6332,16 +6350,16 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -6368,13 +6386,13 @@ gapi.load('client', async () => {
                 maximized: true,
                 orgChart: {
                   labels: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6407,17 +6425,17 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
-                  nodeSize: 'Test string',
+                  nodeSize: 'ORG_CHART_LABEL_SIZE_UNSPECIFIED',
                   parentLabels: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6450,16 +6468,16 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   tooltips: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6482,13 +6500,13 @@ gapi.load('client', async () => {
                 },
                 pieChart: {
                   domain: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6508,16 +6526,16 @@ gapi.load('client', async () => {
                       ],
                     },
                   },
-                  legendPosition: 'Test string',
+                  legendPosition: 'PIE_CHART_LEGEND_POSITION_UNSPECIFIED',
                   pieHole: 42,
                   series: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6540,15 +6558,15 @@ gapi.load('client', async () => {
                   threeDimensional: true,
                 },
                 scorecardChart: {
-                  aggregateType: 'Test string',
+                  aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                   baselineValueData: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6569,7 +6587,7 @@ gapi.load('client', async () => {
                     },
                   },
                   baselineValueFormat: {
-                    comparisonType: 'Test string',
+                    comparisonType: 'COMPARISON_TYPE_UNDEFINED',
                     description: 'Test string',
                     negativeColor: {
                       alpha: 42,
@@ -6584,10 +6602,10 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     position: {
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                     },
                     positiveColor: {
                       alpha: 42,
@@ -6602,7 +6620,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     textFormat: {
                       bold: true,
@@ -6621,7 +6639,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -6636,13 +6654,13 @@ gapi.load('client', async () => {
                     suffix: 'Test string',
                   },
                   keyValueData: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6664,7 +6682,7 @@ gapi.load('client', async () => {
                   },
                   keyValueFormat: {
                     position: {
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                     },
                     textFormat: {
                       bold: true,
@@ -6683,7 +6701,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -6693,7 +6711,7 @@ gapi.load('client', async () => {
                       underline: true,
                     },
                   },
-                  numberFormatSource: 'Test string',
+                  numberFormatSource: 'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED',
                   scaleFactor: 42,
                 },
                 sortSpecs: [
@@ -6711,7 +6729,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     dataSourceColumnReference: {
                       name: 'Test string',
@@ -6730,9 +6748,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 subtitle: 'Test string',
@@ -6753,7 +6771,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   italic: true,
                   link: {
@@ -6763,7 +6781,7 @@ gapi.load('client', async () => {
                   underline: true,
                 },
                 subtitleTextPosition: {
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                 },
                 title: 'Test string',
                 titleTextFormat: {
@@ -6783,7 +6801,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   italic: true,
                   link: {
@@ -6793,17 +6811,17 @@ gapi.load('client', async () => {
                   underline: true,
                 },
                 titleTextPosition: {
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                 },
                 treemapChart: {
                   colorData: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6837,7 +6855,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     midValueColor: {
                       alpha: 42,
@@ -6852,7 +6870,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     minValueColor: {
                       alpha: 42,
@@ -6867,7 +6885,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     noDataColor: {
                       alpha: 42,
@@ -6882,7 +6900,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                   headerColor: {
@@ -6898,18 +6916,18 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   hideTooltips: true,
                   hintedLevels: 42,
                   labels: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6933,13 +6951,13 @@ gapi.load('client', async () => {
                   maxValue: 42,
                   minValue: 42,
                   parentLabels: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -6960,13 +6978,13 @@ gapi.load('client', async () => {
                     },
                   },
                   sizeData: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     columnReference: {
                       name: 'Test string',
                     },
                     groupRule: {
                       dateTimeRule: {
-                        type: 'Test string',
+                        type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                       },
                       histogramRule: {
                         intervalSize: 42,
@@ -7003,7 +7021,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -7015,18 +7033,18 @@ gapi.load('client', async () => {
                 },
                 waterfallChart: {
                   connectorLineStyle: {
-                    type: 'Test string',
+                    type: 'LINE_DASH_TYPE_UNSPECIFIED',
                     width: 42,
                   },
                   domain: {
                     data: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -7060,13 +7078,13 @@ gapi.load('client', async () => {
                         },
                       ],
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -7088,13 +7106,13 @@ gapi.load('client', async () => {
                       },
                       dataLabel: {
                         customLabelData: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -7114,7 +7132,7 @@ gapi.load('client', async () => {
                             ],
                           },
                         },
-                        placement: 'Test string',
+                        placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                         textFormat: {
                           bold: true,
                           fontFamily: 'Test string',
@@ -7132,7 +7150,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -7141,7 +7159,7 @@ gapi.load('client', async () => {
                           strikethrough: true,
                           underline: true,
                         },
-                        type: 'Test string',
+                        type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                       },
                       hideTrailingSubtotal: true,
                       negativeColumnsStyle: {
@@ -7158,7 +7176,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         label: 'Test string',
                       },
@@ -7176,7 +7194,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         label: 'Test string',
                       },
@@ -7194,22 +7212,22 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         label: 'Test string',
                       },
                     },
                   ],
-                  stackedType: 'Test string',
+                  stackedType: 'WATERFALL_STACKED_TYPE_UNSPECIFIED',
                   totalDataLabel: {
                     customLabelData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -7229,7 +7247,7 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    placement: 'Test string',
+                    placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                     textFormat: {
                       bold: true,
                       fontFamily: 'Test string',
@@ -7247,7 +7265,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -7256,7 +7274,7 @@ gapi.load('client', async () => {
                       strikethrough: true,
                       underline: true,
                     },
-                    type: 'Test string',
+                    type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -7272,10 +7290,10 @@ gapi.load('client', async () => {
               rule: {
                 booleanRule: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -7294,7 +7312,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     borders: {
                       bottom: {
@@ -7311,9 +7329,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       left: {
@@ -7330,9 +7348,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       right: {
@@ -7349,9 +7367,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       top: {
@@ -7368,17 +7386,17 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                     },
-                    horizontalAlignment: 'Test string',
-                    hyperlinkDisplayType: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                    hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                     numberFormat: {
                       pattern: 'Test string',
-                      type: 'Test string',
+                      type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                     },
                     padding: {
                       bottom: 42,
@@ -7386,7 +7404,7 @@ gapi.load('client', async () => {
                       right: 42,
                       top: 42,
                     },
-                    textDirection: 'Test string',
+                    textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                     textFormat: {
                       bold: true,
                       fontFamily: 'Test string',
@@ -7404,7 +7422,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -7417,8 +7435,8 @@ gapi.load('client', async () => {
                       angle: 42,
                       vertical: true,
                     },
-                    verticalAlignment: 'Test string',
-                    wrapStrategy: 'Test string',
+                    verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                    wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                   },
                 },
                 gradientRule: {
@@ -7436,9 +7454,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   midpoint: {
@@ -7455,9 +7473,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   minpoint: {
@@ -7474,9 +7492,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -7543,23 +7561,26 @@ gapi.load('client', async () => {
                 {
                   a1Range: 'Test string',
                   developerMetadataLookup: {
-                    locationMatchingStrategy: 'Test string',
-                    locationType: 'Test string',
+                    locationMatchingStrategy:
+                      'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+                    locationType:
+                      'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                     metadataId: 42,
                     metadataKey: 'Test string',
                     metadataLocation: {
                       dimensionRange: {
-                        dimension: 'Test string',
+                        dimension: 'DIMENSION_UNSPECIFIED',
                         endIndex: 42,
                         sheetId: 42,
                         startIndex: 42,
                       },
-                      locationType: 'Test string',
+                      locationType:
+                        'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                       sheetId: 42,
                       spreadsheet: true,
                     },
                     metadataValue: 'Test string',
-                    visibility: 'Test string',
+                    visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
                   },
                   gridRange: {
                     endColumnIndex: 42,
@@ -7573,19 +7594,19 @@ gapi.load('client', async () => {
               developerMetadata: {
                 location: {
                   dimensionRange: {
-                    dimension: 'Test string',
+                    dimension: 'DIMENSION_UNSPECIFIED',
                     endIndex: 42,
                     sheetId: 42,
                     startIndex: 42,
                   },
-                  locationType: 'Test string',
+                  locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                   sheetId: 42,
                   spreadsheet: true,
                 },
                 metadataId: 42,
                 metadataKey: 'Test string',
                 metadataValue: 'Test string',
-                visibility: 'Test string',
+                visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
               },
               fields: 'Test string',
             },
@@ -7594,7 +7615,7 @@ gapi.load('client', async () => {
                 collapsed: true,
                 depth: 42,
                 range: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
@@ -7620,19 +7641,20 @@ gapi.load('client', async () => {
                   {
                     location: {
                       dimensionRange: {
-                        dimension: 'Test string',
+                        dimension: 'DIMENSION_UNSPECIFIED',
                         endIndex: 42,
                         sheetId: 42,
                         startIndex: 42,
                       },
-                      locationType: 'Test string',
+                      locationType:
+                        'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                       sheetId: 42,
                       spreadsheet: true,
                     },
                     metadataId: 42,
                     metadataKey: 'Test string',
                     metadataValue: 'Test string',
-                    visibility: 'Test string',
+                    visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
                   },
                 ],
                 hiddenByFilter: true,
@@ -7640,7 +7662,7 @@ gapi.load('client', async () => {
                 pixelSize: 42,
               },
               range: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
@@ -7661,7 +7683,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
               },
               fields: 'Test string',
@@ -7692,10 +7714,10 @@ gapi.load('client', async () => {
                 criteria: {
                   A: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -7714,7 +7736,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -7729,7 +7751,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -7741,10 +7763,10 @@ gapi.load('client', async () => {
                     },
                     filterCriteria: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -7763,7 +7785,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       visibleForegroundColor: {
                         alpha: 42,
@@ -7778,7 +7800,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
@@ -7807,7 +7829,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     dataSourceColumnReference: {
                       name: 'Test string',
@@ -7826,9 +7848,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 tableId: 'Test string',
@@ -7894,10 +7916,10 @@ gapi.load('client', async () => {
                     },
                   ],
                   dataExecutionStatus: {
-                    errorCode: 'Test string',
+                    errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                     errorMessage: 'Test string',
                     lastRefreshTime: 'Test string',
-                    state: 'Test string',
+                    state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                   },
                   dataSourceId: 'Test string',
                 },
@@ -7914,7 +7936,7 @@ gapi.load('client', async () => {
                 index: 42,
                 rightToLeft: true,
                 sheetId: 42,
-                sheetType: 'Test string',
+                sheetType: 'SHEET_TYPE_UNSPECIFIED',
                 tabColor: {
                   alpha: 42,
                   blue: 42,
@@ -7928,7 +7950,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
                 title: 'Test string',
               },
@@ -7951,7 +7973,7 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
                 columnIndex: 42,
                 dataRange: {
@@ -7963,10 +7985,10 @@ gapi.load('client', async () => {
                 },
                 filterCriteria: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -7985,7 +8007,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   visibleForegroundColor: {
                     alpha: 42,
@@ -8000,10 +8022,10 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
-                horizontalAlignment: 'Test string',
+                horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                 textFormat: {
                   bold: true,
                   fontFamily: 'Test string',
@@ -8021,7 +8043,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   italic: true,
                   link: {
@@ -8036,7 +8058,7 @@ gapi.load('client', async () => {
             updateSpreadsheetProperties: {
               fields: 'Test string',
               properties: {
-                autoRecalc: 'Test string',
+                autoRecalc: 'RECALCULATION_INTERVAL_UNSPECIFIED',
                 defaultFormat: {
                   backgroundColor: {
                     alpha: 42,
@@ -8051,7 +8073,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   borders: {
                     bottom: {
@@ -8068,9 +8090,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     left: {
@@ -8087,9 +8109,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     right: {
@@ -8106,9 +8128,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                     top: {
@@ -8125,17 +8147,17 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      style: 'Test string',
+                      style: 'STYLE_UNSPECIFIED',
                       width: 42,
                     },
                   },
-                  horizontalAlignment: 'Test string',
-                  hyperlinkDisplayType: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                  hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                   numberFormat: {
                     pattern: 'Test string',
-                    type: 'Test string',
+                    type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                   },
                   padding: {
                     bottom: 42,
@@ -8143,7 +8165,7 @@ gapi.load('client', async () => {
                     right: 42,
                     top: 42,
                   },
-                  textDirection: 'Test string',
+                  textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                   textFormat: {
                     bold: true,
                     fontFamily: 'Test string',
@@ -8161,7 +8183,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -8174,8 +8196,8 @@ gapi.load('client', async () => {
                     angle: 42,
                     vertical: true,
                   },
-                  verticalAlignment: 'Test string',
-                  wrapStrategy: 'Test string',
+                  verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                  wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                 },
                 importFunctionsExternalUrlAccessAllowed: true,
                 iterativeCalculationSettings: {
@@ -8194,9 +8216,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      colorType: 'Test string',
+                      colorType: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -8211,13 +8233,13 @@ gapi.load('client', async () => {
                   {
                     columnIndex: 42,
                     columnName: 'Test string',
-                    columnType: 'Test string',
+                    columnType: 'COLUMN_TYPE_UNSPECIFIED',
                     dataValidationRule: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -8241,7 +8263,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColorStyle: {
                     rgbColor: {
@@ -8250,7 +8272,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColorStyle: {
                     rgbColor: {
@@ -8259,7 +8281,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColorStyle: {
                     rgbColor: {
@@ -8268,7 +8290,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 tableId: 'Test string',
@@ -8296,7 +8318,7 @@ gapi.load('client', async () => {
                 me: true,
                 user: 'Test string',
               },
-              commentAction: 'Test string',
+              commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
               content: 'Test string',
               contentHtml: 'Test string',
               createTime: 'Test string',
@@ -8316,7 +8338,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -8327,10 +8349,10 @@ gapi.load('client', async () => {
                 updateTime: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
           },
         ],
-        commentsViewMode: 'Test string',
+        commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
         dataSources: [
           {
             calculatedColumns: [
@@ -8400,9 +8422,9 @@ gapi.load('client', async () => {
               endTime: 'Test string',
               startTime: 'Test string',
             },
-            refreshScope: 'Test string',
+            refreshScope: 'DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED',
             weeklySchedule: {
-              daysOfWeek: ['Test string'],
+              daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -8416,19 +8438,19 @@ gapi.load('client', async () => {
           {
             location: {
               dimensionRange: {
-                dimension: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
                 endIndex: 42,
                 sheetId: 42,
                 startIndex: 42,
               },
-              locationType: 'Test string',
+              locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
               sheetId: 42,
               spreadsheet: true,
             },
             metadataId: 42,
             metadataKey: 'Test string',
             metadataValue: 'Test string',
-            visibility: 'Test string',
+            visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
           },
         ],
         namedRanges: [
@@ -8445,7 +8467,7 @@ gapi.load('client', async () => {
           },
         ],
         properties: {
-          autoRecalc: 'Test string',
+          autoRecalc: 'RECALCULATION_INTERVAL_UNSPECIFIED',
           defaultFormat: {
             backgroundColor: {
               alpha: 42,
@@ -8460,7 +8482,7 @@ gapi.load('client', async () => {
                 green: 42,
                 red: 42,
               },
-              themeColor: 'Test string',
+              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
             },
             borders: {
               bottom: {
@@ -8477,9 +8499,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               left: {
@@ -8496,9 +8518,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               right: {
@@ -8515,9 +8537,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
               top: {
@@ -8534,17 +8556,17 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                style: 'Test string',
+                style: 'STYLE_UNSPECIFIED',
                 width: 42,
               },
             },
-            horizontalAlignment: 'Test string',
-            hyperlinkDisplayType: 'Test string',
+            horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+            hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
             numberFormat: {
               pattern: 'Test string',
-              type: 'Test string',
+              type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
             },
             padding: {
               bottom: 42,
@@ -8552,7 +8574,7 @@ gapi.load('client', async () => {
               right: 42,
               top: 42,
             },
-            textDirection: 'Test string',
+            textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
             textFormat: {
               bold: true,
               fontFamily: 'Test string',
@@ -8570,7 +8592,7 @@ gapi.load('client', async () => {
                   green: 42,
                   red: 42,
                 },
-                themeColor: 'Test string',
+                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
               },
               italic: true,
               link: {
@@ -8583,8 +8605,8 @@ gapi.load('client', async () => {
               angle: 42,
               vertical: true,
             },
-            verticalAlignment: 'Test string',
-            wrapStrategy: 'Test string',
+            verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+            wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
           },
           importFunctionsExternalUrlAccessAllowed: true,
           iterativeCalculationSettings: {
@@ -8603,9 +8625,9 @@ gapi.load('client', async () => {
                     green: 42,
                     red: 42,
                   },
-                  themeColor: 'Test string',
+                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                 },
-                colorType: 'Test string',
+                colorType: 'THEME_COLOR_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -8632,7 +8654,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -8647,7 +8669,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -8662,7 +8684,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -8677,7 +8699,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 range: {
@@ -8701,7 +8723,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColor: {
                     alpha: 42,
@@ -8716,7 +8738,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColor: {
                     alpha: 42,
@@ -8731,7 +8753,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColor: {
                     alpha: 42,
@@ -8746,7 +8768,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -8755,10 +8777,10 @@ gapi.load('client', async () => {
               criteria: {
                 A: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -8777,7 +8799,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   visibleForegroundColor: {
                     alpha: 42,
@@ -8792,7 +8814,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -8804,10 +8826,10 @@ gapi.load('client', async () => {
                   },
                   filterCriteria: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -8826,7 +8848,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -8841,7 +8863,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -8868,7 +8890,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   dataSourceColumnReference: {
                     name: 'Test string',
@@ -8887,9 +8909,9 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
-                  sortOrder: 'Test string',
+                  sortOrder: 'SORT_ORDER_UNSPECIFIED',
                 },
               ],
               tableId: 'Test string',
@@ -8910,7 +8932,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 chartId: 42,
@@ -8944,7 +8966,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   basicChart: {
                     axis: [
@@ -8966,7 +8988,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           italic: true,
                           link: {
@@ -8975,30 +8997,30 @@ gapi.load('client', async () => {
                           strikethrough: true,
                           underline: true,
                         },
-                        position: 'Test string',
+                        position: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
                         title: 'Test string',
                         titleTextPosition: {
-                          horizontalAlignment: 'Test string',
+                          horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                         },
                         viewWindowOptions: {
                           viewWindowMax: 42,
                           viewWindowMin: 42,
-                          viewWindowMode: 'Test string',
+                          viewWindowMode: 'DEFAULT_VIEW_WINDOW_MODE',
                         },
                       },
                     ],
-                    chartType: 'Test string',
-                    compareMode: 'Test string',
+                    chartType: 'BASIC_CHART_TYPE_UNSPECIFIED',
+                    compareMode: 'BASIC_CHART_COMPARE_MODE_UNSPECIFIED',
                     domains: [
                       {
                         domain: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -9023,7 +9045,7 @@ gapi.load('client', async () => {
                     ],
                     headerCount: 42,
                     interpolateNulls: true,
-                    legendPosition: 'Test string',
+                    legendPosition: 'BASIC_CHART_LEGEND_POSITION_UNSPECIFIED',
                     lineSmoothing: true,
                     series: [
                       {
@@ -9040,17 +9062,17 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         dataLabel: {
                           customLabelData: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -9070,7 +9092,7 @@ gapi.load('client', async () => {
                               ],
                             },
                           },
-                          placement: 'Test string',
+                          placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -9088,7 +9110,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -9097,24 +9119,24 @@ gapi.load('client', async () => {
                             strikethrough: true,
                             underline: true,
                           },
-                          type: 'Test string',
+                          type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                         },
                         lineStyle: {
-                          type: 'Test string',
+                          type: 'LINE_DASH_TYPE_UNSPECIFIED',
                           width: 42,
                         },
                         pointStyle: {
-                          shape: 'Test string',
+                          shape: 'POINT_SHAPE_UNSPECIFIED',
                           size: 42,
                         },
                         series: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -9149,30 +9171,30 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             index: 42,
                             pointStyle: {
-                              shape: 'Test string',
+                              shape: 'POINT_SHAPE_UNSPECIFIED',
                               size: 42,
                             },
                           },
                         ],
-                        targetAxis: 'Test string',
-                        type: 'Test string',
+                        targetAxis: 'BASIC_CHART_AXIS_POSITION_UNSPECIFIED',
+                        type: 'BASIC_CHART_TYPE_UNSPECIFIED',
                       },
                     ],
-                    stackedType: 'Test string',
+                    stackedType: 'BASIC_CHART_STACKED_TYPE_UNSPECIFIED',
                     threeDimensional: true,
                     totalDataLabel: {
                       customLabelData: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -9192,7 +9214,7 @@ gapi.load('client', async () => {
                           ],
                         },
                       },
-                      placement: 'Test string',
+                      placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                       textFormat: {
                         bold: true,
                         fontFamily: 'Test string',
@@ -9210,7 +9232,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -9219,7 +9241,7 @@ gapi.load('client', async () => {
                         strikethrough: true,
                         underline: true,
                       },
-                      type: 'Test string',
+                      type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                     },
                   },
                   bubbleChart: {
@@ -9236,16 +9258,16 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     bubbleLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9269,13 +9291,13 @@ gapi.load('client', async () => {
                     bubbleMinRadiusSize: 42,
                     bubbleOpacity: 42,
                     bubbleSizes: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9312,7 +9334,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -9322,13 +9344,13 @@ gapi.load('client', async () => {
                       underline: true,
                     },
                     domain: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9349,13 +9371,13 @@ gapi.load('client', async () => {
                       },
                     },
                     groupIds: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9375,15 +9397,15 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    legendPosition: 'Test string',
+                    legendPosition: 'BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED',
                     series: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9409,13 +9431,13 @@ gapi.load('client', async () => {
                       {
                         closeSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -9438,13 +9460,13 @@ gapi.load('client', async () => {
                         },
                         highSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -9467,13 +9489,13 @@ gapi.load('client', async () => {
                         },
                         lowSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -9496,13 +9518,13 @@ gapi.load('client', async () => {
                         },
                         openSeries: {
                           data: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -9527,13 +9549,13 @@ gapi.load('client', async () => {
                     ],
                     domain: {
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -9558,10 +9580,10 @@ gapi.load('client', async () => {
                   },
                   dataSourceChartProperties: {
                     dataExecutionStatus: {
-                      errorCode: 'Test string',
+                      errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                       errorMessage: 'Test string',
                       lastRefreshTime: 'Test string',
-                      state: 'Test string',
+                      state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                     },
                     dataSourceId: 'Test string',
                   },
@@ -9573,10 +9595,10 @@ gapi.load('client', async () => {
                       },
                       filterCriteria: {
                         condition: {
-                          type: 'Test string',
+                          type: 'CONDITION_TYPE_UNSPECIFIED',
                           values: [
                             {
-                              relativeDate: 'Test string',
+                              relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                               userEnteredValue: 'Test string',
                             },
                           ],
@@ -9595,7 +9617,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         visibleForegroundColor: {
                           alpha: 42,
@@ -9610,16 +9632,18 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                       },
                     },
                   ],
                   fontName: 'Test string',
-                  hiddenDimensionStrategy: 'Test string',
+                  hiddenDimensionStrategy:
+                    'CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED',
                   histogramChart: {
                     bucketSize: 42,
-                    legendPosition: 'Test string',
+                    legendPosition:
+                      'HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED',
                     outlierPercentile: 42,
                     series: [
                       {
@@ -9636,16 +9660,16 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -9672,13 +9696,13 @@ gapi.load('client', async () => {
                   maximized: true,
                   orgChart: {
                     labels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9711,17 +9735,17 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    nodeSize: 'Test string',
+                    nodeSize: 'ORG_CHART_LABEL_SIZE_UNSPECIFIED',
                     parentLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9754,16 +9778,16 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     tooltips: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9786,13 +9810,13 @@ gapi.load('client', async () => {
                   },
                   pieChart: {
                     domain: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9812,16 +9836,16 @@ gapi.load('client', async () => {
                         ],
                       },
                     },
-                    legendPosition: 'Test string',
+                    legendPosition: 'PIE_CHART_LEGEND_POSITION_UNSPECIFIED',
                     pieHole: 42,
                     series: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9844,15 +9868,15 @@ gapi.load('client', async () => {
                     threeDimensional: true,
                   },
                   scorecardChart: {
-                    aggregateType: 'Test string',
+                    aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                     baselineValueData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9873,7 +9897,7 @@ gapi.load('client', async () => {
                       },
                     },
                     baselineValueFormat: {
-                      comparisonType: 'Test string',
+                      comparisonType: 'COMPARISON_TYPE_UNDEFINED',
                       description: 'Test string',
                       negativeColor: {
                         alpha: 42,
@@ -9888,10 +9912,10 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       position: {
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                       },
                       positiveColor: {
                         alpha: 42,
@@ -9906,7 +9930,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       textFormat: {
                         bold: true,
@@ -9925,7 +9949,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -9940,13 +9964,13 @@ gapi.load('client', async () => {
                       suffix: 'Test string',
                     },
                     keyValueData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -9968,7 +9992,7 @@ gapi.load('client', async () => {
                     },
                     keyValueFormat: {
                       position: {
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                       },
                       textFormat: {
                         bold: true,
@@ -9987,7 +10011,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -9997,7 +10021,7 @@ gapi.load('client', async () => {
                         underline: true,
                       },
                     },
-                    numberFormatSource: 'Test string',
+                    numberFormatSource: 'CHART_NUMBER_FORMAT_SOURCE_UNDEFINED',
                     scaleFactor: 42,
                   },
                   sortSpecs: [
@@ -10015,7 +10039,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       dataSourceColumnReference: {
                         name: 'Test string',
@@ -10034,9 +10058,9 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
-                      sortOrder: 'Test string',
+                      sortOrder: 'SORT_ORDER_UNSPECIFIED',
                     },
                   ],
                   subtitle: 'Test string',
@@ -10057,7 +10081,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -10067,7 +10091,7 @@ gapi.load('client', async () => {
                     underline: true,
                   },
                   subtitleTextPosition: {
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   },
                   title: 'Test string',
                   titleTextFormat: {
@@ -10087,7 +10111,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -10097,17 +10121,17 @@ gapi.load('client', async () => {
                     underline: true,
                   },
                   titleTextPosition: {
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   },
                   treemapChart: {
                     colorData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -10141,7 +10165,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       midValueColor: {
                         alpha: 42,
@@ -10156,7 +10180,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       minValueColor: {
                         alpha: 42,
@@ -10171,7 +10195,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       noDataColor: {
                         alpha: 42,
@@ -10186,7 +10210,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                     headerColor: {
@@ -10202,18 +10226,18 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     hideTooltips: true,
                     hintedLevels: 42,
                     labels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -10237,13 +10261,13 @@ gapi.load('client', async () => {
                     maxValue: 42,
                     minValue: 42,
                     parentLabels: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -10264,13 +10288,13 @@ gapi.load('client', async () => {
                       },
                     },
                     sizeData: {
-                      aggregateType: 'Test string',
+                      aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                       columnReference: {
                         name: 'Test string',
                       },
                       groupRule: {
                         dateTimeRule: {
-                          type: 'Test string',
+                          type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                         },
                         histogramRule: {
                           intervalSize: 42,
@@ -10307,7 +10331,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -10319,18 +10343,18 @@ gapi.load('client', async () => {
                   },
                   waterfallChart: {
                     connectorLineStyle: {
-                      type: 'Test string',
+                      type: 'LINE_DASH_TYPE_UNSPECIFIED',
                       width: 42,
                     },
                     domain: {
                       data: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -10364,13 +10388,13 @@ gapi.load('client', async () => {
                           },
                         ],
                         data: {
-                          aggregateType: 'Test string',
+                          aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                           columnReference: {
                             name: 'Test string',
                           },
                           groupRule: {
                             dateTimeRule: {
-                              type: 'Test string',
+                              type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                             },
                             histogramRule: {
                               intervalSize: 42,
@@ -10392,13 +10416,13 @@ gapi.load('client', async () => {
                         },
                         dataLabel: {
                           customLabelData: {
-                            aggregateType: 'Test string',
+                            aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                             columnReference: {
                               name: 'Test string',
                             },
                             groupRule: {
                               dateTimeRule: {
-                                type: 'Test string',
+                                type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                               },
                               histogramRule: {
                                 intervalSize: 42,
@@ -10418,7 +10442,7 @@ gapi.load('client', async () => {
                               ],
                             },
                           },
-                          placement: 'Test string',
+                          placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -10436,7 +10460,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -10445,7 +10469,7 @@ gapi.load('client', async () => {
                             strikethrough: true,
                             underline: true,
                           },
-                          type: 'Test string',
+                          type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                         },
                         hideTrailingSubtotal: true,
                         negativeColumnsStyle: {
@@ -10462,7 +10486,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
@@ -10480,7 +10504,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
@@ -10498,22 +10522,22 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           label: 'Test string',
                         },
                       },
                     ],
-                    stackedType: 'Test string',
+                    stackedType: 'WATERFALL_STACKED_TYPE_UNSPECIFIED',
                     totalDataLabel: {
                       customLabelData: {
-                        aggregateType: 'Test string',
+                        aggregateType: 'CHART_AGGREGATE_TYPE_UNSPECIFIED',
                         columnReference: {
                           name: 'Test string',
                         },
                         groupRule: {
                           dateTimeRule: {
-                            type: 'Test string',
+                            type: 'CHART_DATE_TIME_RULE_TYPE_UNSPECIFIED',
                           },
                           histogramRule: {
                             intervalSize: 42,
@@ -10533,7 +10557,7 @@ gapi.load('client', async () => {
                           ],
                         },
                       },
-                      placement: 'Test string',
+                      placement: 'DATA_LABEL_PLACEMENT_UNSPECIFIED',
                       textFormat: {
                         bold: true,
                         fontFamily: 'Test string',
@@ -10551,7 +10575,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
                         italic: true,
                         link: {
@@ -10560,7 +10584,7 @@ gapi.load('client', async () => {
                         strikethrough: true,
                         underline: true,
                       },
-                      type: 'Test string',
+                      type: 'DATA_LABEL_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -10571,7 +10595,7 @@ gapi.load('client', async () => {
                 collapsed: true,
                 depth: 42,
                 range: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
@@ -10594,10 +10618,10 @@ gapi.load('client', async () => {
               {
                 booleanRule: {
                   condition: {
-                    type: 'Test string',
+                    type: 'CONDITION_TYPE_UNSPECIFIED',
                     values: [
                       {
-                        relativeDate: 'Test string',
+                        relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                         userEnteredValue: 'Test string',
                       },
                     ],
@@ -10616,7 +10640,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     borders: {
                       bottom: {
@@ -10633,9 +10657,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       left: {
@@ -10652,9 +10676,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       right: {
@@ -10671,9 +10695,9 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                       top: {
@@ -10690,17 +10714,17 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          themeColor: 'Test string',
+                          themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                         },
-                        style: 'Test string',
+                        style: 'STYLE_UNSPECIFIED',
                         width: 42,
                       },
                     },
-                    horizontalAlignment: 'Test string',
-                    hyperlinkDisplayType: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                    hyperlinkDisplayType: 'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                     numberFormat: {
                       pattern: 'Test string',
-                      type: 'Test string',
+                      type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                     },
                     padding: {
                       bottom: 42,
@@ -10708,7 +10732,7 @@ gapi.load('client', async () => {
                       right: 42,
                       top: 42,
                     },
-                    textDirection: 'Test string',
+                    textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                     textFormat: {
                       bold: true,
                       fontFamily: 'Test string',
@@ -10726,7 +10750,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       italic: true,
                       link: {
@@ -10739,8 +10763,8 @@ gapi.load('client', async () => {
                       angle: 42,
                       vertical: true,
                     },
-                    verticalAlignment: 'Test string',
-                    wrapStrategy: 'Test string',
+                    verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                    wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                   },
                 },
                 gradientRule: {
@@ -10758,9 +10782,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   midpoint: {
@@ -10777,9 +10801,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                   minpoint: {
@@ -10796,9 +10820,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    type: 'Test string',
+                    type: 'INTERPOLATION_POINT_TYPE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 },
@@ -10824,19 +10848,20 @@ gapi.load('client', async () => {
                       {
                         location: {
                           dimensionRange: {
-                            dimension: 'Test string',
+                            dimension: 'DIMENSION_UNSPECIFIED',
                             endIndex: 42,
                             sheetId: 42,
                             startIndex: 42,
                           },
-                          locationType: 'Test string',
+                          locationType:
+                            'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                           sheetId: 42,
                           spreadsheet: true,
                         },
                         metadataId: 42,
                         metadataKey: 'Test string',
                         metadataValue: 'Test string',
-                        visibility: 'Test string',
+                        visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
                       },
                     ],
                     hiddenByFilter: true,
@@ -10852,7 +10877,7 @@ gapi.load('client', async () => {
                           {
                             chip: {
                               personProperties: {
-                                displayFormat: 'Test string',
+                                displayFormat: 'DISPLAY_FORMAT_UNSPECIFIED',
                                 email: 'Test string',
                               },
                               richLinkProperties: {
@@ -10865,10 +10890,10 @@ gapi.load('client', async () => {
                         ],
                         dataSourceFormula: {
                           dataExecutionStatus: {
-                            errorCode: 'Test string',
+                            errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                             errorMessage: 'Test string',
                             lastRefreshTime: 'Test string',
-                            state: 'Test string',
+                            state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                           },
                           dataSourceId: 'Test string',
                         },
@@ -10878,12 +10903,13 @@ gapi.load('client', async () => {
                               name: 'Test string',
                             },
                           ],
-                          columnSelectionType: 'Test string',
+                          columnSelectionType:
+                            'DATA_SOURCE_TABLE_COLUMN_SELECTION_TYPE_UNSPECIFIED',
                           dataExecutionStatus: {
-                            errorCode: 'Test string',
+                            errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                             errorMessage: 'Test string',
                             lastRefreshTime: 'Test string',
-                            state: 'Test string',
+                            state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                           },
                           dataSourceId: 'Test string',
                           filterSpecs: [
@@ -10894,10 +10920,10 @@ gapi.load('client', async () => {
                               },
                               filterCriteria: {
                                 condition: {
-                                  type: 'Test string',
+                                  type: 'CONDITION_TYPE_UNSPECIFIED',
                                   values: [
                                     {
-                                      relativeDate: 'Test string',
+                                      relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                       userEnteredValue: 'Test string',
                                     },
                                   ],
@@ -10916,7 +10942,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                                 visibleForegroundColor: {
                                   alpha: 42,
@@ -10931,7 +10957,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  themeColor: 'Test string',
+                                  themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                                 },
                               },
                             },
@@ -10952,7 +10978,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                               dataSourceColumnReference: {
                                 name: 'Test string',
@@ -10971,18 +10997,18 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              sortOrder: 'Test string',
+                              sortOrder: 'SORT_ORDER_UNSPECIFIED',
                             },
                           ],
                         },
                         dataValidation: {
                           condition: {
-                            type: 'Test string',
+                            type: 'CONDITION_TYPE_UNSPECIFIED',
                             values: [
                               {
-                                relativeDate: 'Test string',
+                                relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                 userEnteredValue: 'Test string',
                               },
                             ],
@@ -11005,7 +11031,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           borders: {
                             bottom: {
@@ -11022,9 +11048,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             left: {
@@ -11041,9 +11067,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             right: {
@@ -11060,9 +11086,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             top: {
@@ -11079,17 +11105,18 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                           },
-                          horizontalAlignment: 'Test string',
-                          hyperlinkDisplayType: 'Test string',
+                          horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                          hyperlinkDisplayType:
+                            'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                           numberFormat: {
                             pattern: 'Test string',
-                            type: 'Test string',
+                            type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                           },
                           padding: {
                             bottom: 42,
@@ -11097,7 +11124,7 @@ gapi.load('client', async () => {
                             right: 42,
                             top: 42,
                           },
-                          textDirection: 'Test string',
+                          textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -11115,7 +11142,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -11128,14 +11155,14 @@ gapi.load('client', async () => {
                             angle: 42,
                             vertical: true,
                           },
-                          verticalAlignment: 'Test string',
-                          wrapStrategy: 'Test string',
+                          verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                          wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                         },
                         effectiveValue: {
                           boolValue: true,
                           errorValue: {
                             message: 'Test string',
-                            type: 'Test string',
+                            type: 'ERROR_TYPE_UNSPECIFIED',
                           },
                           formulaValue: 'Test string',
                           numberValue: 42,
@@ -11156,7 +11183,7 @@ gapi.load('client', async () => {
                               },
                               groupRule: {
                                 dateTimeRule: {
-                                  type: 'Test string',
+                                  type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                                 },
                                 histogramRule: {
                                   end: 42,
@@ -11170,7 +11197,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -11181,7 +11208,7 @@ gapi.load('client', async () => {
                                           boolValue: true,
                                           errorValue: {
                                             message: 'Test string',
-                                            type: 'Test string',
+                                            type: 'ERROR_TYPE_UNSPECIFIED',
                                           },
                                           formulaValue: 'Test string',
                                           numberValue: 42,
@@ -11195,7 +11222,7 @@ gapi.load('client', async () => {
                               label: 'Test string',
                               repeatHeadings: true,
                               showTotals: true,
-                              sortOrder: 'Test string',
+                              sortOrder: 'SORT_ORDER_UNSPECIFIED',
                               sourceColumnOffset: 42,
                               valueBucket: {
                                 buckets: [
@@ -11203,7 +11230,7 @@ gapi.load('client', async () => {
                                     boolValue: true,
                                     errorValue: {
                                       message: 'Test string',
-                                      type: 'Test string',
+                                      type: 'ERROR_TYPE_UNSPECIFIED',
                                     },
                                     formulaValue: 'Test string',
                                     numberValue: 42,
@@ -11219,7 +11246,7 @@ gapi.load('client', async () => {
                                     boolValue: true,
                                     errorValue: {
                                       message: 'Test string',
-                                      type: 'Test string',
+                                      type: 'ERROR_TYPE_UNSPECIFIED',
                                     },
                                     formulaValue: 'Test string',
                                     numberValue: 42,
@@ -11232,10 +11259,10 @@ gapi.load('client', async () => {
                           criteria: {
                             A: {
                               condition: {
-                                type: 'Test string',
+                                type: 'CONDITION_TYPE_UNSPECIFIED',
                                 values: [
                                   {
-                                    relativeDate: 'Test string',
+                                    relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                     userEnteredValue: 'Test string',
                                   },
                                 ],
@@ -11245,10 +11272,10 @@ gapi.load('client', async () => {
                             },
                           },
                           dataExecutionStatus: {
-                            errorCode: 'Test string',
+                            errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                             errorMessage: 'Test string',
                             lastRefreshTime: 'Test string',
-                            state: 'Test string',
+                            state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                           },
                           dataSourceId: 'Test string',
                           filterSpecs: [
@@ -11259,10 +11286,10 @@ gapi.load('client', async () => {
                               },
                               filterCriteria: {
                                 condition: {
-                                  type: 'Test string',
+                                  type: 'CONDITION_TYPE_UNSPECIFIED',
                                   values: [
                                     {
-                                      relativeDate: 'Test string',
+                                      relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                                       userEnteredValue: 'Test string',
                                     },
                                   ],
@@ -11283,7 +11310,7 @@ gapi.load('client', async () => {
                               },
                               groupRule: {
                                 dateTimeRule: {
-                                  type: 'Test string',
+                                  type: 'DATE_TIME_RULE_TYPE_UNSPECIFIED',
                                 },
                                 histogramRule: {
                                   end: 42,
@@ -11297,7 +11324,7 @@ gapi.load('client', async () => {
                                         boolValue: true,
                                         errorValue: {
                                           message: 'Test string',
-                                          type: 'Test string',
+                                          type: 'ERROR_TYPE_UNSPECIFIED',
                                         },
                                         formulaValue: 'Test string',
                                         numberValue: 42,
@@ -11308,7 +11335,7 @@ gapi.load('client', async () => {
                                           boolValue: true,
                                           errorValue: {
                                             message: 'Test string',
-                                            type: 'Test string',
+                                            type: 'ERROR_TYPE_UNSPECIFIED',
                                           },
                                           formulaValue: 'Test string',
                                           numberValue: 42,
@@ -11322,7 +11349,7 @@ gapi.load('client', async () => {
                               label: 'Test string',
                               repeatHeadings: true,
                               showTotals: true,
-                              sortOrder: 'Test string',
+                              sortOrder: 'SORT_ORDER_UNSPECIFIED',
                               sourceColumnOffset: 42,
                               valueBucket: {
                                 buckets: [
@@ -11330,7 +11357,7 @@ gapi.load('client', async () => {
                                     boolValue: true,
                                     errorValue: {
                                       message: 'Test string',
-                                      type: 'Test string',
+                                      type: 'ERROR_TYPE_UNSPECIFIED',
                                     },
                                     formulaValue: 'Test string',
                                     numberValue: 42,
@@ -11346,7 +11373,7 @@ gapi.load('client', async () => {
                                     boolValue: true,
                                     errorValue: {
                                       message: 'Test string',
-                                      type: 'Test string',
+                                      type: 'ERROR_TYPE_UNSPECIFIED',
                                     },
                                     formulaValue: 'Test string',
                                     numberValue: 42,
@@ -11363,17 +11390,19 @@ gapi.load('client', async () => {
                             startColumnIndex: 42,
                             startRowIndex: 42,
                           },
-                          valueLayout: 'Test string',
+                          valueLayout: 'HORIZONTAL',
                           values: [
                             {
-                              calculatedDisplayType: 'Test string',
+                              calculatedDisplayType:
+                                'PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED',
                               dataSourceColumnReference: {
                                 name: 'Test string',
                               },
                               formula: 'Test string',
                               name: 'Test string',
                               sourceColumnOffset: 42,
-                              summarizeFunction: 'Test string',
+                              summarizeFunction:
+                                'PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED',
                             },
                           ],
                         },
@@ -11396,7 +11425,7 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
                               italic: true,
                               link: {
@@ -11422,7 +11451,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            themeColor: 'Test string',
+                            themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                           },
                           borders: {
                             bottom: {
@@ -11439,9 +11468,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             left: {
@@ -11458,9 +11487,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             right: {
@@ -11477,9 +11506,9 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                             top: {
@@ -11496,17 +11525,18 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                themeColor: 'Test string',
+                                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                               },
-                              style: 'Test string',
+                              style: 'STYLE_UNSPECIFIED',
                               width: 42,
                             },
                           },
-                          horizontalAlignment: 'Test string',
-                          hyperlinkDisplayType: 'Test string',
+                          horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
+                          hyperlinkDisplayType:
+                            'HYPERLINK_DISPLAY_TYPE_UNSPECIFIED',
                           numberFormat: {
                             pattern: 'Test string',
-                            type: 'Test string',
+                            type: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
                           },
                           padding: {
                             bottom: 42,
@@ -11514,7 +11544,7 @@ gapi.load('client', async () => {
                             right: 42,
                             top: 42,
                           },
-                          textDirection: 'Test string',
+                          textDirection: 'TEXT_DIRECTION_UNSPECIFIED',
                           textFormat: {
                             bold: true,
                             fontFamily: 'Test string',
@@ -11532,7 +11562,7 @@ gapi.load('client', async () => {
                                 green: 42,
                                 red: 42,
                               },
-                              themeColor: 'Test string',
+                              themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                             },
                             italic: true,
                             link: {
@@ -11545,14 +11575,14 @@ gapi.load('client', async () => {
                             angle: 42,
                             vertical: true,
                           },
-                          verticalAlignment: 'Test string',
-                          wrapStrategy: 'Test string',
+                          verticalAlignment: 'VERTICAL_ALIGN_UNSPECIFIED',
+                          wrapStrategy: 'WRAP_STRATEGY_UNSPECIFIED',
                         },
                         userEnteredValue: {
                           boolValue: true,
                           errorValue: {
                             message: 'Test string',
-                            type: 'Test string',
+                            type: 'ERROR_TYPE_UNSPECIFIED',
                           },
                           formulaValue: 'Test string',
                           numberValue: 42,
@@ -11571,19 +11601,20 @@ gapi.load('client', async () => {
                       {
                         location: {
                           dimensionRange: {
-                            dimension: 'Test string',
+                            dimension: 'DIMENSION_UNSPECIFIED',
                             endIndex: 42,
                             sheetId: 42,
                             startIndex: 42,
                           },
-                          locationType: 'Test string',
+                          locationType:
+                            'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                           sheetId: 42,
                           spreadsheet: true,
                         },
                         metadataId: 42,
                         metadataKey: 'Test string',
                         metadataValue: 'Test string',
-                        visibility: 'Test string',
+                        visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
                       },
                     ],
                     hiddenByFilter: true,
@@ -11599,19 +11630,19 @@ gapi.load('client', async () => {
               {
                 location: {
                   dimensionRange: {
-                    dimension: 'Test string',
+                    dimension: 'DIMENSION_UNSPECIFIED',
                     endIndex: 42,
                     sheetId: 42,
                     startIndex: 42,
                   },
-                  locationType: 'Test string',
+                  locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                   sheetId: 42,
                   spreadsheet: true,
                 },
                 metadataId: 42,
                 metadataKey: 'Test string',
                 metadataValue: 'Test string',
-                visibility: 'Test string',
+                visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
               },
             ],
             filterViews: [
@@ -11619,10 +11650,10 @@ gapi.load('client', async () => {
                 criteria: {
                   A: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -11641,7 +11672,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -11656,7 +11687,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -11668,10 +11699,10 @@ gapi.load('client', async () => {
                     },
                     filterCriteria: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -11690,7 +11721,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                       visibleForegroundColor: {
                         alpha: 42,
@@ -11705,7 +11736,7 @@ gapi.load('client', async () => {
                           green: 42,
                           red: 42,
                         },
-                        themeColor: 'Test string',
+                        themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                       },
                     },
                   },
@@ -11734,7 +11765,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     dataSourceColumnReference: {
                       name: 'Test string',
@@ -11753,9 +11784,9 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
-                    sortOrder: 'Test string',
+                    sortOrder: 'SORT_ORDER_UNSPECIFIED',
                   },
                 ],
                 tableId: 'Test string',
@@ -11782,10 +11813,10 @@ gapi.load('client', async () => {
                   },
                 ],
                 dataExecutionStatus: {
-                  errorCode: 'Test string',
+                  errorCode: 'DATA_EXECUTION_ERROR_CODE_UNSPECIFIED',
                   errorMessage: 'Test string',
                   lastRefreshTime: 'Test string',
-                  state: 'Test string',
+                  state: 'DATA_EXECUTION_STATE_UNSPECIFIED',
                 },
                 dataSourceId: 'Test string',
               },
@@ -11802,7 +11833,7 @@ gapi.load('client', async () => {
               index: 42,
               rightToLeft: true,
               sheetId: 42,
-              sheetType: 'Test string',
+              sheetType: 'SHEET_TYPE_UNSPECIFIED',
               tabColor: {
                 alpha: 42,
                 blue: 42,
@@ -11816,7 +11847,7 @@ gapi.load('client', async () => {
                   green: 42,
                   red: 42,
                 },
-                themeColor: 'Test string',
+                themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
               },
               title: 'Test string',
             },
@@ -11856,7 +11887,7 @@ gapi.load('client', async () => {
                 collapsed: true,
                 depth: 42,
                 range: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
@@ -11896,7 +11927,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   columnIndex: 42,
                   dataRange: {
@@ -11908,10 +11939,10 @@ gapi.load('client', async () => {
                   },
                   filterCriteria: {
                     condition: {
-                      type: 'Test string',
+                      type: 'CONDITION_TYPE_UNSPECIFIED',
                       values: [
                         {
-                          relativeDate: 'Test string',
+                          relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                           userEnteredValue: 'Test string',
                         },
                       ],
@@ -11930,7 +11961,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     visibleForegroundColor: {
                       alpha: 42,
@@ -11945,10 +11976,10 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                   },
-                  horizontalAlignment: 'Test string',
+                  horizontalAlignment: 'HORIZONTAL_ALIGN_UNSPECIFIED',
                   textFormat: {
                     bold: true,
                     fontFamily: 'Test string',
@@ -11966,7 +11997,7 @@ gapi.load('client', async () => {
                         green: 42,
                         red: 42,
                       },
-                      themeColor: 'Test string',
+                      themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                     },
                     italic: true,
                     link: {
@@ -11985,13 +12016,13 @@ gapi.load('client', async () => {
                   {
                     columnIndex: 42,
                     columnName: 'Test string',
-                    columnType: 'Test string',
+                    columnType: 'COLUMN_TYPE_UNSPECIFIED',
                     dataValidationRule: {
                       condition: {
-                        type: 'Test string',
+                        type: 'CONDITION_TYPE_UNSPECIFIED',
                         values: [
                           {
-                            relativeDate: 'Test string',
+                            relativeDate: 'RELATIVE_DATE_UNSPECIFIED',
                             userEnteredValue: 'Test string',
                           },
                         ],
@@ -12015,7 +12046,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   footerColorStyle: {
                     rgbColor: {
@@ -12024,7 +12055,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   headerColorStyle: {
                     rgbColor: {
@@ -12033,7 +12064,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                   secondBandColorStyle: {
                     rgbColor: {
@@ -12042,7 +12073,7 @@ gapi.load('client', async () => {
                       green: 42,
                       red: 42,
                     },
-                    themeColor: 'Test string',
+                    themeColor: 'THEME_COLOR_TYPE_UNSPECIFIED',
                   },
                 },
                 tableId: 'Test string',
@@ -12056,7 +12087,7 @@ gapi.load('client', async () => {
     );
     /** Returns the spreadsheet at the given ID. The caller must specify the spreadsheet ID. By default, data within grids is not returned. You can include grid data in one of 2 ways: * Specify a [field mask](https://developers.google.com/workspace/sheets/api/guides/field-masks) listing your desired fields using the `fields` URL parameter in HTTP * Set the includeGridData URL parameter to true. If a field mask is set, the `includeGridData` parameter is ignored For large spreadsheets, as a best practice, retrieve only the specific spreadsheet fields that you want. To retrieve only subsets of spreadsheet data, use the ranges URL parameter. Ranges are specified using [A1 notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell). You can define a single cell (for example, `A1`) or multiple cells (for example, `A1:D5`). You can also get cells from other sheets within the same spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at once (for example, `?ranges=A1:D5&ranges=Sheet2!A1:C4`). Limiting the range returns only the portions of the spreadsheet that intersect the requested ranges. */
     await gapi.client.sheets.spreadsheets.get({
-      commentsViewMode: 'Test string',
+      commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
       excludeTablesInBandedRanges: true,
       includeGridData: true,
       ranges: 'Test string',
@@ -12068,28 +12099,29 @@ gapi.load('client', async () => {
         spreadsheetId: 'Test string',
       },
       {
-        commentsViewMode: 'Test string',
+        commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
         dataFilters: [
           {
             a1Range: 'Test string',
             developerMetadataLookup: {
-              locationMatchingStrategy: 'Test string',
-              locationType: 'Test string',
+              locationMatchingStrategy:
+                'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+              locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
               metadataId: 42,
               metadataKey: 'Test string',
               metadataLocation: {
                 dimensionRange: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                 sheetId: 42,
                 spreadsheet: true,
               },
               metadataValue: 'Test string',
-              visibility: 'Test string',
+              visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
             },
             gridRange: {
               endColumnIndex: 42,
@@ -12119,23 +12151,24 @@ gapi.load('client', async () => {
           {
             a1Range: 'Test string',
             developerMetadataLookup: {
-              locationMatchingStrategy: 'Test string',
-              locationType: 'Test string',
+              locationMatchingStrategy:
+                'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+              locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
               metadataId: 42,
               metadataKey: 'Test string',
               metadataLocation: {
                 dimensionRange: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                 sheetId: 42,
                 spreadsheet: true,
               },
               metadataValue: 'Test string',
-              visibility: 'Test string',
+              visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
             },
             gridRange: {
               endColumnIndex: 42,
@@ -12162,15 +12195,15 @@ gapi.load('client', async () => {
     await gapi.client.sheets.spreadsheets.values.append(
       {
         includeValuesInResponse: true,
-        insertDataOption: 'Test string',
+        insertDataOption: 'OVERWRITE',
         range: 'Test string',
-        responseDateTimeRenderOption: 'Test string',
-        responseValueRenderOption: 'Test string',
+        responseDateTimeRenderOption: 'SERIAL_NUMBER',
+        responseValueRenderOption: 'FORMATTED_VALUE',
         spreadsheetId: 'Test string',
-        valueInputOption: 'Test string',
+        valueInputOption: 'INPUT_VALUE_OPTION_UNSPECIFIED',
       },
       {
-        majorDimension: 'Test string',
+        majorDimension: 'DIMENSION_UNSPECIFIED',
         range: 'Test string',
         values: [[42]],
       },
@@ -12194,23 +12227,24 @@ gapi.load('client', async () => {
           {
             a1Range: 'Test string',
             developerMetadataLookup: {
-              locationMatchingStrategy: 'Test string',
-              locationType: 'Test string',
+              locationMatchingStrategy:
+                'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+              locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
               metadataId: 42,
               metadataKey: 'Test string',
               metadataLocation: {
                 dimensionRange: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                 sheetId: 42,
                 spreadsheet: true,
               },
               metadataValue: 'Test string',
-              visibility: 'Test string',
+              visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
             },
             gridRange: {
               endColumnIndex: 42,
@@ -12225,11 +12259,11 @@ gapi.load('client', async () => {
     );
     /** Returns one or more ranges of values from a spreadsheet. The caller must specify the spreadsheet ID and one or more ranges. */
     await gapi.client.sheets.spreadsheets.values.batchGet({
-      dateTimeRenderOption: 'Test string',
-      majorDimension: 'Test string',
+      dateTimeRenderOption: 'SERIAL_NUMBER',
+      majorDimension: 'DIMENSION_UNSPECIFIED',
       ranges: 'Test string',
       spreadsheetId: 'Test string',
-      valueRenderOption: 'Test string',
+      valueRenderOption: 'FORMATTED_VALUE',
     });
     /** Returns one or more ranges of values that match the specified data filters. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID and one or more DataFilters. Ranges that match any of the data filters in the request will be returned. */
     await gapi.client.sheets.spreadsheets.values.batchGetByDataFilter(
@@ -12241,23 +12275,24 @@ gapi.load('client', async () => {
           {
             a1Range: 'Test string',
             developerMetadataLookup: {
-              locationMatchingStrategy: 'Test string',
-              locationType: 'Test string',
+              locationMatchingStrategy:
+                'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+              locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
               metadataId: 42,
               metadataKey: 'Test string',
               metadataLocation: {
                 dimensionRange: {
-                  dimension: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
                   endIndex: 42,
                   sheetId: 42,
                   startIndex: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                 sheetId: 42,
                 spreadsheet: true,
               },
               metadataValue: 'Test string',
-              visibility: 'Test string',
+              visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
             },
             gridRange: {
               endColumnIndex: 42,
@@ -12268,9 +12303,9 @@ gapi.load('client', async () => {
             },
           },
         ],
-        dateTimeRenderOption: 'Test string',
-        majorDimension: 'Test string',
-        valueRenderOption: 'Test string',
+        dateTimeRenderOption: 'SERIAL_NUMBER',
+        majorDimension: 'DIMENSION_UNSPECIFIED',
+        valueRenderOption: 'FORMATTED_VALUE',
       },
     );
     /** Sets values in one or more ranges of a spreadsheet. The caller must specify the spreadsheet ID, a valueInputOption, and one or more ValueRanges. */
@@ -12281,15 +12316,15 @@ gapi.load('client', async () => {
       {
         data: [
           {
-            majorDimension: 'Test string',
+            majorDimension: 'DIMENSION_UNSPECIFIED',
             range: 'Test string',
             values: [[42]],
           },
         ],
         includeValuesInResponse: true,
-        responseDateTimeRenderOption: 'Test string',
-        responseValueRenderOption: 'Test string',
-        valueInputOption: 'Test string',
+        responseDateTimeRenderOption: 'SERIAL_NUMBER',
+        responseValueRenderOption: 'FORMATTED_VALUE',
+        valueInputOption: 'INPUT_VALUE_OPTION_UNSPECIFIED',
       },
     );
     /** Sets values in one or more ranges of a spreadsheet. For more information, see [Read, write, and search metadata](https://developers.google.com/workspace/sheets/api/guides/metadata). The caller must specify the spreadsheet ID, a valueInputOption, and one or more DataFilterValueRanges. */
@@ -12303,23 +12338,24 @@ gapi.load('client', async () => {
             dataFilter: {
               a1Range: 'Test string',
               developerMetadataLookup: {
-                locationMatchingStrategy: 'Test string',
-                locationType: 'Test string',
+                locationMatchingStrategy:
+                  'DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED',
+                locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                 metadataId: 42,
                 metadataKey: 'Test string',
                 metadataLocation: {
                   dimensionRange: {
-                    dimension: 'Test string',
+                    dimension: 'DIMENSION_UNSPECIFIED',
                     endIndex: 42,
                     sheetId: 42,
                     startIndex: 42,
                   },
-                  locationType: 'Test string',
+                  locationType: 'DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED',
                   sheetId: 42,
                   spreadsheet: true,
                 },
                 metadataValue: 'Test string',
-                visibility: 'Test string',
+                visibility: 'DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED',
               },
               gridRange: {
                 endColumnIndex: 42,
@@ -12329,14 +12365,14 @@ gapi.load('client', async () => {
                 startRowIndex: 42,
               },
             },
-            majorDimension: 'Test string',
+            majorDimension: 'DIMENSION_UNSPECIFIED',
             values: [[42]],
           },
         ],
         includeValuesInResponse: true,
-        responseDateTimeRenderOption: 'Test string',
-        responseValueRenderOption: 'Test string',
-        valueInputOption: 'Test string',
+        responseDateTimeRenderOption: 'SERIAL_NUMBER',
+        responseValueRenderOption: 'FORMATTED_VALUE',
+        valueInputOption: 'INPUT_VALUE_OPTION_UNSPECIFIED',
       },
     );
     /** Clears values from a spreadsheet. The caller must specify the spreadsheet ID and range. Only values are cleared -- all other properties of the cell (such as formatting, data validation, etc..) are kept. */
@@ -12349,24 +12385,24 @@ gapi.load('client', async () => {
     );
     /** Returns a range of values from a spreadsheet. The caller must specify the spreadsheet ID and a range. */
     await gapi.client.sheets.spreadsheets.values.get({
-      dateTimeRenderOption: 'Test string',
-      majorDimension: 'Test string',
+      dateTimeRenderOption: 'SERIAL_NUMBER',
+      majorDimension: 'DIMENSION_UNSPECIFIED',
       range: 'Test string',
       spreadsheetId: 'Test string',
-      valueRenderOption: 'Test string',
+      valueRenderOption: 'FORMATTED_VALUE',
     });
     /** Sets values in a range of a spreadsheet. The caller must specify the spreadsheet ID, range, and a valueInputOption. */
     await gapi.client.sheets.spreadsheets.values.update(
       {
         includeValuesInResponse: true,
         range: 'Test string',
-        responseDateTimeRenderOption: 'Test string',
-        responseValueRenderOption: 'Test string',
+        responseDateTimeRenderOption: 'SERIAL_NUMBER',
+        responseValueRenderOption: 'FORMATTED_VALUE',
         spreadsheetId: 'Test string',
-        valueInputOption: 'Test string',
+        valueInputOption: 'INPUT_VALUE_OPTION_UNSPECIFIED',
       },
       {
-        majorDimension: 'Test string',
+        majorDimension: 'DIMENSION_UNSPECIFIED',
         range: 'Test string',
         values: [[42]],
       },

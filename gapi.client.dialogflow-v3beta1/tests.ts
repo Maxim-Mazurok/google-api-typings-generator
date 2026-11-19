@@ -135,7 +135,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
       },
       {
         agentUri: 'Test string',
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         environment: 'Test string',
         gitDestination: {
           commitMessage: 'Test string',
@@ -273,7 +273,7 @@ gapi.load('client', async () => {
               speakingRate: 42,
               voice: {
                 name: 'Test string',
-                ssmlGender: 'Test string',
+                ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
               },
               volumeGainDb: 42,
             },
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
         gitSource: {
           trackingBranch: 'Test string',
         },
-        restoreOption: 'Test string',
+        restoreOption: 'RESTORE_OPTION_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.updateGenerativeSettings(
@@ -318,12 +318,12 @@ gapi.load('client', async () => {
               text: 'Test string',
             },
           ],
-          defaultBannedPhraseMatchStrategy: 'Test string',
+          defaultBannedPhraseMatchStrategy: 'PHRASE_MATCH_STRATEGY_UNSPECIFIED',
           defaultRaiSettings: {
             categoryFilters: [
               {
-                category: 'Test string',
-                filterLevel: 'Test string',
+                category: 'SAFETY_CATEGORY_UNSPECIFIED',
+                filterLevel: 'SAFETY_FILTER_LEVEL_UNSPECIFIED',
               },
             ],
           },
@@ -333,8 +333,8 @@ gapi.load('client', async () => {
           raiSettings: {
             categoryFilters: [
               {
-                category: 'Test string',
-                filterLevel: 'Test string',
+                category: 'SAFETY_CATEGORY_UNSPECIFIED',
+                filterLevel: 'SAFETY_FILTER_LEVEL_UNSPECIFIED',
               },
             ],
           },
@@ -351,8 +351,8 @@ gapi.load('client', async () => {
         llmModelSettings: {
           model: 'Test string',
           parameters: {
-            inputTokenLimit: 'Test string',
-            outputTokenLimit: 'Test string',
+            inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+            outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
             temperature: 42,
           },
           promptText: 'Test string',
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -411,7 +411,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
         redact: true,
       },
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         entityTypes: ['Test string'],
         entityTypesContentInline: true,
         entityTypesUri: 'Test string',
@@ -445,7 +445,7 @@ gapi.load('client', async () => {
           content: 'Test string',
         },
         entityTypesUri: 'Test string',
-        mergeOption: 'Test string',
+        mergeOption: 'MERGE_OPTION_UNSPECIFIED',
         targetEntityType: 'Test string',
       },
     );
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        autoExpansionMode: 'Test string',
+        autoExpansionMode: 'AUTO_EXPANSION_MODE_UNSPECIFIED',
         displayName: 'Test string',
         enableFuzzyExtraction: true,
         entities: [
@@ -476,7 +476,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
         redact: true,
       },
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               genericWebService: {
                 allowedCaCerts: ['Test string'],
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 oauthConfig: {
                   clientId: 'Test string',
                   clientSecret: 'Test string',
@@ -532,16 +532,16 @@ gapi.load('client', async () => {
                 serviceAccountAuthConfig: {
                   serviceAccount: 'Test string',
                 },
-                serviceAgentAuth: 'Test string',
+                serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
                 uri: 'Test string',
                 username: 'Test string',
-                webhookType: 'Test string',
+                webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
               },
               name: 'Test string',
               serviceDirectory: {
                 genericWebService: {
                   allowedCaCerts: ['Test string'],
-                  httpMethod: 'Test string',
+                  httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                   oauthConfig: {
                     clientId: 'Test string',
                     clientSecret: 'Test string',
@@ -566,10 +566,10 @@ gapi.load('client', async () => {
                   serviceAccountAuthConfig: {
                     serviceAccount: 'Test string',
                   },
-                  serviceAgentAuth: 'Test string',
+                  serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
                   uri: 'Test string',
                   username: 'Test string',
-                  webhookType: 'Test string',
+                  webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
                 },
                 service: 'Test string',
               },
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               genericWebService: {
                 allowedCaCerts: ['Test string'],
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 oauthConfig: {
                   clientId: 'Test string',
                   clientSecret: 'Test string',
@@ -657,16 +657,16 @@ gapi.load('client', async () => {
                 serviceAccountAuthConfig: {
                   serviceAccount: 'Test string',
                 },
-                serviceAgentAuth: 'Test string',
+                serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
                 uri: 'Test string',
                 username: 'Test string',
-                webhookType: 'Test string',
+                webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
               },
               name: 'Test string',
               serviceDirectory: {
                 genericWebService: {
                   allowedCaCerts: ['Test string'],
-                  httpMethod: 'Test string',
+                  httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                   oauthConfig: {
                     clientId: 'Test string',
                     clientSecret: 'Test string',
@@ -691,10 +691,10 @@ gapi.load('client', async () => {
                   serviceAccountAuthConfig: {
                     serviceAccount: 'Test string',
                   },
-                  serviceAgentAuth: 'Test string',
+                  serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
                   uri: 'Test string',
                   username: 'Test string',
-                  webhookType: 'Test string',
+                  webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
                 },
                 service: 'Test string',
               },
@@ -766,9 +766,9 @@ gapi.load('client', async () => {
                     upperBound: 42,
                   },
                   count: 42,
-                  countType: 'Test string',
+                  countType: 'COUNT_TYPE_UNSPECIFIED',
                   ratio: 42,
-                  type: 'Test string',
+                  type: 'METRIC_UNSPECIFIED',
                 },
               ],
               sessionCount: 42,
@@ -794,7 +794,7 @@ gapi.load('client', async () => {
           stepIndex: 42,
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         variantsHistory: [
           {
             updateTime: 'Test string',
@@ -866,9 +866,9 @@ gapi.load('client', async () => {
                     upperBound: 42,
                   },
                   count: 42,
-                  countType: 'Test string',
+                  countType: 'COUNT_TYPE_UNSPECIFIED',
                   ratio: 42,
-                  type: 'Test string',
+                  type: 'METRIC_UNSPECIFIED',
                 },
               ],
               sessionCount: 42,
@@ -894,7 +894,7 @@ gapi.load('client', async () => {
           stepIndex: 42,
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         variantsHistory: [
           {
             updateTime: 'Test string',
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
       },
       {
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -937,7 +937,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -946,14 +946,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -1002,8 +1002,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -1026,7 +1026,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -1034,7 +1034,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -1058,7 +1058,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -1068,7 +1068,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        responseView: 'Test string',
+        responseView: 'DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED',
         session: 'Test string',
       },
     );
@@ -1111,7 +1111,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          matchType: 'Test string',
+          matchType: 'MATCH_TYPE_UNSPECIFIED',
           parameters: {
             A: 42,
           },
@@ -1123,14 +1123,14 @@ gapi.load('client', async () => {
             audio: {
               audio: 'Test string',
               config: {
-                audioEncoding: 'Test string',
+                audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                 bargeInConfig: {
                   noBargeInDuration: 'Test string',
                   totalDuration: 'Test string',
                 },
                 enableWordInfo: true,
                 model: 'Test string',
-                modelVariant: 'Test string',
+                modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                 optOutConformerModelMigration: true,
                 phraseHints: ['Test string'],
                 sampleRateHertz: 42,
@@ -1179,8 +1179,8 @@ gapi.load('client', async () => {
             llmModelSettings: {
               model: 'Test string',
               parameters: {
-                inputTokenLimit: 'Test string',
-                outputTokenLimit: 'Test string',
+                inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+                outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
                 temperature: 42,
               },
               promptText: 'Test string',
@@ -1203,7 +1203,7 @@ gapi.load('client', async () => {
                         {
                           boost: 42,
                           boostControlSpec: {
-                            attributeType: 'Test string',
+                            attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                             controlPoints: [
                               {
                                 attributeValue: 'Test string',
@@ -1211,7 +1211,7 @@ gapi.load('client', async () => {
                               },
                             ],
                             fieldName: 'Test string',
-                            interpolationType: 'Test string',
+                            interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                           },
                           condition: 'Test string',
                         },
@@ -1235,7 +1235,7 @@ gapi.load('client', async () => {
                     value: 'Test string',
                   },
                 ],
-                entityOverrideMode: 'Test string',
+                entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
                 name: 'Test string',
               },
             ],
@@ -1247,7 +1247,7 @@ gapi.load('client', async () => {
           },
         },
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -1255,7 +1255,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -1272,14 +1272,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -1328,8 +1328,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -1360,7 +1360,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -1384,7 +1384,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -1402,7 +1402,7 @@ gapi.load('client', async () => {
       },
       {
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -1410,7 +1410,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -1419,14 +1419,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -1475,8 +1475,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -1499,7 +1499,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -1507,7 +1507,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -1531,7 +1531,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -1541,7 +1541,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        responseView: 'Test string',
+        responseView: 'DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED',
         session: 'Test string',
       },
     );
@@ -1556,7 +1556,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -1589,7 +1589,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -1802,11 +1802,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -1819,8 +1819,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           enabled: true,
@@ -1998,18 +1998,18 @@ gapi.load('client', async () => {
         name: 'Test string',
         nluSettings: {
           classificationThreshold: 42,
-          modelTrainingMode: 'Test string',
-          modelType: 'Test string',
+          modelTrainingMode: 'MODEL_TRAINING_MODE_UNSPECIFIED',
+          modelType: 'MODEL_TYPE_UNSPECIFIED',
         },
         outputParameterDefinitions: [
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -2224,10 +2224,10 @@ gapi.load('client', async () => {
       {
         flowContent: 'Test string',
         flowImportStrategy: {
-          globalImportStrategy: 'Test string',
+          globalImportStrategy: 'IMPORT_STRATEGY_UNSPECIFIED',
         },
         flowUri: 'Test string',
-        importOption: 'Test string',
+        importOption: 'IMPORT_OPTION_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.flows.list({
@@ -2446,11 +2446,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -2463,8 +2463,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           enabled: true,
@@ -2642,18 +2642,18 @@ gapi.load('client', async () => {
         name: 'Test string',
         nluSettings: {
           classificationThreshold: 42,
-          modelTrainingMode: 'Test string',
-          modelType: 'Test string',
+          modelTrainingMode: 'MODEL_TRAINING_MODE_UNSPECIFIED',
+          modelType: 'MODEL_TYPE_UNSPECIFIED',
         },
         outputParameterDefinitions: [
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -3598,8 +3598,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           enabled: true,
@@ -4707,8 +4707,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           enabled: true,
@@ -5462,10 +5462,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         nluSettings: {
           classificationThreshold: 42,
-          modelTrainingMode: 'Test string',
-          modelType: 'Test string',
+          modelTrainingMode: 'MODEL_TRAINING_MODE_UNSPECIFIED',
+          modelType: 'MODEL_TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.flows.versions.delete(
@@ -5501,10 +5501,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         nluSettings: {
           classificationThreshold: 42,
-          modelTrainingMode: 'Test string',
-          modelType: 'Test string',
+          modelTrainingMode: 'MODEL_TRAINING_MODE_UNSPECIFIED',
+          modelType: 'MODEL_TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.generators.create(
@@ -5517,8 +5517,8 @@ gapi.load('client', async () => {
         llmModelSettings: {
           model: 'Test string',
           parameters: {
-            inputTokenLimit: 'Test string',
-            outputTokenLimit: 'Test string',
+            inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+            outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
             temperature: 42,
           },
           promptText: 'Test string',
@@ -5566,8 +5566,8 @@ gapi.load('client', async () => {
         llmModelSettings: {
           model: 'Test string',
           parameters: {
-            inputTokenLimit: 'Test string',
-            outputTokenLimit: 'Test string',
+            inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+            outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
             temperature: 42,
           },
           promptText: 'Test string',
@@ -5635,7 +5635,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         intents: ['Test string'],
         intentsContentInline: true,
         intentsUri: 'Test string',
@@ -5654,11 +5654,11 @@ gapi.load('client', async () => {
           content: 'Test string',
         },
         intentsUri: 'Test string',
-        mergeOption: 'Test string',
+        mergeOption: 'MERGE_OPTION_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.intents.list({
-      intentView: 'Test string',
+      intentView: 'INTENT_VIEW_UNSPECIFIED',
       languageCode: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -6056,11 +6056,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -6081,8 +6081,8 @@ gapi.load('client', async () => {
         llmModelSettings: {
           model: 'Test string',
           parameters: {
-            inputTokenLimit: 'Test string',
-            outputTokenLimit: 'Test string',
+            inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+            outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
             temperature: 42,
           },
           promptText: 'Test string',
@@ -6092,11 +6092,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -6105,7 +6105,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        playbookType: 'Test string',
+        playbookType: 'PLAYBOOK_TYPE_UNSPECIFIED',
         referencedFlows: ['Test string'],
         referencedPlaybooks: ['Test string'],
         referencedTools: ['Test string'],
@@ -6129,7 +6129,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         playbookUri: 'Test string',
       },
     );
@@ -6142,9 +6142,9 @@ gapi.load('client', async () => {
       },
       {
         importStrategy: {
-          mainPlaybookImportStrategy: 'Test string',
-          nestedResourceImportStrategy: 'Test string',
-          toolImportStrategy: 'Test string',
+          mainPlaybookImportStrategy: 'IMPORT_STRATEGY_UNSPECIFIED',
+          nestedResourceImportStrategy: 'IMPORT_STRATEGY_UNSPECIFIED',
+          toolImportStrategy: 'IMPORT_STRATEGY_UNSPECIFIED',
         },
         playbookContent: 'Test string',
         playbookUri: 'Test string',
@@ -6510,11 +6510,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -6535,8 +6535,8 @@ gapi.load('client', async () => {
         llmModelSettings: {
           model: 'Test string',
           parameters: {
-            inputTokenLimit: 'Test string',
-            outputTokenLimit: 'Test string',
+            inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+            outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
             temperature: 42,
           },
           promptText: 'Test string',
@@ -6546,11 +6546,11 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             name: 'Test string',
-            type: 'Test string',
+            type: 'PARAMETER_TYPE_UNSPECIFIED',
             typeSchema: {
               inlineSchema: {
                 items: undefined,
-                type: 'Test string',
+                type: 'DATA_TYPE_UNSPECIFIED',
               },
               schemaReference: {
                 schema: 'Test string',
@@ -6559,7 +6559,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        playbookType: 'Test string',
+        playbookType: 'PLAYBOOK_TYPE_UNSPECIFIED',
         referencedFlows: ['Test string'],
         referencedPlaybooks: ['Test string'],
         referencedTools: ['Test string'],
@@ -6595,7 +6595,7 @@ gapi.load('client', async () => {
             flowInvocation: {
               displayName: 'Test string',
               flow: 'Test string',
-              flowState: 'Test string',
+              flowState: 'OUTPUT_STATE_UNSPECIFIED',
               inputActionParameters: {
                 A: 42,
               },
@@ -6644,7 +6644,7 @@ gapi.load('client', async () => {
                   exampleDisplayName: 'Test string',
                   exampleId: 'Test string',
                   matchedRetrievalLabel: 'Test string',
-                  retrievalStrategy: 'Test string',
+                  retrievalStrategy: 'RETRIEVAL_STRATEGY_UNSPECIFIED',
                 },
               ],
               temperature: 42,
@@ -6669,9 +6669,9 @@ gapi.load('client', async () => {
                   A: 42,
                 },
                 executionSummary: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
-              playbookState: 'Test string',
+              playbookState: 'OUTPUT_STATE_UNSPECIFIED',
             },
             playbookTransition: {
               displayName: 'Test string',
@@ -6732,8 +6732,8 @@ gapi.load('client', async () => {
                     },
                   ],
                   groundingSignals: {
-                    decision: 'Test string',
-                    score: 'Test string',
+                    decision: 'GROUNDING_DECISION_UNSPECIFIED',
+                    score: 'GROUNDING_SCORE_BUCKET_UNSPECIFIED',
                   },
                   rewriterModelCallSignals: {
                     model: 'Test string',
@@ -6742,8 +6742,8 @@ gapi.load('client', async () => {
                   },
                   rewrittenQuery: 'Test string',
                   safetySignals: {
-                    bannedPhraseMatch: 'Test string',
-                    decision: 'Test string',
+                    bannedPhraseMatch: 'BANNED_PHRASE_MATCH_UNSPECIFIED',
+                    decision: 'SAFETY_DECISION_UNSPECIFIED',
                     matchedBannedPhrase: 'Test string',
                   },
                   searchSnippets: [
@@ -6779,7 +6779,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        conversationState: 'Test string',
+        conversationState: 'OUTPUT_STATE_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -6796,7 +6796,7 @@ gapi.load('client', async () => {
             A: 42,
           },
           executionSummary: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         tokenCount: 'Test string',
         updateTime: 'Test string',
@@ -6841,7 +6841,7 @@ gapi.load('client', async () => {
             flowInvocation: {
               displayName: 'Test string',
               flow: 'Test string',
-              flowState: 'Test string',
+              flowState: 'OUTPUT_STATE_UNSPECIFIED',
               inputActionParameters: {
                 A: 42,
               },
@@ -6890,7 +6890,7 @@ gapi.load('client', async () => {
                   exampleDisplayName: 'Test string',
                   exampleId: 'Test string',
                   matchedRetrievalLabel: 'Test string',
-                  retrievalStrategy: 'Test string',
+                  retrievalStrategy: 'RETRIEVAL_STRATEGY_UNSPECIFIED',
                 },
               ],
               temperature: 42,
@@ -6915,9 +6915,9 @@ gapi.load('client', async () => {
                   A: 42,
                 },
                 executionSummary: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
-              playbookState: 'Test string',
+              playbookState: 'OUTPUT_STATE_UNSPECIFIED',
             },
             playbookTransition: {
               displayName: 'Test string',
@@ -6978,8 +6978,8 @@ gapi.load('client', async () => {
                     },
                   ],
                   groundingSignals: {
-                    decision: 'Test string',
-                    score: 'Test string',
+                    decision: 'GROUNDING_DECISION_UNSPECIFIED',
+                    score: 'GROUNDING_SCORE_BUCKET_UNSPECIFIED',
                   },
                   rewriterModelCallSignals: {
                     model: 'Test string',
@@ -6988,8 +6988,8 @@ gapi.load('client', async () => {
                   },
                   rewrittenQuery: 'Test string',
                   safetySignals: {
-                    bannedPhraseMatch: 'Test string',
-                    decision: 'Test string',
+                    bannedPhraseMatch: 'BANNED_PHRASE_MATCH_UNSPECIFIED',
+                    decision: 'SAFETY_DECISION_UNSPECIFIED',
                     matchedBannedPhrase: 'Test string',
                   },
                   searchSnippets: [
@@ -7025,7 +7025,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        conversationState: 'Test string',
+        conversationState: 'OUTPUT_STATE_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -7042,7 +7042,7 @@ gapi.load('client', async () => {
             A: 42,
           },
           executionSummary: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         tokenCount: 'Test string',
         updateTime: 'Test string',
@@ -7071,7 +7071,7 @@ gapi.load('client', async () => {
                 flowInvocation: {
                   displayName: 'Test string',
                   flow: 'Test string',
-                  flowState: 'Test string',
+                  flowState: 'OUTPUT_STATE_UNSPECIFIED',
                   inputActionParameters: {
                     A: 42,
                   },
@@ -7120,7 +7120,7 @@ gapi.load('client', async () => {
                       exampleDisplayName: 'Test string',
                       exampleId: 'Test string',
                       matchedRetrievalLabel: 'Test string',
-                      retrievalStrategy: 'Test string',
+                      retrievalStrategy: 'RETRIEVAL_STRATEGY_UNSPECIFIED',
                     },
                   ],
                   temperature: 42,
@@ -7145,9 +7145,9 @@ gapi.load('client', async () => {
                       A: 42,
                     },
                     executionSummary: 'Test string',
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                   },
-                  playbookState: 'Test string',
+                  playbookState: 'OUTPUT_STATE_UNSPECIFIED',
                 },
                 playbookTransition: {
                   displayName: 'Test string',
@@ -7208,8 +7208,8 @@ gapi.load('client', async () => {
                         },
                       ],
                       groundingSignals: {
-                        decision: 'Test string',
-                        score: 'Test string',
+                        decision: 'GROUNDING_DECISION_UNSPECIFIED',
+                        score: 'GROUNDING_SCORE_BUCKET_UNSPECIFIED',
                       },
                       rewriterModelCallSignals: {
                         model: 'Test string',
@@ -7218,8 +7218,8 @@ gapi.load('client', async () => {
                       },
                       rewrittenQuery: 'Test string',
                       safetySignals: {
-                        bannedPhraseMatch: 'Test string',
-                        decision: 'Test string',
+                        bannedPhraseMatch: 'BANNED_PHRASE_MATCH_UNSPECIFIED',
+                        decision: 'SAFETY_DECISION_UNSPECIFIED',
                         matchedBannedPhrase: 'Test string',
                       },
                       searchSnippets: [
@@ -7255,7 +7255,7 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            conversationState: 'Test string',
+            conversationState: 'OUTPUT_STATE_UNSPECIFIED',
             createTime: 'Test string',
             description: 'Test string',
             displayName: 'Test string',
@@ -7272,7 +7272,7 @@ gapi.load('client', async () => {
                 A: 42,
               },
               executionSummary: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             tokenCount: 'Test string',
             updateTime: 'Test string',
@@ -7629,11 +7629,11 @@ gapi.load('client', async () => {
             {
               description: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'PARAMETER_TYPE_UNSPECIFIED',
               typeSchema: {
                 inlineSchema: {
                   items: undefined,
-                  type: 'Test string',
+                  type: 'DATA_TYPE_UNSPECIFIED',
                 },
                 schemaReference: {
                   schema: 'Test string',
@@ -7654,8 +7654,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -7665,11 +7665,11 @@ gapi.load('client', async () => {
             {
               description: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'PARAMETER_TYPE_UNSPECIFIED',
               typeSchema: {
                 inlineSchema: {
                   items: undefined,
-                  type: 'Test string',
+                  type: 'DATA_TYPE_UNSPECIFIED',
                 },
                 schemaReference: {
                   schema: 'Test string',
@@ -7678,7 +7678,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          playbookType: 'Test string',
+          playbookType: 'PLAYBOOK_TYPE_UNSPECIFIED',
           referencedFlows: ['Test string'],
           referencedPlaybooks: ['Test string'],
           referencedTools: ['Test string'],
@@ -7725,7 +7725,7 @@ gapi.load('client', async () => {
       },
       {
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -7733,7 +7733,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -7742,14 +7742,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -7798,8 +7798,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -7822,7 +7822,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -7830,7 +7830,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -7854,7 +7854,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -7864,7 +7864,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        responseView: 'Test string',
+        responseView: 'DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED',
         session: 'Test string',
       },
     );
@@ -7907,7 +7907,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          matchType: 'Test string',
+          matchType: 'MATCH_TYPE_UNSPECIFIED',
           parameters: {
             A: 42,
           },
@@ -7919,14 +7919,14 @@ gapi.load('client', async () => {
             audio: {
               audio: 'Test string',
               config: {
-                audioEncoding: 'Test string',
+                audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                 bargeInConfig: {
                   noBargeInDuration: 'Test string',
                   totalDuration: 'Test string',
                 },
                 enableWordInfo: true,
                 model: 'Test string',
-                modelVariant: 'Test string',
+                modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                 optOutConformerModelMigration: true,
                 phraseHints: ['Test string'],
                 sampleRateHertz: 42,
@@ -7975,8 +7975,8 @@ gapi.load('client', async () => {
             llmModelSettings: {
               model: 'Test string',
               parameters: {
-                inputTokenLimit: 'Test string',
-                outputTokenLimit: 'Test string',
+                inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+                outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
                 temperature: 42,
               },
               promptText: 'Test string',
@@ -7999,7 +7999,7 @@ gapi.load('client', async () => {
                         {
                           boost: 42,
                           boostControlSpec: {
-                            attributeType: 'Test string',
+                            attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                             controlPoints: [
                               {
                                 attributeValue: 'Test string',
@@ -8007,7 +8007,7 @@ gapi.load('client', async () => {
                               },
                             ],
                             fieldName: 'Test string',
-                            interpolationType: 'Test string',
+                            interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                           },
                           condition: 'Test string',
                         },
@@ -8031,7 +8031,7 @@ gapi.load('client', async () => {
                     value: 'Test string',
                   },
                 ],
-                entityOverrideMode: 'Test string',
+                entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
                 name: 'Test string',
               },
             ],
@@ -8043,7 +8043,7 @@ gapi.load('client', async () => {
           },
         },
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -8051,7 +8051,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -8068,14 +8068,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -8124,8 +8124,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -8148,7 +8148,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -8156,7 +8156,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -8180,7 +8180,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -8198,7 +8198,7 @@ gapi.load('client', async () => {
       },
       {
         outputAudioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'OUTPUT_AUDIO_ENCODING_UNSPECIFIED',
           sampleRateHertz: 42,
           synthesizeSpeechConfig: {
             effectsProfileId: ['Test string'],
@@ -8206,7 +8206,7 @@ gapi.load('client', async () => {
             speakingRate: 42,
             voice: {
               name: 'Test string',
-              ssmlGender: 'Test string',
+              ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
             },
             volumeGainDb: 42,
           },
@@ -8215,14 +8215,14 @@ gapi.load('client', async () => {
           audio: {
             audio: 'Test string',
             config: {
-              audioEncoding: 'Test string',
+              audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
               bargeInConfig: {
                 noBargeInDuration: 'Test string',
                 totalDuration: 'Test string',
               },
               enableWordInfo: true,
               model: 'Test string',
-              modelVariant: 'Test string',
+              modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
               optOutConformerModelMigration: true,
               phraseHints: ['Test string'],
               sampleRateHertz: 42,
@@ -8271,8 +8271,8 @@ gapi.load('client', async () => {
           llmModelSettings: {
             model: 'Test string',
             parameters: {
-              inputTokenLimit: 'Test string',
-              outputTokenLimit: 'Test string',
+              inputTokenLimit: 'INPUT_TOKEN_LIMIT_UNSPECIFIED',
+              outputTokenLimit: 'OUTPUT_TOKEN_LIMIT_UNSPECIFIED',
               temperature: 42,
             },
             promptText: 'Test string',
@@ -8295,7 +8295,7 @@ gapi.load('client', async () => {
                       {
                         boost: 42,
                         boostControlSpec: {
-                          attributeType: 'Test string',
+                          attributeType: 'ATTRIBUTE_TYPE_UNSPECIFIED',
                           controlPoints: [
                             {
                               attributeValue: 'Test string',
@@ -8303,7 +8303,7 @@ gapi.load('client', async () => {
                             },
                           ],
                           fieldName: 'Test string',
-                          interpolationType: 'Test string',
+                          interpolationType: 'INTERPOLATION_TYPE_UNSPECIFIED',
                         },
                         condition: 'Test string',
                       },
@@ -8327,7 +8327,7 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              entityOverrideMode: 'Test string',
+              entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
               name: 'Test string',
             },
           ],
@@ -8337,7 +8337,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        responseView: 'Test string',
+        responseView: 'DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED',
         session: 'Test string',
       },
     );
@@ -8348,7 +8348,7 @@ gapi.load('client', async () => {
       {
         answerFeedback: {
           customRating: 'Test string',
-          rating: 'Test string',
+          rating: 'RATING_UNSPECIFIED',
           ratingReason: {
             feedback: 'Test string',
             reasonLabels: ['Test string'],
@@ -8369,7 +8369,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -8402,7 +8402,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        entityOverrideMode: 'Test string',
+        entityOverrideMode: 'ENTITY_OVERRIDE_MODE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -8426,7 +8426,7 @@ gapi.load('client', async () => {
     await gapi.client.dialogflow.projects.locations.agents.testCases.calculateCoverage(
       {
         agent: 'Test string',
-        type: 'Test string',
+        type: 'COVERAGE_TYPE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.testCases.create(
@@ -8448,14 +8448,14 @@ gapi.load('client', async () => {
                   audio: {
                     audio: 'Test string',
                     config: {
-                      audioEncoding: 'Test string',
+                      audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                       bargeInConfig: {
                         noBargeInDuration: 'Test string',
                         totalDuration: 'Test string',
                       },
                       enableWordInfo: true,
                       model: 'Test string',
-                      modelVariant: 'Test string',
+                      modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                       optOutConformerModelMigration: true,
                       phraseHints: ['Test string'],
                       sampleRateHertz: 42,
@@ -9231,8 +9231,9 @@ gapi.load('client', async () => {
                     dataStoreConnections: [
                       {
                         dataStore: 'Test string',
-                        dataStoreType: 'Test string',
-                        documentProcessingMode: 'Test string',
+                        dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+                        documentProcessingMode:
+                          'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
                       },
                     ],
                     enabled: true,
@@ -9584,7 +9585,7 @@ gapi.load('client', async () => {
                 differences: [
                   {
                     description: 'Test string',
-                    type: 'Test string',
+                    type: 'DIFF_TYPE_UNSPECIFIED',
                   },
                 ],
                 sessionParameters: {
@@ -9641,7 +9642,7 @@ gapi.load('client', async () => {
           ],
           environment: 'Test string',
           name: 'Test string',
-          testResult: 'Test string',
+          testResult: 'TEST_RESULT_UNSPECIFIED',
           testTime: 'Test string',
         },
         name: 'Test string',
@@ -9658,14 +9659,14 @@ gapi.load('client', async () => {
                 audio: {
                   audio: 'Test string',
                   config: {
-                    audioEncoding: 'Test string',
+                    audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                     bargeInConfig: {
                       noBargeInDuration: 'Test string',
                       totalDuration: 'Test string',
                     },
                     enableWordInfo: true,
                     model: 'Test string',
-                    modelVariant: 'Test string',
+                    modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                     optOutConformerModelMigration: true,
                     phraseHints: ['Test string'],
                     sampleRateHertz: 42,
@@ -10441,8 +10442,9 @@ gapi.load('client', async () => {
                   dataStoreConnections: [
                     {
                       dataStore: 'Test string',
-                      dataStoreType: 'Test string',
-                      documentProcessingMode: 'Test string',
+                      dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+                      documentProcessingMode:
+                        'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
                     },
                   ],
                   enabled: true,
@@ -10794,7 +10796,7 @@ gapi.load('client', async () => {
               differences: [
                 {
                   description: 'Test string',
-                  type: 'Test string',
+                  type: 'DIFF_TYPE_UNSPECIFIED',
                 },
               ],
               sessionParameters: {
@@ -10861,7 +10863,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         filter: 'Test string',
         gcsUri: 'Test string',
       },
@@ -10882,7 +10884,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'TEST_CASE_VIEW_UNSPECIFIED',
     });
     await gapi.client.dialogflow.projects.locations.agents.testCases.patch(
       {
@@ -10904,14 +10906,14 @@ gapi.load('client', async () => {
                   audio: {
                     audio: 'Test string',
                     config: {
-                      audioEncoding: 'Test string',
+                      audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                       bargeInConfig: {
                         noBargeInDuration: 'Test string',
                         totalDuration: 'Test string',
                       },
                       enableWordInfo: true,
                       model: 'Test string',
-                      modelVariant: 'Test string',
+                      modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                       optOutConformerModelMigration: true,
                       phraseHints: ['Test string'],
                       sampleRateHertz: 42,
@@ -11687,8 +11689,9 @@ gapi.load('client', async () => {
                     dataStoreConnections: [
                       {
                         dataStore: 'Test string',
-                        dataStoreType: 'Test string',
-                        documentProcessingMode: 'Test string',
+                        dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+                        documentProcessingMode:
+                          'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
                       },
                     ],
                     enabled: true,
@@ -12040,7 +12043,7 @@ gapi.load('client', async () => {
                 differences: [
                   {
                     description: 'Test string',
-                    type: 'Test string',
+                    type: 'DIFF_TYPE_UNSPECIFIED',
                   },
                 ],
                 sessionParameters: {
@@ -12097,7 +12100,7 @@ gapi.load('client', async () => {
           ],
           environment: 'Test string',
           name: 'Test string',
-          testResult: 'Test string',
+          testResult: 'TEST_RESULT_UNSPECIFIED',
           testTime: 'Test string',
         },
         name: 'Test string',
@@ -12114,14 +12117,14 @@ gapi.load('client', async () => {
                 audio: {
                   audio: 'Test string',
                   config: {
-                    audioEncoding: 'Test string',
+                    audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
                     bargeInConfig: {
                       noBargeInDuration: 'Test string',
                       totalDuration: 'Test string',
                     },
                     enableWordInfo: true,
                     model: 'Test string',
-                    modelVariant: 'Test string',
+                    modelVariant: 'SPEECH_MODEL_VARIANT_UNSPECIFIED',
                     optOutConformerModelMigration: true,
                     phraseHints: ['Test string'],
                     sampleRateHertz: 42,
@@ -12897,8 +12900,9 @@ gapi.load('client', async () => {
                   dataStoreConnections: [
                     {
                       dataStore: 'Test string',
-                      dataStoreType: 'Test string',
-                      documentProcessingMode: 'Test string',
+                      dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+                      documentProcessingMode:
+                        'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
                     },
                   ],
                   enabled: true,
@@ -13250,7 +13254,7 @@ gapi.load('client', async () => {
               differences: [
                 {
                   description: 'Test string',
-                  type: 'Test string',
+                  type: 'DIFF_TYPE_UNSPECIFIED',
                 },
               ],
               sessionParameters: {
@@ -13344,7 +13348,7 @@ gapi.load('client', async () => {
               connectionActionId: 'Test string',
               entityOperation: {
                 entityId: 'Test string',
-                operation: 'Test string',
+                operation: 'OPERATION_TYPE_UNSPECIFIED',
               },
               inputFields: ['Test string'],
               outputFields: ['Test string'],
@@ -13366,8 +13370,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           fallbackPrompt: {},
@@ -13391,7 +13395,7 @@ gapi.load('client', async () => {
             apiKeyConfig: {
               apiKey: 'Test string',
               keyName: 'Test string',
-              requestLocation: 'Test string',
+              requestLocation: 'REQUEST_LOCATION_UNSPECIFIED',
               secretVersionForApiKey: 'Test string',
             },
             bearerTokenConfig: {
@@ -13401,7 +13405,7 @@ gapi.load('client', async () => {
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
-              oauthGrantType: 'Test string',
+              oauthGrantType: 'OAUTH_GRANT_TYPE_UNSPECIFIED',
               scopes: ['Test string'],
               secretVersionForClientSecret: 'Test string',
               tokenEndpoint: 'Test string',
@@ -13410,7 +13414,7 @@ gapi.load('client', async () => {
               serviceAccount: 'Test string',
             },
             serviceAgentAuthConfig: {
-              serviceAgentAuth: 'Test string',
+              serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             },
           },
           serviceDirectoryConfig: {
@@ -13426,7 +13430,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-        toolType: 'Test string',
+        toolType: 'TOOL_TYPE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.tools.delete({
@@ -13438,7 +13442,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         tools: ['Test string'],
         toolsContentInline: true,
         toolsUri: 'Test string',
@@ -13464,7 +13468,7 @@ gapi.load('client', async () => {
               connectionActionId: 'Test string',
               entityOperation: {
                 entityId: 'Test string',
-                operation: 'Test string',
+                operation: 'OPERATION_TYPE_UNSPECIFIED',
               },
               inputFields: ['Test string'],
               outputFields: ['Test string'],
@@ -13486,8 +13490,8 @@ gapi.load('client', async () => {
           dataStoreConnections: [
             {
               dataStore: 'Test string',
-              dataStoreType: 'Test string',
-              documentProcessingMode: 'Test string',
+              dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+              documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
             },
           ],
           fallbackPrompt: {},
@@ -13511,7 +13515,7 @@ gapi.load('client', async () => {
             apiKeyConfig: {
               apiKey: 'Test string',
               keyName: 'Test string',
-              requestLocation: 'Test string',
+              requestLocation: 'REQUEST_LOCATION_UNSPECIFIED',
               secretVersionForApiKey: 'Test string',
             },
             bearerTokenConfig: {
@@ -13521,7 +13525,7 @@ gapi.load('client', async () => {
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
-              oauthGrantType: 'Test string',
+              oauthGrantType: 'OAUTH_GRANT_TYPE_UNSPECIFIED',
               scopes: ['Test string'],
               secretVersionForClientSecret: 'Test string',
               tokenEndpoint: 'Test string',
@@ -13530,7 +13534,7 @@ gapi.load('client', async () => {
               serviceAccount: 'Test string',
             },
             serviceAgentAuthConfig: {
-              serviceAgentAuth: 'Test string',
+              serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             },
           },
           serviceDirectoryConfig: {
@@ -13546,7 +13550,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-        toolType: 'Test string',
+        toolType: 'TOOL_TYPE_UNSPECIFIED',
       },
     );
     await gapi.client.dialogflow.projects.locations.agents.tools.versions.create(
@@ -13564,7 +13568,7 @@ gapi.load('client', async () => {
                 connectionActionId: 'Test string',
                 entityOperation: {
                   entityId: 'Test string',
-                  operation: 'Test string',
+                  operation: 'OPERATION_TYPE_UNSPECIFIED',
                 },
                 inputFields: ['Test string'],
                 outputFields: ['Test string'],
@@ -13586,8 +13590,8 @@ gapi.load('client', async () => {
             dataStoreConnections: [
               {
                 dataStore: 'Test string',
-                dataStoreType: 'Test string',
-                documentProcessingMode: 'Test string',
+                dataStoreType: 'DATA_STORE_TYPE_UNSPECIFIED',
+                documentProcessingMode: 'DOCUMENT_PROCESSING_MODE_UNSPECIFIED',
               },
             ],
             fallbackPrompt: {},
@@ -13611,7 +13615,7 @@ gapi.load('client', async () => {
               apiKeyConfig: {
                 apiKey: 'Test string',
                 keyName: 'Test string',
-                requestLocation: 'Test string',
+                requestLocation: 'REQUEST_LOCATION_UNSPECIFIED',
                 secretVersionForApiKey: 'Test string',
               },
               bearerTokenConfig: {
@@ -13621,7 +13625,7 @@ gapi.load('client', async () => {
               oauthConfig: {
                 clientId: 'Test string',
                 clientSecret: 'Test string',
-                oauthGrantType: 'Test string',
+                oauthGrantType: 'OAUTH_GRANT_TYPE_UNSPECIFIED',
                 scopes: ['Test string'],
                 secretVersionForClientSecret: 'Test string',
                 tokenEndpoint: 'Test string',
@@ -13630,7 +13634,7 @@ gapi.load('client', async () => {
                 serviceAccount: 'Test string',
               },
               serviceAgentAuthConfig: {
-                serviceAgentAuth: 'Test string',
+                serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
               },
             },
             serviceDirectoryConfig: {
@@ -13646,7 +13650,7 @@ gapi.load('client', async () => {
               ],
             },
           },
-          toolType: 'Test string',
+          toolType: 'TOOL_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -14067,7 +14071,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         genericWebService: {
           allowedCaCerts: ['Test string'],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthConfig: {
             clientId: 'Test string',
             clientSecret: 'Test string',
@@ -14092,16 +14096,16 @@ gapi.load('client', async () => {
           serviceAccountAuthConfig: {
             serviceAccount: 'Test string',
           },
-          serviceAgentAuth: 'Test string',
+          serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
           uri: 'Test string',
           username: 'Test string',
-          webhookType: 'Test string',
+          webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         serviceDirectory: {
           genericWebService: {
             allowedCaCerts: ['Test string'],
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
@@ -14126,10 +14130,10 @@ gapi.load('client', async () => {
             serviceAccountAuthConfig: {
               serviceAccount: 'Test string',
             },
-            serviceAgentAuth: 'Test string',
+            serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             uri: 'Test string',
             username: 'Test string',
-            webhookType: 'Test string',
+            webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
           },
           service: 'Test string',
         },
@@ -14158,7 +14162,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         genericWebService: {
           allowedCaCerts: ['Test string'],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthConfig: {
             clientId: 'Test string',
             clientSecret: 'Test string',
@@ -14183,16 +14187,16 @@ gapi.load('client', async () => {
           serviceAccountAuthConfig: {
             serviceAccount: 'Test string',
           },
-          serviceAgentAuth: 'Test string',
+          serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
           uri: 'Test string',
           username: 'Test string',
-          webhookType: 'Test string',
+          webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         serviceDirectory: {
           genericWebService: {
             allowedCaCerts: ['Test string'],
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             oauthConfig: {
               clientId: 'Test string',
               clientSecret: 'Test string',
@@ -14217,10 +14221,10 @@ gapi.load('client', async () => {
             serviceAccountAuthConfig: {
               serviceAccount: 'Test string',
             },
-            serviceAgentAuth: 'Test string',
+            serviceAgentAuth: 'SERVICE_AGENT_AUTH_UNSPECIFIED',
             uri: 'Test string',
             username: 'Test string',
-            webhookType: 'Test string',
+            webhookType: 'WEBHOOK_TYPE_UNSPECIFIED',
           },
           service: 'Test string',
         },
@@ -14247,7 +14251,7 @@ gapi.load('client', async () => {
       {
         audioExportSettings: {
           audioExportPattern: 'Test string',
-          audioFormat: 'Test string',
+          audioFormat: 'AUDIO_FORMAT_UNSPECIFIED',
           enableAudioRedaction: true,
           gcsBucket: 'Test string',
           storeTtsAudio: true,
@@ -14259,10 +14263,10 @@ gapi.load('client', async () => {
         },
         inspectTemplate: 'Test string',
         name: 'Test string',
-        purgeDataTypes: ['Test string'],
-        redactionScope: 'Test string',
-        redactionStrategy: 'Test string',
-        retentionStrategy: 'Test string',
+        purgeDataTypes: ['PURGE_DATA_TYPE_UNSPECIFIED'],
+        redactionScope: 'REDACTION_SCOPE_UNSPECIFIED',
+        redactionStrategy: 'REDACTION_STRATEGY_UNSPECIFIED',
+        retentionStrategy: 'RETENTION_STRATEGY_UNSPECIFIED',
         retentionWindowDays: 42,
       },
     );
@@ -14285,7 +14289,7 @@ gapi.load('client', async () => {
       {
         audioExportSettings: {
           audioExportPattern: 'Test string',
-          audioFormat: 'Test string',
+          audioFormat: 'AUDIO_FORMAT_UNSPECIFIED',
           enableAudioRedaction: true,
           gcsBucket: 'Test string',
           storeTtsAudio: true,
@@ -14297,10 +14301,10 @@ gapi.load('client', async () => {
         },
         inspectTemplate: 'Test string',
         name: 'Test string',
-        purgeDataTypes: ['Test string'],
-        redactionScope: 'Test string',
-        redactionStrategy: 'Test string',
-        retentionStrategy: 'Test string',
+        purgeDataTypes: ['PURGE_DATA_TYPE_UNSPECIFIED'],
+        redactionScope: 'REDACTION_SCOPE_UNSPECIFIED',
+        redactionStrategy: 'REDACTION_STRATEGY_UNSPECIFIED',
+        retentionStrategy: 'RETENTION_STRATEGY_UNSPECIFIED',
         retentionWindowDays: 42,
       },
     );

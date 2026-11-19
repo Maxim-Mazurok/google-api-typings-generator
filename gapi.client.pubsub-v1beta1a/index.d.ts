@@ -155,7 +155,8 @@ declare namespace gapi.client {
       /** Name of the topic. */
       name?: string;
     }
-    interface SubscriptionsResource {
+
+    const subscriptions: {
       /** Acknowledges a particular received message: the Pub/Sub system can remove the given message from the subscription. Acknowledging a message whose Ack deadline has expired may succeed, but the message could have been already redelivered. Acknowledging a message more than once will not result in an error. This is only used for messages received via pull. */
       acknowledge(request: {
         /** V1 error format. */
@@ -565,8 +566,9 @@ declare namespace gapi.client {
         },
         body: PullBatchRequest,
       ): Request<PullBatchResponse>;
-    }
-    interface TopicsResource {
+    };
+
+    const topics: {
       /** Creates the given topic with the given name. */
       create(request: {
         /** V1 error format. */
@@ -814,10 +816,6 @@ declare namespace gapi.client {
         },
         body: PublishBatchRequest,
       ): Request<PublishBatchResponse>;
-    }
-
-    const subscriptions: SubscriptionsResource;
-
-    const topics: TopicsResource;
+    };
   }
 }

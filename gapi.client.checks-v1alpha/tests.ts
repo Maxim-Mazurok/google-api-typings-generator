@@ -86,7 +86,7 @@ gapi.load('client', async () => {
             {
               dataTypeClassifications: [
                 {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   lineNumber: 42,
                 },
               ],
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
                 path: 'Test string',
                 startLineNumber: 42,
               },
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               falsePositive: true,
             },
           ],
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
     await gapi.client.checks.aisafety.classifyContent(
       {},
       {
-        classifierVersion: 'Test string',
+        classifierVersion: 'CLASSIFIER_VERSION_UNSPECIFIED',
         context: {
           prompt: 'Test string',
         },
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
         },
         policies: [
           {
-            policyType: 'Test string',
+            policyType: 'POLICY_TYPE_UNSPECIFIED',
             threshold: 42,
           },
         ],
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        appBinaryFileType: 'Test string',
+        appBinaryFileType: 'APP_BINARY_FILE_TYPE_UNSPECIFIED',
         codeReferenceId: 'Test string',
       },
     );

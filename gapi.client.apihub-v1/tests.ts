@@ -247,7 +247,7 @@ gapi.load('client', async () => {
                         actionId: 'Test string',
                         pluginInstance: 'Test string',
                       },
-                      sourceType: 'Test string',
+                      sourceType: 'SOURCE_TYPE_UNSPECIFIED',
                     },
                   ],
                   targetUser: {
@@ -438,7 +438,7 @@ gapi.load('client', async () => {
                                 actionId: 'Test string',
                                 pluginInstance: 'Test string',
                               },
-                              sourceType: 'Test string',
+                              sourceType: 'SOURCE_TYPE_UNSPECIFIED',
                             },
                           ],
                           sourceProject: 'Test string',
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
                                 contents: 'Test string',
                                 mimeType: 'Test string',
                               },
-                              specContentType: 'Test string',
+                              specContentType: 'SPEC_CONTENT_TYPE_UNSPECIFIED',
                               updateTime: 'Test string',
                             },
                           ],
@@ -530,7 +530,7 @@ gapi.load('client', async () => {
                           details: {
                             description: 'Test string',
                             openApiSpecDetails: {
-                              format: 'Test string',
+                              format: 'FORMAT_UNSPECIFIED',
                               owner: {
                                 displayName: 'Test string',
                                 email: 'Test string',
@@ -559,21 +559,21 @@ gapi.load('client', async () => {
                                     line: 42,
                                   },
                                 },
-                                severity: 'Test string',
+                                severity: 'SEVERITY_UNSPECIFIED',
                               },
                             ],
-                            linter: 'Test string',
+                            linter: 'LINTER_UNSPECIFIED',
                             source: 'Test string',
-                            state: 'Test string',
+                            state: 'LINT_STATE_UNSPECIFIED',
                             summary: [
                               {
                                 count: 42,
-                                severity: 'Test string',
+                                severity: 'SEVERITY_UNSPECIFIED',
                               },
                             ],
                           },
                           name: 'Test string',
-                          parsingMode: 'Test string',
+                          parsingMode: 'PARSING_MODE_UNSPECIFIED',
                           sourceMetadata: [
                             {
                               originalResourceCreateTime: 'Test string',
@@ -583,7 +583,7 @@ gapi.load('client', async () => {
                                 actionId: 'Test string',
                                 pluginInstance: 'Test string',
                               },
-                              sourceType: 'Test string',
+                              sourceType: 'SOURCE_TYPE_UNSPECIFIED',
                             },
                           ],
                           sourceUri: 'Test string',
@@ -724,7 +724,7 @@ gapi.load('client', async () => {
                             actionId: 'Test string',
                             pluginInstance: 'Test string',
                           },
-                          sourceType: 'Test string',
+                          sourceType: 'SOURCE_TYPE_UNSPECIFIED',
                         },
                       ],
                       specs: ['Test string'],
@@ -736,7 +736,7 @@ gapi.load('client', async () => {
             ],
           },
         },
-        collectionType: 'Test string',
+        collectionType: 'COLLECTION_TYPE_UNSPECIFIED',
         pluginInstance: 'Test string',
       },
     );
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'API_VIEW_TYPE_UNSPECIFIED',
     });
     /** Search across API-Hub resources. */
     await gapi.client.apihub.projects.locations.searchResources(
@@ -838,7 +838,7 @@ gapi.load('client', async () => {
           },
           cmekKeyName: 'Test string',
           disableSearch: true,
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           vertexLocation: 'Test string',
         },
         createTime: 'Test string',
@@ -847,7 +847,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         updateTime: 'Test string',
       },
@@ -877,7 +877,7 @@ gapi.load('client', async () => {
           },
           cmekKeyName: 'Test string',
           disableSearch: true,
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           vertexLocation: 'Test string',
         },
         createTime: 'Test string',
@@ -886,7 +886,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         updateTime: 'Test string',
       },
@@ -1098,7 +1098,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         targetUser: {
@@ -1372,7 +1372,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         targetUser: {
@@ -1540,7 +1540,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         specs: ['Test string'],
@@ -1680,7 +1680,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         specs: ['Test string'],
@@ -1731,7 +1731,7 @@ gapi.load('client', async () => {
             externalUri: 'Test string',
           },
           httpOperation: {
-            method: 'Test string',
+            method: 'METHOD_UNSPECIFIED',
             path: {
               description: 'Test string',
               path: 'Test string',
@@ -1773,7 +1773,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         spec: 'Test string',
@@ -1837,7 +1837,7 @@ gapi.load('client', async () => {
             externalUri: 'Test string',
           },
           httpOperation: {
-            method: 'Test string',
+            method: 'METHOD_UNSPECIFIED',
             path: {
               description: 'Test string',
               path: 'Test string',
@@ -1879,7 +1879,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         spec: 'Test string',
@@ -1903,7 +1903,7 @@ gapi.load('client', async () => {
               contents: 'Test string',
               mimeType: 'Test string',
             },
-            specContentType: 'Test string',
+            specContentType: 'SPEC_CONTENT_TYPE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
@@ -1940,7 +1940,7 @@ gapi.load('client', async () => {
         details: {
           description: 'Test string',
           openApiSpecDetails: {
-            format: 'Test string',
+            format: 'FORMAT_UNSPECIFIED',
             owner: {
               displayName: 'Test string',
               email: 'Test string',
@@ -1969,21 +1969,21 @@ gapi.load('client', async () => {
                   line: 42,
                 },
               },
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
-          linter: 'Test string',
+          linter: 'LINTER_UNSPECIFIED',
           source: 'Test string',
-          state: 'Test string',
+          state: 'LINT_STATE_UNSPECIFIED',
           summary: [
             {
               count: 42,
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
         },
         name: 'Test string',
-        parsingMode: 'Test string',
+        parsingMode: 'PARSING_MODE_UNSPECIFIED',
         sourceMetadata: [
           {
             originalResourceCreateTime: 'Test string',
@@ -1993,7 +1993,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         sourceUri: 'Test string',
@@ -2030,7 +2030,7 @@ gapi.load('client', async () => {
     await gapi.client.apihub.projects.locations.apis.versions.specs.fetchAdditionalSpecContent(
       {
         name: 'Test string',
-        specContentType: 'Test string',
+        specContentType: 'SPEC_CONTENT_TYPE_UNSPECIFIED',
       },
     );
     /** Get details about the information parsed from a spec. Note that this method does not return the raw spec contents. Use GetSpecContents method to retrieve the same. */
@@ -2074,7 +2074,7 @@ gapi.load('client', async () => {
               contents: 'Test string',
               mimeType: 'Test string',
             },
-            specContentType: 'Test string',
+            specContentType: 'SPEC_CONTENT_TYPE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
@@ -2111,7 +2111,7 @@ gapi.load('client', async () => {
         details: {
           description: 'Test string',
           openApiSpecDetails: {
-            format: 'Test string',
+            format: 'FORMAT_UNSPECIFIED',
             owner: {
               displayName: 'Test string',
               email: 'Test string',
@@ -2140,21 +2140,21 @@ gapi.load('client', async () => {
                   line: 42,
                 },
               },
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
-          linter: 'Test string',
+          linter: 'LINTER_UNSPECIFIED',
           source: 'Test string',
-          state: 'Test string',
+          state: 'LINT_STATE_UNSPECIFIED',
           summary: [
             {
               count: 42,
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
         },
         name: 'Test string',
-        parsingMode: 'Test string',
+        parsingMode: 'PARSING_MODE_UNSPECIFIED',
         sourceMetadata: [
           {
             originalResourceCreateTime: 'Test string',
@@ -2164,7 +2164,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         sourceUri: 'Test string',
@@ -2210,13 +2210,13 @@ gapi.load('client', async () => {
         ],
         cardinality: 42,
         createTime: 'Test string',
-        dataType: 'Test string',
-        definitionType: 'Test string',
+        dataType: 'DATA_TYPE_UNSPECIFIED',
+        definitionType: 'DEFINITION_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         mandatory: true,
         name: 'Test string',
-        scope: 'Test string',
+        scope: 'SCOPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2252,13 +2252,13 @@ gapi.load('client', async () => {
         ],
         cardinality: 42,
         createTime: 'Test string',
-        dataType: 'Test string',
-        definitionType: 'Test string',
+        dataType: 'DATA_TYPE_UNSPECIFIED',
+        definitionType: 'DEFINITION_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         mandatory: true,
         name: 'Test string',
-        scope: 'Test string',
+        scope: 'SCOPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2278,9 +2278,9 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-        lastExecutionErrorCode: 'Test string',
+        lastExecutionErrorCode: 'ERROR_CODE_UNSPECIFIED',
         lastExecutionErrorMessage: 'Test string',
-        lastExecutionState: 'Test string',
+        lastExecutionState: 'LAST_EXECUTION_STATE_UNSPECIFIED',
         name: 'Test string',
         pluginInstanceActions: [
           {
@@ -2322,9 +2322,9 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-        lastExecutionErrorCode: 'Test string',
+        lastExecutionErrorCode: 'ERROR_CODE_UNSPECIFIED',
         lastExecutionErrorMessage: 'Test string',
-        lastExecutionState: 'Test string',
+        lastExecutionState: 'LAST_EXECUTION_STATE_UNSPECIFIED',
         name: 'Test string',
         pluginInstanceActions: [
           {
@@ -2373,13 +2373,13 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        discoveryMode: 'Test string',
+        discoveryMode: 'DISCOVERY_MODE_UNSPECIFIED',
         errorDetail: {
-          error: 'Test string',
+          error: 'ERROR_UNSPECIFIED',
           errorTime: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         supplier: {
           displayName: 'Test string',
           externalApiResourceName: 'Test string',
@@ -2441,13 +2441,13 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        discoveryMode: 'Test string',
+        discoveryMode: 'DISCOVERY_MODE_UNSPECIFIED',
         errorDetail: {
-          error: 'Test string',
+          error: 'ERROR_UNSPECIFIED',
           errorTime: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         supplier: {
           displayName: 'Test string',
           externalApiResourceName: 'Test string',
@@ -2596,7 +2596,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         sourceProject: 'Test string',
@@ -2782,7 +2782,7 @@ gapi.load('client', async () => {
               actionId: 'Test string',
               pluginInstance: 'Test string',
             },
-            sourceType: 'Test string',
+            sourceType: 'SOURCE_TYPE_UNSPECIFIED',
           },
         ],
         sourceProject: 'Test string',
@@ -3019,7 +3019,7 @@ gapi.load('client', async () => {
             description: 'Test string',
             displayName: 'Test string',
             id: 'Test string',
-            triggerMode: 'Test string',
+            triggerMode: 'TRIGGER_MODE_UNSPECIFIED',
           },
         ],
         configTemplate: {
@@ -3043,14 +3043,14 @@ gapi.load('client', async () => {
               ],
               required: true,
               validationRegex: 'Test string',
-              valueType: 'Test string',
+              valueType: 'VALUE_TYPE_UNSPECIFIED',
             },
           ],
           authConfigTemplate: {
             serviceAccount: {
               serviceAccount: 'Test string',
             },
-            supportedAuthTypes: ['Test string'],
+            supportedAuthTypes: ['AUTH_TYPE_UNSPECIFIED'],
           },
         },
         createTime: 'Test string',
@@ -3059,14 +3059,14 @@ gapi.load('client', async () => {
         documentation: {
           externalUri: 'Test string',
         },
-        gatewayType: 'Test string',
+        gatewayType: 'GATEWAY_TYPE_UNSPECIFIED',
         hostingService: {
           serviceUri: 'Test string',
         },
         name: 'Test string',
-        ownershipType: 'Test string',
-        pluginCategory: 'Test string',
-        state: 'Test string',
+        ownershipType: 'OWNERSHIP_TYPE_UNSPECIFIED',
+        pluginCategory: 'PLUGIN_CATEGORY_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
         type: {
           attribute: 'Test string',
           enumValues: {
@@ -3136,7 +3136,7 @@ gapi.load('client', async () => {
           contents: 'Test string',
           mimeType: 'Test string',
         },
-        linter: 'Test string',
+        linter: 'LINTER_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -3151,29 +3151,29 @@ gapi.load('client', async () => {
           {
             actionId: 'Test string',
             curationConfig: {
-              curationType: 'Test string',
+              curationType: 'CURATION_TYPE_UNSPECIFIED',
               customCuration: {
                 curation: 'Test string',
               },
             },
             hubInstanceAction: {
-              currentExecutionState: 'Test string',
+              currentExecutionState: 'CURRENT_EXECUTION_STATE_UNSPECIFIED',
               lastExecution: {
                 endTime: 'Test string',
                 errorMessage: 'Test string',
-                result: 'Test string',
+                result: 'RESULT_UNSPECIFIED',
                 resultMetadata: 'Test string',
                 startTime: 'Test string',
               },
             },
             resourceConfig: {
-              actionType: 'Test string',
+              actionType: 'ACTION_TYPE_UNSPECIFIED',
               pubsubTopic: 'Test string',
             },
             scheduleCronExpression: 'Test string',
             scheduleTimeZone: 'Test string',
             serviceAccount: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         additionalConfig: {
@@ -3212,10 +3212,10 @@ gapi.load('client', async () => {
             apiKey: {
               secretVersion: 'Test string',
             },
-            httpElementLocation: 'Test string',
+            httpElementLocation: 'HTTP_ELEMENT_LOCATION_UNSPECIFIED',
             name: 'Test string',
           },
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           googleServiceAccountConfig: {
             serviceAccount: 'Test string',
           },
@@ -3245,7 +3245,7 @@ gapi.load('client', async () => {
           },
         },
         sourceProjectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -3299,9 +3299,9 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'ACTION_UNSPECIFIED',
         data: 'Test string',
-        dataType: 'Test string',
+        dataType: 'DATA_TYPE_UNSPECIFIED',
         relativePath: 'Test string',
       },
     );
@@ -3316,29 +3316,29 @@ gapi.load('client', async () => {
           {
             actionId: 'Test string',
             curationConfig: {
-              curationType: 'Test string',
+              curationType: 'CURATION_TYPE_UNSPECIFIED',
               customCuration: {
                 curation: 'Test string',
               },
             },
             hubInstanceAction: {
-              currentExecutionState: 'Test string',
+              currentExecutionState: 'CURRENT_EXECUTION_STATE_UNSPECIFIED',
               lastExecution: {
                 endTime: 'Test string',
                 errorMessage: 'Test string',
-                result: 'Test string',
+                result: 'RESULT_UNSPECIFIED',
                 resultMetadata: 'Test string',
                 startTime: 'Test string',
               },
             },
             resourceConfig: {
-              actionType: 'Test string',
+              actionType: 'ACTION_TYPE_UNSPECIFIED',
               pubsubTopic: 'Test string',
             },
             scheduleCronExpression: 'Test string',
             scheduleTimeZone: 'Test string',
             serviceAccount: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         additionalConfig: {
@@ -3377,10 +3377,10 @@ gapi.load('client', async () => {
             apiKey: {
               secretVersion: 'Test string',
             },
-            httpElementLocation: 'Test string',
+            httpElementLocation: 'HTTP_ELEMENT_LOCATION_UNSPECIFIED',
             name: 'Test string',
           },
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           googleServiceAccountConfig: {
             serviceAccount: 'Test string',
           },
@@ -3410,7 +3410,7 @@ gapi.load('client', async () => {
           },
         },
         sourceProjectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -3470,7 +3470,7 @@ gapi.load('client', async () => {
               description: 'Test string',
               operation: {
                 httpOperation: {
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   path: 'Test string',
                   spec: 'Test string',
                 },

@@ -360,7 +360,8 @@ declare namespace gapi.client {
       /** Id of the zone */
       zoneId?: string;
     }
-    interface AgentUsersResource {
+
+    const agentUsers: {
       /** Unlinks the given third-party user from your smart home Action. All data related to this user will be deleted. For more details on how users link their accounts, see [fulfillment and authentication](https://developers.home.google.com/cloud-to-cloud/primer/fulfillment). The third-party user's identity is passed in via the `agent_user_id` (see DeleteAgentUserRequest). This request must be authorized using service account credentials from your Actions console project. */
       delete(request?: {
         /** V1 error format. */
@@ -390,8 +391,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<{}>;
-    }
-    interface DevicesResource {
+    };
+
+    const devices: {
       /** Gets the current states in Home Graph for the given set of the third-party user's devices. The third-party user's identity is passed in via the `agent_user_id` (see QueryRequest). This request must be authorized using service account credentials from your Actions console project. */
       query(request: {
         /** V1 error format. */
@@ -608,10 +610,6 @@ declare namespace gapi.client {
         },
         body: SyncRequest,
       ): Request<SyncResponse>;
-    }
-
-    const agentUsers: AgentUsersResource;
-
-    const devices: DevicesResource;
+    };
   }
 }

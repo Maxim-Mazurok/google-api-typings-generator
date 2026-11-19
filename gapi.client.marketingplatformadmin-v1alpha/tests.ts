@@ -67,7 +67,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        organizationRoles: ['Test string'],
+        organizationRoles: ['ORGANIZATION_ROLE_UNSPECIFIED'],
         userEmail: 'Test string',
         userGroup: 'Test string',
       },
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        organizationRoles: ['Test string'],
+        organizationRoles: ['ORGANIZATION_ROLE_UNSPECIFIED'],
         userEmail: 'Test string',
         userGroup: 'Test string',
       },
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
       {
         analyticsAccount: 'Test string',
         displayName: 'Test string',
-        linkVerificationState: 'Test string',
+        linkVerificationState: 'LINK_VERIFICATION_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
       },
       {
         analyticsProperty: 'Test string',
-        serviceLevel: 'Test string',
+        serviceLevel: 'ANALYTICS_SERVICE_LEVEL_UNSPECIFIED',
       },
     );
     /** Creates a user group in the specified GMP organization. */
@@ -178,7 +178,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        membershipRole: 'Test string',
+        membershipRole: 'MEMBERSHIP_ROLE_UNSPECIFIED',
         name: 'Test string',
         userEmail: 'Test string',
         userGroup: 'Test string',
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        membershipRole: 'Test string',
+        membershipRole: 'MEMBERSHIP_ROLE_UNSPECIFIED',
         name: 'Test string',
         userEmail: 'Test string',
         userGroup: 'Test string',

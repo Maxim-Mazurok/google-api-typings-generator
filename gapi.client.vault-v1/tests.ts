@@ -42,7 +42,7 @@ gapi.load('client', async () => {
         ccMe: true,
         matterPermission: {
           accountId: 'Test string',
-          role: 'Test string',
+          role: 'ROLE_UNSPECIFIED',
         },
         sendEmails: true,
       },
@@ -68,21 +68,22 @@ gapi.load('client', async () => {
             locationQuery: ['Test string'],
             minusWords: ['Test string'],
             peopleQuery: ['Test string'],
-            responseStatuses: ['Test string'],
+            responseStatuses: ['ATTENDEE_RESPONSE_UNSPECIFIED'],
             versionDate: 'Test string',
           },
-          corpus: 'Test string',
-          dataScope: 'Test string',
+          corpus: 'CORPUS_TYPE_UNSPECIFIED',
+          dataScope: 'DATA_SCOPE_UNSPECIFIED',
           driveDocumentInfo: {
             documentIds: {
               ids: ['Test string'],
             },
           },
           driveOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             includeSharedDrives: true,
             includeTeamDrives: true,
-            sharedDrivesOption: 'Test string',
+            sharedDrivesOption: 'SHARED_DRIVES_OPTION_UNSPECIFIED',
             versionDate: 'Test string',
           },
           endTime: 'Test string',
@@ -95,14 +96,15 @@ gapi.load('client', async () => {
             includeRooms: true,
           },
           mailOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             excludeDrafts: true,
           },
-          method: 'Test string',
+          method: 'SEARCH_METHOD_UNSPECIFIED',
           orgUnitInfo: {
             orgUnitId: 'Test string',
           },
-          searchMethod: 'Test string',
+          searchMethod: 'SEARCH_METHOD_UNSPECIFIED',
           sharedDriveInfo: {
             sharedDriveIds: ['Test string'],
           },
@@ -116,10 +118,10 @@ gapi.load('client', async () => {
           terms: 'Test string',
           timeZone: 'Test string',
           voiceOptions: {
-            coveredData: ['Test string'],
+            coveredData: ['COVERED_DATA_UNSPECIFIED'],
           },
         },
-        view: 'Test string',
+        view: 'COUNT_RESULT_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a matter with the given name and description. The initial state is open, and the owner is the method caller. Returns the created matter with default view. */
@@ -131,12 +133,12 @@ gapi.load('client', async () => {
         matterPermissions: [
           {
             accountId: 'Test string',
-            role: 'Test string',
+            role: 'ROLE_UNSPECIFIED',
           },
         ],
-        matterRegion: 'Test string',
+        matterRegion: 'MATTER_REGION_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes the specified matter. Returns the matter with updated state. */
@@ -146,14 +148,14 @@ gapi.load('client', async () => {
     /** Gets the specified matter. */
     await gapi.client.vault.matters.get({
       matterId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Lists matters the requestor has access to. */
     await gapi.client.vault.matters.list({
       pageSize: 42,
       pageToken: 'Test string',
-      state: 'Test string',
-      view: 'Test string',
+      state: 'STATE_UNSPECIFIED',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Removes an account as a matter collaborator. */
     await gapi.client.vault.matters.removePermissions(
@@ -189,12 +191,12 @@ gapi.load('client', async () => {
         matterPermissions: [
           {
             accountId: 'Test string',
-            role: 'Test string',
+            role: 'ROLE_UNSPECIFIED',
           },
         ],
-        matterRegion: 'Test string',
+        matterRegion: 'MATTER_REGION_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates an export. */
@@ -216,32 +218,32 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         exportOptions: {
           calendarOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
           driveOptions: {
             includeAccessInfo: true,
           },
           geminiInWorkspaceOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
           geminiOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
           groupsOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
           hangoutsChatOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
           mailOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
             exportLinkedDriveFiles: true,
             showConfidentialModeContent: true,
             useNewExport: true,
           },
-          region: 'Test string',
+          region: 'EXPORT_REGION_UNSPECIFIED',
           voiceOptions: {
-            exportFormat: 'Test string',
+            exportFormat: 'EXPORT_FORMAT_UNSPECIFIED',
           },
         },
         id: 'Test string',
@@ -256,21 +258,22 @@ gapi.load('client', async () => {
             locationQuery: ['Test string'],
             minusWords: ['Test string'],
             peopleQuery: ['Test string'],
-            responseStatuses: ['Test string'],
+            responseStatuses: ['ATTENDEE_RESPONSE_UNSPECIFIED'],
             versionDate: 'Test string',
           },
-          corpus: 'Test string',
-          dataScope: 'Test string',
+          corpus: 'CORPUS_TYPE_UNSPECIFIED',
+          dataScope: 'DATA_SCOPE_UNSPECIFIED',
           driveDocumentInfo: {
             documentIds: {
               ids: ['Test string'],
             },
           },
           driveOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             includeSharedDrives: true,
             includeTeamDrives: true,
-            sharedDrivesOption: 'Test string',
+            sharedDrivesOption: 'SHARED_DRIVES_OPTION_UNSPECIFIED',
             versionDate: 'Test string',
           },
           endTime: 'Test string',
@@ -283,14 +286,15 @@ gapi.load('client', async () => {
             includeRooms: true,
           },
           mailOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             excludeDrafts: true,
           },
-          method: 'Test string',
+          method: 'SEARCH_METHOD_UNSPECIFIED',
           orgUnitInfo: {
             orgUnitId: 'Test string',
           },
-          searchMethod: 'Test string',
+          searchMethod: 'SEARCH_METHOD_UNSPECIFIED',
           sharedDriveInfo: {
             sharedDriveIds: ['Test string'],
           },
@@ -304,7 +308,7 @@ gapi.load('client', async () => {
           terms: 'Test string',
           timeZone: 'Test string',
           voiceOptions: {
-            coveredData: ['Test string'],
+            coveredData: ['COVERED_DATA_UNSPECIFIED'],
           },
         },
         requester: {
@@ -316,7 +320,7 @@ gapi.load('client', async () => {
           sizeInBytes: 'Test string',
           totalArtifactCount: 'Test string',
         },
-        status: 'Test string',
+        status: 'EXPORT_STATUS_UNSPECIFIED',
       },
     );
     /** Deletes an export. */
@@ -361,7 +365,7 @@ gapi.load('client', async () => {
             lastName: 'Test string',
           },
         ],
-        corpus: 'Test string',
+        corpus: 'CORPUS_TYPE_UNSPECIFIED',
         holdId: 'Test string',
         name: 'Test string',
         orgUnit: {
@@ -389,7 +393,7 @@ gapi.load('client', async () => {
             terms: 'Test string',
           },
           voiceQuery: {
-            coveredData: ['Test string'],
+            coveredData: ['COVERED_DATA_UNSPECIFIED'],
           },
         },
         updateTime: 'Test string',
@@ -404,14 +408,14 @@ gapi.load('client', async () => {
     await gapi.client.vault.matters.holds.get({
       holdId: 'Test string',
       matterId: 'Test string',
-      view: 'Test string',
+      view: 'HOLD_VIEW_UNSPECIFIED',
     });
     /** Lists the holds in a matter. */
     await gapi.client.vault.matters.holds.list({
       matterId: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'HOLD_VIEW_UNSPECIFIED',
     });
     /** Removes the specified accounts from a hold. Returns a list of statuses in the same order as the request. */
     await gapi.client.vault.matters.holds.removeHeldAccounts(
@@ -439,7 +443,7 @@ gapi.load('client', async () => {
             lastName: 'Test string',
           },
         ],
-        corpus: 'Test string',
+        corpus: 'CORPUS_TYPE_UNSPECIFIED',
         holdId: 'Test string',
         name: 'Test string',
         orgUnit: {
@@ -467,7 +471,7 @@ gapi.load('client', async () => {
             terms: 'Test string',
           },
           voiceQuery: {
-            coveredData: ['Test string'],
+            coveredData: ['COVERED_DATA_UNSPECIFIED'],
           },
         },
         updateTime: 'Test string',
@@ -515,21 +519,22 @@ gapi.load('client', async () => {
             locationQuery: ['Test string'],
             minusWords: ['Test string'],
             peopleQuery: ['Test string'],
-            responseStatuses: ['Test string'],
+            responseStatuses: ['ATTENDEE_RESPONSE_UNSPECIFIED'],
             versionDate: 'Test string',
           },
-          corpus: 'Test string',
-          dataScope: 'Test string',
+          corpus: 'CORPUS_TYPE_UNSPECIFIED',
+          dataScope: 'DATA_SCOPE_UNSPECIFIED',
           driveDocumentInfo: {
             documentIds: {
               ids: ['Test string'],
             },
           },
           driveOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             includeSharedDrives: true,
             includeTeamDrives: true,
-            sharedDrivesOption: 'Test string',
+            sharedDrivesOption: 'SHARED_DRIVES_OPTION_UNSPECIFIED',
             versionDate: 'Test string',
           },
           endTime: 'Test string',
@@ -542,14 +547,15 @@ gapi.load('client', async () => {
             includeRooms: true,
           },
           mailOptions: {
-            clientSideEncryptedOption: 'Test string',
+            clientSideEncryptedOption:
+              'CLIENT_SIDE_ENCRYPTED_OPTION_UNSPECIFIED',
             excludeDrafts: true,
           },
-          method: 'Test string',
+          method: 'SEARCH_METHOD_UNSPECIFIED',
           orgUnitInfo: {
             orgUnitId: 'Test string',
           },
-          searchMethod: 'Test string',
+          searchMethod: 'SEARCH_METHOD_UNSPECIFIED',
           sharedDriveInfo: {
             sharedDriveIds: ['Test string'],
           },
@@ -563,7 +569,7 @@ gapi.load('client', async () => {
           terms: 'Test string',
           timeZone: 'Test string',
           voiceOptions: {
-            coveredData: ['Test string'],
+            coveredData: ['COVERED_DATA_UNSPECIFIED'],
           },
         },
         savedQueryId: 'Test string',

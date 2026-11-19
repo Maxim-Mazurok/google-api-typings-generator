@@ -95,14 +95,14 @@ gapi.load('client', async () => {
         executionTemplate: {
           acceleratorConfig: {
             coreCount: 'Test string',
-            type: 'Test string',
+            type: 'SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED',
           },
           containerImageUri: 'Test string',
           dataprocParameters: {
             cluster: 'Test string',
           },
           inputNotebookFile: 'Test string',
-          jobType: 'Test string',
+          jobType: 'JOB_TYPE_UNSPECIFIED',
           kernelSpec: 'Test string',
           labels: {
             A: 'Test string',
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
           outputNotebookFolder: 'Test string',
           parameters: 'Test string',
           paramsYamlFile: 'Test string',
-          scaleTier: 'Test string',
+          scaleTier: 'SCALE_TIER_UNSPECIFIED',
           serviceAccount: 'Test string',
           tensorboard: 'Test string',
           vertexAiParameters: {
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
         jobUri: 'Test string',
         name: 'Test string',
         outputNotebookFile: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -153,10 +153,10 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           coreCount: 'Test string',
-          type: 'Test string',
+          type: 'ACCELERATOR_TYPE_UNSPECIFIED',
         },
         bootDiskSizeGb: 'Test string',
-        bootDiskType: 'Test string',
+        bootDiskType: 'DISK_TYPE_UNSPECIFIED',
         canIpForward: true,
         containerImage: {
           repository: 'Test string',
@@ -166,8 +166,8 @@ gapi.load('client', async () => {
         creator: 'Test string',
         customGpuDriverPath: 'Test string',
         dataDiskSizeGb: 'Test string',
-        dataDiskType: 'Test string',
-        diskEncryption: 'Test string',
+        dataDiskType: 'DISK_TYPE_UNSPECIFIED',
+        diskEncryption: 'DISK_ENCRYPTION_UNSPECIFIED',
         disks: [
           {
             autoDelete: true,
@@ -190,8 +190,8 @@ gapi.load('client', async () => {
         ],
         installGpuDriver: true,
         instanceMigrationEligibility: {
-          errors: ['Test string'],
-          warnings: ['Test string'],
+          errors: ['ERROR_UNSPECIFIED'],
+          warnings: ['WARNING_UNSPECIFIED'],
         },
         instanceOwners: ['Test string'],
         kmsKey: 'Test string',
@@ -205,14 +205,14 @@ gapi.load('client', async () => {
         migrated: true,
         name: 'Test string',
         network: 'Test string',
-        nicType: 'Test string',
+        nicType: 'UNSPECIFIED_NIC_TYPE',
         noProxyAccess: true,
         noPublicIp: true,
         noRemoveDataDisk: true,
         postStartupScript: 'Test string',
         proxyUri: 'Test string',
         reservationAffinity: {
-          consumeReservationType: 'Test string',
+          consumeReservationType: 'TYPE_UNSPECIFIED',
           key: 'Test string',
           values: ['Test string'],
         },
@@ -223,18 +223,18 @@ gapi.load('client', async () => {
           enableSecureBoot: true,
           enableVtpm: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subnet: 'Test string',
         tags: ['Test string'],
         updateTime: 'Test string',
         upgradeHistory: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             containerImage: 'Test string',
             createTime: 'Test string',
             framework: 'Test string',
             snapshot: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             targetImage: 'Test string',
             targetVersion: 'Test string',
             version: 'Test string',
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
     /** Checks whether a notebook instance is upgradable. */
     await gapi.client.notebooks.projects.locations.instances.isUpgradeable({
       notebookInstance: 'Test string',
-      type: 'Test string',
+      type: 'UPGRADE_TYPE_UNSPECIFIED',
     });
     /** Lists instances in a given project and location. */
     await gapi.client.notebooks.projects.locations.instances.list({
@@ -300,7 +300,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        postStartupScriptOption: 'Test string',
+        postStartupScriptOption: 'POST_STARTUP_SCRIPT_OPTION_UNSPECIFIED',
       },
     );
     /** Registers an existing legacy notebook instance to the Notebooks API server. Legacy instances are instances created with the legacy Compute Engine calls. They are not manageable by the Notebooks API out of the box. This call makes these instances manageable by the Notebooks API. */
@@ -335,7 +335,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           reportTime: 'Test string',
-          type: 'Test string',
+          type: 'EVENT_TYPE_UNSPECIFIED',
         },
         vmId: 'Test string',
       },
@@ -363,7 +363,7 @@ gapi.load('client', async () => {
       },
       {
         coreCount: 'Test string',
-        type: 'Test string',
+        type: 'ACCELERATOR_TYPE_UNSPECIFIED',
       },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
@@ -475,7 +475,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        type: 'Test string',
+        type: 'UPGRADE_TYPE_UNSPECIFIED',
       },
     );
     /** Allows notebook instances to call this endpoint to upgrade themselves. Do not use this method directly. */
@@ -484,7 +484,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        type: 'Test string',
+        type: 'UPGRADE_TYPE_UNSPECIFIED',
         vmId: 'Test string',
       },
     );
@@ -520,12 +520,12 @@ gapi.load('client', async () => {
       },
       {
         accessConfig: {
-          accessType: 'Test string',
+          accessType: 'RUNTIME_ACCESS_TYPE_UNSPECIFIED',
           proxyUri: 'Test string',
           runtimeOwner: 'Test string',
         },
         createTime: 'Test string',
-        healthState: 'Test string',
+        healthState: 'HEALTH_STATE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -537,8 +537,8 @@ gapi.load('client', async () => {
         migrated: true,
         name: 'Test string',
         runtimeMigrationEligibility: {
-          errors: ['Test string'],
-          warnings: ['Test string'],
+          errors: ['ERROR_UNSPECIFIED'],
+          warnings: ['WARNING_UNSPECIFIED'],
         },
         softwareConfig: {
           customGpuDriverPath: 'Test string',
@@ -556,11 +556,11 @@ gapi.load('client', async () => {
           mixerDisabled: true,
           notebookUpgradeSchedule: 'Test string',
           postStartupScript: 'Test string',
-          postStartupScriptBehavior: 'Test string',
+          postStartupScriptBehavior: 'POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED',
           upgradeable: true,
           version: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         virtualMachine: {
           instanceId: 'Test string',
@@ -568,7 +568,7 @@ gapi.load('client', async () => {
           virtualMachineConfig: {
             acceleratorConfig: {
               coreCount: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             bootImage: {},
             containerImages: [
@@ -591,7 +591,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
-                diskType: 'Test string',
+                diskType: 'DISK_TYPE_UNSPECIFIED',
                 labels: {
                   A: 'Test string',
                 },
@@ -618,7 +618,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             network: 'Test string',
-            nicType: 'Test string',
+            nicType: 'UNSPECIFIED_NIC_TYPE',
             reservedIpRange: 'Test string',
             shieldedInstanceConfig: {
               enableIntegrityMonitoring: true,
@@ -677,7 +677,7 @@ gapi.load('client', async () => {
       },
       {
         network: 'Test string',
-        postStartupScriptOption: 'Test string',
+        postStartupScriptOption: 'POST_STARTUP_SCRIPT_OPTION_UNSPECIFIED',
         requestId: 'Test string',
         serviceAccount: 'Test string',
         subnet: 'Test string',
@@ -692,12 +692,12 @@ gapi.load('client', async () => {
       },
       {
         accessConfig: {
-          accessType: 'Test string',
+          accessType: 'RUNTIME_ACCESS_TYPE_UNSPECIFIED',
           proxyUri: 'Test string',
           runtimeOwner: 'Test string',
         },
         createTime: 'Test string',
-        healthState: 'Test string',
+        healthState: 'HEALTH_STATE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -709,8 +709,8 @@ gapi.load('client', async () => {
         migrated: true,
         name: 'Test string',
         runtimeMigrationEligibility: {
-          errors: ['Test string'],
-          warnings: ['Test string'],
+          errors: ['ERROR_UNSPECIFIED'],
+          warnings: ['WARNING_UNSPECIFIED'],
         },
         softwareConfig: {
           customGpuDriverPath: 'Test string',
@@ -728,11 +728,11 @@ gapi.load('client', async () => {
           mixerDisabled: true,
           notebookUpgradeSchedule: 'Test string',
           postStartupScript: 'Test string',
-          postStartupScriptBehavior: 'Test string',
+          postStartupScriptBehavior: 'POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED',
           upgradeable: true,
           version: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         virtualMachine: {
           instanceId: 'Test string',
@@ -740,7 +740,7 @@ gapi.load('client', async () => {
           virtualMachineConfig: {
             acceleratorConfig: {
               coreCount: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             bootImage: {},
             containerImages: [
@@ -763,7 +763,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 diskName: 'Test string',
                 diskSizeGb: 'Test string',
-                diskType: 'Test string',
+                diskType: 'DISK_TYPE_UNSPECIFIED',
                 labels: {
                   A: 'Test string',
                 },
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             network: 'Test string',
-            nicType: 'Test string',
+            nicType: 'UNSPECIFIED_NIC_TYPE',
             reservedIpRange: 'Test string',
             shieldedInstanceConfig: {
               enableIntegrityMonitoring: true,
@@ -824,7 +824,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           reportTime: 'Test string',
-          type: 'Test string',
+          type: 'EVENT_TYPE_UNSPECIFIED',
         },
         vmId: 'Test string',
       },
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           coreCount: 'Test string',
-          type: 'Test string',
+          type: 'ACCELERATOR_TYPE_UNSPECIFIED',
         },
         machineType: 'Test string',
         requestId: 'Test string',
@@ -926,14 +926,14 @@ gapi.load('client', async () => {
         executionTemplate: {
           acceleratorConfig: {
             coreCount: 'Test string',
-            type: 'Test string',
+            type: 'SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED',
           },
           containerImageUri: 'Test string',
           dataprocParameters: {
             cluster: 'Test string',
           },
           inputNotebookFile: 'Test string',
-          jobType: 'Test string',
+          jobType: 'JOB_TYPE_UNSPECIFIED',
           kernelSpec: 'Test string',
           labels: {
             A: 'Test string',
@@ -942,7 +942,7 @@ gapi.load('client', async () => {
           outputNotebookFolder: 'Test string',
           parameters: 'Test string',
           paramsYamlFile: 'Test string',
-          scaleTier: 'Test string',
+          scaleTier: 'SCALE_TIER_UNSPECIFIED',
           serviceAccount: 'Test string',
           tensorboard: 'Test string',
           vertexAiParameters: {
@@ -961,14 +961,14 @@ gapi.load('client', async () => {
             executionTemplate: {
               acceleratorConfig: {
                 coreCount: 'Test string',
-                type: 'Test string',
+                type: 'SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED',
               },
               containerImageUri: 'Test string',
               dataprocParameters: {
                 cluster: 'Test string',
               },
               inputNotebookFile: 'Test string',
-              jobType: 'Test string',
+              jobType: 'JOB_TYPE_UNSPECIFIED',
               kernelSpec: 'Test string',
               labels: {
                 A: 'Test string',
@@ -977,7 +977,7 @@ gapi.load('client', async () => {
               outputNotebookFolder: 'Test string',
               parameters: 'Test string',
               paramsYamlFile: 'Test string',
-              scaleTier: 'Test string',
+              scaleTier: 'SCALE_TIER_UNSPECIFIED',
               serviceAccount: 'Test string',
               tensorboard: 'Test string',
               vertexAiParameters: {
@@ -990,11 +990,11 @@ gapi.load('client', async () => {
             jobUri: 'Test string',
             name: 'Test string',
             outputNotebookFile: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         timeZone: 'Test string',
         updateTime: 'Test string',
       },

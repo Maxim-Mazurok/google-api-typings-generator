@@ -104,7 +104,7 @@ gapi.load('client', async () => {
           realtimeDatabaseInstance: 'Test string',
           storageBucket: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Unlinks the specified FirebaseProject from its Google Analytics account. This call removes the association of the specified `FirebaseProject` with its current Google Analytics property. However, this call does not delete the Google Analytics resources, such as the Google Analytics property or any data streams. These resources may be re-associated later to the `FirebaseProject` by calling [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) and specifying the same `analyticsPropertyId`. For Android Apps and iOS Apps, this call re-links data streams with their corresponding apps. However, for Web Apps, this call provisions a *new* data stream for each Web App. To call `RemoveAnalytics`, a project member must be an Owner for the `FirebaseProject`. */
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         sha1Hashes: ['Test string'],
         sha256Hashes: ['Test string'],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets the specified AndroidApp. */
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         sha1Hashes: ['Test string'],
         sha256Hashes: ['Test string'],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Removes the specified AndroidApp from the FirebaseProject. */
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        certType: 'Test string',
+        certType: 'SHA_CERTIFICATE_TYPE_UNSPECIFIED',
         name: 'Test string',
         shaHash: 'Test string',
       },
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         teamId: 'Test string',
       },
     );
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
         expireTime: 'Test string',
         name: 'Test string',
         projectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         teamId: 'Test string',
       },
     );
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         projectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         webId: 'Test string',
       },
     );
@@ -364,7 +364,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         projectId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         webId: 'Test string',
       },
     );

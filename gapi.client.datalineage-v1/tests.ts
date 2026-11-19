@@ -50,7 +50,7 @@ gapi.load('client', async () => {
           rules: [
             {
               integrationSelector: {
-                integration: 'Test string',
+                integration: 'INTEGRATION_UNSPECIFIED',
               },
               lineageEnablement: {
                 enabled: true,
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
           rules: [
             {
               integrationSelector: {
-                integration: 'Test string',
+                integration: 'INTEGRATION_UNSPECIFIED',
               },
               lineageEnablement: {
                 enabled: true,
@@ -111,10 +111,10 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        direction: 'Test string',
+        direction: 'SEARCH_DIRECTION_UNSPECIFIED',
         filters: {
-          dependencyTypes: ['Test string'],
-          entitySet: 'Test string',
+          dependencyTypes: ['DEPENDENCY_TYPE_UNSPECIFIED'],
+          entitySet: 'ENTITY_SET_UNSPECIFIED',
           projects: ['Test string'],
           timeRange: {
             endTime: 'Test string',
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
           rules: [
             {
               integrationSelector: {
-                integration: 'Test string',
+                integration: 'INTEGRATION_UNSPECIFIED',
               },
               lineageEnablement: {
                 enabled: true,
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         origin: {
           name: 'Test string',
-          sourceType: 'Test string',
+          sourceType: 'SOURCE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -271,7 +271,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         origin: {
           name: 'Test string',
-          sourceType: 'Test string',
+          sourceType: 'SOURCE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -289,7 +289,7 @@ gapi.load('client', async () => {
         endTime: 'Test string',
         name: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'UNKNOWN',
       },
     );
     /** Deletes the run with the specified name. */
@@ -322,7 +322,7 @@ gapi.load('client', async () => {
         endTime: 'Test string',
         name: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'UNKNOWN',
       },
     );
     /** Creates a new lineage event. */
@@ -336,7 +336,7 @@ gapi.load('client', async () => {
         links: [
           {
             dependencyInfo: {
-              dependencyType: 'Test string',
+              dependencyType: 'DEPENDENCY_TYPE_UNSPECIFIED',
             },
             source: {
               field: ['Test string'],

@@ -334,1512 +334,8 @@ declare namespace gapi.client {
       /** URI pattern of the channel. Does not include "http://" or "https://". Example: www.example.com/home */
       uriPattern?: string;
     }
-    interface AdunitsResource {
-      /** Creates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. Note that ad units can only be created for ad clients with an "AFC" product code. For more info see the [AdClient resource](/adsense/management/reference/rest/v2/accounts.adclients). For now, this method can only be used to create `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. Ad client to create an ad unit under. Format: accounts/{account}/adclients/{adclient} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: AdUnit;
-      }): Request<AdUnit>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. Ad client to create an ad unit under. Format: accounts/{account}/adclients/{adclient} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: AdUnit,
-      ): Request<AdUnit>;
-      /** Gets an ad unit from a specified account and ad client. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. AdUnit to get information about. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<AdUnit>;
-      /** Gets the ad unit code for a given ad unit. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634) and [Where to place the ad code in your HTML](https://support.google.com/adsense/answer/9190028). */
-      getAdcode(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the adunit for which to get the adcode. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<AdUnitAdCode>;
-      /** Lists all ad units under a specified account and ad client. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of ad units to include in the response, used for paging. If unspecified, at most 10000 ad units will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListAdUnits` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListAdUnits` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The ad client which owns the collection of ad units. Format: accounts/{account}/adclients/{adclient} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListAdUnitsResponse>;
-      /** Lists all the custom channels available for an ad unit. */
-      listLinkedCustomChannels(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of custom channels to include in the response, used for paging. If unspecified, at most 10000 custom channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListLinkedCustomChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListLinkedCustomChannels` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The ad unit which owns the collection of custom channels. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListLinkedCustomChannelsResponse>;
-      /** Updates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. For now, this method can only be used to update `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Output only. Resource name of the ad unit. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The list of fields to update. If empty, a full update is performed. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: AdUnit;
-      }): Request<AdUnit>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Output only. Resource name of the ad unit. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The list of fields to update. If empty, a full update is performed. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: AdUnit,
-      ): Request<AdUnit>;
-    }
-    interface CustomchannelsResource {
-      /** Creates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The ad client to create a custom channel under. Format: accounts/{account}/adclients/{adclient} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CustomChannel;
-      }): Request<CustomChannel>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The ad client to create a custom channel under. Format: accounts/{account}/adclients/{adclient} */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CustomChannel,
-      ): Request<CustomChannel>;
-      /** Deletes a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the custom channel to delete. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Gets information about the selected custom channel. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CustomChannel>;
-      /** Lists all the custom channels available in an ad client. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of custom channels to include in the response, used for paging. If unspecified, at most 10000 custom channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListCustomChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListCustomChannels` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The ad client which owns the collection of custom channels. Format: accounts/{account}/adclients/{adclient} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListCustomChannelsResponse>;
-      /** Lists all the ad units available for a custom channel. */
-      listLinkedAdUnits(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of ad units to include in the response, used for paging. If unspecified, at most 10000 ad units will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListLinkedAdUnits` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListLinkedAdUnits` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The custom channel which owns the collection of ad units. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListLinkedAdUnitsResponse>;
-      /** Updates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Output only. Resource name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The list of fields to update. If empty, a full update is performed. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CustomChannel;
-      }): Request<CustomChannel>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Output only. Resource name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The list of fields to update. If empty, a full update is performed. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CustomChannel,
-      ): Request<CustomChannel>;
-    }
-    interface UrlchannelsResource {
-      /** Gets information about the selected url channel. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the url channel to retrieve. Format: accounts/{account}/adclients/{adclient}/urlchannels/{urlchannel} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<UrlChannel>;
-      /** Lists active url channels. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of url channels to include in the response, used for paging. If unspecified, at most 10000 url channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListUrlChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListUrlChannels` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The ad client which owns the collection of url channels. Format: accounts/{account}/adclients/{adclient} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListUrlChannelsResponse>;
-    }
-    interface AdclientsResource {
-      /** Gets the ad client from the given resource name. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the ad client to retrieve. Format: accounts/{account}/adclients/{adclient} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<AdClient>;
-      /** Gets the AdSense code for a given ad client. This returns what was previously known as the 'auto ad code'. This is only supported for ad clients with a product_code of AFC. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634). */
-      getAdcode(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the ad client for which to get the adcode. Format: accounts/{account}/adclients/{adclient} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<AdClientAdCode>;
-      /** Lists all the ad clients available in an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of ad clients to include in the response, used for paging. If unspecified, at most 10000 ad clients will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListAdClients` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListAdClients` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The account which owns the collection of ad clients. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListAdClientsResponse>;
-      adunits: AdunitsResource;
-      customchannels: CustomchannelsResource;
-      urlchannels: UrlchannelsResource;
-    }
-    interface AlertsResource {
-      /** Lists all the alerts available in an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The language to use for translating alert messages. If unspecified, this defaults to the user's display language. If the given language is not supported, alerts will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
-        languageCode?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The account which owns the collection of alerts. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListAlertsResponse>;
-    }
-    interface PaymentsResource {
-      /** Lists all the payments available for an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The account which owns the collection of payments. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPaymentsResponse>;
-    }
-    interface PolicyIssuesResource {
-      /** Gets information about the selected policy issue. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the policy issue. Format: accounts/{account}/policyIssues/{policy_issue} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PolicyIssue>;
-      /** Lists all the policy issues where the specified account is involved, both directly and through any AFP child accounts. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of policy issues to include in the response, used for paging. If unspecified, at most 10000 policy issues will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListPolicyIssues` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPolicyIssues` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The account for which policy issues are being retrieved. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListPolicyIssuesResponse>;
-    }
-    interface SavedResource {
-      /** Generates a saved report. */
-      generate(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
-        currencyCode?: string;
-        /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?:
-          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
-          | 'CUSTOM'
-          | 'TODAY'
-          | 'YESTERDAY'
-          | 'MONTH_TO_DATE'
-          | 'YEAR_TO_DATE'
-          | 'LAST_7_DAYS'
-          | 'LAST_30_DAYS';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'endDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'endDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'endDate.year'?: number;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
-        languageCode?: string;
-        /** Required. Name of the saved report. Format: accounts/{account}/reports/{report} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?:
-          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
-          | 'ACCOUNT_TIME_ZONE'
-          | 'GOOGLE_TIME_ZONE';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'startDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'startDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'startDate.year'?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ReportResult>;
-      /** Generates a csv formatted saved report. */
-      generateCsv(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
-        currencyCode?: string;
-        /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?:
-          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
-          | 'CUSTOM'
-          | 'TODAY'
-          | 'YESTERDAY'
-          | 'MONTH_TO_DATE'
-          | 'YEAR_TO_DATE'
-          | 'LAST_7_DAYS'
-          | 'LAST_30_DAYS';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'endDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'endDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'endDate.year'?: number;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
-        languageCode?: string;
-        /** Required. Name of the saved report. Format: accounts/{account}/reports/{report} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?:
-          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
-          | 'ACCOUNT_TIME_ZONE'
-          | 'GOOGLE_TIME_ZONE';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'startDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'startDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'startDate.year'?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<HttpBody>;
-      /** Lists saved reports. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of reports to include in the response, used for paging. If unspecified, at most 10000 reports will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListSavedReports` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSavedReports` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The account which owns the collection of reports. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListSavedReportsResponse>;
-    }
-    interface ReportsResource {
-      /** Generates an ad hoc report. */
-      generate(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Required. The account which owns the collection of reports. Format: accounts/{account} */
-        account: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
-        currencyCode?: string;
-        /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?:
-          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
-          | 'CUSTOM'
-          | 'TODAY'
-          | 'YESTERDAY'
-          | 'MONTH_TO_DATE'
-          | 'YEAR_TO_DATE'
-          | 'LAST_7_DAYS'
-          | 'LAST_30_DAYS';
-        /** Dimensions to base the report on. */
-        dimensions?:
-          | 'DIMENSION_UNSPECIFIED'
-          | 'DATE'
-          | 'WEEK'
-          | 'MONTH'
-          | 'ACCOUNT_NAME'
-          | 'AD_CLIENT_ID'
-          | 'HOSTED_AD_CLIENT_ID'
-          | 'PRODUCT_NAME'
-          | 'PRODUCT_CODE'
-          | 'AD_UNIT_NAME'
-          | 'AD_UNIT_ID'
-          | 'AD_UNIT_SIZE_NAME'
-          | 'AD_UNIT_SIZE_CODE'
-          | 'CUSTOM_CHANNEL_NAME'
-          | 'CUSTOM_CHANNEL_ID'
-          | 'HOSTED_CUSTOM_CHANNEL_ID'
-          | 'OWNED_SITE_DOMAIN_NAME'
-          | 'OWNED_SITE_ID'
-          | 'PAGE_URL'
-          | 'URL_CHANNEL_NAME'
-          | 'URL_CHANNEL_ID'
-          | 'BUYER_NETWORK_NAME'
-          | 'BUYER_NETWORK_ID'
-          | 'BID_TYPE_NAME'
-          | 'BID_TYPE_CODE'
-          | 'CREATIVE_SIZE_NAME'
-          | 'CREATIVE_SIZE_CODE'
-          | 'DOMAIN_NAME'
-          | 'DOMAIN_CODE'
-          | 'COUNTRY_NAME'
-          | 'COUNTRY_CODE'
-          | 'PLATFORM_TYPE_NAME'
-          | 'PLATFORM_TYPE_CODE'
-          | 'TARGETING_TYPE_NAME'
-          | 'TARGETING_TYPE_CODE'
-          | 'TRAFFIC_SOURCE_NAME'
-          | 'TRAFFIC_SOURCE_CODE'
-          | 'CONTENT_PLATFORM_NAME'
-          | 'CONTENT_PLATFORM_CODE'
-          | 'AD_PLACEMENT_NAME'
-          | 'AD_PLACEMENT_CODE'
-          | 'REQUESTED_AD_TYPE_NAME'
-          | 'REQUESTED_AD_TYPE_CODE'
-          | 'SERVED_AD_TYPE_NAME'
-          | 'SERVED_AD_TYPE_CODE'
-          | 'AD_FORMAT_NAME'
-          | 'AD_FORMAT_CODE'
-          | 'CUSTOM_SEARCH_STYLE_NAME'
-          | 'CUSTOM_SEARCH_STYLE_ID'
-          | 'DOMAIN_REGISTRANT'
-          | 'WEBSEARCH_QUERY_STRING'
-          | 'OS_TYPE_NAME'
-          | 'OS_TYPE_CODE'
-          | 'BROWSER_TYPE_NAME'
-          | 'BROWSER_TYPE_CODE'
-          | 'WEBVIEW_TYPE_NAME'
-          | 'WEBVIEW_TYPE_CODE'
-          | (
-              | 'DIMENSION_UNSPECIFIED'
-              | 'DATE'
-              | 'WEEK'
-              | 'MONTH'
-              | 'ACCOUNT_NAME'
-              | 'AD_CLIENT_ID'
-              | 'HOSTED_AD_CLIENT_ID'
-              | 'PRODUCT_NAME'
-              | 'PRODUCT_CODE'
-              | 'AD_UNIT_NAME'
-              | 'AD_UNIT_ID'
-              | 'AD_UNIT_SIZE_NAME'
-              | 'AD_UNIT_SIZE_CODE'
-              | 'CUSTOM_CHANNEL_NAME'
-              | 'CUSTOM_CHANNEL_ID'
-              | 'HOSTED_CUSTOM_CHANNEL_ID'
-              | 'OWNED_SITE_DOMAIN_NAME'
-              | 'OWNED_SITE_ID'
-              | 'PAGE_URL'
-              | 'URL_CHANNEL_NAME'
-              | 'URL_CHANNEL_ID'
-              | 'BUYER_NETWORK_NAME'
-              | 'BUYER_NETWORK_ID'
-              | 'BID_TYPE_NAME'
-              | 'BID_TYPE_CODE'
-              | 'CREATIVE_SIZE_NAME'
-              | 'CREATIVE_SIZE_CODE'
-              | 'DOMAIN_NAME'
-              | 'DOMAIN_CODE'
-              | 'COUNTRY_NAME'
-              | 'COUNTRY_CODE'
-              | 'PLATFORM_TYPE_NAME'
-              | 'PLATFORM_TYPE_CODE'
-              | 'TARGETING_TYPE_NAME'
-              | 'TARGETING_TYPE_CODE'
-              | 'TRAFFIC_SOURCE_NAME'
-              | 'TRAFFIC_SOURCE_CODE'
-              | 'CONTENT_PLATFORM_NAME'
-              | 'CONTENT_PLATFORM_CODE'
-              | 'AD_PLACEMENT_NAME'
-              | 'AD_PLACEMENT_CODE'
-              | 'REQUESTED_AD_TYPE_NAME'
-              | 'REQUESTED_AD_TYPE_CODE'
-              | 'SERVED_AD_TYPE_NAME'
-              | 'SERVED_AD_TYPE_CODE'
-              | 'AD_FORMAT_NAME'
-              | 'AD_FORMAT_CODE'
-              | 'CUSTOM_SEARCH_STYLE_NAME'
-              | 'CUSTOM_SEARCH_STYLE_ID'
-              | 'DOMAIN_REGISTRANT'
-              | 'WEBSEARCH_QUERY_STRING'
-              | 'OS_TYPE_NAME'
-              | 'OS_TYPE_CODE'
-              | 'BROWSER_TYPE_NAME'
-              | 'BROWSER_TYPE_CODE'
-              | 'WEBVIEW_TYPE_NAME'
-              | 'WEBVIEW_TYPE_CODE'
-            )[];
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'endDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'endDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'endDate.year'?: number;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** A list of [filters](/adsense/management/reporting/filtering) to apply to the report. All provided filters must match in order for the data to be included in the report. */
-        filters?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
-        languageCode?: string;
-        /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
-        limit?: number;
-        /** Required. Reporting metrics. */
-        metrics?:
-          | 'METRIC_UNSPECIFIED'
-          | 'PAGE_VIEWS'
-          | 'AD_REQUESTS'
-          | 'MATCHED_AD_REQUESTS'
-          | 'TOTAL_IMPRESSIONS'
-          | 'IMPRESSIONS'
-          | 'INDIVIDUAL_AD_IMPRESSIONS'
-          | 'CLICKS'
-          | 'PAGE_VIEWS_SPAM_RATIO'
-          | 'AD_REQUESTS_SPAM_RATIO'
-          | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
-          | 'IMPRESSIONS_SPAM_RATIO'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
-          | 'CLICKS_SPAM_RATIO'
-          | 'AD_REQUESTS_COVERAGE'
-          | 'PAGE_VIEWS_CTR'
-          | 'AD_REQUESTS_CTR'
-          | 'MATCHED_AD_REQUESTS_CTR'
-          | 'IMPRESSIONS_CTR'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
-          | 'ACTIVE_VIEW_MEASURABILITY'
-          | 'ACTIVE_VIEW_VIEWABILITY'
-          | 'ACTIVE_VIEW_TIME'
-          | 'ESTIMATED_EARNINGS'
-          | 'PAGE_VIEWS_RPM'
-          | 'AD_REQUESTS_RPM'
-          | 'MATCHED_AD_REQUESTS_RPM'
-          | 'IMPRESSIONS_RPM'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
-          | 'COST_PER_CLICK'
-          | 'ADS_PER_IMPRESSION'
-          | 'TOTAL_EARNINGS'
-          | 'WEBSEARCH_RESULT_PAGES'
-          | 'FUNNEL_REQUESTS'
-          | 'FUNNEL_IMPRESSIONS'
-          | 'FUNNEL_CLICKS'
-          | 'FUNNEL_RPM'
-          | (
-              | 'METRIC_UNSPECIFIED'
-              | 'PAGE_VIEWS'
-              | 'AD_REQUESTS'
-              | 'MATCHED_AD_REQUESTS'
-              | 'TOTAL_IMPRESSIONS'
-              | 'IMPRESSIONS'
-              | 'INDIVIDUAL_AD_IMPRESSIONS'
-              | 'CLICKS'
-              | 'PAGE_VIEWS_SPAM_RATIO'
-              | 'AD_REQUESTS_SPAM_RATIO'
-              | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
-              | 'IMPRESSIONS_SPAM_RATIO'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
-              | 'CLICKS_SPAM_RATIO'
-              | 'AD_REQUESTS_COVERAGE'
-              | 'PAGE_VIEWS_CTR'
-              | 'AD_REQUESTS_CTR'
-              | 'MATCHED_AD_REQUESTS_CTR'
-              | 'IMPRESSIONS_CTR'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
-              | 'ACTIVE_VIEW_MEASURABILITY'
-              | 'ACTIVE_VIEW_VIEWABILITY'
-              | 'ACTIVE_VIEW_TIME'
-              | 'ESTIMATED_EARNINGS'
-              | 'PAGE_VIEWS_RPM'
-              | 'AD_REQUESTS_RPM'
-              | 'MATCHED_AD_REQUESTS_RPM'
-              | 'IMPRESSIONS_RPM'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
-              | 'COST_PER_CLICK'
-              | 'ADS_PER_IMPRESSION'
-              | 'TOTAL_EARNINGS'
-              | 'WEBSEARCH_RESULT_PAGES'
-              | 'FUNNEL_REQUESTS'
-              | 'FUNNEL_IMPRESSIONS'
-              | 'FUNNEL_CLICKS'
-              | 'FUNNEL_RPM'
-            )[];
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
-        orderBy?: string | string[];
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?:
-          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
-          | 'ACCOUNT_TIME_ZONE'
-          | 'GOOGLE_TIME_ZONE';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'startDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'startDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'startDate.year'?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ReportResult>;
-      /** Generates a csv formatted ad hoc report. */
-      generateCsv(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Required. The account which owns the collection of reports. Format: accounts/{account} */
-        account: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
-        currencyCode?: string;
-        /** Date range of the report, if unset the range will be considered CUSTOM. */
-        dateRange?:
-          | 'REPORTING_DATE_RANGE_UNSPECIFIED'
-          | 'CUSTOM'
-          | 'TODAY'
-          | 'YESTERDAY'
-          | 'MONTH_TO_DATE'
-          | 'YEAR_TO_DATE'
-          | 'LAST_7_DAYS'
-          | 'LAST_30_DAYS';
-        /** Dimensions to base the report on. */
-        dimensions?:
-          | 'DIMENSION_UNSPECIFIED'
-          | 'DATE'
-          | 'WEEK'
-          | 'MONTH'
-          | 'ACCOUNT_NAME'
-          | 'AD_CLIENT_ID'
-          | 'HOSTED_AD_CLIENT_ID'
-          | 'PRODUCT_NAME'
-          | 'PRODUCT_CODE'
-          | 'AD_UNIT_NAME'
-          | 'AD_UNIT_ID'
-          | 'AD_UNIT_SIZE_NAME'
-          | 'AD_UNIT_SIZE_CODE'
-          | 'CUSTOM_CHANNEL_NAME'
-          | 'CUSTOM_CHANNEL_ID'
-          | 'HOSTED_CUSTOM_CHANNEL_ID'
-          | 'OWNED_SITE_DOMAIN_NAME'
-          | 'OWNED_SITE_ID'
-          | 'PAGE_URL'
-          | 'URL_CHANNEL_NAME'
-          | 'URL_CHANNEL_ID'
-          | 'BUYER_NETWORK_NAME'
-          | 'BUYER_NETWORK_ID'
-          | 'BID_TYPE_NAME'
-          | 'BID_TYPE_CODE'
-          | 'CREATIVE_SIZE_NAME'
-          | 'CREATIVE_SIZE_CODE'
-          | 'DOMAIN_NAME'
-          | 'DOMAIN_CODE'
-          | 'COUNTRY_NAME'
-          | 'COUNTRY_CODE'
-          | 'PLATFORM_TYPE_NAME'
-          | 'PLATFORM_TYPE_CODE'
-          | 'TARGETING_TYPE_NAME'
-          | 'TARGETING_TYPE_CODE'
-          | 'TRAFFIC_SOURCE_NAME'
-          | 'TRAFFIC_SOURCE_CODE'
-          | 'CONTENT_PLATFORM_NAME'
-          | 'CONTENT_PLATFORM_CODE'
-          | 'AD_PLACEMENT_NAME'
-          | 'AD_PLACEMENT_CODE'
-          | 'REQUESTED_AD_TYPE_NAME'
-          | 'REQUESTED_AD_TYPE_CODE'
-          | 'SERVED_AD_TYPE_NAME'
-          | 'SERVED_AD_TYPE_CODE'
-          | 'AD_FORMAT_NAME'
-          | 'AD_FORMAT_CODE'
-          | 'CUSTOM_SEARCH_STYLE_NAME'
-          | 'CUSTOM_SEARCH_STYLE_ID'
-          | 'DOMAIN_REGISTRANT'
-          | 'WEBSEARCH_QUERY_STRING'
-          | 'OS_TYPE_NAME'
-          | 'OS_TYPE_CODE'
-          | 'BROWSER_TYPE_NAME'
-          | 'BROWSER_TYPE_CODE'
-          | 'WEBVIEW_TYPE_NAME'
-          | 'WEBVIEW_TYPE_CODE'
-          | (
-              | 'DIMENSION_UNSPECIFIED'
-              | 'DATE'
-              | 'WEEK'
-              | 'MONTH'
-              | 'ACCOUNT_NAME'
-              | 'AD_CLIENT_ID'
-              | 'HOSTED_AD_CLIENT_ID'
-              | 'PRODUCT_NAME'
-              | 'PRODUCT_CODE'
-              | 'AD_UNIT_NAME'
-              | 'AD_UNIT_ID'
-              | 'AD_UNIT_SIZE_NAME'
-              | 'AD_UNIT_SIZE_CODE'
-              | 'CUSTOM_CHANNEL_NAME'
-              | 'CUSTOM_CHANNEL_ID'
-              | 'HOSTED_CUSTOM_CHANNEL_ID'
-              | 'OWNED_SITE_DOMAIN_NAME'
-              | 'OWNED_SITE_ID'
-              | 'PAGE_URL'
-              | 'URL_CHANNEL_NAME'
-              | 'URL_CHANNEL_ID'
-              | 'BUYER_NETWORK_NAME'
-              | 'BUYER_NETWORK_ID'
-              | 'BID_TYPE_NAME'
-              | 'BID_TYPE_CODE'
-              | 'CREATIVE_SIZE_NAME'
-              | 'CREATIVE_SIZE_CODE'
-              | 'DOMAIN_NAME'
-              | 'DOMAIN_CODE'
-              | 'COUNTRY_NAME'
-              | 'COUNTRY_CODE'
-              | 'PLATFORM_TYPE_NAME'
-              | 'PLATFORM_TYPE_CODE'
-              | 'TARGETING_TYPE_NAME'
-              | 'TARGETING_TYPE_CODE'
-              | 'TRAFFIC_SOURCE_NAME'
-              | 'TRAFFIC_SOURCE_CODE'
-              | 'CONTENT_PLATFORM_NAME'
-              | 'CONTENT_PLATFORM_CODE'
-              | 'AD_PLACEMENT_NAME'
-              | 'AD_PLACEMENT_CODE'
-              | 'REQUESTED_AD_TYPE_NAME'
-              | 'REQUESTED_AD_TYPE_CODE'
-              | 'SERVED_AD_TYPE_NAME'
-              | 'SERVED_AD_TYPE_CODE'
-              | 'AD_FORMAT_NAME'
-              | 'AD_FORMAT_CODE'
-              | 'CUSTOM_SEARCH_STYLE_NAME'
-              | 'CUSTOM_SEARCH_STYLE_ID'
-              | 'DOMAIN_REGISTRANT'
-              | 'WEBSEARCH_QUERY_STRING'
-              | 'OS_TYPE_NAME'
-              | 'OS_TYPE_CODE'
-              | 'BROWSER_TYPE_NAME'
-              | 'BROWSER_TYPE_CODE'
-              | 'WEBVIEW_TYPE_NAME'
-              | 'WEBVIEW_TYPE_CODE'
-            )[];
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'endDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'endDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'endDate.year'?: number;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** A list of [filters](/adsense/management/reporting/filtering) to apply to the report. All provided filters must match in order for the data to be included in the report. */
-        filters?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
-        languageCode?: string;
-        /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
-        limit?: number;
-        /** Required. Reporting metrics. */
-        metrics?:
-          | 'METRIC_UNSPECIFIED'
-          | 'PAGE_VIEWS'
-          | 'AD_REQUESTS'
-          | 'MATCHED_AD_REQUESTS'
-          | 'TOTAL_IMPRESSIONS'
-          | 'IMPRESSIONS'
-          | 'INDIVIDUAL_AD_IMPRESSIONS'
-          | 'CLICKS'
-          | 'PAGE_VIEWS_SPAM_RATIO'
-          | 'AD_REQUESTS_SPAM_RATIO'
-          | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
-          | 'IMPRESSIONS_SPAM_RATIO'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
-          | 'CLICKS_SPAM_RATIO'
-          | 'AD_REQUESTS_COVERAGE'
-          | 'PAGE_VIEWS_CTR'
-          | 'AD_REQUESTS_CTR'
-          | 'MATCHED_AD_REQUESTS_CTR'
-          | 'IMPRESSIONS_CTR'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
-          | 'ACTIVE_VIEW_MEASURABILITY'
-          | 'ACTIVE_VIEW_VIEWABILITY'
-          | 'ACTIVE_VIEW_TIME'
-          | 'ESTIMATED_EARNINGS'
-          | 'PAGE_VIEWS_RPM'
-          | 'AD_REQUESTS_RPM'
-          | 'MATCHED_AD_REQUESTS_RPM'
-          | 'IMPRESSIONS_RPM'
-          | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
-          | 'COST_PER_CLICK'
-          | 'ADS_PER_IMPRESSION'
-          | 'TOTAL_EARNINGS'
-          | 'WEBSEARCH_RESULT_PAGES'
-          | 'FUNNEL_REQUESTS'
-          | 'FUNNEL_IMPRESSIONS'
-          | 'FUNNEL_CLICKS'
-          | 'FUNNEL_RPM'
-          | (
-              | 'METRIC_UNSPECIFIED'
-              | 'PAGE_VIEWS'
-              | 'AD_REQUESTS'
-              | 'MATCHED_AD_REQUESTS'
-              | 'TOTAL_IMPRESSIONS'
-              | 'IMPRESSIONS'
-              | 'INDIVIDUAL_AD_IMPRESSIONS'
-              | 'CLICKS'
-              | 'PAGE_VIEWS_SPAM_RATIO'
-              | 'AD_REQUESTS_SPAM_RATIO'
-              | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
-              | 'IMPRESSIONS_SPAM_RATIO'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
-              | 'CLICKS_SPAM_RATIO'
-              | 'AD_REQUESTS_COVERAGE'
-              | 'PAGE_VIEWS_CTR'
-              | 'AD_REQUESTS_CTR'
-              | 'MATCHED_AD_REQUESTS_CTR'
-              | 'IMPRESSIONS_CTR'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
-              | 'ACTIVE_VIEW_MEASURABILITY'
-              | 'ACTIVE_VIEW_VIEWABILITY'
-              | 'ACTIVE_VIEW_TIME'
-              | 'ESTIMATED_EARNINGS'
-              | 'PAGE_VIEWS_RPM'
-              | 'AD_REQUESTS_RPM'
-              | 'MATCHED_AD_REQUESTS_RPM'
-              | 'IMPRESSIONS_RPM'
-              | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
-              | 'COST_PER_CLICK'
-              | 'ADS_PER_IMPRESSION'
-              | 'TOTAL_EARNINGS'
-              | 'WEBSEARCH_RESULT_PAGES'
-              | 'FUNNEL_REQUESTS'
-              | 'FUNNEL_IMPRESSIONS'
-              | 'FUNNEL_CLICKS'
-              | 'FUNNEL_RPM'
-            )[];
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
-        orderBy?: string | string[];
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
-        reportingTimeZone?:
-          | 'REPORTING_TIME_ZONE_UNSPECIFIED'
-          | 'ACCOUNT_TIME_ZONE'
-          | 'GOOGLE_TIME_ZONE';
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'startDate.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'startDate.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'startDate.year'?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<HttpBody>;
-      /** Gets the saved report from the given resource name. */
-      getSaved(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the saved report to retrieve. Format: accounts/{account}/reports/{report} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<SavedReport>;
-      saved: SavedResource;
-    }
-    interface SitesResource {
-      /** Gets information about the selected site. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. Name of the site. Format: accounts/{account}/sites/{site} */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Site>;
-      /** Lists all the sites available in an account. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The maximum number of sites to include in the response, used for paging. If unspecified, at most 10000 sites will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
-        pageSize?: number;
-        /** A page token, received from a previous `ListSites` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSites` must match the call that provided the page token. */
-        pageToken?: string;
-        /** Required. The account which owns the collection of sites. Format: accounts/{account} */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListSitesResponse>;
-    }
-    interface AccountsResource {
+
+    const accounts: {
       /** Gets information about the selected AdSense account. */
       get(request?: {
         /** V1 error format. */
@@ -1954,14 +450,1507 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListChildAccountsResponse>;
-      adclients: AdclientsResource;
-      alerts: AlertsResource;
-      payments: PaymentsResource;
-      policyIssues: PolicyIssuesResource;
-      reports: ReportsResource;
-      sites: SitesResource;
-    }
-
-    const accounts: AccountsResource;
+      adclients: {
+        /** Gets the ad client from the given resource name. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the ad client to retrieve. Format: accounts/{account}/adclients/{adclient} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<AdClient>;
+        /** Gets the AdSense code for a given ad client. This returns what was previously known as the 'auto ad code'. This is only supported for ad clients with a product_code of AFC. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634). */
+        getAdcode(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name of the ad client for which to get the adcode. Format: accounts/{account}/adclients/{adclient} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<AdClientAdCode>;
+        /** Lists all the ad clients available in an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The maximum number of ad clients to include in the response, used for paging. If unspecified, at most 10000 ad clients will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+          pageSize?: number;
+          /** A page token, received from a previous `ListAdClients` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListAdClients` must match the call that provided the page token. */
+          pageToken?: string;
+          /** Required. The account which owns the collection of ad clients. Format: accounts/{account} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListAdClientsResponse>;
+        adunits: {
+          /** Creates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. Note that ad units can only be created for ad clients with an "AFC" product code. For more info see the [AdClient resource](/adsense/management/reference/rest/v2/accounts.adclients). For now, this method can only be used to create `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. Ad client to create an ad unit under. Format: accounts/{account}/adclients/{adclient} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: AdUnit;
+          }): Request<AdUnit>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. Ad client to create an ad unit under. Format: accounts/{account}/adclients/{adclient} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: AdUnit,
+          ): Request<AdUnit>;
+          /** Gets an ad unit from a specified account and ad client. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. AdUnit to get information about. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<AdUnit>;
+          /** Gets the ad unit code for a given ad unit. For more information, see [About the AdSense code](https://support.google.com/adsense/answer/9274634) and [Where to place the ad code in your HTML](https://support.google.com/adsense/answer/9190028). */
+          getAdcode(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Name of the adunit for which to get the adcode. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<AdUnitAdCode>;
+          /** Lists all ad units under a specified account and ad client. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of ad units to include in the response, used for paging. If unspecified, at most 10000 ad units will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListAdUnits` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListAdUnits` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The ad client which owns the collection of ad units. Format: accounts/{account}/adclients/{adclient} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListAdUnitsResponse>;
+          /** Lists all the custom channels available for an ad unit. */
+          listLinkedCustomChannels(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of custom channels to include in the response, used for paging. If unspecified, at most 10000 custom channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListLinkedCustomChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListLinkedCustomChannels` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The ad unit which owns the collection of custom channels. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListLinkedCustomChannelsResponse>;
+          /** Updates an ad unit. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. For now, this method can only be used to update `DISPLAY` ad units. See: https://support.google.com/adsense/answer/9183566 */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Output only. Resource name of the ad unit. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** The list of fields to update. If empty, a full update is performed. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: AdUnit;
+          }): Request<AdUnit>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Output only. Resource name of the ad unit. Format: accounts/{account}/adclients/{adclient}/adunits/{adunit} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** The list of fields to update. If empty, a full update is performed. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: AdUnit,
+          ): Request<AdUnit>;
+        };
+        customchannels: {
+          /** Creates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
+          create(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Required. The ad client to create a custom channel under. Format: accounts/{account}/adclients/{adclient} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CustomChannel;
+          }): Request<CustomChannel>;
+          create(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Required. The ad client to create a custom channel under. Format: accounts/{account}/adclients/{adclient} */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CustomChannel,
+          ): Request<CustomChannel>;
+          /** Deletes a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
+          delete(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Name of the custom channel to delete. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<{}>;
+          /** Gets information about the selected custom channel. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. Name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<CustomChannel>;
+          /** Lists all the custom channels available in an ad client. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of custom channels to include in the response, used for paging. If unspecified, at most 10000 custom channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListCustomChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListCustomChannels` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The ad client which owns the collection of custom channels. Format: accounts/{account}/adclients/{adclient} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListCustomChannelsResponse>;
+          /** Lists all the ad units available for a custom channel. */
+          listLinkedAdUnits(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of ad units to include in the response, used for paging. If unspecified, at most 10000 ad units will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListLinkedAdUnits` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListLinkedAdUnits` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The custom channel which owns the collection of ad units. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListLinkedAdUnitsResponse>;
+          /** Updates a custom channel. This method can be called only by a restricted set of projects, which are usually owned by [AdSense for Platforms](https://developers.google.com/adsense/platforms/) publishers. Contact your account manager if you need to use this method. */
+          patch(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Output only. Resource name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** The list of fields to update. If empty, a full update is performed. */
+            updateMask?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: CustomChannel;
+          }): Request<CustomChannel>;
+          patch(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Output only. Resource name of the custom channel. Format: accounts/{account}/adclients/{adclient}/customchannels/{customchannel} */
+              name: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** The list of fields to update. If empty, a full update is performed. */
+              updateMask?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: CustomChannel,
+          ): Request<CustomChannel>;
+        };
+        urlchannels: {
+          /** Gets information about the selected url channel. */
+          get(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Required. The name of the url channel to retrieve. Format: accounts/{account}/adclients/{adclient}/urlchannels/{urlchannel} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<UrlChannel>;
+          /** Lists active url channels. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of url channels to include in the response, used for paging. If unspecified, at most 10000 url channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListUrlChannels` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListUrlChannels` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The ad client which owns the collection of url channels. Format: accounts/{account}/adclients/{adclient} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListUrlChannelsResponse>;
+        };
+      };
+      alerts: {
+        /** Lists all the alerts available in an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The language to use for translating alert messages. If unspecified, this defaults to the user's display language. If the given language is not supported, alerts will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
+          languageCode?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The account which owns the collection of alerts. Format: accounts/{account} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListAlertsResponse>;
+      };
+      payments: {
+        /** Lists all the payments available for an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The account which owns the collection of payments. Format: accounts/{account} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListPaymentsResponse>;
+      };
+      policyIssues: {
+        /** Gets information about the selected policy issue. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name of the policy issue. Format: accounts/{account}/policyIssues/{policy_issue} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<PolicyIssue>;
+        /** Lists all the policy issues where the specified account is involved, both directly and through any AFP child accounts. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The maximum number of policy issues to include in the response, used for paging. If unspecified, at most 10000 policy issues will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+          pageSize?: number;
+          /** A page token, received from a previous `ListPolicyIssues` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPolicyIssues` must match the call that provided the page token. */
+          pageToken?: string;
+          /** Required. The account for which policy issues are being retrieved. Format: accounts/{account} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListPolicyIssuesResponse>;
+      };
+      reports: {
+        /** Generates an ad hoc report. */
+        generate(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Required. The account which owns the collection of reports. Format: accounts/{account} */
+          account: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
+          currencyCode?: string;
+          /** Date range of the report, if unset the range will be considered CUSTOM. */
+          dateRange?:
+            | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+            | 'CUSTOM'
+            | 'TODAY'
+            | 'YESTERDAY'
+            | 'MONTH_TO_DATE'
+            | 'YEAR_TO_DATE'
+            | 'LAST_7_DAYS'
+            | 'LAST_30_DAYS';
+          /** Dimensions to base the report on. */
+          dimensions?:
+            | 'DIMENSION_UNSPECIFIED'
+            | 'DATE'
+            | 'WEEK'
+            | 'MONTH'
+            | 'ACCOUNT_NAME'
+            | 'AD_CLIENT_ID'
+            | 'HOSTED_AD_CLIENT_ID'
+            | 'PRODUCT_NAME'
+            | 'PRODUCT_CODE'
+            | 'AD_UNIT_NAME'
+            | 'AD_UNIT_ID'
+            | 'AD_UNIT_SIZE_NAME'
+            | 'AD_UNIT_SIZE_CODE'
+            | 'CUSTOM_CHANNEL_NAME'
+            | 'CUSTOM_CHANNEL_ID'
+            | 'HOSTED_CUSTOM_CHANNEL_ID'
+            | 'OWNED_SITE_DOMAIN_NAME'
+            | 'OWNED_SITE_ID'
+            | 'PAGE_URL'
+            | 'URL_CHANNEL_NAME'
+            | 'URL_CHANNEL_ID'
+            | 'BUYER_NETWORK_NAME'
+            | 'BUYER_NETWORK_ID'
+            | 'BID_TYPE_NAME'
+            | 'BID_TYPE_CODE'
+            | 'CREATIVE_SIZE_NAME'
+            | 'CREATIVE_SIZE_CODE'
+            | 'DOMAIN_NAME'
+            | 'DOMAIN_CODE'
+            | 'COUNTRY_NAME'
+            | 'COUNTRY_CODE'
+            | 'PLATFORM_TYPE_NAME'
+            | 'PLATFORM_TYPE_CODE'
+            | 'TARGETING_TYPE_NAME'
+            | 'TARGETING_TYPE_CODE'
+            | 'TRAFFIC_SOURCE_NAME'
+            | 'TRAFFIC_SOURCE_CODE'
+            | 'CONTENT_PLATFORM_NAME'
+            | 'CONTENT_PLATFORM_CODE'
+            | 'AD_PLACEMENT_NAME'
+            | 'AD_PLACEMENT_CODE'
+            | 'REQUESTED_AD_TYPE_NAME'
+            | 'REQUESTED_AD_TYPE_CODE'
+            | 'SERVED_AD_TYPE_NAME'
+            | 'SERVED_AD_TYPE_CODE'
+            | 'AD_FORMAT_NAME'
+            | 'AD_FORMAT_CODE'
+            | 'CUSTOM_SEARCH_STYLE_NAME'
+            | 'CUSTOM_SEARCH_STYLE_ID'
+            | 'DOMAIN_REGISTRANT'
+            | 'WEBSEARCH_QUERY_STRING'
+            | 'OS_TYPE_NAME'
+            | 'OS_TYPE_CODE'
+            | 'BROWSER_TYPE_NAME'
+            | 'BROWSER_TYPE_CODE'
+            | 'WEBVIEW_TYPE_NAME'
+            | 'WEBVIEW_TYPE_CODE'
+            | (
+                | 'DIMENSION_UNSPECIFIED'
+                | 'DATE'
+                | 'WEEK'
+                | 'MONTH'
+                | 'ACCOUNT_NAME'
+                | 'AD_CLIENT_ID'
+                | 'HOSTED_AD_CLIENT_ID'
+                | 'PRODUCT_NAME'
+                | 'PRODUCT_CODE'
+                | 'AD_UNIT_NAME'
+                | 'AD_UNIT_ID'
+                | 'AD_UNIT_SIZE_NAME'
+                | 'AD_UNIT_SIZE_CODE'
+                | 'CUSTOM_CHANNEL_NAME'
+                | 'CUSTOM_CHANNEL_ID'
+                | 'HOSTED_CUSTOM_CHANNEL_ID'
+                | 'OWNED_SITE_DOMAIN_NAME'
+                | 'OWNED_SITE_ID'
+                | 'PAGE_URL'
+                | 'URL_CHANNEL_NAME'
+                | 'URL_CHANNEL_ID'
+                | 'BUYER_NETWORK_NAME'
+                | 'BUYER_NETWORK_ID'
+                | 'BID_TYPE_NAME'
+                | 'BID_TYPE_CODE'
+                | 'CREATIVE_SIZE_NAME'
+                | 'CREATIVE_SIZE_CODE'
+                | 'DOMAIN_NAME'
+                | 'DOMAIN_CODE'
+                | 'COUNTRY_NAME'
+                | 'COUNTRY_CODE'
+                | 'PLATFORM_TYPE_NAME'
+                | 'PLATFORM_TYPE_CODE'
+                | 'TARGETING_TYPE_NAME'
+                | 'TARGETING_TYPE_CODE'
+                | 'TRAFFIC_SOURCE_NAME'
+                | 'TRAFFIC_SOURCE_CODE'
+                | 'CONTENT_PLATFORM_NAME'
+                | 'CONTENT_PLATFORM_CODE'
+                | 'AD_PLACEMENT_NAME'
+                | 'AD_PLACEMENT_CODE'
+                | 'REQUESTED_AD_TYPE_NAME'
+                | 'REQUESTED_AD_TYPE_CODE'
+                | 'SERVED_AD_TYPE_NAME'
+                | 'SERVED_AD_TYPE_CODE'
+                | 'AD_FORMAT_NAME'
+                | 'AD_FORMAT_CODE'
+                | 'CUSTOM_SEARCH_STYLE_NAME'
+                | 'CUSTOM_SEARCH_STYLE_ID'
+                | 'DOMAIN_REGISTRANT'
+                | 'WEBSEARCH_QUERY_STRING'
+                | 'OS_TYPE_NAME'
+                | 'OS_TYPE_CODE'
+                | 'BROWSER_TYPE_NAME'
+                | 'BROWSER_TYPE_CODE'
+                | 'WEBVIEW_TYPE_NAME'
+                | 'WEBVIEW_TYPE_CODE'
+              )[];
+          /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+          'endDate.day'?: number;
+          /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+          'endDate.month'?: number;
+          /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+          'endDate.year'?: number;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** A list of [filters](/adsense/management/reporting/filtering) to apply to the report. All provided filters must match in order for the data to be included in the report. */
+          filters?: string | string[];
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
+          languageCode?: string;
+          /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
+          limit?: number;
+          /** Required. Reporting metrics. */
+          metrics?:
+            | 'METRIC_UNSPECIFIED'
+            | 'PAGE_VIEWS'
+            | 'AD_REQUESTS'
+            | 'MATCHED_AD_REQUESTS'
+            | 'TOTAL_IMPRESSIONS'
+            | 'IMPRESSIONS'
+            | 'INDIVIDUAL_AD_IMPRESSIONS'
+            | 'CLICKS'
+            | 'PAGE_VIEWS_SPAM_RATIO'
+            | 'AD_REQUESTS_SPAM_RATIO'
+            | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+            | 'IMPRESSIONS_SPAM_RATIO'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+            | 'CLICKS_SPAM_RATIO'
+            | 'AD_REQUESTS_COVERAGE'
+            | 'PAGE_VIEWS_CTR'
+            | 'AD_REQUESTS_CTR'
+            | 'MATCHED_AD_REQUESTS_CTR'
+            | 'IMPRESSIONS_CTR'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+            | 'ACTIVE_VIEW_MEASURABILITY'
+            | 'ACTIVE_VIEW_VIEWABILITY'
+            | 'ACTIVE_VIEW_TIME'
+            | 'ESTIMATED_EARNINGS'
+            | 'PAGE_VIEWS_RPM'
+            | 'AD_REQUESTS_RPM'
+            | 'MATCHED_AD_REQUESTS_RPM'
+            | 'IMPRESSIONS_RPM'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+            | 'COST_PER_CLICK'
+            | 'ADS_PER_IMPRESSION'
+            | 'TOTAL_EARNINGS'
+            | 'WEBSEARCH_RESULT_PAGES'
+            | 'FUNNEL_REQUESTS'
+            | 'FUNNEL_IMPRESSIONS'
+            | 'FUNNEL_CLICKS'
+            | 'FUNNEL_RPM'
+            | (
+                | 'METRIC_UNSPECIFIED'
+                | 'PAGE_VIEWS'
+                | 'AD_REQUESTS'
+                | 'MATCHED_AD_REQUESTS'
+                | 'TOTAL_IMPRESSIONS'
+                | 'IMPRESSIONS'
+                | 'INDIVIDUAL_AD_IMPRESSIONS'
+                | 'CLICKS'
+                | 'PAGE_VIEWS_SPAM_RATIO'
+                | 'AD_REQUESTS_SPAM_RATIO'
+                | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+                | 'IMPRESSIONS_SPAM_RATIO'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+                | 'CLICKS_SPAM_RATIO'
+                | 'AD_REQUESTS_COVERAGE'
+                | 'PAGE_VIEWS_CTR'
+                | 'AD_REQUESTS_CTR'
+                | 'MATCHED_AD_REQUESTS_CTR'
+                | 'IMPRESSIONS_CTR'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+                | 'ACTIVE_VIEW_MEASURABILITY'
+                | 'ACTIVE_VIEW_VIEWABILITY'
+                | 'ACTIVE_VIEW_TIME'
+                | 'ESTIMATED_EARNINGS'
+                | 'PAGE_VIEWS_RPM'
+                | 'AD_REQUESTS_RPM'
+                | 'MATCHED_AD_REQUESTS_RPM'
+                | 'IMPRESSIONS_RPM'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+                | 'COST_PER_CLICK'
+                | 'ADS_PER_IMPRESSION'
+                | 'TOTAL_EARNINGS'
+                | 'WEBSEARCH_RESULT_PAGES'
+                | 'FUNNEL_REQUESTS'
+                | 'FUNNEL_IMPRESSIONS'
+                | 'FUNNEL_CLICKS'
+                | 'FUNNEL_RPM'
+              )[];
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
+          orderBy?: string | string[];
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
+          reportingTimeZone?:
+            | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+            | 'ACCOUNT_TIME_ZONE'
+            | 'GOOGLE_TIME_ZONE';
+          /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+          'startDate.day'?: number;
+          /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+          'startDate.month'?: number;
+          /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+          'startDate.year'?: number;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ReportResult>;
+        /** Generates a csv formatted ad hoc report. */
+        generateCsv(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Required. The account which owns the collection of reports. Format: accounts/{account} */
+          account: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
+          currencyCode?: string;
+          /** Date range of the report, if unset the range will be considered CUSTOM. */
+          dateRange?:
+            | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+            | 'CUSTOM'
+            | 'TODAY'
+            | 'YESTERDAY'
+            | 'MONTH_TO_DATE'
+            | 'YEAR_TO_DATE'
+            | 'LAST_7_DAYS'
+            | 'LAST_30_DAYS';
+          /** Dimensions to base the report on. */
+          dimensions?:
+            | 'DIMENSION_UNSPECIFIED'
+            | 'DATE'
+            | 'WEEK'
+            | 'MONTH'
+            | 'ACCOUNT_NAME'
+            | 'AD_CLIENT_ID'
+            | 'HOSTED_AD_CLIENT_ID'
+            | 'PRODUCT_NAME'
+            | 'PRODUCT_CODE'
+            | 'AD_UNIT_NAME'
+            | 'AD_UNIT_ID'
+            | 'AD_UNIT_SIZE_NAME'
+            | 'AD_UNIT_SIZE_CODE'
+            | 'CUSTOM_CHANNEL_NAME'
+            | 'CUSTOM_CHANNEL_ID'
+            | 'HOSTED_CUSTOM_CHANNEL_ID'
+            | 'OWNED_SITE_DOMAIN_NAME'
+            | 'OWNED_SITE_ID'
+            | 'PAGE_URL'
+            | 'URL_CHANNEL_NAME'
+            | 'URL_CHANNEL_ID'
+            | 'BUYER_NETWORK_NAME'
+            | 'BUYER_NETWORK_ID'
+            | 'BID_TYPE_NAME'
+            | 'BID_TYPE_CODE'
+            | 'CREATIVE_SIZE_NAME'
+            | 'CREATIVE_SIZE_CODE'
+            | 'DOMAIN_NAME'
+            | 'DOMAIN_CODE'
+            | 'COUNTRY_NAME'
+            | 'COUNTRY_CODE'
+            | 'PLATFORM_TYPE_NAME'
+            | 'PLATFORM_TYPE_CODE'
+            | 'TARGETING_TYPE_NAME'
+            | 'TARGETING_TYPE_CODE'
+            | 'TRAFFIC_SOURCE_NAME'
+            | 'TRAFFIC_SOURCE_CODE'
+            | 'CONTENT_PLATFORM_NAME'
+            | 'CONTENT_PLATFORM_CODE'
+            | 'AD_PLACEMENT_NAME'
+            | 'AD_PLACEMENT_CODE'
+            | 'REQUESTED_AD_TYPE_NAME'
+            | 'REQUESTED_AD_TYPE_CODE'
+            | 'SERVED_AD_TYPE_NAME'
+            | 'SERVED_AD_TYPE_CODE'
+            | 'AD_FORMAT_NAME'
+            | 'AD_FORMAT_CODE'
+            | 'CUSTOM_SEARCH_STYLE_NAME'
+            | 'CUSTOM_SEARCH_STYLE_ID'
+            | 'DOMAIN_REGISTRANT'
+            | 'WEBSEARCH_QUERY_STRING'
+            | 'OS_TYPE_NAME'
+            | 'OS_TYPE_CODE'
+            | 'BROWSER_TYPE_NAME'
+            | 'BROWSER_TYPE_CODE'
+            | 'WEBVIEW_TYPE_NAME'
+            | 'WEBVIEW_TYPE_CODE'
+            | (
+                | 'DIMENSION_UNSPECIFIED'
+                | 'DATE'
+                | 'WEEK'
+                | 'MONTH'
+                | 'ACCOUNT_NAME'
+                | 'AD_CLIENT_ID'
+                | 'HOSTED_AD_CLIENT_ID'
+                | 'PRODUCT_NAME'
+                | 'PRODUCT_CODE'
+                | 'AD_UNIT_NAME'
+                | 'AD_UNIT_ID'
+                | 'AD_UNIT_SIZE_NAME'
+                | 'AD_UNIT_SIZE_CODE'
+                | 'CUSTOM_CHANNEL_NAME'
+                | 'CUSTOM_CHANNEL_ID'
+                | 'HOSTED_CUSTOM_CHANNEL_ID'
+                | 'OWNED_SITE_DOMAIN_NAME'
+                | 'OWNED_SITE_ID'
+                | 'PAGE_URL'
+                | 'URL_CHANNEL_NAME'
+                | 'URL_CHANNEL_ID'
+                | 'BUYER_NETWORK_NAME'
+                | 'BUYER_NETWORK_ID'
+                | 'BID_TYPE_NAME'
+                | 'BID_TYPE_CODE'
+                | 'CREATIVE_SIZE_NAME'
+                | 'CREATIVE_SIZE_CODE'
+                | 'DOMAIN_NAME'
+                | 'DOMAIN_CODE'
+                | 'COUNTRY_NAME'
+                | 'COUNTRY_CODE'
+                | 'PLATFORM_TYPE_NAME'
+                | 'PLATFORM_TYPE_CODE'
+                | 'TARGETING_TYPE_NAME'
+                | 'TARGETING_TYPE_CODE'
+                | 'TRAFFIC_SOURCE_NAME'
+                | 'TRAFFIC_SOURCE_CODE'
+                | 'CONTENT_PLATFORM_NAME'
+                | 'CONTENT_PLATFORM_CODE'
+                | 'AD_PLACEMENT_NAME'
+                | 'AD_PLACEMENT_CODE'
+                | 'REQUESTED_AD_TYPE_NAME'
+                | 'REQUESTED_AD_TYPE_CODE'
+                | 'SERVED_AD_TYPE_NAME'
+                | 'SERVED_AD_TYPE_CODE'
+                | 'AD_FORMAT_NAME'
+                | 'AD_FORMAT_CODE'
+                | 'CUSTOM_SEARCH_STYLE_NAME'
+                | 'CUSTOM_SEARCH_STYLE_ID'
+                | 'DOMAIN_REGISTRANT'
+                | 'WEBSEARCH_QUERY_STRING'
+                | 'OS_TYPE_NAME'
+                | 'OS_TYPE_CODE'
+                | 'BROWSER_TYPE_NAME'
+                | 'BROWSER_TYPE_CODE'
+                | 'WEBVIEW_TYPE_NAME'
+                | 'WEBVIEW_TYPE_CODE'
+              )[];
+          /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+          'endDate.day'?: number;
+          /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+          'endDate.month'?: number;
+          /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+          'endDate.year'?: number;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** A list of [filters](/adsense/management/reporting/filtering) to apply to the report. All provided filters must match in order for the data to be included in the report. */
+          filters?: string | string[];
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
+          languageCode?: string;
+          /** The maximum number of rows of report data to return. Reports producing more rows than the requested limit will be truncated. If unset, this defaults to 100,000 rows for `Reports.GenerateReport` and 1,000,000 rows for `Reports.GenerateCsvReport`, which are also the maximum values permitted here. Report truncation can be identified (for `Reports.GenerateReport` only) by comparing the number of rows returned to the value returned in `total_matched_rows`. */
+          limit?: number;
+          /** Required. Reporting metrics. */
+          metrics?:
+            | 'METRIC_UNSPECIFIED'
+            | 'PAGE_VIEWS'
+            | 'AD_REQUESTS'
+            | 'MATCHED_AD_REQUESTS'
+            | 'TOTAL_IMPRESSIONS'
+            | 'IMPRESSIONS'
+            | 'INDIVIDUAL_AD_IMPRESSIONS'
+            | 'CLICKS'
+            | 'PAGE_VIEWS_SPAM_RATIO'
+            | 'AD_REQUESTS_SPAM_RATIO'
+            | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+            | 'IMPRESSIONS_SPAM_RATIO'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+            | 'CLICKS_SPAM_RATIO'
+            | 'AD_REQUESTS_COVERAGE'
+            | 'PAGE_VIEWS_CTR'
+            | 'AD_REQUESTS_CTR'
+            | 'MATCHED_AD_REQUESTS_CTR'
+            | 'IMPRESSIONS_CTR'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+            | 'ACTIVE_VIEW_MEASURABILITY'
+            | 'ACTIVE_VIEW_VIEWABILITY'
+            | 'ACTIVE_VIEW_TIME'
+            | 'ESTIMATED_EARNINGS'
+            | 'PAGE_VIEWS_RPM'
+            | 'AD_REQUESTS_RPM'
+            | 'MATCHED_AD_REQUESTS_RPM'
+            | 'IMPRESSIONS_RPM'
+            | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+            | 'COST_PER_CLICK'
+            | 'ADS_PER_IMPRESSION'
+            | 'TOTAL_EARNINGS'
+            | 'WEBSEARCH_RESULT_PAGES'
+            | 'FUNNEL_REQUESTS'
+            | 'FUNNEL_IMPRESSIONS'
+            | 'FUNNEL_CLICKS'
+            | 'FUNNEL_RPM'
+            | (
+                | 'METRIC_UNSPECIFIED'
+                | 'PAGE_VIEWS'
+                | 'AD_REQUESTS'
+                | 'MATCHED_AD_REQUESTS'
+                | 'TOTAL_IMPRESSIONS'
+                | 'IMPRESSIONS'
+                | 'INDIVIDUAL_AD_IMPRESSIONS'
+                | 'CLICKS'
+                | 'PAGE_VIEWS_SPAM_RATIO'
+                | 'AD_REQUESTS_SPAM_RATIO'
+                | 'MATCHED_AD_REQUESTS_SPAM_RATIO'
+                | 'IMPRESSIONS_SPAM_RATIO'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO'
+                | 'CLICKS_SPAM_RATIO'
+                | 'AD_REQUESTS_COVERAGE'
+                | 'PAGE_VIEWS_CTR'
+                | 'AD_REQUESTS_CTR'
+                | 'MATCHED_AD_REQUESTS_CTR'
+                | 'IMPRESSIONS_CTR'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_CTR'
+                | 'ACTIVE_VIEW_MEASURABILITY'
+                | 'ACTIVE_VIEW_VIEWABILITY'
+                | 'ACTIVE_VIEW_TIME'
+                | 'ESTIMATED_EARNINGS'
+                | 'PAGE_VIEWS_RPM'
+                | 'AD_REQUESTS_RPM'
+                | 'MATCHED_AD_REQUESTS_RPM'
+                | 'IMPRESSIONS_RPM'
+                | 'INDIVIDUAL_AD_IMPRESSIONS_RPM'
+                | 'COST_PER_CLICK'
+                | 'ADS_PER_IMPRESSION'
+                | 'TOTAL_EARNINGS'
+                | 'WEBSEARCH_RESULT_PAGES'
+                | 'FUNNEL_REQUESTS'
+                | 'FUNNEL_IMPRESSIONS'
+                | 'FUNNEL_CLICKS'
+                | 'FUNNEL_RPM'
+              )[];
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The name of a dimension or metric to sort the resulting report on, can be prefixed with "+" to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted ascending. */
+          orderBy?: string | string[];
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
+          reportingTimeZone?:
+            | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+            | 'ACCOUNT_TIME_ZONE'
+            | 'GOOGLE_TIME_ZONE';
+          /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+          'startDate.day'?: number;
+          /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+          'startDate.month'?: number;
+          /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+          'startDate.year'?: number;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<HttpBody>;
+        /** Gets the saved report from the given resource name. */
+        getSaved(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the saved report to retrieve. Format: accounts/{account}/reports/{report} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<SavedReport>;
+        saved: {
+          /** Generates a saved report. */
+          generate(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
+            currencyCode?: string;
+            /** Date range of the report, if unset the range will be considered CUSTOM. */
+            dateRange?:
+              | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+              | 'CUSTOM'
+              | 'TODAY'
+              | 'YESTERDAY'
+              | 'MONTH_TO_DATE'
+              | 'YEAR_TO_DATE'
+              | 'LAST_7_DAYS'
+              | 'LAST_30_DAYS';
+            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+            'endDate.day'?: number;
+            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+            'endDate.month'?: number;
+            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+            'endDate.year'?: number;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
+            languageCode?: string;
+            /** Required. Name of the saved report. Format: accounts/{account}/reports/{report} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
+            reportingTimeZone?:
+              | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+              | 'ACCOUNT_TIME_ZONE'
+              | 'GOOGLE_TIME_ZONE';
+            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+            'startDate.day'?: number;
+            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+            'startDate.month'?: number;
+            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+            'startDate.year'?: number;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ReportResult>;
+          /** Generates a csv formatted saved report. */
+          generateCsv(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** The [ISO-4217 currency code](https://en.wikipedia.org/wiki/ISO_4217) to use when reporting on monetary metrics. Defaults to the account's currency if not set. */
+            currencyCode?: string;
+            /** Date range of the report, if unset the range will be considered CUSTOM. */
+            dateRange?:
+              | 'REPORTING_DATE_RANGE_UNSPECIFIED'
+              | 'CUSTOM'
+              | 'TODAY'
+              | 'YESTERDAY'
+              | 'MONTH_TO_DATE'
+              | 'YEAR_TO_DATE'
+              | 'LAST_7_DAYS'
+              | 'LAST_30_DAYS';
+            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+            'endDate.day'?: number;
+            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+            'endDate.month'?: number;
+            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+            'endDate.year'?: number;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** The language to use for translating report output. If unspecified, this defaults to English ("en"). If the given language is not supported, report output will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag). */
+            languageCode?: string;
+            /** Required. Name of the saved report. Format: accounts/{account}/reports/{report} */
+            name: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Timezone in which to generate the report. If unspecified, this defaults to the account timezone. For more information, see [changing the time zone of your reports](https://support.google.com/adsense/answer/9830725). */
+            reportingTimeZone?:
+              | 'REPORTING_TIME_ZONE_UNSPECIFIED'
+              | 'ACCOUNT_TIME_ZONE'
+              | 'GOOGLE_TIME_ZONE';
+            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+            'startDate.day'?: number;
+            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+            'startDate.month'?: number;
+            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+            'startDate.year'?: number;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<HttpBody>;
+          /** Lists saved reports. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** The maximum number of reports to include in the response, used for paging. If unspecified, at most 10000 reports will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+            pageSize?: number;
+            /** A page token, received from a previous `ListSavedReports` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSavedReports` must match the call that provided the page token. */
+            pageToken?: string;
+            /** Required. The account which owns the collection of reports. Format: accounts/{account} */
+            parent: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<ListSavedReportsResponse>;
+        };
+      };
+      sites: {
+        /** Gets information about the selected site. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name of the site. Format: accounts/{account}/sites/{site} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Site>;
+        /** Lists all the sites available in an account. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The maximum number of sites to include in the response, used for paging. If unspecified, at most 10000 sites will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000. */
+          pageSize?: number;
+          /** A page token, received from a previous `ListSites` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListSites` must match the call that provided the page token. */
+          pageToken?: string;
+          /** Required. The account which owns the collection of sites. Format: accounts/{account} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListSitesResponse>;
+      };
+    };
   }
 }

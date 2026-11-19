@@ -127,7 +127,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        state: 'Test string',
+        state: 'VARIABLE_STATE_UNSPECIFIED',
         text: 'Test string',
         updateTime: 'Test string',
         value: 'Test string',
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        state: 'Test string',
+        state: 'VARIABLE_STATE_UNSPECIFIED',
         text: 'Test string',
         updateTime: 'Test string',
         value: 'Test string',

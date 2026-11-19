@@ -143,7 +143,8 @@ declare namespace gapi.client {
       site?: string;
     }
     interface GoogleProtobufEmpty {}
-    interface ClaimsResource {
+
+    const claims: {
       /** Search through fact-checked claims using an image as the query. */
       imageSearch(request?: {
         /** V1 error format. */
@@ -218,8 +219,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimSearchResponse>;
-    }
-    interface PagesResource {
+    };
+
+    const pages: {
       /** Create `ClaimReview` markup on a page. */
       create(request: {
         /** V1 error format. */
@@ -421,10 +423,6 @@ declare namespace gapi.client {
         },
         body: GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage,
       ): Request<GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage>;
-    }
-
-    const claims: ClaimsResource;
-
-    const pages: PagesResource;
+    };
   }
 }

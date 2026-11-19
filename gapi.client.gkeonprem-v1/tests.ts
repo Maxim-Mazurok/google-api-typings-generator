@@ -57,7 +57,7 @@ gapi.load('client', async () => {
         },
         bareMetalVersion: 'Test string',
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         clusterOperations: {
           enableApplicationLogs: true,
@@ -87,10 +87,10 @@ gapi.load('client', async () => {
                   nodeIp: 'Test string',
                 },
               ],
-              operatingSystem: 'Test string',
+              operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
               taints: [
                 {
-                  effect: 'Test string',
+                  effect: 'EFFECT_UNSPECIFIED',
                   key: 'Test string',
                   value: 'Test string',
                 },
@@ -142,10 +142,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -216,14 +216,14 @@ gapi.load('client', async () => {
             ],
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -254,8 +254,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -263,7 +263,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.get({
       allowMissing: true,
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.getIamPolicy(
@@ -299,7 +299,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single bare metal admin cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalAdminClusters.patch(
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
         },
         bareMetalVersion: 'Test string',
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         clusterOperations: {
           enableApplicationLogs: true,
@@ -344,10 +344,10 @@ gapi.load('client', async () => {
                   nodeIp: 'Test string',
                 },
               ],
-              operatingSystem: 'Test string',
+              operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
               taints: [
                 {
-                  effect: 'Test string',
+                  effect: 'EFFECT_UNSPECIFIED',
                   key: 'Test string',
                   value: 'Test string',
                 },
@@ -399,10 +399,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -473,14 +473,14 @@ gapi.load('client', async () => {
             ],
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -511,8 +511,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -609,7 +609,7 @@ gapi.load('client', async () => {
         },
         bareMetalVersion: 'Test string',
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         clusterOperations: {
           enableApplicationLogs: true,
@@ -639,10 +639,10 @@ gapi.load('client', async () => {
                   nodeIp: 'Test string',
                 },
               ],
-              operatingSystem: 'Test string',
+              operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
               taints: [
                 {
-                  effect: 'Test string',
+                  effect: 'EFFECT_UNSPECIFIED',
                   key: 'Test string',
                   value: 'Test string',
                 },
@@ -694,10 +694,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -735,10 +735,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -792,7 +792,7 @@ gapi.load('client', async () => {
           loginUser: 'Test string',
         },
         nodeConfig: {
-          containerRuntime: 'Test string',
+          containerRuntime: 'CONTAINER_RUNTIME_UNSPECIFIED',
           maxPodsPerNode: 'Test string',
         },
         osEnvironmentConfig: {
@@ -812,14 +812,14 @@ gapi.load('client', async () => {
             ],
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -851,11 +851,11 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         upgradePolicy: {
           pause: true,
-          policy: 'Test string',
+          policy: 'NODE_POOL_POLICY_UNSPECIFIED',
         },
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -863,7 +863,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -895,7 +895,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.get({
       allowMissing: true,
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.getIamPolicy(
@@ -911,7 +911,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single bare metal Cluster. */
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.patch(
@@ -929,7 +929,7 @@ gapi.load('client', async () => {
         },
         bareMetalVersion: 'Test string',
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         clusterOperations: {
           enableApplicationLogs: true,
@@ -959,10 +959,10 @@ gapi.load('client', async () => {
                   nodeIp: 'Test string',
                 },
               ],
-              operatingSystem: 'Test string',
+              operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
               taints: [
                 {
-                  effect: 'Test string',
+                  effect: 'EFFECT_UNSPECIFIED',
                   key: 'Test string',
                   value: 'Test string',
                 },
@@ -1014,10 +1014,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -1055,10 +1055,10 @@ gapi.load('client', async () => {
                     nodeIp: 'Test string',
                   },
                 ],
-                operatingSystem: 'Test string',
+                operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
                 taints: [
                   {
-                    effect: 'Test string',
+                    effect: 'EFFECT_UNSPECIFIED',
                     key: 'Test string',
                     value: 'Test string',
                   },
@@ -1112,7 +1112,7 @@ gapi.load('client', async () => {
           loginUser: 'Test string',
         },
         nodeConfig: {
-          containerRuntime: 'Test string',
+          containerRuntime: 'CONTAINER_RUNTIME_UNSPECIFIED',
           maxPodsPerNode: 'Test string',
         },
         osEnvironmentConfig: {
@@ -1132,14 +1132,14 @@ gapi.load('client', async () => {
             ],
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -1171,11 +1171,11 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         upgradePolicy: {
           pause: true,
-          policy: 'Test string',
+          policy: 'NODE_POOL_POLICY_UNSPECIFIED',
         },
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -1183,7 +1183,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -1273,24 +1273,24 @@ gapi.load('client', async () => {
               nodeIp: 'Test string',
             },
           ],
-          operatingSystem: 'Test string',
+          operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
           ],
         },
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -1339,7 +1339,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.bareMetalClusters.bareMetalNodePools.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'NODE_POOL_VIEW_UNSPECIFIED',
       },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
@@ -1355,7 +1355,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'NODE_POOL_VIEW_UNSPECIFIED',
       },
     );
     /** Updates the parameters of a single bare metal node pool. */
@@ -1392,24 +1392,24 @@ gapi.load('client', async () => {
               nodeIp: 'Test string',
             },
           ],
-          operatingSystem: 'Test string',
+          operatingSystem: 'OPERATING_SYSTEM_UNSPECIFIED',
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
           ],
         },
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -1668,7 +1668,7 @@ gapi.load('client', async () => {
                     lastTransitionTime: 'Test string',
                     message: 'Test string',
                     reason: 'Test string',
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                     type: 'Test string',
                   },
                 ],
@@ -1694,7 +1694,7 @@ gapi.load('client', async () => {
                 lastTransitionTime: 'Test string',
                 message: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
                 type: 'Test string',
               },
             ],
@@ -1722,14 +1722,14 @@ gapi.load('client', async () => {
           url: 'Test string',
         },
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -1747,8 +1747,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -1756,7 +1756,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -1788,7 +1788,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.get({
       allowMissing: true,
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.getIamPolicy(
@@ -1803,7 +1803,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single VMware admin cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareAdminClusters.patch(
@@ -1941,7 +1941,7 @@ gapi.load('client', async () => {
                     lastTransitionTime: 'Test string',
                     message: 'Test string',
                     reason: 'Test string',
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                     type: 'Test string',
                   },
                 ],
@@ -1967,7 +1967,7 @@ gapi.load('client', async () => {
                 lastTransitionTime: 'Test string',
                 message: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
                 type: 'Test string',
               },
             ],
@@ -1995,14 +1995,14 @@ gapi.load('client', async () => {
           url: 'Test string',
         },
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -2020,8 +2020,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -2029,7 +2029,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -2135,7 +2135,7 @@ gapi.load('client', async () => {
           enabled: true,
         },
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         controlPlaneNode: {
           autoResizeConfig: {
@@ -2255,14 +2255,14 @@ gapi.load('client', async () => {
         },
         onPremVersion: 'Test string',
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -2286,8 +2286,8 @@ gapi.load('client', async () => {
           controlPlaneOnly: true,
         },
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -2295,7 +2295,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -2338,7 +2338,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.get({
       allowMissing: true,
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.getIamPolicy({
@@ -2352,7 +2352,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single VMware cluster. */
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.patch(
@@ -2382,7 +2382,7 @@ gapi.load('client', async () => {
           enabled: true,
         },
         binaryAuthorization: {
-          evaluationMode: 'Test string',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
         },
         controlPlaneNode: {
           autoResizeConfig: {
@@ -2502,14 +2502,14 @@ gapi.load('client', async () => {
         },
         onPremVersion: 'Test string',
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -2533,8 +2533,8 @@ gapi.load('client', async () => {
           controlPlaneOnly: true,
         },
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -2542,7 +2542,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -2650,7 +2650,7 @@ gapi.load('client', async () => {
           replicas: 'Test string',
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
@@ -2677,14 +2677,14 @@ gapi.load('client', async () => {
         },
         onPremVersion: 'Test string',
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -2702,8 +2702,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -2711,7 +2711,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },
@@ -2741,7 +2741,7 @@ gapi.load('client', async () => {
     await gapi.client.gkeonprem.projects.locations.vmwareClusters.vmwareNodePools.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'NODE_POOL_VIEW_UNSPECIFIED',
       },
     );
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
@@ -2757,7 +2757,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'NODE_POOL_VIEW_UNSPECIFIED',
       },
     );
     /** Updates the parameters of a single VMware node pool. */
@@ -2784,7 +2784,7 @@ gapi.load('client', async () => {
           replicas: 'Test string',
           taints: [
             {
-              effect: 'Test string',
+              effect: 'EFFECT_UNSPECIFIED',
               key: 'Test string',
               value: 'Test string',
             },
@@ -2811,14 +2811,14 @@ gapi.load('client', async () => {
         },
         onPremVersion: 'Test string',
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           conditions: [
             {
               lastTransitionTime: 'Test string',
               message: 'Test string',
               reason: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -2836,8 +2836,8 @@ gapi.load('client', async () => {
         uid: 'Test string',
         updateTime: 'Test string',
         validationCheck: {
-          option: 'Test string',
-          scenario: 'Test string',
+          option: 'OPTIONS_UNSPECIFIED',
+          scenario: 'SCENARIO_UNSPECIFIED',
           status: {
             result: [
               {
@@ -2845,7 +2845,7 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 details: 'Test string',
                 reason: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNKNOWN',
               },
             ],
           },

@@ -41,7 +41,7 @@ gapi.load('client', async () => {
       {},
       {
         agentUserId: 'Test string',
-        deviceView: 'Test string',
+        deviceView: 'DEVICE_VIEW_UNSPECIFIED',
         includeDeviceMetadata: true,
         inputs: [
           {

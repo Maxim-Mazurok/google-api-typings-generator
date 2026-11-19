@@ -119,26 +119,27 @@ gapi.load('client', async () => {
           conferenceRecord: 'Test string',
         },
         config: {
-          accessType: 'Test string',
+          accessType: 'ACCESS_TYPE_UNSPECIFIED',
           artifactConfig: {
             recordingConfig: {
-              autoRecordingGeneration: 'Test string',
+              autoRecordingGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
             smartNotesConfig: {
-              autoSmartNotesGeneration: 'Test string',
+              autoSmartNotesGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
             transcriptionConfig: {
-              autoTranscriptionGeneration: 'Test string',
+              autoTranscriptionGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
           },
-          attendanceReportGenerationType: 'Test string',
-          entryPointAccess: 'Test string',
-          moderation: 'Test string',
+          attendanceReportGenerationType:
+            'ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED',
+          entryPointAccess: 'ENTRY_POINT_ACCESS_UNSPECIFIED',
+          moderation: 'MODERATION_UNSPECIFIED',
           moderationRestrictions: {
-            chatRestriction: 'Test string',
-            defaultJoinAsViewerType: 'Test string',
-            presentRestriction: 'Test string',
-            reactionRestriction: 'Test string',
+            chatRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
+            defaultJoinAsViewerType: 'DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED',
+            presentRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
+            reactionRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
           },
         },
         gatewaySipAccess: [
@@ -182,26 +183,27 @@ gapi.load('client', async () => {
           conferenceRecord: 'Test string',
         },
         config: {
-          accessType: 'Test string',
+          accessType: 'ACCESS_TYPE_UNSPECIFIED',
           artifactConfig: {
             recordingConfig: {
-              autoRecordingGeneration: 'Test string',
+              autoRecordingGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
             smartNotesConfig: {
-              autoSmartNotesGeneration: 'Test string',
+              autoSmartNotesGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
             transcriptionConfig: {
-              autoTranscriptionGeneration: 'Test string',
+              autoTranscriptionGeneration: 'AUTO_GENERATION_TYPE_UNSPECIFIED',
             },
           },
-          attendanceReportGenerationType: 'Test string',
-          entryPointAccess: 'Test string',
-          moderation: 'Test string',
+          attendanceReportGenerationType:
+            'ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED',
+          entryPointAccess: 'ENTRY_POINT_ACCESS_UNSPECIFIED',
+          moderation: 'MODERATION_UNSPECIFIED',
           moderationRestrictions: {
-            chatRestriction: 'Test string',
-            defaultJoinAsViewerType: 'Test string',
-            presentRestriction: 'Test string',
-            reactionRestriction: 'Test string',
+            chatRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
+            defaultJoinAsViewerType: 'DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED',
+            presentRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
+            reactionRestriction: 'RESTRICTION_TYPE_UNSPECIFIED',
           },
         },
         gatewaySipAccess: [
@@ -234,7 +236,7 @@ gapi.load('client', async () => {
             member: {
               email: 'Test string',
               name: 'Test string',
-              role: 'Test string',
+              role: 'ROLE_UNSPECIFIED',
             },
             updateMask: 'Test string',
           },
@@ -250,7 +252,7 @@ gapi.load('client', async () => {
       {
         email: 'Test string',
         name: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
     /** Deletes the member who was previously assigned roles in the space. For more information, see [Manage meeting space members](https://developers.google.com/workspace/meet/api/guides/meeting-space-members). */
@@ -276,7 +278,7 @@ gapi.load('client', async () => {
       {
         email: 'Test string',
         name: 'Test string',
-        role: 'Test string',
+        role: 'ROLE_UNSPECIFIED',
       },
     );
   }

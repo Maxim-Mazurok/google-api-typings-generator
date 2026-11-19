@@ -50,7 +50,7 @@ declare namespace gapi.client {
       /** List of counter events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       counterCustomEvents?: CreativeCustomEvent[];
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. */
-      detectedFeatures?:
+      detectedFeatures?: (
         | 'CSS_FONT_FACE'
         | 'CSS_BACKGROUND_SIZE'
         | 'CSS_BORDER_IMAGE'
@@ -116,7 +116,8 @@ declare namespace gapi.client {
         | 'TOUCH'
         | 'WEBGL'
         | 'SVG_FILTERS'
-        | 'SVG_FE_IMAGE'[];
+        | 'SVG_FE_IMAGE'
+      )[];
       /** List of exit events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       exitCustomEvents?: CreativeCustomEvent[];
       /** Numeric ID of the asset. This is a read-only, auto-generated field. */
@@ -130,7 +131,7 @@ declare namespace gapi.client {
       /** List of timer events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       timerCustomEvents?: CreativeCustomEvent[];
       /** Rules validated during code generation that generated a warning. This is a read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" - "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" - "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" - "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID" */
-      warnedValidationRules?:
+      warnedValidationRules?: (
         | 'CLICK_TAG_NON_TOP_LEVEL'
         | 'CLICK_TAG_MISSING'
         | 'CLICK_TAG_MORE_THAN_ONE'
@@ -156,7 +157,8 @@ declare namespace gapi.client {
         | 'CLICK_TAG_HARD_CODED'
         | 'SVG_INVALID'
         | 'CLICK_TAG_IN_RICH_MEDIA'
-        | 'MISSING_ENABLER_REFERENCE'[];
+        | 'MISSING_ENABLER_REFERENCE'
+      )[];
     }
     interface CreativeClickThroughUrl {
       /** Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: - If landingPageId is specified then that landing page's URL is assigned to this field. - Otherwise, the customClickThroughUrl is assigned to this field. */
@@ -252,7 +254,8 @@ declare namespace gapi.client {
       /** Width of this size. Acceptable values are 0 to 32767, inclusive. */
       width?: number;
     }
-    interface MediaResource {
+
+    const media: {
       /** Inserts a new creative asset. */
       upload(request: {
         /** V1 error format. */
@@ -315,8 +318,6 @@ declare namespace gapi.client {
         },
         body: CreativeAssetMetadata,
       ): Request<CreativeAssetMetadata>;
-    }
-
-    const media: MediaResource;
+    };
   }
 }

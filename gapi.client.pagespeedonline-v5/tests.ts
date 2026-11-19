@@ -34,9 +34,9 @@ gapi.load('client', async () => {
     /** Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information. */
     await gapi.client.pagespeedonline.pagespeedapi.runpagespeed({
       captchaToken: 'Test string',
-      category: 'Test string',
+      category: 'CATEGORY_UNSPECIFIED',
       locale: 'Test string',
-      strategy: 'Test string',
+      strategy: 'STRATEGY_UNSPECIFIED',
       url: 'Test string',
       utm_campaign: 'Test string',
       utm_source: 'Test string',

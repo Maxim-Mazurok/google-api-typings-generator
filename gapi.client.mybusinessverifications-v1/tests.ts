@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         emailAddress: 'Test string',
         languageCode: 'Test string',
         mailerContact: 'Test string',
-        method: 'Test string',
+        method: 'VERIFICATION_METHOD_UNSPECIFIED',
         phoneNumber: 'Test string',
         token: {
           tokenString: 'Test string',

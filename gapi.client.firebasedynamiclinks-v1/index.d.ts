@@ -316,7 +316,7 @@ declare namespace gapi.client {
       /** Creation timestamp of the short link. */
       creationTime?: string;
       /** Attributes that have been flagged about this short url. */
-      flaggedAttribute?: 'UNSPECIFIED_ATTRIBUTE' | 'SPAM'[];
+      flaggedAttribute?: ('UNSPECIFIED_ATTRIBUTE' | 'SPAM')[];
       /** Full Dyamic Link info */
       info?: DynamicLinkInfo;
       /** Short durable link url, for example, "https://sample.app.goo.gl/xyz123". Required. */
@@ -345,7 +345,8 @@ declare namespace gapi.client {
       /** Suffix option. */
       option?: 'OPTION_UNSPECIFIED' | 'UNGUESSABLE' | 'SHORT' | 'CUSTOM';
     }
-    interface ManagedShortLinksResource {
+
+    const managedShortLinks: {
       /** Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name for the link (non unique name for the front end). - The response must be authenticated with an auth token (generated with the admin service account). - The link will appear in the FDL list of links in the console front end. The Dynamic Link domain in the request must be owned by requester's Firebase project. */
       create(request: {
         /** V1 error format. */
@@ -400,8 +401,9 @@ declare namespace gapi.client {
         },
         body: CreateManagedShortLinkRequest,
       ): Request<CreateManagedShortLinkResponse>;
-    }
-    interface ShortLinksResource {
+    };
+
+    const shortLinks: {
       /** Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project. */
       create(request: {
         /** V1 error format. */
@@ -456,8 +458,9 @@ declare namespace gapi.client {
         },
         body: CreateShortDynamicLinkRequest,
       ): Request<CreateShortDynamicLinkResponse>;
-    }
-    interface V1Resource {
+    };
+
+    const v1: {
       /** Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens. */
       getLinkStats(request?: {
         /** V1 error format. */
@@ -597,12 +600,6 @@ declare namespace gapi.client {
         },
         body: GetIosReopenAttributionRequest,
       ): Request<GetIosReopenAttributionResponse>;
-    }
-
-    const managedShortLinks: ManagedShortLinksResource;
-
-    const shortLinks: ShortLinksResource;
-
-    const v1: V1Resource;
+    };
   }
 }

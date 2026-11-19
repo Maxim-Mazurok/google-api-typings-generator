@@ -48,7 +48,8 @@ declare namespace gapi.client {
       /** The list of violating sites. */
       violatingSites?: SiteSummaryResponse[];
     }
-    interface SitesResource {
+
+    const sites: {
       /** Gets a site's Abusive Experience Report summary. */
       get(request?: {
         /** V1 error format. */
@@ -76,8 +77,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SiteSummaryResponse>;
-    }
-    interface ViolatingSitesResource {
+    };
+
+    const violatingSites: {
       /** Lists sites that are failing in the Abusive Experience Report. */
       list(request?: {
         /** V1 error format. */
@@ -103,10 +105,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ViolatingSitesResponse>;
-    }
-
-    const sites: SitesResource;
-
-    const violatingSites: ViolatingSitesResource;
+    };
   }
 }

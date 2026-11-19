@@ -39,7 +39,7 @@ gapi.load('client', async () => {
       {
         scopes: ['Test string'],
         sourceCredential: 'Test string',
-        targetTokenType: 'Test string',
+        targetTokenType: 'TARGET_TOKEN_TYPE_UNSPECIFIED',
         tokenBinding: {
           certificateFingerprint: 'Test string',
         },

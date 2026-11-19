@@ -19,7 +19,7 @@ gapi.load('client', async () => {
     /** Returns the values for each date from a given time range that are associated with the specific daily metrics. Note: Only daily data is available. Hourly metrics are not supported. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
     await gapi.client.businessprofileperformance.locations.fetchMultiDailyMetricsTimeSeries(
       {
-        dailyMetrics: 'Test string',
+        dailyMetrics: 'DAILY_METRIC_UNKNOWN',
         'dailyRange.endDate.day': 42,
         'dailyRange.endDate.month': 42,
         'dailyRange.endDate.year': 42,
@@ -32,14 +32,14 @@ gapi.load('client', async () => {
     /** Returns the values for each date from a given time range that are associated with the specific daily metric. Note: Only daily data is available. Hourly metrics are not supported. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:getDailyMetricsTimeSeries?dailyMetric=WEBSITE_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
     await gapi.client.businessprofileperformance.locations.getDailyMetricsTimeSeries(
       {
-        dailyMetric: 'Test string',
+        dailyMetric: 'DAILY_METRIC_UNKNOWN',
         'dailyRange.endDate.day': 42,
         'dailyRange.endDate.month': 42,
         'dailyRange.endDate.year': 42,
         'dailyRange.startDate.day': 42,
         'dailyRange.startDate.month': 42,
         'dailyRange.startDate.year': 42,
-        'dailySubEntityType.dayOfWeek': 'Test string',
+        'dailySubEntityType.dayOfWeek': 'DAY_OF_WEEK_UNSPECIFIED',
         'dailySubEntityType.timeOfDay.hours': 42,
         'dailySubEntityType.timeOfDay.minutes': 42,
         'dailySubEntityType.timeOfDay.nanos': 42,

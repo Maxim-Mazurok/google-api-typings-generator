@@ -81,7 +81,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -403,7 +403,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -413,7 +413,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -423,7 +423,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -438,16 +438,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -459,16 +459,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -478,16 +478,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -497,16 +497,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -518,16 +518,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -537,16 +537,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -563,16 +563,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -586,17 +586,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -604,14 +604,14 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
             },
           },
         },
-        confirmationCodeLabel: 'Test string',
+        confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
         countryCode: 'Test string',
         customConfirmationCodeLabel: {
           defaultValue: {
@@ -705,7 +705,7 @@ gapi.load('client', async () => {
             ],
           },
           doorsOpen: 'Test string',
-          doorsOpenLabel: 'Test string',
+          doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
           end: 'Test string',
           kind: 'Test string',
           start: 'Test string',
@@ -742,7 +742,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        gateLabel: 'Test string',
+        gateLabel: 'GATE_LABEL_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -1028,21 +1028,21 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
-        rowLabel: 'Test string',
-        seatLabel: 'Test string',
-        sectionLabel: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+        rowLabel: 'ROW_LABEL_UNSPECIFIED',
+        seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+        sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -1200,7 +1200,7 @@ gapi.load('client', async () => {
           },
         },
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideLogo: {
           contentDescription: {
             defaultValue: {
@@ -1601,7 +1601,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -1611,7 +1611,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -1621,7 +1621,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -1636,16 +1636,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1657,16 +1657,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1676,16 +1676,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1695,16 +1695,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1716,16 +1716,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1735,16 +1735,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -1761,16 +1761,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -1784,17 +1784,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -1802,14 +1802,14 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
             },
           },
         },
-        confirmationCodeLabel: 'Test string',
+        confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
         countryCode: 'Test string',
         customConfirmationCodeLabel: {
           defaultValue: {
@@ -1903,7 +1903,7 @@ gapi.load('client', async () => {
             ],
           },
           doorsOpen: 'Test string',
-          doorsOpenLabel: 'Test string',
+          doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
           end: 'Test string',
           kind: 'Test string',
           start: 'Test string',
@@ -1940,7 +1940,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        gateLabel: 'Test string',
+        gateLabel: 'GATE_LABEL_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -2226,21 +2226,21 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
-        rowLabel: 'Test string',
-        seatLabel: 'Test string',
-        sectionLabel: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+        rowLabel: 'ROW_LABEL_UNSPECIFIED',
+        seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+        sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -2398,7 +2398,7 @@ gapi.load('client', async () => {
           },
         },
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideLogo: {
           contentDescription: {
             defaultValue: {
@@ -2793,7 +2793,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -2803,7 +2803,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -2813,7 +2813,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -2828,16 +2828,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2849,16 +2849,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2868,16 +2868,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2887,16 +2887,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2908,16 +2908,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2927,16 +2927,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -2953,16 +2953,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -2976,17 +2976,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -2994,14 +2994,14 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
             },
           },
         },
-        confirmationCodeLabel: 'Test string',
+        confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
         countryCode: 'Test string',
         customConfirmationCodeLabel: {
           defaultValue: {
@@ -3095,7 +3095,7 @@ gapi.load('client', async () => {
             ],
           },
           doorsOpen: 'Test string',
-          doorsOpenLabel: 'Test string',
+          doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
           end: 'Test string',
           kind: 'Test string',
           start: 'Test string',
@@ -3132,7 +3132,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        gateLabel: 'Test string',
+        gateLabel: 'GATE_LABEL_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -3418,21 +3418,21 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
-        rowLabel: 'Test string',
-        seatLabel: 'Test string',
-        sectionLabel: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+        rowLabel: 'ROW_LABEL_UNSPECIFIED',
+        seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+        sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -3590,7 +3590,7 @@ gapi.load('client', async () => {
           },
         },
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideLogo: {
           contentDescription: {
             defaultValue: {
@@ -3719,7 +3719,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -4033,7 +4033,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -4049,7 +4049,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -4364,7 +4364,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -4374,7 +4374,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -4384,7 +4384,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -4399,16 +4399,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4420,16 +4420,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4439,16 +4439,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4458,16 +4458,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4479,16 +4479,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4498,16 +4498,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -4524,16 +4524,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -4547,17 +4547,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -4565,14 +4565,14 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
             },
           },
-          confirmationCodeLabel: 'Test string',
+          confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
           countryCode: 'Test string',
           customConfirmationCodeLabel: {
             defaultValue: {
@@ -4666,7 +4666,7 @@ gapi.load('client', async () => {
               ],
             },
             doorsOpen: 'Test string',
-            doorsOpenLabel: 'Test string',
+            doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
             end: 'Test string',
             kind: 'Test string',
             start: 'Test string',
@@ -4703,7 +4703,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          gateLabel: 'Test string',
+          gateLabel: 'GATE_LABEL_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -4989,21 +4989,21 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
-          rowLabel: 'Test string',
-          seatLabel: 'Test string',
-          sectionLabel: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+          rowLabel: 'ROW_LABEL_UNSPECIFIED',
+          seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+          sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -5161,7 +5161,7 @@ gapi.load('client', async () => {
             },
           },
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideLogo: {
             contentDescription: {
               defaultValue: {
@@ -5463,13 +5463,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         reservationInfo: {
           confirmationCode: 'Test string',
@@ -5482,7 +5482,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -5499,7 +5499,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -5508,7 +5508,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -5578,7 +5578,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -6056,7 +6056,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -6072,7 +6072,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -6387,7 +6387,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -6397,7 +6397,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -6407,7 +6407,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -6422,16 +6422,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6443,16 +6443,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6462,16 +6462,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6481,16 +6481,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6502,16 +6502,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6521,16 +6521,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -6547,16 +6547,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -6570,17 +6570,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -6588,14 +6588,14 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
             },
           },
-          confirmationCodeLabel: 'Test string',
+          confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
           countryCode: 'Test string',
           customConfirmationCodeLabel: {
             defaultValue: {
@@ -6689,7 +6689,7 @@ gapi.load('client', async () => {
               ],
             },
             doorsOpen: 'Test string',
-            doorsOpenLabel: 'Test string',
+            doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
             end: 'Test string',
             kind: 'Test string',
             start: 'Test string',
@@ -6726,7 +6726,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          gateLabel: 'Test string',
+          gateLabel: 'GATE_LABEL_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -7012,21 +7012,21 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
-          rowLabel: 'Test string',
-          seatLabel: 'Test string',
-          sectionLabel: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+          rowLabel: 'ROW_LABEL_UNSPECIFIED',
+          seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+          sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -7184,7 +7184,7 @@ gapi.load('client', async () => {
             },
           },
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideLogo: {
             contentDescription: {
               defaultValue: {
@@ -7486,13 +7486,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         reservationInfo: {
           confirmationCode: 'Test string',
@@ -7505,7 +7505,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -7522,7 +7522,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -7531,7 +7531,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -7601,7 +7601,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -8061,7 +8061,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -8077,7 +8077,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -8392,7 +8392,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -8402,7 +8402,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -8412,7 +8412,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -8427,16 +8427,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8448,16 +8448,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8467,16 +8467,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8486,16 +8486,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8507,16 +8507,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8526,16 +8526,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -8552,16 +8552,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -8575,17 +8575,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -8593,14 +8593,14 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
             },
           },
-          confirmationCodeLabel: 'Test string',
+          confirmationCodeLabel: 'CONFIRMATION_CODE_LABEL_UNSPECIFIED',
           countryCode: 'Test string',
           customConfirmationCodeLabel: {
             defaultValue: {
@@ -8694,7 +8694,7 @@ gapi.load('client', async () => {
               ],
             },
             doorsOpen: 'Test string',
-            doorsOpenLabel: 'Test string',
+            doorsOpenLabel: 'DOORS_OPEN_LABEL_UNSPECIFIED',
             end: 'Test string',
             kind: 'Test string',
             start: 'Test string',
@@ -8731,7 +8731,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          gateLabel: 'Test string',
+          gateLabel: 'GATE_LABEL_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -9017,21 +9017,21 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
-          rowLabel: 'Test string',
-          seatLabel: 'Test string',
-          sectionLabel: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+          rowLabel: 'ROW_LABEL_UNSPECIFIED',
+          seatLabel: 'SEAT_LABEL_UNSPECIFIED',
+          sectionLabel: 'SECTION_LABEL_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -9189,7 +9189,7 @@ gapi.load('client', async () => {
             },
           },
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideLogo: {
             contentDescription: {
               defaultValue: {
@@ -9491,13 +9491,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         reservationInfo: {
           confirmationCode: 'Test string',
@@ -9510,7 +9510,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -9527,7 +9527,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -9536,7 +9536,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -9606,7 +9606,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -9808,7 +9808,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -10121,9 +10121,9 @@ gapi.load('client', async () => {
           },
         },
         boardingAndSeatingPolicy: {
-          boardingPolicy: 'Test string',
+          boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
           kind: 'Test string',
-          seatClassPolicy: 'Test string',
+          seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
         },
         callbackOptions: {
           updateRequestUrl: 'Test string',
@@ -10135,7 +10135,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -10145,7 +10145,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -10155,7 +10155,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -10170,16 +10170,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10191,16 +10191,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10210,16 +10210,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10229,16 +10229,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10250,16 +10250,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10269,16 +10269,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -10295,16 +10295,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -10318,17 +10318,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -10336,7 +10336,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -10640,7 +10640,7 @@ gapi.load('client', async () => {
           },
           operatingFlightNumber: 'Test string',
         },
-        flightStatus: 'Test string',
+        flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -10895,11 +10895,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         origin: {
           airportIataCode: 'Test string',
           airportNameOverride: {
@@ -10925,9 +10925,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -11052,7 +11052,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wordMark: {
           contentDescription: {
             defaultValue: {
@@ -11406,9 +11406,9 @@ gapi.load('client', async () => {
           },
         },
         boardingAndSeatingPolicy: {
-          boardingPolicy: 'Test string',
+          boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
           kind: 'Test string',
-          seatClassPolicy: 'Test string',
+          seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
         },
         callbackOptions: {
           updateRequestUrl: 'Test string',
@@ -11420,7 +11420,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -11430,7 +11430,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -11440,7 +11440,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -11455,16 +11455,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11476,16 +11476,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11495,16 +11495,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11514,16 +11514,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11535,16 +11535,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11554,16 +11554,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -11580,16 +11580,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -11603,17 +11603,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -11621,7 +11621,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -11925,7 +11925,7 @@ gapi.load('client', async () => {
           },
           operatingFlightNumber: 'Test string',
         },
-        flightStatus: 'Test string',
+        flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -12180,11 +12180,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         origin: {
           airportIataCode: 'Test string',
           airportNameOverride: {
@@ -12210,9 +12210,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -12337,7 +12337,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wordMark: {
           contentDescription: {
             defaultValue: {
@@ -12685,9 +12685,9 @@ gapi.load('client', async () => {
           },
         },
         boardingAndSeatingPolicy: {
-          boardingPolicy: 'Test string',
+          boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
           kind: 'Test string',
-          seatClassPolicy: 'Test string',
+          seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
         },
         callbackOptions: {
           updateRequestUrl: 'Test string',
@@ -12699,7 +12699,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -12709,7 +12709,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -12719,7 +12719,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -12734,16 +12734,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12755,16 +12755,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12774,16 +12774,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12793,16 +12793,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12814,16 +12814,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12833,16 +12833,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -12859,16 +12859,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -12882,17 +12882,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -12900,7 +12900,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -13204,7 +13204,7 @@ gapi.load('client', async () => {
           },
           operatingFlightNumber: 'Test string',
         },
-        flightStatus: 'Test string',
+        flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
         heroImage: {
           contentDescription: {
             defaultValue: {
@@ -13459,11 +13459,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         origin: {
           airportIataCode: 'Test string',
           airportNameOverride: {
@@ -13489,9 +13489,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -13616,7 +13616,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wordMark: {
           contentDescription: {
             defaultValue: {
@@ -13707,7 +13707,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -14021,7 +14021,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -14037,11 +14037,11 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         boardingAndSeatingInfo: {
-          boardingDoor: 'Test string',
+          boardingDoor: 'BOARDING_DOOR_UNSPECIFIED',
           boardingGroup: 'Test string',
           boardingPosition: 'Test string',
           boardingPrivilegeImage: {
@@ -14405,9 +14405,9 @@ gapi.load('client', async () => {
             },
           },
           boardingAndSeatingPolicy: {
-            boardingPolicy: 'Test string',
+            boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
             kind: 'Test string',
-            seatClassPolicy: 'Test string',
+            seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
           },
           callbackOptions: {
             updateRequestUrl: 'Test string',
@@ -14419,7 +14419,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -14429,7 +14429,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -14439,7 +14439,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -14454,16 +14454,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14475,16 +14475,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14494,16 +14494,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14513,16 +14513,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14534,16 +14534,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14553,16 +14553,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -14579,16 +14579,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -14602,17 +14602,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -14620,7 +14620,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -14924,7 +14924,7 @@ gapi.load('client', async () => {
             },
             operatingFlightNumber: 'Test string',
           },
-          flightStatus: 'Test string',
+          flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -15179,11 +15179,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           origin: {
             airportIataCode: 'Test string',
             airportNameOverride: {
@@ -15209,9 +15209,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -15336,7 +15336,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wordMark: {
             contentDescription: {
               defaultValue: {
@@ -15594,13 +15594,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerName: 'Test string',
         reservationInfo: {
@@ -15634,7 +15634,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -15651,7 +15651,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -15660,7 +15660,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -15705,7 +15705,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -16154,7 +16154,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -16170,11 +16170,11 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         boardingAndSeatingInfo: {
-          boardingDoor: 'Test string',
+          boardingDoor: 'BOARDING_DOOR_UNSPECIFIED',
           boardingGroup: 'Test string',
           boardingPosition: 'Test string',
           boardingPrivilegeImage: {
@@ -16538,9 +16538,9 @@ gapi.load('client', async () => {
             },
           },
           boardingAndSeatingPolicy: {
-            boardingPolicy: 'Test string',
+            boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
             kind: 'Test string',
-            seatClassPolicy: 'Test string',
+            seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
           },
           callbackOptions: {
             updateRequestUrl: 'Test string',
@@ -16552,7 +16552,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -16562,7 +16562,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -16572,7 +16572,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -16587,16 +16587,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16608,16 +16608,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16627,16 +16627,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16646,16 +16646,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16667,16 +16667,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16686,16 +16686,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -16712,16 +16712,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -16735,17 +16735,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -16753,7 +16753,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -17057,7 +17057,7 @@ gapi.load('client', async () => {
             },
             operatingFlightNumber: 'Test string',
           },
-          flightStatus: 'Test string',
+          flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -17312,11 +17312,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           origin: {
             airportIataCode: 'Test string',
             airportNameOverride: {
@@ -17342,9 +17342,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -17469,7 +17469,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wordMark: {
             contentDescription: {
               defaultValue: {
@@ -17727,13 +17727,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerName: 'Test string',
         reservationInfo: {
@@ -17767,7 +17767,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -17784,7 +17784,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -17793,7 +17793,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -17838,7 +17838,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -18281,7 +18281,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -18297,11 +18297,11 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         boardingAndSeatingInfo: {
-          boardingDoor: 'Test string',
+          boardingDoor: 'BOARDING_DOOR_UNSPECIFIED',
           boardingGroup: 'Test string',
           boardingPosition: 'Test string',
           boardingPrivilegeImage: {
@@ -18665,9 +18665,9 @@ gapi.load('client', async () => {
             },
           },
           boardingAndSeatingPolicy: {
-            boardingPolicy: 'Test string',
+            boardingPolicy: 'BOARDING_POLICY_UNSPECIFIED',
             kind: 'Test string',
-            seatClassPolicy: 'Test string',
+            seatClassPolicy: 'SEAT_CLASS_POLICY_UNSPECIFIED',
           },
           callbackOptions: {
             updateRequestUrl: 'Test string',
@@ -18679,7 +18679,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -18689,7 +18689,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -18699,7 +18699,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -18714,16 +18714,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18735,16 +18735,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18754,16 +18754,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18773,16 +18773,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18794,16 +18794,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18813,16 +18813,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -18839,16 +18839,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -18862,17 +18862,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -18880,7 +18880,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -19184,7 +19184,7 @@ gapi.load('client', async () => {
             },
             operatingFlightNumber: 'Test string',
           },
-          flightStatus: 'Test string',
+          flightStatus: 'FLIGHT_STATUS_UNSPECIFIED',
           heroImage: {
             contentDescription: {
               defaultValue: {
@@ -19439,11 +19439,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           origin: {
             airportIataCode: 'Test string',
             airportNameOverride: {
@@ -19469,9 +19469,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -19596,7 +19596,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wordMark: {
             contentDescription: {
               defaultValue: {
@@ -19854,13 +19854,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerName: 'Test string',
         reservationInfo: {
@@ -19894,7 +19894,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -19911,7 +19911,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -19920,7 +19920,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -19965,7 +19965,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -20150,7 +20150,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -20471,7 +20471,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -20481,7 +20481,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -20491,7 +20491,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -20506,16 +20506,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20527,16 +20527,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20546,16 +20546,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20565,16 +20565,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20586,16 +20586,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20605,16 +20605,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -20631,16 +20631,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -20654,17 +20654,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -20672,7 +20672,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -20800,13 +20800,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -20930,7 +20930,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
       },
     );
     /** Returns a list of all generic classes for a given issuer ID. */
@@ -21254,7 +21254,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -21264,7 +21264,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -21274,7 +21274,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -21289,16 +21289,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21310,16 +21310,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21329,16 +21329,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21348,16 +21348,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21369,16 +21369,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21388,16 +21388,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -21414,16 +21414,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -21437,17 +21437,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -21455,7 +21455,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -21583,13 +21583,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -21713,7 +21713,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
       },
     );
     /** Updates the Generic class referenced by the given class ID. */
@@ -22031,7 +22031,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -22041,7 +22041,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -22051,7 +22051,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -22066,16 +22066,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22087,16 +22087,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22106,16 +22106,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22125,16 +22125,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22146,16 +22146,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22165,16 +22165,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -22191,16 +22191,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -22214,17 +22214,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -22232,7 +22232,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -22360,13 +22360,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -22490,7 +22490,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
       },
     );
     /** Adds a message to the generic object referenced by the given object ID. */
@@ -22543,7 +22543,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -22857,7 +22857,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -22873,7 +22873,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardTitle: {
@@ -22892,7 +22892,7 @@ gapi.load('client', async () => {
           ],
         },
         classId: 'Test string',
-        genericType: 'Test string',
+        genericType: 'GENERIC_TYPE_UNSPECIFIED',
         groupingInfo: {
           groupingId: 'Test string',
           sortIndex: 42,
@@ -23111,7 +23111,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
         notifications: {
@@ -23123,8 +23123,8 @@ gapi.load('client', async () => {
           },
         },
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -23133,7 +23133,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -23150,7 +23150,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -23159,14 +23159,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subheader: {
           defaultValue: {
             kind: 'Test string',
@@ -23667,7 +23667,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -23683,7 +23683,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardTitle: {
@@ -23702,7 +23702,7 @@ gapi.load('client', async () => {
           ],
         },
         classId: 'Test string',
-        genericType: 'Test string',
+        genericType: 'GENERIC_TYPE_UNSPECIFIED',
         groupingInfo: {
           groupingId: 'Test string',
           sortIndex: 42,
@@ -23921,7 +23921,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
         notifications: {
@@ -23933,8 +23933,8 @@ gapi.load('client', async () => {
           },
         },
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -23943,7 +23943,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -23960,7 +23960,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -23969,14 +23969,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subheader: {
           defaultValue: {
             kind: 'Test string',
@@ -24471,7 +24471,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -24487,7 +24487,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardTitle: {
@@ -24506,7 +24506,7 @@ gapi.load('client', async () => {
           ],
         },
         classId: 'Test string',
-        genericType: 'Test string',
+        genericType: 'GENERIC_TYPE_UNSPECIFIED',
         groupingInfo: {
           groupingId: 'Test string',
           sortIndex: 42,
@@ -24725,7 +24725,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
         notifications: {
@@ -24737,8 +24737,8 @@ gapi.load('client', async () => {
           },
         },
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -24747,7 +24747,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -24764,7 +24764,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -24773,14 +24773,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subheader: {
           defaultValue: {
             kind: 'Test string',
@@ -25017,7 +25017,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -25341,7 +25341,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -25351,7 +25351,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -25361,7 +25361,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -25376,16 +25376,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25397,16 +25397,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25416,16 +25416,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25435,16 +25435,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25456,16 +25456,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25475,16 +25475,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -25501,16 +25501,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -25524,17 +25524,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -25542,7 +25542,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -25860,11 +25860,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         pinLabel: 'Test string',
         programLogo: {
           contentDescription: {
@@ -25908,9 +25908,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -26035,7 +26035,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -26438,7 +26438,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -26448,7 +26448,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -26458,7 +26458,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -26473,16 +26473,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26494,16 +26494,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26513,16 +26513,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26532,16 +26532,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26553,16 +26553,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26572,16 +26572,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -26598,16 +26598,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -26621,17 +26621,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -26639,7 +26639,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -26957,11 +26957,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         pinLabel: 'Test string',
         programLogo: {
           contentDescription: {
@@ -27005,9 +27005,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -27132,7 +27132,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -27529,7 +27529,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -27539,7 +27539,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -27549,7 +27549,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -27564,16 +27564,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27585,16 +27585,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27604,16 +27604,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27623,16 +27623,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27644,16 +27644,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27663,16 +27663,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -27689,16 +27689,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -27712,17 +27712,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -27730,7 +27730,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -28048,11 +28048,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         pinLabel: 'Test string',
         programLogo: {
           contentDescription: {
@@ -28096,9 +28096,9 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -28223,7 +28223,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -28352,7 +28352,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -28674,7 +28674,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -28690,7 +28690,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardNumber: 'Test string',
@@ -29008,7 +29008,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -29018,7 +29018,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -29028,7 +29028,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -29043,16 +29043,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29064,16 +29064,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29083,16 +29083,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29102,16 +29102,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29123,16 +29123,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29142,16 +29142,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -29168,16 +29168,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -29191,17 +29191,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -29209,7 +29209,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -29527,11 +29527,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           pinLabel: 'Test string',
           programLogo: {
             contentDescription: {
@@ -29575,9 +29575,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -29702,7 +29702,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -29998,13 +29998,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         pin: 'Test string',
         rotatingBarcode: {
@@ -30014,7 +30014,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -30031,7 +30031,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -30040,14 +30040,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -30504,7 +30504,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -30520,7 +30520,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardNumber: 'Test string',
@@ -30838,7 +30838,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -30848,7 +30848,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -30858,7 +30858,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -30873,16 +30873,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30894,16 +30894,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30913,16 +30913,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30932,16 +30932,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30953,16 +30953,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30972,16 +30972,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -30998,16 +30998,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -31021,17 +31021,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -31039,7 +31039,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -31357,11 +31357,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           pinLabel: 'Test string',
           programLogo: {
             contentDescription: {
@@ -31405,9 +31405,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -31532,7 +31532,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -31828,13 +31828,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         pin: 'Test string',
         rotatingBarcode: {
@@ -31844,7 +31844,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -31861,7 +31861,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -31870,14 +31870,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -32328,7 +32328,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -32344,7 +32344,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         cardNumber: 'Test string',
@@ -32662,7 +32662,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -32672,7 +32672,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -32682,7 +32682,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -32697,16 +32697,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32718,16 +32718,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32737,16 +32737,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32756,16 +32756,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32777,16 +32777,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32796,16 +32796,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -32822,16 +32822,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -32845,17 +32845,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -32863,7 +32863,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -33181,11 +33181,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           pinLabel: 'Test string',
           programLogo: {
             contentDescription: {
@@ -33229,9 +33229,9 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -33356,7 +33356,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -33652,13 +33652,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         pin: 'Test string',
         rotatingBarcode: {
@@ -33668,7 +33668,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -33685,7 +33685,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -33694,14 +33694,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -33999,7 +33999,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -34323,7 +34323,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -34333,7 +34333,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -34343,7 +34343,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -34358,16 +34358,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34379,16 +34379,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34398,16 +34398,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34417,16 +34417,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34438,16 +34438,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34457,16 +34457,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -34483,16 +34483,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -34506,17 +34506,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -34524,7 +34524,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -34557,7 +34557,7 @@ gapi.load('client', async () => {
             },
           },
           merchantSignupInfo: {
-            signupSharedDatas: ['Test string'],
+            signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
             signupWebsite: {
               description: 'Test string',
               id: 'Test string',
@@ -34580,7 +34580,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         enableSmartTap: true,
         heroImage: {
@@ -34935,11 +34935,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         programLogo: {
           contentDescription: {
             defaultValue: {
@@ -34983,13 +34983,13 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         rewardsTier: 'Test string',
         rewardsTierLabel: 'Test string',
         secondaryRewardsTier: 'Test string',
         secondaryRewardsTierLabel: 'Test string',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -35114,7 +35114,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -35517,7 +35517,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -35527,7 +35527,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -35537,7 +35537,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -35552,16 +35552,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35573,16 +35573,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35592,16 +35592,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35611,16 +35611,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35632,16 +35632,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35651,16 +35651,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -35677,16 +35677,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -35700,17 +35700,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -35718,7 +35718,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -35751,7 +35751,7 @@ gapi.load('client', async () => {
             },
           },
           merchantSignupInfo: {
-            signupSharedDatas: ['Test string'],
+            signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
             signupWebsite: {
               description: 'Test string',
               id: 'Test string',
@@ -35774,7 +35774,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         enableSmartTap: true,
         heroImage: {
@@ -36129,11 +36129,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         programLogo: {
           contentDescription: {
             defaultValue: {
@@ -36177,13 +36177,13 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         rewardsTier: 'Test string',
         rewardsTierLabel: 'Test string',
         secondaryRewardsTier: 'Test string',
         secondaryRewardsTierLabel: 'Test string',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -36308,7 +36308,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -36705,7 +36705,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -36715,7 +36715,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -36725,7 +36725,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -36740,16 +36740,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36761,16 +36761,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36780,16 +36780,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36799,16 +36799,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36820,16 +36820,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36839,16 +36839,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -36865,16 +36865,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -36888,17 +36888,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -36906,7 +36906,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -36939,7 +36939,7 @@ gapi.load('client', async () => {
             },
           },
           merchantSignupInfo: {
-            signupSharedDatas: ['Test string'],
+            signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
             signupWebsite: {
               description: 'Test string',
               id: 'Test string',
@@ -36962,7 +36962,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         enableSmartTap: true,
         heroImage: {
@@ -37317,11 +37317,11 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         programLogo: {
           contentDescription: {
             defaultValue: {
@@ -37365,13 +37365,13 @@ gapi.load('client', async () => {
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         rewardsTier: 'Test string',
         rewardsTierLabel: 'Test string',
         secondaryRewardsTier: 'Test string',
         secondaryRewardsTierLabel: 'Test string',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -37496,7 +37496,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideProgramLogo: {
           contentDescription: {
             defaultValue: {
@@ -37625,7 +37625,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -37941,7 +37941,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -37957,7 +37957,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -38274,7 +38274,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -38284,7 +38284,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -38294,7 +38294,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -38309,16 +38309,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38330,16 +38330,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38349,16 +38349,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38368,16 +38368,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38389,16 +38389,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38408,16 +38408,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -38434,16 +38434,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -38457,17 +38457,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -38475,7 +38475,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -38508,7 +38508,7 @@ gapi.load('client', async () => {
               },
             },
             merchantSignupInfo: {
-              signupSharedDatas: ['Test string'],
+              signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
               signupWebsite: {
                 description: 'Test string',
                 id: 'Test string',
@@ -38531,7 +38531,7 @@ gapi.load('client', async () => {
                 uri: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           enableSmartTap: true,
           heroImage: {
@@ -38886,11 +38886,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           programLogo: {
             contentDescription: {
               defaultValue: {
@@ -38934,13 +38934,13 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           rewardsTier: 'Test string',
           rewardsTierLabel: 'Test string',
           secondaryRewardsTier: 'Test string',
           secondaryRewardsTierLabel: 'Test string',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -39065,7 +39065,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -39389,13 +39389,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -39404,7 +39404,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -39421,7 +39421,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -39430,7 +39430,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -39465,7 +39465,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -39928,7 +39928,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -39944,7 +39944,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -40261,7 +40261,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -40271,7 +40271,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -40281,7 +40281,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -40296,16 +40296,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40317,16 +40317,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40336,16 +40336,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40355,16 +40355,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40376,16 +40376,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40395,16 +40395,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -40421,16 +40421,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -40444,17 +40444,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -40462,7 +40462,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -40495,7 +40495,7 @@ gapi.load('client', async () => {
               },
             },
             merchantSignupInfo: {
-              signupSharedDatas: ['Test string'],
+              signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
               signupWebsite: {
                 description: 'Test string',
                 id: 'Test string',
@@ -40518,7 +40518,7 @@ gapi.load('client', async () => {
                 uri: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           enableSmartTap: true,
           heroImage: {
@@ -40873,11 +40873,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           programLogo: {
             contentDescription: {
               defaultValue: {
@@ -40921,13 +40921,13 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           rewardsTier: 'Test string',
           rewardsTierLabel: 'Test string',
           secondaryRewardsTier: 'Test string',
           secondaryRewardsTierLabel: 'Test string',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -41052,7 +41052,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -41376,13 +41376,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -41391,7 +41391,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -41408,7 +41408,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -41417,7 +41417,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -41452,7 +41452,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -41897,7 +41897,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -41913,7 +41913,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -42230,7 +42230,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -42240,7 +42240,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -42250,7 +42250,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -42265,16 +42265,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42286,16 +42286,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42305,16 +42305,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42324,16 +42324,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42345,16 +42345,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42364,16 +42364,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -42390,16 +42390,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -42413,17 +42413,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -42431,7 +42431,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -42464,7 +42464,7 @@ gapi.load('client', async () => {
               },
             },
             merchantSignupInfo: {
-              signupSharedDatas: ['Test string'],
+              signupSharedDatas: ['SHARED_DATA_TYPE_UNSPECIFIED'],
               signupWebsite: {
                 description: 'Test string',
                 id: 'Test string',
@@ -42487,7 +42487,7 @@ gapi.load('client', async () => {
                 uri: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           enableSmartTap: true,
           heroImage: {
@@ -42842,11 +42842,11 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           programLogo: {
             contentDescription: {
               defaultValue: {
@@ -42890,13 +42890,13 @@ gapi.load('client', async () => {
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           rewardsTier: 'Test string',
           rewardsTierLabel: 'Test string',
           secondaryRewardsTier: 'Test string',
           secondaryRewardsTierLabel: 'Test string',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -43021,7 +43021,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideProgramLogo: {
             contentDescription: {
               defaultValue: {
@@ -43345,13 +43345,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -43360,7 +43360,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -43377,7 +43377,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -43386,7 +43386,7 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
@@ -43421,7 +43421,7 @@ gapi.load('client', async () => {
           },
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -43602,7 +43602,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
           ],
@@ -43641,7 +43641,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
             chunkSizeBytes: 'Test string',
@@ -43667,7 +43667,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
             objectSizeBytes: 'Test string',
@@ -43696,7 +43696,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
           },
@@ -43723,7 +43723,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
             objectInfo: {
@@ -43748,7 +43748,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
             objectVersion: 'Test string',
@@ -43777,7 +43777,7 @@ gapi.load('client', async () => {
                 objectName: 'Test string',
               },
               path: 'Test string',
-              referenceType: 'Test string',
+              referenceType: 'PATH',
               sha1Hash: 'Test string',
             },
           },
@@ -43803,7 +43803,7 @@ gapi.load('client', async () => {
             objectName: 'Test string',
           },
           path: 'Test string',
-          referenceType: 'Test string',
+          referenceType: 'PATH',
           sha1Hash: 'Test string',
           sha256Hash: 'Test string',
           sha512Hash: 'Test string',
@@ -43815,7 +43815,7 @@ gapi.load('client', async () => {
           customData: 'Test string',
           diffObjectVersion: 'Test string',
           finalStatus: 42,
-          notificationType: 'Test string',
+          notificationType: 'START',
           physicalHeaders: 'Test string',
           requestId: 'Test string',
           requestReceivedParamsServingInfo: 'Test string',
@@ -43874,7 +43874,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -44196,7 +44196,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -44206,7 +44206,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -44216,7 +44216,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -44231,16 +44231,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44252,16 +44252,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44271,16 +44271,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44290,16 +44290,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44311,16 +44311,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44330,16 +44330,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -44356,16 +44356,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -44379,17 +44379,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -44397,7 +44397,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -44751,20 +44751,20 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         provider: 'Test string',
-        redemptionChannel: 'Test string',
+        redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         shortTitle: 'Test string',
         textModulesData: [
@@ -44929,7 +44929,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideTitleImage: {
           contentDescription: {
             defaultValue: {
@@ -45330,7 +45330,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -45340,7 +45340,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -45350,7 +45350,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -45365,16 +45365,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45386,16 +45386,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45405,16 +45405,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45424,16 +45424,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45445,16 +45445,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45464,16 +45464,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -45490,16 +45490,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -45513,17 +45513,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -45531,7 +45531,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -45885,20 +45885,20 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         provider: 'Test string',
-        redemptionChannel: 'Test string',
+        redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         shortTitle: 'Test string',
         textModulesData: [
@@ -46063,7 +46063,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideTitleImage: {
           contentDescription: {
             defaultValue: {
@@ -46458,7 +46458,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -46468,7 +46468,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -46478,7 +46478,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -46493,16 +46493,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46514,16 +46514,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46533,16 +46533,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46552,16 +46552,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46573,16 +46573,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46592,16 +46592,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -46618,16 +46618,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -46641,17 +46641,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -46659,7 +46659,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -47013,20 +47013,20 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         provider: 'Test string',
-        redemptionChannel: 'Test string',
+        redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         shortTitle: 'Test string',
         textModulesData: [
@@ -47191,7 +47191,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         wideTitleImage: {
           contentDescription: {
             defaultValue: {
@@ -47320,7 +47320,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -47634,7 +47634,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -47650,7 +47650,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -47965,7 +47965,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -47975,7 +47975,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -47985,7 +47985,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -48000,16 +48000,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48021,16 +48021,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48040,16 +48040,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48059,16 +48059,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48080,16 +48080,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48099,16 +48099,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -48125,16 +48125,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -48148,17 +48148,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -48166,7 +48166,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -48520,20 +48520,20 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           provider: 'Test string',
-          redemptionChannel: 'Test string',
+          redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           shortTitle: 'Test string',
           textModulesData: [
@@ -48698,7 +48698,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideTitleImage: {
             contentDescription: {
               defaultValue: {
@@ -48993,13 +48993,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -49008,7 +49008,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -49025,7 +49025,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -49034,14 +49034,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -49490,7 +49490,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -49506,7 +49506,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -49821,7 +49821,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -49831,7 +49831,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -49841,7 +49841,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -49856,16 +49856,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49877,16 +49877,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49896,16 +49896,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49915,16 +49915,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49936,16 +49936,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49955,16 +49955,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -49981,16 +49981,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -50004,17 +50004,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -50022,7 +50022,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -50376,20 +50376,20 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           provider: 'Test string',
-          redemptionChannel: 'Test string',
+          redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           shortTitle: 'Test string',
           textModulesData: [
@@ -50554,7 +50554,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideTitleImage: {
             contentDescription: {
               defaultValue: {
@@ -50849,13 +50849,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -50864,7 +50864,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -50881,7 +50881,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -50890,14 +50890,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -51340,7 +51340,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -51356,7 +51356,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -51671,7 +51671,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -51681,7 +51681,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -51691,7 +51691,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -51706,16 +51706,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51727,16 +51727,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51746,16 +51746,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51765,16 +51765,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51786,16 +51786,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51805,16 +51805,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -51831,16 +51831,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -51854,17 +51854,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -51872,7 +51872,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -52226,20 +52226,20 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           provider: 'Test string',
-          redemptionChannel: 'Test string',
+          redemptionChannel: 'REDEMPTION_CHANNEL_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           shortTitle: 'Test string',
           textModulesData: [
@@ -52404,7 +52404,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           wideTitleImage: {
             contentDescription: {
               defaultValue: {
@@ -52699,13 +52699,13 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         rotatingBarcode: {
           alternateText: 'Test string',
@@ -52714,7 +52714,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -52731,7 +52731,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -52740,14 +52740,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -52896,7 +52896,7 @@ gapi.load('client', async () => {
         permissions: [
           {
             emailAddress: 'Test string',
-            role: 'Test string',
+            role: 'ROLE_UNSPECIFIED',
           },
         ],
       },
@@ -52908,7 +52908,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         infos: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             signUpInfo: {
               classId: 'Test string',
             },
@@ -52970,7 +52970,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -53296,7 +53296,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -53306,7 +53306,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -53316,7 +53316,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -53331,16 +53331,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53352,16 +53352,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53371,16 +53371,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53390,16 +53390,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53411,16 +53411,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53430,16 +53430,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -53456,16 +53456,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -53479,17 +53479,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -53497,7 +53497,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -54077,18 +54077,18 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -54142,7 +54142,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        transitType: 'Test string',
+        transitType: 'TRANSIT_TYPE_UNSPECIFIED',
         valueAddedModuleData: [
           {
             body: {
@@ -54229,7 +54229,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         watermark: {
           contentDescription: {
             defaultValue: {
@@ -54672,7 +54672,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -54682,7 +54682,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -54692,7 +54692,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -54707,16 +54707,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54728,16 +54728,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54747,16 +54747,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54766,16 +54766,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54787,16 +54787,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54806,16 +54806,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -54832,16 +54832,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -54855,17 +54855,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -54873,7 +54873,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -55453,18 +55453,18 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -55518,7 +55518,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        transitType: 'Test string',
+        transitType: 'TRANSIT_TYPE_UNSPECIFIED',
         valueAddedModuleData: [
           {
             body: {
@@ -55605,7 +55605,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         watermark: {
           contentDescription: {
             defaultValue: {
@@ -56042,7 +56042,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -56052,7 +56052,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -56062,7 +56062,7 @@ gapi.load('client', async () => {
               fieldSelector: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -56077,16 +56077,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56098,16 +56098,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56117,16 +56117,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56136,16 +56136,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56157,16 +56157,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56176,16 +56176,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -56202,16 +56202,16 @@ gapi.load('client', async () => {
                   firstValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
                   },
-                  predefinedItem: 'Test string',
+                  predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                   secondValue: {
                     fields: [
                       {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         fieldPath: 'Test string',
                       },
                     ],
@@ -56225,17 +56225,17 @@ gapi.load('client', async () => {
               fieldOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
               },
-              transitOption: 'Test string',
+              transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
             },
             secondRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -56243,7 +56243,7 @@ gapi.load('client', async () => {
             thirdRowOption: {
               fields: [
                 {
-                  dateFormat: 'Test string',
+                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                   fieldPath: 'Test string',
                 },
               ],
@@ -56823,18 +56823,18 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        multipleDevicesAndHoldersAllowedStatus: 'Test string',
-        notifyPreference: 'Test string',
+        multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         redemptionIssuers: ['Test string'],
         review: {
           comments: 'Test string',
         },
-        reviewStatus: 'Test string',
+        reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
         securityAnimation: {
-          animationType: 'Test string',
+          animationType: 'ANIMATION_UNSPECIFIED',
         },
         textModulesData: [
           {
@@ -56888,7 +56888,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        transitType: 'Test string',
+        transitType: 'TRANSIT_TYPE_UNSPECIFIED',
         valueAddedModuleData: [
           {
             body: {
@@ -56975,7 +56975,7 @@ gapi.load('client', async () => {
           },
         ],
         version: 'Test string',
-        viewUnlockRequirement: 'Test string',
+        viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
         watermark: {
           contentDescription: {
             defaultValue: {
@@ -57142,7 +57142,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          messageType: 'Test string',
+          messageType: 'MESSAGE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -57155,7 +57155,7 @@ gapi.load('client', async () => {
       {},
       {
         activationStatus: {
-          state: 'Test string',
+          state: 'UNKNOWN_STATE',
         },
         appLinkData: {
           androidAppLinkInfo: {
@@ -57459,7 +57459,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -57475,7 +57475,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -57794,7 +57794,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -57804,7 +57804,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -57814,7 +57814,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -57829,16 +57829,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57850,16 +57850,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57869,16 +57869,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57888,16 +57888,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57909,16 +57909,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57928,16 +57928,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -57954,16 +57954,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -57977,17 +57977,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -57995,7 +57995,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -58575,18 +58575,18 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -58640,7 +58640,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          transitType: 'Test string',
+          transitType: 'TRANSIT_TYPE_UNSPECIFIED',
           valueAddedModuleData: [
             {
               body: {
@@ -58727,7 +58727,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           watermark: {
             contentDescription: {
               defaultValue: {
@@ -58843,7 +58843,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        concessionCategory: 'Test string',
+        concessionCategory: 'CONCESSION_CATEGORY_UNSPECIFIED',
         customConcessionCategory: {
           defaultValue: {
             kind: 'Test string',
@@ -59094,16 +59094,16 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerNames: 'Test string',
-        passengerType: 'Test string',
+        passengerType: 'PASSENGER_TYPE_UNSPECIFIED',
         purchaseDetails: {
           accountId: 'Test string',
           confirmationCode: 'Test string',
@@ -59144,7 +59144,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -59161,7 +59161,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -59170,14 +59170,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -59284,7 +59284,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            fareClass: 'Test string',
+            fareClass: 'FARE_CLASS_UNSPECIFIED',
             seat: 'Test string',
             seatAssignment: {
               defaultValue: {
@@ -59320,7 +59320,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -59441,7 +59441,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -59477,7 +59477,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                fareClass: 'Test string',
+                fareClass: 'FARE_CLASS_UNSPECIFIED',
                 seat: 'Test string',
                 seatAssignment: {
                   defaultValue: {
@@ -59592,9 +59592,9 @@ gapi.load('client', async () => {
             ],
           },
         },
-        ticketStatus: 'Test string',
+        ticketStatus: 'TICKET_STATUS_UNSPECIFIED',
         tripId: 'Test string',
-        tripType: 'Test string',
+        tripType: 'TRIP_TYPE_UNSPECIFIED',
         validTimeInterval: {
           end: {
             date: 'Test string',
@@ -59705,7 +59705,7 @@ gapi.load('client', async () => {
       },
       {
         activationStatus: {
-          state: 'Test string',
+          state: 'UNKNOWN_STATE',
         },
         appLinkData: {
           androidAppLinkInfo: {
@@ -60009,7 +60009,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -60025,7 +60025,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -60344,7 +60344,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -60354,7 +60354,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -60364,7 +60364,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -60379,16 +60379,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60400,16 +60400,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60419,16 +60419,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60438,16 +60438,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60459,16 +60459,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60478,16 +60478,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -60504,16 +60504,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -60527,17 +60527,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -60545,7 +60545,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -61125,18 +61125,18 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -61190,7 +61190,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          transitType: 'Test string',
+          transitType: 'TRANSIT_TYPE_UNSPECIFIED',
           valueAddedModuleData: [
             {
               body: {
@@ -61277,7 +61277,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           watermark: {
             contentDescription: {
               defaultValue: {
@@ -61393,7 +61393,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        concessionCategory: 'Test string',
+        concessionCategory: 'CONCESSION_CATEGORY_UNSPECIFIED',
         customConcessionCategory: {
           defaultValue: {
             kind: 'Test string',
@@ -61644,16 +61644,16 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerNames: 'Test string',
-        passengerType: 'Test string',
+        passengerType: 'PASSENGER_TYPE_UNSPECIFIED',
         purchaseDetails: {
           accountId: 'Test string',
           confirmationCode: 'Test string',
@@ -61694,7 +61694,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -61711,7 +61711,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -61720,14 +61720,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -61834,7 +61834,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            fareClass: 'Test string',
+            fareClass: 'FARE_CLASS_UNSPECIFIED',
             seat: 'Test string',
             seatAssignment: {
               defaultValue: {
@@ -61870,7 +61870,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -61991,7 +61991,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -62027,7 +62027,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                fareClass: 'Test string',
+                fareClass: 'FARE_CLASS_UNSPECIFIED',
                 seat: 'Test string',
                 seatAssignment: {
                   defaultValue: {
@@ -62142,9 +62142,9 @@ gapi.load('client', async () => {
             ],
           },
         },
-        ticketStatus: 'Test string',
+        ticketStatus: 'TICKET_STATUS_UNSPECIFIED',
         tripId: 'Test string',
-        tripType: 'Test string',
+        tripType: 'TRIP_TYPE_UNSPECIFIED',
         validTimeInterval: {
           end: {
             date: 'Test string',
@@ -62249,7 +62249,7 @@ gapi.load('client', async () => {
       },
       {
         activationStatus: {
-          state: 'Test string',
+          state: 'UNKNOWN_STATE',
         },
         appLinkData: {
           androidAppLinkInfo: {
@@ -62553,7 +62553,7 @@ gapi.load('client', async () => {
         barcode: {
           alternateText: 'Test string',
           kind: 'Test string',
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -62569,7 +62569,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           value: 'Test string',
         },
         classId: 'Test string',
@@ -62888,7 +62888,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -62898,7 +62898,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -62908,7 +62908,7 @@ gapi.load('client', async () => {
                 fieldSelector: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
@@ -62923,16 +62923,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -62944,16 +62944,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -62963,16 +62963,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -62982,16 +62982,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -63003,16 +63003,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -63022,16 +63022,16 @@ gapi.load('client', async () => {
                       firstValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
                       },
-                      predefinedItem: 'Test string',
+                      predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                       secondValue: {
                         fields: [
                           {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             fieldPath: 'Test string',
                           },
                         ],
@@ -63048,16 +63048,16 @@ gapi.load('client', async () => {
                     firstValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
                     },
-                    predefinedItem: 'Test string',
+                    predefinedItem: 'PREDEFINED_ITEM_UNSPECIFIED',
                     secondValue: {
                       fields: [
                         {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           fieldPath: 'Test string',
                         },
                       ],
@@ -63071,17 +63071,17 @@ gapi.load('client', async () => {
                 fieldOption: {
                   fields: [
                     {
-                      dateFormat: 'Test string',
+                      dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                       fieldPath: 'Test string',
                     },
                   ],
                 },
-                transitOption: 'Test string',
+                transitOption: 'TRANSIT_OPTION_UNSPECIFIED',
               },
               secondRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -63089,7 +63089,7 @@ gapi.load('client', async () => {
               thirdRowOption: {
                 fields: [
                   {
-                    dateFormat: 'Test string',
+                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                     fieldPath: 'Test string',
                   },
                 ],
@@ -63669,18 +63669,18 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          multipleDevicesAndHoldersAllowedStatus: 'Test string',
-          notifyPreference: 'Test string',
+          multipleDevicesAndHoldersAllowedStatus: 'STATUS_UNSPECIFIED',
+          notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
           redemptionIssuers: ['Test string'],
           review: {
             comments: 'Test string',
           },
-          reviewStatus: 'Test string',
+          reviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           securityAnimation: {
-            animationType: 'Test string',
+            animationType: 'ANIMATION_UNSPECIFIED',
           },
           textModulesData: [
             {
@@ -63734,7 +63734,7 @@ gapi.load('client', async () => {
               },
             ],
           },
-          transitType: 'Test string',
+          transitType: 'TRANSIT_TYPE_UNSPECIFIED',
           valueAddedModuleData: [
             {
               body: {
@@ -63821,7 +63821,7 @@ gapi.load('client', async () => {
             },
           ],
           version: 'Test string',
-          viewUnlockRequirement: 'Test string',
+          viewUnlockRequirement: 'VIEW_UNLOCK_REQUIREMENT_UNSPECIFIED',
           watermark: {
             contentDescription: {
               defaultValue: {
@@ -63937,7 +63937,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        concessionCategory: 'Test string',
+        concessionCategory: 'CONCESSION_CATEGORY_UNSPECIFIED',
         customConcessionCategory: {
           defaultValue: {
             kind: 'Test string',
@@ -64188,16 +64188,16 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            messageType: 'Test string',
+            messageType: 'MESSAGE_TYPE_UNSPECIFIED',
           },
         ],
-        notifyPreference: 'Test string',
+        notifyPreference: 'NOTIFICATION_SETTINGS_FOR_UPDATES_UNSPECIFIED',
         passConstraints: {
-          nfcConstraint: ['Test string'],
-          screenshotEligibility: 'Test string',
+          nfcConstraint: ['NFC_CONSTRAINT_UNSPECIFIED'],
+          screenshotEligibility: 'SCREENSHOT_ELIGIBILITY_UNSPECIFIED',
         },
         passengerNames: 'Test string',
-        passengerType: 'Test string',
+        passengerType: 'PASSENGER_TYPE_UNSPECIFIED',
         purchaseDetails: {
           accountId: 'Test string',
           confirmationCode: 'Test string',
@@ -64238,7 +64238,7 @@ gapi.load('client', async () => {
             startDateTime: 'Test string',
             values: ['Test string'],
           },
-          renderEncoding: 'Test string',
+          renderEncoding: 'RENDER_ENCODING_UNSPECIFIED',
           showCodeText: {
             defaultValue: {
               kind: 'Test string',
@@ -64255,7 +64255,7 @@ gapi.load('client', async () => {
             ],
           },
           totpDetails: {
-            algorithm: 'Test string',
+            algorithm: 'TOTP_ALGORITHM_UNSPECIFIED',
             parameters: [
               {
                 key: 'Test string',
@@ -64264,14 +64264,14 @@ gapi.load('client', async () => {
             ],
             periodMillis: 'Test string',
           },
-          type: 'Test string',
+          type: 'BARCODE_TYPE_UNSPECIFIED',
           valuePattern: 'Test string',
         },
         saveRestrictions: {
           restrictToEmailSha256: 'Test string',
         },
         smartTapRedemptionValue: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         textModulesData: [
           {
             body: 'Test string',
@@ -64378,7 +64378,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            fareClass: 'Test string',
+            fareClass: 'FARE_CLASS_UNSPECIFIED',
             seat: 'Test string',
             seatAssignment: {
               defaultValue: {
@@ -64414,7 +64414,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -64535,7 +64535,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              fareClass: 'Test string',
+              fareClass: 'FARE_CLASS_UNSPECIFIED',
               seat: 'Test string',
               seatAssignment: {
                 defaultValue: {
@@ -64571,7 +64571,7 @@ gapi.load('client', async () => {
                     },
                   ],
                 },
-                fareClass: 'Test string',
+                fareClass: 'FARE_CLASS_UNSPECIFIED',
                 seat: 'Test string',
                 seatAssignment: {
                   defaultValue: {
@@ -64686,9 +64686,9 @@ gapi.load('client', async () => {
             ],
           },
         },
-        ticketStatus: 'Test string',
+        ticketStatus: 'TICKET_STATUS_UNSPECIFIED',
         tripId: 'Test string',
-        tripType: 'Test string',
+        tripType: 'TRIP_TYPE_UNSPECIFIED',
         validTimeInterval: {
           end: {
             date: 'Test string',

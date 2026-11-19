@@ -279,8 +279,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1DocumentMediaMetadata {
       /** Optional. Content layers to return. If empty, defaults to [PAGE_IMAGE] when DocumentMediaMetadata is set. When DocumentMediaMetadata is not set, default document processing is used (for example, page images for PDFs). */
-      contentLayers?:
-        'CONTENT_LAYER_UNSPECIFIED' | 'PAGE_IMAGE' | 'PAGE_TEXT'[];
+      contentLayers?: (
+        'CONTENT_LAYER_UNSPECIFIED' | 'PAGE_IMAGE' | 'PAGE_TEXT'
+      )[];
       /** Optional. 1-indexed inclusive end page. */
       endPage?: number;
       /** Optional. 1-indexed inclusive start page. */
@@ -438,8 +439,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1FunctionResponseVideoMetadata {
       /** Optional. Content layers to return. If empty, defaults to [FRAMES, AUDIO]. */
-      contentLayers?:
-        'CONTENT_LAYER_UNSPECIFIED' | 'FRAMES' | 'AUDIO' | 'TRANSCRIPT'[];
+      contentLayers?: (
+        'CONTENT_LAYER_UNSPECIFIED' | 'FRAMES' | 'AUDIO' | 'TRANSCRIPT'
+      )[];
       /** Optional. The end offset of the video. */
       endOffset?: string;
       /** Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0]. */
@@ -571,8 +573,9 @@ declare namespace gapi.client {
       /** Optional. The IANA standard MIME type of the response. The model will generate output that conforms to this MIME type. Supported values include 'text/plain' (default) and 'application/json'. The model needs to be prompted to output the appropriate response type, otherwise the behavior is undefined. Deprecated: Use `response_format` instead. */
       responseMimeType?: string;
       /** Optional. The modalities of the response. The model will generate a response that includes all the specified modalities. For example, if this is set to `[TEXT, IMAGE]`, the response will include both text and an image. */
-      responseModalities?:
-        'MODALITY_UNSPECIFIED' | 'TEXT' | 'IMAGE' | 'AUDIO' | 'VIDEO'[];
+      responseModalities?: (
+        'MODALITY_UNSPECIFIED' | 'TEXT' | 'IMAGE' | 'AUDIO' | 'VIDEO'
+      )[];
       /** Optional. Lets you to specify a schema for the model's response, ensuring that the output conforms to a particular structure. This is useful for generating structured data such as JSON. The schema is a subset of the [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema) object. When this field is set, you must also set the `response_mime_type` to `application/json`. Deprecated: Use `response_format` instead. */
       responseSchema?: GoogleCloudAiplatformV1beta1Schema;
       /** Optional. Routing configuration. */
@@ -1206,8 +1209,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1SpreadsheetMetadata {
       /** Optional. Content layers to return. If empty, defaults to [DATA, FORMULAS] when SpreadsheetMetadata is set. */
-      contentLayers?:
-        'CONTENT_LAYER_UNSPECIFIED' | 'DATA' | 'FORMULAS' | 'VISUAL'[];
+      contentLayers?: (
+        'CONTENT_LAYER_UNSPECIFIED' | 'DATA' | 'FORMULAS' | 'VISUAL'
+      )[];
       /** Optional. The 1-indexed index of the sheet to extract, in workbook order. If not set, all sheets are extracted. */
       sheetIndex?: number;
       /** Optional. The range of cells to extract, in A1 notation (e.g. "A1:D10"). If not set, the full occupied area of the sheet is used. */
@@ -1246,7 +1250,7 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1ToolCodeExecution {}
     interface GoogleCloudAiplatformV1beta1ToolComputerUse {
       /** Optional. A list of safety policies to disable for the computer use tool. */
-      disabledSafetyPolicies?:
+      disabledSafetyPolicies?: (
         | 'SAFETY_POLICY_UNSPECIFIED'
         | 'FINANCIAL_TRANSACTIONS'
         | 'SENSITIVE_DATA_MODIFICATION'
@@ -1254,7 +1258,8 @@ declare namespace gapi.client {
         | 'ACCOUNT_CREATION'
         | 'DATA_MODIFICATION'
         | 'USER_CONSENT_MANAGEMENT'
-        | 'LEGAL_TERMS_AND_AGREEMENTS'[];
+        | 'LEGAL_TERMS_AND_AGREEMENTS'
+      )[];
       /** Optional. Whether to enable the prompt injection detection check on the computer use request. */
       enablePromptInjectionDetection?: boolean;
       /** Required. The target environment where the computer use tool operates. */
@@ -1373,8 +1378,9 @@ declare namespace gapi.client {
     }
     interface GoogleCloudAiplatformV1beta1VideoMetadata {
       /** Optional. Content layers to return. If empty, defaults to [FRAMES, AUDIO]. */
-      contentLayers?:
-        'CONTENT_LAYER_UNSPECIFIED' | 'FRAMES' | 'AUDIO' | 'TRANSCRIPT'[];
+      contentLayers?: (
+        'CONTENT_LAYER_UNSPECIFIED' | 'FRAMES' | 'AUDIO' | 'TRANSCRIPT'
+      )[];
       /** Optional. The end offset of the video. */
       endOffset?: string;
       /** Optional. The frame rate of the video sent to the model. If not specified, the default value is 1.0. The valid range is (0.0, 24.0]. */
@@ -1419,192 +1425,188 @@ declare namespace gapi.client {
       /** The name of the model we are creating/updating The name must have the form `projects/{project_id}/models/{model_id}` */
       name?: string;
     }
-    interface ModelsResource {
-      /** Perform a token counting. */
-      countTokens(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-        endpoint: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudAiplatformV1beta1CountTokensRequest;
-      }): Request<GoogleCloudAiplatformV1beta1CountTokensResponse>;
-      countTokens(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-          endpoint: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudAiplatformV1beta1CountTokensRequest,
-      ): Request<GoogleCloudAiplatformV1beta1CountTokensResponse>;
-      /** Generate content with multimodal inputs. */
-      generateContent(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-        model: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudAiplatformV1beta1GenerateContentRequest;
-      }): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
-      generateContent(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-          model: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
-      ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
-      /** Generate content with multimodal inputs with streaming support. */
-      streamGenerateContent(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-        model: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudAiplatformV1beta1GenerateContentRequest;
-      }): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
-      streamGenerateContent(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
-          model: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
-      ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
-    }
-    interface PublishersResource {
-      models: ModelsResource;
-    }
-    interface LocationsResource {
-      publishers: PublishersResource;
-    }
-    interface ProjectsResource {
-      locations: LocationsResource;
-    }
 
-    const projects: ProjectsResource;
+    const projects: {
+      locations: {
+        publishers: {
+          models: {
+            /** Perform a token counting. */
+            countTokens(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+              endpoint: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudAiplatformV1beta1CountTokensRequest;
+            }): Request<GoogleCloudAiplatformV1beta1CountTokensResponse>;
+            countTokens(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Required. The name of the Endpoint requested to perform token counting. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+                endpoint: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudAiplatformV1beta1CountTokensRequest,
+            ): Request<GoogleCloudAiplatformV1beta1CountTokensResponse>;
+            /** Generate content with multimodal inputs. */
+            generateContent(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+              model: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudAiplatformV1beta1GenerateContentRequest;
+            }): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
+            generateContent(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+                model: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
+            ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
+            /** Generate content with multimodal inputs with streaming support. */
+            streamGenerateContent(request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+              model: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+              /** Request body */
+              resource: GoogleCloudAiplatformV1beta1GenerateContentRequest;
+            }): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
+            streamGenerateContent(
+              request: {
+                /** V1 error format. */
+                '$.xgafv'?: '1' | '2';
+                /** OAuth access token. */
+                access_token?: string;
+                /** Data format for response. */
+                alt?: 'json' | 'media' | 'proto';
+                /** JSONP */
+                callback?: string;
+                /** Selector specifying which fields to include in a partial response. */
+                fields?: string;
+                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+                key?: string;
+                /** Required. The fully qualified name of the publisher model or tuned model endpoint to use. Publisher model format: `projects/{project}/locations/{location}/publishers/*‍/models/*` Tuned model endpoint format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+                model: string;
+                /** OAuth 2.0 token for the current user. */
+                oauth_token?: string;
+                /** Returns response with indentations and line breaks. */
+                prettyPrint?: boolean;
+                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+                quotaUser?: string;
+                /** Upload protocol for media (e.g. "raw", "multipart"). */
+                upload_protocol?: string;
+                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+                uploadType?: string;
+              },
+              body: GoogleCloudAiplatformV1beta1GenerateContentRequest,
+            ): Request<GoogleCloudAiplatformV1beta1GenerateContentResponse>;
+          };
+        };
+      };
+    };
   }
 }

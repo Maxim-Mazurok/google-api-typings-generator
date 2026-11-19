@@ -129,13 +129,14 @@ declare namespace gapi.client {
       /** Optional. Expresses a 'country/region to AQI' relationship. Pairs a country/region with a desired AQI so that air quality data that is required for that country/region will be displayed according to the chosen AQI. This parameter can be used to specify a non-default AQI for a given country, for example, to get the US EPA index for Canada rather than the default index for Canada. */
       customLocalAqis?: CustomLocalAqi[];
       /** Optional. Additional features that can be optionally enabled. Specifying extra computations will result in the relevant elements and fields to be returned in the response. */
-      extraComputations?:
+      extraComputations?: (
         | 'EXTRA_COMPUTATION_UNSPECIFIED'
         | 'LOCAL_AQI'
         | 'HEALTH_RECOMMENDATIONS'
         | 'POLLUTANT_ADDITIONAL_INFO'
         | 'DOMINANT_POLLUTANT_CONCENTRATION'
-        | 'POLLUTANT_CONCENTRATION'[];
+        | 'POLLUTANT_CONCENTRATION'
+      )[];
       /** Optional. Allows the client to choose the language for the response. If data cannot be provided for that language the API uses the closest match. Allowed values rely on the IETF standard. Default value is en. */
       languageCode?: string;
       /** Required. The longitude and latitude from which the API looks for air quality current conditions data. */
@@ -167,13 +168,14 @@ declare namespace gapi.client {
       /** A timestamp for which to return the data for a specific point in time. The timestamp is rounded to the previous exact hour. Note: this will return hourly data for the requested timestamp only (i.e. a single hourly info element). For example, a request sent where the date_time parameter is set to 2023-01-03T11:05:49Z will be rounded down to 2023-01-03T11:00:00Z. */
       dateTime?: string;
       /** Optional. Additional features that can be optionally enabled. Specifying extra computations will result in the relevant elements and fields to be returned in the response. */
-      extraComputations?:
+      extraComputations?: (
         | 'EXTRA_COMPUTATION_UNSPECIFIED'
         | 'LOCAL_AQI'
         | 'HEALTH_RECOMMENDATIONS'
         | 'POLLUTANT_ADDITIONAL_INFO'
         | 'DOMINANT_POLLUTANT_CONCENTRATION'
-        | 'POLLUTANT_CONCENTRATION'[];
+        | 'POLLUTANT_CONCENTRATION'
+      )[];
       /** Optional. Allows the client to choose the language for the response. If data cannot be provided for that language the API uses the closest match. Allowed values rely on the IETF standard (default = 'en'). */
       languageCode?: string;
       /** Required. The latitude and longitude for which the API looks for air quality data. */
@@ -207,13 +209,14 @@ declare namespace gapi.client {
       /** A timestamp for which to return historical data. The timestamp is rounded to the previous exact hour. Note: this will return hourly data for the requested timestamp only (i.e. a single hourly info element). For example, a request sent where the dateTime parameter is set to 2023-01-03T11:05:49Z will be rounded down to 2023-01-03T11:00:00Z. A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z". */
       dateTime?: string;
       /** Optional. Additional features that can be optionally enabled. Specifying extra computations will result in the relevant elements and fields to be returned in the response. */
-      extraComputations?:
+      extraComputations?: (
         | 'EXTRA_COMPUTATION_UNSPECIFIED'
         | 'LOCAL_AQI'
         | 'HEALTH_RECOMMENDATIONS'
         | 'POLLUTANT_ADDITIONAL_INFO'
         | 'DOMINANT_POLLUTANT_CONCENTRATION'
-        | 'POLLUTANT_CONCENTRATION'[];
+        | 'POLLUTANT_CONCENTRATION'
+      )[];
       /** Number from 1 to 720 that indicates the hours range for the request. For example: A value of 48 will yield data from the last 48 hours. */
       hours?: number;
       /** Optional. Allows the client to choose the language for the response. If data cannot be provided for that language the API uses the closest match. Allowed values rely on the IETF standard. Default value is en. */
@@ -255,7 +258,8 @@ declare namespace gapi.client {
       /** The pollutant's full name. For chemical compounds, this is the IUPAC name. Example: "Sulfur Dioxide". For more information about the IUPAC names table, see https://iupac.org/what-we-do/periodic-table-of-elements/. */
       fullName?: string;
     }
-    interface CurrentConditionsResource {
+
+    const currentConditions: {
       /** The Current Conditions endpoint provides hourly air quality information in more than 100 countries, up to a 500 x 500 meters resolution. Includes over 70 local indexes and global air quality index and categories. */
       lookup(request: {
         /** V1 error format. */
@@ -310,8 +314,9 @@ declare namespace gapi.client {
         },
         body: LookupCurrentConditionsRequest,
       ): Request<LookupCurrentConditionsResponse>;
-    }
-    interface ForecastResource {
+    };
+
+    const forecast: {
       /** Returns air quality forecast for a specific location for a given time range. */
       lookup(request: {
         /** V1 error format. */
@@ -366,8 +371,9 @@ declare namespace gapi.client {
         },
         body: LookupForecastRequest,
       ): Request<LookupForecastResponse>;
-    }
-    interface HistoryResource {
+    };
+
+    const history: {
       /** Returns air quality history for a specific location for a given time range. */
       lookup(request: {
         /** V1 error format. */
@@ -422,61 +428,53 @@ declare namespace gapi.client {
         },
         body: LookupHistoryRequest,
       ): Request<LookupHistoryResponse>;
-    }
-    interface HeatmapTilesResource {
-      /** Returns a bytes array containing the data of the tile PNG image. */
-      lookupHeatmapTile(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The type of the air quality heatmap. Defines the pollutant that the map will graphically represent. Allowed values: - UAQI_RED_GREEN (UAQI, red-green palette) - UAQI_INDIGO_PERSIAN (UAQI, indigo-persian palette) - PM25_INDIGO_PERSIAN - GBR_DEFRA - DEU_UBA - CAN_EC - FRA_ATMO - US_AQI */
-        mapType:
-          | 'MAP_TYPE_UNSPECIFIED'
-          | 'UAQI_RED_GREEN'
-          | 'UAQI_INDIGO_PERSIAN'
-          | 'PM25_INDIGO_PERSIAN'
-          | 'GBR_DEFRA'
-          | 'DEU_UBA'
-          | 'CAN_EC'
-          | 'FRA_ATMO'
-          | 'US_AQI';
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Required. Defines the east-west point in the requested tile. */
-        x: number;
-        /** Required. Defines the north-south point in the requested tile. */
-        y: number;
-        /** Required. The map's zoom level. Defines how large or small the contents of a map appear in a map view. Zoom level 0 is the entire world in a single tile. Zoom level 1 is the entire world in 4 tiles. Zoom level 2 is the entire world in 16 tiles. Zoom level 16 is the entire world in 65,536 tiles. Allowed values: 0-16 */
-        zoom: number;
-      }): Request<HttpBody>;
-    }
-    interface MapTypesResource {
-      heatmapTiles: HeatmapTilesResource;
-    }
+    };
 
-    const currentConditions: CurrentConditionsResource;
-
-    const forecast: ForecastResource;
-
-    const history: HistoryResource;
-
-    const mapTypes: MapTypesResource;
+    const mapTypes: {
+      heatmapTiles: {
+        /** Returns a bytes array containing the data of the tile PNG image. */
+        lookupHeatmapTile(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The type of the air quality heatmap. Defines the pollutant that the map will graphically represent. Allowed values: - UAQI_RED_GREEN (UAQI, red-green palette) - UAQI_INDIGO_PERSIAN (UAQI, indigo-persian palette) - PM25_INDIGO_PERSIAN - GBR_DEFRA - DEU_UBA - CAN_EC - FRA_ATMO - US_AQI */
+          mapType:
+            | 'MAP_TYPE_UNSPECIFIED'
+            | 'UAQI_RED_GREEN'
+            | 'UAQI_INDIGO_PERSIAN'
+            | 'PM25_INDIGO_PERSIAN'
+            | 'GBR_DEFRA'
+            | 'DEU_UBA'
+            | 'CAN_EC'
+            | 'FRA_ATMO'
+            | 'US_AQI';
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Required. Defines the east-west point in the requested tile. */
+          x: number;
+          /** Required. Defines the north-south point in the requested tile. */
+          y: number;
+          /** Required. The map's zoom level. Defines how large or small the contents of a map appear in a map view. Zoom level 0 is the entire world in a single tile. Zoom level 1 is the entire world in 4 tiles. Zoom level 2 is the entire world in 16 tiles. Zoom level 16 is the entire world in 65,536 tiles. Allowed values: 0-16 */
+          zoom: number;
+        }): Request<HttpBody>;
+      };
+    };
   }
 }

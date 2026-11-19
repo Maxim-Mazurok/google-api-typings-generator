@@ -47,7 +47,7 @@ gapi.load('client', async () => {
     /** Gets a requested Account resource. */
     await gapi.client.cloudcommerceprocurement.providers.accounts.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'ACCOUNT_VIEW_UNSPECIFIED',
     });
     /** Lists Accounts that the provider has access to. */
     await gapi.client.cloudcommerceprocurement.providers.accounts.list({
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
         productExternalName: 'Test string',
         provider: 'Test string',
         quoteExternalName: 'Test string',
-        state: 'Test string',
+        state: 'ENTITLEMENT_STATE_UNSPECIFIED',
         subscriptionEndTime: 'Test string',
         updateTime: 'Test string',
         usageReportingId: 'Test string',

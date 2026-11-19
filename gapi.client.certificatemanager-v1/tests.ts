@@ -57,7 +57,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        keyAlgorithm: 'Test string',
+        keyAlgorithm: 'KEY_ALGORITHM_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        keyAlgorithm: 'Test string',
+        keyAlgorithm: 'KEY_ALGORITHM_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -217,9 +217,9 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        matcher: 'Test string',
+        matcher: 'MATCHER_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'SERVING_STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -259,9 +259,9 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        matcher: 'Test string',
+        matcher: 'MATCHER_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'SERVING_STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -284,8 +284,8 @@ gapi.load('client', async () => {
               attemptTime: 'Test string',
               details: 'Test string',
               domain: 'Test string',
-              failureReason: 'Test string',
-              state: 'Test string',
+              failureReason: 'FAILURE_REASON_UNSPECIFIED',
+              state: 'STATE_UNSPECIFIED',
               troubleshooting: {
                 cname: {
                   expectedData: 'Test string',
@@ -297,7 +297,7 @@ gapi.load('client', async () => {
                   serving: ['Test string'],
                   servingOnAltPorts: ['Test string'],
                 },
-                issues: ['Test string'],
+                issues: ['ISSUE_UNSPECIFIED'],
               },
             },
           ],
@@ -306,22 +306,22 @@ gapi.load('client', async () => {
           issuanceConfig: 'Test string',
           provisioningIssue: {
             details: 'Test string',
-            reason: 'Test string',
+            reason: 'REASON_UNSPECIFIED',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         managedIdentity: {
           identity: 'Test string',
           provisioningIssue: {
             details: 'Test string',
-            reason: 'Test string',
+            reason: 'REASON_UNSPECIFIED',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         name: 'Test string',
         pemCertificate: 'Test string',
         sanDnsnames: ['Test string'],
-        scope: 'Test string',
+        scope: 'DEFAULT',
         selfManaged: {
           pemCertificate: 'Test string',
           pemPrivateKey: 'Test string',
@@ -374,8 +374,8 @@ gapi.load('client', async () => {
               attemptTime: 'Test string',
               details: 'Test string',
               domain: 'Test string',
-              failureReason: 'Test string',
-              state: 'Test string',
+              failureReason: 'FAILURE_REASON_UNSPECIFIED',
+              state: 'STATE_UNSPECIFIED',
               troubleshooting: {
                 cname: {
                   expectedData: 'Test string',
@@ -387,7 +387,7 @@ gapi.load('client', async () => {
                   serving: ['Test string'],
                   servingOnAltPorts: ['Test string'],
                 },
-                issues: ['Test string'],
+                issues: ['ISSUE_UNSPECIFIED'],
               },
             },
           ],
@@ -396,22 +396,22 @@ gapi.load('client', async () => {
           issuanceConfig: 'Test string',
           provisioningIssue: {
             details: 'Test string',
-            reason: 'Test string',
+            reason: 'REASON_UNSPECIFIED',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         managedIdentity: {
           identity: 'Test string',
           provisioningIssue: {
             details: 'Test string',
-            reason: 'Test string',
+            reason: 'REASON_UNSPECIFIED',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         name: 'Test string',
         pemCertificate: 'Test string',
         sanDnsnames: ['Test string'],
-        scope: 'Test string',
+        scope: 'DEFAULT',
         selfManaged: {
           pemCertificate: 'Test string',
           pemPrivateKey: 'Test string',
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -497,7 +497,7 @@ gapi.load('client', async () => {
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

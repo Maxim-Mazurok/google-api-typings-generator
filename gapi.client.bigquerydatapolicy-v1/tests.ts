@@ -40,11 +40,11 @@ gapi.load('client', async () => {
       },
       {
         dataMaskingPolicy: {
-          predefinedExpression: 'Test string',
+          predefinedExpression: 'PREDEFINED_EXPRESSION_UNSPECIFIED',
           routine: 'Test string',
         },
         dataPolicyId: 'Test string',
-        dataPolicyType: 'Test string',
+        dataPolicyType: 'DATA_POLICY_TYPE_UNSPECIFIED',
         name: 'Test string',
         policyTag: 'Test string',
       },
@@ -87,11 +87,11 @@ gapi.load('client', async () => {
       },
       {
         dataMaskingPolicy: {
-          predefinedExpression: 'Test string',
+          predefinedExpression: 'PREDEFINED_EXPRESSION_UNSPECIFIED',
           routine: 'Test string',
         },
         dataPolicyId: 'Test string',
-        dataPolicyType: 'Test string',
+        dataPolicyType: 'DATA_POLICY_TYPE_UNSPECIFIED',
         name: 'Test string',
         policyTag: 'Test string',
       },
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

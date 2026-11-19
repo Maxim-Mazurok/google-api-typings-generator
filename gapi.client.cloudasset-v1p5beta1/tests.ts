@@ -34,7 +34,7 @@ gapi.load('client', async () => {
     /** Lists assets with time and resource types and returns paged results in response. */
     await gapi.client.cloudasset.assets.list({
       assetTypes: 'Test string',
-      contentType: 'Test string',
+      contentType: 'CONTENT_TYPE_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',

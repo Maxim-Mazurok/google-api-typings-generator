@@ -52,7 +52,7 @@ gapi.load('client', async () => {
     /** Translates input text, returning translated text. */
     await gapi.client.language.translations.list({
       cid: 'Test string',
-      format: 'Test string',
+      format: 'html',
       model: 'Test string',
       q: 'Test string',
       source: 'Test string',

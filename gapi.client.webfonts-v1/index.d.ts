@@ -70,7 +70,8 @@ declare namespace gapi.client {
       /** This kind represents a list of webfont objects in the webfonts service. */
       kind?: string;
     }
-    interface WebfontsResource {
+
+    const webfonts: {
       /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
       list(request?: {
         /** V1 error format. */
@@ -117,8 +118,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<WebfontList>;
-    }
-
-    const webfonts: WebfontsResource;
+    };
   }
 }

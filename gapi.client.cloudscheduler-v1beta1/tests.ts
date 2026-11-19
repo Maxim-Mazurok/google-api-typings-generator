@@ -60,7 +60,7 @@ gapi.load('client', async () => {
           headers: {
             A: 'Test string',
           },
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           relativeUri: 'Test string',
         },
         attemptDeadline: 'Test string',
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
           headers: {
             A: 'Test string',
           },
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         schedule: 'Test string',
         scheduleTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           code: 42,
           details: [
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
           headers: {
             A: 'Test string',
           },
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           relativeUri: 'Test string',
         },
         attemptDeadline: 'Test string',
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
           headers: {
             A: 'Test string',
           },
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         schedule: 'Test string',
         scheduleTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           code: 42,
           details: [

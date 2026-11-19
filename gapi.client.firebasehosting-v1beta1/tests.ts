@@ -55,7 +55,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes the specified Hosting Site from the specified parent Firebase project. */
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Sets the Hosting metadata for a specific site. */
@@ -124,10 +124,10 @@ gapi.load('client', async () => {
             email: 'Test string',
             imageUrl: 'Test string',
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           version: {
             config: {
-              appAssociation: 'Test string',
+              appAssociation: 'AUTO',
               cleanUrls: true,
               headers: [
                 {
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              trailingSlashBehavior: 'Test string',
+              trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
             },
             createTime: 'Test string',
             createUser: {
@@ -186,7 +186,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             name: 'Test string',
-            status: 'Test string',
+            status: 'VERSION_STATUS_UNSPECIFIED',
             versionBytes: 'Test string',
           },
         },
@@ -231,10 +231,10 @@ gapi.load('client', async () => {
             email: 'Test string',
             imageUrl: 'Test string',
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           version: {
             config: {
-              appAssociation: 'Test string',
+              appAssociation: 'AUTO',
               cleanUrls: true,
               headers: [
                 {
@@ -271,7 +271,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              trailingSlashBehavior: 'Test string',
+              trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
             },
             createTime: 'Test string',
             createUser: {
@@ -293,7 +293,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             name: 'Test string',
-            status: 'Test string',
+            status: 'VERSION_STATUS_UNSPECIFIED',
             versionBytes: 'Test string',
           },
         },
@@ -317,10 +317,10 @@ gapi.load('client', async () => {
           email: 'Test string',
           imageUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         version: {
           config: {
-            appAssociation: 'Test string',
+            appAssociation: 'AUTO',
             cleanUrls: true,
             headers: [
               {
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            trailingSlashBehavior: 'Test string',
+            trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
           },
           createTime: 'Test string',
           createUser: {
@@ -379,7 +379,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           name: 'Test string',
-          status: 'Test string',
+          status: 'VERSION_STATUS_UNSPECIFIED',
           versionBytes: 'Test string',
         },
       },
@@ -419,8 +419,8 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          state: 'Test string',
-          type: 'Test string',
+          state: 'CERT_STATE_UNSPECIFIED',
+          type: 'TYPE_UNSPECIFIED',
           verification: {
             dns: {
               checkTime: 'Test string',
@@ -440,8 +440,8 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -462,8 +462,8 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -486,12 +486,12 @@ gapi.load('client', async () => {
             },
           },
         },
-        certPreference: 'Test string',
+        certPreference: 'TYPE_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         etag: 'Test string',
         expireTime: 'Test string',
-        hostState: 'Test string',
+        hostState: 'HOST_STATE_UNSPECIFIED',
         issues: [
           {
             code: 42,
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        ownershipState: 'Test string',
+        ownershipState: 'OWNERSHIP_STATE_UNSPECIFIED',
         reconciling: true,
         redirectTarget: 'Test string',
         requiredDnsUpdates: {
@@ -528,8 +528,8 @@ gapi.load('client', async () => {
                 {
                   domainName: 'Test string',
                   rdata: 'Test string',
-                  requiredAction: 'Test string',
-                  type: 'Test string',
+                  requiredAction: 'NONE',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -550,8 +550,8 @@ gapi.load('client', async () => {
                 {
                   domainName: 'Test string',
                   rdata: 'Test string',
-                  requiredAction: 'Test string',
-                  type: 'Test string',
+                  requiredAction: 'NONE',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -604,8 +604,8 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          state: 'Test string',
-          type: 'Test string',
+          state: 'CERT_STATE_UNSPECIFIED',
+          type: 'TYPE_UNSPECIFIED',
           verification: {
             dns: {
               checkTime: 'Test string',
@@ -625,8 +625,8 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -647,8 +647,8 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -671,12 +671,12 @@ gapi.load('client', async () => {
             },
           },
         },
-        certPreference: 'Test string',
+        certPreference: 'TYPE_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         etag: 'Test string',
         expireTime: 'Test string',
-        hostState: 'Test string',
+        hostState: 'HOST_STATE_UNSPECIFIED',
         issues: [
           {
             code: 42,
@@ -692,7 +692,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        ownershipState: 'Test string',
+        ownershipState: 'OWNERSHIP_STATE_UNSPECIFIED',
         reconciling: true,
         redirectTarget: 'Test string',
         requiredDnsUpdates: {
@@ -713,8 +713,8 @@ gapi.load('client', async () => {
                 {
                   domainName: 'Test string',
                   rdata: 'Test string',
-                  requiredAction: 'Test string',
-                  type: 'Test string',
+                  requiredAction: 'NONE',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -735,8 +735,8 @@ gapi.load('client', async () => {
                 {
                   domainName: 'Test string',
                   rdata: 'Test string',
-                  requiredAction: 'Test string',
-                  type: 'Test string',
+                  requiredAction: 'NONE',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -780,7 +780,7 @@ gapi.load('client', async () => {
         domainName: 'Test string',
         domainRedirect: {
           domainName: 'Test string',
-          type: 'Test string',
+          type: 'REDIRECT_TYPE_UNSPECIFIED',
         },
         provisioning: {
           certChallengeDiscoveredTxt: ['Test string'],
@@ -792,14 +792,14 @@ gapi.load('client', async () => {
             path: 'Test string',
             token: 'Test string',
           },
-          certStatus: 'Test string',
+          certStatus: 'CERT_STATUS_UNSPECIFIED',
           discoveredIps: ['Test string'],
           dnsFetchTime: 'Test string',
-          dnsStatus: 'Test string',
+          dnsStatus: 'DNS_STATUS_UNSPECIFIED',
           expectedIps: ['Test string'],
         },
         site: 'Test string',
-        status: 'Test string',
+        status: 'DOMAIN_STATUS_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -826,7 +826,7 @@ gapi.load('client', async () => {
         domainName: 'Test string',
         domainRedirect: {
           domainName: 'Test string',
-          type: 'Test string',
+          type: 'REDIRECT_TYPE_UNSPECIFIED',
         },
         provisioning: {
           certChallengeDiscoveredTxt: ['Test string'],
@@ -838,14 +838,14 @@ gapi.load('client', async () => {
             path: 'Test string',
             token: 'Test string',
           },
-          certStatus: 'Test string',
+          certStatus: 'CERT_STATUS_UNSPECIFIED',
           discoveredIps: ['Test string'],
           dnsFetchTime: 'Test string',
-          dnsStatus: 'Test string',
+          dnsStatus: 'DNS_STATUS_UNSPECIFIED',
           expectedIps: ['Test string'],
         },
         site: 'Test string',
-        status: 'Test string',
+        status: 'DOMAIN_STATUS_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -863,10 +863,10 @@ gapi.load('client', async () => {
           email: 'Test string',
           imageUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         version: {
           config: {
-            appAssociation: 'Test string',
+            appAssociation: 'AUTO',
             cleanUrls: true,
             headers: [
               {
@@ -903,7 +903,7 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            trailingSlashBehavior: 'Test string',
+            trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
           },
           createTime: 'Test string',
           createUser: {
@@ -925,7 +925,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           name: 'Test string',
-          status: 'Test string',
+          status: 'VERSION_STATUS_UNSPECIFIED',
           versionBytes: 'Test string',
         },
       },
@@ -965,7 +965,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          appAssociation: 'Test string',
+          appAssociation: 'AUTO',
           cleanUrls: true,
           headers: [
             {
@@ -1002,7 +1002,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          trailingSlashBehavior: 'Test string',
+          trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
         },
         createTime: 'Test string',
         createUser: {
@@ -1024,7 +1024,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionBytes: 'Test string',
       },
     );
@@ -1051,7 +1051,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          appAssociation: 'Test string',
+          appAssociation: 'AUTO',
           cleanUrls: true,
           headers: [
             {
@@ -1088,7 +1088,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          trailingSlashBehavior: 'Test string',
+          trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
         },
         createTime: 'Test string',
         createUser: {
@@ -1110,7 +1110,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionBytes: 'Test string',
       },
     );
@@ -1130,7 +1130,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      status: 'Test string',
+      status: 'STATUS_UNSPECIFIED',
     });
     /** Gets the Hosting metadata for a specific site. */
     await gapi.client.firebasehosting.sites.getConfig({
@@ -1168,10 +1168,10 @@ gapi.load('client', async () => {
             email: 'Test string',
             imageUrl: 'Test string',
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           version: {
             config: {
-              appAssociation: 'Test string',
+              appAssociation: 'AUTO',
               cleanUrls: true,
               headers: [
                 {
@@ -1208,7 +1208,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              trailingSlashBehavior: 'Test string',
+              trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
             },
             createTime: 'Test string',
             createUser: {
@@ -1230,7 +1230,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             name: 'Test string',
-            status: 'Test string',
+            status: 'VERSION_STATUS_UNSPECIFIED',
             versionBytes: 'Test string',
           },
         },
@@ -1275,10 +1275,10 @@ gapi.load('client', async () => {
             email: 'Test string',
             imageUrl: 'Test string',
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           version: {
             config: {
-              appAssociation: 'Test string',
+              appAssociation: 'AUTO',
               cleanUrls: true,
               headers: [
                 {
@@ -1315,7 +1315,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              trailingSlashBehavior: 'Test string',
+              trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
             },
             createTime: 'Test string',
             createUser: {
@@ -1337,7 +1337,7 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             name: 'Test string',
-            status: 'Test string',
+            status: 'VERSION_STATUS_UNSPECIFIED',
             versionBytes: 'Test string',
           },
         },
@@ -1361,10 +1361,10 @@ gapi.load('client', async () => {
           email: 'Test string',
           imageUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         version: {
           config: {
-            appAssociation: 'Test string',
+            appAssociation: 'AUTO',
             cleanUrls: true,
             headers: [
               {
@@ -1401,7 +1401,7 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            trailingSlashBehavior: 'Test string',
+            trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
           },
           createTime: 'Test string',
           createUser: {
@@ -1423,7 +1423,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           name: 'Test string',
-          status: 'Test string',
+          status: 'VERSION_STATUS_UNSPECIFIED',
           versionBytes: 'Test string',
         },
       },
@@ -1447,7 +1447,7 @@ gapi.load('client', async () => {
         domainName: 'Test string',
         domainRedirect: {
           domainName: 'Test string',
-          type: 'Test string',
+          type: 'REDIRECT_TYPE_UNSPECIFIED',
         },
         provisioning: {
           certChallengeDiscoveredTxt: ['Test string'],
@@ -1459,14 +1459,14 @@ gapi.load('client', async () => {
             path: 'Test string',
             token: 'Test string',
           },
-          certStatus: 'Test string',
+          certStatus: 'CERT_STATUS_UNSPECIFIED',
           discoveredIps: ['Test string'],
           dnsFetchTime: 'Test string',
-          dnsStatus: 'Test string',
+          dnsStatus: 'DNS_STATUS_UNSPECIFIED',
           expectedIps: ['Test string'],
         },
         site: 'Test string',
-        status: 'Test string',
+        status: 'DOMAIN_STATUS_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1493,7 +1493,7 @@ gapi.load('client', async () => {
         domainName: 'Test string',
         domainRedirect: {
           domainName: 'Test string',
-          type: 'Test string',
+          type: 'REDIRECT_TYPE_UNSPECIFIED',
         },
         provisioning: {
           certChallengeDiscoveredTxt: ['Test string'],
@@ -1505,14 +1505,14 @@ gapi.load('client', async () => {
             path: 'Test string',
             token: 'Test string',
           },
-          certStatus: 'Test string',
+          certStatus: 'CERT_STATUS_UNSPECIFIED',
           discoveredIps: ['Test string'],
           dnsFetchTime: 'Test string',
-          dnsStatus: 'Test string',
+          dnsStatus: 'DNS_STATUS_UNSPECIFIED',
           expectedIps: ['Test string'],
         },
         site: 'Test string',
-        status: 'Test string',
+        status: 'DOMAIN_STATUS_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1530,10 +1530,10 @@ gapi.load('client', async () => {
           email: 'Test string',
           imageUrl: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         version: {
           config: {
-            appAssociation: 'Test string',
+            appAssociation: 'AUTO',
             cleanUrls: true,
             headers: [
               {
@@ -1570,7 +1570,7 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            trailingSlashBehavior: 'Test string',
+            trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
           },
           createTime: 'Test string',
           createUser: {
@@ -1592,7 +1592,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           name: 'Test string',
-          status: 'Test string',
+          status: 'VERSION_STATUS_UNSPECIFIED',
           versionBytes: 'Test string',
         },
       },
@@ -1632,7 +1632,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          appAssociation: 'Test string',
+          appAssociation: 'AUTO',
           cleanUrls: true,
           headers: [
             {
@@ -1669,7 +1669,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          trailingSlashBehavior: 'Test string',
+          trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
         },
         createTime: 'Test string',
         createUser: {
@@ -1691,7 +1691,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionBytes: 'Test string',
       },
     );
@@ -1718,7 +1718,7 @@ gapi.load('client', async () => {
       },
       {
         config: {
-          appAssociation: 'Test string',
+          appAssociation: 'AUTO',
           cleanUrls: true,
           headers: [
             {
@@ -1755,7 +1755,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          trailingSlashBehavior: 'Test string',
+          trailingSlashBehavior: 'TRAILING_SLASH_BEHAVIOR_UNSPECIFIED',
         },
         createTime: 'Test string',
         createUser: {
@@ -1777,7 +1777,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        status: 'Test string',
+        status: 'VERSION_STATUS_UNSPECIFIED',
         versionBytes: 'Test string',
       },
     );
@@ -1797,7 +1797,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      status: 'Test string',
+      status: 'STATUS_UNSPECIFIED',
     });
   }
 });

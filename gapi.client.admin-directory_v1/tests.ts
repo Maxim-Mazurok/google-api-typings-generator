@@ -111,8 +111,9 @@ gapi.load('client', async () => {
         customerId: 'Test string',
       },
       {
-        changeChromeOsDeviceStatusAction: 'Test string',
-        deprovisionReason: 'Test string',
+        changeChromeOsDeviceStatusAction:
+          'CHANGE_CHROME_OS_DEVICE_STATUS_ACTION_UNSPECIFIED',
+        deprovisionReason: 'DEPROVISION_REASON_UNSPECIFIED',
         deviceIds: ['Test string'],
       },
     );
@@ -130,7 +131,7 @@ gapi.load('client', async () => {
         deviceId: 'Test string',
       },
       {
-        commandType: 'Test string',
+        commandType: 'COMMAND_TYPE_UNSPECIFIED',
         payload: 'Test string',
       },
     );
@@ -154,7 +155,7 @@ gapi.load('client', async () => {
                 {
                   auxiliaryMessage: 'Test string',
                   fieldMask: 'Test string',
-                  severity: 'Test string',
+                  severity: 'SEVERITY_UNSPECIFIED',
                 },
               ],
               createTime: 'Test string',
@@ -190,7 +191,7 @@ gapi.load('client', async () => {
           {
             auxiliaryMessage: 'Test string',
             fieldMask: 'Test string',
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -240,7 +241,7 @@ gapi.load('client', async () => {
           {
             auxiliaryMessage: 'Test string',
             fieldMask: 'Test string',
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -362,19 +363,19 @@ gapi.load('client', async () => {
     await gapi.client.directory.chromeosdevices.get({
       customerId: 'Test string',
       deviceId: 'Test string',
-      projection: 'Test string',
+      projection: 'BASIC',
     });
     /** Retrieves a paginated list of Chrome OS devices within an account. */
     await gapi.client.directory.chromeosdevices.list({
       customerId: 'Test string',
       includeChildOrgunits: true,
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'annotatedLocation',
       orgUnitPath: 'Test string',
       pageToken: 'Test string',
-      projection: 'Test string',
+      projection: 'BASIC',
       query: 'Test string',
-      sortOrder: 'Test string',
+      sortOrder: 'ASCENDING',
     });
     /** Moves or inserts multiple Chrome OS devices to an organizational unit. You can move up to 50 devices at once. */
     await gapi.client.directory.chromeosdevices.moveDevicesToOu(
@@ -391,7 +392,7 @@ gapi.load('client', async () => {
       {
         customerId: 'Test string',
         deviceId: 'Test string',
-        projection: 'Test string',
+        projection: 'BASIC',
       },
       {
         activeTimeRanges: [
@@ -419,7 +420,7 @@ gapi.load('client', async () => {
           },
         ],
         bootMode: 'Test string',
-        chromeOsType: 'Test string',
+        chromeOsType: 'chromeOsTypeUnspecified',
         cpuInfo: [
           {
             architecture: 'Test string',
@@ -452,7 +453,7 @@ gapi.load('client', async () => {
             reportTime: 'Test string',
           },
         ],
-        deprovisionReason: 'Test string',
+        deprovisionReason: 'DEPROVISION_REASON_UNSPECIFIED',
         deviceFiles: [
           {
             createTime: 'Test string',
@@ -462,7 +463,7 @@ gapi.load('client', async () => {
           },
         ],
         deviceId: 'Test string',
-        deviceLicenseType: 'Test string',
+        deviceLicenseType: 'deviceLicenseTypeUnspecified',
         diskSpaceUsage: {
           capacityBytes: 'Test string',
           usedBytes: 'Test string',
@@ -512,14 +513,14 @@ gapi.load('client', async () => {
         orgUnitPath: 'Test string',
         osUpdateStatus: {
           rebootTime: 'Test string',
-          state: 'Test string',
+          state: 'updateStateUnspecified',
           targetKioskAppVersion: 'Test string',
           targetOsVersion: 'Test string',
           updateCheckTime: 'Test string',
           updateTime: 'Test string',
         },
         osVersion: 'Test string',
-        osVersionCompliance: 'Test string',
+        osVersionCompliance: 'complianceUnspecified',
         platformVersion: 'Test string',
         recentUsers: [
           {
@@ -561,7 +562,7 @@ gapi.load('client', async () => {
       {
         customerId: 'Test string',
         deviceId: 'Test string',
-        projection: 'Test string',
+        projection: 'BASIC',
       },
       {
         activeTimeRanges: [
@@ -589,7 +590,7 @@ gapi.load('client', async () => {
           },
         ],
         bootMode: 'Test string',
-        chromeOsType: 'Test string',
+        chromeOsType: 'chromeOsTypeUnspecified',
         cpuInfo: [
           {
             architecture: 'Test string',
@@ -622,7 +623,7 @@ gapi.load('client', async () => {
             reportTime: 'Test string',
           },
         ],
-        deprovisionReason: 'Test string',
+        deprovisionReason: 'DEPROVISION_REASON_UNSPECIFIED',
         deviceFiles: [
           {
             createTime: 'Test string',
@@ -632,7 +633,7 @@ gapi.load('client', async () => {
           },
         ],
         deviceId: 'Test string',
-        deviceLicenseType: 'Test string',
+        deviceLicenseType: 'deviceLicenseTypeUnspecified',
         diskSpaceUsage: {
           capacityBytes: 'Test string',
           usedBytes: 'Test string',
@@ -682,14 +683,14 @@ gapi.load('client', async () => {
         orgUnitPath: 'Test string',
         osUpdateStatus: {
           rebootTime: 'Test string',
-          state: 'Test string',
+          state: 'updateStateUnspecified',
           targetKioskAppVersion: 'Test string',
           targetOsVersion: 'Test string',
           updateCheckTime: 'Test string',
           updateTime: 'Test string',
         },
         osVersion: 'Test string',
-        osVersionCompliance: 'Test string',
+        osVersionCompliance: 'complianceUnspecified',
         platformVersion: 'Test string',
         recentUsers: [
           {
@@ -886,10 +887,10 @@ gapi.load('client', async () => {
       customer: 'Test string',
       domain: 'Test string',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'email',
       pageToken: 'Test string',
       query: 'Test string',
-      sortOrder: 'Test string',
+      sortOrder: 'ASCENDING',
       userKey: 'Test string',
     });
     /** Updates a group's properties. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch). */
@@ -1053,18 +1054,18 @@ gapi.load('client', async () => {
     /** Retrieves a mobile device's properties. */
     await gapi.client.directory.mobiledevices.get({
       customerId: 'Test string',
-      projection: 'Test string',
+      projection: 'BASIC',
       resourceId: 'Test string',
     });
     /** Retrieves a paginated list of all user-owned mobile devices for an account. To retrieve a list that includes company-owned devices, use the Cloud Identity [Devices API](https://cloud.google.com/identity/docs/concepts/overview-devices) instead. This method times out after 60 minutes. For more information, see [Troubleshoot error codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes). */
     await gapi.client.directory.mobiledevices.list({
       customerId: 'Test string',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'deviceId',
       pageToken: 'Test string',
-      projection: 'Test string',
+      projection: 'BASIC',
       query: 'Test string',
-      sortOrder: 'Test string',
+      sortOrder: 'ASCENDING',
     });
     /** Removes an organizational unit. */
     await gapi.client.directory.orgunits.delete({
@@ -1097,7 +1098,7 @@ gapi.load('client', async () => {
     await gapi.client.directory.orgunits.list({
       customerId: 'Test string',
       orgUnitPath: 'Test string',
-      type: 'Test string',
+      type: 'all',
     });
     /** Updates an organizational unit. This method supports [patch semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch) */
     await gapi.client.directory.orgunits.patch(
@@ -1152,7 +1153,7 @@ gapi.load('client', async () => {
     /** Inserts a building. */
     await gapi.client.directory.resources.buildings.insert(
       {
-        coordinatesSource: 'Test string',
+        coordinatesSource: 'CLIENT_SPECIFIED',
         customer: 'Test string',
       },
       {
@@ -1187,7 +1188,7 @@ gapi.load('client', async () => {
     await gapi.client.directory.resources.buildings.patch(
       {
         buildingId: 'Test string',
-        coordinatesSource: 'Test string',
+        coordinatesSource: 'CLIENT_SPECIFIED',
         customer: 'Test string',
       },
       {
@@ -1216,7 +1217,7 @@ gapi.load('client', async () => {
     await gapi.client.directory.resources.buildings.update(
       {
         buildingId: 'Test string',
-        coordinatesSource: 'Test string',
+        coordinatesSource: 'CLIENT_SPECIFIED',
         customer: 'Test string',
       },
       {
@@ -1408,7 +1409,7 @@ gapi.load('client', async () => {
       },
       {
         assignedTo: 'Test string',
-        assigneeType: 'Test string',
+        assigneeType: 'user',
         condition: 'Test string',
         etag: 'Test string',
         expirationDetails: {
@@ -1650,9 +1651,9 @@ gapi.load('client', async () => {
     /** Retrieves a user. */
     await gapi.client.directory.users.get({
       customFieldMask: 'Test string',
-      projection: 'Test string',
+      projection: 'basic',
       userKey: 'Test string',
-      viewType: 'Test string',
+      viewType: 'admin_view',
     });
     /** Creates a user. Mutate calls immediately following user creation might sometimes fail as the user isn't fully created due to propagation delay in our backends. Check the error details for the "User creation is not complete" message to see if this is the case. Retrying the calls after some time can help in this case. If `resolve_conflict_account` is set to `true`, the option selected for [Find and add unmanaged users](https://knowledge.workspace.google.com/admin/users/find-and-add-unmanaged-users) will apply to resolve conflicting accounts: - A `200` response code indicates the user was created (or replaced an existing unmanaged personal account). - A `202` response code means that a conflicting unmanaged personal account exists and was invited to join the organization. - A `409` response code means that a conflicting account exists so the user wasn't created (e.g. based on the option selected to preserve the account, or if the email conflicts with an unmanaged work account or existing managed user). For details on resolving duplicate account errors, see [Resolve duplicate account errors](https://knowledge.workspace.google.com/p/duplicate-account-errors) and [Transfer unmanaged work accounts](https://knowledge.workspace.google.com/p/unmanaged-work-accounts). */
     await gapi.client.directory.users.insert(
@@ -1728,15 +1729,15 @@ gapi.load('client', async () => {
       customer: 'Test string',
       customFieldMask: 'Test string',
       domain: 'Test string',
-      event: 'Test string',
+      event: 'add',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'email',
       pageToken: 'Test string',
-      projection: 'Test string',
+      projection: 'basic',
       query: 'Test string',
       showDeleted: 'Test string',
-      sortOrder: 'Test string',
-      viewType: 'Test string',
+      sortOrder: 'ASCENDING',
+      viewType: 'admin_view',
     });
     /** Makes a user a super administrator. */
     await gapi.client.directory.users.makeAdmin(
@@ -1904,15 +1905,15 @@ gapi.load('client', async () => {
         customer: 'Test string',
         customFieldMask: 'Test string',
         domain: 'Test string',
-        event: 'Test string',
+        event: 'add',
         maxResults: 42,
-        orderBy: 'Test string',
+        orderBy: 'email',
         pageToken: 'Test string',
-        projection: 'Test string',
+        projection: 'basic',
         query: 'Test string',
         showDeleted: 'Test string',
-        sortOrder: 'Test string',
-        viewType: 'Test string',
+        sortOrder: 'ASCENDING',
+        viewType: 'admin_view',
       },
       {
         address: 'Test string',
@@ -1949,13 +1950,13 @@ gapi.load('client', async () => {
     );
     /** Lists all aliases for a user. */
     await gapi.client.directory.users.aliases.list({
-      event: 'Test string',
+      event: 'add',
       userKey: 'Test string',
     });
     /** Watches for changes in users list. */
     await gapi.client.directory.users.aliases.watch(
       {
-        event: 'Test string',
+        event: 'add',
         userKey: 'Test string',
       },
       {

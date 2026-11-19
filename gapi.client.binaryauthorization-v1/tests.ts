@@ -48,37 +48,37 @@ gapi.load('client', async () => {
         ],
         clusterAdmissionRules: {
           A: {
-            enforcementMode: 'Test string',
-            evaluationMode: 'Test string',
+            enforcementMode: 'ENFORCEMENT_MODE_UNSPECIFIED',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             requireAttestationsBy: ['Test string'],
           },
         },
         defaultAdmissionRule: {
-          enforcementMode: 'Test string',
-          evaluationMode: 'Test string',
+          enforcementMode: 'ENFORCEMENT_MODE_UNSPECIFIED',
+          evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
           requireAttestationsBy: ['Test string'],
         },
         description: 'Test string',
         etag: 'Test string',
-        globalPolicyEvaluationMode: 'Test string',
+        globalPolicyEvaluationMode: 'GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED',
         istioServiceIdentityAdmissionRules: {
           A: {
-            enforcementMode: 'Test string',
-            evaluationMode: 'Test string',
+            enforcementMode: 'ENFORCEMENT_MODE_UNSPECIFIED',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             requireAttestationsBy: ['Test string'],
           },
         },
         kubernetesNamespaceAdmissionRules: {
           A: {
-            enforcementMode: 'Test string',
-            evaluationMode: 'Test string',
+            enforcementMode: 'ENFORCEMENT_MODE_UNSPECIFIED',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             requireAttestationsBy: ['Test string'],
           },
         },
         kubernetesServiceAccountAdmissionRules: {
           A: {
-            enforcementMode: 'Test string',
-            evaluationMode: 'Test string',
+            enforcementMode: 'ENFORCEMENT_MODE_UNSPECIFIED',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             requireAttestationsBy: ['Test string'],
           },
         },
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
               pkixPublicKey: {
                 keyId: 'Test string',
                 publicKeyPem: 'Test string',
-                signatureAlgorithm: 'Test string',
+                signatureAlgorithm: 'SIGNATURE_ALGORITHM_UNSPECIFIED',
               },
             },
           ],
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
               pkixPublicKey: {
                 keyId: 'Test string',
                 publicKeyPem: 'Test string',
-                signatureAlgorithm: 'Test string',
+                signatureAlgorithm: 'SIGNATURE_ALGORITHM_UNSPECIFIED',
               },
             },
           ],
@@ -275,7 +275,8 @@ gapi.load('client', async () => {
                             {
                               keyId: 'Test string',
                               publicKeyPem: 'Test string',
-                              signatureAlgorithm: 'Test string',
+                              signatureAlgorithm:
+                                'SIGNATURE_ALGORITHM_UNSPECIFIED',
                             },
                           ],
                         },
@@ -291,7 +292,7 @@ gapi.load('client', async () => {
                         },
                         configBasedBuildRequired: true,
                         customConstraints: 'Test string',
-                        trustedBuilder: 'Test string',
+                        trustedBuilder: 'BUILDER_UNSPECIFIED',
                         trustedSourceRepoPatterns: ['Test string'],
                       },
                     ],
@@ -303,8 +304,10 @@ gapi.load('client', async () => {
                     allowedCves: ['Test string'],
                     blockedCves: ['Test string'],
                     containerAnalysisVulnerabilityProjects: ['Test string'],
-                    maximumFixableSeverity: 'Test string',
-                    maximumUnfixableSeverity: 'Test string',
+                    maximumFixableSeverity:
+                      'MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED',
+                    maximumUnfixableSeverity:
+                      'MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED',
                   },
                 },
               ],
@@ -385,7 +388,8 @@ gapi.load('client', async () => {
                             {
                               keyId: 'Test string',
                               publicKeyPem: 'Test string',
-                              signatureAlgorithm: 'Test string',
+                              signatureAlgorithm:
+                                'SIGNATURE_ALGORITHM_UNSPECIFIED',
                             },
                           ],
                         },
@@ -401,7 +405,7 @@ gapi.load('client', async () => {
                         },
                         configBasedBuildRequired: true,
                         customConstraints: 'Test string',
-                        trustedBuilder: 'Test string',
+                        trustedBuilder: 'BUILDER_UNSPECIFIED',
                         trustedSourceRepoPatterns: ['Test string'],
                       },
                     ],
@@ -413,8 +417,10 @@ gapi.load('client', async () => {
                     allowedCves: ['Test string'],
                     blockedCves: ['Test string'],
                     containerAnalysisVulnerabilityProjects: ['Test string'],
-                    maximumFixableSeverity: 'Test string',
-                    maximumUnfixableSeverity: 'Test string',
+                    maximumFixableSeverity:
+                      'MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED',
+                    maximumUnfixableSeverity:
+                      'MAXIMUM_ALLOWED_SEVERITY_UNSPECIFIED',
                   },
                 },
               ],

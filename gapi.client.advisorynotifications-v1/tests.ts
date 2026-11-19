@@ -66,7 +66,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'NOTIFICATION_VIEW_UNSPECIFIED',
       },
     );
     /** Get notification settings. */
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'NOTIFICATION_VIEW_UNSPECIFIED',
       },
     );
   }

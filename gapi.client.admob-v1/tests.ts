@@ -75,24 +75,24 @@ gapi.load('client', async () => {
           },
           dimensionFilters: [
             {
-              dimension: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
               matchesAny: {
                 values: ['Test string'],
               },
             },
           ],
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           localizationSettings: {
             currencyCode: 'Test string',
             languageCode: 'Test string',
           },
           maxReportRows: 42,
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sortConditions: [
             {
-              dimension: 'Test string',
-              metric: 'Test string',
-              order: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
+              metric: 'METRIC_UNSPECIFIED',
+              order: 'SORT_ORDER_UNSPECIFIED',
             },
           ],
           timeZone: 'Test string',
@@ -120,24 +120,24 @@ gapi.load('client', async () => {
           },
           dimensionFilters: [
             {
-              dimension: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
               matchesAny: {
                 values: ['Test string'],
               },
             },
           ],
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           localizationSettings: {
             currencyCode: 'Test string',
             languageCode: 'Test string',
           },
           maxReportRows: 42,
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sortConditions: [
             {
-              dimension: 'Test string',
-              metric: 'Test string',
-              order: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
+              metric: 'METRIC_UNSPECIFIED',
+              order: 'SORT_ORDER_UNSPECIFIED',
             },
           ],
           timeZone: 'Test string',

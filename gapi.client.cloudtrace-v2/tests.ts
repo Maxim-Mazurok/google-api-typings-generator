@@ -79,7 +79,7 @@ gapi.load('client', async () => {
                   },
                   spanId: 'Test string',
                   traceId: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
             parentSpanId: 'Test string',
             sameProcessAsParentSpan: true,
             spanId: 'Test string',
-            spanKind: 'Test string',
+            spanKind: 'SPAN_KIND_UNSPECIFIED',
             stackTrace: {
               stackFrames: {
                 droppedFramesCount: 42,
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
                   messageEvent: {
                     compressedSizeBytes: 'Test string',
                     id: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                     uncompressedSizeBytes: 'Test string',
                   },
                   time: 'Test string',
@@ -218,7 +218,7 @@ gapi.load('client', async () => {
               },
               spanId: 'Test string',
               traceId: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -226,7 +226,7 @@ gapi.load('client', async () => {
         parentSpanId: 'Test string',
         sameProcessAsParentSpan: true,
         spanId: 'Test string',
-        spanKind: 'Test string',
+        spanKind: 'SPAN_KIND_UNSPECIFIED',
         stackTrace: {
           stackFrames: {
             droppedFramesCount: 42,
@@ -302,7 +302,7 @@ gapi.load('client', async () => {
               messageEvent: {
                 compressedSizeBytes: 'Test string',
                 id: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
                 uncompressedSizeBytes: 'Test string',
               },
               time: 'Test string',

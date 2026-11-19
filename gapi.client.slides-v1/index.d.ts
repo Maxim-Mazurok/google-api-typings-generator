@@ -1908,82 +1908,8 @@ declare namespace gapi.client {
       /** The revision ID of the presentation required for the write request. If specified and the required revision ID doesn't match the presentation's current revision ID, the request is not processed and returns a 400 bad request error. When a required revision ID is returned in a response, it indicates the revision ID of the document after the request was applied. */
       requiredRevisionId?: string;
     }
-    interface PagesResource {
-      /** Gets the latest version of the specified page in the presentation. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The comments view mode to apply to the page. This allows viewing the page with comments omitted or included. If one is not specified, COMMENTS_VIEW_MODE_OMITTED is used. */
-        commentsViewMode?:
-          | 'COMMENTS_VIEW_MODE_UNSPECIFIED'
-          | 'COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS'
-          | 'COMMENTS_VIEW_MODE_OMITTED'
-          | 'COMMENTS_VIEW_MODE_INCLUDED';
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The object ID of the page to retrieve. */
-        pageObjectId: string;
-        /** The ID of the presentation to retrieve. */
-        presentationId: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): client.Request<Page>;
-      /** Generates a thumbnail of the latest version of the specified page in the presentation and returns a URL to the thumbnail image. This request counts as an [expensive read request](https://developers.google.com/workspace/slides/limits) for quota purposes. */
-      getThumbnail(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The object ID of the page whose thumbnail to retrieve. */
-        pageObjectId: string;
-        /** The ID of the presentation to retrieve. */
-        presentationId: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The optional mime type of the thumbnail image. If you don't specify the mime type, the mime type defaults to PNG. */
-        'thumbnailProperties.mimeType'?: 'PNG';
-        /** The optional thumbnail image size. If you don't specify the size, the server chooses a default size of the image. */
-        'thumbnailProperties.thumbnailSize'?:
-          | 'THUMBNAIL_SIZE_UNSPECIFIED'
-          | 'LARGE'
-          | 'MEDIUM'
-          | 'SMALL'
-          | 'WIDTH2000_PX';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): client.Request<Thumbnail>;
-    }
-    interface PresentationsResource {
+
+    const presentations: {
       /** Applies one or more updates to the presentation. Each request is validated before being applied. If any request is not valid, then the entire request will fail and nothing will be applied. Some requests have replies to give you some information about how they are applied. Other requests do not need to return information; these each return an empty reply. The order of replies matches that of the requests. For example, suppose you call batchUpdate with four updates, and only the third one returns information. The response would have two empty replies: the reply to the third request, and another empty reply, in that order. Because other users may be editing the presentation, the presentation might not exactly reflect your changes: your changes may be altered with respect to collaborator changes. If there are no collaborators, the presentation should reflect your changes. In any case, the updates in your request are guaranteed to be applied together atomically. */
       batchUpdate(request: {
         /** V1 error format. */
@@ -2129,9 +2055,81 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): client.Request<Presentation>;
-      pages: PagesResource;
-    }
-
-    const presentations: PresentationsResource;
+      pages: {
+        /** Gets the latest version of the specified page in the presentation. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The comments view mode to apply to the page. This allows viewing the page with comments omitted or included. If one is not specified, COMMENTS_VIEW_MODE_OMITTED is used. */
+          commentsViewMode?:
+            | 'COMMENTS_VIEW_MODE_UNSPECIFIED'
+            | 'COMMENTS_VIEW_MODE_DEFAULT_FOR_CURRENT_ACCESS'
+            | 'COMMENTS_VIEW_MODE_OMITTED'
+            | 'COMMENTS_VIEW_MODE_INCLUDED';
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The object ID of the page to retrieve. */
+          pageObjectId: string;
+          /** The ID of the presentation to retrieve. */
+          presentationId: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): client.Request<Page>;
+        /** Generates a thumbnail of the latest version of the specified page in the presentation and returns a URL to the thumbnail image. This request counts as an [expensive read request](https://developers.google.com/workspace/slides/limits) for quota purposes. */
+        getThumbnail(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The object ID of the page whose thumbnail to retrieve. */
+          pageObjectId: string;
+          /** The ID of the presentation to retrieve. */
+          presentationId: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The optional mime type of the thumbnail image. If you don't specify the mime type, the mime type defaults to PNG. */
+          'thumbnailProperties.mimeType'?: 'PNG';
+          /** The optional thumbnail image size. If you don't specify the size, the server chooses a default size of the image. */
+          'thumbnailProperties.thumbnailSize'?:
+            | 'THUMBNAIL_SIZE_UNSPECIFIED'
+            | 'LARGE'
+            | 'MEDIUM'
+            | 'SMALL'
+            | 'WIDTH2000_PX';
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): client.Request<Thumbnail>;
+      };
+    };
   }
 }

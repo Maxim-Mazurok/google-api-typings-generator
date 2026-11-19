@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.videointelligence.videos.annotate(
       {},
       {
-        features: ['Test string'],
+        features: ['FEATURE_UNSPECIFIED'],
         inputContent: 'Test string',
         inputUri: 'Test string',
         locationId: 'Test string',
@@ -51,7 +51,7 @@ gapi.load('client', async () => {
           },
           labelDetectionConfig: {
             frameConfidenceThreshold: 42,
-            labelDetectionMode: 'Test string',
+            labelDetectionMode: 'LABEL_DETECTION_MODE_UNSPECIFIED',
             model: 'Test string',
             stationaryCamera: true,
             videoConfidenceThreshold: 42,

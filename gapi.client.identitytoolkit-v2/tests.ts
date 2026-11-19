@@ -42,7 +42,7 @@ gapi.load('client', async () => {
         redirectUri: 'Test string',
         tenantId: 'Test string',
         token: 'Test string',
-        tokenType: 'Test string',
+        tokenType: 'TOKEN_TYPE_UNSPECIFIED',
       },
     );
     /** Finishes enrolling a second factor for the user. */
@@ -74,13 +74,13 @@ gapi.load('client', async () => {
             appSignatureHash: 'Test string',
           },
           captchaResponse: 'Test string',
-          clientType: 'Test string',
+          clientType: 'CLIENT_TYPE_UNSPECIFIED',
           iosReceipt: 'Test string',
           iosSecret: 'Test string',
           phoneNumber: 'Test string',
           playIntegrityToken: 'Test string',
           recaptchaToken: 'Test string',
-          recaptchaVersion: 'Test string',
+          recaptchaVersion: 'RECAPTCHA_VERSION_UNSPECIFIED',
           safetyNetToken: 'Test string',
         },
         tenantId: 'Test string',
@@ -125,13 +125,13 @@ gapi.load('client', async () => {
             appSignatureHash: 'Test string',
           },
           captchaResponse: 'Test string',
-          clientType: 'Test string',
+          clientType: 'CLIENT_TYPE_UNSPECIFIED',
           iosReceipt: 'Test string',
           iosSecret: 'Test string',
           phoneNumber: 'Test string',
           playIntegrityToken: 'Test string',
           recaptchaToken: 'Test string',
-          recaptchaVersion: 'Test string',
+          recaptchaVersion: 'RECAPTCHA_VERSION_UNSPECIFIED',
           safetyNetToken: 'Test string',
         },
         tenantId: 'Test string',
@@ -181,19 +181,19 @@ gapi.load('client', async () => {
           enableImprovedEmailPrivacy: true,
         },
         mfa: {
-          enabledProviders: ['Test string'],
+          enabledProviders: ['PROVIDER_UNSPECIFIED'],
           providerConfigs: [
             {
-              state: 'Test string',
+              state: 'MFA_STATE_UNSPECIFIED',
               totpProviderConfig: {
                 adjacentIntervals: 42,
               },
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         mobileLinksConfig: {
-          domain: 'Test string',
+          domain: 'DOMAIN_UNSPECIFIED',
         },
         monitoring: {
           requestLogging: {
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
             callbackUri: 'Test string',
             changeEmailTemplate: {
               body: 'Test string',
-              bodyFormat: 'Test string',
+              bodyFormat: 'BODY_FORMAT_UNSPECIFIED',
               customized: true,
               replyTo: 'Test string',
               senderDisplayName: 'Test string',
@@ -220,24 +220,24 @@ gapi.load('client', async () => {
             },
             dnsInfo: {
               customDomain: 'Test string',
-              customDomainState: 'Test string',
+              customDomainState: 'VERIFICATION_STATE_UNSPECIFIED',
               domainVerificationRequestTime: 'Test string',
               pendingCustomDomain: 'Test string',
               useCustomDomain: true,
             },
             legacyResetPasswordTemplate: {
               body: 'Test string',
-              bodyFormat: 'Test string',
+              bodyFormat: 'BODY_FORMAT_UNSPECIFIED',
               customized: true,
               replyTo: 'Test string',
               senderDisplayName: 'Test string',
               senderLocalPart: 'Test string',
               subject: 'Test string',
             },
-            method: 'Test string',
+            method: 'METHOD_UNSPECIFIED',
             resetPasswordTemplate: {
               body: 'Test string',
-              bodyFormat: 'Test string',
+              bodyFormat: 'BODY_FORMAT_UNSPECIFIED',
               customized: true,
               replyTo: 'Test string',
               senderDisplayName: 'Test string',
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
             },
             revertSecondFactorAdditionTemplate: {
               body: 'Test string',
-              bodyFormat: 'Test string',
+              bodyFormat: 'BODY_FORMAT_UNSPECIFIED',
               customized: true,
               replyTo: 'Test string',
               senderDisplayName: 'Test string',
@@ -257,13 +257,13 @@ gapi.load('client', async () => {
               host: 'Test string',
               password: 'Test string',
               port: 42,
-              securityMode: 'Test string',
+              securityMode: 'SECURITY_MODE_UNSPECIFIED',
               senderEmail: 'Test string',
               username: 'Test string',
             },
             verifyEmailTemplate: {
               body: 'Test string',
-              bodyFormat: 'Test string',
+              bodyFormat: 'BODY_FORMAT_UNSPECIFIED',
               customized: true,
               replyTo: 'Test string',
               senderDisplayName: 'Test string',
@@ -281,7 +281,8 @@ gapi.load('client', async () => {
         passwordPolicyConfig: {
           forceUpgradeOnSignin: true,
           lastUpdateTime: 'Test string',
-          passwordPolicyEnforcementState: 'Test string',
+          passwordPolicyEnforcementState:
+            'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED',
           passwordPolicyVersions: [
             {
               customStrengthOptions: {
@@ -304,23 +305,25 @@ gapi.load('client', async () => {
           },
         },
         recaptchaConfig: {
-          emailPasswordEnforcementState: 'Test string',
+          emailPasswordEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           managedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               endScore: 42,
             },
           ],
-          phoneEnforcementState: 'Test string',
+          phoneEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           recaptchaKeys: [
             {
               key: 'Test string',
-              type: 'Test string',
+              type: 'CLIENT_TYPE_UNSPECIFIED',
             },
           ],
           tollFraudManagedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               startScore: 42,
             },
           ],
@@ -338,7 +341,7 @@ gapi.load('client', async () => {
             passwordRequired: true,
           },
           hashConfig: {
-            algorithm: 'Test string',
+            algorithm: 'HASH_ALGORITHM_UNSPECIFIED',
             memoryCost: 42,
             rounds: 42,
             saltSeparator: 'Test string',
@@ -359,7 +362,7 @@ gapi.load('client', async () => {
             allowedRegions: ['Test string'],
           },
         },
-        subtype: 'Test string',
+        subtype: 'SUBTYPE_UNSPECIFIED',
       },
     );
     /** Create a default supported Idp configuration for an Identity Toolkit project. */
@@ -581,7 +584,7 @@ gapi.load('client', async () => {
         enableAnonymousUser: true,
         enableEmailLinkSignin: true,
         hashConfig: {
-          algorithm: 'Test string',
+          algorithm: 'HASH_ALGORITHM_UNSPECIFIED',
           memoryCost: 42,
           rounds: 42,
           saltSeparator: 'Test string',
@@ -591,19 +594,19 @@ gapi.load('client', async () => {
           emailSendingConfig: true,
         },
         mfaConfig: {
-          enabledProviders: ['Test string'],
+          enabledProviders: ['PROVIDER_UNSPECIFIED'],
           providerConfigs: [
             {
-              state: 'Test string',
+              state: 'MFA_STATE_UNSPECIFIED',
               totpProviderConfig: {
                 adjacentIntervals: 42,
               },
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         mobileLinksConfig: {
-          domain: 'Test string',
+          domain: 'DOMAIN_UNSPECIFIED',
         },
         monitoring: {
           requestLogging: {
@@ -614,7 +617,8 @@ gapi.load('client', async () => {
         passwordPolicyConfig: {
           forceUpgradeOnSignin: true,
           lastUpdateTime: 'Test string',
-          passwordPolicyEnforcementState: 'Test string',
+          passwordPolicyEnforcementState:
+            'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED',
           passwordPolicyVersions: [
             {
               customStrengthOptions: {
@@ -630,23 +634,25 @@ gapi.load('client', async () => {
           ],
         },
         recaptchaConfig: {
-          emailPasswordEnforcementState: 'Test string',
+          emailPasswordEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           managedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               endScore: 42,
             },
           ],
-          phoneEnforcementState: 'Test string',
+          phoneEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           recaptchaKeys: [
             {
               key: 'Test string',
-              type: 'Test string',
+              type: 'CLIENT_TYPE_UNSPECIFIED',
             },
           ],
           tollFraudManagedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               startScore: 42,
             },
           ],
@@ -715,7 +721,7 @@ gapi.load('client', async () => {
         enableAnonymousUser: true,
         enableEmailLinkSignin: true,
         hashConfig: {
-          algorithm: 'Test string',
+          algorithm: 'HASH_ALGORITHM_UNSPECIFIED',
           memoryCost: 42,
           rounds: 42,
           saltSeparator: 'Test string',
@@ -725,19 +731,19 @@ gapi.load('client', async () => {
           emailSendingConfig: true,
         },
         mfaConfig: {
-          enabledProviders: ['Test string'],
+          enabledProviders: ['PROVIDER_UNSPECIFIED'],
           providerConfigs: [
             {
-              state: 'Test string',
+              state: 'MFA_STATE_UNSPECIFIED',
               totpProviderConfig: {
                 adjacentIntervals: 42,
               },
             },
           ],
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         mobileLinksConfig: {
-          domain: 'Test string',
+          domain: 'DOMAIN_UNSPECIFIED',
         },
         monitoring: {
           requestLogging: {
@@ -748,7 +754,8 @@ gapi.load('client', async () => {
         passwordPolicyConfig: {
           forceUpgradeOnSignin: true,
           lastUpdateTime: 'Test string',
-          passwordPolicyEnforcementState: 'Test string',
+          passwordPolicyEnforcementState:
+            'PASSWORD_POLICY_ENFORCEMENT_STATE_UNSPECIFIED',
           passwordPolicyVersions: [
             {
               customStrengthOptions: {
@@ -764,23 +771,25 @@ gapi.load('client', async () => {
           ],
         },
         recaptchaConfig: {
-          emailPasswordEnforcementState: 'Test string',
+          emailPasswordEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           managedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               endScore: 42,
             },
           ],
-          phoneEnforcementState: 'Test string',
+          phoneEnforcementState:
+            'RECAPTCHA_PROVIDER_ENFORCEMENT_STATE_UNSPECIFIED',
           recaptchaKeys: [
             {
               key: 'Test string',
-              type: 'Test string',
+              type: 'CLIENT_TYPE_UNSPECIFIED',
             },
           ],
           tollFraudManagedRules: [
             {
-              action: 'Test string',
+              action: 'RECAPTCHA_ACTION_UNSPECIFIED',
               startScore: 42,
             },
           ],
@@ -813,7 +822,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1048,9 +1057,9 @@ gapi.load('client', async () => {
     });
     /** Gets parameters needed for reCAPTCHA analysis. */
     await gapi.client.identitytoolkit.v2.getRecaptchaConfig({
-      clientType: 'Test string',
+      clientType: 'CLIENT_TYPE_UNSPECIFIED',
       tenantId: 'Test string',
-      version: 'Test string',
+      version: 'RECAPTCHA_VERSION_UNSPECIFIED',
     });
   }
 });

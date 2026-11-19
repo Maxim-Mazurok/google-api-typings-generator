@@ -161,14 +161,14 @@ gapi.load('client', async () => {
                   {
                     description: 'Test string',
                     displayName: 'Test string',
-                    method: 'Test string',
+                    method: 'METHOD_UNSPECIFIED',
                     name: 'Test string',
-                    occurrenceType: 'Test string',
+                    occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                     propertyMetadata: {
                       fieldExtractionMetadata: {
                         summaryOptions: {
-                          format: 'Test string',
-                          length: 'Test string',
+                          format: 'FORMAT_UNSPECIFIED',
+                          length: 'LENGTH_UNSPECIFIED',
                         },
                       },
                       inactive: true,
@@ -210,7 +210,7 @@ gapi.load('client', async () => {
         ],
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         type: 'Test string',
       },
     );
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -471,7 +471,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -495,7 +495,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -559,7 +559,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -575,7 +575,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -612,7 +612,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -672,7 +672,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -720,7 +720,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -764,7 +764,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -791,7 +791,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -818,7 +818,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -860,7 +860,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -895,7 +895,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -916,7 +916,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -945,7 +945,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -966,7 +966,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -980,7 +980,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -1006,7 +1006,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1048,7 +1048,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -1097,7 +1097,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -1129,7 +1129,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1150,14 +1150,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -1181,7 +1181,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1202,7 +1202,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -1265,7 +1265,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1316,7 +1316,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -1514,7 +1514,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -1578,7 +1578,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -1594,7 +1594,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -1618,7 +1618,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -1682,7 +1682,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -1698,7 +1698,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -1721,7 +1721,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -1735,7 +1735,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -1755,7 +1755,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1795,7 +1795,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1816,7 +1816,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -1843,7 +1843,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1887,7 +1887,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1914,7 +1914,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -1941,7 +1941,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -1983,7 +1983,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -2018,7 +2018,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2039,7 +2039,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -2068,7 +2068,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2089,7 +2089,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -2103,7 +2103,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -2129,7 +2129,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2171,7 +2171,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -2220,7 +2220,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -2252,7 +2252,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2273,14 +2273,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -2304,7 +2304,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2325,7 +2325,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -2388,7 +2388,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -2439,7 +2439,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -2548,14 +2548,14 @@ gapi.load('client', async () => {
                   {
                     description: 'Test string',
                     displayName: 'Test string',
-                    method: 'Test string',
+                    method: 'METHOD_UNSPECIFIED',
                     name: 'Test string',
-                    occurrenceType: 'Test string',
+                    occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                     propertyMetadata: {
                       fieldExtractionMetadata: {
                         summaryOptions: {
-                          format: 'Test string',
-                          length: 'Test string',
+                          format: 'FORMAT_UNSPECIFIED',
+                          length: 'LENGTH_UNSPECIFIED',
                         },
                       },
                       inactive: true,
@@ -2609,7 +2609,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         unmanagedDatasetConfig: {},
       },
     );
@@ -2630,7 +2630,7 @@ gapi.load('client', async () => {
                 },
                 revisionRef: {
                   latestProcessorVersion: 'Test string',
-                  revisionCase: 'Test string',
+                  revisionCase: 'REVISION_CASE_UNSPECIFIED',
                   revisionId: 'Test string',
                 },
                 unmanagedDocId: {
@@ -2656,7 +2656,7 @@ gapi.load('client', async () => {
         'documentId.gcsManagedDocId.cwDocId': 'Test string',
         'documentId.gcsManagedDocId.gcsUri': 'Test string',
         'documentId.revisionRef.latestProcessorVersion': 'Test string',
-        'documentId.revisionRef.revisionCase': 'Test string',
+        'documentId.revisionRef.revisionCase': 'REVISION_CASE_UNSPECIFIED',
         'documentId.revisionRef.revisionId': 'Test string',
         'documentId.unmanagedDocId.docId': 'Test string',
         'pageRange.end': 42,
@@ -2688,7 +2688,7 @@ gapi.load('client', async () => {
                 gcsUriPrefix: 'Test string',
               },
             },
-            datasetSplit: 'Test string',
+            datasetSplit: 'DATASET_SPLIT_TYPE_UNSPECIFIED',
             documentType: 'Test string',
           },
         ],
@@ -2734,14 +2734,14 @@ gapi.load('client', async () => {
                 {
                   description: 'Test string',
                   displayName: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   name: 'Test string',
-                  occurrenceType: 'Test string',
+                  occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                   propertyMetadata: {
                     fieldExtractionMetadata: {
                       summaryOptions: {
-                        format: 'Test string',
-                        length: 'Test string',
+                        format: 'FORMAT_UNSPECIFIED',
+                        length: 'LENGTH_UNSPECIFIED',
                       },
                     },
                     inactive: true,
@@ -2912,7 +2912,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -2976,7 +2976,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -2992,7 +2992,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -3016,7 +3016,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -3080,7 +3080,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -3096,7 +3096,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -3119,7 +3119,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -3133,7 +3133,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -3153,7 +3153,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -3193,7 +3193,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3214,7 +3214,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -3241,7 +3241,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3285,7 +3285,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3312,7 +3312,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3339,7 +3339,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -3381,7 +3381,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -3416,7 +3416,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3437,7 +3437,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -3466,7 +3466,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3487,7 +3487,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -3501,7 +3501,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -3527,7 +3527,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3569,7 +3569,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -3618,7 +3618,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -3650,7 +3650,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3671,14 +3671,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -3702,7 +3702,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3723,7 +3723,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -3786,7 +3786,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -3837,7 +3837,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -3906,14 +3906,14 @@ gapi.load('client', async () => {
                 {
                   description: 'Test string',
                   displayName: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   name: 'Test string',
-                  occurrenceType: 'Test string',
+                  occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                   propertyMetadata: {
                     fieldExtractionMetadata: {
                       summaryOptions: {
-                        format: 'Test string',
-                        length: 'Test string',
+                        format: 'FORMAT_UNSPECIFIED',
+                        length: 'LENGTH_UNSPECIFIED',
                       },
                     },
                     inactive: true,
@@ -4074,7 +4074,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -4138,7 +4138,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -4154,7 +4154,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -4178,7 +4178,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -4242,7 +4242,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -4258,7 +4258,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -4281,7 +4281,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -4295,7 +4295,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -4315,7 +4315,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -4355,7 +4355,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4376,7 +4376,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -4403,7 +4403,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4447,7 +4447,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4474,7 +4474,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4501,7 +4501,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -4543,7 +4543,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -4578,7 +4578,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4599,7 +4599,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -4628,7 +4628,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4649,7 +4649,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -4663,7 +4663,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -4689,7 +4689,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4731,7 +4731,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -4780,7 +4780,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -4812,7 +4812,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4833,14 +4833,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -4864,7 +4864,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4885,7 +4885,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -4948,7 +4948,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -4999,7 +4999,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -5048,7 +5048,7 @@ gapi.load('client', async () => {
           ],
           uri: 'Test string',
         },
-        priority: 'Test string',
+        priority: 'DEFAULT',
       },
     );
     /** LRO endpoint to batch process many documents. The output is written to Cloud Storage as JSON in the [Document] format. */
@@ -5149,14 +5149,14 @@ gapi.load('client', async () => {
                   {
                     description: 'Test string',
                     displayName: 'Test string',
-                    method: 'Test string',
+                    method: 'METHOD_UNSPECIFIED',
                     name: 'Test string',
-                    occurrenceType: 'Test string',
+                    occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                     propertyMetadata: {
                       fieldExtractionMetadata: {
                         summaryOptions: {
-                          format: 'Test string',
-                          length: 'Test string',
+                          format: 'FORMAT_UNSPECIFIED',
+                          length: 'LENGTH_UNSPECIFIED',
                         },
                       },
                       inactive: true,
@@ -5387,7 +5387,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -5451,7 +5451,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -5467,7 +5467,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -5491,7 +5491,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -5555,7 +5555,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -5571,7 +5571,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -5594,7 +5594,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -5608,7 +5608,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -5628,7 +5628,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -5668,7 +5668,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5689,7 +5689,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -5716,7 +5716,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5760,7 +5760,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5787,7 +5787,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5814,7 +5814,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -5856,7 +5856,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -5891,7 +5891,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5912,7 +5912,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -5941,7 +5941,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -5962,7 +5962,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -5976,7 +5976,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -6002,7 +6002,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6044,7 +6044,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -6093,7 +6093,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -6125,7 +6125,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6146,14 +6146,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -6177,7 +6177,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6198,7 +6198,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -6261,7 +6261,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6312,7 +6312,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -6510,7 +6510,7 @@ gapi.load('client', async () => {
               id: 'Test string',
               mentionId: 'Test string',
               mentionText: 'Test string',
-              method: 'Test string',
+              method: 'METHOD_UNSPECIFIED',
               normalizedValue: {
                 addressValue: {
                   addressLines: ['Test string'],
@@ -6574,7 +6574,7 @@ gapi.load('client', async () => {
                     },
                     confidence: 42,
                     layoutId: 'Test string',
-                    layoutType: 'Test string',
+                    layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                     page: 'Test string',
                   },
                 ],
@@ -6590,7 +6590,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               redacted: true,
               textAnchor: {
@@ -6614,7 +6614,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -6678,7 +6678,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -6694,7 +6694,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -6717,7 +6717,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -6731,7 +6731,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               revisionId: 'Test string',
             },
@@ -6751,7 +6751,7 @@ gapi.load('client', async () => {
                 ruleDescription: 'Test string',
                 ruleName: 'Test string',
                 validationDetails: 'Test string',
-                validationResultType: 'Test string',
+                validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -6791,7 +6791,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6812,7 +6812,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -6839,7 +6839,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6883,7 +6883,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6910,7 +6910,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -6937,7 +6937,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   valueDetectedLanguages: [
                     {
@@ -6979,7 +6979,7 @@ gapi.load('client', async () => {
                   ],
                 },
                 confidence: 42,
-                orientation: 'Test string',
+                orientation: 'ORIENTATION_UNSPECIFIED',
                 textAnchor: {
                   content: 'Test string',
                   textSegments: [
@@ -7014,7 +7014,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7035,7 +7035,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -7064,7 +7064,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7085,7 +7085,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -7099,7 +7099,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 revision: 42,
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
               symbols: [
                 {
@@ -7125,7 +7125,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7167,7 +7167,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -7216,7 +7216,7 @@ gapi.load('client', async () => {
                               ],
                             },
                             confidence: 42,
-                            orientation: 'Test string',
+                            orientation: 'ORIENTATION_UNSPECIFIED',
                             textAnchor: {
                               content: 'Test string',
                               textSegments: [
@@ -7248,7 +7248,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7269,14 +7269,14 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 },
               ],
               tokens: [
                 {
                   detectedBreak: {
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   detectedLanguages: [
                     {
@@ -7300,7 +7300,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7321,7 +7321,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   styleInfo: {
                     backgroundColor: {
@@ -7384,7 +7384,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -7435,7 +7435,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   revision: 42,
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               textAnchor: {
@@ -7544,14 +7544,14 @@ gapi.load('client', async () => {
                   {
                     description: 'Test string',
                     displayName: 'Test string',
-                    method: 'Test string',
+                    method: 'METHOD_UNSPECIFIED',
                     name: 'Test string',
-                    occurrenceType: 'Test string',
+                    occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                     propertyMetadata: {
                       fieldExtractionMetadata: {
                         summaryOptions: {
-                          format: 'Test string',
-                          length: 'Test string',
+                          format: 'FORMAT_UNSPECIFIED',
+                          length: 'LENGTH_UNSPECIFIED',
                         },
                       },
                       inactive: true,
@@ -7585,7 +7585,7 @@ gapi.load('client', async () => {
       {
         baseProcessorVersion: 'Test string',
         customDocumentExtractionOptions: {
-          trainingMethod: 'Test string',
+          trainingMethod: 'TRAINING_METHOD_UNSPECIFIED',
         },
         documentSchema: {
           description: 'Test string',
@@ -7607,14 +7607,14 @@ gapi.load('client', async () => {
                 {
                   description: 'Test string',
                   displayName: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   name: 'Test string',
-                  occurrenceType: 'Test string',
+                  occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                   propertyMetadata: {
                     fieldExtractionMetadata: {
                       summaryOptions: {
-                        format: 'Test string',
-                        length: 'Test string',
+                        format: 'FORMAT_UNSPECIFIED',
+                        length: 'LENGTH_UNSPECIFIED',
                       },
                     },
                     inactive: true,
@@ -7691,14 +7691,14 @@ gapi.load('client', async () => {
                   {
                     description: 'Test string',
                     displayName: 'Test string',
-                    method: 'Test string',
+                    method: 'METHOD_UNSPECIFIED',
                     name: 'Test string',
-                    occurrenceType: 'Test string',
+                    occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                     propertyMetadata: {
                       fieldExtractionMetadata: {
                         summaryOptions: {
-                          format: 'Test string',
-                          length: 'Test string',
+                          format: 'FORMAT_UNSPECIFIED',
+                          length: 'LENGTH_UNSPECIFIED',
                         },
                       },
                       inactive: true,
@@ -7718,7 +7718,7 @@ gapi.load('client', async () => {
           genAiModelInfo: {
             customGenAiModelInfo: {
               baseProcessorVersionId: 'Test string',
-              customModelType: 'Test string',
+              customModelType: 'CUSTOM_MODEL_TYPE_UNSPECIFIED',
             },
             foundationGenAiModelInfo: {
               finetuningAllowed: true,
@@ -7727,7 +7727,7 @@ gapi.load('client', async () => {
           },
           googleManaged: true,
           groundingSettings: {
-            groundingType: 'Test string',
+            groundingType: 'GROUNDING_TYPE_UNSPECIFIED',
           },
           kmsKeyName: 'Test string',
           kmsKeyVersionName: 'Test string',
@@ -7761,15 +7761,15 @@ gapi.load('client', async () => {
             evaluation: 'Test string',
             operation: 'Test string',
           },
-          modelType: 'Test string',
+          modelType: 'MODEL_TYPE_UNSPECIFIED',
           name: 'Test string',
           satisfiesPzi: true,
           satisfiesPzs: true,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         processorVersionOverrides: {
           groundingSettings: {
-            groundingType: 'Test string',
+            groundingType: 'GROUNDING_TYPE_UNSPECIFIED',
           },
         },
       },
@@ -7883,14 +7883,14 @@ gapi.load('client', async () => {
                 {
                   description: 'Test string',
                   displayName: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   name: 'Test string',
-                  occurrenceType: 'Test string',
+                  occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                   propertyMetadata: {
                     fieldExtractionMetadata: {
                       summaryOptions: {
-                        format: 'Test string',
-                        length: 'Test string',
+                        format: 'FORMAT_UNSPECIFIED',
+                        length: 'LENGTH_UNSPECIFIED',
                       },
                     },
                     inactive: true,
@@ -7964,14 +7964,14 @@ gapi.load('client', async () => {
                           {
                             description: 'Test string',
                             displayName: 'Test string',
-                            method: 'Test string',
+                            method: 'METHOD_UNSPECIFIED',
                             name: 'Test string',
-                            occurrenceType: 'Test string',
+                            occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                             propertyMetadata: {
                               fieldExtractionMetadata: {
                                 summaryOptions: {
-                                  format: 'Test string',
-                                  length: 'Test string',
+                                  format: 'FORMAT_UNSPECIFIED',
+                                  length: 'LENGTH_UNSPECIFIED',
                                 },
                               },
                               inactive: true,
@@ -8016,14 +8016,14 @@ gapi.load('client', async () => {
                           {
                             description: 'Test string',
                             displayName: 'Test string',
-                            method: 'Test string',
+                            method: 'METHOD_UNSPECIFIED',
                             name: 'Test string',
-                            occurrenceType: 'Test string',
+                            occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                             propertyMetadata: {
                               fieldExtractionMetadata: {
                                 summaryOptions: {
-                                  format: 'Test string',
-                                  length: 'Test string',
+                                  format: 'FORMAT_UNSPECIFIED',
+                                  length: 'LENGTH_UNSPECIFIED',
                                 },
                               },
                               inactive: true,
@@ -8192,7 +8192,7 @@ gapi.load('client', async () => {
                   id: 'Test string',
                   mentionId: 'Test string',
                   mentionText: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   normalizedValue: {
                     addressValue: {
                       addressLines: ['Test string'],
@@ -8256,7 +8256,7 @@ gapi.load('client', async () => {
                         },
                         confidence: 42,
                         layoutId: 'Test string',
-                        layoutType: 'Test string',
+                        layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                         page: 'Test string',
                       },
                     ],
@@ -8272,7 +8272,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   redacted: true,
                   textAnchor: {
@@ -8296,7 +8296,7 @@ gapi.load('client', async () => {
                       id: 'Test string',
                       mentionId: 'Test string',
                       mentionText: 'Test string',
-                      method: 'Test string',
+                      method: 'METHOD_UNSPECIFIED',
                       normalizedValue: {
                         addressValue: {
                           addressLines: ['Test string'],
@@ -8360,7 +8360,7 @@ gapi.load('client', async () => {
                             },
                             confidence: 42,
                             layoutId: 'Test string',
-                            layoutType: 'Test string',
+                            layoutType: 'LAYOUT_TYPE_UNSPECIFIED',
                             page: 'Test string',
                           },
                         ],
@@ -8376,7 +8376,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                       redacted: true,
                       textAnchor: {
@@ -8399,7 +8399,8 @@ gapi.load('client', async () => {
                         ruleDescription: 'Test string',
                         ruleName: 'Test string',
                         validationDetails: 'Test string',
-                        validationResultType: 'Test string',
+                        validationResultType:
+                          'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                       },
                     ],
                   },
@@ -8413,7 +8414,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   revisionId: 'Test string',
                 },
@@ -8433,7 +8434,7 @@ gapi.load('client', async () => {
                     ruleDescription: 'Test string',
                     ruleName: 'Test string',
                     validationDetails: 'Test string',
-                    validationResultType: 'Test string',
+                    validationResultType: 'VALIDATION_RESULT_TYPE_UNSPECIFIED',
                   },
                 ],
               },
@@ -8473,7 +8474,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8494,7 +8495,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -8521,7 +8522,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8565,7 +8566,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8592,7 +8593,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8619,7 +8620,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                       valueDetectedLanguages: [
                         {
@@ -8661,7 +8662,7 @@ gapi.load('client', async () => {
                       ],
                     },
                     confidence: 42,
-                    orientation: 'Test string',
+                    orientation: 'ORIENTATION_UNSPECIFIED',
                     textAnchor: {
                       content: 'Test string',
                       textSegments: [
@@ -8696,7 +8697,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8717,7 +8718,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -8746,7 +8747,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8767,7 +8768,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -8781,7 +8782,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     revision: 42,
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                   symbols: [
                     {
@@ -8807,7 +8808,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8849,7 +8850,7 @@ gapi.load('client', async () => {
                                   ],
                                 },
                                 confidence: 42,
-                                orientation: 'Test string',
+                                orientation: 'ORIENTATION_UNSPECIFIED',
                                 textAnchor: {
                                   content: 'Test string',
                                   textSegments: [
@@ -8898,7 +8899,7 @@ gapi.load('client', async () => {
                                   ],
                                 },
                                 confidence: 42,
-                                orientation: 'Test string',
+                                orientation: 'ORIENTATION_UNSPECIFIED',
                                 textAnchor: {
                                   content: 'Test string',
                                   textSegments: [
@@ -8930,7 +8931,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -8951,14 +8952,14 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
                   tokens: [
                     {
                       detectedBreak: {
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       detectedLanguages: [
                         {
@@ -8982,7 +8983,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -9003,7 +9004,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         revision: 42,
-                        type: 'Test string',
+                        type: 'OPERATION_TYPE_UNSPECIFIED',
                       },
                       styleInfo: {
                         backgroundColor: {
@@ -9066,7 +9067,7 @@ gapi.load('client', async () => {
                           ],
                         },
                         confidence: 42,
-                        orientation: 'Test string',
+                        orientation: 'ORIENTATION_UNSPECIFIED',
                         textAnchor: {
                           content: 'Test string',
                           textSegments: [
@@ -9117,7 +9118,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       revision: 42,
-                      type: 'Test string',
+                      type: 'OPERATION_TYPE_UNSPECIFIED',
                     },
                   ],
                   textAnchor: {
@@ -9224,14 +9225,14 @@ gapi.load('client', async () => {
                 {
                   description: 'Test string',
                   displayName: 'Test string',
-                  method: 'Test string',
+                  method: 'METHOD_UNSPECIFIED',
                   name: 'Test string',
-                  occurrenceType: 'Test string',
+                  occurrenceType: 'OCCURRENCE_TYPE_UNSPECIFIED',
                   propertyMetadata: {
                     fieldExtractionMetadata: {
                       summaryOptions: {
-                        format: 'Test string',
-                        length: 'Test string',
+                        format: 'FORMAT_UNSPECIFIED',
+                        length: 'LENGTH_UNSPECIFIED',
                       },
                     },
                     inactive: true,

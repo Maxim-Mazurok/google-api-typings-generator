@@ -117,7 +117,7 @@ gapi.load('client', async () => {
           spaceInfo: {
             space: 'Test string',
           },
-          surfaceType: 'Test string',
+          surfaceType: 'CONTEXT_TYPE_UNSPECIFIED',
         },
         completed: 'Test string',
         deleted: true,
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
           spaceInfo: {
             space: 'Test string',
           },
-          surfaceType: 'Test string',
+          surfaceType: 'CONTEXT_TYPE_UNSPECIFIED',
         },
         completed: 'Test string',
         deleted: true,
@@ -224,7 +224,7 @@ gapi.load('client', async () => {
           spaceInfo: {
             space: 'Test string',
           },
-          surfaceType: 'Test string',
+          surfaceType: 'CONTEXT_TYPE_UNSPECIFIED',
         },
         completed: 'Test string',
         deleted: true,

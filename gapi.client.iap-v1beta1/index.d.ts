@@ -70,7 +70,8 @@ declare namespace gapi.client {
       /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
       permissions?: string[];
     }
-    interface V1beta1Resource {
+
+    const v1beta1: {
       /** Gets the access control policy for an Identity-Aware Proxy protected resource. More information about managing access via IAP can be found at: https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api */
       getIamPolicy(
         request: {
@@ -161,8 +162,6 @@ declare namespace gapi.client {
         },
         body: TestIamPermissionsRequest,
       ): Request<TestIamPermissionsResponse>;
-    }
-
-    const v1beta1: V1beta1Resource;
+    };
   }
 }

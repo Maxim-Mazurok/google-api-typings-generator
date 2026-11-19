@@ -108,7 +108,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
         bigqueryDataset: {
           dataset: 'Test string',
         },
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         dataProvider: {
           name: 'Test string',
           primaryContact: 'Test string',
@@ -173,7 +173,7 @@ gapi.load('client', async () => {
           restrictDirectTableAccess: true,
           restrictQueryResult: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a listing. */
@@ -218,7 +218,7 @@ gapi.load('client', async () => {
         bigqueryDataset: {
           dataset: 'Test string',
         },
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         dataProvider: {
           name: 'Test string',
           primaryContact: 'Test string',
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
           restrictDirectTableAccess: true,
           restrictQueryResult: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Sets the IAM policy. */
@@ -254,7 +254,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

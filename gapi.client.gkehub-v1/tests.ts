@@ -106,14 +106,14 @@ gapi.load('client', async () => {
               enableHierarchicalResourceQuota: true,
               enablePodTreeLabels: true,
             },
-            management: 'Test string',
+            management: 'MANAGEMENT_UNSPECIFIED',
             policyController: {
               auditIntervalSeconds: 'Test string',
               enabled: true,
               exemptableNamespaces: ['Test string'],
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               referentialRulesEnabled: true,
@@ -203,9 +203,9 @@ gapi.load('client', async () => {
             },
           },
           mesh: {
-            configApi: 'Test string',
-            controlPlane: 'Test string',
-            management: 'Test string',
+            configApi: 'CONFIG_API_UNSPECIFIED',
+            controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+            management: 'MANAGEMENT_UNSPECIFIED',
           },
           policycontroller: {
             policyControllerHubConfig: {
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
                       memory: 'Test string',
                     },
                   },
-                  podAffinity: 'Test string',
+                  podAffinity: 'AFFINITY_UNSPECIFIED',
                   podAntiAffinity: true,
                   podTolerations: [
                     {
@@ -237,10 +237,10 @@ gapi.load('client', async () => {
                 },
               },
               exemptableNamespaces: ['Test string'],
-              installSpec: 'Test string',
+              installSpec: 'INSTALL_SPEC_UNSPECIFIED',
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               policyContent: {
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
                   },
                 },
                 templateLibrary: {
-                  installation: 'Test string',
+                  installation: 'INSTALLATION_UNSPECIFIED',
                 },
               },
               referentialRulesEnabled: true,
@@ -309,14 +309,14 @@ gapi.load('client', async () => {
                 enableHierarchicalResourceQuota: true,
                 enablePodTreeLabels: true,
               },
-              management: 'Test string',
+              management: 'MANAGEMENT_UNSPECIFIED',
               policyController: {
                 auditIntervalSeconds: 'Test string',
                 enabled: true,
                 exemptableNamespaces: ['Test string'],
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 referentialRulesEnabled: true,
@@ -407,12 +407,12 @@ gapi.load('client', async () => {
               },
             },
             mesh: {
-              configApi: 'Test string',
-              controlPlane: 'Test string',
-              management: 'Test string',
+              configApi: 'CONFIG_API_UNSPECIFIED',
+              controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+              management: 'MANAGEMENT_UNSPECIFIED',
             },
             origin: {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             policycontroller: {
               policyControllerHubConfig: {
@@ -430,7 +430,7 @@ gapi.load('client', async () => {
                         memory: 'Test string',
                       },
                     },
-                    podAffinity: 'Test string',
+                    podAffinity: 'AFFINITY_UNSPECIFIED',
                     podAntiAffinity: true,
                     podTolerations: [
                       {
@@ -444,10 +444,10 @@ gapi.load('client', async () => {
                   },
                 },
                 exemptableNamespaces: ['Test string'],
-                installSpec: 'Test string',
+                installSpec: 'INSTALL_SPEC_UNSPECIFIED',
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 policyContent: {
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
                     },
                   },
                   templateLibrary: {
-                    installation: 'Test string',
+                    installation: 'INSTALLATION_UNSPECIFIED',
                   },
                 },
                 referentialRulesEnabled: true,
@@ -470,7 +470,7 @@ gapi.load('client', async () => {
           A: {
             appdevexperience: {
               networkingInstallSucceeded: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
@@ -482,7 +482,7 @@ gapi.load('client', async () => {
               upgrades: [
                 {
                   status: {
-                    code: 'Test string',
+                    code: 'CODE_UNSPECIFIED',
                     reason: 'Test string',
                     updateTime: 'Test string',
                   },
@@ -496,29 +496,30 @@ gapi.load('client', async () => {
             configmanagement: {
               clusterName: 'Test string',
               configSyncState: {
-                clusterLevelStopSyncingState: 'Test string',
+                clusterLevelStopSyncingState: 'STOP_SYNCING_STATE_UNSPECIFIED',
                 crCount: 42,
                 deploymentState: {
-                  admissionWebhook: 'Test string',
-                  gitSync: 'Test string',
-                  importer: 'Test string',
-                  monitor: 'Test string',
-                  otelCollector: 'Test string',
-                  reconcilerManager: 'Test string',
-                  resourceGroupControllerManager: 'Test string',
-                  rootReconciler: 'Test string',
-                  syncer: 'Test string',
+                  admissionWebhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gitSync: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  importer: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  monitor: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  otelCollector: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  reconcilerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  resourceGroupControllerManager:
+                    'DEPLOYMENT_STATE_UNSPECIFIED',
+                  rootReconciler: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  syncer: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 errors: [
                   {
                     errorMessage: 'Test string',
                   },
                 ],
-                reposyncCrd: 'Test string',
-                rootsyncCrd: 'Test string',
-                state: 'Test string',
+                reposyncCrd: 'CRD_STATE_UNSPECIFIED',
+                rootsyncCrd: 'CRD_STATE_UNSPECIFIED',
+                state: 'STATE_UNSPECIFIED',
                 syncState: {
-                  code: 'Test string',
+                  code: 'SYNC_CODE_UNSPECIFIED',
                   errors: [
                     {
                       code: 'Test string',
@@ -557,8 +558,8 @@ gapi.load('client', async () => {
               },
               hierarchyControllerState: {
                 state: {
-                  extension: 'Test string',
-                  hnc: 'Test string',
+                  extension: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  hnc: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 version: {
                   extension: 'Test string',
@@ -612,14 +613,14 @@ gapi.load('client', async () => {
                   enableHierarchicalResourceQuota: true,
                   enablePodTreeLabels: true,
                 },
-                management: 'Test string',
+                management: 'MANAGEMENT_UNSPECIFIED',
                 policyController: {
                   auditIntervalSeconds: 'Test string',
                   enabled: true,
                   exemptableNamespaces: ['Test string'],
                   logDeniesEnabled: true,
                   monitoring: {
-                    backends: ['Test string'],
+                    backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                   },
                   mutationEnabled: true,
                   referentialRulesEnabled: true,
@@ -629,7 +630,7 @@ gapi.load('client', async () => {
                 version: 'Test string',
               },
               operatorState: {
-                deploymentState: 'Test string',
+                deploymentState: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 errors: [
                   {
                     errorMessage: 'Test string',
@@ -639,13 +640,14 @@ gapi.load('client', async () => {
               },
               policyControllerState: {
                 deploymentState: {
-                  gatekeeperAudit: 'Test string',
-                  gatekeeperControllerManagerState: 'Test string',
-                  gatekeeperMutation: 'Test string',
+                  gatekeeperAudit: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gatekeeperControllerManagerState:
+                    'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gatekeeperMutation: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 migration: {
                   copyTime: 'Test string',
-                  stage: 'Test string',
+                  stage: 'STAGE_UNSPECIFIED',
                 },
                 version: {
                   version: 'Test string',
@@ -736,40 +738,40 @@ gapi.load('client', async () => {
                   sessionDuration: 'Test string',
                 },
               },
-              state: 'Test string',
+              state: 'DEPLOYMENT_STATE_UNSPECIFIED',
             },
             policycontroller: {
               componentStates: {
                 A: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
               policyContentState: {
                 bundleStates: {
                   A: {
                     details: 'Test string',
-                    state: 'Test string',
+                    state: 'LIFECYCLE_STATE_UNSPECIFIED',
                   },
                 },
                 referentialSyncConfigState: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
                 templateLibraryState: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
-              state: 'Test string',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
             servicemesh: {
               conditions: [
                 {
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   details: 'Test string',
                   documentationLink: 'Test string',
-                  severity: 'Test string',
+                  severity: 'SEVERITY_UNSPECIFIED',
                 },
               ],
               controlPlaneManagement: {
@@ -779,8 +781,8 @@ gapi.load('client', async () => {
                     details: 'Test string',
                   },
                 ],
-                implementation: 'Test string',
-                state: 'Test string',
+                implementation: 'IMPLEMENTATION_UNSPECIFIED',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
               dataPlaneManagement: {
                 details: [
@@ -789,11 +791,11 @@ gapi.load('client', async () => {
                     details: 'Test string',
                   },
                 ],
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
             state: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
               updateTime: 'Test string',
             },
@@ -801,7 +803,7 @@ gapi.load('client', async () => {
               description: 'Test string',
               identityProviderStateDetails: {
                 A: {
-                  code: 'Test string',
+                  code: 'IDENTITY_PROVIDER_STATE_UNSPECIFIED',
                   description: 'Test string',
                 },
               },
@@ -810,7 +812,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         resourceState: {
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         scopeSpecs: {
           A: {},
@@ -818,7 +820,7 @@ gapi.load('client', async () => {
         scopeStates: {
           A: {
             state: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
               updateTime: 'Test string',
             },
@@ -849,16 +851,17 @@ gapi.load('client', async () => {
           fleetobservability: {
             loggingConfig: {
               defaultConfig: {
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
               fleetScopeLogsConfig: {
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             },
           },
           mesh: {
-            modernizationCompatibility: 'Test string',
-            modernizationStrategy: 'Test string',
+            modernizationCompatibility:
+              'MODERNIZATION_COMPATIBILITY_UNSPECIFIED',
+            modernizationStrategy: 'MODERNIZATION_STRATEGY_UNSPECIFIED',
           },
           multiclusteringress: {
             configMembership: 'Test string',
@@ -873,7 +876,7 @@ gapi.load('client', async () => {
         state: {
           appdevexperience: {
             networkingInstallSucceeded: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
             },
           },
@@ -894,7 +897,7 @@ gapi.load('client', async () => {
                     A: 'Test string',
                   },
                   status: {
-                    code: 'Test string',
+                    code: 'CODE_UNSPECIFIED',
                     reason: 'Test string',
                     updateTime: 'Test string',
                   },
@@ -915,7 +918,7 @@ gapi.load('client', async () => {
           fleetobservability: {
             logging: {
               defaultLog: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -924,7 +927,7 @@ gapi.load('client', async () => {
                 ],
               },
               scopeLog: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -935,7 +938,7 @@ gapi.load('client', async () => {
             },
             monitoring: {
               state: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -949,33 +952,33 @@ gapi.load('client', async () => {
           servicemesh: {
             conditions: [
               {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 details: 'Test string',
                 documentationLink: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
           },
           state: {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             description: 'Test string',
             updateTime: 'Test string',
           },
           workloadidentity: {
             namespaceStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'NAMESPACE_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
             namespaceStates: {
-              A: 'Test string',
+              A: 'NAMESPACE_STATE_UNSPECIFIED',
             },
             scopeTenancyWorkloadIdentityPool: 'Test string',
             workloadIdentityPool: 'Test string',
             workloadIdentityPoolStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'WORKLOAD_IDENTITY_POOL_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
@@ -1067,14 +1070,14 @@ gapi.load('client', async () => {
               enableHierarchicalResourceQuota: true,
               enablePodTreeLabels: true,
             },
-            management: 'Test string',
+            management: 'MANAGEMENT_UNSPECIFIED',
             policyController: {
               auditIntervalSeconds: 'Test string',
               enabled: true,
               exemptableNamespaces: ['Test string'],
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               referentialRulesEnabled: true,
@@ -1164,9 +1167,9 @@ gapi.load('client', async () => {
             },
           },
           mesh: {
-            configApi: 'Test string',
-            controlPlane: 'Test string',
-            management: 'Test string',
+            configApi: 'CONFIG_API_UNSPECIFIED',
+            controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+            management: 'MANAGEMENT_UNSPECIFIED',
           },
           policycontroller: {
             policyControllerHubConfig: {
@@ -1184,7 +1187,7 @@ gapi.load('client', async () => {
                       memory: 'Test string',
                     },
                   },
-                  podAffinity: 'Test string',
+                  podAffinity: 'AFFINITY_UNSPECIFIED',
                   podAntiAffinity: true,
                   podTolerations: [
                     {
@@ -1198,10 +1201,10 @@ gapi.load('client', async () => {
                 },
               },
               exemptableNamespaces: ['Test string'],
-              installSpec: 'Test string',
+              installSpec: 'INSTALL_SPEC_UNSPECIFIED',
               logDeniesEnabled: true,
               monitoring: {
-                backends: ['Test string'],
+                backends: ['MONITORING_BACKEND_UNSPECIFIED'],
               },
               mutationEnabled: true,
               policyContent: {
@@ -1211,7 +1214,7 @@ gapi.load('client', async () => {
                   },
                 },
                 templateLibrary: {
-                  installation: 'Test string',
+                  installation: 'INSTALLATION_UNSPECIFIED',
                 },
               },
               referentialRulesEnabled: true,
@@ -1270,14 +1273,14 @@ gapi.load('client', async () => {
                 enableHierarchicalResourceQuota: true,
                 enablePodTreeLabels: true,
               },
-              management: 'Test string',
+              management: 'MANAGEMENT_UNSPECIFIED',
               policyController: {
                 auditIntervalSeconds: 'Test string',
                 enabled: true,
                 exemptableNamespaces: ['Test string'],
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 referentialRulesEnabled: true,
@@ -1368,12 +1371,12 @@ gapi.load('client', async () => {
               },
             },
             mesh: {
-              configApi: 'Test string',
-              controlPlane: 'Test string',
-              management: 'Test string',
+              configApi: 'CONFIG_API_UNSPECIFIED',
+              controlPlane: 'CONTROL_PLANE_MANAGEMENT_UNSPECIFIED',
+              management: 'MANAGEMENT_UNSPECIFIED',
             },
             origin: {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             policycontroller: {
               policyControllerHubConfig: {
@@ -1391,7 +1394,7 @@ gapi.load('client', async () => {
                         memory: 'Test string',
                       },
                     },
-                    podAffinity: 'Test string',
+                    podAffinity: 'AFFINITY_UNSPECIFIED',
                     podAntiAffinity: true,
                     podTolerations: [
                       {
@@ -1405,10 +1408,10 @@ gapi.load('client', async () => {
                   },
                 },
                 exemptableNamespaces: ['Test string'],
-                installSpec: 'Test string',
+                installSpec: 'INSTALL_SPEC_UNSPECIFIED',
                 logDeniesEnabled: true,
                 monitoring: {
-                  backends: ['Test string'],
+                  backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                 },
                 mutationEnabled: true,
                 policyContent: {
@@ -1418,7 +1421,7 @@ gapi.load('client', async () => {
                     },
                   },
                   templateLibrary: {
-                    installation: 'Test string',
+                    installation: 'INSTALLATION_UNSPECIFIED',
                   },
                 },
                 referentialRulesEnabled: true,
@@ -1431,7 +1434,7 @@ gapi.load('client', async () => {
           A: {
             appdevexperience: {
               networkingInstallSucceeded: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
@@ -1443,7 +1446,7 @@ gapi.load('client', async () => {
               upgrades: [
                 {
                   status: {
-                    code: 'Test string',
+                    code: 'CODE_UNSPECIFIED',
                     reason: 'Test string',
                     updateTime: 'Test string',
                   },
@@ -1457,29 +1460,30 @@ gapi.load('client', async () => {
             configmanagement: {
               clusterName: 'Test string',
               configSyncState: {
-                clusterLevelStopSyncingState: 'Test string',
+                clusterLevelStopSyncingState: 'STOP_SYNCING_STATE_UNSPECIFIED',
                 crCount: 42,
                 deploymentState: {
-                  admissionWebhook: 'Test string',
-                  gitSync: 'Test string',
-                  importer: 'Test string',
-                  monitor: 'Test string',
-                  otelCollector: 'Test string',
-                  reconcilerManager: 'Test string',
-                  resourceGroupControllerManager: 'Test string',
-                  rootReconciler: 'Test string',
-                  syncer: 'Test string',
+                  admissionWebhook: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gitSync: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  importer: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  monitor: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  otelCollector: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  reconcilerManager: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  resourceGroupControllerManager:
+                    'DEPLOYMENT_STATE_UNSPECIFIED',
+                  rootReconciler: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  syncer: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 errors: [
                   {
                     errorMessage: 'Test string',
                   },
                 ],
-                reposyncCrd: 'Test string',
-                rootsyncCrd: 'Test string',
-                state: 'Test string',
+                reposyncCrd: 'CRD_STATE_UNSPECIFIED',
+                rootsyncCrd: 'CRD_STATE_UNSPECIFIED',
+                state: 'STATE_UNSPECIFIED',
                 syncState: {
-                  code: 'Test string',
+                  code: 'SYNC_CODE_UNSPECIFIED',
                   errors: [
                     {
                       code: 'Test string',
@@ -1518,8 +1522,8 @@ gapi.load('client', async () => {
               },
               hierarchyControllerState: {
                 state: {
-                  extension: 'Test string',
-                  hnc: 'Test string',
+                  extension: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  hnc: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 version: {
                   extension: 'Test string',
@@ -1573,14 +1577,14 @@ gapi.load('client', async () => {
                   enableHierarchicalResourceQuota: true,
                   enablePodTreeLabels: true,
                 },
-                management: 'Test string',
+                management: 'MANAGEMENT_UNSPECIFIED',
                 policyController: {
                   auditIntervalSeconds: 'Test string',
                   enabled: true,
                   exemptableNamespaces: ['Test string'],
                   logDeniesEnabled: true,
                   monitoring: {
-                    backends: ['Test string'],
+                    backends: ['MONITORING_BACKEND_UNSPECIFIED'],
                   },
                   mutationEnabled: true,
                   referentialRulesEnabled: true,
@@ -1590,7 +1594,7 @@ gapi.load('client', async () => {
                 version: 'Test string',
               },
               operatorState: {
-                deploymentState: 'Test string',
+                deploymentState: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 errors: [
                   {
                     errorMessage: 'Test string',
@@ -1600,13 +1604,14 @@ gapi.load('client', async () => {
               },
               policyControllerState: {
                 deploymentState: {
-                  gatekeeperAudit: 'Test string',
-                  gatekeeperControllerManagerState: 'Test string',
-                  gatekeeperMutation: 'Test string',
+                  gatekeeperAudit: 'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gatekeeperControllerManagerState:
+                    'DEPLOYMENT_STATE_UNSPECIFIED',
+                  gatekeeperMutation: 'DEPLOYMENT_STATE_UNSPECIFIED',
                 },
                 migration: {
                   copyTime: 'Test string',
-                  stage: 'Test string',
+                  stage: 'STAGE_UNSPECIFIED',
                 },
                 version: {
                   version: 'Test string',
@@ -1697,40 +1702,40 @@ gapi.load('client', async () => {
                   sessionDuration: 'Test string',
                 },
               },
-              state: 'Test string',
+              state: 'DEPLOYMENT_STATE_UNSPECIFIED',
             },
             policycontroller: {
               componentStates: {
                 A: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
               policyContentState: {
                 bundleStates: {
                   A: {
                     details: 'Test string',
-                    state: 'Test string',
+                    state: 'LIFECYCLE_STATE_UNSPECIFIED',
                   },
                 },
                 referentialSyncConfigState: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
                 templateLibraryState: {
                   details: 'Test string',
-                  state: 'Test string',
+                  state: 'LIFECYCLE_STATE_UNSPECIFIED',
                 },
               },
-              state: 'Test string',
+              state: 'LIFECYCLE_STATE_UNSPECIFIED',
             },
             servicemesh: {
               conditions: [
                 {
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   details: 'Test string',
                   documentationLink: 'Test string',
-                  severity: 'Test string',
+                  severity: 'SEVERITY_UNSPECIFIED',
                 },
               ],
               controlPlaneManagement: {
@@ -1740,8 +1745,8 @@ gapi.load('client', async () => {
                     details: 'Test string',
                   },
                 ],
-                implementation: 'Test string',
-                state: 'Test string',
+                implementation: 'IMPLEMENTATION_UNSPECIFIED',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
               dataPlaneManagement: {
                 details: [
@@ -1750,11 +1755,11 @@ gapi.load('client', async () => {
                     details: 'Test string',
                   },
                 ],
-                state: 'Test string',
+                state: 'LIFECYCLE_STATE_UNSPECIFIED',
               },
             },
             state: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
               updateTime: 'Test string',
             },
@@ -1762,7 +1767,7 @@ gapi.load('client', async () => {
               description: 'Test string',
               identityProviderStateDetails: {
                 A: {
-                  code: 'Test string',
+                  code: 'IDENTITY_PROVIDER_STATE_UNSPECIFIED',
                   description: 'Test string',
                 },
               },
@@ -1771,7 +1776,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         resourceState: {
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         scopeSpecs: {
           A: {},
@@ -1779,7 +1784,7 @@ gapi.load('client', async () => {
         scopeStates: {
           A: {
             state: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
               updateTime: 'Test string',
             },
@@ -1810,16 +1815,17 @@ gapi.load('client', async () => {
           fleetobservability: {
             loggingConfig: {
               defaultConfig: {
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
               fleetScopeLogsConfig: {
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             },
           },
           mesh: {
-            modernizationCompatibility: 'Test string',
-            modernizationStrategy: 'Test string',
+            modernizationCompatibility:
+              'MODERNIZATION_COMPATIBILITY_UNSPECIFIED',
+            modernizationStrategy: 'MODERNIZATION_STRATEGY_UNSPECIFIED',
           },
           multiclusteringress: {
             configMembership: 'Test string',
@@ -1834,7 +1840,7 @@ gapi.load('client', async () => {
         state: {
           appdevexperience: {
             networkingInstallSucceeded: {
-              code: 'Test string',
+              code: 'CODE_UNSPECIFIED',
               description: 'Test string',
             },
           },
@@ -1855,7 +1861,7 @@ gapi.load('client', async () => {
                     A: 'Test string',
                   },
                   status: {
-                    code: 'Test string',
+                    code: 'CODE_UNSPECIFIED',
                     reason: 'Test string',
                     updateTime: 'Test string',
                   },
@@ -1876,7 +1882,7 @@ gapi.load('client', async () => {
           fleetobservability: {
             logging: {
               defaultLog: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -1885,7 +1891,7 @@ gapi.load('client', async () => {
                 ],
               },
               scopeLog: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -1896,7 +1902,7 @@ gapi.load('client', async () => {
             },
             monitoring: {
               state: {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 errors: [
                   {
                     code: 'Test string',
@@ -1910,33 +1916,33 @@ gapi.load('client', async () => {
           servicemesh: {
             conditions: [
               {
-                code: 'Test string',
+                code: 'CODE_UNSPECIFIED',
                 details: 'Test string',
                 documentationLink: 'Test string',
-                severity: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
               },
             ],
           },
           state: {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             description: 'Test string',
             updateTime: 'Test string',
           },
           workloadidentity: {
             namespaceStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'NAMESPACE_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
             namespaceStates: {
-              A: 'Test string',
+              A: 'NAMESPACE_STATE_UNSPECIFIED',
             },
             scopeTenancyWorkloadIdentityPool: 'Test string',
             workloadIdentityPool: 'Test string',
             workloadIdentityPoolStateDetails: {
               A: {
-                code: 'Test string',
+                code: 'WORKLOAD_IDENTITY_POOL_STATE_UNSPECIFIED',
                 description: 'Test string',
               },
             },
@@ -1958,7 +1964,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2000,7 +2006,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         defaultClusterConfig: {
           binaryAuthorizationConfig: {
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -2013,11 +2019,11 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           securityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
         },
         deleteTime: 'Test string',
@@ -2027,7 +2033,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2057,7 +2063,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         defaultClusterConfig: {
           binaryAuthorizationConfig: {
-            evaluationMode: 'Test string',
+            evaluationMode: 'EVALUATION_MODE_UNSPECIFIED',
             policyBindings: [
               {
                 name: 'Test string',
@@ -2070,11 +2076,11 @@ gapi.load('client', async () => {
                 standard: 'Test string',
               },
             ],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
           },
           securityPostureConfig: {
-            mode: 'Test string',
-            vulnerabilityMode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
+            vulnerabilityMode: 'VULNERABILITY_MODE_UNSPECIFIED',
           },
         },
         deleteTime: 'Test string',
@@ -2084,7 +2090,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2106,7 +2112,7 @@ gapi.load('client', async () => {
           scopeTenancyWorkloadIdentityPool: 'Test string',
           workloadIdentityPool: 'Test string',
         },
-        clusterTier: 'Test string',
+        clusterTier: 'CLUSTER_TIER_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         description: 'Test string',
@@ -2158,7 +2164,7 @@ gapi.load('client', async () => {
           onPremCluster: {
             adminCluster: true,
             clusterMissing: true,
-            clusterType: 'Test string',
+            clusterType: 'CLUSTERTYPE_UNSPECIFIED',
             resourceLink: 'Test string',
           },
         },
@@ -2167,7 +2173,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         lastConnectionTime: 'Test string',
-        membershipType: 'Test string',
+        membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
         monitoringConfig: {
           cluster: 'Test string',
           clusterHash: 'Test string',
@@ -2177,7 +2183,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uniqueId: 'Test string',
         updateTime: 'Test string',
@@ -2234,7 +2240,7 @@ gapi.load('client', async () => {
           scopeTenancyWorkloadIdentityPool: 'Test string',
           workloadIdentityPool: 'Test string',
         },
-        clusterTier: 'Test string',
+        clusterTier: 'CLUSTER_TIER_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         description: 'Test string',
@@ -2286,7 +2292,7 @@ gapi.load('client', async () => {
           onPremCluster: {
             adminCluster: true,
             clusterMissing: true,
-            clusterType: 'Test string',
+            clusterType: 'CLUSTERTYPE_UNSPECIFIED',
             resourceLink: 'Test string',
           },
         },
@@ -2295,7 +2301,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         lastConnectionTime: 'Test string',
-        membershipType: 'Test string',
+        membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
         monitoringConfig: {
           cluster: 'Test string',
           clusterHash: 'Test string',
@@ -2305,7 +2311,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uniqueId: 'Test string',
         updateTime: 'Test string',
@@ -2323,7 +2329,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2371,7 +2377,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         scope: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2407,7 +2413,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         scope: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2429,10 +2435,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: {
           customRole: 'Test string',
-          predefinedRole: 'Test string',
+          predefinedRole: 'UNKNOWN',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2461,10 +2467,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: {
           customRole: 'Test string',
-          predefinedRole: 'Test string',
+          predefinedRole: 'UNKNOWN',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2501,10 +2507,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: {
           customRole: 'Test string',
-          predefinedRole: 'Test string',
+          predefinedRole: 'UNKNOWN',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2595,10 +2601,10 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           rolloutCreationScope: {
-            upgradeTypes: ['Test string'],
+            upgradeTypes: ['UPGRADE_TYPE_UNSPECIFIED'],
           },
         },
-        computedReleaseChannel: 'Test string',
+        computedReleaseChannel: 'GKE_RELEASE_CHANNEL_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         displayName: 'Test string',
@@ -2607,7 +2613,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           rolloutCreationScope: {
-            upgradeTypes: ['Test string'],
+            upgradeTypes: ['UPGRADE_TYPE_UNSPECIFIED'],
           },
         },
         etag: 'Test string',
@@ -2621,8 +2627,8 @@ gapi.load('client', async () => {
         lastQualifiedNodeVersion: 'Test string',
         name: 'Test string',
         operationalState: {
-          reasons: ['Test string'],
-          state: 'Test string',
+          reasons: ['REASON_UNSPECIFIED'],
+          state: 'STATE_CODE_UNSPECIFIED',
           stateChangeTime: 'Test string',
         },
         stages: [
@@ -2667,10 +2673,10 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           rolloutCreationScope: {
-            upgradeTypes: ['Test string'],
+            upgradeTypes: ['UPGRADE_TYPE_UNSPECIFIED'],
           },
         },
-        computedReleaseChannel: 'Test string',
+        computedReleaseChannel: 'GKE_RELEASE_CHANNEL_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         displayName: 'Test string',
@@ -2679,7 +2685,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
           rolloutCreationScope: {
-            upgradeTypes: ['Test string'],
+            upgradeTypes: ['UPGRADE_TYPE_UNSPECIFIED'],
           },
         },
         etag: 'Test string',
@@ -2693,8 +2699,8 @@ gapi.load('client', async () => {
         lastQualifiedNodeVersion: 'Test string',
         name: 'Test string',
         operationalState: {
-          reasons: ['Test string'],
-          state: 'Test string',
+          reasons: ['REASON_UNSPECIFIED'],
+          state: 'STATE_CODE_UNSPECIFIED',
           stateChangeTime: 'Test string',
         },
         stages: [
@@ -2729,7 +2735,7 @@ gapi.load('client', async () => {
             A: 'Test string',
           },
         },
-        upgradeType: 'Test string',
+        upgradeType: 'UPGRADE_TYPE_UNSPECIFIED',
         version: 'Test string',
       },
     );
@@ -2750,7 +2756,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2805,7 +2811,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2823,7 +2829,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2874,7 +2880,7 @@ gapi.load('client', async () => {
         },
         scope: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2912,7 +2918,7 @@ gapi.load('client', async () => {
         },
         scope: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2934,10 +2940,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: {
           customRole: 'Test string',
-          predefinedRole: 'Test string',
+          predefinedRole: 'UNKNOWN',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',
@@ -2974,10 +2980,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         role: {
           customRole: 'Test string',
-          predefinedRole: 'Test string',
+          predefinedRole: 'UNKNOWN',
         },
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         uid: 'Test string',
         updateTime: 'Test string',

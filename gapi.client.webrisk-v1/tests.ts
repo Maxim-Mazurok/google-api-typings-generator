@@ -34,7 +34,7 @@ gapi.load('client', async () => {
     /** Gets the full hashes that match the requested hash prefix. This is used after a hash prefix is looked up in a threatList and there is a match. The client side threatList only holds partial hashes so the client must query this method to determine if there is a full hash match of a threat. */
     await gapi.client.webrisk.hashes.search({
       hashPrefix: 'Test string',
-      threatTypes: 'Test string',
+      threatTypes: 'THREAT_TYPE_UNSPECIFIED',
     });
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
     await gapi.client.webrisk.projects.operations.cancel(
@@ -72,13 +72,13 @@ gapi.load('client', async () => {
     await gapi.client.webrisk.threatLists.computeDiff({
       'constraints.maxDatabaseEntries': 42,
       'constraints.maxDiffEntries': 42,
-      'constraints.supportedCompressions': 'Test string',
-      threatType: 'Test string',
+      'constraints.supportedCompressions': 'COMPRESSION_TYPE_UNSPECIFIED',
+      threatType: 'THREAT_TYPE_UNSPECIFIED',
       versionToken: 'Test string',
     });
     /** This method is used to check whether a URI is on a given threatList. Multiple threatLists may be searched in a single query. The response will list all requested threatLists the URI was found to match. If the URI is not found on any of the requested ThreatList an empty response will be returned. */
     await gapi.client.webrisk.uris.search({
-      threatTypes: 'Test string',
+      threatTypes: 'THREAT_TYPE_UNSPECIFIED',
       uri: 'Test string',
     });
   }

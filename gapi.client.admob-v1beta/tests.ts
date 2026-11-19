@@ -69,7 +69,7 @@ gapi.load('client', async () => {
               },
               displayName: 'Test string',
               name: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             parent: 'Test string',
           },
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
         },
         displayName: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** List ad unit mappings under the specified AdMob account and ad unit. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
@@ -128,10 +128,10 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        appApprovalState: 'Test string',
+        appApprovalState: 'APP_APPROVAL_STATE_UNSPECIFIED',
         appId: 'Test string',
         linkedAppInfo: {
-          androidAppStores: ['Test string'],
+          androidAppStores: ['ANDROID_APP_STORE_UNSPECIFIED'],
           appStoreId: 'Test string',
           displayName: 'Test string',
         },
@@ -167,9 +167,9 @@ gapi.load('client', async () => {
               year: 42,
             },
           },
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           languageCode: 'Test string',
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
         },
       },
     );
@@ -180,7 +180,7 @@ gapi.load('client', async () => {
       },
       {
         displayName: 'Test string',
-        mediationAbExperimentState: 'Test string',
+        mediationAbExperimentState: 'EXPERIMENT_STATE_UNSPECIFIED',
         mediationGroupId: 'Test string',
         mediationGroupLines: {
           A: {
@@ -189,20 +189,20 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             cpmMicros: 'Test string',
-            cpmMode: 'Test string',
+            cpmMode: 'CPM_MODE_UNSPECIFIED',
             displayName: 'Test string',
-            experimentVariant: 'Test string',
+            experimentVariant: 'VARIANT_UNSPECIFIED',
             id: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           adUnitIds: ['Test string'],
           excludedRegionCodes: ['Test string'],
           format: 'Test string',
-          idfaTargeting: 'Test string',
+          idfaTargeting: 'IDFA_TARGETING_UNSPECIFIED',
           platform: 'Test string',
           targetedRegionCodes: ['Test string'],
         },
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
       },
       {
         displayName: 'Test string',
-        mediationAbExperimentState: 'Test string',
+        mediationAbExperimentState: 'EXPERIMENT_STATE_UNSPECIFIED',
         mediationGroupId: 'Test string',
         mediationGroupLines: {
           A: {
@@ -232,20 +232,20 @@ gapi.load('client', async () => {
               A: 'Test string',
             },
             cpmMicros: 'Test string',
-            cpmMode: 'Test string',
+            cpmMode: 'CPM_MODE_UNSPECIFIED',
             displayName: 'Test string',
-            experimentVariant: 'Test string',
+            experimentVariant: 'VARIANT_UNSPECIFIED',
             id: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           adUnitIds: ['Test string'],
           excludedRegionCodes: ['Test string'],
           format: 'Test string',
-          idfaTargeting: 'Test string',
+          idfaTargeting: 'IDFA_TARGETING_UNSPECIFIED',
           platform: 'Test string',
           targetedRegionCodes: ['Test string'],
         },
@@ -265,11 +265,11 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               cpmMicros: 'Test string',
-              cpmMode: 'Test string',
+              cpmMode: 'CPM_MODE_UNSPECIFIED',
               displayName: 'Test string',
-              experimentVariant: 'Test string',
+              experimentVariant: 'VARIANT_UNSPECIFIED',
               id: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           },
         ],
@@ -279,7 +279,7 @@ gapi.load('client', async () => {
         mediationGroupId: 'Test string',
         name: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'EXPERIMENT_STATE_UNSPECIFIED',
         treatmentMediationLines: [
           {
             mediationGroupLine: {
@@ -288,16 +288,16 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               cpmMicros: 'Test string',
-              cpmMode: 'Test string',
+              cpmMode: 'CPM_MODE_UNSPECIFIED',
               displayName: 'Test string',
-              experimentVariant: 'Test string',
+              experimentVariant: 'VARIANT_UNSPECIFIED',
               id: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           },
         ],
         treatmentTrafficPercentage: 'Test string',
-        variantLeader: 'Test string',
+        variantLeader: 'VARIANT_LEADER_UNSPECIFIED',
       },
     );
     /** Stop the mediation A/B experiment and choose a variant. This method has limited access. If you see a 403 permission denied error, please reach out to your account manager for access. */
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        variantChoice: 'Test string',
+        variantChoice: 'VARIANT_CHOICE_UNSPECIFIED',
       },
     );
     /** Generates an AdMob Mediation report based on the provided report specification. Returns result of a server-side streaming RPC. The result is returned in a sequence of responses. */
@@ -330,24 +330,24 @@ gapi.load('client', async () => {
           },
           dimensionFilters: [
             {
-              dimension: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
               matchesAny: {
                 values: ['Test string'],
               },
             },
           ],
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           localizationSettings: {
             currencyCode: 'Test string',
             languageCode: 'Test string',
           },
           maxReportRows: 42,
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sortConditions: [
             {
-              dimension: 'Test string',
-              metric: 'Test string',
-              order: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
+              metric: 'METRIC_UNSPECIFIED',
+              order: 'SORT_ORDER_UNSPECIFIED',
             },
           ],
           timeZone: 'Test string',
@@ -375,24 +375,24 @@ gapi.load('client', async () => {
           },
           dimensionFilters: [
             {
-              dimension: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
               matchesAny: {
                 values: ['Test string'],
               },
             },
           ],
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           localizationSettings: {
             currencyCode: 'Test string',
             languageCode: 'Test string',
           },
           maxReportRows: 42,
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sortConditions: [
             {
-              dimension: 'Test string',
-              metric: 'Test string',
-              order: 'Test string',
+              dimension: 'DIMENSION_UNSPECIFIED',
+              metric: 'METRIC_UNSPECIFIED',
+              order: 'SORT_ORDER_UNSPECIFIED',
             },
           ],
           timeZone: 'Test string',

@@ -69,7 +69,7 @@ gapi.load('client', async () => {
         proposalId: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'ACTION_UNSPECIFIED',
         role: ['Test string'],
         sendNotification: true,
         view: 'Test string',
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
       },
       {
         dueTime: 'Test string',
-        fileContentChangeBehavior: 'Test string',
+        fileContentChangeBehavior: 'FILE_CONTENT_CHANGE_BEHAVIOR_UNSPECIFIED',
         lockFile: true,
         message: 'Test string',
         reviewerEmails: ['Test string'],
@@ -1171,7 +1171,7 @@ gapi.load('client', async () => {
     /** Lists the user's files. For more information, see [Search for files and folders](https://developers.google.com/workspace/drive/api/guides/search-files). This method accepts the `q` parameter, which is a search query combining one or more search terms. This method returns *all* files by default, including trashed files. If you don't want trashed files to appear in the list, use the `trashed=false` query parameter to remove trashed files from the results. */
     await gapi.client.drive.files.list({
       corpora: 'Test string',
-      corpus: 'Test string',
+      corpus: 'domain',
       driveId: 'Test string',
       includeItemsFromAllDrives: true,
       includeLabels: 'Test string',

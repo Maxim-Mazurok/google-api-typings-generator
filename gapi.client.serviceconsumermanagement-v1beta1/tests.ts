@@ -39,7 +39,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'QUOTA_VIEW_UNSPECIFIED',
       },
     );
     /** Create or update multiple producer overrides atomically, all on the same consumer, but on many different metrics or limits. The name field in the quota override message should not be set. */
@@ -50,7 +50,7 @@ gapi.load('client', async () => {
       {
         force: true,
         forceJustification: 'Test string',
-        forceOnly: ['Test string'],
+        forceOnly: ['QUOTA_SAFETY_CHECK_UNSPECIFIED'],
         inlineSource: {
           overrides: [
             {
@@ -99,14 +99,14 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'QUOTA_VIEW_UNSPECIFIED',
       },
     );
     /** Retrieves a summary of quota information for a specific quota limit. */
     await gapi.client.serviceconsumermanagement.services.consumerQuotaMetrics.limits.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'QUOTA_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a producer override. A producer override is applied by the owner or administrator of a service to increase or decrease the amount of quota a consumer of the service is allowed to use. To create multiple overrides at once, use ImportProducerOverrides instead. If an override with the specified dimensions already exists, this call will fail. To overwrite an existing override if one is already present ("upsert" semantics), use ImportProducerOverrides instead. */
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
       {
         force: true,
         forceJustification: 'Test string',
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         parent: 'Test string',
       },
       {
@@ -133,7 +133,7 @@ gapi.load('client', async () => {
       {
         force: true,
         forceJustification: 'Test string',
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
       {
         force: true,
         forceJustification: 'Test string',
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
         updateMask: 'Test string',
       },

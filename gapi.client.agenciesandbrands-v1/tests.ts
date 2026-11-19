@@ -56,9 +56,9 @@ gapi.load('client', async () => {
                 year: 42,
               },
             },
-            relative: 'Test string',
+            relative: 'RELATIVE_DATE_RANGE_UNSPECIFIED',
           },
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           filters: [
             {
               andFilter: {
@@ -66,10 +66,10 @@ gapi.load('client', async () => {
               },
               fieldFilter: {
                 field: {
-                  dimension: 'Test string',
-                  metric: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
+                  metric: 'METRIC_UNSPECIFIED',
                 },
-                operation: 'Test string',
+                operation: 'IN',
                 values: [
                   {
                     boolValue: true,
@@ -95,18 +95,18 @@ gapi.load('client', async () => {
               },
             },
           ],
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sorts: [
             {
               descending: true,
               field: {
-                dimension: 'Test string',
-                metric: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
+                metric: 'METRIC_UNSPECIFIED',
               },
             },
           ],
           timeZone: 'Test string',
-          timeZoneSource: 'Test string',
+          timeZoneSource: 'TIME_ZONE_SOURCE_UNSPECIFIED',
         },
         reportId: 'Test string',
         updateTime: 'Test string',
@@ -155,9 +155,9 @@ gapi.load('client', async () => {
                 year: 42,
               },
             },
-            relative: 'Test string',
+            relative: 'RELATIVE_DATE_RANGE_UNSPECIFIED',
           },
-          dimensions: ['Test string'],
+          dimensions: ['DIMENSION_UNSPECIFIED'],
           filters: [
             {
               andFilter: {
@@ -165,10 +165,10 @@ gapi.load('client', async () => {
               },
               fieldFilter: {
                 field: {
-                  dimension: 'Test string',
-                  metric: 'Test string',
+                  dimension: 'DIMENSION_UNSPECIFIED',
+                  metric: 'METRIC_UNSPECIFIED',
                 },
-                operation: 'Test string',
+                operation: 'IN',
                 values: [
                   {
                     boolValue: true,
@@ -194,18 +194,18 @@ gapi.load('client', async () => {
               },
             },
           ],
-          metrics: ['Test string'],
+          metrics: ['METRIC_UNSPECIFIED'],
           sorts: [
             {
               descending: true,
               field: {
-                dimension: 'Test string',
-                metric: 'Test string',
+                dimension: 'DIMENSION_UNSPECIFIED',
+                metric: 'METRIC_UNSPECIFIED',
               },
             },
           ],
           timeZone: 'Test string',
-          timeZoneSource: 'Test string',
+          timeZoneSource: 'TIME_ZONE_SOURCE_UNSPECIFIED',
         },
         reportId: 'Test string',
         updateTime: 'Test string',

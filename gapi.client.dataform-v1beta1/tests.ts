@@ -256,7 +256,7 @@ gapi.load('client', async () => {
             hostPublicKey: 'Test string',
             userPrivateKeySecretVersion: 'Test string',
           },
-          tokenStatus: 'Test string',
+          tokenStatus: 'TOKEN_STATUS_UNSPECIFIED',
           url: 'Test string',
         },
         internalMetadata: 'Test string',
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
             hostPublicKey: 'Test string',
             userPrivateKeySecretVersion: 'Test string',
           },
-          tokenStatus: 'Test string',
+          tokenStatus: 'TOKEN_STATUS_UNSPECIFIED',
           url: 'Test string',
         },
         internalMetadata: 'Test string',
@@ -447,7 +447,7 @@ gapi.load('client', async () => {
           defaultSchema: 'Test string',
           pipelineConfig: {
             path: 'Test string',
-            pipelineType: 'Test string',
+            pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
           },
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
@@ -510,7 +510,7 @@ gapi.load('client', async () => {
           defaultSchema: 'Test string',
           pipelineConfig: {
             path: 'Test string',
-            pipelineType: 'Test string',
+            pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
           },
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
@@ -599,7 +599,7 @@ gapi.load('client', async () => {
           defaultSchema: 'Test string',
           pipelineConfig: {
             path: 'Test string',
-            pipelineType: 'Test string',
+            pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
           },
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
@@ -674,7 +674,7 @@ gapi.load('client', async () => {
           defaultSchema: 'Test string',
           pipelineConfig: {
             path: 'Test string',
-            pipelineType: 'Test string',
+            pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
           },
           schemaSuffix: 'Test string',
           tablePrefix: 'Test string',
@@ -725,7 +725,7 @@ gapi.load('client', async () => {
             },
             userEmail: 'Test string',
           },
-          executionMode: 'Test string',
+          executionMode: 'EXECUTION_MODE_UNSPECIFIED',
           fullyRefreshIncrementalTablesEnabled: true,
           includedTags: ['Test string'],
           includedTargets: [
@@ -735,7 +735,7 @@ gapi.load('client', async () => {
               schema: 'Test string',
             },
           ],
-          queryPriority: 'Test string',
+          queryPriority: 'QUERY_PRIORITY_UNSPECIFIED',
           serviceAccount: 'Test string',
           transitiveDependenciesIncluded: true,
           transitiveDependentsIncluded: true,
@@ -760,7 +760,7 @@ gapi.load('client', async () => {
         timeZone: 'Test string',
         updateTime: 'Test string',
         workflowTriggerConfig: {
-          condition: 'Test string',
+          condition: 'CONDITION_UNSPECIFIED',
           lastSuccessfulEvaluationTime: 'Test string',
           maxWaitDuration: 'Test string',
           minExecutionDuration: 'Test string',
@@ -832,7 +832,7 @@ gapi.load('client', async () => {
             },
             userEmail: 'Test string',
           },
-          executionMode: 'Test string',
+          executionMode: 'EXECUTION_MODE_UNSPECIFIED',
           fullyRefreshIncrementalTablesEnabled: true,
           includedTags: ['Test string'],
           includedTargets: [
@@ -842,7 +842,7 @@ gapi.load('client', async () => {
               schema: 'Test string',
             },
           ],
-          queryPriority: 'Test string',
+          queryPriority: 'QUERY_PRIORITY_UNSPECIFIED',
           serviceAccount: 'Test string',
           transitiveDependenciesIncluded: true,
           transitiveDependentsIncluded: true,
@@ -867,7 +867,7 @@ gapi.load('client', async () => {
         timeZone: 'Test string',
         updateTime: 'Test string',
         workflowTriggerConfig: {
-          condition: 'Test string',
+          condition: 'CONDITION_UNSPECIFIED',
           lastSuccessfulEvaluationTime: 'Test string',
           maxWaitDuration: 'Test string',
           minExecutionDuration: 'Test string',
@@ -926,7 +926,7 @@ gapi.load('client', async () => {
             },
             userEmail: 'Test string',
           },
-          executionMode: 'Test string',
+          executionMode: 'EXECUTION_MODE_UNSPECIFIED',
           fullyRefreshIncrementalTablesEnabled: true,
           includedTags: ['Test string'],
           includedTargets: [
@@ -936,7 +936,7 @@ gapi.load('client', async () => {
               schema: 'Test string',
             },
           ],
-          queryPriority: 'Test string',
+          queryPriority: 'QUERY_PRIORITY_UNSPECIFIED',
           serviceAccount: 'Test string',
           transitiveDependenciesIncluded: true,
           transitiveDependentsIncluded: true,
@@ -948,13 +948,13 @@ gapi.load('client', async () => {
         name: 'Test string',
         pipelineConfig: {
           path: 'Test string',
-          pipelineType: 'Test string',
+          pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
         },
         privateResourceMetadata: {
           userScoped: true,
         },
         resolvedCompilationResult: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         workflowConfig: 'Test string',
       },
     );
@@ -1078,7 +1078,7 @@ gapi.load('client', async () => {
     /** Fetches branches in a Workspace. */
     await gapi.client.dataform.projects.locations.repositories.workspaces.fetchBranches(
       {
-        filter: 'Test string',
+        filter: 'BRANCH_FILTER_UNSPECIFIED',
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
@@ -1137,7 +1137,7 @@ gapi.load('client', async () => {
       {
         pipelineConfig: {
           path: 'Test string',
-          pipelineType: 'Test string',
+          pipelineType: 'PIPELINE_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -1206,7 +1206,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         path: 'Test string',
-        view: 'Test string',
+        view: 'DIRECTORY_CONTENTS_VIEW_UNSPECIFIED',
         workspace: 'Test string',
       },
     );

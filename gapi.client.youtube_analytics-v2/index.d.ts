@@ -149,7 +149,8 @@ declare namespace gapi.client {
       /** The name of the dimension or metric. */
       name?: string;
     }
-    interface GroupItemsResource {
+
+    const groupItems: {
       /** Removes an item from a group. */
       delete(request?: {
         /** V1 error format. */
@@ -266,8 +267,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListGroupItemsResponse>;
-    }
-    interface GroupsResource {
+    };
+
+    const groups: {
       /** Deletes a group. */
       delete(request?: {
         /** V1 error format. */
@@ -446,8 +448,9 @@ declare namespace gapi.client {
         },
         body: Group,
       ): Request<Group>;
-    }
-    interface ReportsResource {
+    };
+
+    const reports: {
       /** Retrieve your YouTube Analytics reports. */
       query(request?: {
         /** V1 error format. */
@@ -495,12 +498,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<QueryResponse>;
-    }
-
-    const groupItems: GroupItemsResource;
-
-    const groups: GroupsResource;
-
-    const reports: ReportsResource;
+    };
   }
 }

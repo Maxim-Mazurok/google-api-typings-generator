@@ -638,8 +638,9 @@ declare namespace gapi.client {
       /** Output only. The current properties of the resource before any references have been filled in. Returned as serialized YAML. */
       properties?: string;
       /** Output only. In case this is an action, it will show the runtimePolicies on which this action will run in the deployment */
-      runtimePolicies?:
-        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'[];
+      runtimePolicies?: (
+        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'
+      )[];
       /** Output only. The type of the resource, for example `compute.v1.instance`, or `cloudfunctions.v1beta1.function`. */
       type?: string;
       /** Output only. If Deployment Manager is currently updating or previewing an update to this resource, the updated configuration appears here. */
@@ -761,8 +762,9 @@ declare namespace gapi.client {
       /** Output only. The set of updated properties for this resource, before references are expanded. Returned as serialized YAML. */
       properties?: string;
       /** Output only. In case this is an action, it will show the runtimePolicies that this action will have after updating the deployment. */
-      runtimePolicies?:
-        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'[];
+      runtimePolicies?: (
+        'CREATE' | 'DELETE' | 'UPDATE_ON_CHANGE' | 'UPDATE_ALWAYS'
+      )[];
       /** Output only. The state of the resource. */
       state?: 'PENDING' | 'IN_PROGRESS' | 'IN_PREVIEW' | 'FAILED' | 'ABORTED';
       /** Output only. If warning messages are generated during processing of this resource, this field will be populated. */
@@ -994,7 +996,8 @@ declare namespace gapi.client {
         | 'IGNORE_WITH_WARNINGS'
         | 'FAIL';
     }
-    interface CompositeTypesResource {
+
+    const compositeTypes: {
       /** Deletes a composite type. */
       delete(request?: {
         /** V1 error format. */
@@ -1278,8 +1281,9 @@ declare namespace gapi.client {
         },
         body: CompositeType,
       ): Request<Operation>;
-    }
-    interface DeploymentsResource {
+    };
+
+    const deployments: {
       /** Cancels and removes the preview currently associated with the deployment. */
       cancelPreview(request: {
         /** V1 error format. */
@@ -1818,8 +1822,9 @@ declare namespace gapi.client {
         },
         body: Deployment,
       ): Request<Operation>;
-    }
-    interface ManifestsResource {
+    };
+
+    const manifests: {
       /** Gets information about a specific manifest. */
       get(request?: {
         /** V1 error format. */
@@ -1889,8 +1894,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ManifestsListResponse>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Gets information about a specific operation. */
       get(request?: {
         /** V1 error format. */
@@ -1956,8 +1962,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<OperationsListResponse>;
-    }
-    interface ResourcesResource {
+    };
+
+    const resources: {
       /** Gets information about a single resource. */
       get(request?: {
         /** V1 error format. */
@@ -2027,8 +2034,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ResourcesListResponse>;
-    }
-    interface TypeProvidersResource {
+    };
+
+    const typeProviders: {
       /** Deletes a type provider. */
       delete(request?: {
         /** V1 error format. */
@@ -2381,8 +2389,9 @@ declare namespace gapi.client {
         },
         body: TypeProvider,
       ): Request<Operation>;
-    }
-    interface TypesResource {
+    };
+
+    const types: {
       /** Gets information about a specific type. */
       get(request?: {
         /** V1 error format. */
@@ -2448,20 +2457,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TypesListResponse>;
-    }
-
-    const compositeTypes: CompositeTypesResource;
-
-    const deployments: DeploymentsResource;
-
-    const manifests: ManifestsResource;
-
-    const operations: OperationsResource;
-
-    const resources: ResourcesResource;
-
-    const typeProviders: TypeProvidersResource;
-
-    const types: TypesResource;
+    };
   }
 }

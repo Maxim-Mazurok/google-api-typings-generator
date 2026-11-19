@@ -34,7 +34,8 @@ declare namespace gapi.client {
       /** The status of the insert request. */
       responseCode?: string;
     }
-    interface ArchiveResource {
+
+    const archive: {
       /** Inserts a new mail into the archive of the Google group. */
       insert(request?: {
         /** V1 error format. */
@@ -62,8 +63,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Groups>;
-    }
-
-    const archive: ArchiveResource;
+    };
   }
 }

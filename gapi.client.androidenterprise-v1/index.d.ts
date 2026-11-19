@@ -42,7 +42,7 @@ declare namespace gapi.client {
       /** The URI of the parent frame hosting the iframe. To prevent XSS, the iframe may not be hosted at other URIs. This URI must be https. Use whitespaces to separate multiple parent URIs. */
       parent?: string;
       /** Deprecated. Use PlaySearch.approveApps. */
-      permission?: 'unknown' | 'approveApps' | 'manageMcm'[];
+      permission?: ('unknown' | 'approveApps' | 'manageMcm')[];
       /** Options for displaying the managed Play Search apps page. */
       playSearch?: AdministratorWebTokenSpecPlaySearch;
       /** Options for displaying the Private Apps page. */
@@ -565,8 +565,9 @@ declare namespace gapi.client {
       /** The countries which this app is available in. */
       availableCountries?: string[];
       /** Deprecated, use appTracks instead. */
-      availableTracks?:
-        'appTrackUnspecified' | 'production' | 'beta' | 'alpha'[];
+      availableTracks?: (
+        'appTrackUnspecified' | 'production' | 'beta' | 'alpha'
+      )[];
       /** The app category (e.g. RACING, SOCIAL, etc.) */
       category?: string;
       /** The content rating for this app. */
@@ -579,7 +580,7 @@ declare namespace gapi.client {
       distributionChannel?:
         'publicGoogleHosted' | 'privateGoogleHosted' | 'privateSelfHosted';
       /** Noteworthy features (if any) of this product. */
-      features?: 'featureUnknown' | 'vpnApp'[];
+      features?: ('featureUnknown' | 'vpnApp')[];
       /** The localized full app store description, if available. */
       fullDescription?: string;
       /** A link to an image that can be used as an icon for the product. This image is suitable for use at up to 512px x 512px. */
@@ -651,7 +652,7 @@ declare namespace gapi.client {
       /** Grants the device visibility to the specified product release track(s), identified by trackIds. The list of release tracks of a product can be obtained by calling Products.Get. */
       trackIds?: string[];
       /** Deprecated. Use trackIds instead. */
-      tracks?: 'appTrackUnspecified' | 'production' | 'beta' | 'alpha'[];
+      tracks?: ('appTrackUnspecified' | 'production' | 'beta' | 'alpha')[];
     }
     interface ProductsApproveRequest {
       /** The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new permissions if the product was updated since the URL was generated. */
@@ -692,7 +693,7 @@ declare namespace gapi.client {
       /** Grants the user visibility to the specified product track(s), identified by trackIds. */
       trackIds?: string[];
       /** Deprecated. Use trackIds instead. */
-      tracks?: 'appTrackUnspecified' | 'production' | 'beta' | 'alpha'[];
+      tracks?: ('appTrackUnspecified' | 'production' | 'beta' | 'alpha')[];
     }
     interface ServiceAccount {
       /** Credentials that can be used to authenticate as this ServiceAccount. */
@@ -814,7 +815,8 @@ declare namespace gapi.client {
       /** The manifest describing a web app. */
       webApp?: WebApp[];
     }
-    interface DevicesResource {
+
+    const devices: {
       /** Uploads a report containing any changes in app states on the device since the last report was generated. You can call this method up to 3 times every 24 hours for a given device. If you exceed the quota, then the Google Play EMM API returns HTTP 429 Too Many Requests. */
       forceReportUpload(request?: {
         /** V1 error format. */
@@ -1073,8 +1075,9 @@ declare namespace gapi.client {
         },
         body: Device,
       ): Request<Device>;
-    }
-    interface EnrollmentTokensResource {
+    };
+
+    const enrollmentTokens: {
       /** Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch enrollment payload or fetch it before calling the on-device API to authenticate the user. The token can be generated for each device or reused across multiple devices. */
       create(request: {
         /** V1 error format. */
@@ -1133,8 +1136,9 @@ declare namespace gapi.client {
         },
         body: EnrollmentToken,
       ): Request<EnrollmentToken>;
-    }
-    interface EnterprisesResource {
+    };
+
+    const enterprises: {
       /** Acknowledges notifications that were received from Enterprises.PullNotificationSet to prevent subsequent calls from returning the same notifications. */
       acknowledgeNotificationSet(request?: {
         /** V1 error format. */
@@ -1676,8 +1680,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<void>;
-    }
-    interface EntitlementsResource {
+    };
+
+    const entitlements: {
       /** Removes an entitlement to an app for a user. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
       delete(request?: {
         /** V1 error format. */
@@ -1839,8 +1844,9 @@ declare namespace gapi.client {
         },
         body: Entitlement,
       ): Request<Entitlement>;
-    }
-    interface GrouplicensesResource {
+    };
+
+    const grouplicenses: {
       /** Retrieves details of an enterprise's group license for a product. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
       get(request?: {
         /** V1 error format. */
@@ -1897,8 +1903,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GroupLicensesListResponse>;
-    }
-    interface GrouplicenseusersResource {
+    };
+
+    const grouplicenseusers: {
       /** Retrieves the IDs of the users who have been granted entitlements under the license. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
       list(request?: {
         /** V1 error format. */
@@ -1928,8 +1935,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GroupLicenseUsersListResponse>;
-    }
-    interface InstallsResource {
+    };
+
+    const installs: {
       /** Requests to remove an app from a device. A call to get or list will still show the app as installed on the device until it is actually removed. A successful response indicates that a removal request has been sent to the device. The call will be considered successful even if the app is not present on the device (e.g. it was never installed, or was removed by the user). */
       delete(request?: {
         /** V1 error format. */
@@ -2097,8 +2105,9 @@ declare namespace gapi.client {
         },
         body: Install,
       ): Request<Install>;
-    }
-    interface ManagedconfigurationsfordeviceResource {
+    };
+
+    const managedconfigurationsfordevice: {
       /** Removes a per-device managed configuration for an app for the specified device. */
       delete(request?: {
         /** V1 error format. */
@@ -2266,8 +2275,9 @@ declare namespace gapi.client {
         },
         body: ManagedConfiguration,
       ): Request<ManagedConfiguration>;
-    }
-    interface ManagedconfigurationsforuserResource {
+    };
+
+    const managedconfigurationsforuser: {
       /** Removes a per-user managed configuration for an app for the specified user. */
       delete(request?: {
         /** V1 error format. */
@@ -2425,8 +2435,9 @@ declare namespace gapi.client {
         },
         body: ManagedConfiguration,
       ): Request<ManagedConfiguration>;
-    }
-    interface ManagedconfigurationssettingsResource {
+    };
+
+    const managedconfigurationssettings: {
       /** Lists all the managed configurations settings for the specified app. */
       list(request?: {
         /** V1 error format. */
@@ -2456,8 +2467,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ManagedConfigurationsSettingsListResponse>;
-    }
-    interface PermissionsResource {
+    };
+
+    const permissions: {
       /** Retrieves details of an Android app permission for display to an enterprise admin. */
       get(request?: {
         /** V1 error format. */
@@ -2487,8 +2499,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Permission>;
-    }
-    interface ProductsResource {
+    };
+
+    const products: {
       /** Approves the specified product and the relevant app permissions, if any. The maximum number of products that you can approve per enterprise customer is 1,000. To learn how to use managed Google Play to design and create a store layout to display approved products to your users, see Store Layout Design. **Note:** This item has been deprecated. New integrations cannot use this method and can refer to our new recommendations. */
       approve(request: {
         /** V1 error format. */
@@ -2739,8 +2752,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<void>;
-    }
-    interface ServiceaccountkeysResource {
+    };
+
+    const serviceaccountkeys: {
       /** Removes and invalidates the specified credentials for the service account associated with this enterprise. The calling service account must have been retrieved by calling Enterprises.GetServiceAccount and must have been set as the enterprise service account by calling Enterprises.SetAccount. */
       delete(request?: {
         /** V1 error format. */
@@ -2855,8 +2869,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ServiceAccountKeysListResponse>;
-    }
-    interface StorelayoutclustersResource {
+    };
+
+    const storelayoutclusters: {
       /** Deletes a cluster. */
       delete(request?: {
         /** V1 error format. */
@@ -3076,8 +3091,9 @@ declare namespace gapi.client {
         },
         body: StoreCluster,
       ): Request<StoreCluster>;
-    }
-    interface StorelayoutpagesResource {
+    };
+
+    const storelayoutpages: {
       /** Deletes a store page. */
       delete(request?: {
         /** V1 error format. */
@@ -3283,8 +3299,9 @@ declare namespace gapi.client {
         },
         body: StorePage,
       ): Request<StorePage>;
-    }
-    interface UsersResource {
+    };
+
+    const users: {
       /** Deleted an EMM-managed user. */
       delete(request?: {
         /** V1 error format. */
@@ -3641,8 +3658,9 @@ declare namespace gapi.client {
         },
         body: User,
       ): Request<User>;
-    }
-    interface WebappsResource {
+    };
+
+    const webapps: {
       /** Deletes an existing web app. */
       delete(request?: {
         /** V1 error format. */
@@ -3848,40 +3866,6 @@ declare namespace gapi.client {
         },
         body: WebApp,
       ): Request<WebApp>;
-    }
-
-    const devices: DevicesResource;
-
-    const enrollmentTokens: EnrollmentTokensResource;
-
-    const enterprises: EnterprisesResource;
-
-    const entitlements: EntitlementsResource;
-
-    const grouplicenses: GrouplicensesResource;
-
-    const grouplicenseusers: GrouplicenseusersResource;
-
-    const installs: InstallsResource;
-
-    const managedconfigurationsfordevice: ManagedconfigurationsfordeviceResource;
-
-    const managedconfigurationsforuser: ManagedconfigurationsforuserResource;
-
-    const managedconfigurationssettings: ManagedconfigurationssettingsResource;
-
-    const permissions: PermissionsResource;
-
-    const products: ProductsResource;
-
-    const serviceaccountkeys: ServiceaccountkeysResource;
-
-    const storelayoutclusters: StorelayoutclustersResource;
-
-    const storelayoutpages: StorelayoutpagesResource;
-
-    const users: UsersResource;
-
-    const webapps: WebappsResource;
+    };
   }
 }

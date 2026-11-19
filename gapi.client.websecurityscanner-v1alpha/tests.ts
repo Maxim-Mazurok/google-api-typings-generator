@@ -52,11 +52,11 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         latestRun: {
           endTime: 'Test string',
-          executionState: 'Test string',
+          executionState: 'EXECUTION_STATE_UNSPECIFIED',
           hasVulnerabilities: true,
           name: 'Test string',
           progressPercent: 42,
-          resultState: 'Test string',
+          resultState: 'RESULT_STATE_UNSPECIFIED',
           startTime: 'Test string',
           urlsCrawledCount: 'Test string',
           urlsTestedCount: 'Test string',
@@ -68,8 +68,8 @@ gapi.load('client', async () => {
           scheduleTime: 'Test string',
         },
         startingUrls: ['Test string'],
-        targetPlatforms: ['Test string'],
-        userAgent: 'Test string',
+        targetPlatforms: ['TARGET_PLATFORM_UNSPECIFIED'],
+        userAgent: 'USER_AGENT_UNSPECIFIED',
       },
     );
     /** Deletes an existing ScanConfig and its child resources. */
@@ -108,11 +108,11 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         latestRun: {
           endTime: 'Test string',
-          executionState: 'Test string',
+          executionState: 'EXECUTION_STATE_UNSPECIFIED',
           hasVulnerabilities: true,
           name: 'Test string',
           progressPercent: 42,
-          resultState: 'Test string',
+          resultState: 'RESULT_STATE_UNSPECIFIED',
           startTime: 'Test string',
           urlsCrawledCount: 'Test string',
           urlsTestedCount: 'Test string',
@@ -124,8 +124,8 @@ gapi.load('client', async () => {
           scheduleTime: 'Test string',
         },
         startingUrls: ['Test string'],
-        targetPlatforms: ['Test string'],
-        userAgent: 'Test string',
+        targetPlatforms: ['TARGET_PLATFORM_UNSPECIFIED'],
+        userAgent: 'USER_AGENT_UNSPECIFIED',
       },
     );
     /** Start a ScanRun according to the given ScanConfig. */

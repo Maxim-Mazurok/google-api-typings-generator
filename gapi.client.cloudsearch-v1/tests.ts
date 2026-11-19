@@ -100,7 +100,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      resolutionStatusCode: 'Test string',
+      resolutionStatusCode: 'CODE_UNSPECIFIED',
     });
     /** Deletes the schema of a data source. **Note:** This API requires an admin or service account to execute. */
     await gapi.client.cloudsearch.indexing.datasources.deleteSchema({
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
                     operatorOptions: {
                       operatorName: 'Test string',
                     },
-                    orderedRanking: 'Test string',
+                    orderedRanking: 'NO_ORDER',
                     possibleValues: [
                       {
                         integerValue: 42,
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
                       operatorName: 'Test string',
                     },
                     retrievalImportance: {
-                      importance: 'Test string',
+                      importance: 'DEFAULT',
                     },
                   },
                   integerPropertyOptions: {
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
                       lessThanOperatorName: 'Test string',
                       operatorName: 'Test string',
                     },
-                    orderedRanking: 'Test string',
+                    orderedRanking: 'NO_ORDER',
                   },
                   isFacetable: true,
                   isRepeatable: true,
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
                       operatorName: 'Test string',
                     },
                     retrievalImportance: {
-                      importance: 'Test string',
+                      importance: 'DEFAULT',
                     },
                   },
                   timestampPropertyOptions: {
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
     await gapi.client.cloudsearch.indexing.datasources.items.delete({
       connectorName: 'Test string',
       'debugOptions.enableDebugging': true,
-      mode: 'Test string',
+      mode: 'UNSPECIFIED',
       name: 'Test string',
       version: 'Test string',
     });
@@ -276,7 +276,7 @@ gapi.load('client', async () => {
         },
         item: {
           acl: {
-            aclInheritanceType: 'Test string',
+            aclInheritanceType: 'NOT_APPLICABLE',
             deniedReaders: [
               {
                 groupResourceName: 'Test string',
@@ -316,11 +316,11 @@ gapi.load('client', async () => {
             contentDataRef: {
               name: 'Test string',
             },
-            contentFormat: 'Test string',
+            contentFormat: 'UNSPECIFIED',
             hash: 'Test string',
             inlineContent: 'Test string',
           },
-          itemType: 'Test string',
+          itemType: 'UNSPECIFIED',
           metadata: {
             containerName: 'Test string',
             contentLanguage: 'Test string',
@@ -344,7 +344,7 @@ gapi.load('client', async () => {
                   },
                   userResourceName: 'Test string',
                 },
-                type: 'Test string',
+                type: 'UNSPECIFIED',
               },
             ],
             keywords: ['Test string'],
@@ -361,10 +361,10 @@ gapi.load('client', async () => {
           payload: 'Test string',
           queue: 'Test string',
           status: {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             processingErrors: [
               {
-                code: 'Test string',
+                code: 'PROCESSING_ERROR_CODE_UNSPECIFIED',
                 errorMessage: 'Test string',
                 fieldViolations: [
                   {
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
               {
                 errorMessage: 'Test string',
                 httpStatusCode: 42,
-                type: 'Test string',
+                type: 'UNKNOWN',
               },
             ],
           },
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
           },
           version: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'UNSPECIFIED',
       },
     );
     /** Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
         },
         limit: 42,
         queue: 'Test string',
-        statusCodes: ['Test string'],
+        statusCodes: ['CODE_UNSPECIFIED'],
       },
     );
     /** Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source. */
@@ -470,10 +470,10 @@ gapi.load('client', async () => {
           repositoryError: {
             errorMessage: 'Test string',
             httpStatusCode: 42,
-            type: 'Test string',
+            type: 'UNKNOWN',
           },
           structuredDataHash: 'Test string',
-          type: 'Test string',
+          type: 'UNSPECIFIED',
         },
       },
     );
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
               {
                 filter: {
                   compositeFilter: {
-                    logicOperator: 'Test string',
+                    logicOperator: 'AND',
                     subFilters: undefined,
                   },
                   valueFilter: {
@@ -585,7 +585,7 @@ gapi.load('client', async () => {
             ],
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -620,7 +620,7 @@ gapi.load('client', async () => {
         },
         sortOptions: {
           operatorName: 'Test string',
-          sortOrder: 'Test string',
+          sortOrder: 'ASCENDING',
         },
         start: 42,
       },
@@ -635,7 +635,7 @@ gapi.load('client', async () => {
               {
                 filter: {
                   compositeFilter: {
-                    logicOperator: 'Test string',
+                    logicOperator: 'AND',
                     subFilters: undefined,
                   },
                   valueFilter: {
@@ -659,7 +659,7 @@ gapi.load('client', async () => {
             ],
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -808,7 +808,7 @@ gapi.load('client', async () => {
               {
                 filter: {
                   compositeFilter: {
-                    logicOperator: 'Test string',
+                    logicOperator: 'AND',
                     subFilters: undefined,
                   },
                   valueFilter: {
@@ -832,7 +832,7 @@ gapi.load('client', async () => {
             ],
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -849,7 +849,7 @@ gapi.load('client', async () => {
         ],
         defaultSortOptions: {
           operatorName: 'Test string',
-          sortOrder: 'Test string',
+          sortOrder: 'ASCENDING',
         },
         displayName: 'Test string',
         enableAuditLog: true,
@@ -871,11 +871,11 @@ gapi.load('client', async () => {
               numSuggestions: 42,
             },
             scoringConfig: {
-              sourceImportance: 'Test string',
+              sourceImportance: 'DEFAULT',
             },
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -910,7 +910,7 @@ gapi.load('client', async () => {
               {
                 filter: {
                   compositeFilter: {
-                    logicOperator: 'Test string',
+                    logicOperator: 'AND',
                     subFilters: undefined,
                   },
                   valueFilter: {
@@ -934,7 +934,7 @@ gapi.load('client', async () => {
             ],
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -951,7 +951,7 @@ gapi.load('client', async () => {
         ],
         defaultSortOptions: {
           operatorName: 'Test string',
-          sortOrder: 'Test string',
+          sortOrder: 'ASCENDING',
         },
         displayName: 'Test string',
         enableAuditLog: true,
@@ -973,11 +973,11 @@ gapi.load('client', async () => {
               numSuggestions: 42,
             },
             scoringConfig: {
-              sourceImportance: 'Test string',
+              sourceImportance: 'DEFAULT',
             },
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -1007,7 +1007,7 @@ gapi.load('client', async () => {
               {
                 filter: {
                   compositeFilter: {
-                    logicOperator: 'Test string',
+                    logicOperator: 'AND',
                     subFilters: undefined,
                   },
                   valueFilter: {
@@ -1031,7 +1031,7 @@ gapi.load('client', async () => {
             ],
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],
@@ -1048,7 +1048,7 @@ gapi.load('client', async () => {
         ],
         defaultSortOptions: {
           operatorName: 'Test string',
-          sortOrder: 'Test string',
+          sortOrder: 'ASCENDING',
         },
         displayName: 'Test string',
         enableAuditLog: true,
@@ -1070,11 +1070,11 @@ gapi.load('client', async () => {
               numSuggestions: 42,
             },
             scoringConfig: {
-              sourceImportance: 'Test string',
+              sourceImportance: 'DEFAULT',
             },
             source: {
               name: 'Test string',
-              predefinedSource: 'Test string',
+              predefinedSource: 'NONE',
             },
           },
         ],

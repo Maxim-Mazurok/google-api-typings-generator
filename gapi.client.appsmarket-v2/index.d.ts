@@ -64,7 +64,8 @@ declare namespace gapi.client {
       /** The email address of the user. */
       userId?: string;
     }
-    interface CustomerLicenseResource {
+
+    const customerLicense: {
       /** Gets the customer's licensing status to determine if they have access to a given app. For more information, see [Getting app installation and licensing details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api). */
       get(request?: {
         /** V1 error format. */
@@ -94,8 +95,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CustomerLicense>;
-    }
-    interface UserLicenseResource {
+    };
+
+    const userLicense: {
       /** Gets the user's licensing status to determine if they have permission to use a given app. For more information, see [Getting app installation and licensing details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api). */
       get(request?: {
         /** V1 error format. */
@@ -125,10 +127,6 @@ declare namespace gapi.client {
         /** The ID of the user. */
         userId: string;
       }): Request<UserLicense>;
-    }
-
-    const customerLicense: CustomerLicenseResource;
-
-    const userLicense: UserLicenseResource;
+    };
   }
 }

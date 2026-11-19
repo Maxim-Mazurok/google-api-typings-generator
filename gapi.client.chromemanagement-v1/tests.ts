@@ -125,7 +125,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        signatureAlgorithm: 'Test string',
+        signatureAlgorithm: 'SIGNATURE_ALGORITHM_UNSPECIFIED',
         signData: 'Test string',
       },
     );
@@ -183,15 +183,15 @@ gapi.load('client', async () => {
         annotatedUser: 'Test string',
         attestationCredential: {
           keyRotationTime: 'Test string',
-          keyTrustLevel: 'Test string',
-          keyType: 'Test string',
+          keyTrustLevel: 'KEY_TRUST_LEVEL_UNSPECIFIED',
+          keyType: 'KEY_TYPE_UNSPECIFIED',
           publicKey: 'Test string',
         },
         browserPermanentId: 'Test string',
         browsers: [
           {
             browserVersion: 'Test string',
-            channel: 'Test string',
+            channel: 'CHANNEL_UNSPECIFIED',
             executablePath: 'Test string',
             lastPolicyFetchTime: 'Test string',
             lastStatusReportTime: 'Test string',
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
                       {
                         error: 'Test string',
                         policyName: 'Test string',
-                        source: 'Test string',
+                        source: 'POLICY_SOURCE_UNSPECIFIED',
                         value: 'Test string',
                       },
                     ],
@@ -222,8 +222,8 @@ gapi.load('client', async () => {
                 ],
                 extensions: [
                   {
-                    appType: 'Test string',
-                    configuredAppPolicy: 'Test string',
+                    appType: 'EXTENSION_TYPE_UNSPECIFIED',
+                    configuredAppPolicy: 'CONFIGURED_APP_POLICY_UNSPECIFIED',
                     description: 'Test string',
                     disabled: true,
                     extensionId: 'Test string',
@@ -235,7 +235,7 @@ gapi.load('client', async () => {
                         uri: 'Test string',
                       },
                     ],
-                    installType: 'Test string',
+                    installType: 'INSTALLATION_TYPE_UNSPECIFIED',
                     manifestVersion: 42,
                     permissions: ['Test string'],
                     version: 'Test string',
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
                   {
                     error: 'Test string',
                     policyName: 'Test string',
-                    source: 'Test string',
+                    source: 'POLICY_SOURCE_UNSPECIFIED',
                     value: 'Test string',
                   },
                 ],
@@ -296,7 +296,7 @@ gapi.load('client', async () => {
               {
                 error: 'Test string',
                 policyName: 'Test string',
-                source: 'Test string',
+                source: 'POLICY_SOURCE_UNSPECIFIED',
                 value: 'Test string',
               },
             ],
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
           {
             error: 'Test string',
             policyName: 'Test string',
-            source: 'Test string',
+            source: 'POLICY_SOURCE_UNSPECIFIED',
             value: 'Test string',
           },
         ],
@@ -335,18 +335,18 @@ gapi.load('client', async () => {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           crowdStrikeFalconNextGenConfig: {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           crowdStrikeXdrConfig: {
@@ -357,18 +357,18 @@ gapi.load('client', async () => {
             },
           },
           deviceTrustConfig: {
-            scope: 'Test string',
+            scope: 'BROWSER_ENFORCEMENT_SCOPE_UNSPECIFIED',
             serviceAccounts: ['Test string'],
-            serviceProvider: 'Test string',
+            serviceProvider: 'SERVICE_PROVIDER_UNSPECIFIED',
             urlMatchers: ['Test string'],
           },
           googleSecOpsConfig: {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           mipLabelConfig: {
@@ -379,16 +379,16 @@ gapi.load('client', async () => {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           pubSubConfig: {
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
             topicFullPath: 'Test string',
           },
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
             },
           },
           secureGatewayConfig: {
-            enabledPlatforms: ['Test string'],
+            enabledPlatforms: ['PLATFORM_UNSPECIFIED'],
             resourceId: 'Test string',
           },
           splunkConfig: {
@@ -407,9 +407,9 @@ gapi.load('client', async () => {
             host: 'Test string',
             portNumber: 42,
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
             source: 'Test string',
             unsecureScheme: true,
@@ -419,10 +419,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: {
           failureStartTime: 'Test string',
-          state: 'Test string',
+          state: 'CONFIG_STATE_UNKNOWN',
           updateTime: 'Test string',
         },
-        type: 'Test string',
+        type: 'CONNECTOR_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a connector config. */
@@ -451,18 +451,18 @@ gapi.load('client', async () => {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           crowdStrikeFalconNextGenConfig: {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           crowdStrikeXdrConfig: {
@@ -473,18 +473,18 @@ gapi.load('client', async () => {
             },
           },
           deviceTrustConfig: {
-            scope: 'Test string',
+            scope: 'BROWSER_ENFORCEMENT_SCOPE_UNSPECIFIED',
             serviceAccounts: ['Test string'],
-            serviceProvider: 'Test string',
+            serviceProvider: 'SERVICE_PROVIDER_UNSPECIFIED',
             urlMatchers: ['Test string'],
           },
           googleSecOpsConfig: {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           mipLabelConfig: {
@@ -495,16 +495,16 @@ gapi.load('client', async () => {
             apiKey: 'Test string',
             host: 'Test string',
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
           },
           pubSubConfig: {
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
             topicFullPath: 'Test string',
           },
@@ -515,7 +515,7 @@ gapi.load('client', async () => {
             },
           },
           secureGatewayConfig: {
-            enabledPlatforms: ['Test string'],
+            enabledPlatforms: ['PLATFORM_UNSPECIFIED'],
             resourceId: 'Test string',
           },
           splunkConfig: {
@@ -523,9 +523,9 @@ gapi.load('client', async () => {
             host: 'Test string',
             portNumber: 42,
             reportingSettings: {
-              enabledDefaultEvents: ['Test string'],
-              enabledDeviceEvents: ['Test string'],
-              enabledOptInEvents: ['Test string'],
+              enabledDefaultEvents: ['DEFAULT_EVENT_UNSPECIFIED'],
+              enabledDeviceEvents: ['DEVICE_EVENT_UNSPECIFIED'],
+              enabledOptInEvents: ['OPT_IN_EVENT_UNSPECIFIED'],
             },
             source: 'Test string',
             unsecureScheme: true,
@@ -535,10 +535,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         status: {
           failureStartTime: 'Test string',
-          state: 'Test string',
+          state: 'CONFIG_STATE_UNKNOWN',
           updateTime: 'Test string',
         },
-        type: 'Test string',
+        type: 'CONNECTOR_TYPE_UNSPECIFIED',
       },
     );
     /** Creates a new enrollment token for a browser device. Creation fails if there is already an active token for this customer under the same org unit. */
@@ -555,10 +555,10 @@ gapi.load('client', async () => {
         orgUnitId: 'Test string',
         revokerId: 'Test string',
         revokeTime: 'Test string',
-        state: 'Test string',
+        state: 'ENROLLMENT_TOKEN_STATE_UNSPECIFIED',
         token: 'Test string',
         tokenPermanentId: 'Test string',
-        tokenType: 'Test string',
+        tokenType: 'ENROLLMENT_TOKEN_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a browser device enrollment token. */
@@ -611,11 +611,11 @@ gapi.load('client', async () => {
     /** Returns summaries of content transfers for a given metric and breakdown dimension. */
     await gapi.client.chromemanagement.customers.enterprise.securityInsights.queryContentTransfersBreakdowns(
       {
-        breakdown: 'Test string',
+        breakdown: 'CONTENT_TRANSFERS_BREAKDOWN_DIMENSION_UNSPECIFIED',
         customer: 'Test string',
         filter: 'Test string',
-        fixedTimeRange: 'Test string',
-        metric: 'Test string',
+        fixedTimeRange: 'FIXED_TIME_RANGE_UNSPECIFIED',
+        metric: 'CONTENT_TRANSFERS_METRIC_UNSPECIFIED',
         pageSize: 42,
         pageToken: 'Test string',
       },
@@ -630,11 +630,11 @@ gapi.load('client', async () => {
     /** Returns summaries of URL visits for a given metric and breakdown dimension. Requires a Chrome Enterprise Premium subscription. If the customer does not have this subscription, query results will be empty. */
     await gapi.client.chromemanagement.customers.enterprise.securityInsights.queryUrlVisitsBreakdowns(
       {
-        breakdown: 'Test string',
+        breakdown: 'URL_VISITS_BREAKDOWN_DIMENSION_UNSPECIFIED',
         customer: 'Test string',
         filter: 'Test string',
-        fixedTimeRange: 'Test string',
-        metric: 'Test string',
+        fixedTimeRange: 'FIXED_TIME_RANGE_UNSPECIFIED',
+        metric: 'URL_VISITS_METRIC_UNSPECIFIED',
         pageSize: 42,
         pageToken: 'Test string',
       },
@@ -664,9 +664,9 @@ gapi.load('client', async () => {
         commandResult: {
           clientExecutionTime: 'Test string',
           resultCode: 'Test string',
-          resultType: 'Test string',
+          resultType: 'COMMAND_RESULT_TYPE_UNSPECIFIED',
         },
-        commandState: 'Test string',
+        commandState: 'COMMAND_STATE_UNSPECIFIED',
         commandType: 'Test string',
         issueTime: 'Test string',
         name: 'Test string',
@@ -812,7 +812,7 @@ gapi.load('client', async () => {
     await gapi.client.chromemanagement.customers.reports.findInstalledAppDevices(
       {
         appId: 'Test string',
-        appType: 'Test string',
+        appType: 'APP_TYPE_UNSPECIFIED',
         customer: 'Test string',
         filter: 'Test string',
         orderBy: 'Test string',
@@ -825,7 +825,7 @@ gapi.load('client', async () => {
     await gapi.client.chromemanagement.customers.reports.findInstalledAppProfiles(
       {
         appId: 'Test string',
-        appType: 'Test string',
+        appType: 'APP_TYPE_UNSPECIFIED',
         customer: 'Test string',
         filter: 'Test string',
         orderBy: 'Test string',
@@ -892,7 +892,7 @@ gapi.load('client', async () => {
           deviceId: 'Test string',
           deviceOrgUnitId: 'Test string',
           telemetryEventNotificationFilter: {
-            eventTypes: ['Test string'],
+            eventTypes: ['EVENT_TYPE_UNSPECIFIED'],
           },
           userEmail: 'Test string',
           userOrgUnitId: 'Test string',

@@ -133,7 +133,7 @@ gapi.load('client', async () => {
         ],
         prompt: 'Test string',
         userContext: {
-          persona: 'Test string',
+          persona: 'PERSONA_UNSPECIFIED',
           role: 'Test string',
         },
       },

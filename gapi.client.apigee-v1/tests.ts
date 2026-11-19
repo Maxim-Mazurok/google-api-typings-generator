@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           analyticsConfig: {
             enabled: true,
             expireTimeMillis: 'Test string',
-            state: 'Test string',
+            state: 'ADDON_STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
           apiSecurityConfig: {
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         apigeeProjectId: 'Test string',
         attributes: ['Test string'],
         authorizedNetwork: 'Test string',
-        billingType: 'Test string',
+        billingType: 'BILLING_TYPE_UNSPECIFIED',
         caCertificate: 'Test string',
         caCertificates: ['Test string'],
         controlPlaneEncryptionKeyName: 'Test string',
@@ -97,17 +97,17 @@ gapi.load('client', async () => {
           ],
         },
         runtimeDatabaseEncryptionKeyName: 'Test string',
-        runtimeType: 'Test string',
-        state: 'Test string',
-        subscriptionPlan: 'Test string',
-        subscriptionType: 'Test string',
-        type: 'Test string',
+        runtimeType: 'RUNTIME_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
+        subscriptionPlan: 'SUBSCRIPTION_PLAN_UNSPECIFIED',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Delete an Apigee organization. For organizations with BillingType EVALUATION, an immediate deletion is performed. For paid organizations (Subscription or Pay-as-you-go), a soft-deletion is performed by default. The organization can be restored within the soft-deletion period, which is specified using the `retention` field in the request or by filing a support ticket with Apigee. During the data retention period specified in the request, the Apigee organization cannot be recreated in the same Google Cloud project. **IMPORTANT: The default data retention setting for this operation is 7 days. To permanently delete the organization in 24 hours, set the retention parameter to `MINIMUM`.** */
     await gapi.client.apigee.organizations.delete({
       name: 'Test string',
-      retention: 'Test string',
+      retention: 'DELETION_RETENTION_UNSPECIFIED',
     });
     /** Gets the profile for an Apigee organization. See [Understanding organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure). */
     await gapi.client.apigee.organizations.get({
@@ -120,7 +120,7 @@ gapi.load('client', async () => {
     /** Gets the deployed ingress configuration for an organization. */
     await gapi.client.apigee.organizations.getDeployedIngressConfig({
       name: 'Test string',
-      view: 'Test string',
+      view: 'INGRESS_CONFIG_VIEW_UNSPECIFIED',
     });
     /** Gets the deployed MCP server configuration for an organization. McpServerConfig is an org-scoped singleton (one per organization). The returned configuration may be up to 30 seconds out of date by default. */
     await gapi.client.apigee.organizations.getMcpServerConfig({
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
           analyticsConfig: {
             enabled: true,
             expireTimeMillis: 'Test string',
-            state: 'Test string',
+            state: 'ADDON_STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
           apiSecurityConfig: {
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
           analyticsConfig: {
             enabled: true,
             expireTimeMillis: 'Test string',
-            state: 'Test string',
+            state: 'ADDON_STATE_UNSPECIFIED',
             updateTime: 'Test string',
           },
           apiSecurityConfig: {
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
         apigeeProjectId: 'Test string',
         attributes: ['Test string'],
         authorizedNetwork: 'Test string',
-        billingType: 'Test string',
+        billingType: 'BILLING_TYPE_UNSPECIFIED',
         caCertificate: 'Test string',
         caCertificates: ['Test string'],
         controlPlaneEncryptionKeyName: 'Test string',
@@ -254,11 +254,11 @@ gapi.load('client', async () => {
           ],
         },
         runtimeDatabaseEncryptionKeyName: 'Test string',
-        runtimeType: 'Test string',
-        state: 'Test string',
-        subscriptionPlan: 'Test string',
-        subscriptionType: 'Test string',
-        type: 'Test string',
+        runtimeType: 'RUNTIME_TYPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
+        subscriptionPlan: 'SUBSCRIPTION_PLAN_UNSPECIFIED',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Updates the permissions required to allow Apigee runtime-plane components access to the control plane. Currently, the permissions required are to: 1. Allow runtime components to publish analytics data to the control plane. **Note**: Available to Apigee hybrid only. */
@@ -376,7 +376,7 @@ gapi.load('client', async () => {
             hostname: 'Test string',
             matchCondition: 'Test string',
             name: 'Test string',
-            supportedEvents: ['Test string'],
+            supportedEvents: ['SUPPORTED_EVENT_UNSPECIFIED'],
           },
         ],
         lbForwardingRule: 'Test string',
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
             subnet: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -422,7 +422,7 @@ gapi.load('client', async () => {
             hostname: 'Test string',
             matchCondition: 'Test string',
             name: 'Test string',
-            supportedEvents: ['Test string'],
+            supportedEvents: ['SUPPORTED_EVENT_UNSPECIFIED'],
           },
         ],
         lbForwardingRule: 'Test string',
@@ -434,7 +434,7 @@ gapi.load('client', async () => {
             subnet: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -581,7 +581,7 @@ gapi.load('client', async () => {
         },
         proxies: ['Test string'],
         quota: 'Test string',
-        quotaCounterScope: 'Test string',
+        quotaCounterScope: 'QUOTA_COUNTER_SCOPE_UNSPECIFIED',
         quotaInterval: 'Test string',
         quotaTimeUnit: 'Test string',
         scopes: ['Test string'],
@@ -758,7 +758,7 @@ gapi.load('client', async () => {
         },
         proxies: ['Test string'],
         quota: 'Test string',
-        quotaCounterScope: 'Test string',
+        quotaCounterScope: 'QUOTA_COUNTER_SCOPE_UNSPECIFIED',
         quotaInterval: 'Test string',
         quotaTimeUnit: 'Test string',
         scopes: ['Test string'],
@@ -794,7 +794,7 @@ gapi.load('client', async () => {
       },
       {
         apiproduct: 'Test string',
-        billingPeriod: 'Test string',
+        billingPeriod: 'BILLING_PERIOD_UNSPECIFIED',
         consumptionPricingRates: [
           {
             end: 'Test string',
@@ -806,7 +806,7 @@ gapi.load('client', async () => {
             start: 'Test string',
           },
         ],
-        consumptionPricingType: 'Test string',
+        consumptionPricingType: 'CONSUMPTION_PRICING_TYPE_UNSPECIFIED',
         createdAt: 'Test string',
         currencyCode: 'Test string',
         description: 'Test string',
@@ -820,7 +820,7 @@ gapi.load('client', async () => {
         },
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        paymentFundingModel: 'Test string',
+        paymentFundingModel: 'PAYMENT_FUNDING_MODEL_UNSPECIFIED',
         revenueShareRates: [
           {
             end: 'Test string',
@@ -828,14 +828,14 @@ gapi.load('client', async () => {
             start: 'Test string',
           },
         ],
-        revenueShareType: 'Test string',
+        revenueShareType: 'REVENUE_SHARE_TYPE_UNSPECIFIED',
         setupFee: {
           currencyCode: 'Test string',
           nanos: 42,
           units: 'Test string',
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a rate plan. */
@@ -853,7 +853,7 @@ gapi.load('client', async () => {
       orderBy: 'Test string',
       parent: 'Test string',
       startKey: 'Test string',
-      state: 'Test string',
+      state: 'STATE_UNSPECIFIED',
     });
     /** Updates an existing rate plan. */
     await gapi.client.apigee.organizations.apiproducts.rateplans.update(
@@ -862,7 +862,7 @@ gapi.load('client', async () => {
       },
       {
         apiproduct: 'Test string',
-        billingPeriod: 'Test string',
+        billingPeriod: 'BILLING_PERIOD_UNSPECIFIED',
         consumptionPricingRates: [
           {
             end: 'Test string',
@@ -874,7 +874,7 @@ gapi.load('client', async () => {
             start: 'Test string',
           },
         ],
-        consumptionPricingType: 'Test string',
+        consumptionPricingType: 'CONSUMPTION_PRICING_TYPE_UNSPECIFIED',
         createdAt: 'Test string',
         currencyCode: 'Test string',
         description: 'Test string',
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
         },
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        paymentFundingModel: 'Test string',
+        paymentFundingModel: 'PAYMENT_FUNDING_MODEL_UNSPECIFIED',
         revenueShareRates: [
           {
             end: 'Test string',
@@ -896,14 +896,14 @@ gapi.load('client', async () => {
             start: 'Test string',
           },
         ],
-        revenueShareType: 'Test string',
+        revenueShareType: 'REVENUE_SHARE_TYPE_UNSPECIFIED',
         setupFee: {
           currencyCode: 'Test string',
           nanos: 42,
           units: 'Test string',
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates an API proxy. The API proxy created will not be accessible at runtime until it is deployed to an environment. Create a new API proxy by setting the `name` query parameter to the name of the API proxy. Import an API proxy configuration bundle stored in zip format on your local machine to your organization by doing the following: * Set the `name` query parameter to the name of the API proxy. * Set the `action` query parameter to `import`. * Set the `Content-Type` header to `multipart/form-data`. * Pass as a file the name of API proxy configuration bundle stored in zip format on your local machine using the `file` form field. **Note**: To validate the API proxy configuration bundle only without importing it, set the `action` query parameter to `validate`. When importing an API proxy configuration bundle, if the API proxy does not exist, it will be created. If the API proxy exists, then a new revision is created. Invalid API proxy configurations are rejected, and a list of validation errors is returned to the client. */
@@ -956,7 +956,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        apiProxyType: 'Test string',
+        apiProxyType: 'API_PROXY_TYPE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -1153,7 +1153,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        billingType: 'Test string',
+        billingType: 'BILLING_TYPE_UNSPECIFIED',
       },
     );
     /** Creates an app and associates it with an AppGroup. This API associates the AppGroup app with the specified API product and auto-generates an API key for the app to use in calls to API proxies inside that API product. The `name` is the unique ID of the app that you can use in API calls. */
@@ -1431,7 +1431,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a data collector. */
@@ -1459,7 +1459,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Lists all deployments of API proxies or shared flows. */
@@ -1559,7 +1559,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        billingType: 'Test string',
+        billingType: 'BILLING_TYPE_UNSPECIFIED',
       },
     );
     /** Creates an app associated with a developer. This API associates the developer app with the specified API product and auto-generates an API key for the app to use in calls to API proxies inside that API product. The `name` is the unique ID of the app that you can use in API calls. The `DisplayName` (set as an attribute) appears in the UI. If you don't set the `DisplayName` attribute, the `name` appears in the UI. */
@@ -1927,7 +1927,7 @@ gapi.load('client', async () => {
           targetNetworkId: 'Test string',
           targetProjectId: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1952,12 +1952,12 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        connectionState: 'Test string',
+        connectionState: 'CONNECTION_STATE_UNSPECIFIED',
         host: 'Test string',
         location: 'Test string',
         name: 'Test string',
         serviceAttachment: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes an endpoint attachment. */
@@ -1985,7 +1985,7 @@ gapi.load('client', async () => {
         hostnames: ['Test string'],
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes an environment group. */
@@ -1999,7 +1999,7 @@ gapi.load('client', async () => {
     /** Gets the deployed ingress configuration for an environment group. */
     await gapi.client.apigee.organizations.envgroups.getDeployedIngressConfig({
       name: 'Test string',
-      view: 'Test string',
+      view: 'INGRESS_CONFIG_VIEW_UNSPECIFIED',
     });
     /** Lists all environment groups. */
     await gapi.client.apigee.organizations.envgroups.list({
@@ -2018,7 +2018,7 @@ gapi.load('client', async () => {
         hostnames: ['Test string'],
         lastModifiedAt: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates a new attachment of an environment to an environment group. */
@@ -2054,7 +2054,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        apiProxyType: 'Test string',
+        apiProxyType: 'API_PROXY_TYPE_UNSPECIFIED',
         clientIpResolutionConfig: {
           headerIndexAlgorithm: {
             ipHeaderIndex: 42,
@@ -2062,7 +2062,7 @@ gapi.load('client', async () => {
           },
         },
         createdAt: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DEPLOYMENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         forwardProxyUri: 'Test string',
@@ -2082,8 +2082,8 @@ gapi.load('client', async () => {
             },
           ],
         },
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'ENVIRONMENT_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes an environment from an organization. **Warning: You must delete all key value maps and key value entries before you delete an environment.** Otherwise, if you re-create the environment the key value map entry operations will encounter encryption/decryption discrepancies. */
@@ -2134,7 +2134,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        apiProxyType: 'Test string',
+        apiProxyType: 'API_PROXY_TYPE_UNSPECIFIED',
         clientIpResolutionConfig: {
           headerIndexAlgorithm: {
             ipHeaderIndex: 42,
@@ -2142,7 +2142,7 @@ gapi.load('client', async () => {
           },
         },
         createdAt: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DEPLOYMENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         forwardProxyUri: 'Test string',
@@ -2162,8 +2162,8 @@ gapi.load('client', async () => {
             },
           ],
         },
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'ENVIRONMENT_TYPE_UNSPECIFIED',
       },
     );
     /** Sets the IAM policy on an environment, if the policy already exists it will be replaced. For more information, see [Manage users, roles, and permissions using the API](https://cloud.google.com/apigee/docs/api-platform/system-administration/manage-users-roles). You must have the `apigee.environments.setIamPolicy` permission to call this API. */
@@ -2178,7 +2178,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2230,7 +2230,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        apiProxyType: 'Test string',
+        apiProxyType: 'API_PROXY_TYPE_UNSPECIFIED',
         clientIpResolutionConfig: {
           headerIndexAlgorithm: {
             ipHeaderIndex: 42,
@@ -2238,7 +2238,7 @@ gapi.load('client', async () => {
           },
         },
         createdAt: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DEPLOYMENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         forwardProxyUri: 'Test string',
@@ -2258,8 +2258,8 @@ gapi.load('client', async () => {
             },
           ],
         },
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'ENVIRONMENT_TYPE_UNSPECIFIED',
       },
     );
     /** Updates the debug mask singleton resource for an environment. */
@@ -2289,7 +2289,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        apiProxyType: 'Test string',
+        apiProxyType: 'API_PROXY_TYPE_UNSPECIFIED',
         clientIpResolutionConfig: {
           headerIndexAlgorithm: {
             ipHeaderIndex: 42,
@@ -2297,7 +2297,7 @@ gapi.load('client', async () => {
           },
         },
         createdAt: 'Test string',
-        deploymentType: 'Test string',
+        deploymentType: 'DEPLOYMENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         forwardProxyUri: 'Test string',
@@ -2317,8 +2317,8 @@ gapi.load('client', async () => {
             },
           ],
         },
-        state: 'Test string',
-        type: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        type: 'ENVIRONMENT_TYPE_UNSPECIFIED',
       },
     );
     /** UpdateSecurityActionConfig updates the current SecurityActions configuration. This method is used to enable/disable the feature at the environment level. */
@@ -2341,19 +2341,20 @@ gapi.load('client', async () => {
       },
       {
         endpoint: 'Test string',
-        exporter: 'Test string',
+        exporter: 'EXPORTER_UNSPECIFIED',
         mtlsConfig: {
           keyAlias: 'Test string',
           keyStore: 'Test string',
           trustStore: 'Test string',
         },
-        otelCollectorSecurityScheme: 'Test string',
+        otelCollectorSecurityScheme:
+          'OTEL_COLLECTOR_SECURITY_SCHEME_UNSPECIFIED',
         samplingConfig: {
-          sampler: 'Test string',
+          sampler: 'SAMPLER_UNSPECIFIED',
           samplingRate: 42,
         },
-        spanSemantics: 'Test string',
-        traceProtocol: 'Test string',
+        spanSemantics: 'SPAN_SEMANTICS_UNSPECIFIED',
+        traceProtocol: 'TRACE_PROTOCOL_UNSPECIFIED',
       },
     );
     /** Updates an add-on enablement status of an environment. */
@@ -2576,7 +2577,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2972,7 +2973,7 @@ gapi.load('client', async () => {
           ],
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         updateTime: 'Test string',
       },
@@ -3043,7 +3044,7 @@ gapi.load('client', async () => {
           ],
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         updateTime: 'Test string',
       },
@@ -3063,8 +3064,8 @@ gapi.load('client', async () => {
               lastDetectedTime: 'Test string',
               lastObservabilityChangeTime: 'Test string',
               name: 'Test string',
-              observability: 'Test string',
-              riskLevel: 'Test string',
+              observability: 'OBSERVABILITY_UNSPECIFIED',
+              riskLevel: 'RISK_LEVEL_UNSPECIFIED',
               trafficCount: 'Test string',
             },
             updateMask: 'Test string',
@@ -3096,8 +3097,8 @@ gapi.load('client', async () => {
         lastDetectedTime: 'Test string',
         lastObservabilityChangeTime: 'Test string',
         name: 'Test string',
-        observability: 'Test string',
-        riskLevel: 'Test string',
+        observability: 'OBSERVABILITY_UNSPECIFIED',
+        riskLevel: 'RISK_LEVEL_UNSPECIFIED',
         trafficCount: 'Test string',
       },
     );
@@ -3165,9 +3166,9 @@ gapi.load('client', async () => {
         filter: 'Test string',
         metrics: [
           {
-            aggregation: 'Test string',
+            aggregation: 'AGGREGATION_FUNCTION_UNSPECIFIED',
             name: 'Test string',
-            order: 'Test string',
+            order: 'ORDER_UNSPECIFIED',
           },
         ],
         pageSize: 42,
@@ -3188,9 +3189,9 @@ gapi.load('client', async () => {
         filter: 'Test string',
         metrics: [
           {
-            aggregation: 'Test string',
+            aggregation: 'AGGREGATION_FUNCTION_UNSPECIFIED',
             name: 'Test string',
-            order: 'Test string',
+            order: 'ORDER_UNSPECIFIED',
           },
         ],
         pageSize: 42,
@@ -3199,8 +3200,8 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-        timestampOrder: 'Test string',
-        windowSize: 'Test string',
+        timestampOrder: 'ORDER_UNSPECIFIED',
+        windowSize: 'WINDOW_SIZE_UNSPECIFIED',
       },
     );
     /** Lists all deployments of a shared flow in an environment. */
@@ -3260,7 +3261,7 @@ gapi.load('client', async () => {
         isEnabled: true,
         name: 'Test string',
         port: 42,
-        protocol: 'Test string',
+        protocol: 'PROTOCOL_UNSPECIFIED',
         sSLInfo: {
           ciphers: ['Test string'],
           clientAuthEnabled: true,
@@ -3297,7 +3298,7 @@ gapi.load('client', async () => {
         isEnabled: true,
         name: 'Test string',
         port: 42,
-        protocol: 'Test string',
+        protocol: 'PROTOCOL_UNSPECIFIED',
         sSLInfo: {
           ciphers: ['Test string'],
           clientAuthEnabled: true,
@@ -3324,7 +3325,7 @@ gapi.load('client', async () => {
         apiProxy: 'Test string',
         name: 'Test string',
         samplingConfig: {
-          sampler: 'Test string',
+          sampler: 'SAMPLER_UNSPECIFIED',
           samplingRate: 42,
         },
       },
@@ -3359,7 +3360,7 @@ gapi.load('client', async () => {
         apiProxy: 'Test string',
         name: 'Test string',
         samplingConfig: {
-          sampler: 'Test string',
+          sampler: 'SAMPLER_UNSPECIFIED',
           samplingRate: 42,
         },
       },
@@ -3503,10 +3504,10 @@ gapi.load('client', async () => {
         lastModifiedAt: 'Test string',
         location: 'Test string',
         maintenanceUpdatePolicy: {
-          maintenanceChannel: 'Test string',
+          maintenanceChannel: 'MAINTENANCE_CHANNEL_UNSPECIFIED',
           maintenanceWindows: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -3517,14 +3518,14 @@ gapi.load('client', async () => {
           ],
         },
         name: 'Test string',
-        peeringCidrRange: 'Test string',
+        peeringCidrRange: 'CIDR_RANGE_UNSPECIFIED',
         port: 'Test string',
         runtimeVersion: 'Test string',
         scheduledMaintenance: {
           startTime: 'Test string',
         },
         serviceAttachment: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes an Apigee runtime instance. The instance stops serving requests and the runtime data is deleted. **Note:** Not supported for Apigee hybrid. */
@@ -3563,10 +3564,10 @@ gapi.load('client', async () => {
         lastModifiedAt: 'Test string',
         location: 'Test string',
         maintenanceUpdatePolicy: {
-          maintenanceChannel: 'Test string',
+          maintenanceChannel: 'MAINTENANCE_CHANNEL_UNSPECIFIED',
           maintenanceWindows: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -3577,14 +3578,14 @@ gapi.load('client', async () => {
           ],
         },
         name: 'Test string',
-        peeringCidrRange: 'Test string',
+        peeringCidrRange: 'CIDR_RANGE_UNSPECIFIED',
         port: 'Test string',
         runtimeVersion: 'Test string',
         scheduledMaintenance: {
           startTime: 'Test string',
         },
         serviceAttachment: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Reports the latest status for a runtime instance. */
@@ -3602,7 +3603,7 @@ gapi.load('client', async () => {
               {
                 errors: [
                   {
-                    code: 'Test string',
+                    code: 'OK',
                     message: 'Test string',
                     resource: 'Test string',
                     type: 'Test string',
@@ -3660,9 +3661,9 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         treatment: 'Test string',
-        verdict: 'Test string',
+        verdict: 'VERDICT_UNSPECIFIED',
       },
     );
     /** Gets a CanaryEvaluation for an organization. */
@@ -3684,7 +3685,7 @@ gapi.load('client', async () => {
       {
         ipAddress: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes the NAT address. Connections that are actively using the address are drained before it is removed. **Note:** Not supported for Apigee hybrid. */
@@ -3914,7 +3915,7 @@ gapi.load('client', async () => {
           resources: [
             {
               name: 'Test string',
-              type: 'Test string',
+              type: 'RESOURCE_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -3937,13 +3938,13 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         feedbackContexts: [
           {
-            attribute: 'Test string',
+            attribute: 'ATTRIBUTE_UNSPECIFIED',
             values: ['Test string'],
           },
         ],
-        feedbackType: 'Test string',
+        feedbackType: 'FEEDBACK_TYPE_UNSPECIFIED',
         name: 'Test string',
-        reason: 'Test string',
+        reason: 'REASON_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -3973,13 +3974,13 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         feedbackContexts: [
           {
-            attribute: 'Test string',
+            attribute: 'ATTRIBUTE_UNSPECIFIED',
             values: ['Test string'],
           },
         ],
-        feedbackType: 'Test string',
+        feedbackType: 'FEEDBACK_TYPE_UNSPECIFIED',
         name: 'Test string',
-        reason: 'Test string',
+        reason: 'REASON_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -3996,14 +3997,14 @@ gapi.load('client', async () => {
           resources: [
             {
               name: 'Test string',
-              type: 'Test string',
+              type: 'RESOURCE_TYPE_UNSPECIFIED',
             },
           ],
         },
         includeAllResources: {},
         name: 'Test string',
         profile: 'Test string',
-        riskAssessmentType: 'Test string',
+        riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
         scope: 'Test string',
         totalDeployedResources: 42,
         totalMonitoredResources: 42,
@@ -4013,12 +4014,12 @@ gapi.load('client', async () => {
     /** Delete a security monitoring condition. */
     await gapi.client.apigee.organizations.securityMonitoringConditions.delete({
       name: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** Get a security monitoring condition. */
     await gapi.client.apigee.organizations.securityMonitoringConditions.get({
       name: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** List security monitoring conditions. */
     await gapi.client.apigee.organizations.securityMonitoringConditions.list({
@@ -4026,7 +4027,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** Update a security monitoring condition. */
     await gapi.client.apigee.organizations.securityMonitoringConditions.patch(
@@ -4041,14 +4042,14 @@ gapi.load('client', async () => {
           resources: [
             {
               name: 'Test string',
-              type: 'Test string',
+              type: 'RESOURCE_TYPE_UNSPECIFIED',
             },
           ],
         },
         includeAllResources: {},
         name: 'Test string',
         profile: 'Test string',
-        riskAssessmentType: 'Test string',
+        riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
         scope: 'Test string',
         totalDeployedResources: 42,
         totalMonitoredResources: 42,
@@ -4211,31 +4212,31 @@ gapi.load('client', async () => {
         profileAssessmentConfigs: {
           A: {
             include: {
-              gatewayTypes: ['Test string'],
+              gatewayTypes: ['API_HUB_GATEWAY_TYPE_UNSPECIFIED'],
             },
-            weight: 'Test string',
+            weight: 'WEIGHT_UNSPECIFIED',
           },
         },
-        riskAssessmentType: 'Test string',
+        riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
     /** Delete a security profile v2. */
     await gapi.client.apigee.organizations.securityProfilesV2.delete({
       name: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** Get a security profile v2. */
     await gapi.client.apigee.organizations.securityProfilesV2.get({
       name: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** List security profiles v2. */
     await gapi.client.apigee.organizations.securityProfilesV2.list({
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      riskAssessmentType: 'Test string',
+      riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
     });
     /** Update a security profile V2. */
     await gapi.client.apigee.organizations.securityProfilesV2.patch(
@@ -4251,12 +4252,12 @@ gapi.load('client', async () => {
         profileAssessmentConfigs: {
           A: {
             include: {
-              gatewayTypes: ['Test string'],
+              gatewayTypes: ['API_HUB_GATEWAY_TYPE_UNSPECIFIED'],
             },
-            weight: 'Test string',
+            weight: 'WEIGHT_UNSPECIFIED',
           },
         },
-        riskAssessmentType: 'Test string',
+        riskAssessmentType: 'RISK_ASSESSMENT_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -4461,7 +4462,7 @@ gapi.load('client', async () => {
           },
         },
         oasDocumentation: {
-          format: 'Test string',
+          format: 'FORMAT_UNSPECIFIED',
           spec: {
             contents: 'Test string',
             displayName: 'Test string',
@@ -4526,7 +4527,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

@@ -66,8 +66,8 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        catalogUiExperience: 'Test string',
-        tagTemplateMigration: 'Test string',
+        catalogUiExperience: 'CATALOG_UI_EXPERIENCE_UNSPECIFIED',
+        tagTemplateMigration: 'TAG_TEMPLATE_MIGRATION_UNSPECIFIED',
       },
     );
     /** Retrieves the effective configuration related to the migration from Data Catalog to Dataplex Universal Catalog for a specific organization or project. If there is no specific configuration set for the resource, the setting is checked hierarchicahlly through the ancestors of the resource, starting from the resource itself. */
@@ -80,8 +80,8 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        catalogUiExperience: 'Test string',
-        tagTemplateMigration: 'Test string',
+        catalogUiExperience: 'CATALOG_UI_EXPERIENCE_UNSPECIFIED',
+        tagTemplateMigration: 'TAG_TEMPLATE_MIGRATION_UNSPECIFIED',
       },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
@@ -110,14 +110,14 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        activatedPolicyTypes: ['Test string'],
+        activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
         policyTagCount: 42,
         service: {
           identity: 'Test string',
-          name: 'Test string',
+          name: 'MANAGING_SYSTEM_UNSPECIFIED',
         },
         taxonomyTimestamps: {
           createTime: 'Test string',
@@ -163,7 +163,7 @@ gapi.load('client', async () => {
         inlineSource: {
           taxonomies: [
             {
-              activatedPolicyTypes: ['Test string'],
+              activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
               description: 'Test string',
               displayName: 'Test string',
               policyTags: [
@@ -193,14 +193,14 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        activatedPolicyTypes: ['Test string'],
+        activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
         description: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
         policyTagCount: 42,
         service: {
           identity: 'Test string',
-          name: 'Test string',
+          name: 'MANAGING_SYSTEM_UNSPECIFIED',
         },
         taxonomyTimestamps: {
           createTime: 'Test string',
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
       },
       {
         serializedTaxonomy: {
-          activatedPolicyTypes: ['Test string'],
+          activatedPolicyTypes: ['POLICY_TYPE_UNSPECIFIED'],
           description: 'Test string',
           displayName: 'Test string',
           policyTags: [

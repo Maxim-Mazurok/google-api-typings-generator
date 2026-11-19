@@ -45,7 +45,7 @@ gapi.load('client', async () => {
         applicationId: 'Test string',
       },
       {
-        achievementType: 'Test string',
+        achievementType: 'ACHIEVEMENT_TYPE_UNSPECIFIED',
         draft: {
           description: {
             kind: 'Test string',
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
           sortRank: 42,
         },
         id: 'Test string',
-        initialState: 'Test string',
+        initialState: 'INITIAL_STATE_UNSPECIFIED',
         kind: 'Test string',
         published: {
           description: {
@@ -117,7 +117,7 @@ gapi.load('client', async () => {
         achievementId: 'Test string',
       },
       {
-        achievementType: 'Test string',
+        achievementType: 'ACHIEVEMENT_TYPE_UNSPECIFIED',
         draft: {
           description: {
             kind: 'Test string',
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
           sortRank: 42,
         },
         id: 'Test string',
-        initialState: 'Test string',
+        initialState: 'INITIAL_STATE_UNSPECIFIED',
         kind: 'Test string',
         published: {
           description: {
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
           },
           scoreFormat: {
             currencyCode: 'Test string',
-            numberFormatType: 'Test string',
+            numberFormatType: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
             numDecimalPlaces: 42,
             suffix: {
               few: {
@@ -290,7 +290,7 @@ gapi.load('client', async () => {
           },
           scoreFormat: {
             currencyCode: 'Test string',
-            numberFormatType: 'Test string',
+            numberFormatType: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
             numDecimalPlaces: 42,
             suffix: {
               few: {
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
         },
         scoreMax: 'Test string',
         scoreMin: 'Test string',
-        scoreOrder: 'Test string',
+        scoreOrder: 'SCORE_ORDER_UNSPECIFIED',
         token: 'Test string',
       },
     );
@@ -390,7 +390,7 @@ gapi.load('client', async () => {
           },
           scoreFormat: {
             currencyCode: 'Test string',
-            numberFormatType: 'Test string',
+            numberFormatType: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
             numDecimalPlaces: 42,
             suffix: {
               few: {
@@ -474,7 +474,7 @@ gapi.load('client', async () => {
           },
           scoreFormat: {
             currencyCode: 'Test string',
-            numberFormatType: 'Test string',
+            numberFormatType: 'NUMBER_FORMAT_TYPE_UNSPECIFIED',
             numDecimalPlaces: 42,
             suffix: {
               few: {
@@ -543,7 +543,7 @@ gapi.load('client', async () => {
         },
         scoreMax: 'Test string',
         scoreMin: 'Test string',
-        scoreOrder: 'Test string',
+        scoreOrder: 'SCORE_ORDER_UNSPECIFIED',
         token: 'Test string',
       },
     );

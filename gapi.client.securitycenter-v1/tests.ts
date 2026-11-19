@@ -130,13 +130,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -174,13 +174,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         muteAnnotation: 'Test string',
-        muteState: 'Test string',
+        muteState: 'MUTE_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.folders.locations.muteConfigs.delete({
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -245,7 +245,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -273,7 +273,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -326,7 +326,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -352,10 +352,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -392,7 +392,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -418,10 +418,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         resource: {
           iamPolicyData: {
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
                 auditLogConfigs: [
                   {
                     exemptedMembers: ['Test string'],
-                    logType: 'Test string',
+                    logType: 'LOG_TYPE_UNSPECIFIED',
                   },
                 ],
                 service: 'Test string',
@@ -575,7 +575,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               explanation: 'Test string',
               recommendation: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
           invocationReferences: [
@@ -588,7 +588,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalSubject: 'Test string',
           },
         ],
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
           },
         ],
         aiModel: {
-          deploymentPlatform: 'Test string',
+          deploymentPlatform: 'DEPLOYMENT_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           domain: 'Test string',
           library: 'Test string',
@@ -616,7 +616,7 @@ gapi.load('client', async () => {
             {
               failureReason: 'Test string',
               policyId: 'Test string',
-              type: 'Test string',
+              type: 'ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED',
             },
           ],
           resourceId: 'Test string',
@@ -628,7 +628,7 @@ gapi.load('client', async () => {
           exposedMediumValueResourcesCount: 42,
           latestCalculationTime: 'Test string',
           score: 42,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         backupDisasterRecovery: {
           appliance: 'Test string',
@@ -678,12 +678,12 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_LEVEL_UNSPECIFIED',
               },
               version: 'Test string',
             },
           ],
-          parentType: 'Test string',
+          parentType: 'PARENT_TYPE_UNSPECIFIED',
         },
         cloudDlpInspection: {
           fullScan: true,
@@ -698,13 +698,13 @@ gapi.load('client', async () => {
           cloudControl: {
             cloudControlName: 'Test string',
             policyType: 'Test string',
-            type: 'Test string',
+            type: 'CLOUD_CONTROL_TYPE_UNSPECIFIED',
             version: 42,
           },
           cloudControlDeploymentNames: ['Test string'],
           frameworks: [
             {
-              category: ['Test string'],
+              category: ['FRAMEWORK_CATEGORY_UNSPECIFIED'],
               controls: [
                 {
                   controlName: 'Test string',
@@ -713,7 +713,7 @@ gapi.load('client', async () => {
               ],
               displayName: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'FRAMEWORK_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -728,7 +728,7 @@ gapi.load('client', async () => {
           {
             destinationIp: 'Test string',
             destinationPort: 42,
-            protocol: 'Test string',
+            protocol: 'PROTOCOL_UNSPECIFIED',
             sourceIp: 'Test string',
             sourcePort: 42,
           },
@@ -761,7 +761,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
           },
         ],
@@ -777,7 +777,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
             violatedLocation: 'Test string',
           },
@@ -786,18 +786,18 @@ gapi.load('client', async () => {
           {
             dataObjectCount: 'Test string',
             eventDetectionTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'EVENT_TYPE_UNSPECIFIED',
             maxRetentionAllowed: 'Test string',
             minRetentionAllowed: 'Test string',
           },
         ],
         description: 'Test string',
         discoveredWorkload: {
-          confidence: 'Test string',
+          confidence: 'CONFIDENCE_UNSPECIFIED',
           detectedRelevantHardware: true,
           detectedRelevantKeywords: true,
           detectedRelevantPackages: true,
-          workloadType: 'Test string',
+          workloadType: 'WORKLOAD_TYPE_UNSPECIFIED',
         },
         disk: {
           name: 'Test string',
@@ -876,11 +876,11 @@ gapi.load('client', async () => {
               partitionUuid: 'Test string',
               relativePath: 'Test string',
             },
-            fileLoadState: 'Test string',
+            fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
             hashedSize: 'Test string',
             operations: [
               {
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
             ],
             partiallyHashed: true,
@@ -889,16 +889,16 @@ gapi.load('client', async () => {
             size: 'Test string',
           },
         ],
-        findingClass: 'Test string',
+        findingClass: 'FINDING_CLASS_UNSPECIFIED',
         groupMemberships: [
           {
             groupId: 'Test string',
-            groupType: 'Test string',
+            groupType: 'GROUP_TYPE_UNSPECIFIED',
           },
         ],
         iamBindings: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             member: 'Test string',
             role: 'Test string',
           },
@@ -925,7 +925,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              signatureType: 'Test string',
+              signatureType: 'SIGNATURE_TYPE_UNSPECIFIED',
               yaraRuleSignature: {
                 yaraRule: 'Test string',
               },
@@ -961,7 +961,7 @@ gapi.load('client', async () => {
             ],
           },
           destinationIpRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'DIRECTION_UNSPECIFIED',
           exposedServices: ['Test string'],
           sourceIpRanges: ['Test string'],
         },
@@ -969,7 +969,7 @@ gapi.load('client', async () => {
           errorCode: 42,
           location: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'JOB_STATE_UNSPECIFIED',
         },
         kernelRootkit: {
           name: 'Test string',
@@ -999,13 +999,13 @@ gapi.load('client', async () => {
               name: 'Test string',
               ns: 'Test string',
               role: {
-                kind: 'Test string',
+                kind: 'KIND_UNSPECIFIED',
                 name: 'Test string',
                 ns: 'Test string',
               },
               subjects: [
                 {
-                  kind: 'Test string',
+                  kind: 'AUTH_TYPE_UNSPECIFIED',
                   name: 'Test string',
                   ns: 'Test string',
                 },
@@ -1077,7 +1077,7 @@ gapi.load('client', async () => {
           ],
           roles: [
             {
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
               ns: 'Test string',
             },
@@ -1099,14 +1099,14 @@ gapi.load('client', async () => {
           },
         ],
         mitreAttack: {
-          additionalTactics: ['Test string'],
-          additionalTechniques: ['Test string'],
-          primaryTactic: 'Test string',
-          primaryTechniques: ['Test string'],
+          additionalTactics: ['TACTIC_UNSPECIFIED'],
+          additionalTechniques: ['TECHNIQUE_UNSPECIFIED'],
+          primaryTactic: 'TACTIC_UNSPECIFIED',
+          primaryTechniques: ['TECHNIQUE_UNSPECIFIED'],
           version: 'Test string',
         },
         moduleName: 'Test string',
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
         muteInfo: {
           dynamicMuteRecords: [
             {
@@ -1116,7 +1116,7 @@ gapi.load('client', async () => {
           ],
           staticMute: {
             applyTime: 'Test string',
-            state: 'Test string',
+            state: 'MUTE_UNSPECIFIED',
           },
         },
         muteInitiator: 'Test string',
@@ -1157,11 +1157,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -1183,11 +1183,11 @@ gapi.load('client', async () => {
                   partitionUuid: 'Test string',
                   relativePath: 'Test string',
                 },
-                fileLoadState: 'Test string',
+                fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
                 hashedSize: 'Test string',
                 operations: [
                   {
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 ],
                 partiallyHashed: true,
@@ -1205,11 +1205,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -1230,7 +1230,7 @@ gapi.load('client', async () => {
           },
           status: {
             lastUpdatedTime: 'Test string',
-            validity: 'Test string',
+            validity: 'SECRET_VALIDITY_UNSPECIFIED',
           },
           type: 'Test string',
         },
@@ -1257,11 +1257,11 @@ gapi.load('client', async () => {
           postureDeploymentResource: 'Test string',
           revisionId: 'Test string',
         },
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         sourceProperties: {
           A: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         toxicCombination: {
           attackExposureScore: 42,
           relatedFindings: ['Test string'],
@@ -1284,21 +1284,21 @@ gapi.load('client', async () => {
         vulnerability: {
           cve: {
             cvssv3: {
-              attackComplexity: 'Test string',
-              attackVector: 'Test string',
-              availabilityImpact: 'Test string',
+              attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+              attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+              availabilityImpact: 'IMPACT_UNSPECIFIED',
               baseScore: 42,
-              confidentialityImpact: 'Test string',
-              integrityImpact: 'Test string',
-              privilegesRequired: 'Test string',
-              scope: 'Test string',
-              userInteraction: 'Test string',
+              confidentialityImpact: 'IMPACT_UNSPECIFIED',
+              integrityImpact: 'IMPACT_UNSPECIFIED',
+              privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+              scope: 'SCOPE_UNSPECIFIED',
+              userInteraction: 'USER_INTERACTION_UNSPECIFIED',
             },
-            exploitationActivity: 'Test string',
+            exploitationActivity: 'EXPLOITATION_ACTIVITY_UNSPECIFIED',
             exploitReleaseDate: 'Test string',
             firstExploitationDate: 'Test string',
             id: 'Test string',
-            impact: 'Test string',
+            impact: 'RISK_RATING_UNSPECIFIED',
             observedInTheWild: true,
             references: [
               {
@@ -1335,9 +1335,9 @@ gapi.load('client', async () => {
           providerRiskScore: 'Test string',
           reachable: true,
           runtimeInfo: {
-            evidence: 'Test string',
+            evidence: 'RUNTIME_EVIDENCE_UNSPECIFIED',
             firstObservedTime: 'Test string',
-            impact: 'Test string',
+            impact: 'RUNTIME_IMPACT_UNSPECIFIED',
             lastObservedTime: 'Test string',
           },
           securityBulletin: {
@@ -1353,7 +1353,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.folders.sources.findings.setState(
@@ -1362,7 +1362,7 @@ gapi.load('client', async () => {
       },
       {
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.folders.sources.findings.updateSecurityMarks(
@@ -1416,7 +1416,7 @@ gapi.load('client', async () => {
       {
         assetDiscoveryConfig: {
           folderIds: ['Test string'],
-          inclusionMode: 'Test string',
+          inclusionMode: 'INCLUSION_MODE_UNSPECIFIED',
           projectIds: ['Test string'],
         },
         enableAssetDiscovery: true,
@@ -1532,13 +1532,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -1576,13 +1576,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -1608,7 +1608,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         muteAnnotation: 'Test string',
-        muteState: 'Test string',
+        muteState: 'MUTE_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.organizations.locations.muteConfigs.delete(
@@ -1632,7 +1632,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1649,7 +1649,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1677,7 +1677,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1749,7 +1749,7 @@ gapi.load('client', async () => {
           {
             parent: 'Test string',
             resourceValueConfig: {
-              cloudProvider: 'Test string',
+              cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
               createTime: 'Test string',
               description: 'Test string',
               name: 'Test string',
@@ -1757,11 +1757,11 @@ gapi.load('client', async () => {
                 A: 'Test string',
               },
               resourceType: 'Test string',
-              resourceValue: 'Test string',
+              resourceValue: 'RESOURCE_VALUE_UNSPECIFIED',
               scope: 'Test string',
               sensitiveDataProtectionMapping: {
-                highSensitivityMapping: 'Test string',
-                mediumSensitivityMapping: 'Test string',
+                highSensitivityMapping: 'RESOURCE_VALUE_UNSPECIFIED',
+                mediumSensitivityMapping: 'RESOURCE_VALUE_UNSPECIFIED',
               },
               tagValues: ['Test string'],
               updateTime: 'Test string',
@@ -1787,7 +1787,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         name: 'Test string',
@@ -1795,11 +1795,11 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         resourceType: 'Test string',
-        resourceValue: 'Test string',
+        resourceValue: 'RESOURCE_VALUE_UNSPECIFIED',
         scope: 'Test string',
         sensitiveDataProtectionMapping: {
-          highSensitivityMapping: 'Test string',
-          mediumSensitivityMapping: 'Test string',
+          highSensitivityMapping: 'RESOURCE_VALUE_UNSPECIFIED',
+          mediumSensitivityMapping: 'RESOURCE_VALUE_UNSPECIFIED',
         },
         tagValues: ['Test string'],
         updateTime: 'Test string',
@@ -1811,7 +1811,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -1837,10 +1837,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -1877,7 +1877,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -1903,10 +1903,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -1942,7 +1942,7 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         resource: {
           iamPolicyData: {
@@ -1951,7 +1951,7 @@ gapi.load('client', async () => {
                 auditLogConfigs: [
                   {
                     exemptedMembers: ['Test string'],
-                    logType: 'Test string',
+                    logType: 'LOG_TYPE_UNSPECIFIED',
                   },
                 ],
                 service: 'Test string',
@@ -2093,7 +2093,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2166,7 +2166,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               explanation: 'Test string',
               recommendation: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
           invocationReferences: [
@@ -2179,7 +2179,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalSubject: 'Test string',
           },
         ],
@@ -2189,7 +2189,7 @@ gapi.load('client', async () => {
           },
         ],
         aiModel: {
-          deploymentPlatform: 'Test string',
+          deploymentPlatform: 'DEPLOYMENT_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           domain: 'Test string',
           library: 'Test string',
@@ -2207,7 +2207,7 @@ gapi.load('client', async () => {
             {
               failureReason: 'Test string',
               policyId: 'Test string',
-              type: 'Test string',
+              type: 'ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED',
             },
           ],
           resourceId: 'Test string',
@@ -2219,7 +2219,7 @@ gapi.load('client', async () => {
           exposedMediumValueResourcesCount: 42,
           latestCalculationTime: 'Test string',
           score: 42,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         backupDisasterRecovery: {
           appliance: 'Test string',
@@ -2269,12 +2269,12 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_LEVEL_UNSPECIFIED',
               },
               version: 'Test string',
             },
           ],
-          parentType: 'Test string',
+          parentType: 'PARENT_TYPE_UNSPECIFIED',
         },
         cloudDlpInspection: {
           fullScan: true,
@@ -2289,13 +2289,13 @@ gapi.load('client', async () => {
           cloudControl: {
             cloudControlName: 'Test string',
             policyType: 'Test string',
-            type: 'Test string',
+            type: 'CLOUD_CONTROL_TYPE_UNSPECIFIED',
             version: 42,
           },
           cloudControlDeploymentNames: ['Test string'],
           frameworks: [
             {
-              category: ['Test string'],
+              category: ['FRAMEWORK_CATEGORY_UNSPECIFIED'],
               controls: [
                 {
                   controlName: 'Test string',
@@ -2304,7 +2304,7 @@ gapi.load('client', async () => {
               ],
               displayName: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'FRAMEWORK_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -2319,7 +2319,7 @@ gapi.load('client', async () => {
           {
             destinationIp: 'Test string',
             destinationPort: 42,
-            protocol: 'Test string',
+            protocol: 'PROTOCOL_UNSPECIFIED',
             sourceIp: 'Test string',
             sourcePort: 42,
           },
@@ -2352,7 +2352,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
           },
         ],
@@ -2368,7 +2368,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
             violatedLocation: 'Test string',
           },
@@ -2377,18 +2377,18 @@ gapi.load('client', async () => {
           {
             dataObjectCount: 'Test string',
             eventDetectionTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'EVENT_TYPE_UNSPECIFIED',
             maxRetentionAllowed: 'Test string',
             minRetentionAllowed: 'Test string',
           },
         ],
         description: 'Test string',
         discoveredWorkload: {
-          confidence: 'Test string',
+          confidence: 'CONFIDENCE_UNSPECIFIED',
           detectedRelevantHardware: true,
           detectedRelevantKeywords: true,
           detectedRelevantPackages: true,
-          workloadType: 'Test string',
+          workloadType: 'WORKLOAD_TYPE_UNSPECIFIED',
         },
         disk: {
           name: 'Test string',
@@ -2467,11 +2467,11 @@ gapi.load('client', async () => {
               partitionUuid: 'Test string',
               relativePath: 'Test string',
             },
-            fileLoadState: 'Test string',
+            fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
             hashedSize: 'Test string',
             operations: [
               {
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
             ],
             partiallyHashed: true,
@@ -2480,16 +2480,16 @@ gapi.load('client', async () => {
             size: 'Test string',
           },
         ],
-        findingClass: 'Test string',
+        findingClass: 'FINDING_CLASS_UNSPECIFIED',
         groupMemberships: [
           {
             groupId: 'Test string',
-            groupType: 'Test string',
+            groupType: 'GROUP_TYPE_UNSPECIFIED',
           },
         ],
         iamBindings: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             member: 'Test string',
             role: 'Test string',
           },
@@ -2516,7 +2516,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              signatureType: 'Test string',
+              signatureType: 'SIGNATURE_TYPE_UNSPECIFIED',
               yaraRuleSignature: {
                 yaraRule: 'Test string',
               },
@@ -2552,7 +2552,7 @@ gapi.load('client', async () => {
             ],
           },
           destinationIpRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'DIRECTION_UNSPECIFIED',
           exposedServices: ['Test string'],
           sourceIpRanges: ['Test string'],
         },
@@ -2560,7 +2560,7 @@ gapi.load('client', async () => {
           errorCode: 42,
           location: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'JOB_STATE_UNSPECIFIED',
         },
         kernelRootkit: {
           name: 'Test string',
@@ -2590,13 +2590,13 @@ gapi.load('client', async () => {
               name: 'Test string',
               ns: 'Test string',
               role: {
-                kind: 'Test string',
+                kind: 'KIND_UNSPECIFIED',
                 name: 'Test string',
                 ns: 'Test string',
               },
               subjects: [
                 {
-                  kind: 'Test string',
+                  kind: 'AUTH_TYPE_UNSPECIFIED',
                   name: 'Test string',
                   ns: 'Test string',
                 },
@@ -2668,7 +2668,7 @@ gapi.load('client', async () => {
           ],
           roles: [
             {
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
               ns: 'Test string',
             },
@@ -2690,14 +2690,14 @@ gapi.load('client', async () => {
           },
         ],
         mitreAttack: {
-          additionalTactics: ['Test string'],
-          additionalTechniques: ['Test string'],
-          primaryTactic: 'Test string',
-          primaryTechniques: ['Test string'],
+          additionalTactics: ['TACTIC_UNSPECIFIED'],
+          additionalTechniques: ['TECHNIQUE_UNSPECIFIED'],
+          primaryTactic: 'TACTIC_UNSPECIFIED',
+          primaryTechniques: ['TECHNIQUE_UNSPECIFIED'],
           version: 'Test string',
         },
         moduleName: 'Test string',
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
         muteInfo: {
           dynamicMuteRecords: [
             {
@@ -2707,7 +2707,7 @@ gapi.load('client', async () => {
           ],
           staticMute: {
             applyTime: 'Test string',
-            state: 'Test string',
+            state: 'MUTE_UNSPECIFIED',
           },
         },
         muteInitiator: 'Test string',
@@ -2748,11 +2748,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -2774,11 +2774,11 @@ gapi.load('client', async () => {
                   partitionUuid: 'Test string',
                   relativePath: 'Test string',
                 },
-                fileLoadState: 'Test string',
+                fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
                 hashedSize: 'Test string',
                 operations: [
                   {
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 ],
                 partiallyHashed: true,
@@ -2796,11 +2796,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -2821,7 +2821,7 @@ gapi.load('client', async () => {
           },
           status: {
             lastUpdatedTime: 'Test string',
-            validity: 'Test string',
+            validity: 'SECRET_VALIDITY_UNSPECIFIED',
           },
           type: 'Test string',
         },
@@ -2848,11 +2848,11 @@ gapi.load('client', async () => {
           postureDeploymentResource: 'Test string',
           revisionId: 'Test string',
         },
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         sourceProperties: {
           A: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         toxicCombination: {
           attackExposureScore: 42,
           relatedFindings: ['Test string'],
@@ -2875,21 +2875,21 @@ gapi.load('client', async () => {
         vulnerability: {
           cve: {
             cvssv3: {
-              attackComplexity: 'Test string',
-              attackVector: 'Test string',
-              availabilityImpact: 'Test string',
+              attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+              attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+              availabilityImpact: 'IMPACT_UNSPECIFIED',
               baseScore: 42,
-              confidentialityImpact: 'Test string',
-              integrityImpact: 'Test string',
-              privilegesRequired: 'Test string',
-              scope: 'Test string',
-              userInteraction: 'Test string',
+              confidentialityImpact: 'IMPACT_UNSPECIFIED',
+              integrityImpact: 'IMPACT_UNSPECIFIED',
+              privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+              scope: 'SCOPE_UNSPECIFIED',
+              userInteraction: 'USER_INTERACTION_UNSPECIFIED',
             },
-            exploitationActivity: 'Test string',
+            exploitationActivity: 'EXPLOITATION_ACTIVITY_UNSPECIFIED',
             exploitReleaseDate: 'Test string',
             firstExploitationDate: 'Test string',
             id: 'Test string',
-            impact: 'Test string',
+            impact: 'RISK_RATING_UNSPECIFIED',
             observedInTheWild: true,
             references: [
               {
@@ -2926,9 +2926,9 @@ gapi.load('client', async () => {
           providerRiskScore: 'Test string',
           reachable: true,
           runtimeInfo: {
-            evidence: 'Test string',
+            evidence: 'RUNTIME_EVIDENCE_UNSPECIFIED',
             firstObservedTime: 'Test string',
-            impact: 'Test string',
+            impact: 'RUNTIME_IMPACT_UNSPECIFIED',
             lastObservedTime: 'Test string',
           },
           securityBulletin: {
@@ -3003,7 +3003,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               explanation: 'Test string',
               recommendation: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
           invocationReferences: [
@@ -3016,7 +3016,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalSubject: 'Test string',
           },
         ],
@@ -3026,7 +3026,7 @@ gapi.load('client', async () => {
           },
         ],
         aiModel: {
-          deploymentPlatform: 'Test string',
+          deploymentPlatform: 'DEPLOYMENT_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           domain: 'Test string',
           library: 'Test string',
@@ -3044,7 +3044,7 @@ gapi.load('client', async () => {
             {
               failureReason: 'Test string',
               policyId: 'Test string',
-              type: 'Test string',
+              type: 'ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED',
             },
           ],
           resourceId: 'Test string',
@@ -3056,7 +3056,7 @@ gapi.load('client', async () => {
           exposedMediumValueResourcesCount: 42,
           latestCalculationTime: 'Test string',
           score: 42,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         backupDisasterRecovery: {
           appliance: 'Test string',
@@ -3106,12 +3106,12 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_LEVEL_UNSPECIFIED',
               },
               version: 'Test string',
             },
           ],
-          parentType: 'Test string',
+          parentType: 'PARENT_TYPE_UNSPECIFIED',
         },
         cloudDlpInspection: {
           fullScan: true,
@@ -3126,13 +3126,13 @@ gapi.load('client', async () => {
           cloudControl: {
             cloudControlName: 'Test string',
             policyType: 'Test string',
-            type: 'Test string',
+            type: 'CLOUD_CONTROL_TYPE_UNSPECIFIED',
             version: 42,
           },
           cloudControlDeploymentNames: ['Test string'],
           frameworks: [
             {
-              category: ['Test string'],
+              category: ['FRAMEWORK_CATEGORY_UNSPECIFIED'],
               controls: [
                 {
                   controlName: 'Test string',
@@ -3141,7 +3141,7 @@ gapi.load('client', async () => {
               ],
               displayName: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'FRAMEWORK_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -3156,7 +3156,7 @@ gapi.load('client', async () => {
           {
             destinationIp: 'Test string',
             destinationPort: 42,
-            protocol: 'Test string',
+            protocol: 'PROTOCOL_UNSPECIFIED',
             sourceIp: 'Test string',
             sourcePort: 42,
           },
@@ -3189,7 +3189,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
           },
         ],
@@ -3205,7 +3205,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
             violatedLocation: 'Test string',
           },
@@ -3214,18 +3214,18 @@ gapi.load('client', async () => {
           {
             dataObjectCount: 'Test string',
             eventDetectionTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'EVENT_TYPE_UNSPECIFIED',
             maxRetentionAllowed: 'Test string',
             minRetentionAllowed: 'Test string',
           },
         ],
         description: 'Test string',
         discoveredWorkload: {
-          confidence: 'Test string',
+          confidence: 'CONFIDENCE_UNSPECIFIED',
           detectedRelevantHardware: true,
           detectedRelevantKeywords: true,
           detectedRelevantPackages: true,
-          workloadType: 'Test string',
+          workloadType: 'WORKLOAD_TYPE_UNSPECIFIED',
         },
         disk: {
           name: 'Test string',
@@ -3304,11 +3304,11 @@ gapi.load('client', async () => {
               partitionUuid: 'Test string',
               relativePath: 'Test string',
             },
-            fileLoadState: 'Test string',
+            fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
             hashedSize: 'Test string',
             operations: [
               {
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
             ],
             partiallyHashed: true,
@@ -3317,16 +3317,16 @@ gapi.load('client', async () => {
             size: 'Test string',
           },
         ],
-        findingClass: 'Test string',
+        findingClass: 'FINDING_CLASS_UNSPECIFIED',
         groupMemberships: [
           {
             groupId: 'Test string',
-            groupType: 'Test string',
+            groupType: 'GROUP_TYPE_UNSPECIFIED',
           },
         ],
         iamBindings: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             member: 'Test string',
             role: 'Test string',
           },
@@ -3353,7 +3353,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              signatureType: 'Test string',
+              signatureType: 'SIGNATURE_TYPE_UNSPECIFIED',
               yaraRuleSignature: {
                 yaraRule: 'Test string',
               },
@@ -3389,7 +3389,7 @@ gapi.load('client', async () => {
             ],
           },
           destinationIpRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'DIRECTION_UNSPECIFIED',
           exposedServices: ['Test string'],
           sourceIpRanges: ['Test string'],
         },
@@ -3397,7 +3397,7 @@ gapi.load('client', async () => {
           errorCode: 42,
           location: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'JOB_STATE_UNSPECIFIED',
         },
         kernelRootkit: {
           name: 'Test string',
@@ -3427,13 +3427,13 @@ gapi.load('client', async () => {
               name: 'Test string',
               ns: 'Test string',
               role: {
-                kind: 'Test string',
+                kind: 'KIND_UNSPECIFIED',
                 name: 'Test string',
                 ns: 'Test string',
               },
               subjects: [
                 {
-                  kind: 'Test string',
+                  kind: 'AUTH_TYPE_UNSPECIFIED',
                   name: 'Test string',
                   ns: 'Test string',
                 },
@@ -3505,7 +3505,7 @@ gapi.load('client', async () => {
           ],
           roles: [
             {
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
               ns: 'Test string',
             },
@@ -3527,14 +3527,14 @@ gapi.load('client', async () => {
           },
         ],
         mitreAttack: {
-          additionalTactics: ['Test string'],
-          additionalTechniques: ['Test string'],
-          primaryTactic: 'Test string',
-          primaryTechniques: ['Test string'],
+          additionalTactics: ['TACTIC_UNSPECIFIED'],
+          additionalTechniques: ['TECHNIQUE_UNSPECIFIED'],
+          primaryTactic: 'TACTIC_UNSPECIFIED',
+          primaryTechniques: ['TECHNIQUE_UNSPECIFIED'],
           version: 'Test string',
         },
         moduleName: 'Test string',
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
         muteInfo: {
           dynamicMuteRecords: [
             {
@@ -3544,7 +3544,7 @@ gapi.load('client', async () => {
           ],
           staticMute: {
             applyTime: 'Test string',
-            state: 'Test string',
+            state: 'MUTE_UNSPECIFIED',
           },
         },
         muteInitiator: 'Test string',
@@ -3585,11 +3585,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -3611,11 +3611,11 @@ gapi.load('client', async () => {
                   partitionUuid: 'Test string',
                   relativePath: 'Test string',
                 },
-                fileLoadState: 'Test string',
+                fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
                 hashedSize: 'Test string',
                 operations: [
                   {
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 ],
                 partiallyHashed: true,
@@ -3633,11 +3633,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -3658,7 +3658,7 @@ gapi.load('client', async () => {
           },
           status: {
             lastUpdatedTime: 'Test string',
-            validity: 'Test string',
+            validity: 'SECRET_VALIDITY_UNSPECIFIED',
           },
           type: 'Test string',
         },
@@ -3685,11 +3685,11 @@ gapi.load('client', async () => {
           postureDeploymentResource: 'Test string',
           revisionId: 'Test string',
         },
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         sourceProperties: {
           A: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         toxicCombination: {
           attackExposureScore: 42,
           relatedFindings: ['Test string'],
@@ -3712,21 +3712,21 @@ gapi.load('client', async () => {
         vulnerability: {
           cve: {
             cvssv3: {
-              attackComplexity: 'Test string',
-              attackVector: 'Test string',
-              availabilityImpact: 'Test string',
+              attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+              attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+              availabilityImpact: 'IMPACT_UNSPECIFIED',
               baseScore: 42,
-              confidentialityImpact: 'Test string',
-              integrityImpact: 'Test string',
-              privilegesRequired: 'Test string',
-              scope: 'Test string',
-              userInteraction: 'Test string',
+              confidentialityImpact: 'IMPACT_UNSPECIFIED',
+              integrityImpact: 'IMPACT_UNSPECIFIED',
+              privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+              scope: 'SCOPE_UNSPECIFIED',
+              userInteraction: 'USER_INTERACTION_UNSPECIFIED',
             },
-            exploitationActivity: 'Test string',
+            exploitationActivity: 'EXPLOITATION_ACTIVITY_UNSPECIFIED',
             exploitReleaseDate: 'Test string',
             firstExploitationDate: 'Test string',
             id: 'Test string',
-            impact: 'Test string',
+            impact: 'RISK_RATING_UNSPECIFIED',
             observedInTheWild: true,
             references: [
               {
@@ -3763,9 +3763,9 @@ gapi.load('client', async () => {
           providerRiskScore: 'Test string',
           reachable: true,
           runtimeInfo: {
-            evidence: 'Test string',
+            evidence: 'RUNTIME_EVIDENCE_UNSPECIFIED',
             firstObservedTime: 'Test string',
-            impact: 'Test string',
+            impact: 'RUNTIME_IMPACT_UNSPECIFIED',
             lastObservedTime: 'Test string',
           },
           securityBulletin: {
@@ -3781,7 +3781,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.organizations.sources.findings.setState(
@@ -3790,7 +3790,7 @@ gapi.load('client', async () => {
       },
       {
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.organizations.sources.findings.updateSecurityMarks(
@@ -3937,13 +3937,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -3981,13 +3981,13 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         config: {
           A: 42,
         },
         description: 'Test string',
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         type: 'Test string',
@@ -4013,7 +4013,7 @@ gapi.load('client', async () => {
       {
         filter: 'Test string',
         muteAnnotation: 'Test string',
-        muteState: 'Test string',
+        muteState: 'MUTE_STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.projects.locations.muteConfigs.delete({
@@ -4035,7 +4035,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -4052,7 +4052,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -4080,7 +4080,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         mostRecentEditor: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'MUTE_CONFIG_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -4133,7 +4133,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -4159,10 +4159,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -4199,7 +4199,7 @@ gapi.load('client', async () => {
       },
       {
         ancestorModule: 'Test string',
-        cloudProvider: 'Test string',
+        cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
         customConfig: {
           customOutput: {
             properties: [
@@ -4225,10 +4225,10 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         displayName: 'Test string',
-        enablementState: 'Test string',
+        enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
         lastEditor: 'Test string',
         name: 'Test string',
         updateTime: 'Test string',
@@ -4264,7 +4264,7 @@ gapi.load('client', async () => {
           resourceSelector: {
             resourceTypes: ['Test string'],
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
         resource: {
           iamPolicyData: {
@@ -4273,7 +4273,7 @@ gapi.load('client', async () => {
                 auditLogConfigs: [
                   {
                     exemptedMembers: ['Test string'],
-                    logType: 'Test string',
+                    logType: 'LOG_TYPE_UNSPECIFIED',
                   },
                 ],
                 service: 'Test string',
@@ -4382,7 +4382,7 @@ gapi.load('client', async () => {
               displayName: 'Test string',
               explanation: 'Test string',
               recommendation: 'Test string',
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
           invocationReferences: [
@@ -4395,7 +4395,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalSubject: 'Test string',
           },
         ],
@@ -4405,7 +4405,7 @@ gapi.load('client', async () => {
           },
         ],
         aiModel: {
-          deploymentPlatform: 'Test string',
+          deploymentPlatform: 'DEPLOYMENT_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           domain: 'Test string',
           library: 'Test string',
@@ -4423,7 +4423,7 @@ gapi.load('client', async () => {
             {
               failureReason: 'Test string',
               policyId: 'Test string',
-              type: 'Test string',
+              type: 'ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED',
             },
           ],
           resourceId: 'Test string',
@@ -4435,7 +4435,7 @@ gapi.load('client', async () => {
           exposedMediumValueResourcesCount: 42,
           latestCalculationTime: 'Test string',
           score: 42,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         backupDisasterRecovery: {
           appliance: 'Test string',
@@ -4485,12 +4485,12 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_LEVEL_UNSPECIFIED',
               },
               version: 'Test string',
             },
           ],
-          parentType: 'Test string',
+          parentType: 'PARENT_TYPE_UNSPECIFIED',
         },
         cloudDlpInspection: {
           fullScan: true,
@@ -4505,13 +4505,13 @@ gapi.load('client', async () => {
           cloudControl: {
             cloudControlName: 'Test string',
             policyType: 'Test string',
-            type: 'Test string',
+            type: 'CLOUD_CONTROL_TYPE_UNSPECIFIED',
             version: 42,
           },
           cloudControlDeploymentNames: ['Test string'],
           frameworks: [
             {
-              category: ['Test string'],
+              category: ['FRAMEWORK_CATEGORY_UNSPECIFIED'],
               controls: [
                 {
                   controlName: 'Test string',
@@ -4520,7 +4520,7 @@ gapi.load('client', async () => {
               ],
               displayName: 'Test string',
               name: 'Test string',
-              type: 'Test string',
+              type: 'FRAMEWORK_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -4535,7 +4535,7 @@ gapi.load('client', async () => {
           {
             destinationIp: 'Test string',
             destinationPort: 42,
-            protocol: 'Test string',
+            protocol: 'PROTOCOL_UNSPECIFIED',
             sourceIp: 'Test string',
             sourcePort: 42,
           },
@@ -4568,7 +4568,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
           },
         ],
@@ -4584,7 +4584,7 @@ gapi.load('client', async () => {
           {
             eventId: 'Test string',
             eventTime: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
             principalEmail: 'Test string',
             violatedLocation: 'Test string',
           },
@@ -4593,18 +4593,18 @@ gapi.load('client', async () => {
           {
             dataObjectCount: 'Test string',
             eventDetectionTime: 'Test string',
-            eventType: 'Test string',
+            eventType: 'EVENT_TYPE_UNSPECIFIED',
             maxRetentionAllowed: 'Test string',
             minRetentionAllowed: 'Test string',
           },
         ],
         description: 'Test string',
         discoveredWorkload: {
-          confidence: 'Test string',
+          confidence: 'CONFIDENCE_UNSPECIFIED',
           detectedRelevantHardware: true,
           detectedRelevantKeywords: true,
           detectedRelevantPackages: true,
-          workloadType: 'Test string',
+          workloadType: 'WORKLOAD_TYPE_UNSPECIFIED',
         },
         disk: {
           name: 'Test string',
@@ -4683,11 +4683,11 @@ gapi.load('client', async () => {
               partitionUuid: 'Test string',
               relativePath: 'Test string',
             },
-            fileLoadState: 'Test string',
+            fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
             hashedSize: 'Test string',
             operations: [
               {
-                type: 'Test string',
+                type: 'OPERATION_TYPE_UNSPECIFIED',
               },
             ],
             partiallyHashed: true,
@@ -4696,16 +4696,16 @@ gapi.load('client', async () => {
             size: 'Test string',
           },
         ],
-        findingClass: 'Test string',
+        findingClass: 'FINDING_CLASS_UNSPECIFIED',
         groupMemberships: [
           {
             groupId: 'Test string',
-            groupType: 'Test string',
+            groupType: 'GROUP_TYPE_UNSPECIFIED',
           },
         ],
         iamBindings: [
           {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             member: 'Test string',
             role: 'Test string',
           },
@@ -4732,7 +4732,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              signatureType: 'Test string',
+              signatureType: 'SIGNATURE_TYPE_UNSPECIFIED',
               yaraRuleSignature: {
                 yaraRule: 'Test string',
               },
@@ -4768,7 +4768,7 @@ gapi.load('client', async () => {
             ],
           },
           destinationIpRanges: ['Test string'],
-          direction: 'Test string',
+          direction: 'DIRECTION_UNSPECIFIED',
           exposedServices: ['Test string'],
           sourceIpRanges: ['Test string'],
         },
@@ -4776,7 +4776,7 @@ gapi.load('client', async () => {
           errorCode: 42,
           location: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'JOB_STATE_UNSPECIFIED',
         },
         kernelRootkit: {
           name: 'Test string',
@@ -4806,13 +4806,13 @@ gapi.load('client', async () => {
               name: 'Test string',
               ns: 'Test string',
               role: {
-                kind: 'Test string',
+                kind: 'KIND_UNSPECIFIED',
                 name: 'Test string',
                 ns: 'Test string',
               },
               subjects: [
                 {
-                  kind: 'Test string',
+                  kind: 'AUTH_TYPE_UNSPECIFIED',
                   name: 'Test string',
                   ns: 'Test string',
                 },
@@ -4884,7 +4884,7 @@ gapi.load('client', async () => {
           ],
           roles: [
             {
-              kind: 'Test string',
+              kind: 'KIND_UNSPECIFIED',
               name: 'Test string',
               ns: 'Test string',
             },
@@ -4906,14 +4906,14 @@ gapi.load('client', async () => {
           },
         ],
         mitreAttack: {
-          additionalTactics: ['Test string'],
-          additionalTechniques: ['Test string'],
-          primaryTactic: 'Test string',
-          primaryTechniques: ['Test string'],
+          additionalTactics: ['TACTIC_UNSPECIFIED'],
+          additionalTechniques: ['TECHNIQUE_UNSPECIFIED'],
+          primaryTactic: 'TACTIC_UNSPECIFIED',
+          primaryTechniques: ['TECHNIQUE_UNSPECIFIED'],
           version: 'Test string',
         },
         moduleName: 'Test string',
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
         muteInfo: {
           dynamicMuteRecords: [
             {
@@ -4923,7 +4923,7 @@ gapi.load('client', async () => {
           ],
           staticMute: {
             applyTime: 'Test string',
-            state: 'Test string',
+            state: 'MUTE_UNSPECIFIED',
           },
         },
         muteInitiator: 'Test string',
@@ -4964,11 +4964,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -4990,11 +4990,11 @@ gapi.load('client', async () => {
                   partitionUuid: 'Test string',
                   relativePath: 'Test string',
                 },
-                fileLoadState: 'Test string',
+                fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
                 hashedSize: 'Test string',
                 operations: [
                   {
-                    type: 'Test string',
+                    type: 'OPERATION_TYPE_UNSPECIFIED',
                   },
                 ],
                 partiallyHashed: true,
@@ -5012,11 +5012,11 @@ gapi.load('client', async () => {
                 partitionUuid: 'Test string',
                 relativePath: 'Test string',
               },
-              fileLoadState: 'Test string',
+              fileLoadState: 'FILE_LOAD_STATE_UNSPECIFIED',
               hashedSize: 'Test string',
               operations: [
                 {
-                  type: 'Test string',
+                  type: 'OPERATION_TYPE_UNSPECIFIED',
                 },
               ],
               partiallyHashed: true,
@@ -5037,7 +5037,7 @@ gapi.load('client', async () => {
           },
           status: {
             lastUpdatedTime: 'Test string',
-            validity: 'Test string',
+            validity: 'SECRET_VALIDITY_UNSPECIFIED',
           },
           type: 'Test string',
         },
@@ -5064,11 +5064,11 @@ gapi.load('client', async () => {
           postureDeploymentResource: 'Test string',
           revisionId: 'Test string',
         },
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         sourceProperties: {
           A: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         toxicCombination: {
           attackExposureScore: 42,
           relatedFindings: ['Test string'],
@@ -5091,21 +5091,21 @@ gapi.load('client', async () => {
         vulnerability: {
           cve: {
             cvssv3: {
-              attackComplexity: 'Test string',
-              attackVector: 'Test string',
-              availabilityImpact: 'Test string',
+              attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+              attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+              availabilityImpact: 'IMPACT_UNSPECIFIED',
               baseScore: 42,
-              confidentialityImpact: 'Test string',
-              integrityImpact: 'Test string',
-              privilegesRequired: 'Test string',
-              scope: 'Test string',
-              userInteraction: 'Test string',
+              confidentialityImpact: 'IMPACT_UNSPECIFIED',
+              integrityImpact: 'IMPACT_UNSPECIFIED',
+              privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+              scope: 'SCOPE_UNSPECIFIED',
+              userInteraction: 'USER_INTERACTION_UNSPECIFIED',
             },
-            exploitationActivity: 'Test string',
+            exploitationActivity: 'EXPLOITATION_ACTIVITY_UNSPECIFIED',
             exploitReleaseDate: 'Test string',
             firstExploitationDate: 'Test string',
             id: 'Test string',
-            impact: 'Test string',
+            impact: 'RISK_RATING_UNSPECIFIED',
             observedInTheWild: true,
             references: [
               {
@@ -5142,9 +5142,9 @@ gapi.load('client', async () => {
           providerRiskScore: 'Test string',
           reachable: true,
           runtimeInfo: {
-            evidence: 'Test string',
+            evidence: 'RUNTIME_EVIDENCE_UNSPECIFIED',
             firstObservedTime: 'Test string',
-            impact: 'Test string',
+            impact: 'RUNTIME_IMPACT_UNSPECIFIED',
             lastObservedTime: 'Test string',
           },
           securityBulletin: {
@@ -5160,7 +5160,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        mute: 'Test string',
+        mute: 'MUTE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.projects.sources.findings.setState(
@@ -5169,7 +5169,7 @@ gapi.load('client', async () => {
       },
       {
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     await gapi.client.securitycenter.projects.sources.findings.updateSecurityMarks(

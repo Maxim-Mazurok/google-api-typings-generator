@@ -81,7 +81,7 @@ gapi.load('client', async () => {
     await gapi.client.servicemanagement.services.getConfig({
       configId: 'Test string',
       serviceName: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.servicemanagement.services.getIamPolicy(
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
                 requestTypeUrl: 'Test string',
                 responseStreaming: true,
                 responseTypeUrl: 'Test string',
-                syntax: 'Test string',
+                syntax: 'SYNTAX_PROTO2',
               },
             ],
             mixins: [
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
             sourceContext: {
               fileName: 'Test string',
             },
-            syntax: 'Test string',
+            syntax: 'SYNTAX_PROTO2',
             version: 'Test string',
           },
         ],
@@ -261,7 +261,7 @@ gapi.load('client', async () => {
               minDeadline: 42,
               operationDeadline: 42,
               overridesByRequestProtocol: undefined,
-              pathTranslation: 'Test string',
+              pathTranslation: 'PATH_TRANSLATION_UNSPECIFIED',
               protocol: 'Test string',
               selector: 'Test string',
             },
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
             sourceContext: {
               fileName: 'Test string',
             },
-            syntax: 'Test string',
+            syntax: 'SYNTAX_PROTO2',
           },
         ],
         http: {
@@ -423,7 +423,7 @@ gapi.load('client', async () => {
               {
                 description: 'Test string',
                 key: 'Test string',
-                valueType: 'Test string',
+                valueType: 'STRING',
               },
             ],
             name: 'Test string',
@@ -437,22 +437,24 @@ gapi.load('client', async () => {
               {
                 description: 'Test string',
                 key: 'Test string',
-                valueType: 'Test string',
+                valueType: 'STRING',
               },
             ],
-            launchStage: 'Test string',
+            launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
             metadata: {
               ingestDelay: 'Test string',
-              launchStage: 'Test string',
+              launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
               samplePeriod: 'Test string',
-              timeSeriesResourceHierarchyLevel: ['Test string'],
+              timeSeriesResourceHierarchyLevel: [
+                'TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED',
+              ],
             },
-            metricKind: 'Test string',
+            metricKind: 'METRIC_KIND_UNSPECIFIED',
             monitoredResourceTypes: ['Test string'],
             name: 'Test string',
             type: 'Test string',
             unit: 'Test string',
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
         monitoredResources: [
@@ -463,10 +465,10 @@ gapi.load('client', async () => {
               {
                 description: 'Test string',
                 key: 'Test string',
-                valueType: 'Test string',
+                valueType: 'STRING',
               },
             ],
-            launchStage: 'Test string',
+            launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
             name: 'Test string',
             type: 'Test string',
           },
@@ -497,7 +499,7 @@ gapi.load('client', async () => {
             {
               cppSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -507,7 +509,7 @@ gapi.load('client', async () => {
               },
               dotnetSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -526,7 +528,7 @@ gapi.load('client', async () => {
               },
               goSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -539,7 +541,7 @@ gapi.load('client', async () => {
               },
               javaSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -551,10 +553,10 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
               },
-              launchStage: 'Test string',
+              launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
               nodeSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -564,7 +566,7 @@ gapi.load('client', async () => {
               },
               phpSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -575,7 +577,7 @@ gapi.load('client', async () => {
               },
               pythonSettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -591,7 +593,7 @@ gapi.load('client', async () => {
               restNumericEnums: true,
               rubySettings: {
                 common: {
-                  destinations: ['Test string'],
+                  destinations: ['CLIENT_LIBRARY_DESTINATION_UNSPECIFIED'],
                   referenceDocsUri: 'Test string',
                   selectiveGapicGeneration: {
                     generateOmittedAsInternal: true,
@@ -617,7 +619,7 @@ gapi.load('client', async () => {
                   elementCountThreshold: 42,
                   flowControlByteLimit: 42,
                   flowControlElementLimit: 42,
-                  flowControlLimitExceededBehavior: 'Test string',
+                  flowControlLimitExceededBehavior: 'UNSET_BEHAVIOR',
                   requestByteLimit: 42,
                   requestByteThreshold: 'Test string',
                 },
@@ -632,7 +634,7 @@ gapi.load('client', async () => {
             },
           ],
           newIssueUri: 'Test string',
-          organization: 'Test string',
+          organization: 'CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED',
           protoReferenceDocumentationUri: 'Test string',
           restReferenceDocumentationUri: 'Test string',
         },
@@ -647,7 +649,7 @@ gapi.load('client', async () => {
               maxLimit: 'Test string',
               metric: 'Test string',
               name: 'Test string',
-              trafficSource: 'Test string',
+              trafficSource: 'TRAFFIC_SOURCE_UNSPECIFIED',
               unit: 'Test string',
               values: {
                 A: 'Test string',
@@ -695,10 +697,10 @@ gapi.load('client', async () => {
             edition: 'Test string',
             fields: [
               {
-                cardinality: 'Test string',
+                cardinality: 'CARDINALITY_UNKNOWN',
                 defaultValue: 'Test string',
                 jsonName: 'Test string',
-                kind: 'Test string',
+                kind: 'TYPE_UNKNOWN',
                 name: 'Test string',
                 number: 42,
                 oneofIndex: 42,
@@ -727,7 +729,7 @@ gapi.load('client', async () => {
             sourceContext: {
               fileName: 'Test string',
             },
-            syntax: 'Test string',
+            syntax: 'SYNTAX_PROTO2',
           },
         ],
         title: 'Test string',
@@ -736,10 +738,10 @@ gapi.load('client', async () => {
             edition: 'Test string',
             fields: [
               {
-                cardinality: 'Test string',
+                cardinality: 'CARDINALITY_UNKNOWN',
                 defaultValue: 'Test string',
                 jsonName: 'Test string',
-                kind: 'Test string',
+                kind: 'TYPE_UNKNOWN',
                 name: 'Test string',
                 number: 42,
                 oneofIndex: 42,
@@ -768,7 +770,7 @@ gapi.load('client', async () => {
             sourceContext: {
               fileName: 'Test string',
             },
-            syntax: 'Test string',
+            syntax: 'SYNTAX_PROTO2',
           },
         ],
         usage: {
@@ -788,7 +790,7 @@ gapi.load('client', async () => {
     await gapi.client.servicemanagement.services.configs.get({
       configId: 'Test string',
       serviceName: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Lists the history of the service configuration for a managed service, from the newest to the oldest. */
     await gapi.client.servicemanagement.services.configs.list({
@@ -807,7 +809,7 @@ gapi.load('client', async () => {
             {
               fileContents: 'Test string',
               filePath: 'Test string',
-              fileType: 'Test string',
+              fileType: 'FILE_TYPE_UNSPECIFIED',
             },
           ],
           id: 'Test string',
@@ -838,7 +840,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -882,7 +884,7 @@ gapi.load('client', async () => {
         deleteServiceStrategy: {},
         rolloutId: 'Test string',
         serviceName: 'Test string',
-        status: 'Test string',
+        status: 'ROLLOUT_STATUS_UNSPECIFIED',
         trafficPercentStrategy: {
           percentages: {
             A: 42,

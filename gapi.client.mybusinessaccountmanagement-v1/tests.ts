@@ -40,12 +40,12 @@ gapi.load('client', async () => {
           phoneNumber: 'Test string',
           registeredDomain: 'Test string',
         },
-        permissionLevel: 'Test string',
+        permissionLevel: 'PERMISSION_LEVEL_UNSPECIFIED',
         primaryOwner: 'Test string',
-        role: 'Test string',
-        type: 'Test string',
-        verificationState: 'Test string',
-        vettedState: 'Test string',
+        role: 'ACCOUNT_ROLE_UNSPECIFIED',
+        type: 'ACCOUNT_TYPE_UNSPECIFIED',
+        verificationState: 'VERIFICATION_STATE_UNSPECIFIED',
+        vettedState: 'VETTED_STATE_UNSPECIFIED',
       },
     );
     /** Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it. */
@@ -87,12 +87,12 @@ gapi.load('client', async () => {
           phoneNumber: 'Test string',
           registeredDomain: 'Test string',
         },
-        permissionLevel: 'Test string',
+        permissionLevel: 'PERMISSION_LEVEL_UNSPECIFIED',
         primaryOwner: 'Test string',
-        role: 'Test string',
-        type: 'Test string',
-        verificationState: 'Test string',
-        vettedState: 'Test string',
+        role: 'ACCOUNT_ROLE_UNSPECIFIED',
+        type: 'ACCOUNT_TYPE_UNSPECIFIED',
+        verificationState: 'VERIFICATION_STATE_UNSPECIFIED',
+        vettedState: 'VETTED_STATE_UNSPECIFIED',
       },
     );
     /** Invites the specified user to become an administrator for the specified account. The invitee must accept the invitation in order to be granted access to the account. See AcceptInvitation to programmatically accept an invitation. */
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
         admin: 'Test string',
         name: 'Test string',
         pendingInvitation: true,
-        role: 'Test string',
+        role: 'ADMIN_ROLE_UNSPECIFIED',
       },
     );
     /** Removes the specified admin from the specified account. */
@@ -127,7 +127,7 @@ gapi.load('client', async () => {
         admin: 'Test string',
         name: 'Test string',
         pendingInvitation: true,
-        role: 'Test string',
+        role: 'ADMIN_ROLE_UNSPECIFIED',
       },
     );
     /** Accepts the specified invitation. */
@@ -168,7 +168,7 @@ gapi.load('client', async () => {
         admin: 'Test string',
         name: 'Test string',
         pendingInvitation: true,
-        role: 'Test string',
+        role: 'ADMIN_ROLE_UNSPECIFIED',
       },
     );
     /** Removes the specified admin as a manager of the specified location. */
@@ -190,7 +190,7 @@ gapi.load('client', async () => {
         admin: 'Test string',
         name: 'Test string',
         pendingInvitation: true,
-        role: 'Test string',
+        role: 'ADMIN_ROLE_UNSPECIFIED',
       },
     );
   }

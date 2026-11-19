@@ -54,9 +54,9 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         keyProject: 'Test string',
-        keyProjectResolutionMode: 'Test string',
+        keyProjectResolutionMode: 'KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
       },
       {
         defaultKeyAccessJustificationPolicy: {
-          allowedAccessReasons: ['Test string'],
+          allowedAccessReasons: ['REASON_UNSPECIFIED'],
         },
         defaultPolicyAvailable: true,
         name: 'Test string',
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
       },
       {
         defaultKeyAccessJustificationPolicy: {
-          allowedAccessReasons: ['Test string'],
+          allowedAccessReasons: ['REASON_UNSPECIFIED'],
         },
         defaultPolicyAvailable: true,
         name: 'Test string',
@@ -124,9 +124,9 @@ gapi.load('client', async () => {
       {
         etag: 'Test string',
         keyProject: 'Test string',
-        keyProjectResolutionMode: 'Test string',
+        keyProjectResolutionMode: 'KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Updates the KeyAccessJustificationsPolicyConfig for a given organization, folder, or project. */
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
       },
       {
         defaultKeyAccessJustificationPolicy: {
-          allowedAccessReasons: ['Test string'],
+          allowedAccessReasons: ['REASON_UNSPECIFIED'],
         },
         defaultPolicyAvailable: true,
         name: 'Test string',
@@ -150,7 +150,7 @@ gapi.load('client', async () => {
       },
       {
         lengthBytes: 42,
-        protectionLevel: 'Test string',
+        protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
       },
     );
     /** Gets information about a location. */
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         cryptoSpacePath: 'Test string',
         etag: 'Test string',
-        keyManagementMode: 'Test string',
+        keyManagementMode: 'KEY_MANAGEMENT_MODE_UNSPECIFIED',
         name: 'Test string',
         serviceResolvers: [
           {
@@ -291,7 +291,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         cryptoSpacePath: 'Test string',
         etag: 'Test string',
-        keyManagementMode: 'Test string',
+        keyManagementMode: 'KEY_MANAGEMENT_MODE_UNSPECIFIED',
         name: 'Test string',
         serviceResolvers: [
           {
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -433,7 +433,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -480,7 +480,7 @@ gapi.load('client', async () => {
         destroyScheduledDuration: 'Test string',
         importOnly: true,
         keyAccessJustificationsPolicy: {
-          allowedAccessReasons: ['Test string'],
+          allowedAccessReasons: ['REASON_UNSPECIFIED'],
         },
         labels: {
           A: 'Test string',
@@ -488,7 +488,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         nextRotationTime: 'Test string',
         primary: {
-          algorithm: 'Test string',
+          algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
           attestation: {
             certChains: {
               caviumCerts: ['Test string'],
@@ -496,7 +496,7 @@ gapi.load('client', async () => {
               googlePartitionCerts: ['Test string'],
             },
             content: 'Test string',
-            format: 'Test string',
+            format: 'ATTESTATION_FORMAT_UNSPECIFIED',
           },
           createTime: 'Test string',
           destroyEventTime: 'Test string',
@@ -514,16 +514,16 @@ gapi.load('client', async () => {
           importJob: 'Test string',
           importTime: 'Test string',
           name: 'Test string',
-          protectionLevel: 'Test string',
+          protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
           reimportEligible: true,
-          state: 'Test string',
+          state: 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED',
           trustedWrappingEnabled: true,
         },
-        purpose: 'Test string',
+        purpose: 'CRYPTO_KEY_PURPOSE_UNSPECIFIED',
         rotationPeriod: 'Test string',
         versionTemplate: {
-          algorithm: 'Test string',
-          protectionLevel: 'Test string',
+          algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
+          protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
         },
       },
     );
@@ -573,7 +573,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      versionView: 'Test string',
+      versionView: 'CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED',
     });
     /** Update a CryptoKey. */
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.patch(
@@ -587,7 +587,7 @@ gapi.load('client', async () => {
         destroyScheduledDuration: 'Test string',
         importOnly: true,
         keyAccessJustificationsPolicy: {
-          allowedAccessReasons: ['Test string'],
+          allowedAccessReasons: ['REASON_UNSPECIFIED'],
         },
         labels: {
           A: 'Test string',
@@ -595,7 +595,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         nextRotationTime: 'Test string',
         primary: {
-          algorithm: 'Test string',
+          algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
           attestation: {
             certChains: {
               caviumCerts: ['Test string'],
@@ -603,7 +603,7 @@ gapi.load('client', async () => {
               googlePartitionCerts: ['Test string'],
             },
             content: 'Test string',
-            format: 'Test string',
+            format: 'ATTESTATION_FORMAT_UNSPECIFIED',
           },
           createTime: 'Test string',
           destroyEventTime: 'Test string',
@@ -621,16 +621,16 @@ gapi.load('client', async () => {
           importJob: 'Test string',
           importTime: 'Test string',
           name: 'Test string',
-          protectionLevel: 'Test string',
+          protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
           reimportEligible: true,
-          state: 'Test string',
+          state: 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED',
           trustedWrappingEnabled: true,
         },
-        purpose: 'Test string',
+        purpose: 'CRYPTO_KEY_PURPOSE_UNSPECIFIED',
         rotationPeriod: 'Test string',
         versionTemplate: {
-          algorithm: 'Test string',
-          protectionLevel: 'Test string',
+          algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
+          protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
         },
       },
     );
@@ -646,7 +646,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -721,7 +721,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        algorithm: 'Test string',
+        algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
         attestation: {
           certChains: {
             caviumCerts: ['Test string'],
@@ -729,7 +729,7 @@ gapi.load('client', async () => {
             googlePartitionCerts: ['Test string'],
           },
           content: 'Test string',
-          format: 'Test string',
+          format: 'ATTESTATION_FORMAT_UNSPECIFIED',
         },
         createTime: 'Test string',
         destroyEventTime: 'Test string',
@@ -747,9 +747,9 @@ gapi.load('client', async () => {
         importJob: 'Test string',
         importTime: 'Test string',
         name: 'Test string',
-        protectionLevel: 'Test string',
+        protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
         reimportEligible: true,
-        state: 'Test string',
+        state: 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED',
         trustedWrappingEnabled: true,
       },
     );
@@ -793,7 +793,7 @@ gapi.load('client', async () => {
     await gapi.client.cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.getPublicKey(
       {
         name: 'Test string',
-        publicKeyFormat: 'Test string',
+        publicKeyFormat: 'PUBLIC_KEY_FORMAT_UNSPECIFIED',
       },
     );
     /** Import wrapped key material into a CryptoKeyVersion. All requests must specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the request, key material will be reimported into that version. Otherwise, a new version will be created, and will be assigned the next sequential id within the CryptoKey. */
@@ -802,7 +802,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        algorithm: 'Test string',
+        algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
         cryptoKeyVersion: 'Test string',
         importJob: 'Test string',
         rsaAesWrappedKey: 'Test string',
@@ -816,7 +816,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        algorithm: 'Test string',
+        algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
         cryptoKeyVersion: 'Test string',
         importingKey: 'Test string',
         wrappedKey: 'Test string',
@@ -830,7 +830,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a tag that can be verified by another source with the same key. */
@@ -862,7 +862,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        algorithm: 'Test string',
+        algorithm: 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED',
         attestation: {
           certChains: {
             caviumCerts: ['Test string'],
@@ -870,7 +870,7 @@ gapi.load('client', async () => {
             googlePartitionCerts: ['Test string'],
           },
           content: 'Test string',
-          format: 'Test string',
+          format: 'ATTESTATION_FORMAT_UNSPECIFIED',
         },
         createTime: 'Test string',
         destroyEventTime: 'Test string',
@@ -888,9 +888,9 @@ gapi.load('client', async () => {
         importJob: 'Test string',
         importTime: 'Test string',
         name: 'Test string',
-        protectionLevel: 'Test string',
+        protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
         reimportEligible: true,
-        state: 'Test string',
+        state: 'CRYPTO_KEY_VERSION_STATE_UNSPECIFIED',
         trustedWrappingEnabled: true,
       },
     );
@@ -944,28 +944,28 @@ gapi.load('client', async () => {
             googlePartitionCerts: ['Test string'],
           },
           content: 'Test string',
-          format: 'Test string',
+          format: 'ATTESTATION_FORMAT_UNSPECIFIED',
         },
         createTime: 'Test string',
         cryptoKeyBackend: 'Test string',
         expireEventTime: 'Test string',
         expireTime: 'Test string',
         generateTime: 'Test string',
-        importMethod: 'Test string',
+        importMethod: 'IMPORT_METHOD_UNSPECIFIED',
         name: 'Test string',
-        protectionLevel: 'Test string',
+        protectionLevel: 'PROTECTION_LEVEL_UNSPECIFIED',
         publicKey: {
           data: 'Test string',
           pem: 'Test string',
         },
-        publicKeyFormat: 'Test string',
-        state: 'Test string',
+        publicKeyFormat: 'PUBLIC_KEY_FORMAT_UNSPECIFIED',
+        state: 'IMPORT_JOB_STATE_UNSPECIFIED',
       },
     );
     /** Returns metadata for a given ImportJob. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.get({
       name: 'Test string',
-      publicKeyFormat: 'Test string',
+      publicKeyFormat: 'PUBLIC_KEY_FORMAT_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.cloudkms.projects.locations.keyRings.importJobs.getIamPolicy(
@@ -994,7 +994,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1058,7 +1058,7 @@ gapi.load('client', async () => {
           totalApproverCount: 42,
           twoFactorPublicKeyPems: ['Test string'],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         unrefreshedDurationUntilDisable: 'Test string',
       },
     );
@@ -1160,7 +1160,7 @@ gapi.load('client', async () => {
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         upgradeKeyTrust: {
           name: 'Test string',

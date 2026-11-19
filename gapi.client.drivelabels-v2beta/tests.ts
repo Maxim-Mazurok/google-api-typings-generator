@@ -50,7 +50,7 @@ gapi.load('client', async () => {
           canRemove: true,
         },
         appliedLabelPolicy: {
-          copyMode: 'Test string',
+          copyMode: 'COPY_MODE_UNSPECIFIED',
         },
         createTime: 'Test string',
         creator: {
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
         enabledAppSettings: {
           enabledApps: [
             {
-              app: 'Test string',
+              app: 'APP_UNSPECIFIED',
             },
           ],
         },
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
             },
             dateOptions: {
               dateFormat: 'Test string',
-              dateFormatType: 'Test string',
+              dateFormatType: 'DATE_FORMAT_UNSPECIFIED',
               maxValue: {
                 day: 42,
                 month: 42,
@@ -120,7 +120,7 @@ gapi.load('client', async () => {
                 showInApply: true,
               },
               hasUnpublishedChanges: true,
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             lockStatus: {
               locked: true,
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
                       showInApply: true,
                     },
                     hasUnpublishedChanges: true,
-                    state: 'Test string',
+                    state: 'STATE_UNSPECIFIED',
                   },
                   lockStatus: {
                     locked: true,
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
           },
         ],
         id: 'Test string',
-        labelType: 'Test string',
+        labelType: 'LABEL_TYPE_UNSPECIFIED',
         learnMoreUri: 'Test string',
         lifecycle: {
           disabledPolicy: {
@@ -272,7 +272,7 @@ gapi.load('client', async () => {
             showInApply: true,
           },
           hasUnpublishedChanges: true,
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         lockStatus: {
           locked: true,
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
                 },
                 dateOptions: {
                   dateFormat: 'Test string',
-                  dateFormatType: 'Test string',
+                  dateFormatType: 'DATE_FORMAT_UNSPECIFIED',
                   maxValue: {
                     day: 42,
                     month: 42,
@@ -360,7 +360,7 @@ gapi.load('client', async () => {
                     showInApply: true,
                   },
                   hasUnpublishedChanges: true,
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                 },
                 lockStatus: {
                   locked: true,
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
                           showInApply: true,
                         },
                         hasUnpublishedChanges: true,
-                        state: 'Test string',
+                        state: 'STATE_UNSPECIFIED',
                       },
                       lockStatus: {
                         locked: true,
@@ -571,7 +571,7 @@ gapi.load('client', async () => {
                     showInApply: true,
                   },
                   hasUnpublishedChanges: true,
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                 },
                 lockStatus: {
                   locked: true,
@@ -650,7 +650,7 @@ gapi.load('client', async () => {
             updateFieldType: {
               dateOptions: {
                 dateFormat: 'Test string',
-                dateFormatType: 'Test string',
+                dateFormatType: 'DATE_FORMAT_UNSPECIFIED',
                 maxValue: {
                   day: 42,
                   month: 42,
@@ -736,7 +736,7 @@ gapi.load('client', async () => {
                         showInApply: true,
                       },
                       hasUnpublishedChanges: true,
-                      state: 'Test string',
+                      state: 'STATE_UNSPECIFIED',
                     },
                     lockStatus: {
                       locked: true,
@@ -815,7 +815,7 @@ gapi.load('client', async () => {
           },
         ],
         useAdminAccess: true,
-        view: 'Test string',
+        view: 'LABEL_VIEW_BASIC',
         writeControl: {
           requiredRevisionId: 'Test string',
         },
@@ -857,18 +857,18 @@ gapi.load('client', async () => {
       languageCode: 'Test string',
       name: 'Test string',
       useAdminAccess: true,
-      view: 'Test string',
+      view: 'LABEL_VIEW_BASIC',
     });
     /** List labels. For more information, see [Search for labels](https://developers.google.com/workspace/drive/labels/guides/search-label). */
     await gapi.client.drivelabels.labels.list({
       customer: 'Test string',
       languageCode: 'Test string',
-      minimumRole: 'Test string',
+      minimumRole: 'LABEL_ROLE_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       publishedOnly: true,
       useAdminAccess: true,
-      view: 'Test string',
+      view: 'LABEL_VIEW_BASIC',
     });
     /** Publish all draft changes to the label. Once published, the label may not return to its draft state. For more information, see [Create and publish a label](https://developers.google.com/workspace/drive/labels/guides/create-label). Publishing a label will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. For more information, see [Label lifecycle](https://developers.google.com/workspace/drive/labels/guides/label-lifecycle). Once published, some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the label will be rejected. For example, the following changes to a label will be rejected after the label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. * `Field.FieldType` cannot be changed. * Changes to field validation options cannot reject something that was previously accepted. * Reducing the maximum entries. */
     await gapi.client.drivelabels.labels.publish(
@@ -889,10 +889,10 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        copyMode: 'Test string',
+        copyMode: 'COPY_MODE_UNSPECIFIED',
         languageCode: 'Test string',
         useAdminAccess: true,
-        view: 'Test string',
+        view: 'LABEL_VIEW_BASIC',
       },
     );
     /** Updates a label's `EnabledAppSettings`. Enabling a label in a Google Workspace app allows it to be used in that app. This change isn't revisioned, doesn't require publishing, and takes effect immediately. */
@@ -904,13 +904,13 @@ gapi.load('client', async () => {
         enabledAppSettings: {
           enabledApps: [
             {
-              app: 'Test string',
+              app: 'APP_UNSPECIFIED',
             },
           ],
         },
         languageCode: 'Test string',
         useAdminAccess: true,
-        view: 'Test string',
+        view: 'LABEL_VIEW_BASIC',
       },
     );
     /** Updates a label's permissions. If a permission for the indicated principal doesn't exist, a label permission is created, otherwise the existing permission is updated. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
@@ -925,7 +925,7 @@ gapi.load('client', async () => {
         group: 'Test string',
         name: 'Test string',
         person: 'Test string',
-        role: 'Test string',
+        role: 'LABEL_ROLE_UNSPECIFIED',
       },
     );
     /** Lists the label locks on a label. */
@@ -963,7 +963,7 @@ gapi.load('client', async () => {
               group: 'Test string',
               name: 'Test string',
               person: 'Test string',
-              role: 'Test string',
+              role: 'LABEL_ROLE_UNSPECIFIED',
             },
             parent: 'Test string',
             useAdminAccess: true,
@@ -984,7 +984,7 @@ gapi.load('client', async () => {
         group: 'Test string',
         name: 'Test string',
         person: 'Test string',
-        role: 'Test string',
+        role: 'LABEL_ROLE_UNSPECIFIED',
       },
     );
     /** Deletes a label's permission. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */
@@ -1011,7 +1011,7 @@ gapi.load('client', async () => {
         group: 'Test string',
         name: 'Test string',
         person: 'Test string',
-        role: 'Test string',
+        role: 'LABEL_ROLE_UNSPECIFIED',
       },
     );
     /** Lists the label locks on a label. */
@@ -1049,7 +1049,7 @@ gapi.load('client', async () => {
               group: 'Test string',
               name: 'Test string',
               person: 'Test string',
-              role: 'Test string',
+              role: 'LABEL_ROLE_UNSPECIFIED',
             },
             parent: 'Test string',
             useAdminAccess: true,
@@ -1070,7 +1070,7 @@ gapi.load('client', async () => {
         group: 'Test string',
         name: 'Test string',
         person: 'Test string',
-        role: 'Test string',
+        role: 'LABEL_ROLE_UNSPECIFIED',
       },
     );
     /** Deletes a label's permission. Permissions affect the label resource as a whole, aren't revisioned, and don't require publishing. */

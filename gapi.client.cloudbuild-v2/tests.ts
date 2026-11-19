@@ -126,7 +126,7 @@ gapi.load('client', async () => {
         installationState: {
           actionUri: 'Test string',
           message: 'Test string',
-          stage: 'Test string',
+          stage: 'STAGE_UNSPECIFIED',
         },
         name: 'Test string',
         reconciling: true,
@@ -248,7 +248,7 @@ gapi.load('client', async () => {
         installationState: {
           actionUri: 'Test string',
           message: 'Test string',
-          stage: 'Test string',
+          stage: 'STAGE_UNSPECIFIED',
         },
         name: 'Test string',
         reconciling: true,
@@ -283,7 +283,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -386,7 +386,7 @@ gapi.load('client', async () => {
       {
         pageSize: 42,
         pageToken: 'Test string',
-        refType: 'Test string',
+        refType: 'REF_TYPE_UNSPECIFIED',
         repository: 'Test string',
       },
     );

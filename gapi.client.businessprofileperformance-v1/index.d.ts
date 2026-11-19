@@ -124,58 +124,8 @@ declare namespace gapi.client {
       /** List of datapoints in the timeseries, where each datapoint is a date-value pair. */
       datedValues?: DatedValue[];
     }
-    interface MonthlyResource {
-      /** Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3` */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'monthlyRange.endMonth.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'monthlyRange.endMonth.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'monthlyRange.endMonth.year'?: number;
-        /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-        'monthlyRange.startMonth.day'?: number;
-        /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-        'monthlyRange.startMonth.month'?: number;
-        /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-        'monthlyRange.startMonth.year'?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The number of results requested. The default page size is 100. Page size can be set to a maximum of 100. */
-        pageSize?: number;
-        /** Optional. A token indicating the next paginated result to be returned. */
-        pageToken?: string;
-        /** Required. The location for which the time series should be fetched. Format: locations/{location_id} where location_id is an unobfuscated listing id. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListSearchKeywordImpressionsMonthlyResponse>;
-    }
-    interface ImpressionsResource {
-      monthly: MonthlyResource;
-    }
-    interface SearchkeywordsResource {
-      impressions: ImpressionsResource;
-    }
-    interface LocationsResource {
+
+    const locations: {
       /** Returns the values for each date from a given time range that are associated with the specific daily metrics. Note: Only daily data is available. Hourly metrics are not supported. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31` */
       fetchMultiDailyMetricsTimeSeries(request?: {
         /** V1 error format. */
@@ -317,9 +267,55 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GetDailyMetricsTimeSeriesResponse>;
-      searchkeywords: SearchkeywordsResource;
-    }
-
-    const locations: LocationsResource;
+      searchkeywords: {
+        impressions: {
+          monthly: {
+            /** Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3` */
+            list(request?: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+              'monthlyRange.endMonth.day'?: number;
+              /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+              'monthlyRange.endMonth.month'?: number;
+              /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+              'monthlyRange.endMonth.year'?: number;
+              /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+              'monthlyRange.startMonth.day'?: number;
+              /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+              'monthlyRange.startMonth.month'?: number;
+              /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+              'monthlyRange.startMonth.year'?: number;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Optional. The number of results requested. The default page size is 100. Page size can be set to a maximum of 100. */
+              pageSize?: number;
+              /** Optional. A token indicating the next paginated result to be returned. */
+              pageToken?: string;
+              /** Required. The location for which the time series should be fetched. Format: locations/{location_id} where location_id is an unobfuscated listing id. */
+              parent: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            }): Request<ListSearchKeywordImpressionsMonthlyResponse>;
+          };
+        };
+      };
+    };
   }
 }

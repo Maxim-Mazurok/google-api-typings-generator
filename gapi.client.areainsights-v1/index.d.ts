@@ -36,7 +36,7 @@ declare namespace gapi.client {
       /** Required. Insight filter. */
       filter?: Filter;
       /** Required. Insights to compute. Currently only INSIGHT_COUNT and INSIGHT_PLACES are supported. */
-      insights?: 'INSIGHT_UNSPECIFIED' | 'INSIGHT_COUNT' | 'INSIGHT_PLACES'[];
+      insights?: ('INSIGHT_UNSPECIFIED' | 'INSIGHT_COUNT' | 'INSIGHT_PLACES')[];
     }
     interface ComputeInsightsResponse {
       /** Result for Insights.INSIGHT_COUNT. */
@@ -52,19 +52,21 @@ declare namespace gapi.client {
       /** Required. Restricts results to places which are located in the area specified by location filters. */
       locationFilter?: LocationFilter;
       /** Optional. Restricts results to places whose operating status is included on this list. If operating_status is not set, OPERATING_STATUS_OPERATIONAL is used as default. */
-      operatingStatus?:
+      operatingStatus?: (
         | 'OPERATING_STATUS_UNSPECIFIED'
         | 'OPERATING_STATUS_OPERATIONAL'
         | 'OPERATING_STATUS_PERMANENTLY_CLOSED'
-        | 'OPERATING_STATUS_TEMPORARILY_CLOSED'[];
+        | 'OPERATING_STATUS_TEMPORARILY_CLOSED'
+      )[];
       /** Optional. Restricts results to places whose price level is included on this list. If `price_levels` is not set, all price levels are included in the results. */
-      priceLevels?:
+      priceLevels?: (
         | 'PRICE_LEVEL_UNSPECIFIED'
         | 'PRICE_LEVEL_FREE'
         | 'PRICE_LEVEL_INEXPENSIVE'
         | 'PRICE_LEVEL_MODERATE'
         | 'PRICE_LEVEL_EXPENSIVE'
-        | 'PRICE_LEVEL_VERY_EXPENSIVE'[];
+        | 'PRICE_LEVEL_VERY_EXPENSIVE'
+      )[];
       /** Optional. Restricts results to places whose average user ratings are in the range specified by rating_filter. If rating_filter is not set, all ratings are included in the result. */
       ratingFilter?: RatingFilter;
       /** Required. Place type filters. */
@@ -112,7 +114,8 @@ declare namespace gapi.client {
       /** Optional. Included Place types. */
       includedTypes?: string[];
     }
-    interface V1Resource {
+
+    const v1: {
       /** This method lets you retrieve insights about areas using a variety of filter such as: area, place type, operating status, price level and ratings. Currently "count" and "places" insights are supported. With "count" insights you can answer questions such as "How many restaurant are located in California that are operational, are inexpensive and have an average rating of at least 4 stars" (see `insight` enum for more details). With "places" insights, you can determine which places match the requested filter. Clients can then use those place resource names to fetch more details about each individual place using the Places API. */
       computeInsights(request: {
         /** V1 error format. */
@@ -167,8 +170,6 @@ declare namespace gapi.client {
         },
         body: ComputeInsightsRequest,
       ): Request<ComputeInsightsResponse>;
-    }
-
-    const v1: V1Resource;
+    };
   }
 }

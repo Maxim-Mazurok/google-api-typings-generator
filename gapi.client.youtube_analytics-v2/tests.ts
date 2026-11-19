@@ -51,7 +51,7 @@ gapi.load('client', async () => {
       },
       {
         errors: {
-          code: 'Test string',
+          code: 'BAD_REQUEST',
           error: [
             {
               argument: ['Test string'],
@@ -60,7 +60,7 @@ gapi.load('client', async () => {
               domain: 'Test string',
               externalErrorMessage: 'Test string',
               location: 'Test string',
-              locationType: 'Test string',
+              locationType: 'PATH',
             },
           ],
           requestId: 'Test string',
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
           itemType: 'Test string',
         },
         errors: {
-          code: 'Test string',
+          code: 'BAD_REQUEST',
           error: [
             {
               argument: ['Test string'],
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
               domain: 'Test string',
               externalErrorMessage: 'Test string',
               location: 'Test string',
-              locationType: 'Test string',
+              locationType: 'PATH',
             },
           ],
           requestId: 'Test string',
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
           itemType: 'Test string',
         },
         errors: {
-          code: 'Test string',
+          code: 'BAD_REQUEST',
           error: [
             {
               argument: ['Test string'],
@@ -146,7 +146,7 @@ gapi.load('client', async () => {
               domain: 'Test string',
               externalErrorMessage: 'Test string',
               location: 'Test string',
-              locationType: 'Test string',
+              locationType: 'PATH',
             },
           ],
           requestId: 'Test string',

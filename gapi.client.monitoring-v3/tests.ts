@@ -40,9 +40,9 @@ gapi.load('client', async () => {
     /** Lists time series that match a filter. */
     await gapi.client.monitoring.folders.timeSeries.list({
       'aggregation.alignmentPeriod': 'Test string',
-      'aggregation.crossSeriesReducer': 'Test string',
+      'aggregation.crossSeriesReducer': 'REDUCE_NONE',
       'aggregation.groupByFields': 'Test string',
-      'aggregation.perSeriesAligner': 'Test string',
+      'aggregation.perSeriesAligner': 'ALIGN_NONE',
       filter: 'Test string',
       'interval.endTime': 'Test string',
       'interval.startTime': 'Test string',
@@ -51,17 +51,17 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       'secondaryAggregation.alignmentPeriod': 'Test string',
-      'secondaryAggregation.crossSeriesReducer': 'Test string',
+      'secondaryAggregation.crossSeriesReducer': 'REDUCE_NONE',
       'secondaryAggregation.groupByFields': 'Test string',
-      'secondaryAggregation.perSeriesAligner': 'Test string',
-      view: 'Test string',
+      'secondaryAggregation.perSeriesAligner': 'ALIGN_NONE',
+      view: 'FULL',
     });
     /** Lists time series that match a filter. */
     await gapi.client.monitoring.organizations.timeSeries.list({
       'aggregation.alignmentPeriod': 'Test string',
-      'aggregation.crossSeriesReducer': 'Test string',
+      'aggregation.crossSeriesReducer': 'REDUCE_NONE',
       'aggregation.groupByFields': 'Test string',
-      'aggregation.perSeriesAligner': 'Test string',
+      'aggregation.perSeriesAligner': 'ALIGN_NONE',
       filter: 'Test string',
       'interval.endTime': 'Test string',
       'interval.startTime': 'Test string',
@@ -70,10 +70,10 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       'secondaryAggregation.alignmentPeriod': 'Test string',
-      'secondaryAggregation.crossSeriesReducer': 'Test string',
+      'secondaryAggregation.crossSeriesReducer': 'REDUCE_NONE',
       'secondaryAggregation.groupByFields': 'Test string',
-      'secondaryAggregation.perSeriesAligner': 'Test string',
-      view: 'Test string',
+      'secondaryAggregation.perSeriesAligner': 'ALIGN_NONE',
+      view: 'FULL',
     });
     /** Creates a new alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy. */
     await gapi.client.monitoring.projects.alertPolicies.create(
@@ -89,21 +89,21 @@ gapi.load('client', async () => {
               renotifyInterval: 'Test string',
             },
           ],
-          notificationPrompts: ['Test string'],
+          notificationPrompts: ['NOTIFICATION_PROMPT_UNSPECIFIED'],
           notificationRateLimit: {
             period: 'Test string',
           },
         },
-        combiner: 'Test string',
+        combiner: 'COMBINE_UNSPECIFIED',
         conditions: [
           {
             conditionAbsent: {
               aggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
               duration: 'Test string',
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
             },
             conditionMonitoringQueryLanguage: {
               duration: 'Test string',
-              evaluationMissingData: 'Test string',
+              evaluationMissingData: 'EVALUATION_MISSING_DATA_UNSPECIFIED',
               query: 'Test string',
               trigger: {
                 count: 42,
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
               },
               query: 'Test string',
               rowCountTest: {
-                comparison: 'Test string',
+                comparison: 'COMPARISON_UNSPECIFIED',
                 threshold: 'Test string',
               },
             },
@@ -169,23 +169,23 @@ gapi.load('client', async () => {
               aggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
-              comparison: 'Test string',
+              comparison: 'COMPARISON_UNSPECIFIED',
               denominatorAggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
               denominatorFilter: 'Test string',
               duration: 'Test string',
-              evaluationMissingData: 'Test string',
+              evaluationMissingData: 'EVALUATION_MISSING_DATA_UNSPECIFIED',
               filter: 'Test string',
               forecastOptions: {
                 forecastHorizon: 'Test string',
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         notificationChannels: ['Test string'],
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         userLabels: {
           A: 'Test string',
         },
@@ -269,21 +269,21 @@ gapi.load('client', async () => {
               renotifyInterval: 'Test string',
             },
           ],
-          notificationPrompts: ['Test string'],
+          notificationPrompts: ['NOTIFICATION_PROMPT_UNSPECIFIED'],
           notificationRateLimit: {
             period: 'Test string',
           },
         },
-        combiner: 'Test string',
+        combiner: 'COMBINE_UNSPECIFIED',
         conditions: [
           {
             conditionAbsent: {
               aggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
               duration: 'Test string',
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
             },
             conditionMonitoringQueryLanguage: {
               duration: 'Test string',
-              evaluationMissingData: 'Test string',
+              evaluationMissingData: 'EVALUATION_MISSING_DATA_UNSPECIFIED',
               query: 'Test string',
               trigger: {
                 count: 42,
@@ -341,7 +341,7 @@ gapi.load('client', async () => {
               },
               query: 'Test string',
               rowCountTest: {
-                comparison: 'Test string',
+                comparison: 'COMPARISON_UNSPECIFIED',
                 threshold: 'Test string',
               },
             },
@@ -349,23 +349,23 @@ gapi.load('client', async () => {
               aggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
-              comparison: 'Test string',
+              comparison: 'COMPARISON_UNSPECIFIED',
               denominatorAggregations: [
                 {
                   alignmentPeriod: 'Test string',
-                  crossSeriesReducer: 'Test string',
+                  crossSeriesReducer: 'REDUCE_NONE',
                   groupByFields: ['Test string'],
-                  perSeriesAligner: 'Test string',
+                  perSeriesAligner: 'ALIGN_NONE',
                 },
               ],
               denominatorFilter: 'Test string',
               duration: 'Test string',
-              evaluationMissingData: 'Test string',
+              evaluationMissingData: 'EVALUATION_MISSING_DATA_UNSPECIFIED',
               filter: 'Test string',
               forecastOptions: {
                 forecastHorizon: 'Test string',
@@ -403,7 +403,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         notificationChannels: ['Test string'],
-        severity: 'Test string',
+        severity: 'SEVERITY_UNSPECIFIED',
         userLabels: {
           A: 'Test string',
         },
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
             values: [
               {
                 dataSourceName: 'Test string',
-                dataSourceType: 'Test string',
+                dataSourceType: 'UNSPECIFIED_DATA_SOURCE_TYPE',
                 value: {
                   boolValue: true,
                   distributionValue: {
@@ -614,22 +614,24 @@ gapi.load('client', async () => {
           {
             description: 'Test string',
             key: 'Test string',
-            valueType: 'Test string',
+            valueType: 'STRING',
           },
         ],
-        launchStage: 'Test string',
+        launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
         metadata: {
           ingestDelay: 'Test string',
-          launchStage: 'Test string',
+          launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
           samplePeriod: 'Test string',
-          timeSeriesResourceHierarchyLevel: ['Test string'],
+          timeSeriesResourceHierarchyLevel: [
+            'TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED',
+          ],
         },
-        metricKind: 'Test string',
+        metricKind: 'METRIC_KIND_UNSPECIFIED',
         monitoredResourceTypes: ['Test string'],
         name: 'Test string',
         type: 'Test string',
         unit: 'Test string',
-        valueType: 'Test string',
+        valueType: 'VALUE_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a metric descriptor. Only user-created custom metrics (https://cloud.google.com/monitoring/custom-metrics) can be deleted. */
@@ -696,7 +698,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-        verificationStatus: 'Test string',
+        verificationStatus: 'VERIFICATION_STATUS_UNSPECIFIED',
       },
     );
     /** Deletes a notification channel.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel. */
@@ -753,7 +755,7 @@ gapi.load('client', async () => {
         userLabels: {
           A: 'Test string',
         },
-        verificationStatus: 'Test string',
+        verificationStatus: 'VERIFICATION_STATUS_UNSPECIFIED',
       },
     );
     /** Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel. */
@@ -843,7 +845,7 @@ gapi.load('client', async () => {
               },
               type: 'Test string',
             },
-            metricKind: 'Test string',
+            metricKind: 'METRIC_KIND_UNSPECIFIED',
             points: [
               {
                 interval: {
@@ -901,7 +903,7 @@ gapi.load('client', async () => {
               type: 'Test string',
             },
             unit: 'Test string',
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
       },
@@ -929,7 +931,7 @@ gapi.load('client', async () => {
               },
               type: 'Test string',
             },
-            metricKind: 'Test string',
+            metricKind: 'METRIC_KIND_UNSPECIFIED',
             points: [
               {
                 interval: {
@@ -987,7 +989,7 @@ gapi.load('client', async () => {
               type: 'Test string',
             },
             unit: 'Test string',
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
       },
@@ -995,9 +997,9 @@ gapi.load('client', async () => {
     /** Lists time series that match a filter. */
     await gapi.client.monitoring.projects.timeSeries.list({
       'aggregation.alignmentPeriod': 'Test string',
-      'aggregation.crossSeriesReducer': 'Test string',
+      'aggregation.crossSeriesReducer': 'REDUCE_NONE',
       'aggregation.groupByFields': 'Test string',
-      'aggregation.perSeriesAligner': 'Test string',
+      'aggregation.perSeriesAligner': 'ALIGN_NONE',
       filter: 'Test string',
       'interval.endTime': 'Test string',
       'interval.startTime': 'Test string',
@@ -1006,10 +1008,10 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       'secondaryAggregation.alignmentPeriod': 'Test string',
-      'secondaryAggregation.crossSeriesReducer': 'Test string',
+      'secondaryAggregation.crossSeriesReducer': 'REDUCE_NONE',
       'secondaryAggregation.groupByFields': 'Test string',
-      'secondaryAggregation.perSeriesAligner': 'Test string',
-      view: 'Test string',
+      'secondaryAggregation.perSeriesAligner': 'ALIGN_NONE',
+      view: 'FULL',
     });
     /** Queries time series by using Monitoring Query Language (MQL). We recommend using PromQL instead of MQL. For more information about the status of MQL, see the MQL deprecation notice (https://cloud.google.com/stackdriver/docs/deprecations/mql). */
     await gapi.client.monitoring.projects.timeSeries.query(
@@ -1028,15 +1030,15 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        checkerType: 'Test string',
+        checkerType: 'CHECKER_TYPE_UNSPECIFIED',
         contentMatchers: [
           {
             content: 'Test string',
             jsonPathMatcher: {
-              jsonMatcher: 'Test string',
+              jsonMatcher: 'JSON_PATH_MATCHER_OPTION_UNSPECIFIED',
               jsonPath: 'Test string',
             },
-            matcher: 'Test string',
+            matcher: 'CONTENT_MATCHER_OPTION_UNSPECIFIED',
           },
         ],
         disabled: true,
@@ -1044,7 +1046,7 @@ gapi.load('client', async () => {
         httpCheck: {
           acceptedResponseStatusCodes: [
             {
-              statusClass: 'Test string',
+              statusClass: 'STATUS_CLASS_UNSPECIFIED',
               statusValue: 42,
             },
           ],
@@ -1053,7 +1055,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
           body: 'Test string',
-          contentType: 'Test string',
+          contentType: 'TYPE_UNSPECIFIED',
           customContentType: 'Test string',
           headers: {
             A: 'Test string',
@@ -1064,9 +1066,9 @@ gapi.load('client', async () => {
             pingsCount: 42,
           },
           port: 42,
-          requestMethod: 'Test string',
+          requestMethod: 'METHOD_UNSPECIFIED',
           serviceAgentAuthentication: {
-            type: 'Test string',
+            type: 'SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED',
           },
           useSsl: true,
           validateSsl: true,
@@ -1078,7 +1080,7 @@ gapi.load('client', async () => {
             name: 'Test string',
             network: 'Test string',
             peerProjectId: 'Test string',
-            state: 'Test string',
+            state: 'UNSPECIFIED',
           },
         ],
         isInternal: true,
@@ -1093,9 +1095,9 @@ gapi.load('client', async () => {
         period: 'Test string',
         resourceGroup: {
           groupId: 'Test string',
-          resourceType: 'Test string',
+          resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
         },
-        selectedRegions: ['Test string'],
+        selectedRegions: ['REGION_UNSPECIFIED'],
         syntheticMonitor: {
           cloudFunctionV2: {
             cloudRunRevision: {
@@ -1141,15 +1143,15 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        checkerType: 'Test string',
+        checkerType: 'CHECKER_TYPE_UNSPECIFIED',
         contentMatchers: [
           {
             content: 'Test string',
             jsonPathMatcher: {
-              jsonMatcher: 'Test string',
+              jsonMatcher: 'JSON_PATH_MATCHER_OPTION_UNSPECIFIED',
               jsonPath: 'Test string',
             },
-            matcher: 'Test string',
+            matcher: 'CONTENT_MATCHER_OPTION_UNSPECIFIED',
           },
         ],
         disabled: true,
@@ -1157,7 +1159,7 @@ gapi.load('client', async () => {
         httpCheck: {
           acceptedResponseStatusCodes: [
             {
-              statusClass: 'Test string',
+              statusClass: 'STATUS_CLASS_UNSPECIFIED',
               statusValue: 42,
             },
           ],
@@ -1166,7 +1168,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
           body: 'Test string',
-          contentType: 'Test string',
+          contentType: 'TYPE_UNSPECIFIED',
           customContentType: 'Test string',
           headers: {
             A: 'Test string',
@@ -1177,9 +1179,9 @@ gapi.load('client', async () => {
             pingsCount: 42,
           },
           port: 42,
-          requestMethod: 'Test string',
+          requestMethod: 'METHOD_UNSPECIFIED',
           serviceAgentAuthentication: {
-            type: 'Test string',
+            type: 'SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED',
           },
           useSsl: true,
           validateSsl: true,
@@ -1191,7 +1193,7 @@ gapi.load('client', async () => {
             name: 'Test string',
             network: 'Test string',
             peerProjectId: 'Test string',
-            state: 'Test string',
+            state: 'UNSPECIFIED',
           },
         ],
         isInternal: true,
@@ -1206,9 +1208,9 @@ gapi.load('client', async () => {
         period: 'Test string',
         resourceGroup: {
           groupId: 'Test string',
-          resourceType: 'Test string',
+          resourceType: 'RESOURCE_TYPE_UNSPECIFIED',
         },
-        selectedRegions: ['Test string'],
+        selectedRegions: ['REGION_UNSPECIFIED'],
         syntheticMonitor: {
           cloudFunctionV2: {
             cloudRunRevision: {
@@ -1396,7 +1398,7 @@ gapi.load('client', async () => {
         serviceLevelObjectiveId: 'Test string',
       },
       {
-        calendarPeriod: 'Test string',
+        calendarPeriod: 'CALENDAR_PERIOD_UNSPECIFIED',
         displayName: 'Test string',
         goal: 42,
         name: 'Test string',
@@ -1482,7 +1484,7 @@ gapi.load('client', async () => {
     /** Get a ServiceLevelObjective by name. */
     await gapi.client.monitoring.services.serviceLevelObjectives.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** List the ServiceLevelObjectives for the given Service. */
     await gapi.client.monitoring.services.serviceLevelObjectives.list({
@@ -1490,7 +1492,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_UNSPECIFIED',
     });
     /** Update the given ServiceLevelObjective. */
     await gapi.client.monitoring.services.serviceLevelObjectives.patch(
@@ -1499,7 +1501,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        calendarPeriod: 'Test string',
+        calendarPeriod: 'CALENDAR_PERIOD_UNSPECIFIED',
         displayName: 'Test string',
         goal: 42,
         name: 'Test string',

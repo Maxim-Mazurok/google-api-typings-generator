@@ -48,8 +48,8 @@ gapi.load('client', async () => {
         databaseUrl: 'Test string',
         name: 'Test string',
         project: 'Test string',
-        state: 'Test string',
-        type: 'Test string',
+        state: 'LIFECYCLE_STATE_UNSPECIFIED',
+        type: 'DATABASE_INSTANCE_TYPE_UNSPECIFIED',
       },
     );
     /** Marks a DatabaseInstance to be deleted. The DatabaseInstance will be set to the DELETED state for 20 days, and will be purged within 30 days. The default database cannot be deleted. IDs for deleted database instances may never be recovered or re-used. The Database may only be deleted if it is already in a DISABLED state. */

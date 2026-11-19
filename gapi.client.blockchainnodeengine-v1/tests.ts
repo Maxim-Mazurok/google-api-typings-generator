@@ -51,7 +51,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        blockchainType: 'Test string',
+        blockchainType: 'BLOCKCHAIN_TYPE_UNSPECIFIED',
         connectionInfo: {
           endpointInfo: {
             jsonRpcApiEndpoint: 'Test string',
@@ -68,13 +68,13 @@ gapi.load('client', async () => {
           },
           apiEnableAdmin: true,
           apiEnableDebug: true,
-          consensusClient: 'Test string',
-          executionClient: 'Test string',
+          consensusClient: 'CONSENSUS_CLIENT_UNSPECIFIED',
+          executionClient: 'EXECUTION_CLIENT_UNSPECIFIED',
           gethDetails: {
-            garbageCollectionMode: 'Test string',
+            garbageCollectionMode: 'GARBAGE_COLLECTION_MODE_UNSPECIFIED',
           },
-          network: 'Test string',
-          nodeType: 'Test string',
+          network: 'NETWORK_UNSPECIFIED',
+          nodeType: 'NODE_TYPE_UNSPECIFIED',
           validatorConfig: {
             beaconFeeRecipient: 'Test string',
             managedValidatorClient: true,
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         privateServiceConnectEnabled: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        blockchainType: 'Test string',
+        blockchainType: 'BLOCKCHAIN_TYPE_UNSPECIFIED',
         connectionInfo: {
           endpointInfo: {
             jsonRpcApiEndpoint: 'Test string',
@@ -138,13 +138,13 @@ gapi.load('client', async () => {
           },
           apiEnableAdmin: true,
           apiEnableDebug: true,
-          consensusClient: 'Test string',
-          executionClient: 'Test string',
+          consensusClient: 'CONSENSUS_CLIENT_UNSPECIFIED',
+          executionClient: 'EXECUTION_CLIENT_UNSPECIFIED',
           gethDetails: {
-            garbageCollectionMode: 'Test string',
+            garbageCollectionMode: 'GARBAGE_COLLECTION_MODE_UNSPECIFIED',
           },
-          network: 'Test string',
-          nodeType: 'Test string',
+          network: 'NETWORK_UNSPECIFIED',
+          nodeType: 'NODE_TYPE_UNSPECIFIED',
           validatorConfig: {
             beaconFeeRecipient: 'Test string',
             managedValidatorClient: true,
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         privateServiceConnectEnabled: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

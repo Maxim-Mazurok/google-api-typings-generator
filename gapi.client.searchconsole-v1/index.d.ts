@@ -274,7 +274,7 @@ declare namespace gapi.client {
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
       dimensionFilterGroups?: ApiDimensionFilterGroup[];
       /** [Optional] Zero or more dimensions to group results by. Dimensions are the group-by values in the Search Analytics page. Dimensions are combined to create a unique row key for each row. Results are grouped in the order that you supply these dimensions. */
-      dimensions?:
+      dimensions?: (
         | 'DATE'
         | 'QUERY'
         | 'PAGE'
@@ -282,7 +282,8 @@ declare namespace gapi.client {
         | 'DEVICE'
         | 'SEARCH_APPEARANCE'
         | 'HOUR'
-        | 'BRANDED_CLASSIFICATION'[];
+        | 'BRANDED_CLASSIFICATION'
+      )[];
       /** [Required] End date of the requested date range, in YYYY-MM-DD format, in PST (UTC - 8:00). Must be greater than or equal to the start date. This value is included in the range. */
       endDate?: string;
       /** [Optional; Default is 1000] The maximum number of rows to return. Must be a number from 1 to 25,000 (inclusive). */
@@ -404,36 +405,11 @@ declare namespace gapi.client {
         | 'IOS_APP'
         | 'DATA_FEED_ELEMENT';
     }
-    interface IndexResource {
-      /** Index inspection. */
-      inspect(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: InspectUrlIndexRequest;
-      }): Request<InspectUrlIndexResponse>;
-      inspect(
-        request: {
+
+    const urlInspection: {
+      index: {
+        /** Index inspection. */
+        inspect(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -456,43 +432,43 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: InspectUrlIndexRequest,
-      ): Request<InspectUrlIndexResponse>;
-    }
-    interface UrlInspectionResource {
-      index: IndexResource;
-    }
-    interface MobileFriendlyTestResource {
-      /** Runs Mobile-Friendly Test for a given URL. */
-      run(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RunMobileFriendlyTestRequest;
-      }): Request<RunMobileFriendlyTestResponse>;
-      run(
-        request: {
+          /** Request body */
+          resource: InspectUrlIndexRequest;
+        }): Request<InspectUrlIndexResponse>;
+        inspect(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: InspectUrlIndexRequest,
+        ): Request<InspectUrlIndexResponse>;
+      };
+    };
+
+    const urlTestingTools: {
+      mobileFriendlyTest: {
+        /** Runs Mobile-Friendly Test for a given URL. */
+        run(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -515,17 +491,38 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: RunMobileFriendlyTestRequest,
-      ): Request<RunMobileFriendlyTestResponse>;
-    }
-    interface UrlTestingToolsResource {
-      mobileFriendlyTest: MobileFriendlyTestResource;
-    }
-
-    const urlInspection: UrlInspectionResource;
-
-    const urlTestingTools: UrlTestingToolsResource;
+          /** Request body */
+          resource: RunMobileFriendlyTestRequest;
+        }): Request<RunMobileFriendlyTestResponse>;
+        run(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: RunMobileFriendlyTestRequest,
+        ): Request<RunMobileFriendlyTestResponse>;
+      };
+    };
   }
   namespace webmasters {
     interface AmpInspectionResult {
@@ -774,7 +771,7 @@ declare namespace gapi.client {
       /** [Optional] Zero or more filters to apply to the dimension grouping values; for example, 'query contains \"buy\"' to see only data where the query string contains the substring \"buy\" (not case-sensitive). You can filter by a dimension without grouping by it. */
       dimensionFilterGroups?: ApiDimensionFilterGroup[];
       /** [Optional] Zero or more dimensions to group results by. Dimensions are the group-by values in the Search Analytics page. Dimensions are combined to create a unique row key for each row. Results are grouped in the order that you supply these dimensions. */
-      dimensions?:
+      dimensions?: (
         | 'DATE'
         | 'QUERY'
         | 'PAGE'
@@ -782,7 +779,8 @@ declare namespace gapi.client {
         | 'DEVICE'
         | 'SEARCH_APPEARANCE'
         | 'HOUR'
-        | 'BRANDED_CLASSIFICATION'[];
+        | 'BRANDED_CLASSIFICATION'
+      )[];
       /** [Required] End date of the requested date range, in YYYY-MM-DD format, in PST (UTC - 8:00). Must be greater than or equal to the start date. This value is included in the range. */
       endDate?: string;
       /** [Optional; Default is 1000] The maximum number of rows to return. Must be a number from 1 to 25,000 (inclusive). */
@@ -904,7 +902,8 @@ declare namespace gapi.client {
         | 'IOS_APP'
         | 'DATA_FEED_ELEMENT';
     }
-    interface SearchanalyticsResource {
+
+    const searchanalytics: {
       /** Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days. When date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned. */
       query(request: {
         /** V1 error format. */
@@ -963,8 +962,9 @@ declare namespace gapi.client {
         },
         body: SearchAnalyticsQueryRequest,
       ): Request<SearchAnalyticsQueryResponse>;
-    }
-    interface SitemapsResource {
+    };
+
+    const sitemaps: {
       /** Deletes a sitemap from the Sitemaps report. Does not stop Google from crawling this sitemap or the URLs that were previously crawled in the deleted sitemap. */
       delete(request?: {
         /** V1 error format. */
@@ -1081,8 +1081,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<void>;
-    }
-    interface SitesResource {
+    };
+
+    const sites: {
       /** Adds a site to the set of the user's sites in Search Console. */
       add(request?: {
         /** V1 error format. */
@@ -1189,12 +1190,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SitesListResponse>;
-    }
-
-    const searchanalytics: SearchanalyticsResource;
-
-    const sitemaps: SitemapsResource;
-
-    const sites: SitesResource;
+    };
   }
 }

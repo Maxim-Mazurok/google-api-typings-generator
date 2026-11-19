@@ -256,13 +256,13 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        enabledAddonPlatforms: ['Test string'],
+        enabledAddonPlatforms: ['ADD_ON_PLATFORM_UNSPECIFIED'],
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
         scopes: ['Test string'],
-        state: 'Test string',
+        state: 'DISCOVERY_PIPELINE_STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -308,13 +308,13 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        enabledAddonPlatforms: ['Test string'],
+        enabledAddonPlatforms: ['ADD_ON_PLATFORM_UNSPECIFIED'],
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
         scopes: ['Test string'],
-        state: 'Test string',
+        state: 'DISCOVERY_PIPELINE_STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -361,17 +361,17 @@ gapi.load('client', async () => {
           resourceUri: 'Test string',
           sourceId: 'Test string',
           sourceSubId: 'Test string',
-          state: 'Test string',
+          state: 'RESOURCE_STATE_UNSPECIFIED',
           updateTime: 'Test string',
         },
-        ipVersion: 'Test string',
+        ipVersion: 'IP_VERSION_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
-        managementType: 'Test string',
+        managementType: 'MANAGEMENT_TYPE_UNSPECIFIED',
         name: 'Test string',
         registryBook: 'Test string',
-        trafficType: 'Test string',
+        trafficType: 'TRAFFIC_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -384,7 +384,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Realm. */
     await gapi.client.cloudnumberregistry.projects.locations.realms.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'REALM_VIEW_UNSPECIFIED',
     });
     /** Lists Realms in a given project and location. */
     await gapi.client.cloudnumberregistry.projects.locations.realms.list({
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'REALM_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single Realm. */
     await gapi.client.cloudnumberregistry.projects.locations.realms.patch(
@@ -415,17 +415,17 @@ gapi.load('client', async () => {
           resourceUri: 'Test string',
           sourceId: 'Test string',
           sourceSubId: 'Test string',
-          state: 'Test string',
+          state: 'RESOURCE_STATE_UNSPECIFIED',
           updateTime: 'Test string',
         },
-        ipVersion: 'Test string',
+        ipVersion: 'IP_VERSION_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
-        managementType: 'Test string',
+        managementType: 'MANAGEMENT_TYPE_UNSPECIFIED',
         name: 'Test string',
         registryBook: 'Test string',
-        trafficType: 'Test string',
+        trafficType: 'TRAFFIC_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -472,7 +472,7 @@ gapi.load('client', async () => {
     /** Gets details of a single RegistryBook. */
     await gapi.client.cloudnumberregistry.projects.locations.registryBooks.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'REGISTRY_BOOK_VIEW_UNSPECIFIED',
     });
     /** Lists RegistryBooks in a given project and location. */
     await gapi.client.cloudnumberregistry.projects.locations.registryBooks.list(
@@ -482,7 +482,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'REGISTRY_BOOK_VIEW_UNSPECIFIED',
       },
     );
     /** Updates the parameters of a single RegistryBook. */
@@ -527,7 +527,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         query: 'Test string',
-        searchResourceTypes: ['Test string'],
+        searchResourceTypes: ['SEARCH_RESOURCE_TYPE_UNSPECIFIED'],
         showUtilization: true,
       },
     );

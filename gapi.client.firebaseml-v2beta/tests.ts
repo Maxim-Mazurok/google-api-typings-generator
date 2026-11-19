@@ -58,18 +58,18 @@ gapi.load('client', async () => {
                 },
                 codeExecutionResult: {
                   id: 'Test string',
-                  outcome: 'Test string',
+                  outcome: 'OUTCOME_UNSPECIFIED',
                   output: 'Test string',
                 },
                 documentMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endPage: 42,
                   startPage: 42,
                 },
                 executableCode: {
                   code: 'Test string',
                   id: 'Test string',
-                  language: 'Test string',
+                  language: 'LANGUAGE_UNSPECIFIED',
                 },
                 fileData: {
                   displayName: 'Test string',
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
                     {
                       boolValue: true,
                       jsonPath: 'Test string',
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       numberValue: 42,
                       stringValue: 'Test string',
                       willContinue: true,
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
                         startOffset: 'Test string',
                       },
                       documentMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endPage: 42,
                         startPage: 42,
                       },
@@ -118,17 +118,17 @@ gapi.load('client', async () => {
                         displayName: 'Test string',
                         mimeType: 'Test string',
                       },
-                      mediaProcessing: 'Test string',
+                      mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                       mediaResolution: {
-                        level: 'Test string',
+                        level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                       },
                       spreadsheetMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         sheetIndex: 42,
                         visibleCells: 'Test string',
                       },
                       videoMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endOffset: 'Test string',
                         fps: 42,
                         startOffset: 'Test string',
@@ -138,23 +138,23 @@ gapi.load('client', async () => {
                   response: {
                     A: 42,
                   },
-                  scheduling: 'Test string',
+                  scheduling: 'SCHEDULING_UNSPECIFIED',
                 },
                 inlineData: {
                   data: 'Test string',
                   displayName: 'Test string',
                   mimeType: 'Test string',
                 },
-                mediaProcessing: 'Test string',
+                mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                 mediaResolution: {
-                  level: 'Test string',
+                  level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                 },
                 speechMetadata: {
                   speaker: 'Test string',
                   style: 'Test string',
                 },
                 spreadsheetMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   sheetIndex: 42,
                   visibleCells: 'Test string',
                 },
@@ -166,17 +166,17 @@ gapi.load('client', async () => {
                     A: 42,
                   },
                   id: 'Test string',
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 toolResponse: {
                   id: 'Test string',
                   response: {
                     A: 42,
                   },
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 videoMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endOffset: 'Test string',
                   fps: 42,
                   startOffset: 'Test string',
@@ -197,7 +197,7 @@ gapi.load('client', async () => {
             languageHints: {
               languageCodes: ['Test string'],
             },
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             sourceText: 'Test string',
             wordTimestamp: true,
           },
@@ -211,37 +211,38 @@ gapi.load('client', async () => {
               mimeType: 'Test string',
             },
             imageSize: 'Test string',
-            personGeneration: 'Test string',
-            prominentPeople: 'Test string',
+            personGeneration: 'PERSON_GENERATION_UNSPECIFIED',
+            prominentPeople: 'PROMINENT_PEOPLE_UNSPECIFIED',
           },
           logprobs: 42,
           maxOutputTokens: 42,
-          mediaResolution: 'Test string',
+          mediaResolution: 'MEDIA_RESOLUTION_UNSPECIFIED',
           modelConfig: {
-            featureSelectionPreference: 'Test string',
+            featureSelectionPreference:
+              'FEATURE_SELECTION_PREFERENCE_UNSPECIFIED',
           },
           presencePenalty: 42,
           responseFormat: [
             {
               audio: {
                 bitRate: 42,
-                delivery: 'Test string',
-                mimeType: 'Test string',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 sampleRate: 42,
               },
               image: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
-                imageSize: 'Test string',
-                mimeType: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                imageSize: 'IMAGE_SIZE_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
               },
               text: {
-                mimeType: 'Test string',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 schema: 42,
               },
               video: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
                 duration: 'Test string',
                 gcsUri: 'Test string',
                 resolution: 'Test string',
@@ -251,7 +252,7 @@ gapi.load('client', async () => {
           responseJsonSchema: 42,
           responseLogprobs: true,
           responseMimeType: 'Test string',
-          responseModalities: ['Test string'],
+          responseModalities: ['MODALITY_UNSPECIFIED'],
           responseSchema: {
             additionalProperties: 42,
             anyOf: undefined,
@@ -277,11 +278,11 @@ gapi.load('client', async () => {
             ref: 'Test string',
             required: ['Test string'],
             title: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           routingConfig: {
             autoMode: {
-              modelRoutingPreference: 'Test string',
+              modelRoutingPreference: 'UNKNOWN',
             },
             manualMode: {
               modelName: 'Test string',
@@ -307,7 +308,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            textNormalization: 'Test string',
+            textNormalization: 'TEXT_NORMALIZATION_UNSPECIFIED',
             voiceConfig: {
               prebuiltVoiceConfig: {
                 voiceName: 'Test string',
@@ -324,7 +325,7 @@ gapi.load('client', async () => {
           thinkingConfig: {
             includeThoughts: true,
             thinkingBudget: 42,
-            thinkingLevel: 'Test string',
+            thinkingLevel: 'THINKING_LEVEL_UNSPECIFIED',
           },
           topK: 42,
           topP: 42,
@@ -355,18 +356,18 @@ gapi.load('client', async () => {
               },
               codeExecutionResult: {
                 id: 'Test string',
-                outcome: 'Test string',
+                outcome: 'OUTCOME_UNSPECIFIED',
                 output: 'Test string',
               },
               documentMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endPage: 42,
                 startPage: 42,
               },
               executableCode: {
                 code: 'Test string',
                 id: 'Test string',
-                language: 'Test string',
+                language: 'LANGUAGE_UNSPECIFIED',
               },
               fileData: {
                 displayName: 'Test string',
@@ -383,7 +384,7 @@ gapi.load('client', async () => {
                   {
                     boolValue: true,
                     jsonPath: 'Test string',
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     numberValue: 42,
                     stringValue: 'Test string',
                     willContinue: true,
@@ -401,7 +402,7 @@ gapi.load('client', async () => {
                       startOffset: 'Test string',
                     },
                     documentMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endPage: 42,
                       startPage: 42,
                     },
@@ -415,17 +416,17 @@ gapi.load('client', async () => {
                       displayName: 'Test string',
                       mimeType: 'Test string',
                     },
-                    mediaProcessing: 'Test string',
+                    mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                     mediaResolution: {
-                      level: 'Test string',
+                      level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                     },
                     spreadsheetMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       sheetIndex: 42,
                       visibleCells: 'Test string',
                     },
                     videoMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endOffset: 'Test string',
                       fps: 42,
                       startOffset: 'Test string',
@@ -435,23 +436,23 @@ gapi.load('client', async () => {
                 response: {
                   A: 42,
                 },
-                scheduling: 'Test string',
+                scheduling: 'SCHEDULING_UNSPECIFIED',
               },
               inlineData: {
                 data: 'Test string',
                 displayName: 'Test string',
                 mimeType: 'Test string',
               },
-              mediaProcessing: 'Test string',
+              mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
               mediaResolution: {
-                level: 'Test string',
+                level: 'MEDIA_RESOLUTION_UNSPECIFIED',
               },
               speechMetadata: {
                 speaker: 'Test string',
                 style: 'Test string',
               },
               spreadsheetMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 sheetIndex: 42,
                 visibleCells: 'Test string',
               },
@@ -463,17 +464,17 @@ gapi.load('client', async () => {
                   A: 42,
                 },
                 id: 'Test string',
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               toolResponse: {
                 id: 'Test string',
                 response: {
                   A: 42,
                 },
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               videoMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endOffset: 'Test string',
                 fps: 42,
                 startOffset: 'Test string',
@@ -486,13 +487,13 @@ gapi.load('client', async () => {
           {
             codeExecution: {},
             computerUse: {
-              disabledSafetyPolicies: ['Test string'],
+              disabledSafetyPolicies: ['SAFETY_POLICY_UNSPECIFIED'],
               enablePromptInjectionDetection: true,
-              environment: 'Test string',
+              environment: 'ENVIRONMENT_UNSPECIFIED',
               excludedPredefinedFunctions: ['Test string'],
             },
             enterpriseWebSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
             },
             exaAiSearch: {
@@ -503,7 +504,7 @@ gapi.load('client', async () => {
             },
             functionDeclarations: [
               {
-                behavior: 'Test string',
+                behavior: 'UNSPECIFIED',
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
@@ -531,7 +532,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 parametersJsonSchema: 42,
                 response: {
@@ -559,7 +560,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 responseJsonSchema: 42,
               },
@@ -572,7 +573,7 @@ gapi.load('client', async () => {
               },
             },
             googleSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
               searchTypes: {
                 imageSearch: {},
@@ -582,7 +583,7 @@ gapi.load('client', async () => {
             googleSearchRetrieval: {
               dynamicRetrievalConfig: {
                 dynamicThreshold: 42,
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             },
             parallelAiSearch: {
@@ -602,15 +603,15 @@ gapi.load('client', async () => {
                     apiKeyString: 'Test string',
                   },
                 },
-                apiSpec: 'Test string',
+                apiSpec: 'API_SPEC_UNSPECIFIED',
                 authConfig: {
                   apiKeyConfig: {
                     apiKeySecret: 'Test string',
                     apiKeyString: 'Test string',
-                    httpElementLocation: 'Test string',
+                    httpElementLocation: 'HTTP_IN_UNSPECIFIED',
                     name: 'Test string',
                   },
-                  authType: 'Test string',
+                  authType: 'AUTH_TYPE_UNSPECIFIED',
                   googleServiceAccountConfig: {
                     serviceAccount: 'Test string',
                   },
@@ -711,18 +712,18 @@ gapi.load('client', async () => {
                 },
                 codeExecutionResult: {
                   id: 'Test string',
-                  outcome: 'Test string',
+                  outcome: 'OUTCOME_UNSPECIFIED',
                   output: 'Test string',
                 },
                 documentMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endPage: 42,
                   startPage: 42,
                 },
                 executableCode: {
                   code: 'Test string',
                   id: 'Test string',
-                  language: 'Test string',
+                  language: 'LANGUAGE_UNSPECIFIED',
                 },
                 fileData: {
                   displayName: 'Test string',
@@ -739,7 +740,7 @@ gapi.load('client', async () => {
                     {
                       boolValue: true,
                       jsonPath: 'Test string',
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       numberValue: 42,
                       stringValue: 'Test string',
                       willContinue: true,
@@ -757,7 +758,7 @@ gapi.load('client', async () => {
                         startOffset: 'Test string',
                       },
                       documentMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endPage: 42,
                         startPage: 42,
                       },
@@ -771,17 +772,17 @@ gapi.load('client', async () => {
                         displayName: 'Test string',
                         mimeType: 'Test string',
                       },
-                      mediaProcessing: 'Test string',
+                      mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                       mediaResolution: {
-                        level: 'Test string',
+                        level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                       },
                       spreadsheetMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         sheetIndex: 42,
                         visibleCells: 'Test string',
                       },
                       videoMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endOffset: 'Test string',
                         fps: 42,
                         startOffset: 'Test string',
@@ -791,23 +792,23 @@ gapi.load('client', async () => {
                   response: {
                     A: 42,
                   },
-                  scheduling: 'Test string',
+                  scheduling: 'SCHEDULING_UNSPECIFIED',
                 },
                 inlineData: {
                   data: 'Test string',
                   displayName: 'Test string',
                   mimeType: 'Test string',
                 },
-                mediaProcessing: 'Test string',
+                mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                 mediaResolution: {
-                  level: 'Test string',
+                  level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                 },
                 speechMetadata: {
                   speaker: 'Test string',
                   style: 'Test string',
                 },
                 spreadsheetMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   sheetIndex: 42,
                   visibleCells: 'Test string',
                 },
@@ -819,17 +820,17 @@ gapi.load('client', async () => {
                     A: 42,
                   },
                   id: 'Test string',
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 toolResponse: {
                   id: 'Test string',
                   response: {
                     A: 42,
                   },
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 videoMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endOffset: 'Test string',
                   fps: 42,
                   startOffset: 'Test string',
@@ -851,7 +852,7 @@ gapi.load('client', async () => {
             languageHints: {
               languageCodes: ['Test string'],
             },
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             sourceText: 'Test string',
             wordTimestamp: true,
           },
@@ -865,37 +866,38 @@ gapi.load('client', async () => {
               mimeType: 'Test string',
             },
             imageSize: 'Test string',
-            personGeneration: 'Test string',
-            prominentPeople: 'Test string',
+            personGeneration: 'PERSON_GENERATION_UNSPECIFIED',
+            prominentPeople: 'PROMINENT_PEOPLE_UNSPECIFIED',
           },
           logprobs: 42,
           maxOutputTokens: 42,
-          mediaResolution: 'Test string',
+          mediaResolution: 'MEDIA_RESOLUTION_UNSPECIFIED',
           modelConfig: {
-            featureSelectionPreference: 'Test string',
+            featureSelectionPreference:
+              'FEATURE_SELECTION_PREFERENCE_UNSPECIFIED',
           },
           presencePenalty: 42,
           responseFormat: [
             {
               audio: {
                 bitRate: 42,
-                delivery: 'Test string',
-                mimeType: 'Test string',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 sampleRate: 42,
               },
               image: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
-                imageSize: 'Test string',
-                mimeType: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                imageSize: 'IMAGE_SIZE_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
               },
               text: {
-                mimeType: 'Test string',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 schema: 42,
               },
               video: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
                 duration: 'Test string',
                 gcsUri: 'Test string',
                 resolution: 'Test string',
@@ -905,7 +907,7 @@ gapi.load('client', async () => {
           responseJsonSchema: 42,
           responseLogprobs: true,
           responseMimeType: 'Test string',
-          responseModalities: ['Test string'],
+          responseModalities: ['MODALITY_UNSPECIFIED'],
           responseSchema: {
             additionalProperties: 42,
             anyOf: undefined,
@@ -931,11 +933,11 @@ gapi.load('client', async () => {
             ref: 'Test string',
             required: ['Test string'],
             title: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           routingConfig: {
             autoMode: {
-              modelRoutingPreference: 'Test string',
+              modelRoutingPreference: 'UNKNOWN',
             },
             manualMode: {
               modelName: 'Test string',
@@ -961,7 +963,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            textNormalization: 'Test string',
+            textNormalization: 'TEXT_NORMALIZATION_UNSPECIFIED',
             voiceConfig: {
               prebuiltVoiceConfig: {
                 voiceName: 'Test string',
@@ -978,7 +980,7 @@ gapi.load('client', async () => {
           thinkingConfig: {
             includeThoughts: true,
             thinkingBudget: 42,
-            thinkingLevel: 'Test string',
+            thinkingLevel: 'THINKING_LEVEL_UNSPECIFIED',
           },
           topK: 42,
           topP: 42,
@@ -999,9 +1001,9 @@ gapi.load('client', async () => {
         },
         safetySettings: [
           {
-            category: 'Test string',
-            method: 'Test string',
-            threshold: 'Test string',
+            category: 'HARM_CATEGORY_UNSPECIFIED',
+            method: 'HARM_BLOCK_METHOD_UNSPECIFIED',
+            threshold: 'HARM_BLOCK_THRESHOLD_UNSPECIFIED',
           },
         ],
         systemInstruction: {
@@ -1024,18 +1026,18 @@ gapi.load('client', async () => {
               },
               codeExecutionResult: {
                 id: 'Test string',
-                outcome: 'Test string',
+                outcome: 'OUTCOME_UNSPECIFIED',
                 output: 'Test string',
               },
               documentMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endPage: 42,
                 startPage: 42,
               },
               executableCode: {
                 code: 'Test string',
                 id: 'Test string',
-                language: 'Test string',
+                language: 'LANGUAGE_UNSPECIFIED',
               },
               fileData: {
                 displayName: 'Test string',
@@ -1052,7 +1054,7 @@ gapi.load('client', async () => {
                   {
                     boolValue: true,
                     jsonPath: 'Test string',
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     numberValue: 42,
                     stringValue: 'Test string',
                     willContinue: true,
@@ -1070,7 +1072,7 @@ gapi.load('client', async () => {
                       startOffset: 'Test string',
                     },
                     documentMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endPage: 42,
                       startPage: 42,
                     },
@@ -1084,17 +1086,17 @@ gapi.load('client', async () => {
                       displayName: 'Test string',
                       mimeType: 'Test string',
                     },
-                    mediaProcessing: 'Test string',
+                    mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                     mediaResolution: {
-                      level: 'Test string',
+                      level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                     },
                     spreadsheetMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       sheetIndex: 42,
                       visibleCells: 'Test string',
                     },
                     videoMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endOffset: 'Test string',
                       fps: 42,
                       startOffset: 'Test string',
@@ -1104,23 +1106,23 @@ gapi.load('client', async () => {
                 response: {
                   A: 42,
                 },
-                scheduling: 'Test string',
+                scheduling: 'SCHEDULING_UNSPECIFIED',
               },
               inlineData: {
                 data: 'Test string',
                 displayName: 'Test string',
                 mimeType: 'Test string',
               },
-              mediaProcessing: 'Test string',
+              mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
               mediaResolution: {
-                level: 'Test string',
+                level: 'MEDIA_RESOLUTION_UNSPECIFIED',
               },
               speechMetadata: {
                 speaker: 'Test string',
                 style: 'Test string',
               },
               spreadsheetMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 sheetIndex: 42,
                 visibleCells: 'Test string',
               },
@@ -1132,17 +1134,17 @@ gapi.load('client', async () => {
                   A: 42,
                 },
                 id: 'Test string',
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               toolResponse: {
                 id: 'Test string',
                 response: {
                   A: 42,
                 },
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               videoMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endOffset: 'Test string',
                 fps: 42,
                 startOffset: 'Test string',
@@ -1154,7 +1156,7 @@ gapi.load('client', async () => {
         toolConfig: {
           functionCallingConfig: {
             allowedFunctionNames: ['Test string'],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             streamFunctionCallArguments: true,
           },
           includeServerSideToolInvocations: true,
@@ -1170,13 +1172,13 @@ gapi.load('client', async () => {
           {
             codeExecution: {},
             computerUse: {
-              disabledSafetyPolicies: ['Test string'],
+              disabledSafetyPolicies: ['SAFETY_POLICY_UNSPECIFIED'],
               enablePromptInjectionDetection: true,
-              environment: 'Test string',
+              environment: 'ENVIRONMENT_UNSPECIFIED',
               excludedPredefinedFunctions: ['Test string'],
             },
             enterpriseWebSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
             },
             exaAiSearch: {
@@ -1187,7 +1189,7 @@ gapi.load('client', async () => {
             },
             functionDeclarations: [
               {
-                behavior: 'Test string',
+                behavior: 'UNSPECIFIED',
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
@@ -1215,7 +1217,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 parametersJsonSchema: 42,
                 response: {
@@ -1243,7 +1245,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 responseJsonSchema: 42,
               },
@@ -1256,7 +1258,7 @@ gapi.load('client', async () => {
               },
             },
             googleSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
               searchTypes: {
                 imageSearch: {},
@@ -1266,7 +1268,7 @@ gapi.load('client', async () => {
             googleSearchRetrieval: {
               dynamicRetrievalConfig: {
                 dynamicThreshold: 42,
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             },
             parallelAiSearch: {
@@ -1286,15 +1288,15 @@ gapi.load('client', async () => {
                     apiKeyString: 'Test string',
                   },
                 },
-                apiSpec: 'Test string',
+                apiSpec: 'API_SPEC_UNSPECIFIED',
                 authConfig: {
                   apiKeyConfig: {
                     apiKeySecret: 'Test string',
                     apiKeyString: 'Test string',
-                    httpElementLocation: 'Test string',
+                    httpElementLocation: 'HTTP_IN_UNSPECIFIED',
                     name: 'Test string',
                   },
-                  authType: 'Test string',
+                  authType: 'AUTH_TYPE_UNSPECIFIED',
                   googleServiceAccountConfig: {
                     serviceAccount: 'Test string',
                   },
@@ -1395,18 +1397,18 @@ gapi.load('client', async () => {
                 },
                 codeExecutionResult: {
                   id: 'Test string',
-                  outcome: 'Test string',
+                  outcome: 'OUTCOME_UNSPECIFIED',
                   output: 'Test string',
                 },
                 documentMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endPage: 42,
                   startPage: 42,
                 },
                 executableCode: {
                   code: 'Test string',
                   id: 'Test string',
-                  language: 'Test string',
+                  language: 'LANGUAGE_UNSPECIFIED',
                 },
                 fileData: {
                   displayName: 'Test string',
@@ -1423,7 +1425,7 @@ gapi.load('client', async () => {
                     {
                       boolValue: true,
                       jsonPath: 'Test string',
-                      nullValue: 'Test string',
+                      nullValue: 'NULL_VALUE',
                       numberValue: 42,
                       stringValue: 'Test string',
                       willContinue: true,
@@ -1441,7 +1443,7 @@ gapi.load('client', async () => {
                         startOffset: 'Test string',
                       },
                       documentMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endPage: 42,
                         startPage: 42,
                       },
@@ -1455,17 +1457,17 @@ gapi.load('client', async () => {
                         displayName: 'Test string',
                         mimeType: 'Test string',
                       },
-                      mediaProcessing: 'Test string',
+                      mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                       mediaResolution: {
-                        level: 'Test string',
+                        level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                       },
                       spreadsheetMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         sheetIndex: 42,
                         visibleCells: 'Test string',
                       },
                       videoMetadata: {
-                        contentLayers: ['Test string'],
+                        contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                         endOffset: 'Test string',
                         fps: 42,
                         startOffset: 'Test string',
@@ -1475,23 +1477,23 @@ gapi.load('client', async () => {
                   response: {
                     A: 42,
                   },
-                  scheduling: 'Test string',
+                  scheduling: 'SCHEDULING_UNSPECIFIED',
                 },
                 inlineData: {
                   data: 'Test string',
                   displayName: 'Test string',
                   mimeType: 'Test string',
                 },
-                mediaProcessing: 'Test string',
+                mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                 mediaResolution: {
-                  level: 'Test string',
+                  level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                 },
                 speechMetadata: {
                   speaker: 'Test string',
                   style: 'Test string',
                 },
                 spreadsheetMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   sheetIndex: 42,
                   visibleCells: 'Test string',
                 },
@@ -1503,17 +1505,17 @@ gapi.load('client', async () => {
                     A: 42,
                   },
                   id: 'Test string',
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 toolResponse: {
                   id: 'Test string',
                   response: {
                     A: 42,
                   },
-                  toolType: 'Test string',
+                  toolType: 'TOOL_TYPE_UNSPECIFIED',
                 },
                 videoMetadata: {
-                  contentLayers: ['Test string'],
+                  contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                   endOffset: 'Test string',
                   fps: 42,
                   startOffset: 'Test string',
@@ -1535,7 +1537,7 @@ gapi.load('client', async () => {
             languageHints: {
               languageCodes: ['Test string'],
             },
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             sourceText: 'Test string',
             wordTimestamp: true,
           },
@@ -1549,37 +1551,38 @@ gapi.load('client', async () => {
               mimeType: 'Test string',
             },
             imageSize: 'Test string',
-            personGeneration: 'Test string',
-            prominentPeople: 'Test string',
+            personGeneration: 'PERSON_GENERATION_UNSPECIFIED',
+            prominentPeople: 'PROMINENT_PEOPLE_UNSPECIFIED',
           },
           logprobs: 42,
           maxOutputTokens: 42,
-          mediaResolution: 'Test string',
+          mediaResolution: 'MEDIA_RESOLUTION_UNSPECIFIED',
           modelConfig: {
-            featureSelectionPreference: 'Test string',
+            featureSelectionPreference:
+              'FEATURE_SELECTION_PREFERENCE_UNSPECIFIED',
           },
           presencePenalty: 42,
           responseFormat: [
             {
               audio: {
                 bitRate: 42,
-                delivery: 'Test string',
-                mimeType: 'Test string',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 sampleRate: 42,
               },
               image: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
-                imageSize: 'Test string',
-                mimeType: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
+                imageSize: 'IMAGE_SIZE_UNSPECIFIED',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
               },
               text: {
-                mimeType: 'Test string',
+                mimeType: 'MIME_TYPE_UNSPECIFIED',
                 schema: 42,
               },
               video: {
-                aspectRatio: 'Test string',
-                delivery: 'Test string',
+                aspectRatio: 'ASPECT_RATIO_UNSPECIFIED',
+                delivery: 'DELIVERY_UNSPECIFIED',
                 duration: 'Test string',
                 gcsUri: 'Test string',
                 resolution: 'Test string',
@@ -1589,7 +1592,7 @@ gapi.load('client', async () => {
           responseJsonSchema: 42,
           responseLogprobs: true,
           responseMimeType: 'Test string',
-          responseModalities: ['Test string'],
+          responseModalities: ['MODALITY_UNSPECIFIED'],
           responseSchema: {
             additionalProperties: 42,
             anyOf: undefined,
@@ -1615,11 +1618,11 @@ gapi.load('client', async () => {
             ref: 'Test string',
             required: ['Test string'],
             title: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           routingConfig: {
             autoMode: {
-              modelRoutingPreference: 'Test string',
+              modelRoutingPreference: 'UNKNOWN',
             },
             manualMode: {
               modelName: 'Test string',
@@ -1645,7 +1648,7 @@ gapi.load('client', async () => {
                 },
               ],
             },
-            textNormalization: 'Test string',
+            textNormalization: 'TEXT_NORMALIZATION_UNSPECIFIED',
             voiceConfig: {
               prebuiltVoiceConfig: {
                 voiceName: 'Test string',
@@ -1662,7 +1665,7 @@ gapi.load('client', async () => {
           thinkingConfig: {
             includeThoughts: true,
             thinkingBudget: 42,
-            thinkingLevel: 'Test string',
+            thinkingLevel: 'THINKING_LEVEL_UNSPECIFIED',
           },
           topK: 42,
           topP: 42,
@@ -1683,9 +1686,9 @@ gapi.load('client', async () => {
         },
         safetySettings: [
           {
-            category: 'Test string',
-            method: 'Test string',
-            threshold: 'Test string',
+            category: 'HARM_CATEGORY_UNSPECIFIED',
+            method: 'HARM_BLOCK_METHOD_UNSPECIFIED',
+            threshold: 'HARM_BLOCK_THRESHOLD_UNSPECIFIED',
           },
         ],
         systemInstruction: {
@@ -1708,18 +1711,18 @@ gapi.load('client', async () => {
               },
               codeExecutionResult: {
                 id: 'Test string',
-                outcome: 'Test string',
+                outcome: 'OUTCOME_UNSPECIFIED',
                 output: 'Test string',
               },
               documentMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endPage: 42,
                 startPage: 42,
               },
               executableCode: {
                 code: 'Test string',
                 id: 'Test string',
-                language: 'Test string',
+                language: 'LANGUAGE_UNSPECIFIED',
               },
               fileData: {
                 displayName: 'Test string',
@@ -1736,7 +1739,7 @@ gapi.load('client', async () => {
                   {
                     boolValue: true,
                     jsonPath: 'Test string',
-                    nullValue: 'Test string',
+                    nullValue: 'NULL_VALUE',
                     numberValue: 42,
                     stringValue: 'Test string',
                     willContinue: true,
@@ -1754,7 +1757,7 @@ gapi.load('client', async () => {
                       startOffset: 'Test string',
                     },
                     documentMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endPage: 42,
                       startPage: 42,
                     },
@@ -1768,17 +1771,17 @@ gapi.load('client', async () => {
                       displayName: 'Test string',
                       mimeType: 'Test string',
                     },
-                    mediaProcessing: 'Test string',
+                    mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
                     mediaResolution: {
-                      level: 'Test string',
+                      level: 'MEDIA_RESOLUTION_UNSPECIFIED',
                     },
                     spreadsheetMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       sheetIndex: 42,
                       visibleCells: 'Test string',
                     },
                     videoMetadata: {
-                      contentLayers: ['Test string'],
+                      contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                       endOffset: 'Test string',
                       fps: 42,
                       startOffset: 'Test string',
@@ -1788,23 +1791,23 @@ gapi.load('client', async () => {
                 response: {
                   A: 42,
                 },
-                scheduling: 'Test string',
+                scheduling: 'SCHEDULING_UNSPECIFIED',
               },
               inlineData: {
                 data: 'Test string',
                 displayName: 'Test string',
                 mimeType: 'Test string',
               },
-              mediaProcessing: 'Test string',
+              mediaProcessing: 'MEDIA_PROCESSING_UNSPECIFIED',
               mediaResolution: {
-                level: 'Test string',
+                level: 'MEDIA_RESOLUTION_UNSPECIFIED',
               },
               speechMetadata: {
                 speaker: 'Test string',
                 style: 'Test string',
               },
               spreadsheetMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 sheetIndex: 42,
                 visibleCells: 'Test string',
               },
@@ -1816,17 +1819,17 @@ gapi.load('client', async () => {
                   A: 42,
                 },
                 id: 'Test string',
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               toolResponse: {
                 id: 'Test string',
                 response: {
                   A: 42,
                 },
-                toolType: 'Test string',
+                toolType: 'TOOL_TYPE_UNSPECIFIED',
               },
               videoMetadata: {
-                contentLayers: ['Test string'],
+                contentLayers: ['CONTENT_LAYER_UNSPECIFIED'],
                 endOffset: 'Test string',
                 fps: 42,
                 startOffset: 'Test string',
@@ -1838,7 +1841,7 @@ gapi.load('client', async () => {
         toolConfig: {
           functionCallingConfig: {
             allowedFunctionNames: ['Test string'],
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             streamFunctionCallArguments: true,
           },
           includeServerSideToolInvocations: true,
@@ -1854,13 +1857,13 @@ gapi.load('client', async () => {
           {
             codeExecution: {},
             computerUse: {
-              disabledSafetyPolicies: ['Test string'],
+              disabledSafetyPolicies: ['SAFETY_POLICY_UNSPECIFIED'],
               enablePromptInjectionDetection: true,
-              environment: 'Test string',
+              environment: 'ENVIRONMENT_UNSPECIFIED',
               excludedPredefinedFunctions: ['Test string'],
             },
             enterpriseWebSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
             },
             exaAiSearch: {
@@ -1871,7 +1874,7 @@ gapi.load('client', async () => {
             },
             functionDeclarations: [
               {
-                behavior: 'Test string',
+                behavior: 'UNSPECIFIED',
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
@@ -1899,7 +1902,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 parametersJsonSchema: 42,
                 response: {
@@ -1927,7 +1930,7 @@ gapi.load('client', async () => {
                   ref: 'Test string',
                   required: ['Test string'],
                   title: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 responseJsonSchema: 42,
               },
@@ -1940,7 +1943,7 @@ gapi.load('client', async () => {
               },
             },
             googleSearch: {
-              blockingConfidence: 'Test string',
+              blockingConfidence: 'PHISH_BLOCK_THRESHOLD_UNSPECIFIED',
               excludeDomains: ['Test string'],
               searchTypes: {
                 imageSearch: {},
@@ -1950,7 +1953,7 @@ gapi.load('client', async () => {
             googleSearchRetrieval: {
               dynamicRetrievalConfig: {
                 dynamicThreshold: 42,
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
               },
             },
             parallelAiSearch: {
@@ -1970,15 +1973,15 @@ gapi.load('client', async () => {
                     apiKeyString: 'Test string',
                   },
                 },
-                apiSpec: 'Test string',
+                apiSpec: 'API_SPEC_UNSPECIFIED',
                 authConfig: {
                   apiKeyConfig: {
                     apiKeySecret: 'Test string',
                     apiKeyString: 'Test string',
-                    httpElementLocation: 'Test string',
+                    httpElementLocation: 'HTTP_IN_UNSPECIFIED',
                     name: 'Test string',
                   },
-                  authType: 'Test string',
+                  authType: 'AUTH_TYPE_UNSPECIFIED',
                   googleServiceAccountConfig: {
                     serviceAccount: 'Test string',
                   },

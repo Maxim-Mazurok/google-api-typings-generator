@@ -71,10 +71,10 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           topology: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         acceleratorType: 'Test string',
-        apiVersion: 'Test string',
+        apiVersion: 'API_VERSION_UNSPECIFIED',
         bootDiskConfig: {
           customerEncryptionKey: {
             kmsKeyName: 'Test string',
@@ -84,12 +84,12 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         dataDisks: [
           {
-            mode: 'Test string',
+            mode: 'DISK_MODE_UNSPECIFIED',
             sourceDisk: 'Test string',
           },
         ],
         description: 'Test string',
-        health: 'Test string',
+        health: 'HEALTH_UNSPECIFIED',
         healthDescription: 'Test string',
         id: 'Test string',
         labels: {
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-        protectionTier: 'Test string',
+        protectionTier: 'PROTECTION_TIER_UNSPECIFIED',
         queuedResource: 'Test string',
         runtimeVersion: 'Test string',
         schedulingConfig: {
@@ -140,12 +140,12 @@ gapi.load('client', async () => {
         shieldedInstanceConfig: {
           enableSecureBoot: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         symptoms: [
           {
             createTime: 'Test string',
             details: 'Test string',
-            symptomType: 'Test string',
+            symptomType: 'SYMPTOM_TYPE_UNSPECIFIED',
             workerId: 'Test string',
           },
         ],
@@ -153,8 +153,8 @@ gapi.load('client', async () => {
         upcomingMaintenance: {
           canReschedule: true,
           latestWindowStartTime: 'Test string',
-          maintenanceStatus: 'Test string',
-          type: 'Test string',
+          maintenanceStatus: 'UNKNOWN',
+          type: 'UNKNOWN_TYPE',
           windowEndTime: 'Test string',
           windowStartTime: 'Test string',
         },
@@ -193,10 +193,10 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           topology: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         acceleratorType: 'Test string',
-        apiVersion: 'Test string',
+        apiVersion: 'API_VERSION_UNSPECIFIED',
         bootDiskConfig: {
           customerEncryptionKey: {
             kmsKeyName: 'Test string',
@@ -206,12 +206,12 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         dataDisks: [
           {
-            mode: 'Test string',
+            mode: 'DISK_MODE_UNSPECIFIED',
             sourceDisk: 'Test string',
           },
         ],
         description: 'Test string',
-        health: 'Test string',
+        health: 'HEALTH_UNSPECIFIED',
         healthDescription: 'Test string',
         id: 'Test string',
         labels: {
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
             port: 42,
           },
         ],
-        protectionTier: 'Test string',
+        protectionTier: 'PROTECTION_TIER_UNSPECIFIED',
         queuedResource: 'Test string',
         runtimeVersion: 'Test string',
         schedulingConfig: {
@@ -262,12 +262,12 @@ gapi.load('client', async () => {
         shieldedInstanceConfig: {
           enableSecureBoot: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         symptoms: [
           {
             createTime: 'Test string',
             details: 'Test string',
-            symptomType: 'Test string',
+            symptomType: 'SYMPTOM_TYPE_UNSPECIFIED',
             workerId: 'Test string',
           },
         ],
@@ -275,8 +275,8 @@ gapi.load('client', async () => {
         upcomingMaintenance: {
           canReschedule: true,
           latestWindowStartTime: 'Test string',
-          maintenanceStatus: 'Test string',
-          type: 'Test string',
+          maintenanceStatus: 'UNKNOWN',
+          type: 'UNKNOWN_TYPE',
           windowEndTime: 'Test string',
           windowStartTime: 'Test string',
         },
@@ -358,8 +358,8 @@ gapi.load('client', async () => {
             },
           },
           provisioningData: {},
-          state: 'Test string',
-          stateInitiator: 'Test string',
+          state: 'STATE_UNSPECIFIED',
+          stateInitiator: 'STATE_INITIATOR_UNSPECIFIED',
           suspendedData: {},
           suspendingData: {},
         },
@@ -373,10 +373,10 @@ gapi.load('client', async () => {
               node: {
                 acceleratorConfig: {
                   topology: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 acceleratorType: 'Test string',
-                apiVersion: 'Test string',
+                apiVersion: 'API_VERSION_UNSPECIFIED',
                 bootDiskConfig: {
                   customerEncryptionKey: {
                     kmsKeyName: 'Test string',
@@ -386,12 +386,12 @@ gapi.load('client', async () => {
                 createTime: 'Test string',
                 dataDisks: [
                   {
-                    mode: 'Test string',
+                    mode: 'DISK_MODE_UNSPECIFIED',
                     sourceDisk: 'Test string',
                   },
                 ],
                 description: 'Test string',
-                health: 'Test string',
+                health: 'HEALTH_UNSPECIFIED',
                 healthDescription: 'Test string',
                 id: 'Test string',
                 labels: {
@@ -427,7 +427,7 @@ gapi.load('client', async () => {
                     port: 42,
                   },
                 ],
-                protectionTier: 'Test string',
+                protectionTier: 'PROTECTION_TIER_UNSPECIFIED',
                 queuedResource: 'Test string',
                 runtimeVersion: 'Test string',
                 schedulingConfig: {
@@ -442,12 +442,12 @@ gapi.load('client', async () => {
                 shieldedInstanceConfig: {
                   enableSecureBoot: true,
                 },
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
                 symptoms: [
                   {
                     createTime: 'Test string',
                     details: 'Test string',
-                    symptomType: 'Test string',
+                    symptomType: 'SYMPTOM_TYPE_UNSPECIFIED',
                     workerId: 'Test string',
                   },
                 ],
@@ -455,8 +455,8 @@ gapi.load('client', async () => {
                 upcomingMaintenance: {
                   canReschedule: true,
                   latestWindowStartTime: 'Test string',
-                  maintenanceStatus: 'Test string',
-                  type: 'Test string',
+                  maintenanceStatus: 'UNKNOWN',
+                  type: 'UNKNOWN_TYPE',
                   windowEndTime: 'Test string',
                   windowStartTime: 'Test string',
                 },

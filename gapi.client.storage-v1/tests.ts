@@ -204,7 +204,7 @@ gapi.load('client', async () => {
       generation: 'Test string',
       ifMetagenerationMatch: 'Test string',
       ifMetagenerationNotMatch: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       softDeleted: true,
       userProject: 'Test string',
     });
@@ -223,10 +223,10 @@ gapi.load('client', async () => {
     await gapi.client.storage.buckets.insert(
       {
         enableObjectRetention: true,
-        predefinedAcl: 'Test string',
-        predefinedDefaultObjectAcl: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        predefinedDefaultObjectAcl: 'authenticatedRead',
         project: 'Test string',
-        projection: 'Test string',
+        projection: 'full',
         userProject: 'Test string',
       },
       {
@@ -292,16 +292,16 @@ gapi.load('client', async () => {
         encryption: {
           customerManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           customerSuppliedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           defaultKmsKeyName: 'Test string',
           googleManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
         },
         etag: 'Test string',
@@ -418,7 +418,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       prefix: 'Test string',
       project: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       returnPartialSuccess: true,
       softDeleted: true,
       userProject: 'Test string',
@@ -435,9 +435,9 @@ gapi.load('client', async () => {
         bucket: 'Test string',
         ifMetagenerationMatch: 'Test string',
         ifMetagenerationNotMatch: 'Test string',
-        predefinedAcl: 'Test string',
-        predefinedDefaultObjectAcl: 'Test string',
-        projection: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        predefinedDefaultObjectAcl: 'authenticatedRead',
+        projection: 'full',
         userProject: 'Test string',
       },
       {
@@ -503,16 +503,16 @@ gapi.load('client', async () => {
         encryption: {
           customerManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           customerSuppliedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           defaultKmsKeyName: 'Test string',
           googleManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
         },
         etag: 'Test string',
@@ -641,7 +641,7 @@ gapi.load('client', async () => {
     await gapi.client.storage.buckets.restore({
       bucket: 'Test string',
       generation: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       userProject: 'Test string',
     });
     /** Updates an IAM policy for the specified bucket. */
@@ -681,9 +681,9 @@ gapi.load('client', async () => {
         bucket: 'Test string',
         ifMetagenerationMatch: 'Test string',
         ifMetagenerationNotMatch: 'Test string',
-        predefinedAcl: 'Test string',
-        predefinedDefaultObjectAcl: 'Test string',
-        projection: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        predefinedDefaultObjectAcl: 'authenticatedRead',
+        projection: 'full',
         userProject: 'Test string',
       },
       {
@@ -749,16 +749,16 @@ gapi.load('client', async () => {
         encryption: {
           customerManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           customerSuppliedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
           defaultKmsKeyName: 'Test string',
           googleManagedEncryptionEnforcementConfig: {
             effectiveTime: 'Test string',
-            restrictionMode: 'Test string',
+            restrictionMode: 'NotRestricted',
           },
         },
         etag: 'Test string',
@@ -1061,7 +1061,7 @@ gapi.load('client', async () => {
         rapidCacheConfig: {
           policies: {
             A: {
-              ingestOnWrite: 'Test string',
+              ingestOnWrite: 'enabled',
               rapidCacheId: 'Test string',
             },
           },
@@ -1128,7 +1128,7 @@ gapi.load('client', async () => {
         rapidCacheConfig: {
           policies: {
             A: {
-              ingestOnWrite: 'Test string',
+              ingestOnWrite: 'enabled',
               rapidCacheId: 'Test string',
             },
           },
@@ -1300,7 +1300,7 @@ gapi.load('client', async () => {
       {
         destinationBucket: 'Test string',
         destinationObject: 'Test string',
-        destinationPredefinedAcl: 'Test string',
+        destinationPredefinedAcl: 'authenticatedRead',
         dropContextGroups: 'Test string',
         ifGenerationMatch: 'Test string',
         ifMetagenerationMatch: 'Test string',
@@ -1409,7 +1409,7 @@ gapi.load('client', async () => {
         destinationBucket: 'Test string',
         destinationKmsKeyName: 'Test string',
         destinationObject: 'Test string',
-        destinationPredefinedAcl: 'Test string',
+        destinationPredefinedAcl: 'authenticatedRead',
         ifGenerationMatch: 'Test string',
         ifGenerationNotMatch: 'Test string',
         ifMetagenerationMatch: 'Test string',
@@ -1418,7 +1418,7 @@ gapi.load('client', async () => {
         ifSourceGenerationNotMatch: 'Test string',
         ifSourceMetagenerationMatch: 'Test string',
         ifSourceMetagenerationNotMatch: 'Test string',
-        projection: 'Test string',
+        projection: 'full',
         sourceBucket: 'Test string',
         sourceGeneration: 'Test string',
         sourceObject: 'Test string',
@@ -1527,7 +1527,7 @@ gapi.load('client', async () => {
       ifMetagenerationMatch: 'Test string',
       ifMetagenerationNotMatch: 'Test string',
       object: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       restoreToken: 'Test string',
       softDeleted: true,
       userProject: 'Test string',
@@ -1550,8 +1550,8 @@ gapi.load('client', async () => {
         ifMetagenerationNotMatch: 'Test string',
         kmsKeyName: 'Test string',
         name: 'Test string',
-        predefinedAcl: 'Test string',
-        projection: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        projection: 'full',
         userProject: 'Test string',
       },
       {
@@ -1649,7 +1649,7 @@ gapi.load('client', async () => {
       maxResults: 42,
       pageToken: 'Test string',
       prefix: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       softDeleted: true,
       startOffset: 'Test string',
       userProject: 'Test string',
@@ -1667,7 +1667,7 @@ gapi.load('client', async () => {
       ifSourceGenerationNotMatch: 'Test string',
       ifSourceMetagenerationMatch: 'Test string',
       ifSourceMetagenerationNotMatch: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       sourceObject: 'Test string',
       userProject: 'Test string',
     });
@@ -1682,8 +1682,8 @@ gapi.load('client', async () => {
         ifMetagenerationNotMatch: 'Test string',
         object: 'Test string',
         overrideUnlockedRetention: true,
-        predefinedAcl: 'Test string',
-        projection: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        projection: 'full',
         userProject: 'Test string',
       },
       {
@@ -1779,7 +1779,7 @@ gapi.load('client', async () => {
       ifMetagenerationMatch: 'Test string',
       ifMetagenerationNotMatch: 'Test string',
       object: 'Test string',
-      projection: 'Test string',
+      projection: 'full',
       restoreToken: 'Test string',
       userProject: 'Test string',
     });
@@ -1789,7 +1789,7 @@ gapi.load('client', async () => {
         destinationBucket: 'Test string',
         destinationKmsKeyName: 'Test string',
         destinationObject: 'Test string',
-        destinationPredefinedAcl: 'Test string',
+        destinationPredefinedAcl: 'authenticatedRead',
         dropContextGroups: 'Test string',
         ifGenerationMatch: 'Test string',
         ifGenerationNotMatch: 'Test string',
@@ -1800,7 +1800,7 @@ gapi.load('client', async () => {
         ifSourceMetagenerationMatch: 'Test string',
         ifSourceMetagenerationNotMatch: 'Test string',
         maxBytesRewrittenPerCall: 'Test string',
-        projection: 'Test string',
+        projection: 'full',
         rewriteToken: 'Test string',
         sourceBucket: 'Test string',
         sourceGeneration: 'Test string',
@@ -1936,8 +1936,8 @@ gapi.load('client', async () => {
         ifMetagenerationNotMatch: 'Test string',
         object: 'Test string',
         overrideUnlockedRetention: true,
-        predefinedAcl: 'Test string',
-        projection: 'Test string',
+        predefinedAcl: 'authenticatedRead',
+        projection: 'full',
         userProject: 'Test string',
       },
       {

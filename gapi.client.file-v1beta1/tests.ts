@@ -54,7 +54,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         downloadBytes: 'Test string',
-        fileSystemProtocol: 'Test string',
+        fileSystemProtocol: 'FILE_PROTOCOL_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
@@ -64,9 +64,9 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         sourceFileShare: 'Test string',
         sourceInstance: 'Test string',
-        sourceInstanceTier: 'Test string',
+        sourceInstanceTier: 'TIER_UNSPECIFIED',
         sourceVolume: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageBytes: 'Test string',
         tags: {
           A: 'Test string',
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         description: 'Test string',
         downloadBytes: 'Test string',
-        fileSystemProtocol: 'Test string',
+        fileSystemProtocol: 'FILE_PROTOCOL_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
@@ -110,9 +110,9 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         sourceFileShare: 'Test string',
         sourceInstance: 'Test string',
-        sourceInstanceTier: 'Test string',
+        sourceInstanceTier: 'TIER_UNSPECIFIED',
         sourceVolume: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageBytes: 'Test string',
         tags: {
           A: 'Test string',
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        backendType: 'Test string',
+        backendType: 'BACKEND_TYPE_UNSPECIFIED',
         capacityGb: 'Test string',
         capacityStepSizeGb: 'Test string',
         createTime: 'Test string',
@@ -153,13 +153,13 @@ gapi.load('client', async () => {
             name: 'Test string',
             nfsExportOptions: [
               {
-                accessMode: 'Test string',
+                accessMode: 'ACCESS_MODE_UNSPECIFIED',
                 anonGid: 'Test string',
                 anonUid: 'Test string',
                 ipRanges: ['Test string'],
                 network: 'Test string',
-                securityFlavors: ['Test string'],
-                squashMode: 'Test string',
+                securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+                squashMode: 'SQUASH_MODE_UNSPECIFIED',
               },
             ],
             restoreConfig: {
@@ -180,9 +180,9 @@ gapi.load('client', async () => {
         name: 'Test string',
         networks: [
           {
-            connectMode: 'Test string',
+            connectMode: 'CONNECT_MODE_UNSPECIFIED',
             ipAddresses: ['Test string'],
-            modes: ['Test string'],
+            modes: ['ADDRESS_MODE_UNSPECIFIED'],
             network: 'Test string',
             pscConfig: {
               endpointProject: 'Test string',
@@ -206,28 +206,28 @@ gapi.load('client', async () => {
           maxWriteIops: 'Test string',
           maxWriteThroughputBps: 'Test string',
         },
-        protocol: 'Test string',
+        protocol: 'FILE_PROTOCOL_UNSPECIFIED',
         replication: {
           replicas: [
             {
               lastActiveSyncTime: 'Test string',
               peerInstance: 'Test string',
-              state: 'Test string',
-              stateReasons: ['Test string'],
+              state: 'STATE_UNSPECIFIED',
+              stateReasons: ['STATE_REASON_UNSPECIFIED'],
               stateUpdateTime: 'Test string',
             },
           ],
-          role: 'Test string',
+          role: 'ROLE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         statusMessage: 'Test string',
-        suspensionReasons: ['Test string'],
+        suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
         tags: {
           A: 'Test string',
         },
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
       },
     );
     /** Deletes an instance. */
@@ -254,7 +254,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        backendType: 'Test string',
+        backendType: 'BACKEND_TYPE_UNSPECIFIED',
         capacityGb: 'Test string',
         capacityStepSizeGb: 'Test string',
         createTime: 'Test string',
@@ -281,13 +281,13 @@ gapi.load('client', async () => {
             name: 'Test string',
             nfsExportOptions: [
               {
-                accessMode: 'Test string',
+                accessMode: 'ACCESS_MODE_UNSPECIFIED',
                 anonGid: 'Test string',
                 anonUid: 'Test string',
                 ipRanges: ['Test string'],
                 network: 'Test string',
-                securityFlavors: ['Test string'],
-                squashMode: 'Test string',
+                securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+                squashMode: 'SQUASH_MODE_UNSPECIFIED',
               },
             ],
             restoreConfig: {
@@ -308,9 +308,9 @@ gapi.load('client', async () => {
         name: 'Test string',
         networks: [
           {
-            connectMode: 'Test string',
+            connectMode: 'CONNECT_MODE_UNSPECIFIED',
             ipAddresses: ['Test string'],
-            modes: ['Test string'],
+            modes: ['ADDRESS_MODE_UNSPECIFIED'],
             network: 'Test string',
             pscConfig: {
               endpointProject: 'Test string',
@@ -334,28 +334,28 @@ gapi.load('client', async () => {
           maxWriteIops: 'Test string',
           maxWriteThroughputBps: 'Test string',
         },
-        protocol: 'Test string',
+        protocol: 'FILE_PROTOCOL_UNSPECIFIED',
         replication: {
           replicas: [
             {
               lastActiveSyncTime: 'Test string',
               peerInstance: 'Test string',
-              state: 'Test string',
-              stateReasons: ['Test string'],
+              state: 'STATE_UNSPECIFIED',
+              stateReasons: ['STATE_REASON_UNSPECIFIED'],
               stateUpdateTime: 'Test string',
             },
           ],
-          role: 'Test string',
+          role: 'ROLE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         statusMessage: 'Test string',
-        suspensionReasons: ['Test string'],
+        suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
         tags: {
           A: 'Test string',
         },
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
       },
     );
     /** Pause the standby instance (replica). WARNING: This operation makes the standby instance's NFS filesystem writable. Any data written to the standby instance while paused will be lost when the replica is resumed or promoted. */
@@ -420,16 +420,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nfsExportOptions: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a share. */
@@ -467,16 +467,16 @@ gapi.load('client', async () => {
         name: 'Test string',
         nfsExportOptions: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates a snapshot. */
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -530,7 +530,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -597,7 +597,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
       },
     );
@@ -636,7 +636,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
       },
     );
@@ -651,13 +651,13 @@ gapi.load('client', async () => {
         description: 'Test string',
         ipAcls: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
         labels: {
@@ -669,7 +669,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         quotaMib: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates a volume in a volume pool from an existing data source (such as a Filestore backup). */
@@ -681,13 +681,13 @@ gapi.load('client', async () => {
         backup: 'Test string',
         ipAcls: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
         quota: 'Test string',
@@ -722,13 +722,13 @@ gapi.load('client', async () => {
         description: 'Test string',
         ipAcls: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
         labels: {
@@ -740,7 +740,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         quotaMib: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Unfreezes a volume. */
@@ -751,13 +751,13 @@ gapi.load('client', async () => {
       {
         ipAcls: [
           {
-            accessMode: 'Test string',
+            accessMode: 'ACCESS_MODE_UNSPECIFIED',
             anonGid: 'Test string',
             anonUid: 'Test string',
             ipRanges: ['Test string'],
             network: 'Test string',
-            securityFlavors: ['Test string'],
-            squashMode: 'Test string',
+            securityFlavors: ['SECURITY_FLAVOR_UNSPECIFIED'],
+            squashMode: 'SQUASH_MODE_UNSPECIFIED',
           },
         ],
         quota: 'Test string',

@@ -60,7 +60,7 @@ gapi.load('client', async () => {
       {
         flights: [
           {
-            cabinClass: 'Test string',
+            cabinClass: 'CABIN_CLASS_UNSPECIFIED',
             carrierCode: 'Test string',
             departureDate: {
               day: 42,

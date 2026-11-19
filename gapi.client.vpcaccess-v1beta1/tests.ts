@@ -57,7 +57,7 @@ gapi.load('client', async () => {
         minThroughput: 42,
         name: 'Test string',
         network: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subnet: {
           name: 'Test string',
           projectId: 'Test string',
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
         minThroughput: 42,
         name: 'Test string',
         network: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         subnet: {
           name: 'Test string',
           projectId: 'Test string',

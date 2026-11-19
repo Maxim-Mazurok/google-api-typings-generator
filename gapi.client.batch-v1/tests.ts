@@ -106,7 +106,7 @@ gapi.load('client', async () => {
                 ],
                 machineType: 'Test string',
                 minCpuPlatform: 'Test string',
-                provisioningModel: 'Test string',
+                provisioningModel: 'PROVISIONING_MODEL_UNSPECIFIED',
                 reservation: 'Test string',
               },
             },
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
             networkInterfaces: [
               {
                 network: 'Test string',
-                nicType: 'Test string',
+                nicType: 'NIC_TYPE_UNSPECIFIED',
                 noExternalIpAddress: true,
                 subnetwork: 'Test string',
               },
@@ -145,16 +145,16 @@ gapi.load('client', async () => {
           cloudLoggingOption: {
             useGenericTaskMonitoredResource: true,
           },
-          destination: 'Test string',
+          destination: 'DESTINATION_UNSPECIFIED',
           logsPath: 'Test string',
         },
         name: 'Test string',
         notifications: [
           {
             message: {
-              newJobState: 'Test string',
-              newTaskState: 'Test string',
-              type: 'Test string',
+              newJobState: 'STATE_UNSPECIFIED',
+              newTaskState: 'STATE_UNSPECIFIED',
+              type: 'TYPE_UNSPECIFIED',
             },
             pubsubTopic: 'Test string',
           },
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
         priority: 'Test string',
         status: {
           runDuration: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           statusEvents: [
             {
               description: 'Test string',
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
               taskExecution: {
                 exitCode: 42,
               },
-              taskState: 'Test string',
+              taskState: 'STATE_UNSPECIFIED',
               type: 'Test string',
             },
           ],
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
                     type: 'Test string',
                   },
                   machineType: 'Test string',
-                  provisioningModel: 'Test string',
+                  provisioningModel: 'PROVISIONING_MODEL_UNSPECIFIED',
                   taskPack: 'Test string',
                 },
               ],
@@ -203,7 +203,7 @@ gapi.load('client', async () => {
             permissiveSsh: true,
             requireHostsFile: true,
             runAsNonRoot: true,
-            schedulingPolicy: 'Test string',
+            schedulingPolicy: 'SCHEDULING_POLICY_UNSPECIFIED',
             taskCount: 'Test string',
             taskCountPerNode: 'Test string',
             taskEnvironments: [
@@ -243,7 +243,7 @@ gapi.load('client', async () => {
               },
               lifecyclePolicies: [
                 {
-                  action: 'Test string',
+                  action: 'ACTION_UNSPECIFIED',
                   actionCondition: {
                     exitCodes: [42],
                   },
@@ -375,14 +375,14 @@ gapi.load('client', async () => {
         agentInfo: {
           jobId: 'Test string',
           reportTime: 'Test string',
-          state: 'Test string',
+          state: 'AGENT_STATE_UNSPECIFIED',
           taskGroupId: 'Test string',
           tasks: [
             {
               runnable: 'Test string',
               taskId: 'Test string',
               taskStatus: {
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
                 statusEvents: [
                   {
                     description: 'Test string',
@@ -390,7 +390,7 @@ gapi.load('client', async () => {
                     taskExecution: {
                       exitCode: 42,
                     },
-                    taskState: 'Test string',
+                    taskState: 'STATE_UNSPECIFIED',
                     type: 'Test string',
                   },
                 ],

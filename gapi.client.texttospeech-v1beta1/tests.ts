@@ -38,7 +38,7 @@ gapi.load('client', async () => {
       },
       {
         audioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           effectsProfileId: ['Test string'],
           pitch: 42,
           sampleRateHertz: 42,
@@ -49,7 +49,7 @@ gapi.load('client', async () => {
           customPronunciations: {
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -72,7 +72,7 @@ gapi.load('client', async () => {
         voice: {
           customVoice: {
             model: 'Test string',
-            reportedUsage: 'Test string',
+            reportedUsage: 'REPORTED_USAGE_UNSPECIFIED',
           },
           languageCode: 'Test string',
           modelName: 'Test string',
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
             ],
           },
           name: 'Test string',
-          ssmlGender: 'Test string',
+          ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           voiceClone: {
             voiceCloningKey: 'Test string',
           },
@@ -115,26 +115,26 @@ gapi.load('client', async () => {
           safetySettings: {
             settings: [
               {
-                category: 'Test string',
-                threshold: 'Test string',
+                category: 'HARM_CATEGORY_UNSPECIFIED',
+                threshold: 'HARM_BLOCK_THRESHOLD_UNSPECIFIED',
               },
             ],
           },
         },
         audioConfig: {
-          audioEncoding: 'Test string',
+          audioEncoding: 'AUDIO_ENCODING_UNSPECIFIED',
           effectsProfileId: ['Test string'],
           pitch: 42,
           sampleRateHertz: 42,
           speakingRate: 42,
           volumeGainDb: 42,
         },
-        enableTimePointing: ['Test string'],
+        enableTimePointing: ['TIMEPOINT_TYPE_UNSPECIFIED'],
         input: {
           customPronunciations: {
             pronunciations: [
               {
-                phoneticEncoding: 'Test string',
+                phoneticEncoding: 'PHONETIC_ENCODING_UNSPECIFIED',
                 phrase: 'Test string',
                 pronunciation: 'Test string',
               },
@@ -156,7 +156,7 @@ gapi.load('client', async () => {
         voice: {
           customVoice: {
             model: 'Test string',
-            reportedUsage: 'Test string',
+            reportedUsage: 'REPORTED_USAGE_UNSPECIFIED',
           },
           languageCode: 'Test string',
           modelName: 'Test string',
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
             ],
           },
           name: 'Test string',
-          ssmlGender: 'Test string',
+          ssmlGender: 'SSML_VOICE_GENDER_UNSPECIFIED',
           voiceClone: {
             voiceCloningKey: 'Test string',
           },

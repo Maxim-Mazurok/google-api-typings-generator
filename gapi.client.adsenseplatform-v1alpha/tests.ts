@@ -111,7 +111,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         regionCode: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         timeZone: {
           id: 'Test string',
           version: 'Test string',
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
           email: 'Test string',
         },
         eventTime: 'Test string',
-        eventType: 'Test string',
+        eventType: 'EVENT_TYPE_UNSPECIFIED',
       },
     );
     /** Creates a site for a specified account. */
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
       {
         domain: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a site from a specified account. */

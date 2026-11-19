@@ -122,7 +122,7 @@ gapi.load('client', async () => {
               {
                 attachmentUri: 'Test string',
                 resourceUrl: 'Test string',
-                source: 'Test string',
+                source: 'SOURCE_UNSPECIFIED',
               },
             ],
             layerDetails: {
@@ -155,7 +155,7 @@ gapi.load('client', async () => {
             os: 'Test string',
             osVersion: 'Test string',
             package: 'Test string',
-            packageType: 'Test string',
+            packageType: 'PACKAGE_TYPE_UNSPECIFIED',
             patchedCve: ['Test string'],
             sourceVersion: {
               licenses: ['Test string'],

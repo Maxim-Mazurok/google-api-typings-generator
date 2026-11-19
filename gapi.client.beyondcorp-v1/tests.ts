@@ -110,7 +110,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -184,7 +184,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -334,20 +334,20 @@ gapi.load('client', async () => {
           clientIp: true,
           contextualHeaders: {
             deviceInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             dispatchInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             groupInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
-            outputType: 'Test string',
+            outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             userInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
           },
-          gatewayIdentity: 'Test string',
+          gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
           metadataHeaders: {
             A: 'Test string',
           },
@@ -359,7 +359,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -414,20 +414,20 @@ gapi.load('client', async () => {
           clientIp: true,
           contextualHeaders: {
             deviceInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             dispatchInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
             groupInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
-            outputType: 'Test string',
+            outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             userInfo: {
-              outputType: 'Test string',
+              outputType: 'OUTPUT_TYPE_UNSPECIFIED',
             },
           },
-          gatewayIdentity: 'Test string',
+          gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
           metadataHeaders: {
             A: 'Test string',
           },
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -455,7 +455,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        schema: 'Test string',
+        schema: 'SCHEMA_UNSPECIFIED',
         updateTime: 'Test string',
         upstreams: [
           {
@@ -528,20 +528,20 @@ gapi.load('client', async () => {
               clientIp: true,
               contextualHeaders: {
                 deviceInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 dispatchInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 groupInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
-                outputType: 'Test string',
+                outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 userInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
               },
-              gatewayIdentity: 'Test string',
+              gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
               metadataHeaders: {
                 A: 'Test string',
               },
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
           },
         ],
         name: 'Test string',
-        schema: 'Test string',
+        schema: 'SCHEMA_UNSPECIFIED',
         updateTime: 'Test string',
         upstreams: [
           {
@@ -621,20 +621,20 @@ gapi.load('client', async () => {
               clientIp: true,
               contextualHeaders: {
                 deviceInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 dispatchInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
                 groupInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
-                outputType: 'Test string',
+                outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 userInfo: {
-                  outputType: 'Test string',
+                  outputType: 'OUTPUT_TYPE_UNSPECIFIED',
                 },
               },
-              gatewayIdentity: 'Test string',
+              gatewayIdentity: 'GATEWAY_IDENTITY_UNSPECIFIED',
               metadataHeaders: {
                 A: 'Test string',
               },
@@ -655,7 +655,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

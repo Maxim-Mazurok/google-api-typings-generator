@@ -75,9 +75,9 @@ gapi.load('client', async () => {
       'userProcessFilter.projectName': 'Test string',
       'userProcessFilter.scriptId': 'Test string',
       'userProcessFilter.startTime': 'Test string',
-      'userProcessFilter.statuses': 'Test string',
-      'userProcessFilter.types': 'Test string',
-      'userProcessFilter.userAccessLevels': 'Test string',
+      'userProcessFilter.statuses': 'PROCESS_STATUS_UNSPECIFIED',
+      'userProcessFilter.types': 'PROCESS_TYPE_UNSPECIFIED',
+      'userProcessFilter.userAccessLevels': 'USER_ACCESS_LEVEL_UNSPECIFIED',
     });
     /** List information about a script's executed processes, such as process type and current status. */
     await gapi.client.script.processes.listScriptProcesses({
@@ -88,9 +88,9 @@ gapi.load('client', async () => {
       'scriptProcessFilter.endTime': 'Test string',
       'scriptProcessFilter.functionName': 'Test string',
       'scriptProcessFilter.startTime': 'Test string',
-      'scriptProcessFilter.statuses': 'Test string',
-      'scriptProcessFilter.types': 'Test string',
-      'scriptProcessFilter.userAccessLevels': 'Test string',
+      'scriptProcessFilter.statuses': 'PROCESS_STATUS_UNSPECIFIED',
+      'scriptProcessFilter.types': 'PROCESS_TYPE_UNSPECIFIED',
+      'scriptProcessFilter.userAccessLevels': 'USER_ACCESS_LEVEL_UNSPECIFIED',
     });
     /** Creates a new, empty script project with no script files and a base manifest file. */
     await gapi.client.script.projects.create(
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
     /** Get metrics data for scripts, such as number of executions and active users. */
     await gapi.client.script.projects.getMetrics({
       'metricsFilter.deploymentId': 'Test string',
-      metricsGranularity: 'Test string',
+      metricsGranularity: 'UNSPECIFIED_GRANULARITY',
       scriptId: 'Test string',
     });
     /** Updates the content of the specified script project. This content is stored as the HEAD version, and is used when the script is executed as a trigger, in the script editor, in add-on preview mode, or as a web app or Apps Script API in development mode. This clears all the existing files in the project. */
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
             },
             name: 'Test string',
             source: 'Test string',
-            type: 'Test string',
+            type: 'ENUM_TYPE_UNSPECIFIED',
             updateTime: 'Test string',
           },
         ],

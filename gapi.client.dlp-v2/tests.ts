@@ -69,7 +69,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -85,7 +85,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -120,7 +120,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -158,7 +158,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -184,7 +185,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -204,7 +205,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -225,7 +226,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -258,7 +259,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -277,7 +278,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -299,7 +300,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -319,7 +320,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -336,7 +337,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -344,7 +345,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -359,7 +360,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -374,7 +375,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -390,7 +391,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -409,7 +410,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -428,7 +429,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -447,7 +448,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -473,7 +475,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -493,7 +495,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -514,7 +517,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -547,7 +550,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -566,7 +569,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -588,7 +591,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -608,7 +611,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -625,7 +628,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -644,7 +647,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -663,7 +666,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -682,7 +685,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -708,7 +712,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -728,7 +732,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -749,7 +753,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -782,7 +786,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -801,7 +805,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -823,7 +827,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -843,7 +847,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -858,7 +862,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -866,7 +870,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -881,7 +885,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -941,7 +945,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -957,7 +961,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -973,7 +977,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -992,7 +996,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -1011,7 +1015,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -1030,7 +1034,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -1056,7 +1061,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -1076,7 +1081,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -1097,7 +1102,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -1130,7 +1135,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1149,7 +1154,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1171,7 +1176,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1191,7 +1196,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -1208,7 +1213,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -1216,7 +1221,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -1231,7 +1236,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -1246,7 +1251,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -1262,7 +1267,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -1281,7 +1286,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -1300,7 +1305,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -1319,7 +1324,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -1345,7 +1351,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -1365,7 +1371,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -1386,7 +1393,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -1419,7 +1426,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -1438,7 +1445,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -1460,7 +1467,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -1480,7 +1487,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -1497,7 +1504,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -1516,7 +1523,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -1535,7 +1542,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -1554,7 +1561,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -1580,7 +1588,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -1600,7 +1608,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -1621,7 +1629,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -1654,7 +1662,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1673,7 +1681,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1695,7 +1703,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -1715,7 +1723,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -1730,7 +1738,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -1738,7 +1746,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -1753,7 +1761,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -1784,7 +1792,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -1795,7 +1803,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -1813,7 +1821,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -1831,11 +1839,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -1845,7 +1853,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -1860,7 +1868,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -1871,7 +1879,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -1881,17 +1889,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -1900,7 +1908,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -1918,28 +1926,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -1972,7 +1980,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -1983,13 +1991,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -2001,7 +2009,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -2049,7 +2057,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -2060,7 +2068,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -2078,7 +2086,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -2096,11 +2104,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -2110,7 +2118,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -2125,7 +2133,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -2136,7 +2144,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -2146,17 +2154,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -2165,7 +2173,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -2183,28 +2191,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -2237,7 +2245,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -2248,13 +2256,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -2266,7 +2274,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -2307,7 +2315,7 @@ gapi.load('client', async () => {
           cloudSql: {
             cloudSqlIam: {},
             connectionName: 'Test string',
-            databaseEngine: 'Test string',
+            databaseEngine: 'DATABASE_ENGINE_UNKNOWN',
             maxConnections: 42,
             usernamePassword: {
               passwordSecretVersionName: 'Test string',
@@ -2325,12 +2333,12 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           name: 'Test string',
-          state: 'Test string',
+          state: 'CONNECTION_STATE_UNSPECIFIED',
         },
       },
     );
@@ -2359,7 +2367,7 @@ gapi.load('client', async () => {
           cloudSql: {
             cloudSqlIam: {},
             connectionName: 'Test string',
-            databaseEngine: 'Test string',
+            databaseEngine: 'DATABASE_ENGINE_UNKNOWN',
             maxConnections: 42,
             usernamePassword: {
               passwordSecretVersionName: 'Test string',
@@ -2377,12 +2385,12 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           name: 'Test string',
-          state: 'Test string',
+          state: 'CONNECTION_STATE_UNSPECIFIED',
         },
         updateMask: 'Test string',
       },
@@ -2418,7 +2426,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -2434,7 +2442,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -2450,7 +2458,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -2469,7 +2477,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -2488,7 +2496,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -2507,7 +2515,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -2533,7 +2542,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -2553,7 +2562,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -2574,7 +2583,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -2607,7 +2616,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -2626,7 +2635,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -2648,7 +2657,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -2668,7 +2677,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -2685,7 +2694,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -2693,7 +2702,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -2708,7 +2717,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -2723,7 +2732,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -2739,7 +2748,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -2758,7 +2767,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -2777,7 +2786,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -2796,7 +2805,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -2822,7 +2832,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -2842,7 +2852,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -2863,7 +2874,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -2896,7 +2907,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -2915,7 +2926,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -2937,7 +2948,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -2957,7 +2968,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -2974,7 +2985,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -2993,7 +3004,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3012,7 +3023,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3031,7 +3042,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -3057,7 +3069,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3077,7 +3089,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -3098,7 +3110,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3131,7 +3143,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3150,7 +3162,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3172,7 +3184,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3192,7 +3204,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -3207,7 +3219,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -3215,7 +3227,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -3230,7 +3242,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -3290,7 +3302,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3306,7 +3318,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -3322,7 +3334,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3341,7 +3353,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3360,7 +3372,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3379,7 +3391,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -3405,7 +3418,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3425,7 +3438,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -3446,7 +3459,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3479,7 +3492,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3498,7 +3511,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3520,7 +3533,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -3540,7 +3553,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -3557,7 +3570,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -3565,7 +3578,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -3580,7 +3593,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -3595,7 +3608,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -3611,7 +3624,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -3630,7 +3643,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -3649,7 +3662,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -3668,7 +3681,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -3694,7 +3708,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -3714,7 +3728,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -3735,7 +3750,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -3768,7 +3783,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -3787,7 +3802,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -3809,7 +3824,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -3829,7 +3844,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -3846,7 +3861,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3865,7 +3880,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3884,7 +3899,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -3903,7 +3918,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -3929,7 +3945,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -3949,7 +3965,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -3970,7 +3986,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -4003,7 +4019,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -4022,7 +4038,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -4044,7 +4060,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -4064,7 +4080,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -4079,7 +4095,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -4087,7 +4103,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -4102,7 +4118,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -4149,28 +4165,29 @@ gapi.load('client', async () => {
               },
               publishToScc: {},
               pubSubNotification: {
-                detailOfMessage: 'Test string',
-                event: 'Test string',
+                detailOfMessage: 'DETAIL_LEVEL_UNSPECIFIED',
+                event: 'EVENT_TYPE_UNSPECIFIED',
                 pubsubCondition: {
                   expressions: {
                     conditions: [
                       {
-                        minimumRiskScore: 'Test string',
-                        minimumSensitivityScore: 'Test string',
+                        minimumRiskScore: 'PROFILE_SCORE_BUCKET_UNSPECIFIED',
+                        minimumSensitivityScore:
+                          'PROFILE_SCORE_BUCKET_UNSPECIFIED',
                       },
                     ],
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 topic: 'Test string',
               },
               tagResources: {
                 lowerDataRiskToLow: true,
-                profileGenerationsToTag: ['Test string'],
+                profileGenerationsToTag: ['PROFILE_GENERATION_UNSPECIFIED'],
                 tagConditions: [
                   {
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     tag: {
                       namespacedValue: 'Test string',
@@ -4193,7 +4210,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -4223,22 +4240,22 @@ gapi.load('client', async () => {
               multiRegionProcessing: {},
             },
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           targets: [
             {
               bigQueryTarget: {
                 cadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                   tableModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['TABLE_MODIFICATION_UNSPECIFIED'],
                   },
                 },
                 conditions: {
@@ -4247,9 +4264,9 @@ gapi.load('client', async () => {
                     minAge: 'Test string',
                     minRowCount: 42,
                   },
-                  typeCollection: 'Test string',
+                  typeCollection: 'BIG_QUERY_COLLECTION_UNSPECIFIED',
                   types: {
-                    types: ['Test string'],
+                    types: ['BIG_QUERY_TABLE_TYPE_UNSPECIFIED'],
                   },
                 },
                 disabled: {},
@@ -4275,8 +4292,8 @@ gapi.load('client', async () => {
               },
               cloudSqlTarget: {
                 conditions: {
-                  databaseEngines: ['Test string'],
-                  types: ['Test string'],
+                  databaseEngines: ['DATABASE_ENGINE_UNSPECIFIED'],
+                  types: ['DATABASE_RESOURCE_TYPE_UNSPECIFIED'],
                 },
                 disabled: {},
                 filter: {
@@ -4302,20 +4319,24 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SQL_SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                 },
               },
               cloudStorageTarget: {
                 conditions: {
                   cloudStorageConditions: {
-                    includedBucketAttributes: ['Test string'],
-                    includedObjectAttributes: ['Test string'],
+                    includedBucketAttributes: [
+                      'CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED',
+                    ],
+                    includedObjectAttributes: [
+                      'CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED',
+                    ],
                   },
                   createdAfter: 'Test string',
                   minAge: 'Test string',
@@ -4350,16 +4371,16 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               otherCloudTarget: {
                 conditions: {
                   amazonS3BucketConditions: {
-                    bucketTypes: ['Test string'],
-                    objectStorageClasses: ['Test string'],
+                    bucketTypes: ['TYPE_UNSPECIFIED'],
+                    objectStorageClasses: ['UNSPECIFIED'],
                   },
                   minAge: 'Test string',
                 },
@@ -4394,9 +4415,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               secretsTarget: {},
@@ -4423,9 +4444,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
             },
@@ -4476,28 +4497,29 @@ gapi.load('client', async () => {
               },
               publishToScc: {},
               pubSubNotification: {
-                detailOfMessage: 'Test string',
-                event: 'Test string',
+                detailOfMessage: 'DETAIL_LEVEL_UNSPECIFIED',
+                event: 'EVENT_TYPE_UNSPECIFIED',
                 pubsubCondition: {
                   expressions: {
                     conditions: [
                       {
-                        minimumRiskScore: 'Test string',
-                        minimumSensitivityScore: 'Test string',
+                        minimumRiskScore: 'PROFILE_SCORE_BUCKET_UNSPECIFIED',
+                        minimumSensitivityScore:
+                          'PROFILE_SCORE_BUCKET_UNSPECIFIED',
                       },
                     ],
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 topic: 'Test string',
               },
               tagResources: {
                 lowerDataRiskToLow: true,
-                profileGenerationsToTag: ['Test string'],
+                profileGenerationsToTag: ['PROFILE_GENERATION_UNSPECIFIED'],
                 tagConditions: [
                   {
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     tag: {
                       namespacedValue: 'Test string',
@@ -4520,7 +4542,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -4550,22 +4572,22 @@ gapi.load('client', async () => {
               multiRegionProcessing: {},
             },
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           targets: [
             {
               bigQueryTarget: {
                 cadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                   tableModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['TABLE_MODIFICATION_UNSPECIFIED'],
                   },
                 },
                 conditions: {
@@ -4574,9 +4596,9 @@ gapi.load('client', async () => {
                     minAge: 'Test string',
                     minRowCount: 42,
                   },
-                  typeCollection: 'Test string',
+                  typeCollection: 'BIG_QUERY_COLLECTION_UNSPECIFIED',
                   types: {
-                    types: ['Test string'],
+                    types: ['BIG_QUERY_TABLE_TYPE_UNSPECIFIED'],
                   },
                 },
                 disabled: {},
@@ -4602,8 +4624,8 @@ gapi.load('client', async () => {
               },
               cloudSqlTarget: {
                 conditions: {
-                  databaseEngines: ['Test string'],
-                  types: ['Test string'],
+                  databaseEngines: ['DATABASE_ENGINE_UNSPECIFIED'],
+                  types: ['DATABASE_RESOURCE_TYPE_UNSPECIFIED'],
                 },
                 disabled: {},
                 filter: {
@@ -4629,20 +4651,24 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SQL_SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                 },
               },
               cloudStorageTarget: {
                 conditions: {
                   cloudStorageConditions: {
-                    includedBucketAttributes: ['Test string'],
-                    includedObjectAttributes: ['Test string'],
+                    includedBucketAttributes: [
+                      'CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED',
+                    ],
+                    includedObjectAttributes: [
+                      'CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED',
+                    ],
                   },
                   createdAfter: 'Test string',
                   minAge: 'Test string',
@@ -4677,16 +4703,16 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               otherCloudTarget: {
                 conditions: {
                   amazonS3BucketConditions: {
-                    bucketTypes: ['Test string'],
-                    objectStorageClasses: ['Test string'],
+                    bucketTypes: ['TYPE_UNSPECIFIED'],
+                    objectStorageClasses: ['UNSPECIFIED'],
                   },
                   minAge: 'Test string',
                 },
@@ -4721,9 +4747,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               secretsTarget: {},
@@ -4750,9 +4776,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
             },
@@ -4770,7 +4796,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration. */
     await gapi.client.dlp.organizations.locations.fileStoreDataProfiles.delete({
@@ -4807,7 +4833,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -4818,7 +4844,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -4836,7 +4862,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -4854,11 +4880,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -4868,7 +4894,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -4883,7 +4909,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -4894,7 +4920,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -4904,17 +4930,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -4923,7 +4949,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -4941,28 +4967,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -4995,7 +5021,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -5006,13 +5032,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -5024,7 +5050,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -5072,7 +5098,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -5083,7 +5109,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -5101,7 +5127,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -5119,11 +5145,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -5133,7 +5159,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -5148,7 +5174,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -5159,7 +5185,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -5169,17 +5195,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -5188,7 +5214,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -5206,28 +5232,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -5260,7 +5286,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -5271,13 +5297,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -5289,7 +5315,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -5329,7 +5355,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -5338,7 +5364,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -5362,7 +5388,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -5376,7 +5402,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -5387,7 +5413,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -5405,7 +5431,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -5423,11 +5449,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -5437,7 +5463,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -5452,7 +5478,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -5463,7 +5489,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -5473,17 +5499,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -5492,7 +5518,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -5510,28 +5536,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -5564,7 +5590,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -5575,13 +5601,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -5593,7 +5619,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -5626,7 +5652,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -5645,8 +5671,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -5683,7 +5709,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},
@@ -5714,7 +5740,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Updates a job trigger. See https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.organizations.locations.jobTriggers.patch(
@@ -5737,7 +5763,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -5746,7 +5772,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -5770,7 +5796,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -5784,7 +5810,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -5795,7 +5821,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -5813,7 +5839,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -5831,11 +5857,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -5845,7 +5871,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -5860,7 +5886,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -5871,7 +5897,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -5881,17 +5907,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -5900,7 +5926,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -5918,28 +5944,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -5972,7 +5998,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -5983,13 +6009,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -6001,7 +6027,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -6034,7 +6060,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -6053,8 +6079,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -6091,7 +6117,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},
@@ -6361,7 +6387,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -6377,7 +6403,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -6393,7 +6419,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6412,7 +6438,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6431,7 +6457,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6450,7 +6476,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -6476,7 +6503,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -6496,7 +6523,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -6517,7 +6544,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -6550,7 +6577,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -6569,7 +6596,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -6591,7 +6618,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -6611,7 +6638,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -6628,7 +6655,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -6636,7 +6663,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -6651,7 +6678,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 fields: [
@@ -6666,7 +6693,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -6682,7 +6709,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -6701,7 +6728,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -6720,7 +6747,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -6739,7 +6766,8 @@ gapi.load('client', async () => {
                           charactersToIgnore: [
                             {
                               charactersToSkip: 'Test string',
-                              commonCharactersToIgnore: 'Test string',
+                              commonCharactersToIgnore:
+                                'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                             },
                           ],
                           maskingCharacter: 'Test string',
@@ -6765,7 +6793,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -6785,7 +6813,8 @@ gapi.load('client', async () => {
                           },
                         },
                         cryptoReplaceFfxFpeConfig: {
-                          commonAlphabet: 'Test string',
+                          commonAlphabet:
+                            'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                           context: {
                             name: 'Test string',
                           },
@@ -6806,7 +6835,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -6839,7 +6868,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -6858,7 +6887,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -6880,7 +6909,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -6900,7 +6929,7 @@ gapi.load('client', async () => {
                         },
                         replaceWithInfoTypeConfig: {},
                         timePartConfig: {
-                          partToExtract: 'Test string',
+                          partToExtract: 'TIME_PART_UNSPECIFIED',
                         },
                       },
                     },
@@ -6917,7 +6946,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6936,7 +6965,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6955,7 +6984,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -6974,7 +7003,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -7000,7 +7030,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -7020,7 +7050,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -7041,7 +7071,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -7074,7 +7104,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -7093,7 +7123,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -7115,7 +7145,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -7135,7 +7165,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -7150,7 +7180,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -7158,7 +7188,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -7173,7 +7203,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
               },
@@ -7186,7 +7216,7 @@ gapi.load('client', async () => {
         },
         deidentifyTemplateName: 'Test string',
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -7197,7 +7227,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -7215,7 +7245,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -7233,11 +7263,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -7247,7 +7277,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -7262,7 +7292,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -7273,7 +7303,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -7283,17 +7313,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -7302,7 +7332,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -7320,28 +7350,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -7374,7 +7404,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -7385,13 +7415,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -7403,7 +7433,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -7425,7 +7455,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -7441,7 +7471,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -7478,7 +7508,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -7499,7 +7529,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -7527,7 +7557,7 @@ gapi.load('client', async () => {
       },
       {
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -7538,7 +7568,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -7556,7 +7586,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -7574,11 +7604,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -7588,7 +7618,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -7603,7 +7633,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -7614,7 +7644,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -7624,17 +7654,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -7643,7 +7673,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -7661,28 +7691,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -7715,7 +7745,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -7726,13 +7756,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -7744,7 +7774,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -7766,7 +7796,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -7782,7 +7812,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -7819,7 +7849,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -7840,7 +7870,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -7868,7 +7898,7 @@ gapi.load('client', async () => {
       },
       {
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -7879,7 +7909,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -7897,7 +7927,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -7915,11 +7945,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -7929,7 +7959,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -7944,7 +7974,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -7955,7 +7985,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -7965,17 +7995,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -7984,7 +8014,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -8002,28 +8032,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -8056,7 +8086,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -8067,13 +8097,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -8085,7 +8115,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -8107,7 +8137,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -8123,7 +8153,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -8160,7 +8190,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -8181,7 +8211,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -8216,7 +8246,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -8232,7 +8262,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -8248,7 +8278,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8267,7 +8297,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8286,7 +8316,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8305,7 +8335,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -8331,7 +8362,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -8351,7 +8382,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -8372,7 +8403,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -8405,7 +8436,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8424,7 +8455,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8446,7 +8477,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8466,7 +8497,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -8483,7 +8514,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -8491,7 +8522,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -8506,7 +8537,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 fields: [
@@ -8521,7 +8552,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -8537,7 +8568,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -8556,7 +8587,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -8575,7 +8606,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -8594,7 +8625,8 @@ gapi.load('client', async () => {
                           charactersToIgnore: [
                             {
                               charactersToSkip: 'Test string',
-                              commonCharactersToIgnore: 'Test string',
+                              commonCharactersToIgnore:
+                                'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                             },
                           ],
                           maskingCharacter: 'Test string',
@@ -8620,7 +8652,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -8640,7 +8672,8 @@ gapi.load('client', async () => {
                           },
                         },
                         cryptoReplaceFfxFpeConfig: {
-                          commonAlphabet: 'Test string',
+                          commonAlphabet:
+                            'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                           context: {
                             name: 'Test string',
                           },
@@ -8661,7 +8694,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -8694,7 +8727,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -8713,7 +8746,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -8735,7 +8768,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -8755,7 +8788,7 @@ gapi.load('client', async () => {
                         },
                         replaceWithInfoTypeConfig: {},
                         timePartConfig: {
-                          partToExtract: 'Test string',
+                          partToExtract: 'TIME_PART_UNSPECIFIED',
                         },
                       },
                     },
@@ -8772,7 +8805,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8791,7 +8824,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8810,7 +8843,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -8829,7 +8862,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -8855,7 +8889,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -8875,7 +8909,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -8896,7 +8930,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -8929,7 +8963,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8948,7 +8982,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8970,7 +9004,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -8990,7 +9024,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -9005,7 +9039,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -9013,7 +9047,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9028,7 +9062,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
               },
@@ -9066,7 +9100,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9082,7 +9116,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -9098,7 +9132,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9117,7 +9151,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9136,7 +9170,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9155,7 +9189,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -9181,7 +9216,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9201,7 +9236,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -9222,7 +9257,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9255,7 +9290,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9274,7 +9309,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9296,7 +9331,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9316,7 +9351,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -9333,7 +9368,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -9341,7 +9376,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -9356,7 +9391,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -9371,7 +9406,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -9387,7 +9422,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -9406,7 +9441,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -9425,7 +9460,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -9444,7 +9479,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -9470,7 +9506,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -9490,7 +9526,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -9511,7 +9548,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -9544,7 +9581,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -9563,7 +9600,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -9585,7 +9622,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -9605,7 +9642,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -9622,7 +9659,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9641,7 +9678,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9660,7 +9697,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9679,7 +9716,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -9705,7 +9743,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9725,7 +9763,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -9746,7 +9784,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9779,7 +9817,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9798,7 +9836,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9820,7 +9858,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -9840,7 +9878,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -9855,7 +9893,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -9863,7 +9901,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -9878,7 +9916,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -9938,7 +9976,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -9954,7 +9992,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -9970,7 +10008,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -9989,7 +10027,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -10008,7 +10046,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -10027,7 +10065,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -10053,7 +10092,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -10073,7 +10112,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -10094,7 +10133,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -10127,7 +10166,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10146,7 +10185,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10168,7 +10207,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10188,7 +10227,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -10205,7 +10244,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -10213,7 +10252,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -10228,7 +10267,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -10243,7 +10282,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -10259,7 +10298,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -10278,7 +10317,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -10297,7 +10336,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -10316,7 +10355,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -10342,7 +10382,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -10362,7 +10402,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -10383,7 +10424,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -10416,7 +10457,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -10435,7 +10476,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -10457,7 +10498,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -10477,7 +10518,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -10494,7 +10535,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -10513,7 +10554,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -10532,7 +10573,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -10551,7 +10592,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -10577,7 +10619,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -10597,7 +10639,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -10618,7 +10660,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -10651,7 +10693,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10670,7 +10712,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10692,7 +10734,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -10712,7 +10754,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -10727,7 +10769,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -10735,7 +10777,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -10750,7 +10792,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -10787,7 +10829,7 @@ gapi.load('client', async () => {
             {
               deidentify: {
                 cloudStorageOutput: 'Test string',
-                fileTypesToTransform: ['Test string'],
+                fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                 transformationConfig: {
                   deidentifyTemplate: 'Test string',
                   imageRedactTemplate: 'Test string',
@@ -10811,7 +10853,7 @@ gapi.load('client', async () => {
               },
               saveFindings: {
                 outputConfig: {
-                  outputSchema: 'Test string',
+                  outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                   storagePath: {
                     path: 'Test string',
                   },
@@ -10825,7 +10867,7 @@ gapi.load('client', async () => {
             },
           ],
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -10836,7 +10878,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -10854,7 +10896,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -10872,11 +10914,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -10886,7 +10928,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -10901,7 +10943,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -10912,7 +10954,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -10922,17 +10964,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -10941,7 +10983,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -10959,28 +11001,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -11013,7 +11055,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -11024,13 +11066,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -11042,7 +11084,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -11075,7 +11117,7 @@ gapi.load('client', async () => {
               ],
               rowsLimit: 'Test string',
               rowsLimitPercent: 42,
-              sampleMethod: 'Test string',
+              sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               tableReference: {
                 datasetId: 'Test string',
                 projectId: 'Test string',
@@ -11094,8 +11136,8 @@ gapi.load('client', async () => {
                 url: 'Test string',
               },
               filesLimitPercent: 42,
-              fileTypes: ['Test string'],
-              sampleMethod: 'Test string',
+              fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+              sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
             },
             datastoreOptions: {
               kind: {
@@ -11137,7 +11179,7 @@ gapi.load('client', async () => {
             {
               deidentify: {
                 cloudStorageOutput: 'Test string',
-                fileTypesToTransform: ['Test string'],
+                fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                 transformationConfig: {
                   deidentifyTemplate: 'Test string',
                   imageRedactTemplate: 'Test string',
@@ -11161,7 +11203,7 @@ gapi.load('client', async () => {
               },
               saveFindings: {
                 outputConfig: {
-                  outputSchema: 'Test string',
+                  outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                   storagePath: {
                     path: 'Test string',
                   },
@@ -11211,7 +11253,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11262,7 +11304,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11310,7 +11352,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. Only the first frame of each multiframe image is redacted. Metadata and other frames are omitted in the response. */
     await gapi.client.dlp.projects.image.redact(
@@ -11320,7 +11362,7 @@ gapi.load('client', async () => {
       {
         byteItem: {
           data: 'Test string',
-          type: 'Test string',
+          type: 'BYTES_TYPE_UNSPECIFIED',
         },
         deidentifyTemplate: 'Test string',
         imageRedactionConfigs: [
@@ -11328,7 +11370,7 @@ gapi.load('client', async () => {
             infoType: {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -11342,7 +11384,7 @@ gapi.load('client', async () => {
         ],
         includeFindings: true,
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -11353,7 +11395,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -11371,7 +11413,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -11389,11 +11431,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -11403,7 +11445,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -11418,7 +11460,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -11429,7 +11471,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -11439,17 +11481,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -11458,7 +11500,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -11476,28 +11518,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -11530,7 +11572,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -11541,13 +11583,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -11559,7 +11601,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -11588,7 +11630,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -11599,7 +11641,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -11617,7 +11659,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -11635,11 +11677,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -11649,7 +11691,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -11664,7 +11706,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -11675,7 +11717,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11685,17 +11727,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -11704,7 +11746,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11722,28 +11764,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -11776,7 +11818,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -11787,13 +11829,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -11805,7 +11847,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -11853,7 +11895,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -11864,7 +11906,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -11882,7 +11924,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -11900,11 +11942,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -11914,7 +11956,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -11929,7 +11971,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -11940,7 +11982,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11950,17 +11992,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -11969,7 +12011,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -11987,28 +12029,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -12041,7 +12083,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -12052,13 +12094,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -12070,7 +12112,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -12117,7 +12159,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -12126,7 +12168,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -12150,7 +12192,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -12164,7 +12206,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -12175,7 +12217,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -12193,7 +12235,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -12211,11 +12253,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -12225,7 +12267,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -12240,7 +12282,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -12251,7 +12293,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -12261,17 +12303,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -12280,7 +12322,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -12298,28 +12340,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -12352,7 +12394,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -12363,13 +12405,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -12381,7 +12423,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -12414,7 +12456,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -12433,8 +12475,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -12471,7 +12513,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},
@@ -12502,7 +12544,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Updates a job trigger. See https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.jobTriggers.patch(
@@ -12525,7 +12567,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -12534,7 +12576,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -12558,7 +12600,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -12572,7 +12614,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -12583,7 +12625,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -12601,7 +12643,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -12619,11 +12661,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -12633,7 +12675,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -12648,7 +12690,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -12659,7 +12701,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -12669,17 +12711,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -12688,7 +12730,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -12706,28 +12748,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -12760,7 +12802,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -12771,13 +12813,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -12789,7 +12831,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -12822,7 +12864,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -12841,8 +12883,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -12879,7 +12921,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},
@@ -12915,7 +12957,7 @@ gapi.load('client', async () => {
           cloudSql: {
             cloudSqlIam: {},
             connectionName: 'Test string',
-            databaseEngine: 'Test string',
+            databaseEngine: 'DATABASE_ENGINE_UNKNOWN',
             maxConnections: 42,
             usernamePassword: {
               passwordSecretVersionName: 'Test string',
@@ -12933,12 +12975,12 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           name: 'Test string',
-          state: 'Test string',
+          state: 'CONNECTION_STATE_UNSPECIFIED',
         },
       },
     );
@@ -12967,7 +13009,7 @@ gapi.load('client', async () => {
           cloudSql: {
             cloudSqlIam: {},
             connectionName: 'Test string',
-            databaseEngine: 'Test string',
+            databaseEngine: 'DATABASE_ENGINE_UNKNOWN',
             maxConnections: 42,
             usernamePassword: {
               passwordSecretVersionName: 'Test string',
@@ -12985,12 +13027,12 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           name: 'Test string',
-          state: 'Test string',
+          state: 'CONNECTION_STATE_UNSPECIFIED',
         },
         updateMask: 'Test string',
       },
@@ -13024,7 +13066,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -13040,7 +13082,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -13056,7 +13098,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13075,7 +13117,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13094,7 +13136,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13113,7 +13155,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -13139,7 +13182,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -13159,7 +13202,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -13180,7 +13223,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -13213,7 +13256,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13232,7 +13275,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13254,7 +13297,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13274,7 +13317,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -13291,7 +13334,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -13299,7 +13342,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -13314,7 +13357,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 fields: [
@@ -13329,7 +13372,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -13345,7 +13388,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -13364,7 +13407,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -13383,7 +13426,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -13402,7 +13445,8 @@ gapi.load('client', async () => {
                           charactersToIgnore: [
                             {
                               charactersToSkip: 'Test string',
-                              commonCharactersToIgnore: 'Test string',
+                              commonCharactersToIgnore:
+                                'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                             },
                           ],
                           maskingCharacter: 'Test string',
@@ -13428,7 +13472,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -13448,7 +13492,8 @@ gapi.load('client', async () => {
                           },
                         },
                         cryptoReplaceFfxFpeConfig: {
-                          commonAlphabet: 'Test string',
+                          commonAlphabet:
+                            'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                           context: {
                             name: 'Test string',
                           },
@@ -13469,7 +13514,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -13502,7 +13547,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -13521,7 +13566,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -13543,7 +13588,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -13563,7 +13608,7 @@ gapi.load('client', async () => {
                         },
                         replaceWithInfoTypeConfig: {},
                         timePartConfig: {
-                          partToExtract: 'Test string',
+                          partToExtract: 'TIME_PART_UNSPECIFIED',
                         },
                       },
                     },
@@ -13580,7 +13625,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13599,7 +13644,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13618,7 +13663,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -13637,7 +13682,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -13663,7 +13709,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -13683,7 +13729,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -13704,7 +13750,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -13737,7 +13783,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13756,7 +13802,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13778,7 +13824,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -13798,7 +13844,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -13813,7 +13859,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -13821,7 +13867,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -13836,7 +13882,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
               },
@@ -13849,7 +13895,7 @@ gapi.load('client', async () => {
         },
         deidentifyTemplateName: 'Test string',
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -13860,7 +13906,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -13878,7 +13924,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -13896,11 +13942,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -13910,7 +13956,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -13925,7 +13971,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -13936,7 +13982,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -13946,17 +13992,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -13965,7 +14011,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -13983,28 +14029,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -14037,7 +14083,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -14048,13 +14094,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -14066,7 +14112,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -14088,7 +14134,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -14104,7 +14150,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -14141,7 +14187,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -14162,7 +14208,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -14190,7 +14236,7 @@ gapi.load('client', async () => {
       },
       {
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -14201,7 +14247,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -14219,7 +14265,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -14237,11 +14283,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -14251,7 +14297,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -14266,7 +14312,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -14277,7 +14323,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -14287,17 +14333,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -14306,7 +14352,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -14324,28 +14370,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -14378,7 +14424,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -14389,13 +14435,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -14407,7 +14453,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -14429,7 +14475,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -14445,7 +14491,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -14482,7 +14528,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -14503,7 +14549,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -14531,7 +14577,7 @@ gapi.load('client', async () => {
       },
       {
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -14542,7 +14588,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -14560,7 +14606,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -14578,11 +14624,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -14592,7 +14638,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -14607,7 +14653,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -14618,7 +14664,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -14628,17 +14674,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -14647,7 +14693,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -14665,28 +14711,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -14719,7 +14765,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -14730,13 +14776,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -14748,7 +14794,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -14770,7 +14816,7 @@ gapi.load('client', async () => {
           },
           byteItem: {
             data: 'Test string',
-            type: 'Test string',
+            type: 'BYTES_TYPE_UNSPECIFIED',
           },
           contentMetadata: {
             fileLabels: [
@@ -14786,7 +14832,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -14823,7 +14869,7 @@ gapi.load('client', async () => {
                     text: 'Test string',
                   },
                 ],
-                messageType: 'Test string',
+                messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                 participantId: 'Test string',
               },
             ],
@@ -14844,7 +14890,7 @@ gapi.load('client', async () => {
                       month: 42,
                       year: 42,
                     },
-                    dayOfWeekValue: 'Test string',
+                    dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                     floatValue: 42,
                     integerValue: 'Test string',
                     stringValue: 'Test string',
@@ -14879,7 +14925,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -14895,7 +14941,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -14911,7 +14957,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -14930,7 +14976,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -14949,7 +14995,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -14968,7 +15014,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -14994,7 +15041,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -15014,7 +15061,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -15035,7 +15082,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -15068,7 +15115,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15087,7 +15134,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15109,7 +15156,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15129,7 +15176,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -15146,7 +15193,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -15154,7 +15201,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -15169,7 +15216,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 fields: [
@@ -15184,7 +15231,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -15200,7 +15247,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -15219,7 +15266,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -15238,7 +15285,7 @@ gapi.load('client', async () => {
                                   month: 42,
                                   year: 42,
                                 },
-                                dayOfWeekValue: 'Test string',
+                                dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                 floatValue: 42,
                                 integerValue: 'Test string',
                                 stringValue: 'Test string',
@@ -15257,7 +15304,8 @@ gapi.load('client', async () => {
                           charactersToIgnore: [
                             {
                               charactersToSkip: 'Test string',
-                              commonCharactersToIgnore: 'Test string',
+                              commonCharactersToIgnore:
+                                'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                             },
                           ],
                           maskingCharacter: 'Test string',
@@ -15283,7 +15331,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -15303,7 +15351,8 @@ gapi.load('client', async () => {
                           },
                         },
                         cryptoReplaceFfxFpeConfig: {
-                          commonAlphabet: 'Test string',
+                          commonAlphabet:
+                            'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                           context: {
                             name: 'Test string',
                           },
@@ -15324,7 +15373,7 @@ gapi.load('client', async () => {
                           surrogateInfoType: {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -15357,7 +15406,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -15376,7 +15425,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -15398,7 +15447,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -15418,7 +15467,7 @@ gapi.load('client', async () => {
                         },
                         replaceWithInfoTypeConfig: {},
                         timePartConfig: {
-                          partToExtract: 'Test string',
+                          partToExtract: 'TIME_PART_UNSPECIFIED',
                         },
                       },
                     },
@@ -15435,7 +15484,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -15454,7 +15503,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -15473,7 +15522,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -15492,7 +15541,8 @@ gapi.load('client', async () => {
                     charactersToIgnore: [
                       {
                         charactersToSkip: 'Test string',
-                        commonCharactersToIgnore: 'Test string',
+                        commonCharactersToIgnore:
+                          'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                       },
                     ],
                     maskingCharacter: 'Test string',
@@ -15518,7 +15568,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -15538,7 +15588,7 @@ gapi.load('client', async () => {
                     },
                   },
                   cryptoReplaceFfxFpeConfig: {
-                    commonAlphabet: 'Test string',
+                    commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                     context: {
                       name: 'Test string',
                     },
@@ -15559,7 +15609,7 @@ gapi.load('client', async () => {
                     surrogateInfoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -15592,7 +15642,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15611,7 +15661,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15633,7 +15683,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -15653,7 +15703,7 @@ gapi.load('client', async () => {
                   },
                   replaceWithInfoTypeConfig: {},
                   timePartConfig: {
-                    partToExtract: 'Test string',
+                    partToExtract: 'TIME_PART_UNSPECIFIED',
                   },
                 },
               },
@@ -15668,7 +15718,7 @@ gapi.load('client', async () => {
                           field: {
                             name: 'Test string',
                           },
-                          operator: 'Test string',
+                          operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                           value: {
                             booleanValue: true,
                             dateValue: {
@@ -15676,7 +15726,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -15691,7 +15741,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
               },
@@ -15714,7 +15764,7 @@ gapi.load('client', async () => {
         contentPolicy: {
           createTime: 'Test string',
           defaultAction: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           displayName: 'Test string',
           errors: [
@@ -15728,18 +15778,18 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           failedToScanSupportedFileType: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           inputTooLarge: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -15750,7 +15800,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -15768,7 +15818,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -15786,11 +15836,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -15800,7 +15850,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -15815,7 +15865,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -15826,7 +15876,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -15836,17 +15886,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -15855,7 +15905,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -15873,28 +15923,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -15927,7 +15977,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -15938,13 +15988,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -15956,7 +16006,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -15982,7 +16032,7 @@ gapi.load('client', async () => {
           rules: [
             {
               action: {
-                returnVerdict: 'Test string',
+                returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
               },
               conditions: [
                 {
@@ -15998,7 +16048,7 @@ gapi.load('client', async () => {
             },
           ],
           unsupportedFileType: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           updateTime: 'Test string',
         },
@@ -16028,7 +16078,7 @@ gapi.load('client', async () => {
         contentPolicy: {
           createTime: 'Test string',
           defaultAction: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           displayName: 'Test string',
           errors: [
@@ -16042,18 +16092,18 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
           failedToScanSupportedFileType: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           inputTooLarge: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -16064,7 +16114,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -16082,7 +16132,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -16100,11 +16150,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -16114,7 +16164,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -16129,7 +16179,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -16140,7 +16190,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -16150,17 +16200,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -16169,7 +16219,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -16187,28 +16237,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -16241,7 +16291,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -16252,13 +16302,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -16270,7 +16320,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -16296,7 +16346,7 @@ gapi.load('client', async () => {
           rules: [
             {
               action: {
-                returnVerdict: 'Test string',
+                returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
               },
               conditions: [
                 {
@@ -16312,7 +16362,7 @@ gapi.load('client', async () => {
             },
           ],
           unsupportedFileType: {
-            returnVerdict: 'Test string',
+            returnVerdict: 'CONTENT_POLICY_VERDICT_UNSPECIFIED',
           },
           updateTime: 'Test string',
         },
@@ -16343,7 +16393,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -16359,7 +16409,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -16375,7 +16425,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16394,7 +16444,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16413,7 +16463,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16432,7 +16482,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -16458,7 +16509,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -16478,7 +16529,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -16499,7 +16550,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -16532,7 +16583,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -16551,7 +16602,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -16573,7 +16624,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -16593,7 +16644,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -16610,7 +16661,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -16618,7 +16669,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -16633,7 +16684,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -16648,7 +16699,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -16664,7 +16715,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -16683,7 +16734,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -16702,7 +16753,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -16721,7 +16772,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -16747,7 +16799,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -16767,7 +16819,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -16788,7 +16841,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -16821,7 +16874,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -16840,7 +16893,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -16862,7 +16915,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -16882,7 +16935,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -16899,7 +16952,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16918,7 +16971,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16937,7 +16990,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -16956,7 +17009,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -16982,7 +17036,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17002,7 +17056,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -17023,7 +17077,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17056,7 +17110,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17075,7 +17129,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17097,7 +17151,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17117,7 +17171,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -17132,7 +17186,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -17140,7 +17194,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -17155,7 +17209,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -17215,7 +17269,7 @@ gapi.load('client', async () => {
                       {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17231,7 +17285,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -17247,7 +17301,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17266,7 +17320,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17285,7 +17339,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17304,7 +17358,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -17330,7 +17385,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17350,7 +17405,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -17371,7 +17426,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17404,7 +17459,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17423,7 +17478,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17445,7 +17500,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17465,7 +17520,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -17482,7 +17537,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -17490,7 +17545,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -17505,7 +17560,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                   fields: [
@@ -17520,7 +17575,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -17536,7 +17591,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -17555,7 +17610,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -17574,7 +17629,7 @@ gapi.load('client', async () => {
                                     month: 42,
                                     year: 42,
                                   },
-                                  dayOfWeekValue: 'Test string',
+                                  dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                                   floatValue: 42,
                                   integerValue: 'Test string',
                                   stringValue: 'Test string',
@@ -17593,7 +17648,8 @@ gapi.load('client', async () => {
                             charactersToIgnore: [
                               {
                                 charactersToSkip: 'Test string',
-                                commonCharactersToIgnore: 'Test string',
+                                commonCharactersToIgnore:
+                                  'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                               },
                             ],
                             maskingCharacter: 'Test string',
@@ -17619,7 +17675,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -17639,7 +17695,8 @@ gapi.load('client', async () => {
                             },
                           },
                           cryptoReplaceFfxFpeConfig: {
-                            commonAlphabet: 'Test string',
+                            commonAlphabet:
+                              'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                             context: {
                               name: 'Test string',
                             },
@@ -17660,7 +17717,7 @@ gapi.load('client', async () => {
                             surrogateInfoType: {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -17693,7 +17750,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -17712,7 +17769,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -17734,7 +17791,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -17754,7 +17811,7 @@ gapi.load('client', async () => {
                           },
                           replaceWithInfoTypeConfig: {},
                           timePartConfig: {
-                            partToExtract: 'Test string',
+                            partToExtract: 'TIME_PART_UNSPECIFIED',
                           },
                         },
                       },
@@ -17771,7 +17828,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17790,7 +17847,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17809,7 +17866,7 @@ gapi.load('client', async () => {
                               month: 42,
                               year: 42,
                             },
-                            dayOfWeekValue: 'Test string',
+                            dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                             floatValue: 42,
                             integerValue: 'Test string',
                             stringValue: 'Test string',
@@ -17828,7 +17885,8 @@ gapi.load('client', async () => {
                       charactersToIgnore: [
                         {
                           charactersToSkip: 'Test string',
-                          commonCharactersToIgnore: 'Test string',
+                          commonCharactersToIgnore:
+                            'COMMON_CHARS_TO_IGNORE_UNSPECIFIED',
                         },
                       ],
                       maskingCharacter: 'Test string',
@@ -17854,7 +17912,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17874,7 +17932,7 @@ gapi.load('client', async () => {
                       },
                     },
                     cryptoReplaceFfxFpeConfig: {
-                      commonAlphabet: 'Test string',
+                      commonAlphabet: 'FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED',
                       context: {
                         name: 'Test string',
                       },
@@ -17895,7 +17953,7 @@ gapi.load('client', async () => {
                       surrogateInfoType: {
                         name: 'Test string',
                         sensitivityScore: {
-                          score: 'Test string',
+                          score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                         },
                         version: 'Test string',
                       },
@@ -17928,7 +17986,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17947,7 +18005,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17969,7 +18027,7 @@ gapi.load('client', async () => {
                           month: 42,
                           year: 42,
                         },
-                        dayOfWeekValue: 'Test string',
+                        dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                         floatValue: 42,
                         integerValue: 'Test string',
                         stringValue: 'Test string',
@@ -17989,7 +18047,7 @@ gapi.load('client', async () => {
                     },
                     replaceWithInfoTypeConfig: {},
                     timePartConfig: {
-                      partToExtract: 'Test string',
+                      partToExtract: 'TIME_PART_UNSPECIFIED',
                     },
                   },
                 },
@@ -18004,7 +18062,7 @@ gapi.load('client', async () => {
                             field: {
                               name: 'Test string',
                             },
-                            operator: 'Test string',
+                            operator: 'RELATIONAL_OPERATOR_UNSPECIFIED',
                             value: {
                               booleanValue: true,
                               dateValue: {
@@ -18012,7 +18070,7 @@ gapi.load('client', async () => {
                                 month: 42,
                                 year: 42,
                               },
-                              dayOfWeekValue: 'Test string',
+                              dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                               floatValue: 42,
                               integerValue: 'Test string',
                               stringValue: 'Test string',
@@ -18027,7 +18085,7 @@ gapi.load('client', async () => {
                           },
                         ],
                       },
-                      logicalOperator: 'Test string',
+                      logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                     },
                   },
                 },
@@ -18074,28 +18132,29 @@ gapi.load('client', async () => {
               },
               publishToScc: {},
               pubSubNotification: {
-                detailOfMessage: 'Test string',
-                event: 'Test string',
+                detailOfMessage: 'DETAIL_LEVEL_UNSPECIFIED',
+                event: 'EVENT_TYPE_UNSPECIFIED',
                 pubsubCondition: {
                   expressions: {
                     conditions: [
                       {
-                        minimumRiskScore: 'Test string',
-                        minimumSensitivityScore: 'Test string',
+                        minimumRiskScore: 'PROFILE_SCORE_BUCKET_UNSPECIFIED',
+                        minimumSensitivityScore:
+                          'PROFILE_SCORE_BUCKET_UNSPECIFIED',
                       },
                     ],
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 topic: 'Test string',
               },
               tagResources: {
                 lowerDataRiskToLow: true,
-                profileGenerationsToTag: ['Test string'],
+                profileGenerationsToTag: ['PROFILE_GENERATION_UNSPECIFIED'],
                 tagConditions: [
                   {
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     tag: {
                       namespacedValue: 'Test string',
@@ -18118,7 +18177,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -18148,22 +18207,22 @@ gapi.load('client', async () => {
               multiRegionProcessing: {},
             },
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           targets: [
             {
               bigQueryTarget: {
                 cadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                   tableModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['TABLE_MODIFICATION_UNSPECIFIED'],
                   },
                 },
                 conditions: {
@@ -18172,9 +18231,9 @@ gapi.load('client', async () => {
                     minAge: 'Test string',
                     minRowCount: 42,
                   },
-                  typeCollection: 'Test string',
+                  typeCollection: 'BIG_QUERY_COLLECTION_UNSPECIFIED',
                   types: {
-                    types: ['Test string'],
+                    types: ['BIG_QUERY_TABLE_TYPE_UNSPECIFIED'],
                   },
                 },
                 disabled: {},
@@ -18200,8 +18259,8 @@ gapi.load('client', async () => {
               },
               cloudSqlTarget: {
                 conditions: {
-                  databaseEngines: ['Test string'],
-                  types: ['Test string'],
+                  databaseEngines: ['DATABASE_ENGINE_UNSPECIFIED'],
+                  types: ['DATABASE_RESOURCE_TYPE_UNSPECIFIED'],
                 },
                 disabled: {},
                 filter: {
@@ -18227,20 +18286,24 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SQL_SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                 },
               },
               cloudStorageTarget: {
                 conditions: {
                   cloudStorageConditions: {
-                    includedBucketAttributes: ['Test string'],
-                    includedObjectAttributes: ['Test string'],
+                    includedBucketAttributes: [
+                      'CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED',
+                    ],
+                    includedObjectAttributes: [
+                      'CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED',
+                    ],
                   },
                   createdAfter: 'Test string',
                   minAge: 'Test string',
@@ -18275,16 +18338,16 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               otherCloudTarget: {
                 conditions: {
                   amazonS3BucketConditions: {
-                    bucketTypes: ['Test string'],
-                    objectStorageClasses: ['Test string'],
+                    bucketTypes: ['TYPE_UNSPECIFIED'],
+                    objectStorageClasses: ['UNSPECIFIED'],
                   },
                   minAge: 'Test string',
                 },
@@ -18319,9 +18382,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               secretsTarget: {},
@@ -18348,9 +18411,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
             },
@@ -18401,28 +18464,29 @@ gapi.load('client', async () => {
               },
               publishToScc: {},
               pubSubNotification: {
-                detailOfMessage: 'Test string',
-                event: 'Test string',
+                detailOfMessage: 'DETAIL_LEVEL_UNSPECIFIED',
+                event: 'EVENT_TYPE_UNSPECIFIED',
                 pubsubCondition: {
                   expressions: {
                     conditions: [
                       {
-                        minimumRiskScore: 'Test string',
-                        minimumSensitivityScore: 'Test string',
+                        minimumRiskScore: 'PROFILE_SCORE_BUCKET_UNSPECIFIED',
+                        minimumSensitivityScore:
+                          'PROFILE_SCORE_BUCKET_UNSPECIFIED',
                       },
                     ],
-                    logicalOperator: 'Test string',
+                    logicalOperator: 'LOGICAL_OPERATOR_UNSPECIFIED',
                   },
                 },
                 topic: 'Test string',
               },
               tagResources: {
                 lowerDataRiskToLow: true,
-                profileGenerationsToTag: ['Test string'],
+                profileGenerationsToTag: ['PROFILE_GENERATION_UNSPECIFIED'],
                 tagConditions: [
                   {
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     tag: {
                       namespacedValue: 'Test string',
@@ -18445,7 +18509,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -18475,22 +18539,22 @@ gapi.load('client', async () => {
               multiRegionProcessing: {},
             },
           },
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           targets: [
             {
               bigQueryTarget: {
                 cadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                   tableModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['TABLE_MODIFICATION_UNSPECIFIED'],
                   },
                 },
                 conditions: {
@@ -18499,9 +18563,9 @@ gapi.load('client', async () => {
                     minAge: 'Test string',
                     minRowCount: 42,
                   },
-                  typeCollection: 'Test string',
+                  typeCollection: 'BIG_QUERY_COLLECTION_UNSPECIFIED',
                   types: {
-                    types: ['Test string'],
+                    types: ['BIG_QUERY_TABLE_TYPE_UNSPECIFIED'],
                   },
                 },
                 disabled: {},
@@ -18527,8 +18591,8 @@ gapi.load('client', async () => {
               },
               cloudSqlTarget: {
                 conditions: {
-                  databaseEngines: ['Test string'],
-                  types: ['Test string'],
+                  databaseEngines: ['DATABASE_ENGINE_UNSPECIFIED'],
+                  types: ['DATABASE_RESOURCE_TYPE_UNSPECIFIED'],
                 },
                 disabled: {},
                 filter: {
@@ -18554,20 +18618,24 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   schemaModifiedCadence: {
-                    frequency: 'Test string',
-                    types: ['Test string'],
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
+                    types: ['SQL_SCHEMA_MODIFICATION_UNSPECIFIED'],
                   },
                 },
               },
               cloudStorageTarget: {
                 conditions: {
                   cloudStorageConditions: {
-                    includedBucketAttributes: ['Test string'],
-                    includedObjectAttributes: ['Test string'],
+                    includedBucketAttributes: [
+                      'CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED',
+                    ],
+                    includedObjectAttributes: [
+                      'CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED',
+                    ],
                   },
                   createdAfter: 'Test string',
                   minAge: 'Test string',
@@ -18602,16 +18670,16 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               otherCloudTarget: {
                 conditions: {
                   amazonS3BucketConditions: {
-                    bucketTypes: ['Test string'],
-                    objectStorageClasses: ['Test string'],
+                    bucketTypes: ['TYPE_UNSPECIFIED'],
+                    objectStorageClasses: ['UNSPECIFIED'],
                   },
                   minAge: 'Test string',
                 },
@@ -18646,9 +18714,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
               secretsTarget: {},
@@ -18675,9 +18743,9 @@ gapi.load('client', async () => {
                 },
                 generationCadence: {
                   inspectTemplateModifiedCadence: {
-                    frequency: 'Test string',
+                    frequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                   },
-                  refreshFrequency: 'Test string',
+                  refreshFrequency: 'UPDATE_FREQUENCY_UNSPECIFIED',
                 },
               },
             },
@@ -18705,7 +18773,7 @@ gapi.load('client', async () => {
             {
               deidentify: {
                 cloudStorageOutput: 'Test string',
-                fileTypesToTransform: ['Test string'],
+                fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                 transformationConfig: {
                   deidentifyTemplate: 'Test string',
                   imageRedactTemplate: 'Test string',
@@ -18729,7 +18797,7 @@ gapi.load('client', async () => {
               },
               saveFindings: {
                 outputConfig: {
-                  outputSchema: 'Test string',
+                  outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                   storagePath: {
                     path: 'Test string',
                   },
@@ -18743,7 +18811,7 @@ gapi.load('client', async () => {
             },
           ],
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -18754,7 +18822,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -18772,7 +18840,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -18790,11 +18858,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -18804,7 +18872,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -18819,7 +18887,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -18830,7 +18898,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -18840,17 +18908,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -18859,7 +18927,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -18877,28 +18945,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -18931,7 +18999,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -18942,13 +19010,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -18960,7 +19028,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -18993,7 +19061,7 @@ gapi.load('client', async () => {
               ],
               rowsLimit: 'Test string',
               rowsLimitPercent: 42,
-              sampleMethod: 'Test string',
+              sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               tableReference: {
                 datasetId: 'Test string',
                 projectId: 'Test string',
@@ -19012,8 +19080,8 @@ gapi.load('client', async () => {
                 url: 'Test string',
               },
               filesLimitPercent: 42,
-              fileTypes: ['Test string'],
-              sampleMethod: 'Test string',
+              fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+              sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
             },
             datastoreOptions: {
               kind: {
@@ -19055,7 +19123,7 @@ gapi.load('client', async () => {
             {
               deidentify: {
                 cloudStorageOutput: 'Test string',
-                fileTypesToTransform: ['Test string'],
+                fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                 transformationConfig: {
                   deidentifyTemplate: 'Test string',
                   imageRedactTemplate: 'Test string',
@@ -19079,7 +19147,7 @@ gapi.load('client', async () => {
               },
               saveFindings: {
                 outputConfig: {
-                  outputSchema: 'Test string',
+                  outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                   storagePath: {
                     path: 'Test string',
                   },
@@ -19129,7 +19197,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -19180,7 +19248,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -19265,7 +19333,7 @@ gapi.load('client', async () => {
             },
             byteItem: {
               data: 'Test string',
-              type: 'Test string',
+              type: 'BYTES_TYPE_UNSPECIFIED',
             },
             contentMetadata: {
               fileLabels: [
@@ -19281,7 +19349,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -19318,7 +19386,7 @@ gapi.load('client', async () => {
                       text: 'Test string',
                     },
                   ],
-                  messageType: 'Test string',
+                  messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                   participantId: 'Test string',
                 },
               ],
@@ -19339,7 +19407,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -19368,7 +19436,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration. */
     await gapi.client.dlp.projects.locations.fileStoreDataProfiles.delete({
@@ -19394,7 +19462,7 @@ gapi.load('client', async () => {
       {
         byteItem: {
           data: 'Test string',
-          type: 'Test string',
+          type: 'BYTES_TYPE_UNSPECIFIED',
         },
         deidentifyTemplate: 'Test string',
         imageRedactionConfigs: [
@@ -19402,7 +19470,7 @@ gapi.load('client', async () => {
             infoType: {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -19416,7 +19484,7 @@ gapi.load('client', async () => {
         ],
         includeFindings: true,
         inspectConfig: {
-          contentOptions: ['Test string'],
+          contentOptions: ['CONTENT_UNSPECIFIED'],
           customInfoTypes: [
             {
               detectionRules: [
@@ -19427,7 +19495,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -19445,7 +19513,7 @@ gapi.load('client', async () => {
                   words: ['Test string'],
                 },
               },
-              exclusionType: 'Test string',
+              exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
               fileLabelInfoType: {
                 googleDriveLabel: {
                   labelFieldsToMatch: [
@@ -19463,11 +19531,11 @@ gapi.load('client', async () => {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              likelihood: 'Test string',
+              likelihood: 'LIKELIHOOD_UNSPECIFIED',
               metadataKeyValueExpression: {
                 keyRegex: 'Test string',
                 valueRegex: 'Test string',
@@ -19477,7 +19545,7 @@ gapi.load('client', async () => {
                 pattern: 'Test string',
               },
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               storedType: {
                 createTime: 'Test string',
@@ -19492,7 +19560,7 @@ gapi.load('client', async () => {
             {
               name: 'Test string',
               sensitivityScore: {
-                score: 'Test string',
+                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
               },
               version: 'Test string',
             },
@@ -19503,7 +19571,7 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -19513,17 +19581,17 @@ gapi.load('client', async () => {
             maxFindingsPerItem: 42,
             maxFindingsPerRequest: 42,
           },
-          minLikelihood: 'Test string',
+          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
           minLikelihoodPerInfoType: [
             {
               infoType: {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             },
           ],
           ruleSet: [
@@ -19532,7 +19600,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -19550,28 +19618,28 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      minLikelihood: 'Test string',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     adjustByMatchingInfoTypes: {
                       infoTypes: [
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
-                      matchingType: 'Test string',
-                      minLikelihood: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                      minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                   },
@@ -19604,7 +19672,7 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
@@ -19615,13 +19683,13 @@ gapi.load('client', async () => {
                         {
                           name: 'Test string',
                           sensitivityScore: {
-                            score: 'Test string',
+                            score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                           },
                           version: 'Test string',
                         },
                       ],
                     },
-                    matchingType: 'Test string',
+                    matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                     regex: {
                       groupIndexes: [42],
                       pattern: 'Test string',
@@ -19633,7 +19701,7 @@ gapi.load('client', async () => {
                       pattern: 'Test string',
                     },
                     likelihoodAdjustment: {
-                      fixedLikelihood: 'Test string',
+                      fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       relativeLikelihood: 42,
                     },
                     proximity: {
@@ -19669,7 +19737,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -19680,7 +19748,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -19698,7 +19766,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -19716,11 +19784,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -19730,7 +19798,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -19745,7 +19813,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -19756,7 +19824,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -19766,17 +19834,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -19785,7 +19853,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -19803,28 +19871,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -19857,7 +19925,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -19868,13 +19936,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -19886,7 +19954,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -19934,7 +20002,7 @@ gapi.load('client', async () => {
           description: 'Test string',
           displayName: 'Test string',
           inspectConfig: {
-            contentOptions: ['Test string'],
+            contentOptions: ['CONTENT_UNSPECIFIED'],
             customInfoTypes: [
               {
                 detectionRules: [
@@ -19945,7 +20013,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -19963,7 +20031,7 @@ gapi.load('client', async () => {
                     words: ['Test string'],
                   },
                 },
-                exclusionType: 'Test string',
+                exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                 fileLabelInfoType: {
                   googleDriveLabel: {
                     labelFieldsToMatch: [
@@ -19981,11 +20049,11 @@ gapi.load('client', async () => {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                likelihood: 'Test string',
+                likelihood: 'LIKELIHOOD_UNSPECIFIED',
                 metadataKeyValueExpression: {
                   keyRegex: 'Test string',
                   valueRegex: 'Test string',
@@ -19995,7 +20063,7 @@ gapi.load('client', async () => {
                   pattern: 'Test string',
                 },
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 storedType: {
                   createTime: 'Test string',
@@ -20010,7 +20078,7 @@ gapi.load('client', async () => {
               {
                 name: 'Test string',
                 sensitivityScore: {
-                  score: 'Test string',
+                  score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                 },
                 version: 'Test string',
               },
@@ -20021,7 +20089,7 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -20031,17 +20099,17 @@ gapi.load('client', async () => {
               maxFindingsPerItem: 42,
               maxFindingsPerRequest: 42,
             },
-            minLikelihood: 'Test string',
+            minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
             minLikelihoodPerInfoType: [
               {
                 infoType: {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
-                minLikelihood: 'Test string',
+                minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               },
             ],
             ruleSet: [
@@ -20050,7 +20118,7 @@ gapi.load('client', async () => {
                   {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
@@ -20068,28 +20136,28 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        minLikelihood: 'Test string',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       adjustByMatchingInfoTypes: {
                         infoTypes: [
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
-                        matchingType: 'Test string',
-                        minLikelihood: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                        minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                     },
@@ -20122,7 +20190,7 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
@@ -20133,13 +20201,13 @@ gapi.load('client', async () => {
                           {
                             name: 'Test string',
                             sensitivityScore: {
-                              score: 'Test string',
+                              score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                             },
                             version: 'Test string',
                           },
                         ],
                       },
-                      matchingType: 'Test string',
+                      matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                       regex: {
                         groupIndexes: [42],
                         pattern: 'Test string',
@@ -20151,7 +20219,7 @@ gapi.load('client', async () => {
                         pattern: 'Test string',
                       },
                       likelihoodAdjustment: {
-                        fixedLikelihood: 'Test string',
+                        fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         relativeLikelihood: 42,
                       },
                       proximity: {
@@ -20198,7 +20266,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -20207,7 +20275,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -20231,7 +20299,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -20245,7 +20313,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -20256,7 +20324,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -20274,7 +20342,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -20292,11 +20360,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -20306,7 +20374,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -20321,7 +20389,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -20332,7 +20400,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -20342,17 +20410,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -20361,7 +20429,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -20379,28 +20447,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -20433,7 +20501,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -20444,13 +20512,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -20462,7 +20530,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -20495,7 +20563,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -20514,8 +20582,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -20552,7 +20620,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},
@@ -20613,7 +20681,7 @@ gapi.load('client', async () => {
             },
             byteItem: {
               data: 'Test string',
-              type: 'Test string',
+              type: 'BYTES_TYPE_UNSPECIFIED',
             },
             contentMetadata: {
               fileLabels: [
@@ -20629,7 +20697,7 @@ gapi.load('client', async () => {
                             month: 42,
                             year: 42,
                           },
-                          dayOfWeekValue: 'Test string',
+                          dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                           floatValue: 42,
                           integerValue: 'Test string',
                           stringValue: 'Test string',
@@ -20666,7 +20734,7 @@ gapi.load('client', async () => {
                       text: 'Test string',
                     },
                   ],
-                  messageType: 'Test string',
+                  messageType: 'MESSAGE_TYPE_UNSPECIFIED',
                   participantId: 'Test string',
                 },
               ],
@@ -20687,7 +20755,7 @@ gapi.load('client', async () => {
                         month: 42,
                         year: 42,
                       },
-                      dayOfWeekValue: 'Test string',
+                      dayOfWeekValue: 'DAY_OF_WEEK_UNSPECIFIED',
                       floatValue: 42,
                       integerValue: 'Test string',
                       stringValue: 'Test string',
@@ -20716,7 +20784,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      type: 'Test string',
+      type: 'DLP_JOB_TYPE_UNSPECIFIED',
     });
     /** Updates a job trigger. See https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more. */
     await gapi.client.dlp.projects.locations.jobTriggers.patch(
@@ -20739,7 +20807,7 @@ gapi.load('client', async () => {
                 ],
                 message: 'Test string',
               },
-              extraInfo: 'Test string',
+              extraInfo: 'ERROR_INFO_UNSPECIFIED',
               timestamps: ['Test string'],
             },
           ],
@@ -20748,7 +20816,7 @@ gapi.load('client', async () => {
               {
                 deidentify: {
                   cloudStorageOutput: 'Test string',
-                  fileTypesToTransform: ['Test string'],
+                  fileTypesToTransform: ['FILE_TYPE_UNSPECIFIED'],
                   transformationConfig: {
                     deidentifyTemplate: 'Test string',
                     imageRedactTemplate: 'Test string',
@@ -20772,7 +20840,7 @@ gapi.load('client', async () => {
                 },
                 saveFindings: {
                   outputConfig: {
-                    outputSchema: 'Test string',
+                    outputSchema: 'OUTPUT_SCHEMA_UNSPECIFIED',
                     storagePath: {
                       path: 'Test string',
                     },
@@ -20786,7 +20854,7 @@ gapi.load('client', async () => {
               },
             ],
             inspectConfig: {
-              contentOptions: ['Test string'],
+              contentOptions: ['CONTENT_UNSPECIFIED'],
               customInfoTypes: [
                 {
                   detectionRules: [
@@ -20797,7 +20865,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -20815,7 +20883,7 @@ gapi.load('client', async () => {
                       words: ['Test string'],
                     },
                   },
-                  exclusionType: 'Test string',
+                  exclusionType: 'EXCLUSION_TYPE_UNSPECIFIED',
                   fileLabelInfoType: {
                     googleDriveLabel: {
                       labelFieldsToMatch: [
@@ -20833,11 +20901,11 @@ gapi.load('client', async () => {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  likelihood: 'Test string',
+                  likelihood: 'LIKELIHOOD_UNSPECIFIED',
                   metadataKeyValueExpression: {
                     keyRegex: 'Test string',
                     valueRegex: 'Test string',
@@ -20847,7 +20915,7 @@ gapi.load('client', async () => {
                     pattern: 'Test string',
                   },
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   storedType: {
                     createTime: 'Test string',
@@ -20862,7 +20930,7 @@ gapi.load('client', async () => {
                 {
                   name: 'Test string',
                   sensitivityScore: {
-                    score: 'Test string',
+                    score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                   },
                   version: 'Test string',
                 },
@@ -20873,7 +20941,7 @@ gapi.load('client', async () => {
                     infoType: {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -20883,17 +20951,17 @@ gapi.load('client', async () => {
                 maxFindingsPerItem: 42,
                 maxFindingsPerRequest: 42,
               },
-              minLikelihood: 'Test string',
+              minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
               minLikelihoodPerInfoType: [
                 {
                   infoType: {
                     name: 'Test string',
                     sensitivityScore: {
-                      score: 'Test string',
+                      score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                     },
                     version: 'Test string',
                   },
-                  minLikelihood: 'Test string',
+                  minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                 },
               ],
               ruleSet: [
@@ -20902,7 +20970,7 @@ gapi.load('client', async () => {
                     {
                       name: 'Test string',
                       sensitivityScore: {
-                        score: 'Test string',
+                        score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                       },
                       version: 'Test string',
                     },
@@ -20920,28 +20988,28 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          minLikelihood: 'Test string',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         adjustByMatchingInfoTypes: {
                           infoTypes: [
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
-                          matchingType: 'Test string',
-                          minLikelihood: 'Test string',
+                          matchingType: 'MATCHING_TYPE_UNSPECIFIED',
+                          minLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                       },
@@ -20974,7 +21042,7 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
@@ -20985,13 +21053,13 @@ gapi.load('client', async () => {
                             {
                               name: 'Test string',
                               sensitivityScore: {
-                                score: 'Test string',
+                                score: 'SENSITIVITY_SCORE_UNSPECIFIED',
                               },
                               version: 'Test string',
                             },
                           ],
                         },
-                        matchingType: 'Test string',
+                        matchingType: 'MATCHING_TYPE_UNSPECIFIED',
                         regex: {
                           groupIndexes: [42],
                           pattern: 'Test string',
@@ -21003,7 +21071,7 @@ gapi.load('client', async () => {
                           pattern: 'Test string',
                         },
                         likelihoodAdjustment: {
-                          fixedLikelihood: 'Test string',
+                          fixedLikelihood: 'LIKELIHOOD_UNSPECIFIED',
                           relativeLikelihood: 42,
                         },
                         proximity: {
@@ -21036,7 +21104,7 @@ gapi.load('client', async () => {
                 ],
                 rowsLimit: 'Test string',
                 rowsLimitPercent: 42,
-                sampleMethod: 'Test string',
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
                 tableReference: {
                   datasetId: 'Test string',
                   projectId: 'Test string',
@@ -21055,8 +21123,8 @@ gapi.load('client', async () => {
                   url: 'Test string',
                 },
                 filesLimitPercent: 42,
-                fileTypes: ['Test string'],
-                sampleMethod: 'Test string',
+                fileTypes: ['FILE_TYPE_UNSPECIFIED'],
+                sampleMethod: 'SAMPLE_METHOD_UNSPECIFIED',
               },
               datastoreOptions: {
                 kind: {
@@ -21093,7 +21161,7 @@ gapi.load('client', async () => {
           },
           lastRunTime: 'Test string',
           name: 'Test string',
-          status: 'Test string',
+          status: 'STATUS_UNSPECIFIED',
           triggers: [
             {
               manual: {},

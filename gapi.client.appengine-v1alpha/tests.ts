@@ -52,7 +52,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'UNSPECIFIED_STATUS',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -67,14 +67,14 @@ gapi.load('client', async () => {
     await gapi.client.appengine.apps.authorizedCertificates.get({
       appsId: 'Test string',
       authorizedCertificatesId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC_CERTIFICATE',
     });
     /** Lists all SSL certificates the user is authorized to administer. */
     await gapi.client.appengine.apps.authorizedCertificates.list({
       appsId: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'BASIC_CERTIFICATE',
     });
     /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
     await gapi.client.appengine.apps.authorizedCertificates.patch(
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'UNSPECIFIED_STATUS',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
       {
         appsId: 'Test string',
         noManagedCertificate: true,
-        overrideStrategy: 'Test string',
+        overrideStrategy: 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY',
       },
       {
         id: 'Test string',
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'A',
           },
         ],
         sslSettings: {
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'A',
           },
         ],
         sslSettings: {
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'UNSPECIFIED_STATUS',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
         authorizedCertificatesId: 'Test string',
         locationsId: 'Test string',
         projectsId: 'Test string',
-        view: 'Test string',
+        view: 'BASIC_CERTIFICATE',
       },
     );
     /** Lists all SSL certificates the user is authorized to administer. */
@@ -261,7 +261,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         projectsId: 'Test string',
-        view: 'Test string',
+        view: 'BASIC_CERTIFICATE',
       },
     );
     /** Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated. */
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
         id: 'Test string',
         managedCertificate: {
           lastRenewalTime: 'Test string',
-          status: 'Test string',
+          status: 'UNSPECIFIED_STATUS',
         },
         name: 'Test string',
         visibleDomainMappings: ['Test string'],
@@ -307,7 +307,7 @@ gapi.load('client', async () => {
         applicationsId: 'Test string',
         locationsId: 'Test string',
         noManagedCertificate: true,
-        overrideStrategy: 'Test string',
+        overrideStrategy: 'UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY',
         projectsId: 'Test string',
       },
       {
@@ -317,7 +317,7 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'A',
           },
         ],
         sslSettings: {
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
           {
             name: 'Test string',
             rrdata: 'Test string',
-            type: 'Test string',
+            type: 'A',
           },
         ],
         sslSettings: {

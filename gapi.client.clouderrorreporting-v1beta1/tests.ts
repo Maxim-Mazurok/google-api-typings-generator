@@ -44,7 +44,7 @@ gapi.load('client', async () => {
       'serviceFilter.resourceType': 'Test string',
       'serviceFilter.service': 'Test string',
       'serviceFilter.version': 'Test string',
-      'timeRange.period': 'Test string',
+      'timeRange.period': 'PERIOD_UNSPECIFIED',
     });
     /** Report an individual error event and record the event to a log. This endpoint accepts **either** an OAuth token, **or** an [API key](https://support.google.com/cloud/answer/6158862) for authentication. To use an API key, append it to the URL as the value of a `key` parameter. For example: `POST https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456` **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a service built on Cloud Logging and can analyze log entries when all of the following are true: * Customer-managed encryption keys (CMEK) are disabled on the log bucket. * The log bucket satisfies one of the following: * The log bucket is stored in the same project where the logs originated. * The logs were routed to a project, and then that project stored those logs in a log bucket that it owns. */
     await gapi.client.clouderrorreporting.projects.events.report(
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
       {
         groupId: 'Test string',
         name: 'Test string',
-        resolutionStatus: 'Test string',
+        resolutionStatus: 'RESOLUTION_STATUS_UNSPECIFIED',
         trackingIssues: [
           {
             url: 'Test string',
@@ -105,10 +105,10 @@ gapi.load('client', async () => {
     );
     /** Lists the specified groups. */
     await gapi.client.clouderrorreporting.projects.groupStats.list({
-      alignment: 'Test string',
+      alignment: 'ERROR_COUNT_ALIGNMENT_UNSPECIFIED',
       alignmentTime: 'Test string',
       groupId: 'Test string',
-      order: 'Test string',
+      order: 'GROUP_ORDER_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       projectName: 'Test string',
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
       'serviceFilter.service': 'Test string',
       'serviceFilter.version': 'Test string',
       timedCountDuration: 'Test string',
-      'timeRange.period': 'Test string',
+      'timeRange.period': 'PERIOD_UNSPECIFIED',
     });
     /** Deletes all error events of a given project. */
     await gapi.client.clouderrorreporting.projects.locations.deleteEvents({
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
       'serviceFilter.resourceType': 'Test string',
       'serviceFilter.service': 'Test string',
       'serviceFilter.version': 'Test string',
-      'timeRange.period': 'Test string',
+      'timeRange.period': 'PERIOD_UNSPECIFIED',
     });
     /** Get the specified group. */
     await gapi.client.clouderrorreporting.projects.locations.groups.get({
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
       {
         groupId: 'Test string',
         name: 'Test string',
-        resolutionStatus: 'Test string',
+        resolutionStatus: 'RESOLUTION_STATUS_UNSPECIFIED',
         trackingIssues: [
           {
             url: 'Test string',
@@ -155,10 +155,10 @@ gapi.load('client', async () => {
     );
     /** Lists the specified groups. */
     await gapi.client.clouderrorreporting.projects.locations.groupStats.list({
-      alignment: 'Test string',
+      alignment: 'ERROR_COUNT_ALIGNMENT_UNSPECIFIED',
       alignmentTime: 'Test string',
       groupId: 'Test string',
-      order: 'Test string',
+      order: 'GROUP_ORDER_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       projectName: 'Test string',
@@ -166,7 +166,7 @@ gapi.load('client', async () => {
       'serviceFilter.service': 'Test string',
       'serviceFilter.version': 'Test string',
       timedCountDuration: 'Test string',
-      'timeRange.period': 'Test string',
+      'timeRange.period': 'PERIOD_UNSPECIFIED',
     });
   }
 });

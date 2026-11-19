@@ -370,7 +370,39 @@ declare namespace gapi.client {
       /** The user's profile page. */
       url?: string;
     }
-    interface BlogsResource {
+
+    const blogUserInfos: {
+      /** Gets one blog and user info pair by blog id and user id. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        blogId: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        maxPosts?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        userId: string;
+      }): Request<BlogUserInfo>;
+    };
+
+    const blogs: {
       /** Gets a blog by id. */
       get(request?: {
         /** V1 error format. */
@@ -465,38 +497,9 @@ declare namespace gapi.client {
         /** Unspecified is interpreted as the user's role on the blog. */
         view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
       }): Request<BlogList>;
-    }
-    interface BlogUserInfosResource {
-      /** Gets one blog and user info pair by blog id and user id. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        blogId: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        maxPosts?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        userId: string;
-      }): Request<BlogUserInfo>;
-    }
-    interface CommentsResource {
+    };
+
+    const comments: {
       /** Marks a comment as not spam by blog id, post id and comment id. */
       approve(request?: {
         /** V1 error format. */
@@ -709,8 +712,39 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Comment>;
-    }
-    interface PagesResource {
+    };
+
+    const pageViews: {
+      /** Gets page views by blog id. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        blogId: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        range?: 'all' | '30DAYS' | '7DAYS' | ('all' | '30DAYS' | '7DAYS')[];
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Pageviews>;
+    };
+
+    const pages: {
       /** Deletes a page by blog id and page id. */
       delete(request?: {
         /** V1 error format. */
@@ -1039,9 +1073,10 @@ declare namespace gapi.client {
         },
         body: Page,
       ): Request<Page>;
-    }
-    interface PageViewsResource {
-      /** Gets page views by blog id. */
+    };
+
+    const postUserInfos: {
+      /** Gets one post and user info pair, by post_id and user_id. */
       get(request?: {
         /** V1 error format. */
         '$.xgafv'?: '1' | '2';
@@ -1056,20 +1091,64 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
+        maxComments?: number;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
+        postId: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        range?: 'all' | '30DAYS' | '7DAYS' | ('all' | '30DAYS' | '7DAYS')[];
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
-      }): Request<Pageviews>;
-    }
-    interface PostsResource {
+        userId: string;
+      }): Request<PostUserInfo>;
+      /** Lists post and user info pairs. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        blogId: string;
+        /** JSONP */
+        callback?: string;
+        endDate?: string;
+        fetchBodies?: boolean;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        labels?: string;
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        orderBy?: 'ORDER_BY_UNSPECIFIED' | 'PUBLISHED' | 'UPDATED';
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        startDate?: string;
+        status?:
+          | 'LIVE'
+          | 'DRAFT'
+          | 'SCHEDULED'
+          | 'SOFT_TRASHED'
+          | ('LIVE' | 'DRAFT' | 'SCHEDULED' | 'SOFT_TRASHED')[];
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        userId: string;
+        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
+      }): Request<PostUserInfosList>;
+    };
+
+    const posts: {
       /** Deletes a post by blog id and post id. */
       delete(request?: {
         /** V1 error format. */
@@ -1484,80 +1563,9 @@ declare namespace gapi.client {
         },
         body: Post,
       ): Request<Post>;
-    }
-    interface PostUserInfosResource {
-      /** Gets one post and user info pair, by post_id and user_id. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        blogId: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        maxComments?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        postId: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        userId: string;
-      }): Request<PostUserInfo>;
-      /** Lists post and user info pairs. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        blogId: string;
-        /** JSONP */
-        callback?: string;
-        endDate?: string;
-        fetchBodies?: boolean;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        labels?: string;
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        orderBy?: 'ORDER_BY_UNSPECIFIED' | 'PUBLISHED' | 'UPDATED';
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        startDate?: string;
-        status?:
-          | 'LIVE'
-          | 'DRAFT'
-          | 'SCHEDULED'
-          | 'SOFT_TRASHED'
-          | ('LIVE' | 'DRAFT' | 'SCHEDULED' | 'SOFT_TRASHED')[];
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        userId: string;
-        view?: 'VIEW_TYPE_UNSPECIFIED' | 'READER' | 'AUTHOR' | 'ADMIN';
-      }): Request<PostUserInfosList>;
-    }
-    interface UsersResource {
+    };
+
+    const users: {
       /** Gets one user by user_id. */
       get(request?: {
         /** V1 error format. */
@@ -1584,22 +1592,6 @@ declare namespace gapi.client {
         uploadType?: string;
         userId: string;
       }): Request<User>;
-    }
-
-    const blogUserInfos: BlogUserInfosResource;
-
-    const blogs: BlogsResource;
-
-    const comments: CommentsResource;
-
-    const pageViews: PageViewsResource;
-
-    const pages: PagesResource;
-
-    const postUserInfos: PostUserInfosResource;
-
-    const posts: PostsResource;
-
-    const users: UsersResource;
+    };
   }
 }

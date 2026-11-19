@@ -294,7 +294,7 @@ gapi.load('client', async () => {
             documentCondition: 'Test string',
             documentQuery: {
               query: 'Test string',
-              queryType: 'Test string',
+              queryType: 'QUERY_TYPE_UNSPECIFIED',
             },
             legacyMonitorMetadata: {
               aggregationEnabled: true,
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
               updaterUserId: 'Test string',
               version: 42,
             },
-            scenarioType: 'Test string',
+            scenarioType: 'CUSTOM_THREAT_SCENARIO_TYPE_UNSPECIFIED',
           },
           detailType: 'Test string',
           domainConfiguration: {
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
                 domainMonitoringConfig: {
                   disabled: true,
                 },
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
           },
@@ -339,9 +339,9 @@ gapi.load('client', async () => {
             alertThreshold: {
               cvssScoreMinimum: 42,
               epssScoreMinimum: 42,
-              exploitationStates: ['Test string'],
-              priorityMinimum: 'Test string',
-              riskRatingMinimum: 'Test string',
+              exploitationStates: ['EXPLOITATION_STATE_UNSPECIFIED'],
+              priorityMinimum: 'PRIORITY_UNSPECIFIED',
+              riskRatingMinimum: 'RISK_RATING_UNSPECIFIED',
             },
             technologies: ['Test string'],
           },
@@ -350,7 +350,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         name: 'Test string',
         provider: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         version: 'Test string',
       },
     );

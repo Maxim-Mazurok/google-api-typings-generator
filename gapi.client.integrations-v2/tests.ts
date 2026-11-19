@@ -57,7 +57,7 @@ gapi.load('client', async () => {
           branchCondition: 'Test string',
           integrationParameters: [
             {
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
             integrationConfigParameters: [
               {
                 parameter: {
-                  dataType: 'Test string',
+                  dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanArray: {
                       booleanValues: [true],
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
                   },
                   description: 'Test string',
                   displayName: 'Test string',
-                  inputOutputType: 'Test string',
+                  inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                   isTransient: true,
                   jsonSchema: 'Test string',
                   key: 'Test string',
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
             ],
             integrationParameters: [
               {
-                dataType: 'Test string',
+                dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -233,7 +233,7 @@ gapi.load('client', async () => {
                 },
                 description: 'Test string',
                 displayName: 'Test string',
-                inputOutputType: 'Test string',
+                inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
@@ -241,13 +241,13 @@ gapi.load('client', async () => {
             ],
             name: 'Test string',
             snapshotNumber: 'Test string',
-            state: 'Test string',
+            state: 'INTEGRATION_STATE_UNSPECIFIED',
             taskConfigs: [
               {
                 description: 'Test string',
                 displayName: 'Test string',
                 errorCatcherId: 'Test string',
-                externalTaskType: 'Test string',
+                externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                 nextTasks: [
                   {
                     condition: 'Test string',
@@ -317,7 +317,7 @@ gapi.load('client', async () => {
                 trigger: 'Test string',
                 triggerId: 'Test string',
                 triggerNumber: 'Test string',
-                triggerType: 'Test string',
+                triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
               },
             ],
             userLabel: 'Test string',
@@ -355,7 +355,7 @@ gapi.load('client', async () => {
             integrationConfigParameters: [
               {
                 parameter: {
-                  dataType: 'Test string',
+                  dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanArray: {
                       booleanValues: [true],
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
                   },
                   description: 'Test string',
                   displayName: 'Test string',
-                  inputOutputType: 'Test string',
+                  inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                   isTransient: true,
                   jsonSchema: 'Test string',
                   key: 'Test string',
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
             ],
             integrationParameters: [
               {
-                dataType: 'Test string',
+                dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -427,7 +427,7 @@ gapi.load('client', async () => {
                 },
                 description: 'Test string',
                 displayName: 'Test string',
-                inputOutputType: 'Test string',
+                inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
@@ -435,13 +435,13 @@ gapi.load('client', async () => {
             ],
             name: 'Test string',
             snapshotNumber: 'Test string',
-            state: 'Test string',
+            state: 'INTEGRATION_STATE_UNSPECIFIED',
             taskConfigs: [
               {
                 description: 'Test string',
                 displayName: 'Test string',
                 errorCatcherId: 'Test string',
-                externalTaskType: 'Test string',
+                externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                 nextTasks: [
                   {
                     condition: 'Test string',
@@ -511,7 +511,7 @@ gapi.load('client', async () => {
                 trigger: 'Test string',
                 triggerId: 'Test string',
                 triggerNumber: 'Test string',
-                triggerType: 'Test string',
+                triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
               },
             ],
             userLabel: 'Test string',
@@ -535,7 +535,7 @@ gapi.load('client', async () => {
             description: 'Test string',
             displayName: 'Test string',
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             nextTasks: [
               {
                 condition: 'Test string',
@@ -572,7 +572,7 @@ gapi.load('client', async () => {
             task: 'Test string',
             taskId: 'Test string',
           },
-          taskTypes: ['Test string'],
+          taskTypes: ['TASK_TYPE_UNSPECIFIED'],
         },
       },
     );

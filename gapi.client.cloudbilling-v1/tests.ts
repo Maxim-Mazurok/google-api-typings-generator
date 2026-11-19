@@ -101,7 +101,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
           metadata: {
             A: 42,
           },
-          role: 'Test string',
+          role: 'ROLE_UNSPECIFIED',
           taskId: 'Test string',
         },
         metadata: {
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
           metadata: {
             A: 42,
           },
-          role: 'Test string',
+          role: 'ROLE_UNSPECIFIED',
           taskId: 'Test string',
         },
         metadata: {

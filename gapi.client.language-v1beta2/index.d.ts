@@ -2567,7 +2567,8 @@ declare namespace gapi.client {
       /** The number of steps for approximating the path integral. A good value to start is 50 and gradually increase until the sum to diff property is met within the desired error range. Valid range of its value is [1, 100], inclusively. */
       stepCount?: number;
     }
-    interface DocumentsResource {
+
+    const documents: {
       /** Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties. */
       analyzeEntities(request: {
         /** V1 error format. */
@@ -2946,8 +2947,6 @@ declare namespace gapi.client {
         },
         body: ModerateTextRequest,
       ): Request<ModerateTextResponse>;
-    }
-
-    const documents: DocumentsResource;
+    };
   }
 }

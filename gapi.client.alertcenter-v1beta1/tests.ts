@@ -91,7 +91,7 @@ gapi.load('client', async () => {
         customerId: 'Test string',
         email: 'Test string',
         feedbackId: 'Test string',
-        type: 'Test string',
+        type: 'ALERT_FEEDBACK_TYPE_UNSPECIFIED',
       },
     );
     /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         notifications: [
           {
             cloudPubsubTopic: {
-              payloadFormat: 'Test string',
+              payloadFormat: 'PAYLOAD_FORMAT_UNSPECIFIED',
               topicName: 'Test string',
             },
           },

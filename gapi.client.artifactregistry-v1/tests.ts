@@ -44,7 +44,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        legacyRedirectionState: 'Test string',
+        legacyRedirectionState: 'REDIRECTION_STATE_UNSPECIFIED',
         name: 'Test string',
         pullPercent: 42,
       },
@@ -78,8 +78,8 @@ gapi.load('client', async () => {
       {
         name: 'Test string',
         platformLogsConfig: {
-          loggingState: 'Test string',
-          severityLevel: 'Test string',
+          loggingState: 'LOGGING_STATE_UNSPECIFIED',
+          severityLevel: 'SEVERITY_LEVEL_UNSPECIFIED',
         },
       },
     );
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        vpcscPolicy: 'Test string',
+        vpcscPolicy: 'VPCSC_POLICY_UNSPECIFIED',
       },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
@@ -125,13 +125,13 @@ gapi.load('client', async () => {
       {
         cleanupPolicies: {
           A: {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             condition: {
               newerThan: 'Test string',
               olderThan: 'Test string',
               packageNamePrefixes: ['Test string'],
               tagPrefixes: ['Test string'],
-              tagState: 'Test string',
+              tagState: 'TAG_STATE_UNSPECIFIED',
               versionNamePrefixes: ['Test string'],
             },
             id: 'Test string',
@@ -148,20 +148,20 @@ gapi.load('client', async () => {
         dockerConfig: {
           immutableTags: true,
         },
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
         },
         mavenConfig: {
           allowSnapshotOverwrites: true,
-          versionPolicy: 'Test string',
+          versionPolicy: 'VERSION_POLICY_UNSPECIFIED',
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
         platformLogsConfig: {
-          loggingState: 'Test string',
-          severityLevel: 'Test string',
+          loggingState: 'LOGGING_STATE_UNSPECIFIED',
+          severityLevel: 'SEVERITY_LEVEL_UNSPECIFIED',
         },
         registryUri: 'Test string',
         remoteRepositoryConfig: {
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
             publicRepository: {
-              repositoryBase: 'Test string',
+              repositoryBase: 'REPOSITORY_BASE_UNSPECIFIED',
               repositoryPath: 'Test string',
             },
           },
@@ -183,26 +183,26 @@ gapi.load('client', async () => {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           mavenRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           noCache: {},
           npmRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           pythonRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           upstreamCredentials: {
             usernamePasswordCredentials: {
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
             publicRepository: {
-              repositoryBase: 'Test string',
+              repositoryBase: 'REPOSITORY_BASE_UNSPECIFIED',
               repositoryPath: 'Test string',
             },
           },
@@ -234,8 +234,8 @@ gapi.load('client', async () => {
           ],
         },
         vulnerabilityScanningConfig: {
-          enablementConfig: 'Test string',
-          enablementState: 'Test string',
+          enablementConfig: 'ENABLEMENT_CONFIG_UNSPECIFIED',
+          enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
           enablementStateReason: 'Test string',
           lastEnableTime: 'Test string',
         },
@@ -284,13 +284,13 @@ gapi.load('client', async () => {
       {
         cleanupPolicies: {
           A: {
-            action: 'Test string',
+            action: 'ACTION_UNSPECIFIED',
             condition: {
               newerThan: 'Test string',
               olderThan: 'Test string',
               packageNamePrefixes: ['Test string'],
               tagPrefixes: ['Test string'],
-              tagState: 'Test string',
+              tagState: 'TAG_STATE_UNSPECIFIED',
               versionNamePrefixes: ['Test string'],
             },
             id: 'Test string',
@@ -307,20 +307,20 @@ gapi.load('client', async () => {
         dockerConfig: {
           immutableTags: true,
         },
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
         },
         mavenConfig: {
           allowSnapshotOverwrites: true,
-          versionPolicy: 'Test string',
+          versionPolicy: 'VERSION_POLICY_UNSPECIFIED',
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
         platformLogsConfig: {
-          loggingState: 'Test string',
-          severityLevel: 'Test string',
+          loggingState: 'LOGGING_STATE_UNSPECIFIED',
+          severityLevel: 'SEVERITY_LEVEL_UNSPECIFIED',
         },
         registryUri: 'Test string',
         remoteRepositoryConfig: {
@@ -329,7 +329,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
             publicRepository: {
-              repositoryBase: 'Test string',
+              repositoryBase: 'REPOSITORY_BASE_UNSPECIFIED',
               repositoryPath: 'Test string',
             },
           },
@@ -342,26 +342,26 @@ gapi.load('client', async () => {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           mavenRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           noCache: {},
           npmRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           pythonRepository: {
             customRepository: {
               uri: 'Test string',
             },
-            publicRepository: 'Test string',
+            publicRepository: 'PUBLIC_REPOSITORY_UNSPECIFIED',
           },
           upstreamCredentials: {
             usernamePasswordCredentials: {
@@ -374,7 +374,7 @@ gapi.load('client', async () => {
               uri: 'Test string',
             },
             publicRepository: {
-              repositoryBase: 'Test string',
+              repositoryBase: 'REPOSITORY_BASE_UNSPECIFIED',
               repositoryPath: 'Test string',
             },
           },
@@ -393,8 +393,8 @@ gapi.load('client', async () => {
           ],
         },
         vulnerabilityScanningConfig: {
-          enablementConfig: 'Test string',
-          enablementState: 'Test string',
+          enablementConfig: 'ENABLEMENT_CONFIG_UNSPECIFIED',
+          enablementState: 'ENABLEMENT_STATE_UNSPECIFIED',
           enablementStateReason: 'Test string',
           lastEnableTime: 'Test string',
         },
@@ -578,7 +578,7 @@ gapi.load('client', async () => {
         fetchTime: 'Test string',
         hashes: [
           {
-            type: 'Test string',
+            type: 'HASH_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         ],
@@ -595,7 +595,7 @@ gapi.load('client', async () => {
       },
       {
         fileId: 'Test string',
-        fileType: 'Test string',
+        fileType: 'ATTACHMENT',
       },
     );
     /** Directly uploads a Generic artifact. The returned operation will complete once the resources are uploaded. Package, version, and file resources are created based on the uploaded artifact. Uploaded artifacts that conflict with existing resources will raise an `ALREADY_EXISTS` error. */
@@ -778,7 +778,7 @@ gapi.load('client', async () => {
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Lists versions. */
@@ -789,7 +789,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Updates a version. */
@@ -806,7 +806,7 @@ gapi.load('client', async () => {
         description: 'Test string',
         fingerprints: [
           {
-            type: 'Test string',
+            type: 'HASH_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         ],
@@ -853,7 +853,7 @@ gapi.load('client', async () => {
         ruleId: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'ACTION_UNSPECIFIED',
         condition: {
           description: 'Test string',
           expression: 'Test string',
@@ -861,7 +861,7 @@ gapi.load('client', async () => {
           title: 'Test string',
         },
         name: 'Test string',
-        operation: 'Test string',
+        operation: 'OPERATION_UNSPECIFIED',
         packageId: 'Test string',
       },
     );
@@ -892,7 +892,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        action: 'Test string',
+        action: 'ACTION_UNSPECIFIED',
         condition: {
           description: 'Test string',
           expression: 'Test string',
@@ -900,7 +900,7 @@ gapi.load('client', async () => {
           title: 'Test string',
         },
         name: 'Test string',
-        operation: 'Test string',
+        operation: 'OPERATION_UNSPECIFIED',
         packageId: 'Test string',
       },
     );

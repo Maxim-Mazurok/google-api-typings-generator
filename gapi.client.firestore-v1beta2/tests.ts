@@ -79,14 +79,14 @@ gapi.load('client', async () => {
             {
               fields: [
                 {
-                  arrayConfig: 'Test string',
+                  arrayConfig: 'ARRAY_CONFIG_UNSPECIFIED',
                   fieldPath: 'Test string',
-                  order: 'Test string',
+                  order: 'ORDER_UNSPECIFIED',
                 },
               ],
               name: 'Test string',
-              queryScope: 'Test string',
-              state: 'Test string',
+              queryScope: 'QUERY_SCOPE_UNSPECIFIED',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           reverting: true,
@@ -103,14 +103,14 @@ gapi.load('client', async () => {
       {
         fields: [
           {
-            arrayConfig: 'Test string',
+            arrayConfig: 'ARRAY_CONFIG_UNSPECIFIED',
             fieldPath: 'Test string',
-            order: 'Test string',
+            order: 'ORDER_UNSPECIFIED',
           },
         ],
         name: 'Test string',
-        queryScope: 'Test string',
-        state: 'Test string',
+        queryScope: 'QUERY_SCOPE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a composite index. */

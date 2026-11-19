@@ -66,12 +66,13 @@ declare namespace gapi.client {
       /** Required. A field mask to restrict which fields on each person are returned in the response. Multiple fields can be specified by separating them with commas. If read mask is left empty, the post-mutate-get is skipped and no data will be returned in the response. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return in the post mutate read. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?:
+      sources?: (
         | 'READ_SOURCE_TYPE_UNSPECIFIED'
         | 'READ_SOURCE_TYPE_PROFILE'
         | 'READ_SOURCE_TYPE_CONTACT'
         | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+      )[];
     }
     interface BatchCreateContactsResponse {
       /** The contacts that were created, unless the request `read_mask` is empty. */
@@ -91,12 +92,13 @@ declare namespace gapi.client {
       /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. If read mask is left empty, the post-mutate-get is skipped and no data will be returned in the response. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?:
+      sources?: (
         | 'READ_SOURCE_TYPE_UNSPECIFIED'
         | 'READ_SOURCE_TYPE_PROFILE'
         | 'READ_SOURCE_TYPE_CONTACT'
         | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+      )[];
       /** Required. A field mask to restrict which fields on the person are updated. Multiple fields can be specified by separating them with commas. All specified fields will be replaced, or cleared if left empty for each person. Valid values are: * addresses * biographies * birthdays * calendarUrls * clientData * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * relations * sipAddresses * urls * userDefined */
       updateMask?: string;
     }
@@ -197,12 +199,13 @@ declare namespace gapi.client {
       /** Optional. A field mask to restrict which fields on the person are returned. Multiple fields can be specified by separating them with commas. Defaults to the copy mask with metadata and membership fields if not set. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
       readMask?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?:
+      sources?: (
         | 'READ_SOURCE_TYPE_UNSPECIFIED'
         | 'READ_SOURCE_TYPE_PROFILE'
         | 'READ_SOURCE_TYPE_CONTACT'
         | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+      )[];
     }
     interface CoverPhoto {
       /** True if the cover photo is the default cover photo; false if the cover photo is a user-provided cover photo. */
@@ -644,11 +647,9 @@ declare namespace gapi.client {
       /** Output only. The profile object type. */
       objectType?: 'OBJECT_TYPE_UNSPECIFIED' | 'PERSON' | 'PAGE';
       /** Output only. The user types. */
-      userTypes?:
-        | 'USER_TYPE_UNKNOWN'
-        | 'GOOGLE_USER'
-        | 'GPLUS_USER'
-        | 'GOOGLE_APPS_USER'[];
+      userTypes?: (
+        'USER_TYPE_UNKNOWN' | 'GOOGLE_USER' | 'GPLUS_USER' | 'GOOGLE_APPS_USER'
+      )[];
     }
     interface Relation {
       /** Output only. The type of the relation translated and formatted in the viewer's account locale or the locale specified in the Accept-Language HTTP header. */
@@ -763,12 +764,13 @@ declare namespace gapi.client {
       /** Required. Raw photo bytes */
       photoBytes?: string;
       /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-      sources?:
+      sources?: (
         | 'READ_SOURCE_TYPE_UNSPECIFIED'
         | 'READ_SOURCE_TYPE_PROFILE'
         | 'READ_SOURCE_TYPE_CONTACT'
         | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-        | 'READ_SOURCE_TYPE_OTHER_CONTACT'[];
+        | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+      )[];
     }
     interface UpdateContactPhotoResponse {
       /** The updated person, if person_fields is set in the UpdateContactPhotoRequest; otherwise this will be unset. */
@@ -792,67 +794,8 @@ declare namespace gapi.client {
       /** The end user specified value of the user defined data. */
       value?: string;
     }
-    interface MembersResource {
-      /** Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed. */
-      modify(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The resource name of the contact group to modify. */
-        resourceName: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: ModifyContactGroupMembersRequest;
-      }): Request<ModifyContactGroupMembersResponse>;
-      modify(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The resource name of the contact group to modify. */
-          resourceName: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: ModifyContactGroupMembersRequest,
-      ): Request<ModifyContactGroupMembersResponse>;
-    }
-    interface ContactGroupsResource {
+
+    const contactGroups: {
       /** Get a list of contact groups owned by the authenticated user by specifying a list of contact group resource names. */
       batchGet(request?: {
         /** V1 error format. */
@@ -1089,9 +1032,69 @@ declare namespace gapi.client {
         },
         body: UpdateContactGroupRequest,
       ): Request<ContactGroup>;
-      members: MembersResource;
-    }
-    interface OtherContactsResource {
+      members: {
+        /** Modify the members of a contact group owned by the authenticated user. The only system contact groups that can have members added are `contactGroups/myContacts` and `contactGroups/starred`. Other system contact groups are deprecated and can only have contacts removed. */
+        modify(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The resource name of the contact group to modify. */
+          resourceName: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: ModifyContactGroupMembersRequest;
+        }): Request<ModifyContactGroupMembersResponse>;
+        modify(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Required. The resource name of the contact group to modify. */
+            resourceName: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: ModifyContactGroupMembersRequest,
+        ): Request<ModifyContactGroupMembersResponse>;
+      };
+    };
+
+    const otherContacts: {
       /** Copies an "Other contact" to a new contact in the user's "myContacts" group Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       copyOtherContactToMyContactsGroup(request: {
         /** V1 error format. */
@@ -1230,69 +1233,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SearchResponse>;
-    }
-    interface ConnectionsResource {
-      /** Provides a list of the authenticated user's contacts. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's contacts that have changed](/people/v1/contacts#list_the_users_contacts_that_have_changed). */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Optional. The number of connections to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
-        pageSize?: number;
-        /** Optional. A page token, received from a previous response `next_page_token`. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `people.connections.list` must match the first call that provided the page token. */
-        pageToken?: string;
-        /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
-        personFields?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or `person.photos`. */
-        'requestMask.includeField'?: string;
-        /** Optional. Whether the response should return `next_sync_token` on the last page of results. It can be used to get incremental changes since the last request by setting it on the request `sync_token`. More details about sync behavior at `people.connections.list`. */
-        requestSyncToken?: boolean;
-        /** Required. The resource name to return connections for. Only `people/me` is valid. */
-        resourceName: string;
-        /** Optional. The order in which the connections should be sorted. Defaults to `LAST_MODIFIED_ASCENDING`. */
-        sortOrder?:
-          | 'LAST_MODIFIED_ASCENDING'
-          | 'LAST_MODIFIED_DESCENDING'
-          | 'FIRST_NAME_ASCENDING'
-          | 'LAST_NAME_ASCENDING';
-        /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
-        sources?:
-          | 'READ_SOURCE_TYPE_UNSPECIFIED'
-          | 'READ_SOURCE_TYPE_PROFILE'
-          | 'READ_SOURCE_TYPE_CONTACT'
-          | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-          | 'READ_SOURCE_TYPE_OTHER_CONTACT'
-          | (
-              | 'READ_SOURCE_TYPE_UNSPECIFIED'
-              | 'READ_SOURCE_TYPE_PROFILE'
-              | 'READ_SOURCE_TYPE_CONTACT'
-              | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
-              | 'READ_SOURCE_TYPE_OTHER_CONTACT'
-            )[];
-        /** Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `people.connections.list` must match the first call that provided the sync token. More details about sync behavior at `people.connections.list`. */
-        syncToken?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListConnectionsResponse>;
-    }
-    interface PeopleResource {
+    };
+
+    const people: {
       /** Create a batch of new contacts and return the PersonResponses for the newly Mutate requests for the same user should be sent sequentially to avoid increased latency and failures. */
       batchCreateContacts(request: {
         /** V1 error format. */
@@ -2002,13 +1945,67 @@ declare namespace gapi.client {
         },
         body: UpdateContactPhotoRequest,
       ): Request<UpdateContactPhotoResponse>;
-      connections: ConnectionsResource;
-    }
-
-    const contactGroups: ContactGroupsResource;
-
-    const otherContacts: OtherContactsResource;
-
-    const people: PeopleResource;
+      connections: {
+        /** Provides a list of the authenticated user's contacts. Sync tokens expire 7 days after the full sync. A request with an expired sync token will get an error with an [google.rpc.ErrorInfo](https://cloud.google.com/apis/design/errors#error_info) with reason "EXPIRED_SYNC_TOKEN". In the case of such an error clients should make a full sync request without a `sync_token`. The first page of a full sync request has an additional quota. If the quota is exceeded, a 429 error will be returned. This quota is fixed and can not be increased. When the `sync_token` is specified, resources deleted since the last sync will be returned as a person with `PersonMetadata.deleted` set to true. When the `page_token` or `sync_token` is specified, all other request parameters must match the first call. Writes may have a propagation delay of several minutes for sync requests. Incremental syncs are not intended for read-after-write use cases. See example usage at [List the user's contacts that have changed](/people/v1/contacts#list_the_users_contacts_that_have_changed). */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Optional. The number of connections to include in the response. Valid values are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0. */
+          pageSize?: number;
+          /** Optional. A page token, received from a previous response `next_page_token`. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `people.connections.list` must match the first call that provided the page token. */
+          pageToken?: string;
+          /** Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * addresses * ageRanges * biographies * birthdays * calendarUrls * clientData * coverPhotos * emailAddresses * events * externalIds * genders * imClients * interests * locales * locations * memberships * metadata * miscKeywords * names * nicknames * occupations * organizations * phoneNumbers * photos * relations * sipAddresses * skills * urls * userDefined */
+          personFields?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Comma-separated list of person fields to be included in the response. Each path should start with `person.`: for example, `person.names` or `person.photos`. */
+          'requestMask.includeField'?: string;
+          /** Optional. Whether the response should return `next_sync_token` on the last page of results. It can be used to get incremental changes since the last request by setting it on the request `sync_token`. More details about sync behavior at `people.connections.list`. */
+          requestSyncToken?: boolean;
+          /** Required. The resource name to return connections for. Only `people/me` is valid. */
+          resourceName: string;
+          /** Optional. The order in which the connections should be sorted. Defaults to `LAST_MODIFIED_ASCENDING`. */
+          sortOrder?:
+            | 'LAST_MODIFIED_ASCENDING'
+            | 'LAST_MODIFIED_DESCENDING'
+            | 'FIRST_NAME_ASCENDING'
+            | 'LAST_NAME_ASCENDING';
+          /** Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set. */
+          sources?:
+            | 'READ_SOURCE_TYPE_UNSPECIFIED'
+            | 'READ_SOURCE_TYPE_PROFILE'
+            | 'READ_SOURCE_TYPE_CONTACT'
+            | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+            | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+            | (
+                | 'READ_SOURCE_TYPE_UNSPECIFIED'
+                | 'READ_SOURCE_TYPE_PROFILE'
+                | 'READ_SOURCE_TYPE_CONTACT'
+                | 'READ_SOURCE_TYPE_DOMAIN_CONTACT'
+                | 'READ_SOURCE_TYPE_OTHER_CONTACT'
+              )[];
+          /** Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `people.connections.list` must match the first call that provided the sync token. More details about sync behavior at `people.connections.list`. */
+          syncToken?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListConnectionsResponse>;
+      };
+    };
   }
 }

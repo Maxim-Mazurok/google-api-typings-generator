@@ -62,7 +62,7 @@ gapi.load('client', async () => {
           clientSecret: 'Test string',
           hostUri: 'Test string',
           pkceDisabled: true,
-          scmProvider: 'Test string',
+          scmProvider: 'SCM_PROVIDER_UNKNOWN',
           scopes: ['Test string'],
           serverVersion: 'Test string',
           serviceDirectoryConfig: {
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         oauthStartUri: 'Test string',
         providerOauthConfig: {
           scopes: ['Test string'],
-          systemProviderId: 'Test string',
+          systemProviderId: 'SYSTEM_PROVIDER_UNSPECIFIED',
         },
         proxyConfig: {
           enabled: true,
@@ -144,7 +144,7 @@ gapi.load('client', async () => {
           clientSecret: 'Test string',
           hostUri: 'Test string',
           pkceDisabled: true,
-          scmProvider: 'Test string',
+          scmProvider: 'SCM_PROVIDER_UNKNOWN',
           scopes: ['Test string'],
           serverVersion: 'Test string',
           serviceDirectoryConfig: {
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
         oauthStartUri: 'Test string',
         providerOauthConfig: {
           scopes: ['Test string'],
-          systemProviderId: 'Test string',
+          systemProviderId: 'SYSTEM_PROVIDER_UNSPECIFIED',
         },
         proxyConfig: {
           enabled: true,
@@ -280,7 +280,7 @@ gapi.load('client', async () => {
             oauthTokenSecretVersion: 'Test string',
             username: 'Test string',
           },
-          githubApp: 'Test string',
+          githubApp: 'GIT_HUB_APP_UNSPECIFIED',
           installationUri: 'Test string',
         },
         githubEnterpriseConfig: {
@@ -347,7 +347,7 @@ gapi.load('client', async () => {
         installationState: {
           actionUri: 'Test string',
           message: 'Test string',
-          stage: 'Test string',
+          stage: 'STAGE_UNSPECIFIED',
         },
         labels: {
           A: 'Test string',
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
             oauthTokenSecretVersion: 'Test string',
             username: 'Test string',
           },
-          githubApp: 'Test string',
+          githubApp: 'GIT_HUB_APP_UNSPECIFIED',
           installationUri: 'Test string',
         },
         githubEnterpriseConfig: {
@@ -516,7 +516,7 @@ gapi.load('client', async () => {
         installationState: {
           actionUri: 'Test string',
           message: 'Test string',
-          stage: 'Test string',
+          stage: 'STAGE_UNSPECIFIED',
         },
         labels: {
           A: 'Test string',
@@ -578,7 +578,7 @@ gapi.load('client', async () => {
           id: 'Test string',
           lastLine: 42,
           path: 'Test string',
-          side: 'Test string',
+          side: 'DIFF_SIDE_UNSPECIFIED',
           updateTime: 'Test string',
         },
         commitId: 'Test string',
@@ -636,7 +636,7 @@ gapi.load('client', async () => {
         commitSha: 'Test string',
         name: 'Test string',
         pathFilters: 'Test string',
-        view: 'Test string',
+        view: 'COMMIT_VIEW_UNSPECIFIED',
       },
     );
     /** Fetch a list of Commits from a Git repository link. */
@@ -646,7 +646,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         ref: 'Test string',
-        view: 'Test string',
+        view: 'COMMIT_VIEW_UNSPECIFIED',
       },
     );
     /** Fetches blame information for a file or line range in a file. */
@@ -665,7 +665,7 @@ gapi.load('client', async () => {
         gitRepositoryLink: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        refType: 'Test string',
+        refType: 'REF_TYPE_UNSPECIFIED',
       },
     );
     /** Fetch Pull Request details from a Git repository link. */
@@ -723,7 +723,7 @@ gapi.load('client', async () => {
         baseRef: 'Test string',
         body: 'Test string',
         pullRequestId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         title: 'Test string',
       },
     );
@@ -743,9 +743,9 @@ gapi.load('client', async () => {
           headRef: 'Test string',
           htmlUrl: 'Test string',
           id: 'Test string',
-          mergeability: 'Test string',
+          mergeability: 'MERGEABILITY_UNSPECIFIED',
           mergeTime: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           title: 'Test string',
           updateTime: 'Test string',
         },
@@ -882,11 +882,11 @@ gapi.load('client', async () => {
             googleCloudRun: {
               serviceUri: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             uri: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -975,11 +975,11 @@ gapi.load('client', async () => {
             googleCloudRun: {
               serviceUri: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             uri: 'Test string',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

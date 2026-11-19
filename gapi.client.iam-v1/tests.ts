@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         sessionDuration: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkforcePool. You cannot use a deleted WorkforcePool to exchange external credentials for Google Cloud credentials. However, deletion does not revoke credentials that have already been issued. Credentials issued for a deleted pool do not grant access to resources. If the pool is undeleted, and the credentials are not expired, they grant access again. You can undelete a pool for 30 days. After 30 days, deletion is permanent. You cannot update deleted pools. However, you can view and list them. */
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         parent: 'Test string',
         sessionDuration: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Sets IAM policies on a WorkforcePool. */
@@ -140,7 +140,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         expireTime: 'Test string',
         extendedAttributesOauth2Client: {
-          attributesType: 'Test string',
+          attributesType: 'ATTRIBUTES_TYPE_UNSPECIFIED',
           clientId: 'Test string',
           clientSecret: {
             value: {
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
           },
         },
         extraAttributesOauth2Client: {
-          attributesType: 'Test string',
+          attributesType: 'ATTRIBUTES_TYPE_UNSPECIFIED',
           clientId: 'Test string',
           clientSecret: {
             value: {
@@ -242,16 +242,16 @@ gapi.load('client', async () => {
           jwksJson: 'Test string',
           webSsoConfig: {
             additionalScopes: ['Test string'],
-            assertionClaimsBehavior: 'Test string',
-            responseType: 'Test string',
+            assertionClaimsBehavior: 'ASSERTION_CLAIMS_BEHAVIOR_UNSPECIFIED',
+            responseType: 'RESPONSE_TYPE_UNSPECIFIED',
           },
         },
         saml: {
           idpMetadataXml: 'Test string',
         },
-        scimUsage: 'Test string',
-        state: 'Test string',
-        vendorType: 'Test string',
+        scimUsage: 'SCIM_USAGE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
+        vendorType: 'VENDOR_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkforcePoolProvider. Deleting a provider does not revoke credentials that have already been issued; they continue to grant access. You can undelete a provider for 30 days. After 30 days, deletion is permanent. You cannot update deleted providers. However, you can view and list them. */
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         expireTime: 'Test string',
         extendedAttributesOauth2Client: {
-          attributesType: 'Test string',
+          attributesType: 'ATTRIBUTES_TYPE_UNSPECIFIED',
           clientId: 'Test string',
           clientSecret: {
             value: {
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
           },
         },
         extraAttributesOauth2Client: {
-          attributesType: 'Test string',
+          attributesType: 'ATTRIBUTES_TYPE_UNSPECIFIED',
           clientId: 'Test string',
           clientSecret: {
             value: {
@@ -327,16 +327,16 @@ gapi.load('client', async () => {
           jwksJson: 'Test string',
           webSsoConfig: {
             additionalScopes: ['Test string'],
-            assertionClaimsBehavior: 'Test string',
-            responseType: 'Test string',
+            assertionClaimsBehavior: 'ASSERTION_CLAIMS_BEHAVIOR_UNSPECIFIED',
+            responseType: 'RESPONSE_TYPE_UNSPECIFIED',
           },
         },
         saml: {
           idpMetadataXml: 'Test string',
         },
-        scimUsage: 'Test string',
-        state: 'Test string',
-        vendorType: 'Test string',
+        scimUsage: 'SCIM_USAGE_UNSPECIFIED',
+        state: 'STATE_UNSPECIFIED',
+        vendorType: 'VENDOR_TYPE_UNSPECIFIED',
       },
     );
     /** Undeletes a WorkforcePoolProvider, as long as it was deleted fewer than 30 days ago. */
@@ -355,15 +355,15 @@ gapi.load('client', async () => {
       {
         expireTime: 'Test string',
         keyData: {
-          format: 'Test string',
+          format: 'KEY_FORMAT_UNSPECIFIED',
           key: 'Test string',
-          keySpec: 'Test string',
+          keySpec: 'KEY_SPEC_UNSPECIFIED',
           notAfterTime: 'Test string',
           notBeforeTime: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
-        use: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        use: 'KEY_USE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkforcePoolProviderKey. You can undelete a key for 30 days. After 30 days, deletion is permanent. */
@@ -414,7 +414,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         purgeTime: 'Test string',
         serviceAgent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimTenant. You can undelete a SCIM tenant for 30 days. After 30 days, deletion is permanent. You cannot update deleted SCIM tenants. However, you can view and list them. */
@@ -462,7 +462,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         purgeTime: 'Test string',
         serviceAgent: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Sets IAM policies on a WorkforcePool. */
@@ -477,7 +477,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -527,7 +527,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         securityToken: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gemini Enterprise and Looker only. Deletes a WorkforcePoolProviderScimToken. You can undelete a SCIM token for 30 days. After 30 days, the SCIM token is permanently deleted. You cannot update deleted SCIM tokens, however, you can view and list them. */
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         securityToken: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkforcePoolSubject. Subject must not already be in a deleted state. A WorkforcePoolSubject is automatically created the first time an external credential is exchanged for a Google Cloud credential using a mapped `google.subject` attribute. There is no endpoint to manually create a WorkforcePoolSubject. For 30 days after a WorkforcePoolSubject is deleted, using the same `google.subject` attribute in token exchanges with Google Cloud STS fails. Call UndeleteWorkforcePoolSubject to undelete a WorkforcePoolSubject that has been deleted, within within 30 days of deleting it. After 30 days, the WorkforcePoolSubject is permanently deleted. At this point, a token exchange with Google Cloud STS that uses the same mapped `google.subject` attribute automatically creates a new WorkforcePoolSubject that is unrelated to the previously deleted WorkforcePoolSubject but has the same `google.subject` value. */
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           includedPermissions: ['Test string'],
           name: 'Test string',
-          stage: 'Test string',
+          stage: 'ALPHA',
           title: 'Test string',
         },
         roleId: 'Test string',
@@ -619,7 +619,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       showDeleted: true,
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Updates the definition of a custom Role. */
     await gapi.client.iam.organizations.roles.patch(
@@ -633,7 +633,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         includedPermissions: ['Test string'],
         name: 'Test string',
-        stage: 'Test string',
+        stage: 'ALPHA',
         title: 'Test string',
       },
     );
@@ -662,17 +662,17 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        allowedGrantTypes: ['Test string'],
+        allowedGrantTypes: ['GRANT_TYPE_UNSPECIFIED'],
         allowedRedirectUris: ['Test string'],
         allowedScopes: ['Test string'],
         clientId: 'Test string',
-        clientType: 'Test string',
+        clientType: 'CLIENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         disabled: true,
         displayName: 'Test string',
         expireTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes an OauthClient. You cannot use a deleted OauthClient. However, deletion does not revoke access tokens that have already been issued. They continue to grant access. Deletion does revoke refresh tokens that have already been issued. They cannot be used to renew an access token. If the OauthClient is undeleted, and the refresh tokens are not expired, they are valid for token exchange again. You can undelete an OauthClient for 30 days. After 30 days, deletion is permanent. You cannot update deleted OauthClients. However, you can view and list them. */
@@ -697,17 +697,17 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        allowedGrantTypes: ['Test string'],
+        allowedGrantTypes: ['GRANT_TYPE_UNSPECIFIED'],
         allowedRedirectUris: ['Test string'],
         allowedScopes: ['Test string'],
         clientId: 'Test string',
-        clientType: 'Test string',
+        clientType: 'CLIENT_TYPE_UNSPECIFIED',
         description: 'Test string',
         disabled: true,
         displayName: 'Test string',
         expireTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Undeletes an OauthClient, as long as it was deleted fewer than 30 days ago. */
@@ -781,7 +781,7 @@ gapi.load('client', async () => {
           caPools: {
             A: 'Test string',
           },
-          keyAlgorithm: 'Test string',
+          keyAlgorithm: 'KEY_ALGORITHM_UNSPECIFIED',
           lifetime: 'Test string',
           rotationWindowPercentage: 42,
           useDefaultSharedCa: true,
@@ -803,9 +803,9 @@ gapi.load('client', async () => {
             },
           },
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkloadIdentityPool. You cannot use a deleted pool to exchange external credentials for Google Cloud credentials. However, deletion does not revoke credentials that have already been issued. Credentials issued for a deleted pool do not grant access to resources. If the pool is undeleted, and the credentials are not expired, they grant access again. You can undelete a pool for 30 days. After 30 days, deletion is permanent. You cannot update deleted pools. However, you can view and list them. */
@@ -858,7 +858,7 @@ gapi.load('client', async () => {
           caPools: {
             A: 'Test string',
           },
-          keyAlgorithm: 'Test string',
+          keyAlgorithm: 'KEY_ALGORITHM_UNSPECIFIED',
           lifetime: 'Test string',
           rotationWindowPercentage: 42,
           useDefaultSharedCa: true,
@@ -880,9 +880,9 @@ gapi.load('client', async () => {
             },
           },
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Remove an AttestationRule on a WorkloadIdentityPoolManagedIdentity. */
@@ -921,7 +921,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -975,7 +975,7 @@ gapi.load('client', async () => {
         ownerService: {
           principalSubject: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkloadIdentityPoolNamespace. You can undelete a namespace for 30 days. After 30 days, deletion is permanent. */
@@ -1013,7 +1013,7 @@ gapi.load('client', async () => {
         ownerService: {
           principalSubject: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Undeletes a WorkloadIdentityPoolNamespace, as long as it was deleted fewer than 30 days ago. */
@@ -1045,7 +1045,7 @@ gapi.load('client', async () => {
         disabled: true,
         expireTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a WorkloadIdentityPoolManagedIdentity. You can undelete a managed identity for 30 days. After 30 days, deletion is permanent. */
@@ -1089,7 +1089,7 @@ gapi.load('client', async () => {
         disabled: true,
         expireTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Remove an AttestationRule on a WorkloadIdentityPoolManagedIdentity. */
@@ -1176,7 +1176,7 @@ gapi.load('client', async () => {
         saml: {
           idpMetadataXml: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         x509: {
           trustStore: {
             intermediateCas: [
@@ -1244,7 +1244,7 @@ gapi.load('client', async () => {
         saml: {
           idpMetadataXml: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         x509: {
           trustStore: {
             intermediateCas: [
@@ -1278,15 +1278,15 @@ gapi.load('client', async () => {
       {
         expireTime: 'Test string',
         keyData: {
-          format: 'Test string',
+          format: 'KEY_FORMAT_UNSPECIFIED',
           key: 'Test string',
-          keySpec: 'Test string',
+          keySpec: 'KEY_SPEC_UNSPECIFIED',
           notAfterTime: 'Test string',
           notBeforeTime: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
-        use: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        use: 'KEY_USE_UNSPECIFIED',
       },
     );
     /** Deletes an WorkloadIdentityPoolProviderKey. You can undelete a key for 30 days. After 30 days, deletion is permanent. */
@@ -1341,7 +1341,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           includedPermissions: ['Test string'],
           name: 'Test string',
-          stage: 'Test string',
+          stage: 'ALPHA',
           title: 'Test string',
         },
         roleId: 'Test string',
@@ -1362,7 +1362,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       showDeleted: true,
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Updates the definition of a custom Role. */
     await gapi.client.iam.projects.roles.patch(
@@ -1376,7 +1376,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         includedPermissions: ['Test string'],
         name: 'Test string',
-        stage: 'Test string',
+        stage: 'ALPHA',
         title: 'Test string',
       },
     );
@@ -1474,7 +1474,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1555,8 +1555,8 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        keyAlgorithm: 'Test string',
-        privateKeyType: 'Test string',
+        keyAlgorithm: 'KEY_ALG_UNSPECIFIED',
+        privateKeyType: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a ServiceAccountKey. Deleting a service account key does not revoke short-lived credentials that have been issued based on the service account key. */
@@ -1580,11 +1580,11 @@ gapi.load('client', async () => {
     /** Gets a ServiceAccountKey. */
     await gapi.client.iam.projects.serviceAccounts.keys.get({
       name: 'Test string',
-      publicKeyType: 'Test string',
+      publicKeyType: 'TYPE_NONE',
     });
     /** Lists every ServiceAccountKey for a service account. */
     await gapi.client.iam.projects.serviceAccounts.keys.list({
-      keyTypes: 'Test string',
+      keyTypes: 'KEY_TYPE_UNSPECIFIED',
       name: 'Test string',
     });
     /** Uploads the public key portion of a key pair that you manage, and associates the public key with a ServiceAccount. After you upload the public key, you can use the private key from the key pair as a service account key. */
@@ -1606,7 +1606,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
       showDeleted: true,
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Lists roles that can be granted on a Google Cloud resource. A role is grantable if the IAM policy for the resource can contain bindings to the role. */
     await gapi.client.iam.roles.queryGrantableRoles(
@@ -1615,7 +1615,7 @@ gapi.load('client', async () => {
         fullResourceName: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        view: 'Test string',
+        view: 'BASIC',
       },
     );
   }

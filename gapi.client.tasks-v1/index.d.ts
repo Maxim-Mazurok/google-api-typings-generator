@@ -121,7 +121,8 @@ declare namespace gapi.client {
       /** Token used to access the next page of this result. */
       nextPageToken?: string;
     }
-    interface TasklistsResource {
+
+    const tasklists: {
       /** Deletes the authenticated user's specified task list. If the list contains assigned tasks, both the assigned tasks and the original tasks in the assignment surface (Docs, Chat Spaces) are deleted. The user's default task list cannot be deleted. */
       delete(request?: {
         /** V1 error format. */
@@ -375,8 +376,9 @@ declare namespace gapi.client {
         },
         body: TaskList,
       ): Request<TaskList>;
-    }
-    interface TasksResource {
+    };
+
+    const tasks: {
       /** Clears all completed tasks from the specified task list. The affected tasks will be marked as 'hidden' and no longer be returned by default when retrieving all tasks for a task list. */
       clear(request?: {
         /** V1 error format. */
@@ -736,10 +738,6 @@ declare namespace gapi.client {
         },
         body: Task,
       ): Request<Task>;
-    }
-
-    const tasklists: TasklistsResource;
-
-    const tasks: TasksResource;
+    };
   }
 }

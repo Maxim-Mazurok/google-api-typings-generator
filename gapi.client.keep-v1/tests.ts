@@ -75,7 +75,7 @@ gapi.load('client', async () => {
               email: 'Test string',
             },
             name: 'Test string',
-            role: 'Test string',
+            role: 'ROLE_UNSPECIFIED',
             user: {
               email: 'Test string',
             },
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
                 email: 'Test string',
               },
               name: 'Test string',
-              role: 'Test string',
+              role: 'ROLE_UNSPECIFIED',
               user: {
                 email: 'Test string',
               },

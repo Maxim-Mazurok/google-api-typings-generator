@@ -85,7 +85,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -103,8 +103,8 @@ gapi.load('client', async () => {
             queryOverride: {
               queryParams: 'Test string',
             },
-            scheme: 'Test string',
-            uriOverrideEnforceMode: 'Test string',
+            scheme: 'SCHEME_UNSPECIFIED',
+            uriOverrideEnforceMode: 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED',
           },
         },
         name: 'Test string',
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
         stackdriverLoggingConfig: {
           samplingRatio: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stats: {
           concurrentDispatchesCount: 'Test string',
           effectiveExecutionRate: 42,
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
         },
         taskTtl: 'Test string',
         tombstoneTtl: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a queue. This command will delete the queue even if it has tasks in it. Note : If you delete a queue, you may be prevented from creating a new queue with the same name as the deleted queue for a tombstone window of up to 3 days. During this window, the CreateQueue operation may appear to recreate the queue, but this can be misleading. If you attempt to create a queue with the same name as one that is in the tombstone window, run GetQueue to confirm that the queue creation was successful. If GetQueue returns 200 response code, your queue was successfully created with the name of the previously deleted queue. Otherwise, your queue did not successfully recreate. WARNING: Using this method may have unintended side effects if you are using an App Engine `queue.yaml` or `queue.xml` file to manage your queues. Read [Overview of Queue Management and queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using this method. */
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
               },
             },
           ],
-          httpMethod: 'Test string',
+          httpMethod: 'HTTP_METHOD_UNSPECIFIED',
           oauthToken: {
             scope: 'Test string',
             serviceAccountEmail: 'Test string',
@@ -207,8 +207,8 @@ gapi.load('client', async () => {
             queryOverride: {
               queryParams: 'Test string',
             },
-            scheme: 'Test string',
-            uriOverrideEnforceMode: 'Test string',
+            scheme: 'SCHEME_UNSPECIFIED',
+            uriOverrideEnforceMode: 'URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED',
           },
         },
         name: 'Test string',
@@ -228,7 +228,7 @@ gapi.load('client', async () => {
         stackdriverLoggingConfig: {
           samplingRatio: 42,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stats: {
           concurrentDispatchesCount: 'Test string',
           effectiveExecutionRate: 42,
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
         },
         taskTtl: 'Test string',
         tombstoneTtl: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Pauses the queue. If a queue is paused then the system will stop dispatching tasks until the queue is resumed via ResumeQueue. Tasks can still be added when the queue is paused. A queue is paused if its state is PAUSED. */
@@ -305,7 +305,7 @@ gapi.load('client', async () => {
         requests: [
           {
             parent: 'Test string',
-            responseView: 'Test string',
+            responseView: 'VIEW_UNSPECIFIED',
             task: {
               appEngineHttpRequest: {
                 appEngineRouting: {
@@ -318,7 +318,7 @@ gapi.load('client', async () => {
                 headers: {
                   A: 'Test string',
                 },
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 relativeUri: 'Test string',
               },
               createTime: 'Test string',
@@ -343,7 +343,7 @@ gapi.load('client', async () => {
                 headers: {
                   A: 'Test string',
                 },
-                httpMethod: 'Test string',
+                httpMethod: 'HTTP_METHOD_UNSPECIFIED',
                 oauthToken: {
                   scope: 'Test string',
                   serviceAccountEmail: 'Test string',
@@ -382,7 +382,7 @@ gapi.load('client', async () => {
                 minBackoff: 'Test string',
               },
               scheduleTime: 'Test string',
-              view: 'Test string',
+              view: 'VIEW_UNSPECIFIED',
             },
           },
         ],
@@ -423,7 +423,7 @@ gapi.load('client', async () => {
       },
       {
         parent: 'Test string',
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
         task: {
           appEngineHttpRequest: {
             appEngineRouting: {
@@ -436,7 +436,7 @@ gapi.load('client', async () => {
             headers: {
               A: 'Test string',
             },
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             relativeUri: 'Test string',
           },
           createTime: 'Test string',
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
             headers: {
               A: 'Test string',
             },
-            httpMethod: 'Test string',
+            httpMethod: 'HTTP_METHOD_UNSPECIFIED',
             oauthToken: {
               scope: 'Test string',
               serviceAccountEmail: 'Test string',
@@ -500,7 +500,7 @@ gapi.load('client', async () => {
             minBackoff: 'Test string',
           },
           scheduleTime: 'Test string',
-          view: 'Test string',
+          view: 'VIEW_UNSPECIFIED',
         },
       },
     );
@@ -511,14 +511,14 @@ gapi.load('client', async () => {
     /** Gets a task. After a task is successfully executed or has exhausted its retry attempts, the task is deleted. A `GetTask` request for a deleted task returns a `NOT_FOUND` error. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.get({
       name: 'Test string',
-      responseView: 'Test string',
+      responseView: 'VIEW_UNSPECIFIED',
     });
     /** Lists the tasks in a queue. By default, only the BASIC view is retrieved due to performance considerations; response_view controls the subset of information which is returned. The tasks may be returned in any order. The ordering may change at any time. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.list({
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      responseView: 'Test string',
+      responseView: 'VIEW_UNSPECIFIED',
     });
     /** Forces a task to run now. When this method is called, Cloud Tasks will dispatch the task, even if the task is already running, the queue has reached its RateLimits or is PAUSED. This command is meant to be used for manual debugging. For example, RunTask can be used to retry a failed task after a fix has been made or to manually force a task to be dispatched now. The dispatched task is returned. That is, the task that is returned contains the status after the task is dispatched but before the task is received by its target. If Cloud Tasks receives a successful response from the task's target, then the task will be deleted; otherwise the task's schedule_time will be reset to the time that RunTask was called plus the retry delay specified in the queue's RetryConfig. RunTask returns NOT_FOUND when it is called on a task that has already succeeded or permanently failed. */
     await gapi.client.cloudtasks.projects.locations.queues.tasks.run(
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        responseView: 'Test string',
+        responseView: 'VIEW_UNSPECIFIED',
       },
     );
   }

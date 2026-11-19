@@ -37,20 +37,20 @@ gapi.load('client', async () => {
     await gapi.client.blogger.blogs.get({
       blogId: 'Test string',
       maxPosts: 42,
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Gets a blog by url. */
     await gapi.client.blogger.blogs.getByUrl({
       url: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Lists blogs by user. */
     await gapi.client.blogger.blogs.listByUser({
       fetchUserInfo: true,
-      role: 'Test string',
-      status: 'Test string',
+      role: 'VIEW_TYPE_UNSPECIFIED',
+      status: 'LIVE',
       userId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Gets one blog and user info pair by blog id and user id. */
     await gapi.client.blogger.blogUserInfos.get({
@@ -75,7 +75,7 @@ gapi.load('client', async () => {
       blogId: 'Test string',
       commentId: 'Test string',
       postId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Lists comments. */
     await gapi.client.blogger.comments.list({
@@ -86,8 +86,8 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       postId: 'Test string',
       startDate: 'Test string',
-      status: 'Test string',
-      view: 'Test string',
+      status: 'LIVE',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Lists comments by blog. */
     await gapi.client.blogger.comments.listByBlog({
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
       maxResults: 42,
       pageToken: 'Test string',
       startDate: 'Test string',
-      status: 'Test string',
+      status: 'LIVE',
     });
     /** Marks a comment as spam by blog id, post id and comment id. */
     await gapi.client.blogger.comments.markAsSpam({
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
     await gapi.client.blogger.pages.get({
       blogId: 'Test string',
       pageId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Inserts a page. */
     await gapi.client.blogger.pages.insert(
@@ -147,7 +147,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         published: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         trashed: 'Test string',
         updated: 'Test string',
@@ -160,8 +160,8 @@ gapi.load('client', async () => {
       fetchBodies: true,
       maxResults: 42,
       pageToken: 'Test string',
-      status: 'Test string',
-      view: 'Test string',
+      status: 'LIVE',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Patches a page. */
     await gapi.client.blogger.pages.patch(
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         published: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         trashed: 'Test string',
         updated: 'Test string',
@@ -232,7 +232,7 @@ gapi.load('client', async () => {
         kind: 'Test string',
         published: 'Test string',
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         trashed: 'Test string',
         updated: 'Test string',
@@ -242,7 +242,7 @@ gapi.load('client', async () => {
     /** Gets page views by blog id. */
     await gapi.client.blogger.pageViews.get({
       blogId: 'Test string',
-      range: 'Test string',
+      range: 'all',
     });
     /** Deletes a post by blog id and post id. */
     await gapi.client.blogger.posts.delete({
@@ -257,14 +257,14 @@ gapi.load('client', async () => {
       fetchImages: true,
       maxComments: 42,
       postId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Gets a post by path. */
     await gapi.client.blogger.posts.getByPath({
       blogId: 'Test string',
       maxComments: 42,
       path: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Inserts a post. */
     await gapi.client.blogger.posts.insert(
@@ -304,7 +304,7 @@ gapi.load('client', async () => {
           span: 'Test string',
         },
         published: 'Test string',
-        readerComments: 'Test string',
+        readerComments: 'ALLOW',
         replies: {
           items: [
             {
@@ -330,7 +330,7 @@ gapi.load('client', async () => {
               },
               published: 'Test string',
               selfLink: 'Test string',
-              status: 'Test string',
+              status: 'LIVE',
               updated: 'Test string',
             },
           ],
@@ -338,7 +338,7 @@ gapi.load('client', async () => {
           totalItems: 'Test string',
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         titleLink: 'Test string',
         trashed: 'Test string',
@@ -354,12 +354,12 @@ gapi.load('client', async () => {
       fetchImages: true,
       labels: 'Test string',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'ORDER_BY_UNSPECIFIED',
       pageToken: 'Test string',
-      sortOption: 'Test string',
+      sortOption: 'SORT_OPTION_UNSPECIFIED',
       startDate: 'Test string',
-      status: 'Test string',
-      view: 'Test string',
+      status: 'LIVE',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Patches a post. */
     await gapi.client.blogger.posts.patch(
@@ -402,7 +402,7 @@ gapi.load('client', async () => {
           span: 'Test string',
         },
         published: 'Test string',
-        readerComments: 'Test string',
+        readerComments: 'ALLOW',
         replies: {
           items: [
             {
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
               },
               published: 'Test string',
               selfLink: 'Test string',
-              status: 'Test string',
+              status: 'LIVE',
               updated: 'Test string',
             },
           ],
@@ -436,7 +436,7 @@ gapi.load('client', async () => {
           totalItems: 'Test string',
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         titleLink: 'Test string',
         trashed: 'Test string',
@@ -459,7 +459,7 @@ gapi.load('client', async () => {
     await gapi.client.blogger.posts.search({
       blogId: 'Test string',
       fetchBodies: true,
-      orderBy: 'Test string',
+      orderBy: 'ORDER_BY_UNSPECIFIED',
       q: 'Test string',
     });
     /** Updates a post by blog id and post id. */
@@ -503,7 +503,7 @@ gapi.load('client', async () => {
           span: 'Test string',
         },
         published: 'Test string',
-        readerComments: 'Test string',
+        readerComments: 'ALLOW',
         replies: {
           items: [
             {
@@ -529,7 +529,7 @@ gapi.load('client', async () => {
               },
               published: 'Test string',
               selfLink: 'Test string',
-              status: 'Test string',
+              status: 'LIVE',
               updated: 'Test string',
             },
           ],
@@ -537,7 +537,7 @@ gapi.load('client', async () => {
           totalItems: 'Test string',
         },
         selfLink: 'Test string',
-        status: 'Test string',
+        status: 'LIVE',
         title: 'Test string',
         titleLink: 'Test string',
         trashed: 'Test string',
@@ -559,12 +559,12 @@ gapi.load('client', async () => {
       fetchBodies: true,
       labels: 'Test string',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'ORDER_BY_UNSPECIFIED',
       pageToken: 'Test string',
       startDate: 'Test string',
-      status: 'Test string',
+      status: 'LIVE',
       userId: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
     /** Gets one user by user_id. */
     await gapi.client.blogger.users.get({

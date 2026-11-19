@@ -88,7 +88,7 @@ gapi.load('client', async () => {
     /** Retrieves a summary of quota information for a specific quota metric */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'QUOTA_VIEW_UNSPECIFIED',
     });
     /** Creates or updates multiple admin overrides atomically, all on the same consumer, but on many different metrics or limits. The name field in the quota override message should not be set. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.importAdminOverrides(
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
       },
       {
         force: true,
-        forceOnly: ['Test string'],
+        forceOnly: ['QUOTA_SAFETY_CHECK_UNSPECIFIED'],
         inlineSource: {
           overrides: [
             {
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
       },
       {
         force: true,
-        forceOnly: ['Test string'],
+        forceOnly: ['QUOTA_SAFETY_CHECK_UNSPECIFIED'],
         inlineSource: {
           overrides: [
             {
@@ -143,18 +143,18 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'QUOTA_VIEW_UNSPECIFIED',
     });
     /** Retrieves a summary of quota information for a specific quota limit. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'QUOTA_VIEW_UNSPECIFIED',
     });
     /** Creates an admin override. An admin override is applied by an administrator of a parent folder or parent organization of the consumer receiving the override. An admin override is intended to limit the amount of quota the consumer can use out of the total quota pool allocated to all children of the folder or organization. */
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.create(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         parent: 'Test string',
       },
       {
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.delete(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.adminOverrides.patch(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
         updateMask: 'Test string',
       },
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.create(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         parent: 'Test string',
       },
       {
@@ -225,7 +225,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.delete(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -241,7 +241,7 @@ gapi.load('client', async () => {
     await gapi.client.serviceusage.services.consumerQuotaMetrics.limits.consumerOverrides.patch(
       {
         force: true,
-        forceOnly: 'Test string',
+        forceOnly: 'QUOTA_SAFETY_CHECK_UNSPECIFIED',
         name: 'Test string',
         updateMask: 'Test string',
       },

@@ -47,7 +47,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -194,7 +194,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {
@@ -270,7 +270,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {
@@ -369,7 +369,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -442,7 +442,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {
@@ -598,7 +598,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {
@@ -670,7 +670,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -743,7 +743,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             imageContext: {
@@ -821,7 +821,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {
@@ -899,7 +899,7 @@ gapi.load('client', async () => {
               {
                 maxResults: 42,
                 model: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
             image: {

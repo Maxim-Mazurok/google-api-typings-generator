@@ -57,7 +57,7 @@ gapi.load('client', async () => {
         },
         managedService: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
         },
         managedService: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -112,7 +112,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -188,7 +188,7 @@ gapi.load('client', async () => {
           },
         ],
         serviceConfigId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -199,7 +199,7 @@ gapi.load('client', async () => {
     /** Gets details of a single ApiConfig. */
     await gapi.client.apigateway.projects.locations.apis.configs.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'CONFIG_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.apigateway.projects.locations.apis.configs.getIamPolicy({
@@ -257,7 +257,7 @@ gapi.load('client', async () => {
           },
         ],
         serviceConfigId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -273,7 +273,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -317,13 +317,13 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         defaultHostname: 'Test string',
         displayName: 'Test string',
-        effectiveStreamingMode: 'Test string',
+        effectiveStreamingMode: 'EFFECTIVE_STREAMING_MODE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
-        streamingMode: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        streamingMode: 'STREAMING_MODE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -359,13 +359,13 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         defaultHostname: 'Test string',
         displayName: 'Test string',
-        effectiveStreamingMode: 'Test string',
+        effectiveStreamingMode: 'EFFECTIVE_STREAMING_MODE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
-        streamingMode: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        streamingMode: 'STREAMING_MODE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -381,7 +381,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

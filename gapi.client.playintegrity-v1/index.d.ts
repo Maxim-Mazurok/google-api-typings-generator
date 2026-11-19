@@ -47,7 +47,7 @@ declare namespace gapi.client {
     }
     interface AppAccessRiskVerdict {
       /** List of detected app types signalled for App Access Risk. */
-      appsDetected?:
+      appsDetected?: (
         | 'APPS_DETECTED_UNSPECIFIED'
         | 'KNOWN_INSTALLED'
         | 'KNOWN_CAPTURING'
@@ -56,7 +56,8 @@ declare namespace gapi.client {
         | 'UNKNOWN_INSTALLED'
         | 'UNKNOWN_CAPTURING'
         | 'UNKNOWN_OVERLAYS'
-        | 'UNKNOWN_CONTROLLING'[];
+        | 'UNKNOWN_CONTROLLING'
+      )[];
     }
     interface AppIntegrity {
       /** Required. Details about the app recognition verdict */
@@ -95,19 +96,21 @@ declare namespace gapi.client {
       /** Details about the device recall bits set by the developer. */
       deviceRecall?: DeviceRecall;
       /** Details about the integrity of the device the app is running on. */
-      deviceRecognitionVerdict?:
+      deviceRecognitionVerdict?: (
         | 'UNKNOWN'
         | 'MEETS_BASIC_INTEGRITY'
         | 'MEETS_DEVICE_INTEGRITY'
         | 'MEETS_STRONG_INTEGRITY'
-        | 'MEETS_VIRTUAL_INTEGRITY'[];
+        | 'MEETS_VIRTUAL_INTEGRITY'
+      )[];
       /** Contains legacy details about the integrity of the device the app is running on. Only for devices with Android version T or higher and only for apps opted in to the new verdicts. Only available during the transition period to the new verdicts system and will be removed afterwards. */
-      legacyDeviceRecognitionVerdict?:
+      legacyDeviceRecognitionVerdict?: (
         | 'UNKNOWN'
         | 'MEETS_BASIC_INTEGRITY'
         | 'MEETS_DEVICE_INTEGRITY'
         | 'MEETS_STRONG_INTEGRITY'
-        | 'MEETS_VIRTUAL_INTEGRITY'[];
+        | 'MEETS_VIRTUAL_INTEGRITY'
+      )[];
       /** Details about the device activity of the device the app is running on. */
       recentDeviceActivity?: RecentDeviceActivity;
     }
@@ -121,14 +124,15 @@ declare namespace gapi.client {
       /** The evaluation of the App Access Risk verdicts. */
       appAccessRiskVerdict?: AppAccessRiskVerdict;
       /** The evaluation of the Location Spoofing Risk verdict. */
-      locationSpoofingRiskVerdict?:
+      locationSpoofingRiskVerdict?: (
         | 'LOCATION_SPOOFING_RISK_VERDICT_UNSPECIFIED'
         | 'LOW_RISK_DEVICE'
         | 'LOW_RISK_NETWORK'
         | 'MEDIUM_RISK_DEVICE'
         | 'MEDIUM_RISK_NETWORK'
         | 'HIGH_RISK_DEVICE'
-        | 'HIGH_RISK_NETWORK'[];
+        | 'HIGH_RISK_NETWORK'
+      )[];
       /** The evaluation of Play Protect verdict. */
       playProtectVerdict?:
         | 'PLAY_PROTECT_VERDICT_UNSPECIFIED'
@@ -146,8 +150,9 @@ declare namespace gapi.client {
     }
     interface PcDeviceIntegrity {
       /** Details about the integrity of the device the app is running on. */
-      deviceRecognitionVerdict?:
-        'DEVICE_RECOGNITION_VERDICT_UNSPECIFIED' | 'MEETS_PC_INTEGRITY'[];
+      deviceRecognitionVerdict?: (
+        'DEVICE_RECOGNITION_VERDICT_UNSPECIFIED' | 'MEETS_PC_INTEGRITY'
+      )[];
     }
     interface PcRequestDetails {
       /** Request hash that was provided in the request. */
@@ -232,7 +237,8 @@ declare namespace gapi.client {
       newValues?: Values;
     }
     interface WriteDeviceRecallResponse {}
-    interface DeviceRecallResource {
+
+    const deviceRecall: {
       /** Writes recall bits for the device where Play Integrity API token is obtained. The endpoint is available to select Play partners in an early access program (EAP). */
       write(request: {
         /** V1 error format. */
@@ -291,8 +297,9 @@ declare namespace gapi.client {
         },
         body: WriteDeviceRecallRequest,
       ): Request<{}>;
-    }
-    interface V1Resource {
+    };
+
+    const v1: {
       /** Decodes the integrity token and returns the token payload. */
       decodeIntegrityToken(request: {
         /** V1 error format. */
@@ -409,10 +416,6 @@ declare namespace gapi.client {
         },
         body: DecodePcIntegrityTokenRequest,
       ): Request<DecodePcIntegrityTokenResponse>;
-    }
-
-    const deviceRecall: DeviceRecallResource;
-
-    const v1: V1Resource;
+    };
   }
 }

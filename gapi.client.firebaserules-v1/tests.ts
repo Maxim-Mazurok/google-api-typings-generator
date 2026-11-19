@@ -53,8 +53,8 @@ gapi.load('client', async () => {
         testSuite: {
           testCases: [
             {
-              expectation: 'Test string',
-              expressionReportLevel: 'Test string',
+              expectation: 'EXPECTATION_UNSPECIFIED',
+              expressionReportLevel: 'LEVEL_UNSPECIFIED',
               functionMocks: [
                 {
                   args: [
@@ -70,7 +70,7 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              pathEncoding: 'Test string',
+              pathEncoding: 'ENCODING_UNSPECIFIED',
               request: 42,
               resource: 42,
             },
@@ -100,7 +100,7 @@ gapi.load('client', async () => {
     });
     /** Get the `Release` executable to use when enforcing rules. */
     await gapi.client.firebaserules.projects.releases.getExecutable({
-      executableVersion: 'Test string',
+      executableVersion: 'RELEASE_EXECUTABLE_VERSION_UNSPECIFIED',
       name: 'Test string',
     });
     /** List the `Release` values for a project. This list may optionally be filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any combination thereof. */

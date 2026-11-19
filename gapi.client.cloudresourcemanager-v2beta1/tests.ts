@@ -42,7 +42,7 @@ gapi.load('client', async () => {
         configuredCapabilities: ['Test string'],
         createTime: 'Test string',
         displayName: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         managementProject: 'Test string',
         name: 'Test string',
         parent: 'Test string',
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
         configuredCapabilities: ['Test string'],
         createTime: 'Test string',
         displayName: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         managementProject: 'Test string',
         name: 'Test string',
         parent: 'Test string',
@@ -126,7 +126,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

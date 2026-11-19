@@ -95,11 +95,11 @@ gapi.load('client', async () => {
         },
         predictionInput: {
           batchSize: 'Test string',
-          dataFormat: 'Test string',
+          dataFormat: 'DATA_FORMAT_UNSPECIFIED',
           inputPaths: ['Test string'],
           maxWorkerCount: 'Test string',
           modelName: 'Test string',
-          outputDataFormat: 'Test string',
+          outputDataFormat: 'DATA_FORMAT_UNSPECIFIED',
           outputPath: 'Test string',
           region: 'Test string',
           runtimeVersion: 'Test string',
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
           predictionCount: 'Test string',
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         trainingInput: {
           args: ['Test string'],
           enableWebAccess: true,
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
           evaluatorConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -138,9 +138,9 @@ gapi.load('client', async () => {
           evaluatorCount: 'Test string',
           evaluatorType: 'Test string',
           hyperparameters: {
-            algorithm: 'Test string',
+            algorithm: 'ALGORITHM_UNSPECIFIED',
             enableTrialEarlyStopping: true,
-            goal: 'Test string',
+            goal: 'GOAL_TYPE_UNSPECIFIED',
             hyperparameterMetricTag: 'Test string',
             maxFailedTrials: 42,
             maxParallelTrials: 42,
@@ -152,8 +152,8 @@ gapi.load('client', async () => {
                 maxValue: 42,
                 minValue: 42,
                 parameterName: 'Test string',
-                scaleType: 'Test string',
-                type: 'Test string',
+                scaleType: 'NONE',
+                type: 'PARAMETER_TYPE_UNSPECIFIED',
               },
             ],
             resumePreviousJobId: 'Test string',
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
           masterConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -179,7 +179,7 @@ gapi.load('client', async () => {
           parameterServerConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
           pythonVersion: 'Test string',
           region: 'Test string',
           runtimeVersion: 'Test string',
-          scaleTier: 'Test string',
+          scaleTier: 'BASIC',
           scheduling: {
             maxRunningTime: 'Test string',
             maxWaitTime: 'Test string',
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
           workerConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -257,7 +257,7 @@ gapi.load('client', async () => {
               },
               isTrialStoppedEarly: true,
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               trialId: 'Test string',
               webAccessUris: {
                 A: 'Test string',
@@ -304,11 +304,11 @@ gapi.load('client', async () => {
         },
         predictionInput: {
           batchSize: 'Test string',
-          dataFormat: 'Test string',
+          dataFormat: 'DATA_FORMAT_UNSPECIFIED',
           inputPaths: ['Test string'],
           maxWorkerCount: 'Test string',
           modelName: 'Test string',
-          outputDataFormat: 'Test string',
+          outputDataFormat: 'DATA_FORMAT_UNSPECIFIED',
           outputPath: 'Test string',
           region: 'Test string',
           runtimeVersion: 'Test string',
@@ -323,7 +323,7 @@ gapi.load('client', async () => {
           predictionCount: 'Test string',
         },
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         trainingInput: {
           args: ['Test string'],
           enableWebAccess: true,
@@ -333,7 +333,7 @@ gapi.load('client', async () => {
           evaluatorConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -347,9 +347,9 @@ gapi.load('client', async () => {
           evaluatorCount: 'Test string',
           evaluatorType: 'Test string',
           hyperparameters: {
-            algorithm: 'Test string',
+            algorithm: 'ALGORITHM_UNSPECIFIED',
             enableTrialEarlyStopping: true,
-            goal: 'Test string',
+            goal: 'GOAL_TYPE_UNSPECIFIED',
             hyperparameterMetricTag: 'Test string',
             maxFailedTrials: 42,
             maxParallelTrials: 42,
@@ -361,8 +361,8 @@ gapi.load('client', async () => {
                 maxValue: 42,
                 minValue: 42,
                 parameterName: 'Test string',
-                scaleType: 'Test string',
-                type: 'Test string',
+                scaleType: 'NONE',
+                type: 'PARAMETER_TYPE_UNSPECIFIED',
               },
             ],
             resumePreviousJobId: 'Test string',
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
           masterConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
           parameterServerConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
           pythonVersion: 'Test string',
           region: 'Test string',
           runtimeVersion: 'Test string',
-          scaleTier: 'Test string',
+          scaleTier: 'BASIC',
           scheduling: {
             maxRunningTime: 'Test string',
             maxWaitTime: 'Test string',
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
           workerConfig: {
             acceleratorConfig: {
               count: 'Test string',
-              type: 'Test string',
+              type: 'ACCELERATOR_TYPE_UNSPECIFIED',
             },
             containerArgs: ['Test string'],
             containerCommand: ['Test string'],
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
               },
               isTrialStoppedEarly: true,
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               trialId: 'Test string',
               webAccessUris: {
                 A: 'Test string',
@@ -491,7 +491,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -552,9 +552,9 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         inactiveReason: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         studyConfig: {
-          algorithm: 'Test string',
+          algorithm: 'ALGORITHM_UNSPECIFIED',
           automatedStoppingConfig: {
             decayCurveStoppingConfig: {
               useElapsedTime: true,
@@ -565,7 +565,7 @@ gapi.load('client', async () => {
           },
           metrics: [
             {
-              goal: 'Test string',
+              goal: 'GOAL_TYPE_UNSPECIFIED',
               metric: 'Test string',
             },
           ],
@@ -596,8 +596,8 @@ gapi.load('client', async () => {
               parentIntValues: {
                 values: ['Test string'],
               },
-              scaleType: 'Test string',
-              type: 'Test string',
+              scaleType: 'SCALE_TYPE_UNSPECIFIED',
+              type: 'PARAMETER_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -701,7 +701,7 @@ gapi.load('client', async () => {
           },
         ],
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         trialInfeasible: true,
       },
     );
@@ -750,13 +750,13 @@ gapi.load('client', async () => {
         defaultVersion: {
           acceleratorConfig: {
             count: 'Test string',
-            type: 'Test string',
+            type: 'ACCELERATOR_TYPE_UNSPECIFIED',
           },
           autoScaling: {
             maxNodes: 42,
             metrics: [
               {
-                name: 'Test string',
+                name: 'METRIC_NAME_UNSPECIFIED',
                 target: 42,
               },
             ],
@@ -794,7 +794,7 @@ gapi.load('client', async () => {
               numIntegralSteps: 42,
             },
           },
-          framework: 'Test string',
+          framework: 'FRAMEWORK_UNSPECIFIED',
           isDefault: true,
           labels: {
             A: 'Test string',
@@ -820,7 +820,7 @@ gapi.load('client', async () => {
           },
           runtimeVersion: 'Test string',
           serviceAccount: 'Test string',
-          state: 'Test string',
+          state: 'UNKNOWN',
         },
         description: 'Test string',
         etag: 'Test string',
@@ -863,13 +863,13 @@ gapi.load('client', async () => {
         defaultVersion: {
           acceleratorConfig: {
             count: 'Test string',
-            type: 'Test string',
+            type: 'ACCELERATOR_TYPE_UNSPECIFIED',
           },
           autoScaling: {
             maxNodes: 42,
             metrics: [
               {
-                name: 'Test string',
+                name: 'METRIC_NAME_UNSPECIFIED',
                 target: 42,
               },
             ],
@@ -907,7 +907,7 @@ gapi.load('client', async () => {
               numIntegralSteps: 42,
             },
           },
-          framework: 'Test string',
+          framework: 'FRAMEWORK_UNSPECIFIED',
           isDefault: true,
           labels: {
             A: 'Test string',
@@ -933,7 +933,7 @@ gapi.load('client', async () => {
           },
           runtimeVersion: 'Test string',
           serviceAccount: 'Test string',
-          state: 'Test string',
+          state: 'UNKNOWN',
         },
         description: 'Test string',
         etag: 'Test string',
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -999,13 +999,13 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           count: 'Test string',
-          type: 'Test string',
+          type: 'ACCELERATOR_TYPE_UNSPECIFIED',
         },
         autoScaling: {
           maxNodes: 42,
           metrics: [
             {
-              name: 'Test string',
+              name: 'METRIC_NAME_UNSPECIFIED',
               target: 42,
             },
           ],
@@ -1043,7 +1043,7 @@ gapi.load('client', async () => {
             numIntegralSteps: 42,
           },
         },
-        framework: 'Test string',
+        framework: 'FRAMEWORK_UNSPECIFIED',
         isDefault: true,
         labels: {
           A: 'Test string',
@@ -1069,7 +1069,7 @@ gapi.load('client', async () => {
         },
         runtimeVersion: 'Test string',
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'UNKNOWN',
       },
     );
     /** Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version. */
@@ -1096,13 +1096,13 @@ gapi.load('client', async () => {
       {
         acceleratorConfig: {
           count: 'Test string',
-          type: 'Test string',
+          type: 'ACCELERATOR_TYPE_UNSPECIFIED',
         },
         autoScaling: {
           maxNodes: 42,
           metrics: [
             {
-              name: 'Test string',
+              name: 'METRIC_NAME_UNSPECIFIED',
               target: 42,
             },
           ],
@@ -1140,7 +1140,7 @@ gapi.load('client', async () => {
             numIntegralSteps: 42,
           },
         },
-        framework: 'Test string',
+        framework: 'FRAMEWORK_UNSPECIFIED',
         isDefault: true,
         labels: {
           A: 'Test string',
@@ -1166,7 +1166,7 @@ gapi.load('client', async () => {
         },
         runtimeVersion: 'Test string',
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'UNKNOWN',
       },
     );
     /** Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method. */

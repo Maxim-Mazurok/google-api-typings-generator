@@ -33,7 +33,7 @@ gapi.load('client', async () => {
   async function run() {
     /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
     await gapi.client.essentialcontacts.folders.contacts.compute({
-      notificationCategories: 'Test string',
+      notificationCategories: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
@@ -47,9 +47,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Deletes a contact. */
@@ -76,9 +78,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
@@ -88,12 +92,12 @@ gapi.load('client', async () => {
       },
       {
         contacts: ['Test string'],
-        notificationCategory: 'Test string',
+        notificationCategory: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       },
     );
     /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
     await gapi.client.essentialcontacts.organizations.contacts.compute({
-      notificationCategories: 'Test string',
+      notificationCategories: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
@@ -107,9 +111,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Deletes a contact. */
@@ -136,9 +142,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
@@ -148,12 +156,12 @@ gapi.load('client', async () => {
       },
       {
         contacts: ['Test string'],
-        notificationCategory: 'Test string',
+        notificationCategory: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       },
     );
     /** Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources. */
     await gapi.client.essentialcontacts.projects.contacts.compute({
-      notificationCategories: 'Test string',
+      notificationCategories: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
@@ -167,9 +175,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Deletes a contact. */
@@ -196,9 +206,11 @@ gapi.load('client', async () => {
         email: 'Test string',
         languageTag: 'Test string',
         name: 'Test string',
-        notificationCategorySubscriptions: ['Test string'],
+        notificationCategorySubscriptions: [
+          'NOTIFICATION_CATEGORY_UNSPECIFIED',
+        ],
         validateTime: 'Test string',
-        validationState: 'Test string',
+        validationState: 'VALIDATION_STATE_UNSPECIFIED',
       },
     );
     /** Allows a contact admin to send a test message to contact to verify that it has been configured correctly. */
@@ -208,7 +220,7 @@ gapi.load('client', async () => {
       },
       {
         contacts: ['Test string'],
-        notificationCategory: 'Test string',
+        notificationCategory: 'NOTIFICATION_CATEGORY_UNSPECIFIED',
       },
     );
   }

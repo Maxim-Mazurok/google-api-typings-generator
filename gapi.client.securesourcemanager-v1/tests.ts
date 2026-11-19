@@ -80,8 +80,8 @@ gapi.load('client', async () => {
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
-        stateNote: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        stateNote: 'STATE_NOTE_UNSPECIFIED',
         updateTime: 'Test string',
         workforceIdentityFederationConfig: {
           enabled: true,
@@ -125,7 +125,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -238,7 +238,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         repository: 'Test string',
-        type: 'Test string',
+        type: 'REF_TYPE_UNSPECIFIED',
       },
     );
     /** Fetches a tree from a repository. */
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         disabled: true,
-        events: ['Test string'],
+        events: ['UNSPECIFIED'],
         name: 'Test string',
         pushOption: {
           branchFilter: 'Test string',
@@ -487,7 +487,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         disabled: true,
-        events: ['Test string'],
+        events: ['UNSPECIFIED'],
         name: 'Test string',
         pushOption: {
           branchFilter: 'Test string',
@@ -519,7 +519,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         etag: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         title: 'Test string',
         updateTime: 'Test string',
       },
@@ -567,7 +567,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         etag: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         title: 'Test string',
         updateTime: 'Test string',
       },
@@ -642,7 +642,7 @@ gapi.load('client', async () => {
           sha: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         title: 'Test string',
         updateTime: 'Test string',
       },
@@ -702,7 +702,7 @@ gapi.load('client', async () => {
           sha: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         title: 'Test string',
         updateTime: 'Test string',
       },
@@ -734,7 +734,7 @@ gapi.load('client', async () => {
               createTime: 'Test string',
               name: 'Test string',
               review: {
-                actionType: 'Test string',
+                actionType: 'ACTION_TYPE_UNSPECIFIED',
                 body: 'Test string',
                 effectiveCommitSha: 'Test string',
               },
@@ -767,7 +767,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         review: {
-          actionType: 'Test string',
+          actionType: 'ACTION_TYPE_UNSPECIFIED',
           body: 'Test string',
           effectiveCommitSha: 'Test string',
         },
@@ -818,7 +818,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         review: {
-          actionType: 'Test string',
+          actionType: 'ACTION_TYPE_UNSPECIFIED',
           body: 'Test string',
           effectiveCommitSha: 'Test string',
         },

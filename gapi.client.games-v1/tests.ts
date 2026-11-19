@@ -64,7 +64,7 @@ gapi.load('client', async () => {
       maxResults: 42,
       pageToken: 'Test string',
       playerId: 'Test string',
-      state: 'Test string',
+      state: 'ALL',
     });
     /** Sets the state of the achievement with the given ID to `REVEALED` for the currently authenticated player. */
     await gapi.client.games.achievements.reveal({
@@ -97,7 +97,7 @@ gapi.load('client', async () => {
               kind: 'Test string',
               steps: 42,
             },
-            updateType: 'Test string',
+            updateType: 'REVEAL',
           },
         ],
       },
@@ -106,12 +106,12 @@ gapi.load('client', async () => {
     await gapi.client.games.applications.get({
       applicationId: 'Test string',
       language: 'Test string',
-      platformType: 'Test string',
+      platformType: 'ANDROID',
     });
     /** Returns a URL for the requested end point type. */
     await gapi.client.games.applications.getEndPoint({
       applicationId: 'Test string',
-      endPointType: 'Test string',
+      endPointType: 'PROFILE_CREATION',
     });
     /** Indicate that the currently authenticated user is playing your application. */
     await gapi.client.games.applications.played({});
@@ -184,9 +184,9 @@ gapi.load('client', async () => {
         ],
         integrityVerdicts: [
           {
-            category: 'Test string',
+            category: 'CATEGORY_UNSPECIFIED',
             description: 'Test string',
-            source: 'Test string',
+            source: 'SOURCE_UNSPECIFIED',
           },
         ],
         packageName: 'Test string',
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
     await gapi.client.games.metagame.getMetagameConfig({});
     /** List play data aggregated per category for the player corresponding to `playerId`. */
     await gapi.client.games.metagame.listCategoriesByPlayer({
-      collection: 'Test string',
+      collection: 'ALL',
       language: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
     await gapi.client.games.players.getScopedPlayerIds({});
     /** Get the collection of players for the currently authenticated user. */
     await gapi.client.games.players.list({
-      collection: 'Test string',
+      collection: 'CONNECTED',
       language: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
@@ -247,8 +247,8 @@ gapi.load('client', async () => {
     await gapi.client.games.recall.linkPersona(
       {},
       {
-        cardinalityConstraint: 'Test string',
-        conflictingLinksResolutionPolicy: 'Test string',
+        cardinalityConstraint: 'ONE_PERSONA_TO_ONE_PLAYER',
+        conflictingLinksResolutionPolicy: 'KEEP_EXISTING_LINKS',
         expireTime: 'Test string',
         persona: 'Test string',
         sessionId: 'Test string',
@@ -282,33 +282,33 @@ gapi.load('client', async () => {
     });
     /** Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'. */
     await gapi.client.games.scores.get({
-      includeRankType: 'Test string',
+      includeRankType: 'ALL',
       language: 'Test string',
       leaderboardId: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
       playerId: 'Test string',
-      timeSpan: 'Test string',
+      timeSpan: 'ALL',
     });
     /** Lists the scores in a leaderboard, starting from the top. */
     await gapi.client.games.scores.list({
-      collection: 'Test string',
+      collection: 'PUBLIC',
       language: 'Test string',
       leaderboardId: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
-      timeSpan: 'Test string',
+      timeSpan: 'ALL_TIME',
     });
     /** Lists the scores in a leaderboard around (and including) a player's score. */
     await gapi.client.games.scores.listWindow({
-      collection: 'Test string',
+      collection: 'PUBLIC',
       language: 'Test string',
       leaderboardId: 'Test string',
       maxResults: 42,
       pageToken: 'Test string',
       resultsAbove: 42,
       returnTopIfAbsent: true,
-      timeSpan: 'Test string',
+      timeSpan: 'ALL_TIME',
     });
     /** Submits a score to the specified leaderboard. */
     await gapi.client.games.scores.submit({

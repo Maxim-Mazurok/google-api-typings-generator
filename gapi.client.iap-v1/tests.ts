@@ -188,7 +188,7 @@ gapi.load('client', async () => {
             loginPageUri: 'Test string',
             tenantIds: ['Test string'],
           },
-          identitySources: ['Test string'],
+          identitySources: ['IDENTITY_SOURCE_UNSPECIFIED'],
           oauthSettings: {
             clientId: 'Test string',
             clientSecret: 'Test string',
@@ -237,8 +237,8 @@ gapi.load('client', async () => {
           },
           reauthSettings: {
             maxAge: 'Test string',
-            method: 'Test string',
-            policyType: 'Test string',
+            method: 'METHOD_UNSPECIFIED',
+            policyType: 'POLICY_TYPE_UNSPECIFIED',
           },
           workforceIdentitySettings: {
             oauth2: {
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
           attributePropagationSettings: {
             enable: true,
             expression: 'Test string',
-            outputCredentials: ['Test string'],
+            outputCredentials: ['OUTPUT_CREDENTIALS_UNSPECIFIED'],
           },
           cookieDomain: 'Test string',
           csmSettings: {

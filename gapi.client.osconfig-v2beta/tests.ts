@@ -83,7 +83,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -110,7 +110,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -174,7 +174,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -219,7 +219,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -258,7 +258,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -292,7 +292,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -310,7 +310,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,
@@ -393,7 +393,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -461,7 +461,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -484,7 +484,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -529,7 +529,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -568,7 +568,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -602,7 +602,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -620,7 +620,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,
@@ -703,7 +703,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -730,7 +730,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -749,7 +749,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -771,7 +771,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -794,7 +794,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -839,7 +839,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -878,7 +878,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -912,7 +912,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -930,7 +930,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,
@@ -1013,7 +1013,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -1040,7 +1040,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1059,7 +1059,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1081,7 +1081,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -1104,7 +1104,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -1149,7 +1149,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -1188,7 +1188,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -1222,7 +1222,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -1240,7 +1240,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,
@@ -1323,7 +1323,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -1350,7 +1350,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1369,7 +1369,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1391,7 +1391,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -1414,7 +1414,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -1459,7 +1459,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -1498,7 +1498,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -1532,7 +1532,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -1550,7 +1550,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,
@@ -1633,7 +1633,7 @@ gapi.load('client', async () => {
                 allowNoResourceGroupMatch: true,
                 description: 'Test string',
                 id: 'Test string',
-                mode: 'Test string',
+                mode: 'MODE_UNSPECIFIED',
                 resourceGroups: [
                   {
                     inventoryFilters: [
@@ -1660,7 +1660,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1679,7 +1679,7 @@ gapi.load('client', async () => {
                                 uri: 'Test string',
                               },
                             },
-                            interpreter: 'Test string',
+                            interpreter: 'INTERPRETER_UNSPECIFIED',
                             outputFilePath: 'Test string',
                             script: 'Test string',
                           },
@@ -1701,7 +1701,7 @@ gapi.load('client', async () => {
                           },
                           path: 'Test string',
                           permissions: 'Test string',
-                          state: 'Test string',
+                          state: 'DESIRED_STATE_UNSPECIFIED',
                         },
                         id: 'Test string',
                         pkg: {
@@ -1724,7 +1724,7 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          desiredState: 'Test string',
+                          desiredState: 'DESIRED_STATE_UNSPECIFIED',
                           googet: {
                             name: 'Test string',
                           },
@@ -1769,7 +1769,7 @@ gapi.load('client', async () => {
                         },
                         repository: {
                           apt: {
-                            archiveType: 'Test string',
+                            archiveType: 'ARCHIVE_TYPE_UNSPECIFIED',
                             components: ['Test string'],
                             distribution: 'Test string',
                             gpgKey: 'Test string',
@@ -1808,7 +1808,7 @@ gapi.load('client', async () => {
               },
               minWaitDuration: 'Test string',
             },
-            rolloutState: 'Test string',
+            rolloutState: 'ROLLOUT_STATE_UNSPECIFIED',
             uid: 'Test string',
           },
         },
@@ -1842,7 +1842,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           previousIterationState: {
             error: {
@@ -1860,7 +1860,7 @@ gapi.load('client', async () => {
             performedActions: 'Test string',
             progress: 42,
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         },
         reconciling: true,

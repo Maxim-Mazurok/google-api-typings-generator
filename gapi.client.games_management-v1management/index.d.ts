@@ -147,7 +147,8 @@ declare namespace gapi.client {
       /** The IDs of leaderboards to reset. */
       leaderboard_ids?: string[];
     }
-    interface AchievementsResource {
+
+    const achievements: {
       /** Resets the achievement with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
       reset(request?: {
         /** V1 error format. */
@@ -306,8 +307,9 @@ declare namespace gapi.client {
         },
         body: AchievementResetMultipleForAllRequest,
       ): Request<void>;
-    }
-    interface ApplicationsResource {
+    };
+
+    const applications: {
       /** Get the list of players hidden from the given application. This method is only available to user accounts for your developer console. */
       listHidden(request?: {
         /** V1 error format. */
@@ -339,8 +341,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<HiddenPlayerList>;
-    }
-    interface EventsResource {
+    };
+
+    const events: {
       /** Resets all player progress on the event with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
       reset(request?: {
         /** V1 error format. */
@@ -499,8 +502,9 @@ declare namespace gapi.client {
         },
         body: EventsResetMultipleForAllRequest,
       ): Request<void>;
-    }
-    interface PlayersResource {
+    };
+
+    const players: {
       /** Hide the given player's leaderboard scores from the given application. This method is only available to user accounts for your developer console. */
       hide(request?: {
         /** V1 error format. */
@@ -559,8 +563,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<void>;
-    }
-    interface ScoresResource {
+    };
+
+    const scores: {
       /** Resets scores for the leaderboard with the given ID for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application. */
       reset(request?: {
         /** V1 error format. */
@@ -719,16 +724,6 @@ declare namespace gapi.client {
         },
         body: ScoresResetMultipleForAllRequest,
       ): Request<void>;
-    }
-
-    const achievements: AchievementsResource;
-
-    const applications: ApplicationsResource;
-
-    const events: EventsResource;
-
-    const players: PlayersResource;
-
-    const scores: ScoresResource;
+    };
   }
 }

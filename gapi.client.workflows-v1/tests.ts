@@ -68,12 +68,12 @@ gapi.load('client', async () => {
       {
         allKmsKeys: ['Test string'],
         allKmsKeysVersions: ['Test string'],
-        callLogLevel: 'Test string',
+        callLogLevel: 'CALL_LOG_LEVEL_UNSPECIFIED',
         createTime: 'Test string',
         cryptoKeyName: 'Test string',
         cryptoKeyVersion: 'Test string',
         description: 'Test string',
-        executionHistoryLevel: 'Test string',
+        executionHistoryLevel: 'EXECUTION_HISTORY_LEVEL_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -82,10 +82,10 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         serviceAccount: 'Test string',
         sourceContents: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateError: {
           details: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         tags: {
           A: 'Test string',
@@ -128,12 +128,12 @@ gapi.load('client', async () => {
       {
         allKmsKeys: ['Test string'],
         allKmsKeysVersions: ['Test string'],
-        callLogLevel: 'Test string',
+        callLogLevel: 'CALL_LOG_LEVEL_UNSPECIFIED',
         createTime: 'Test string',
         cryptoKeyName: 'Test string',
         cryptoKeyVersion: 'Test string',
         description: 'Test string',
-        executionHistoryLevel: 'Test string',
+        executionHistoryLevel: 'EXECUTION_HISTORY_LEVEL_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -142,10 +142,10 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         serviceAccount: 'Test string',
         sourceContents: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateError: {
           details: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         tags: {
           A: 'Test string',

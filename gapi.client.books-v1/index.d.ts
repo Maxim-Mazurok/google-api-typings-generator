@@ -979,46 +979,8 @@ declare namespace gapi.client {
         seriesId?: string;
       }[];
     }
-    interface VolumesResource {
-      /** Retrieves volumes in a specific bookshelf for the specified user. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** ID of bookshelf to retrieve volumes. */
-        shelf: string;
-        /** Set to true to show pre-ordered books. Defaults to false. */
-        showPreorders?: boolean;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Index of the first element to return (starts at 0) */
-        startIndex?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of user for whom to retrieve bookshelf volumes. */
-        userId: string;
-      }): Request<Volumes>;
-    }
-    interface BookshelvesResource {
+
+    const bookshelves: {
       /** Retrieves metadata for a specific bookshelf for the specified user. */
       get(request?: {
         /** V1 error format. */
@@ -1079,9 +1041,48 @@ declare namespace gapi.client {
         /** ID of user for whom to retrieve bookshelves. */
         userId: string;
       }): Request<Bookshelves>;
-      volumes: VolumesResource;
-    }
-    interface CloudloadingResource {
+      volumes: {
+        /** Retrieves volumes in a specific bookshelf for the specified user. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of results to return */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** ID of bookshelf to retrieve volumes. */
+          shelf: string;
+          /** Set to true to show pre-ordered books. Defaults to false. */
+          showPreorders?: boolean;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Index of the first element to return (starts at 0) */
+          startIndex?: number;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of user for whom to retrieve bookshelf volumes. */
+          userId: string;
+        }): Request<Volumes>;
+      };
+    };
+
+    const cloudloading: {
       /** Add a user-upload volume and triggers processing. */
       addBook(request?: {
         /** V1 error format. */
@@ -1196,8 +1197,9 @@ declare namespace gapi.client {
         },
         body: BooksCloudloadingResource,
       ): Request<BooksCloudloadingResource>;
-    }
-    interface DictionaryResource {
+    };
+
+    const dictionary: {
       /** Returns a list of offline dictionary metadata available */
       listOfflineMetadata(request?: {
         /** V1 error format. */
@@ -1225,8 +1227,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Metadata>;
-    }
-    interface FamilysharingResource {
+    };
+
+    const familysharing: {
       /** Gets information regarding the family that the user is part of. */
       getFamilyInfo(request?: {
         /** V1 error format. */
@@ -1316,198 +1319,9 @@ declare namespace gapi.client {
         /** The volume to unshare. */
         volumeId?: string;
       }): Request<{}>;
-    }
-    interface AnnotationDataResource {
-      /** Gets the annotation data. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** For the dictionary layer. Whether or not to allow web definitions. */
-        allowWebDefinitions?: boolean;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The ID of the annotation data to retrieve. */
-        annotationDataId: string;
-        /** JSONP */
-        callback?: string;
-        /** The content version for the volume you are trying to retrieve. */
-        contentVersion: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The requested pixel height for any images. If height is provided width must also be provided. */
-        h?: number;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The ID for the layer to get the annotations. */
-        layerId: string;
-        /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
-        locale?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The requested scale for the image. */
-        scale?: number;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The volume to retrieve annotations for. */
-        volumeId: string;
-        /** The requested pixel width for any images. If width is provided height must also be provided. */
-        w?: number;
-      }): Request<DictionaryAnnotationdata>;
-      /** Gets the annotation data for a volume and layer. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set. */
-        annotationDataId?: string | string[];
-        /** JSONP */
-        callback?: string;
-        /** The content version for the requested volume. */
-        contentVersion: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The requested pixel height for any images. If height is provided width must also be provided. */
-        h?: number;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The ID for the layer to get the annotation data. */
-        layerId: string;
-        /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
-        locale?: string;
-        /** Maximum number of results to return */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The value of the nextToken from the previous page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The requested scale for the image. */
-        scale?: number;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
-        updatedMax?: string;
-        /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
-        updatedMin?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The volume to retrieve annotation data for. */
-        volumeId: string;
-        /** The requested pixel width for any images. If width is provided height must also be provided. */
-        w?: number;
-      }): Request<Annotationsdata>;
-    }
-    interface VolumeAnnotationsResource {
-      /** Gets the volume annotation. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The ID of the volume annotation to retrieve. */
-        annotationId: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The ID for the layer to get the annotations. */
-        layerId: string;
-        /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
-        locale?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The volume to retrieve annotations for. */
-        volumeId: string;
-      }): Request<Volumeannotation>;
-      /** Gets the volume annotations for a volume and layer. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The content version for the requested volume. */
-        contentVersion: string;
-        /** The end offset to end retrieving data from. */
-        endOffset?: string;
-        /** The end position to end retrieving data from. */
-        endPosition?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The ID for the layer to get the annotations. */
-        layerId: string;
-        /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
-        locale?: string;
-        /** Maximum number of results to return */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The value of the nextToken from the previous page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false. */
-        showDeleted?: boolean;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** The start offset to start retrieving data from. */
-        startOffset?: string;
-        /** The start position to start retrieving data from. */
-        startPosition?: string;
-        /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
-        updatedMax?: string;
-        /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
-        updatedMin?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The version of the volume annotations that you are requesting. */
-        volumeAnnotationsVersion?: string;
-        /** The volume to retrieve annotations for. */
-        volumeId: string;
-      }): Request<Volumeannotations>;
-    }
-    interface LayersResource {
+    };
+
+    const layers: {
       /** Gets the layer summary for a volume. */
       get(request?: {
         /** V1 error format. */
@@ -1576,10 +1390,199 @@ declare namespace gapi.client {
         /** The volume to retrieve layers for. */
         volumeId: string;
       }): Request<Layersummaries>;
-      annotationData: AnnotationDataResource;
-      volumeAnnotations: VolumeAnnotationsResource;
-    }
-    interface MyconfigResource {
+      annotationData: {
+        /** Gets the annotation data. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** For the dictionary layer. Whether or not to allow web definitions. */
+          allowWebDefinitions?: boolean;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The ID of the annotation data to retrieve. */
+          annotationDataId: string;
+          /** JSONP */
+          callback?: string;
+          /** The content version for the volume you are trying to retrieve. */
+          contentVersion: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The requested pixel height for any images. If height is provided width must also be provided. */
+          h?: number;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The ID for the layer to get the annotations. */
+          layerId: string;
+          /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
+          locale?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The requested scale for the image. */
+          scale?: number;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The volume to retrieve annotations for. */
+          volumeId: string;
+          /** The requested pixel width for any images. If width is provided height must also be provided. */
+          w?: number;
+        }): Request<DictionaryAnnotationdata>;
+        /** Gets the annotation data for a volume and layer. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The list of Annotation Data Ids to retrieve. Pagination is ignored if this is set. */
+          annotationDataId?: string | string[];
+          /** JSONP */
+          callback?: string;
+          /** The content version for the requested volume. */
+          contentVersion: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The requested pixel height for any images. If height is provided width must also be provided. */
+          h?: number;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The ID for the layer to get the annotation data. */
+          layerId: string;
+          /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
+          locale?: string;
+          /** Maximum number of results to return */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The value of the nextToken from the previous page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The requested scale for the image. */
+          scale?: number;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
+          updatedMax?: string;
+          /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
+          updatedMin?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The volume to retrieve annotation data for. */
+          volumeId: string;
+          /** The requested pixel width for any images. If width is provided height must also be provided. */
+          w?: number;
+        }): Request<Annotationsdata>;
+      };
+      volumeAnnotations: {
+        /** Gets the volume annotation. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The ID of the volume annotation to retrieve. */
+          annotationId: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The ID for the layer to get the annotations. */
+          layerId: string;
+          /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
+          locale?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The volume to retrieve annotations for. */
+          volumeId: string;
+        }): Request<Volumeannotation>;
+        /** Gets the volume annotations for a volume and layer. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The content version for the requested volume. */
+          contentVersion: string;
+          /** The end offset to end retrieving data from. */
+          endOffset?: string;
+          /** The end position to end retrieving data from. */
+          endPosition?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The ID for the layer to get the annotations. */
+          layerId: string;
+          /** The locale information for the data. ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. */
+          locale?: string;
+          /** Maximum number of results to return */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The value of the nextToken from the previous page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false. */
+          showDeleted?: boolean;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** The start offset to start retrieving data from. */
+          startOffset?: string;
+          /** The start position to start retrieving data from. */
+          startPosition?: string;
+          /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
+          updatedMax?: string;
+          /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
+          updatedMin?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The version of the volume annotations that you are requesting. */
+          volumeAnnotationsVersion?: string;
+          /** The volume to retrieve annotations for. */
+          volumeId: string;
+        }): Request<Volumeannotations>;
+      };
+    };
+
+    const myconfig: {
       /** Gets the current settings for the user. */
       getUserSettings(request?: {
         /** V1 error format. */
@@ -1776,74 +1779,41 @@ declare namespace gapi.client {
         },
         body: Usersettings,
       ): Request<Usersettings>;
-    }
-    interface AnnotationsResource {
-      /** Deletes an annotation. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The ID for the annotation to delete. */
-        annotationId: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Inserts a new annotation. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The ID for the annotation to insert. */
-        annotationId?: string;
-        /** JSONP */
-        callback?: string;
-        /** ISO-3166-1 code to override the IP-based location. */
-        country?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Requests that only the summary of the specified layer be provided in the response. */
-        showOnlySummaryInResponse?: boolean;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Annotation;
-      }): Request<Annotation>;
-      insert(
-        request: {
+    };
+
+    const mylibrary: {
+      annotations: {
+        /** Deletes an annotation. */
+        delete(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** The ID for the annotation to delete. */
+          annotationId: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<{}>;
+        /** Inserts a new annotation. */
+        insert(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -1874,118 +1844,122 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Annotation,
-      ): Request<Annotation>;
-      /** Retrieves a list of annotations, possibly filtered. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** The content version for the requested volume. */
-        contentVersion?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** The layer ID to limit annotation by. */
-        layerId?: string;
-        /** The layer ID(s) to limit annotation by. */
-        layerIds?: string | string[];
-        /** Maximum number of results to return */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The value of the nextToken from the previous page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false. */
-        showDeleted?: boolean;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
-        updatedMax?: string;
-        /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
-        updatedMin?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The volume to restrict annotations to. */
-        volumeId?: string;
-      }): Request<Annotations>;
-      /** Gets the summary of specified layers. */
-      summary(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Array of layer IDs to get the summary for. */
-        layerIds: string | string[];
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Volume id to get the summary for. */
-        volumeId: string;
-      }): Request<AnnotationsSummary>;
-      /** Updates an existing annotation. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** The ID for the annotation to update. */
-        annotationId: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Annotation;
-      }): Request<Annotation>;
-      update(
-        request: {
+          /** Request body */
+          resource: Annotation;
+        }): Request<Annotation>;
+        insert(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The ID for the annotation to insert. */
+            annotationId?: string;
+            /** JSONP */
+            callback?: string;
+            /** ISO-3166-1 code to override the IP-based location. */
+            country?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Requests that only the summary of the specified layer be provided in the response. */
+            showOnlySummaryInResponse?: boolean;
+            /** String to identify the originator of this request. */
+            source?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Annotation,
+        ): Request<Annotation>;
+        /** Retrieves a list of annotations, possibly filtered. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** The content version for the requested volume. */
+          contentVersion?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The layer ID to limit annotation by. */
+          layerId?: string;
+          /** The layer ID(s) to limit annotation by. */
+          layerIds?: string | string[];
+          /** Maximum number of results to return */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The value of the nextToken from the previous page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false. */
+          showDeleted?: boolean;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive). */
+          updatedMax?: string;
+          /** RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive). */
+          updatedMin?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The volume to restrict annotations to. */
+          volumeId?: string;
+        }): Request<Annotations>;
+        /** Gets the summary of specified layers. */
+        summary(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Array of layer IDs to get the summary for. */
+          layerIds: string | string[];
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Volume id to get the summary for. */
+          volumeId: string;
+        }): Request<AnnotationsSummary>;
+        /** Updates an existing annotation. */
+        update(request: {
           /** V1 error format. */
           '$.xgafv'?: '1' | '2';
           /** OAuth access token. */
@@ -2012,325 +1986,353 @@ declare namespace gapi.client {
           upload_protocol?: string;
           /** Legacy upload protocol for media (e.g. "media", "multipart"). */
           uploadType?: string;
-        },
-        body: Annotation,
-      ): Request<Annotation>;
-    }
-    interface VolumesResource {
-      /** Gets volume information for volumes on a bookshelf. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** ISO-3166-1 code to override the IP-based location. */
-        country?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Restrict information returned to a set of selected fields. */
-        projection?: 'PROJECTION_UNDEFINED' | 'FULL' | 'LITE';
-        /** Full-text search query string in this bookshelf. */
-        q?: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The bookshelf ID or name retrieve volumes for. */
-        shelf: string;
-        /** Set to true to show pre-ordered books. Defaults to false. */
-        showPreorders?: boolean;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Index of the first element to return (starts at 0) */
-        startIndex?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Volumes>;
-    }
-    interface BookshelvesResource {
-      /** Adds a volume to a bookshelf. */
-      addVolume(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The reason for which the book is added to the library. */
-        reason?: 'REASON_UNDEFINED' | 'IOS_PREX' | 'IOS_SEARCH' | 'ONBOARDING';
-        /** ID of bookshelf to which to add a volume. */
-        shelf: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of volume to add. */
-        volumeId: string;
-      }): Request<{}>;
-      /** Clears all volumes from a bookshelf. */
-      clearVolumes(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** ID of bookshelf from which to remove a volume. */
-        shelf: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<{}>;
-      /** Retrieves metadata for a specific bookshelf belonging to the authenticated user. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** ID of bookshelf to retrieve. */
-        shelf: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Bookshelf>;
-      /** Retrieves a list of bookshelves belonging to the authenticated user. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Bookshelves>;
-      /** Moves a volume within a bookshelf. */
-      moveVolume(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** ID of bookshelf with the volume. */
-        shelf: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of volume to move. */
-        volumeId: string;
-        /** Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.) */
-        volumePosition: number;
-      }): Request<{}>;
-      /** Removes a volume from a bookshelf. */
-      removeVolume(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The reason for which the book is removed from the library. */
-        reason?: 'REASON_UNDEFINED' | 'ONBOARDING';
-        /** ID of bookshelf from which to remove a volume. */
-        shelf: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of volume to remove. */
-        volumeId: string;
-      }): Request<{}>;
-      volumes: VolumesResource;
-    }
-    interface ReadingpositionsResource {
-      /** Retrieves my reading position information for a volume. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Volume content version for which this reading position is requested. */
-        contentVersion?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of volume for which to retrieve a reading position. */
-        volumeId: string;
-      }): Request<ReadingPosition>;
-      /** Sets my reading position information for a volume. */
-      setPosition(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Action that caused this reading position to be set. */
-        action?:
-          | 'ACTION_UNDEFINED'
-          | 'bookmark'
-          | 'chapter'
-          | 'next-page'
-          | 'prev-page'
-          | 'scroll'
-          | 'search';
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Volume content version for which this reading position applies. */
-        contentVersion?: string;
-        /** Random persistent device cookie optional on set position. */
-        deviceCookie?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Position string for the new volume reading position. */
-        position: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** RFC 3339 UTC format timestamp associated with this reading position. */
-        timestamp: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of volume for which to update the reading position. */
-        volumeId: string;
-      }): Request<{}>;
-    }
-    interface MylibraryResource {
-      annotations: AnnotationsResource;
-      bookshelves: BookshelvesResource;
-      readingpositions: ReadingpositionsResource;
-    }
-    interface NotificationResource {
+          /** Request body */
+          resource: Annotation;
+        }): Request<Annotation>;
+        update(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** The ID for the annotation to update. */
+            annotationId: string;
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** String to identify the originator of this request. */
+            source?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Annotation,
+        ): Request<Annotation>;
+      };
+      bookshelves: {
+        /** Adds a volume to a bookshelf. */
+        addVolume(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The reason for which the book is added to the library. */
+          reason?:
+            'REASON_UNDEFINED' | 'IOS_PREX' | 'IOS_SEARCH' | 'ONBOARDING';
+          /** ID of bookshelf to which to add a volume. */
+          shelf: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of volume to add. */
+          volumeId: string;
+        }): Request<{}>;
+        /** Clears all volumes from a bookshelf. */
+        clearVolumes(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** ID of bookshelf from which to remove a volume. */
+          shelf: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<{}>;
+        /** Retrieves metadata for a specific bookshelf belonging to the authenticated user. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** ID of bookshelf to retrieve. */
+          shelf: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Bookshelf>;
+        /** Retrieves a list of bookshelves belonging to the authenticated user. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Bookshelves>;
+        /** Moves a volume within a bookshelf. */
+        moveVolume(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** ID of bookshelf with the volume. */
+          shelf: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of volume to move. */
+          volumeId: string;
+          /** Position on shelf to move the item (0 puts the item before the current first item, 1 puts it between the first and the second and so on.) */
+          volumePosition: number;
+        }): Request<{}>;
+        /** Removes a volume from a bookshelf. */
+        removeVolume(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The reason for which the book is removed from the library. */
+          reason?: 'REASON_UNDEFINED' | 'ONBOARDING';
+          /** ID of bookshelf from which to remove a volume. */
+          shelf: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of volume to remove. */
+          volumeId: string;
+        }): Request<{}>;
+        volumes: {
+          /** Gets volume information for volumes on a bookshelf. */
+          list(request?: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** ISO-3166-1 code to override the IP-based location. */
+            country?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** Maximum number of results to return */
+            maxResults?: number;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Restrict information returned to a set of selected fields. */
+            projection?: 'PROJECTION_UNDEFINED' | 'FULL' | 'LITE';
+            /** Full-text search query string in this bookshelf. */
+            q?: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** The bookshelf ID or name retrieve volumes for. */
+            shelf: string;
+            /** Set to true to show pre-ordered books. Defaults to false. */
+            showPreorders?: boolean;
+            /** String to identify the originator of this request. */
+            source?: string;
+            /** Index of the first element to return (starts at 0) */
+            startIndex?: number;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          }): Request<Volumes>;
+        };
+      };
+      readingpositions: {
+        /** Retrieves my reading position information for a volume. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Volume content version for which this reading position is requested. */
+          contentVersion?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of volume for which to retrieve a reading position. */
+          volumeId: string;
+        }): Request<ReadingPosition>;
+        /** Sets my reading position information for a volume. */
+        setPosition(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Action that caused this reading position to be set. */
+          action?:
+            | 'ACTION_UNDEFINED'
+            | 'bookmark'
+            | 'chapter'
+            | 'next-page'
+            | 'prev-page'
+            | 'scroll'
+            | 'search';
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Volume content version for which this reading position applies. */
+          contentVersion?: string;
+          /** Random persistent device cookie optional on set position. */
+          deviceCookie?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Position string for the new volume reading position. */
+          position: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** RFC 3339 UTC format timestamp associated with this reading position. */
+          timestamp: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of volume for which to update the reading position. */
+          volumeId: string;
+        }): Request<{}>;
+      };
+    };
+
+    const notification: {
       /** Returns notification details for a given notification id. */
       get(request?: {
         /** V1 error format. */
@@ -2362,8 +2364,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Notification>;
-    }
-    interface OnboardingResource {
+    };
+
+    const onboarding: {
       /** List categories for onboarding experience. */
       listCategories(request?: {
         /** V1 error format. */
@@ -2427,8 +2430,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Volume2>;
-    }
-    interface PersonalizedstreamResource {
+    };
+
+    const personalizedstream: {
       /** Returns a stream of personalized book clusters */
       get(request?: {
         /** V1 error format. */
@@ -2461,8 +2465,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Discoveryclusters>;
-    }
-    interface PromoofferResource {
+    };
+
+    const promooffer: {
       /** Accepts the promo offer. */
       accept(request?: {
         /** V1 error format. */
@@ -2579,41 +2584,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Offers>;
-    }
-    interface MembershipResource {
-      /** Returns Series membership data given the series id. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Number of maximum results per page to be included in the response. */
-        page_size?: number;
-        /** The value of the nextToken from the previous page. */
-        page_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String that identifies the series */
-        series_id: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Seriesmembership>;
-    }
-    interface SeriesResource {
+    };
+
+    const series: {
       /** Returns Series metadata for the given series ids. */
       get(request?: {
         /** V1 error format. */
@@ -2641,238 +2614,42 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Series>;
-      membership: MembershipResource;
-    }
-    interface AssociatedResource {
-      /** Return a list of associated books. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** Association type. */
-        association?:
-          | 'ASSOCIATION_UNDEFINED'
-          | 'end-of-sample'
-          | 'end-of-volume'
-          | 'related-for-play';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
-        locale?: string;
-        /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?:
-          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of the source volume. */
-        volumeId: string;
-      }): Request<Volumes>;
-    }
-    interface MybooksResource {
-      /** Return a list of books in My Library. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** How the book was acquired */
-        acquireMethod?:
-          | 'ACQUIRE_METHOD_UNDEFINED'
-          | 'FAMILY_SHARED'
-          | 'PREORDERED'
-          | 'PREVIOUSLY_RENTED'
-          | 'PUBLIC_DOMAIN'
-          | 'PURCHASED'
-          | 'RENTED'
-          | 'SAMPLE'
-          | 'UPLOADED'
-          | (
-              | 'ACQUIRE_METHOD_UNDEFINED'
-              | 'FAMILY_SHARED'
-              | 'PREORDERED'
-              | 'PREVIOUSLY_RENTED'
-              | 'PUBLIC_DOMAIN'
-              | 'PURCHASED'
-              | 'RENTED'
-              | 'SAMPLE'
-              | 'UPLOADED'
-            )[];
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** ISO-3166-1 code to override the IP-based location. */
-        country?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** ISO-639-1 language and ISO-3166-1 country code. Ex:'en_US'. Used for generating recommendations. */
-        locale?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The processing state of the user uploaded volumes to be returned. Applicable only if the UPLOADED is specified in the acquireMethod. */
-        processingState?:
-          | 'PROCESSING_STATE_UNDEFINED'
-          | 'COMPLETED_FAILED'
-          | 'COMPLETED_SUCCESS'
-          | 'RUNNING'
-          | (
-              | 'PROCESSING_STATE_UNDEFINED'
-              | 'COMPLETED_FAILED'
-              | 'COMPLETED_SUCCESS'
-              | 'RUNNING'
-            )[];
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Index of the first result to return (starts at 0) */
-        startIndex?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Volumes>;
-    }
-    interface RecommendedResource {
-      /** Return a list of recommended books for the current user. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
-        locale?: string;
-        /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
-        maxAllowedMaturityRating?:
-          'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Volumes>;
-      /** Rate a recommended book for the current user. */
-      rate(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
-        locale?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Rating to be given to the volume. */
-        rating: 'RATING_UNDEFINED' | 'HAVE_IT' | 'NOT_INTERESTED';
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** ID of the source volume. */
-        volumeId: string;
-      }): Request<BooksVolumesRecommendedRateResponse>;
-    }
-    interface UseruploadedResource {
-      /** Return a list of books uploaded by the current user. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
-        locale?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The processing state of the user uploaded volumes to be returned. */
-        processingState?:
-          | 'PROCESSING_STATE_UNDEFINED'
-          | 'COMPLETED_FAILED'
-          | 'COMPLETED_SUCCESS'
-          | 'RUNNING'
-          | (
-              | 'PROCESSING_STATE_UNDEFINED'
-              | 'COMPLETED_FAILED'
-              | 'COMPLETED_SUCCESS'
-              | 'RUNNING'
-            )[];
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** String to identify the originator of this request. */
-        source?: string;
-        /** Index of the first result to return (starts at 0) */
-        startIndex?: number;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** The ids of the volumes to be returned. If not specified all that match the processingState are returned. */
-        volumeId?: string | string[];
-      }): Request<Volumes>;
-    }
-    interface VolumesResource {
+      membership: {
+        /** Returns Series membership data given the series id. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Number of maximum results per page to be included in the response. */
+          page_size?: number;
+          /** The value of the nextToken from the previous page. */
+          page_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String that identifies the series */
+          series_id: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Seriesmembership>;
+      };
+    };
+
+    const volumes: {
       /** Gets volume information for a single volume. */
       get(request?: {
         /** V1 error format. */
@@ -2972,36 +2749,235 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Volumes>;
-      associated: AssociatedResource;
-      mybooks: MybooksResource;
-      recommended: RecommendedResource;
-      useruploaded: UseruploadedResource;
-    }
-
-    const bookshelves: BookshelvesResource;
-
-    const cloudloading: CloudloadingResource;
-
-    const dictionary: DictionaryResource;
-
-    const familysharing: FamilysharingResource;
-
-    const layers: LayersResource;
-
-    const myconfig: MyconfigResource;
-
-    const mylibrary: MylibraryResource;
-
-    const notification: NotificationResource;
-
-    const onboarding: OnboardingResource;
-
-    const personalizedstream: PersonalizedstreamResource;
-
-    const promooffer: PromoofferResource;
-
-    const series: SeriesResource;
-
-    const volumes: VolumesResource;
+      associated: {
+        /** Return a list of associated books. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** Association type. */
+          association?:
+            | 'ASSOCIATION_UNDEFINED'
+            | 'end-of-sample'
+            | 'end-of-volume'
+            | 'related-for-play';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
+          locale?: string;
+          /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
+          maxAllowedMaturityRating?:
+            'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of the source volume. */
+          volumeId: string;
+        }): Request<Volumes>;
+      };
+      mybooks: {
+        /** Return a list of books in My Library. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** How the book was acquired */
+          acquireMethod?:
+            | 'ACQUIRE_METHOD_UNDEFINED'
+            | 'FAMILY_SHARED'
+            | 'PREORDERED'
+            | 'PREVIOUSLY_RENTED'
+            | 'PUBLIC_DOMAIN'
+            | 'PURCHASED'
+            | 'RENTED'
+            | 'SAMPLE'
+            | 'UPLOADED'
+            | (
+                | 'ACQUIRE_METHOD_UNDEFINED'
+                | 'FAMILY_SHARED'
+                | 'PREORDERED'
+                | 'PREVIOUSLY_RENTED'
+                | 'PUBLIC_DOMAIN'
+                | 'PURCHASED'
+                | 'RENTED'
+                | 'SAMPLE'
+                | 'UPLOADED'
+              )[];
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** ISO-3166-1 code to override the IP-based location. */
+          country?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** ISO-639-1 language and ISO-3166-1 country code. Ex:'en_US'. Used for generating recommendations. */
+          locale?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The processing state of the user uploaded volumes to be returned. Applicable only if the UPLOADED is specified in the acquireMethod. */
+          processingState?:
+            | 'PROCESSING_STATE_UNDEFINED'
+            | 'COMPLETED_FAILED'
+            | 'COMPLETED_SUCCESS'
+            | 'RUNNING'
+            | (
+                | 'PROCESSING_STATE_UNDEFINED'
+                | 'COMPLETED_FAILED'
+                | 'COMPLETED_SUCCESS'
+                | 'RUNNING'
+              )[];
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Index of the first result to return (starts at 0) */
+          startIndex?: number;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Volumes>;
+      };
+      recommended: {
+        /** Return a list of recommended books for the current user. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
+          locale?: string;
+          /** The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out. */
+          maxAllowedMaturityRating?:
+            'MAX_ALLOWED_MATURITY_RATING_UNDEFINED' | 'MATURE' | 'not-mature';
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<Volumes>;
+        /** Rate a recommended book for the current user. */
+        rate(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
+          locale?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Rating to be given to the volume. */
+          rating: 'RATING_UNDEFINED' | 'HAVE_IT' | 'NOT_INTERESTED';
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** ID of the source volume. */
+          volumeId: string;
+        }): Request<BooksVolumesRecommendedRateResponse>;
+      };
+      useruploaded: {
+        /** Return a list of books uploaded by the current user. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations. */
+          locale?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The processing state of the user uploaded volumes to be returned. */
+          processingState?:
+            | 'PROCESSING_STATE_UNDEFINED'
+            | 'COMPLETED_FAILED'
+            | 'COMPLETED_SUCCESS'
+            | 'RUNNING'
+            | (
+                | 'PROCESSING_STATE_UNDEFINED'
+                | 'COMPLETED_FAILED'
+                | 'COMPLETED_SUCCESS'
+                | 'RUNNING'
+              )[];
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** String to identify the originator of this request. */
+          source?: string;
+          /** Index of the first result to return (starts at 0) */
+          startIndex?: number;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** The ids of the volumes to be returned. If not specified all that match the processingState are returned. */
+          volumeId?: string | string[];
+        }): Request<Volumes>;
+      };
+    };
   }
 }

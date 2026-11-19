@@ -80,7 +80,7 @@ gapi.load('client', async () => {
         reconciling: true,
         requestLogsDisabled: true,
         serviceAccount: 'Test string',
-        servingLocality: 'Test string',
+        servingLocality: 'SERVING_LOCALITY_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         uri: 'Test string',
@@ -145,7 +145,7 @@ gapi.load('client', async () => {
         reconciling: true,
         requestLogsDisabled: true,
         serviceAccount: 'Test string',
-        servingLocality: 'Test string',
+        servingLocality: 'SERVING_LOCALITY_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         uri: 'Test string',
@@ -167,8 +167,8 @@ gapi.load('client', async () => {
         config: {
           effectiveEnv: [
             {
-              availability: ['Test string'],
-              origin: 'Test string',
+              availability: ['AVAILABILITY_UNSPECIFIED'],
+              origin: 'ORIGIN_UNSPECIFIED',
               originFileName: 'Test string',
               secret: 'Test string',
               value: 'Test string',
@@ -177,8 +177,8 @@ gapi.load('client', async () => {
           ],
           env: [
             {
-              availability: ['Test string'],
-              origin: 'Test string',
+              availability: ['AVAILABILITY_UNSPECIFIED'],
+              origin: 'ORIGIN_UNSPECIFIED',
               originFileName: 'Test string',
               secret: 'Test string',
               value: 'Test string',
@@ -209,7 +209,7 @@ gapi.load('client', async () => {
               ],
               message: 'Test string',
             },
-            errorSource: 'Test string',
+            errorSource: 'ERROR_SOURCE_UNSPECIFIED',
           },
         ],
         etag: 'Test string',
@@ -250,7 +250,7 @@ gapi.load('client', async () => {
             image: 'Test string',
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -295,8 +295,8 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         customDomainStatus: {
-          certState: 'Test string',
-          hostState: 'Test string',
+          certState: 'CERT_STATE_UNSPECIFIED',
+          hostState: 'HOST_STATE_UNSPECIFIED',
           issues: [
             {
               code: 42,
@@ -308,7 +308,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          ownershipState: 'Test string',
+          ownershipState: 'OWNERSHIP_STATE_UNSPECIFIED',
           requiredDnsUpdates: [
             {
               checkTime: 'Test string',
@@ -328,9 +328,9 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      relevantState: ['Test string'],
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      relevantState: ['CUSTOM_DOMAIN_STATE_UNSPECIFIED'],
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -351,9 +351,9 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      relevantState: ['Test string'],
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      relevantState: ['CUSTOM_DOMAIN_STATE_UNSPECIFIED'],
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -423,8 +423,8 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         customDomainStatus: {
-          certState: 'Test string',
-          hostState: 'Test string',
+          certState: 'CERT_STATE_UNSPECIFIED',
+          hostState: 'HOST_STATE_UNSPECIFIED',
           issues: [
             {
               code: 42,
@@ -436,7 +436,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          ownershipState: 'Test string',
+          ownershipState: 'OWNERSHIP_STATE_UNSPECIFIED',
           requiredDnsUpdates: [
             {
               checkTime: 'Test string',
@@ -456,9 +456,9 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      relevantState: ['Test string'],
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      relevantState: ['CUSTOM_DOMAIN_STATE_UNSPECIFIED'],
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -479,9 +479,9 @@ gapi.load('client', async () => {
                     {
                       domainName: 'Test string',
                       rdata: 'Test string',
-                      relevantState: ['Test string'],
-                      requiredAction: 'Test string',
-                      type: 'Test string',
+                      relevantState: ['CUSTOM_DOMAIN_STATE_UNSPECIFIED'],
+                      requiredAction: 'NONE',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -505,7 +505,7 @@ gapi.load('client', async () => {
             uri: 'Test string',
           },
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -541,7 +541,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         reconciling: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -603,13 +603,13 @@ gapi.load('client', async () => {
           ignoredPaths: [
             {
               pattern: 'Test string',
-              type: 'Test string',
+              type: 'PATTERN_TYPE_UNSPECIFIED',
             },
           ],
           requiredPaths: [
             {
               pattern: 'Test string',
-              type: 'Test string',
+              type: 'PATTERN_TYPE_UNSPECIFIED',
             },
           ],
         },

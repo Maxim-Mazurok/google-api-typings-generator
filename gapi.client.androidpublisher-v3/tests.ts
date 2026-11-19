@@ -218,7 +218,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        keyRotationReason: 'Test string',
+        keyRotationReason: 'KEY_ROTATION_REASON_UNSPECIFIED',
         rotatedCloudKmsKey: {
           cloudKmsKeyAndCert: {
             cloudKmsKey: {
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
         packageName: 'Test string',
       },
       {
-        publishState: 'Test string',
+        publishState: 'APP_STORE_APP_PUBLISH_STATE_UNSPECIFIED',
       },
     );
     /** Upload an APK file for the hosted app. Returns an ID to track this APK. */
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
         packageName: 'Test string',
       },
       {
-        fileType: 'Test string',
+        fileType: 'DECLARATION_FILE_TYPE_UNSPECIFIED',
       },
     );
     /** Upload a screenshot or app icon for the hosted app. Returns an ID to track the image. */
@@ -421,7 +421,7 @@ gapi.load('client', async () => {
     });
     /** Commits an app edit. */
     await gapi.client.androidpublisher.edits.commit({
-      changesInReviewBehavior: 'Test string',
+      changesInReviewBehavior: 'CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED',
       changesNotSentForReview: true,
       editId: 'Test string',
       packageName: 'Test string',
@@ -513,7 +513,7 @@ gapi.load('client', async () => {
     /** Uploads a new deobfuscation file and attaches to the specified APK. */
     await gapi.client.androidpublisher.edits.deobfuscationfiles.upload({
       apkVersionCode: 42,
-      deobfuscationFileType: 'Test string',
+      deobfuscationFileType: 'deobfuscationFileTypeUnspecified',
       editId: 'Test string',
       packageName: 'Test string',
     });
@@ -552,7 +552,7 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.edits.expansionfiles.get({
       apkVersionCode: 42,
       editId: 'Test string',
-      expansionFileType: 'Test string',
+      expansionFileType: 'expansionFileTypeUnspecified',
       packageName: 'Test string',
     });
     /** Patches the APK's expansion file configuration to reference another APK's expansion file. To add a new expansion file use the Upload method. */
@@ -560,7 +560,7 @@ gapi.load('client', async () => {
       {
         apkVersionCode: 42,
         editId: 'Test string',
-        expansionFileType: 'Test string',
+        expansionFileType: 'expansionFileTypeUnspecified',
         packageName: 'Test string',
       },
       {
@@ -573,7 +573,7 @@ gapi.load('client', async () => {
       {
         apkVersionCode: 42,
         editId: 'Test string',
-        expansionFileType: 'Test string',
+        expansionFileType: 'expansionFileTypeUnspecified',
         packageName: 'Test string',
       },
       {
@@ -585,36 +585,36 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.edits.expansionfiles.upload({
       apkVersionCode: 42,
       editId: 'Test string',
-      expansionFileType: 'Test string',
+      expansionFileType: 'expansionFileTypeUnspecified',
       packageName: 'Test string',
     });
     /** Deletes the image (specified by id) from the edit. */
     await gapi.client.androidpublisher.edits.images.delete({
       editId: 'Test string',
       imageId: 'Test string',
-      imageType: 'Test string',
+      imageType: 'appImageTypeUnspecified',
       language: 'Test string',
       packageName: 'Test string',
     });
     /** Deletes all images for the specified language and image type. Returns an empty response if no images are found. */
     await gapi.client.androidpublisher.edits.images.deleteall({
       editId: 'Test string',
-      imageType: 'Test string',
+      imageType: 'appImageTypeUnspecified',
       language: 'Test string',
       packageName: 'Test string',
     });
     /** Lists all images. The response may be empty. */
     await gapi.client.androidpublisher.edits.images.list({
       editId: 'Test string',
-      imageType: 'Test string',
+      imageType: 'appImageTypeUnspecified',
       language: 'Test string',
       packageName: 'Test string',
     });
     /** Uploads an image of the specified language and image type, and adds to the edit. */
     await gapi.client.androidpublisher.edits.images.upload({
-      aiGeneratedState: 'Test string',
+      aiGeneratedState: 'aiGeneratedStateUnspecified',
       editId: 'Test string',
-      imageType: 'Test string',
+      imageType: 'appImageTypeUnspecified',
       language: 'Test string',
       packageName: 'Test string',
     });
@@ -705,9 +705,9 @@ gapi.load('client', async () => {
         packageName: 'Test string',
       },
       {
-        formFactor: 'Test string',
+        formFactor: 'FORM_FACTOR_UNSPECIFIED',
         track: 'Test string',
-        type: 'Test string',
+        type: 'TRACK_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a track. */
@@ -743,7 +743,7 @@ gapi.load('client', async () => {
                 text: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'statusUnspecified',
             userFraction: 42,
             versionCodes: ['Test string'],
           },
@@ -773,7 +773,7 @@ gapi.load('client', async () => {
                 text: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'statusUnspecified',
             userFraction: 42,
             versionCodes: ['Test string'],
           },
@@ -798,15 +798,15 @@ gapi.load('client', async () => {
           priceMicros: 'Test string',
         },
         externalContentLinkDetails: {
-          externalAppCategory: 'Test string',
+          externalAppCategory: 'EXTERNAL_CONTENT_APP_CATEGORY_UNSPECIFIED',
           installedAppPackage: 'Test string',
-          linkType: 'Test string',
+          linkType: 'EXTERNAL_CONTENT_LINK_TYPE_UNSPECIFIED',
         },
         externalOfferDetails: {
           appDownloadEventExternalTransactionId: 'Test string',
-          installedAppCategory: 'Test string',
+          installedAppCategory: 'EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED',
           installedAppPackage: 'Test string',
-          linkType: 'Test string',
+          linkType: 'EXTERNAL_OFFER_LINK_TYPE_UNSPECIFIED',
         },
         externalTransactionId: 'Test string',
         oneTimeTransaction: {
@@ -823,16 +823,17 @@ gapi.load('client', async () => {
         packageName: 'Test string',
         recurringTransaction: {
           externalSubscription: {
-            subscriptionType: 'Test string',
+            subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
           },
           externalTransactionToken: 'Test string',
           initialExternalTransactionId: 'Test string',
-          migratedTransactionProgram: 'Test string',
+          migratedTransactionProgram:
+            'EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED',
           otherRecurringProduct: {},
         },
         testPurchase: {},
         transactionProgramCode: 42,
-        transactionState: 'Test string',
+        transactionState: 'TRANSACTION_STATE_UNSPECIFIED',
         transactionTime: 'Test string',
         userTaxAddress: {
           administrativeArea: 'Test string',
@@ -880,7 +881,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        appLevelPermissions: ['Test string'],
+        appLevelPermissions: ['APP_LEVEL_PERMISSION_UNSPECIFIED'],
         name: 'Test string',
         packageName: 'Test string',
       },
@@ -896,7 +897,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        appLevelPermissions: ['Test string'],
+        appLevelPermissions: ['APP_LEVEL_PERMISSION_UNSPECIFIED'],
         name: 'Test string',
         packageName: 'Test string',
       },
@@ -909,7 +910,7 @@ gapi.load('client', async () => {
       {
         requests: [
           {
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             packageName: 'Test string',
             sku: 'Test string',
           },
@@ -946,20 +947,20 @@ gapi.load('client', async () => {
                 },
               },
               managedProductTaxesAndComplianceSettings: {
-                eeaWithdrawalRightType: 'Test string',
+                eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
                 isTokenizedDigitalAsset: true,
                 productTaxCategoryCode: 'Test string',
                 regionalProductAgeRatingInfos: [
                   {
-                    productAgeRatingTier: 'Test string',
+                    productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
                     regionCode: 'Test string',
                   },
                 ],
                 taxRateInfoByRegionCode: {
                   A: {
                     eligibleForStreamingServiceTaxRate: true,
-                    streamingTaxType: 'Test string',
-                    taxTier: 'Test string',
+                    streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+                    taxTier: 'TAX_TIER_UNSPECIFIED',
                   },
                 },
               },
@@ -970,31 +971,31 @@ gapi.load('client', async () => {
                   priceMicros: 'Test string',
                 },
               },
-              purchaseType: 'Test string',
+              purchaseType: 'purchaseTypeUnspecified',
               sku: 'Test string',
-              status: 'Test string',
+              status: 'statusUnspecified',
               subscriptionPeriod: 'Test string',
               subscriptionTaxesAndComplianceSettings: {
-                eeaWithdrawalRightType: 'Test string',
+                eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
                 isTokenizedDigitalAsset: true,
                 productTaxCategoryCode: 'Test string',
                 regionalProductAgeRatingInfos: [
                   {
-                    productAgeRatingTier: 'Test string',
+                    productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
                     regionCode: 'Test string',
                   },
                 ],
                 taxRateInfoByRegionCode: {
                   A: {
                     eligibleForStreamingServiceTaxRate: true,
-                    streamingTaxType: 'Test string',
-                    taxTier: 'Test string',
+                    streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+                    taxTier: 'TAX_TIER_UNSPECIFIED',
                   },
                 },
               },
               trialPeriod: 'Test string',
             },
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             packageName: 'Test string',
             sku: 'Test string',
           },
@@ -1003,7 +1004,7 @@ gapi.load('client', async () => {
     );
     /** Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information. */
     await gapi.client.androidpublisher.inappproducts.delete({
-      latencyTolerance: 'Test string',
+      latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
       packageName: 'Test string',
       sku: 'Test string',
     });
@@ -1033,20 +1034,20 @@ gapi.load('client', async () => {
           },
         },
         managedProductTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1057,25 +1058,25 @@ gapi.load('client', async () => {
             priceMicros: 'Test string',
           },
         },
-        purchaseType: 'Test string',
+        purchaseType: 'purchaseTypeUnspecified',
         sku: 'Test string',
-        status: 'Test string',
+        status: 'statusUnspecified',
         subscriptionPeriod: 'Test string',
         subscriptionTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1093,7 +1094,7 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.inappproducts.patch(
       {
         autoConvertMissingPrices: true,
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         sku: 'Test string',
       },
@@ -1112,20 +1113,20 @@ gapi.load('client', async () => {
           },
         },
         managedProductTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1136,25 +1137,25 @@ gapi.load('client', async () => {
             priceMicros: 'Test string',
           },
         },
-        purchaseType: 'Test string',
+        purchaseType: 'purchaseTypeUnspecified',
         sku: 'Test string',
-        status: 'Test string',
+        status: 'statusUnspecified',
         subscriptionPeriod: 'Test string',
         subscriptionTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1166,7 +1167,7 @@ gapi.load('client', async () => {
       {
         allowMissing: true,
         autoConvertMissingPrices: true,
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         sku: 'Test string',
       },
@@ -1185,20 +1186,20 @@ gapi.load('client', async () => {
           },
         },
         managedProductTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1209,25 +1210,25 @@ gapi.load('client', async () => {
             priceMicros: 'Test string',
           },
         },
-        purchaseType: 'Test string',
+        purchaseType: 'purchaseTypeUnspecified',
         sku: 'Test string',
-        status: 'Test string',
+        status: 'statusUnspecified',
         subscriptionPeriod: 'Test string',
         subscriptionTaxesAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1266,7 +1267,7 @@ gapi.load('client', async () => {
       {
         requests: [
           {
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             packageName: 'Test string',
             productId: 'Test string',
           },
@@ -1287,7 +1288,7 @@ gapi.load('client', async () => {
         requests: [
           {
             allowMissing: true,
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             oneTimeProduct: {
               listings: [
                 {
@@ -1310,7 +1311,7 @@ gapi.load('client', async () => {
                     multiQuantityEnabled: true,
                   },
                   newRegionsConfig: {
-                    availability: 'Test string',
+                    availability: 'AVAILABILITY_UNSPECIFIED',
                     eurPrice: {
                       currencyCode: 'Test string',
                       nanos: 42,
@@ -1330,7 +1331,7 @@ gapi.load('client', async () => {
                   purchaseOptionId: 'Test string',
                   regionalPricingAndAvailabilityConfigs: [
                     {
-                      availability: 'Test string',
+                      availability: 'AVAILABILITY_UNSPECIFIED',
                       price: {
                         currencyCode: 'Test string',
                         nanos: 42,
@@ -1343,9 +1344,9 @@ gapi.load('client', async () => {
                     expirationPeriod: 'Test string',
                     rentalPeriod: 'Test string',
                   },
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   taxAndComplianceSettings: {
-                    withdrawalRightType: 'Test string',
+                    withdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -1360,7 +1361,7 @@ gapi.load('client', async () => {
                 productTaxCategoryCode: 'Test string',
                 regionalProductAgeRatingInfos: [
                   {
-                    productAgeRatingTier: 'Test string',
+                    productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
                     regionCode: 'Test string',
                   },
                 ],
@@ -1368,8 +1369,8 @@ gapi.load('client', async () => {
                   {
                     eligibleForStreamingServiceTaxRate: true,
                     regionCode: 'Test string',
-                    streamingTaxType: 'Test string',
-                    taxTier: 'Test string',
+                    streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+                    taxTier: 'TAX_TIER_UNSPECIFIED',
                   },
                 ],
               },
@@ -1384,7 +1385,7 @@ gapi.load('client', async () => {
     );
     /** Deletes a one-time product. */
     await gapi.client.androidpublisher.monetization.onetimeproducts.delete({
-      latencyTolerance: 'Test string',
+      latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
       packageName: 'Test string',
       productId: 'Test string',
     });
@@ -1403,7 +1404,7 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.monetization.onetimeproducts.patch(
       {
         allowMissing: true,
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         productId: 'Test string',
         'regionsVersion.version': 'Test string',
@@ -1431,7 +1432,7 @@ gapi.load('client', async () => {
               multiQuantityEnabled: true,
             },
             newRegionsConfig: {
-              availability: 'Test string',
+              availability: 'AVAILABILITY_UNSPECIFIED',
               eurPrice: {
                 currencyCode: 'Test string',
                 nanos: 42,
@@ -1451,7 +1452,7 @@ gapi.load('client', async () => {
             purchaseOptionId: 'Test string',
             regionalPricingAndAvailabilityConfigs: [
               {
-                availability: 'Test string',
+                availability: 'AVAILABILITY_UNSPECIFIED',
                 price: {
                   currencyCode: 'Test string',
                   nanos: 42,
@@ -1464,9 +1465,9 @@ gapi.load('client', async () => {
               expirationPeriod: 'Test string',
               rentalPeriod: 'Test string',
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             taxAndComplianceSettings: {
-              withdrawalRightType: 'Test string',
+              withdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -1481,7 +1482,7 @@ gapi.load('client', async () => {
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
@@ -1489,8 +1490,8 @@ gapi.load('client', async () => {
             {
               eligibleForStreamingServiceTaxRate: true,
               regionCode: 'Test string',
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           ],
         },
@@ -1506,7 +1507,7 @@ gapi.load('client', async () => {
         requests: [
           {
             force: true,
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             packageName: 'Test string',
             productId: 'Test string',
             purchaseOptionId: 'Test string',
@@ -1524,13 +1525,13 @@ gapi.load('client', async () => {
         requests: [
           {
             activatePurchaseOptionRequest: {
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               packageName: 'Test string',
               productId: 'Test string',
               purchaseOptionId: 'Test string',
             },
             deactivatePurchaseOptionRequest: {
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               packageName: 'Test string',
               productId: 'Test string',
               purchaseOptionId: 'Test string',
@@ -1548,7 +1549,7 @@ gapi.load('client', async () => {
         purchaseOptionId: 'Test string',
       },
       {
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -1565,7 +1566,7 @@ gapi.load('client', async () => {
       {
         requests: [
           {
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             offerId: 'Test string',
             packageName: 'Test string',
             productId: 'Test string',
@@ -1603,7 +1604,7 @@ gapi.load('client', async () => {
         requests: [
           {
             allowMissing: true,
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             oneTimeProductOffer: {
               discountedOffer: {
                 endTime: 'Test string',
@@ -1622,7 +1623,8 @@ gapi.load('client', async () => {
               packageName: 'Test string',
               preOrderOffer: {
                 endTime: 'Test string',
-                priceChangeBehavior: 'Test string',
+                priceChangeBehavior:
+                  'PRE_ORDER_PRICE_CHANGE_BEHAVIOR_UNSPECIFIED',
                 releaseTime: 'Test string',
                 startTime: 'Test string',
               },
@@ -1635,7 +1637,7 @@ gapi.load('client', async () => {
                     nanos: 42,
                     units: 'Test string',
                   },
-                  availability: 'Test string',
+                  availability: 'AVAILABILITY_UNSPECIFIED',
                   noOverride: {},
                   regionCode: 'Test string',
                   relativeDiscount: 42,
@@ -1644,7 +1646,7 @@ gapi.load('client', async () => {
               regionsVersion: {
                 version: 'Test string',
               },
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             regionsVersion: {
               version: 'Test string',
@@ -1665,21 +1667,21 @@ gapi.load('client', async () => {
         requests: [
           {
             activateOneTimeProductOfferRequest: {
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               offerId: 'Test string',
               packageName: 'Test string',
               productId: 'Test string',
               purchaseOptionId: 'Test string',
             },
             cancelOneTimeProductOfferRequest: {
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               offerId: 'Test string',
               packageName: 'Test string',
               productId: 'Test string',
               purchaseOptionId: 'Test string',
             },
             deactivateOneTimeProductOfferRequest: {
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               offerId: 'Test string',
               packageName: 'Test string',
               productId: 'Test string',
@@ -1698,7 +1700,7 @@ gapi.load('client', async () => {
         purchaseOptionId: 'Test string',
       },
       {
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -1714,7 +1716,7 @@ gapi.load('client', async () => {
         purchaseOptionId: 'Test string',
       },
       {
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -1753,7 +1755,7 @@ gapi.load('client', async () => {
         requests: [
           {
             allowMissing: true,
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             regionsVersion: {
               version: 'Test string',
             },
@@ -1767,8 +1769,8 @@ gapi.load('client', async () => {
                     gracePeriodDuration: 'Test string',
                     legacyCompatible: true,
                     legacyCompatibleSubscriptionOfferId: 'Test string',
-                    prorationMode: 'Test string',
-                    resubscribeState: 'Test string',
+                    prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+                    resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
                   },
                   basePlanId: 'Test string',
                   installmentsBasePlanType: {
@@ -1776,9 +1778,9 @@ gapi.load('client', async () => {
                     billingPeriodDuration: 'Test string',
                     committedPaymentsCount: 42,
                     gracePeriodDuration: 'Test string',
-                    prorationMode: 'Test string',
-                    renewalType: 'Test string',
-                    resubscribeState: 'Test string',
+                    prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+                    renewalType: 'RENEWAL_TYPE_UNSPECIFIED',
+                    resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
                   },
                   offerTags: [
                     {
@@ -1800,7 +1802,7 @@ gapi.load('client', async () => {
                   },
                   prepaidBasePlanType: {
                     billingPeriodDuration: 'Test string',
-                    timeExtension: 'Test string',
+                    timeExtension: 'TIME_EXTENSION_UNSPECIFIED',
                   },
                   regionalConfigs: [
                     {
@@ -1813,7 +1815,7 @@ gapi.load('client', async () => {
                       regionCode: 'Test string',
                     },
                   ],
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                   transitionTargetConfig: {
                     basePlanId: 'Test string',
                     productId: 'Test string',
@@ -1834,20 +1836,20 @@ gapi.load('client', async () => {
                 regionCodes: ['Test string'],
               },
               taxAndComplianceSettings: {
-                eeaWithdrawalRightType: 'Test string',
+                eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
                 isTokenizedDigitalAsset: true,
                 productTaxCategoryCode: 'Test string',
                 regionalProductAgeRatingInfos: [
                   {
-                    productAgeRatingTier: 'Test string',
+                    productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
                     regionCode: 'Test string',
                   },
                 ],
                 taxRateInfoByRegionCode: {
                   A: {
                     eligibleForStreamingServiceTaxRate: true,
-                    streamingTaxType: 'Test string',
-                    taxTier: 'Test string',
+                    streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+                    taxTier: 'TAX_TIER_UNSPECIFIED',
                   },
                 },
               },
@@ -1874,8 +1876,8 @@ gapi.load('client', async () => {
               gracePeriodDuration: 'Test string',
               legacyCompatible: true,
               legacyCompatibleSubscriptionOfferId: 'Test string',
-              prorationMode: 'Test string',
-              resubscribeState: 'Test string',
+              prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+              resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
             },
             basePlanId: 'Test string',
             installmentsBasePlanType: {
@@ -1883,9 +1885,9 @@ gapi.load('client', async () => {
               billingPeriodDuration: 'Test string',
               committedPaymentsCount: 42,
               gracePeriodDuration: 'Test string',
-              prorationMode: 'Test string',
-              renewalType: 'Test string',
-              resubscribeState: 'Test string',
+              prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+              renewalType: 'RENEWAL_TYPE_UNSPECIFIED',
+              resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
             },
             offerTags: [
               {
@@ -1907,7 +1909,7 @@ gapi.load('client', async () => {
             },
             prepaidBasePlanType: {
               billingPeriodDuration: 'Test string',
-              timeExtension: 'Test string',
+              timeExtension: 'TIME_EXTENSION_UNSPECIFIED',
             },
             regionalConfigs: [
               {
@@ -1920,7 +1922,7 @@ gapi.load('client', async () => {
                 regionCode: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             transitionTargetConfig: {
               basePlanId: 'Test string',
               productId: 'Test string',
@@ -1941,20 +1943,20 @@ gapi.load('client', async () => {
           regionCodes: ['Test string'],
         },
         taxAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -1981,7 +1983,7 @@ gapi.load('client', async () => {
     await gapi.client.androidpublisher.monetization.subscriptions.patch(
       {
         allowMissing: true,
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         productId: 'Test string',
         'regionsVersion.version': 'Test string',
@@ -1997,8 +1999,8 @@ gapi.load('client', async () => {
               gracePeriodDuration: 'Test string',
               legacyCompatible: true,
               legacyCompatibleSubscriptionOfferId: 'Test string',
-              prorationMode: 'Test string',
-              resubscribeState: 'Test string',
+              prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+              resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
             },
             basePlanId: 'Test string',
             installmentsBasePlanType: {
@@ -2006,9 +2008,9 @@ gapi.load('client', async () => {
               billingPeriodDuration: 'Test string',
               committedPaymentsCount: 42,
               gracePeriodDuration: 'Test string',
-              prorationMode: 'Test string',
-              renewalType: 'Test string',
-              resubscribeState: 'Test string',
+              prorationMode: 'SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED',
+              renewalType: 'RENEWAL_TYPE_UNSPECIFIED',
+              resubscribeState: 'RESUBSCRIBE_STATE_UNSPECIFIED',
             },
             offerTags: [
               {
@@ -2030,7 +2032,7 @@ gapi.load('client', async () => {
             },
             prepaidBasePlanType: {
               billingPeriodDuration: 'Test string',
-              timeExtension: 'Test string',
+              timeExtension: 'TIME_EXTENSION_UNSPECIFIED',
             },
             regionalConfigs: [
               {
@@ -2043,7 +2045,7 @@ gapi.load('client', async () => {
                 regionCode: 'Test string',
               },
             ],
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             transitionTargetConfig: {
               basePlanId: 'Test string',
               productId: 'Test string',
@@ -2064,20 +2066,20 @@ gapi.load('client', async () => {
           regionCodes: ['Test string'],
         },
         taxAndComplianceSettings: {
-          eeaWithdrawalRightType: 'Test string',
+          eeaWithdrawalRightType: 'WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED',
           isTokenizedDigitalAsset: true,
           productTaxCategoryCode: 'Test string',
           regionalProductAgeRatingInfos: [
             {
-              productAgeRatingTier: 'Test string',
+              productAgeRatingTier: 'PRODUCT_AGE_RATING_TIER_UNKNOWN',
               regionCode: 'Test string',
             },
           ],
           taxRateInfoByRegionCode: {
             A: {
               eligibleForStreamingServiceTaxRate: true,
-              streamingTaxType: 'Test string',
-              taxTier: 'Test string',
+              streamingTaxType: 'STREAMING_TAX_TYPE_UNSPECIFIED',
+              taxTier: 'TAX_TIER_UNSPECIFIED',
             },
           },
         },
@@ -2092,7 +2094,7 @@ gapi.load('client', async () => {
       },
       {
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         productId: 'Test string',
       },
@@ -2107,13 +2109,13 @@ gapi.load('client', async () => {
         requests: [
           {
             basePlanId: 'Test string',
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             packageName: 'Test string',
             productId: 'Test string',
             regionalPriceMigrations: [
               {
                 oldestAllowedPriceVersionTime: 'Test string',
-                priceIncreaseType: 'Test string',
+                priceIncreaseType: 'PRICE_INCREASE_TYPE_UNSPECIFIED',
                 regionCode: 'Test string',
               },
             ],
@@ -2135,13 +2137,13 @@ gapi.load('client', async () => {
           {
             activateBasePlanRequest: {
               basePlanId: 'Test string',
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               packageName: 'Test string',
               productId: 'Test string',
             },
             deactivateBasePlanRequest: {
               basePlanId: 'Test string',
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               packageName: 'Test string',
               productId: 'Test string',
             },
@@ -2158,7 +2160,7 @@ gapi.load('client', async () => {
       },
       {
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         productId: 'Test string',
       },
@@ -2180,13 +2182,13 @@ gapi.load('client', async () => {
       },
       {
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         packageName: 'Test string',
         productId: 'Test string',
         regionalPriceMigrations: [
           {
             oldestAllowedPriceVersionTime: 'Test string',
-            priceIncreaseType: 'Test string',
+            priceIncreaseType: 'PRICE_INCREASE_TYPE_UNSPECIFIED',
             regionCode: 'Test string',
           },
         ],
@@ -2205,7 +2207,7 @@ gapi.load('client', async () => {
       },
       {
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -2240,7 +2242,7 @@ gapi.load('client', async () => {
         requests: [
           {
             allowMissing: true,
-            latencyTolerance: 'Test string',
+            latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
             regionsVersion: {
               version: 'Test string',
             },
@@ -2316,7 +2318,7 @@ gapi.load('client', async () => {
                 },
               ],
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               targeting: {
                 acquisitionRule: {
                   scope: {
@@ -2364,14 +2366,14 @@ gapi.load('client', async () => {
           {
             activateSubscriptionOfferRequest: {
               basePlanId: 'Test string',
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               offerId: 'Test string',
               packageName: 'Test string',
               productId: 'Test string',
             },
             deactivateSubscriptionOfferRequest: {
               basePlanId: 'Test string',
-              latencyTolerance: 'Test string',
+              latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
               offerId: 'Test string',
               packageName: 'Test string',
               productId: 'Test string',
@@ -2461,7 +2463,7 @@ gapi.load('client', async () => {
           },
         ],
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           acquisitionRule: {
             scope: {
@@ -2503,7 +2505,7 @@ gapi.load('client', async () => {
       },
       {
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -2542,7 +2544,7 @@ gapi.load('client', async () => {
       {
         allowMissing: true,
         basePlanId: 'Test string',
-        latencyTolerance: 'Test string',
+        latencyTolerance: 'PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED',
         offerId: 'Test string',
         packageName: 'Test string',
         productId: 'Test string',
@@ -2621,7 +2623,7 @@ gapi.load('client', async () => {
           },
         ],
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         targeting: {
           acquisitionRule: {
             scope: {
@@ -2693,7 +2695,7 @@ gapi.load('client', async () => {
           },
         ],
         pendingRefundToken: 'Test string',
-        refundPreference: 'Test string',
+        refundPreference: 'REFUND_PREFERENCE_UNSPECIFIED',
         sampleContentProvided: true,
       },
     );
@@ -2780,7 +2782,7 @@ gapi.load('client', async () => {
       },
       {
         cancellationContext: {
-          cancellationType: 'Test string',
+          cancellationType: 'CANCELLATION_TYPE_UNSPECIFIED',
           etag: 'Test string',
         },
       },
@@ -2934,13 +2936,13 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        accessState: 'Test string',
-        developerAccountPermissions: ['Test string'],
+        accessState: 'ACCESS_STATE_UNSPECIFIED',
+        developerAccountPermissions: ['DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED'],
         email: 'Test string',
         expirationTime: 'Test string',
         grants: [
           {
-            appLevelPermissions: ['Test string'],
+            appLevelPermissions: ['APP_LEVEL_PERMISSION_UNSPECIFIED'],
             name: 'Test string',
             packageName: 'Test string',
           },
@@ -2966,13 +2968,13 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        accessState: 'Test string',
-        developerAccountPermissions: ['Test string'],
+        accessState: 'ACCESS_STATE_UNSPECIFIED',
+        developerAccountPermissions: ['DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED'],
         email: 'Test string',
         expirationTime: 'Test string',
         grants: [
           {
-            appLevelPermissions: ['Test string'],
+            appLevelPermissions: ['APP_LEVEL_PERMISSION_UNSPECIFIED'],
             name: 'Test string',
             packageName: 'Test string',
           },

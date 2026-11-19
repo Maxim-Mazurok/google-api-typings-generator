@@ -68,7 +68,7 @@ gapi.load('client', async () => {
               },
               newSpotInstances: {
                 machineType: 'Test string',
-                terminationAction: 'Test string',
+                terminationAction: 'TERMINATION_ACTION_UNSPECIFIED',
                 zone: 'Test string',
               },
             },
@@ -180,13 +180,13 @@ gapi.load('client', async () => {
               newBucket: {
                 autoclass: {
                   enabled: true,
-                  terminalStorageClass: 'Test string',
+                  terminalStorageClass: 'TERMINAL_STORAGE_CLASS_UNSPECIFIED',
                 },
                 bucket: 'Test string',
                 hierarchicalNamespace: {
                   enabled: true,
                 },
-                storageClass: 'Test string',
+                storageClass: 'STORAGE_CLASS_UNSPECIFIED',
               },
               newFilestore: {
                 description: 'Test string',
@@ -197,8 +197,8 @@ gapi.load('client', async () => {
                   },
                 ],
                 filestore: 'Test string',
-                protocol: 'Test string',
-                tier: 'Test string',
+                protocol: 'PROTOCOL_UNSPECIFIED',
+                tier: 'TIER_UNSPECIFIED',
               },
               newLustre: {
                 capacityGb: 'Test string',
@@ -262,7 +262,7 @@ gapi.load('client', async () => {
               },
               newSpotInstances: {
                 machineType: 'Test string',
-                terminationAction: 'Test string',
+                terminationAction: 'TERMINATION_ACTION_UNSPECIFIED',
                 zone: 'Test string',
               },
             },
@@ -374,13 +374,13 @@ gapi.load('client', async () => {
               newBucket: {
                 autoclass: {
                   enabled: true,
-                  terminalStorageClass: 'Test string',
+                  terminalStorageClass: 'TERMINAL_STORAGE_CLASS_UNSPECIFIED',
                 },
                 bucket: 'Test string',
                 hierarchicalNamespace: {
                   enabled: true,
                 },
-                storageClass: 'Test string',
+                storageClass: 'STORAGE_CLASS_UNSPECIFIED',
               },
               newFilestore: {
                 description: 'Test string',
@@ -391,8 +391,8 @@ gapi.load('client', async () => {
                   },
                 ],
                 filestore: 'Test string',
-                protocol: 'Test string',
-                tier: 'Test string',
+                protocol: 'PROTOCOL_UNSPECIFIED',
+                tier: 'TIER_UNSPECIFIED',
               },
               newLustre: {
                 capacityGb: 'Test string',

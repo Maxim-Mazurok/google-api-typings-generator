@@ -109,17 +109,17 @@ gapi.load('client', async () => {
           onPremCluster: {
             adminCluster: true,
             clusterMissing: true,
-            clusterType: 'Test string',
+            clusterType: 'CLUSTERTYPE_UNSPECIFIED',
             resourceLink: 'Test string',
           },
         },
         externalId: 'Test string',
-        infrastructureType: 'Test string',
+        infrastructureType: 'INFRASTRUCTURE_TYPE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
         lastConnectionTime: 'Test string',
-        membershipType: 'Test string',
+        membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
         monitoringConfig: {
           cluster: 'Test string',
           clusterHash: 'Test string',
@@ -129,7 +129,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
           description: 'Test string',
           updateTime: 'Test string',
         },
@@ -247,17 +247,17 @@ gapi.load('client', async () => {
           onPremCluster: {
             adminCluster: true,
             clusterMissing: true,
-            clusterType: 'Test string',
+            clusterType: 'CLUSTERTYPE_UNSPECIFIED',
             resourceLink: 'Test string',
           },
         },
         externalId: 'Test string',
-        infrastructureType: 'Test string',
+        infrastructureType: 'INFRASTRUCTURE_TYPE_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
         lastConnectionTime: 'Test string',
-        membershipType: 'Test string',
+        membershipType: 'MEMBERSHIP_TYPE_UNSPECIFIED',
         monitoringConfig: {
           cluster: 'Test string',
           clusterHash: 'Test string',
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         state: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
           description: 'Test string',
           updateTime: 'Test string',
         },
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

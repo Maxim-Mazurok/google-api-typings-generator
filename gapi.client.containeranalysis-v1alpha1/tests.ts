@@ -57,7 +57,7 @@ gapi.load('client', async () => {
           builderVersion: 'Test string',
           signature: {
             keyId: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             publicKey: 'Test string',
             signature: 'Test string',
           },
@@ -65,7 +65,7 @@ gapi.load('client', async () => {
         compliance: {
           cisBenchmark: {
             profileLevel: 42,
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
           description: 'Test string',
           impact: 'Test string',
@@ -86,7 +86,7 @@ gapi.load('client', async () => {
           resourceUri: ['Test string'],
         },
         discovery: {
-          analysisKind: 'Test string',
+          analysisKind: 'KIND_UNSPECIFIED',
         },
         dsseAttestation: {
           hint: {
@@ -94,11 +94,11 @@ gapi.load('client', async () => {
           },
         },
         expirationTime: 'Test string',
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         longDescription: 'Test string',
         name: 'Test string',
         package: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           description: 'Test string',
           digest: [
@@ -109,13 +109,13 @@ gapi.load('client', async () => {
           ],
           distribution: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               cpeUri: 'Test string',
               description: 'Test string',
               latestVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         spdxFile: {
           checksum: ['Test string'],
-          fileType: 'Test string',
+          fileType: 'FILE_TYPE_UNSPECIFIED',
           title: 'Test string',
         },
         spdxPackage: {
@@ -169,7 +169,7 @@ gapi.load('client', async () => {
           downloadLocation: 'Test string',
           externalRefs: [
             {
-              category: 'Test string',
+              category: 'CATEGORY_UNSPECIFIED',
               comment: 'Test string',
               locator: 'Test string',
               type: 'Test string',
@@ -190,7 +190,7 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         spdxRelationship: {
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -206,7 +206,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             longDescription: 'Test string',
             relatedUris: [
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
@@ -237,7 +237,7 @@ gapi.load('client', async () => {
               },
             ],
             shortDescription: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
           languageCode: 'Test string',
@@ -245,7 +245,7 @@ gapi.load('client', async () => {
           product: {
             id: 'Test string',
             identifierHelper: {
-              field: 'Test string',
+              field: 'IDENTIFIER_HELPER_FIELD_UNSPECIFIED',
               genericUri: 'Test string',
             },
             name: 'Test string',
@@ -262,50 +262,50 @@ gapi.load('client', async () => {
           advisoryPublishTime: 'Test string',
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
           cwe: ['Test string'],
           details: [
             {
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -346,14 +346,14 @@ gapi.load('client', async () => {
               maxAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
               minAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -364,7 +364,7 @@ gapi.load('client', async () => {
               vendor: 'Test string',
             },
           ],
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
       },
     );
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
           builderVersion: 'Test string',
           signature: {
             keyId: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             publicKey: 'Test string',
             signature: 'Test string',
           },
@@ -428,7 +428,7 @@ gapi.load('client', async () => {
         compliance: {
           cisBenchmark: {
             profileLevel: 42,
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
           description: 'Test string',
           impact: 'Test string',
@@ -449,7 +449,7 @@ gapi.load('client', async () => {
           resourceUri: ['Test string'],
         },
         discovery: {
-          analysisKind: 'Test string',
+          analysisKind: 'KIND_UNSPECIFIED',
         },
         dsseAttestation: {
           hint: {
@@ -457,11 +457,11 @@ gapi.load('client', async () => {
           },
         },
         expirationTime: 'Test string',
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         longDescription: 'Test string',
         name: 'Test string',
         package: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           description: 'Test string',
           digest: [
@@ -472,13 +472,13 @@ gapi.load('client', async () => {
           ],
           distribution: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               cpeUri: 'Test string',
               description: 'Test string',
               latestVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -497,7 +497,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -520,7 +520,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         spdxFile: {
           checksum: ['Test string'],
-          fileType: 'Test string',
+          fileType: 'FILE_TYPE_UNSPECIFIED',
           title: 'Test string',
         },
         spdxPackage: {
@@ -532,7 +532,7 @@ gapi.load('client', async () => {
           downloadLocation: 'Test string',
           externalRefs: [
             {
-              category: 'Test string',
+              category: 'CATEGORY_UNSPECIFIED',
               comment: 'Test string',
               locator: 'Test string',
               type: 'Test string',
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         spdxRelationship: {
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -580,7 +580,7 @@ gapi.load('client', async () => {
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             longDescription: 'Test string',
             relatedUris: [
@@ -592,7 +592,7 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
@@ -600,7 +600,7 @@ gapi.load('client', async () => {
               },
             ],
             shortDescription: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
           languageCode: 'Test string',
@@ -608,7 +608,7 @@ gapi.load('client', async () => {
           product: {
             id: 'Test string',
             identifierHelper: {
-              field: 'Test string',
+              field: 'IDENTIFIER_HELPER_FIELD_UNSPECIFIED',
               genericUri: 'Test string',
             },
             name: 'Test string',
@@ -625,50 +625,50 @@ gapi.load('client', async () => {
           advisoryPublishTime: 'Test string',
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
           cwe: ['Test string'],
           details: [
             {
@@ -700,7 +700,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -709,14 +709,14 @@ gapi.load('client', async () => {
               maxAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
               minAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -727,7 +727,7 @@ gapi.load('client', async () => {
               vendor: 'Test string',
             },
           ],
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
       },
     );
@@ -787,16 +787,16 @@ gapi.load('client', async () => {
                 filePath: 'Test string',
                 lineNumber: 'Test string',
               },
-              scanner: 'Test string',
-              severity: 'Test string',
+              scanner: 'SCANNER_UNSPECIFIED',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
-          maxSeverity: 'Test string',
+          maxSeverity: 'SEVERITY_UNSPECIFIED',
           perScannerVerdict: {
             maliciousContentLlmResult: {
-              maxSeverity: 'Test string',
+              maxSeverity: 'SEVERITY_UNSPECIFIED',
               modelId: 'Test string',
-              scanState: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
               tokenUsage: {
                 cacheCount: 'Test string',
                 candidateCount: 'Test string',
@@ -806,23 +806,23 @@ gapi.load('client', async () => {
               },
             },
             maliciousContentStaticResult: {
-              maxSeverity: 'Test string',
-              scanState: 'Test string',
+              maxSeverity: 'SEVERITY_UNSPECIFIED',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
             },
             malwareScan: {
-              scanState: 'Test string',
-              verdict: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
+              verdict: 'VERDICT_UNSPECIFIED',
             },
             workspacePolicy: {
-              scanState: 'Test string',
-              verdict: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
+              verdict: 'VERDICT_UNSPECIFIED',
             },
           },
           skillName: 'Test string',
         },
         attestation: {
           pgpSignedAttestation: {
-            contentType: 'Test string',
+            contentType: 'CONTENT_TYPE_UNSPECIFIED',
             pgpKeyId: 'Test string',
             signature: 'Test string',
           },
@@ -1097,7 +1097,7 @@ gapi.load('client', async () => {
                 {
                   cloudRepo: {
                     aliasContext: {
-                      kind: 'Test string',
+                      kind: 'KIND_UNSPECIFIED',
                       name: 'Test string',
                     },
                     repoId: {
@@ -1111,7 +1111,7 @@ gapi.load('client', async () => {
                   },
                   gerrit: {
                     aliasContext: {
-                      kind: 'Test string',
+                      kind: 'KIND_UNSPECIFIED',
                       name: 'Test string',
                     },
                     gerritProject: 'Test string',
@@ -1135,7 +1135,7 @@ gapi.load('client', async () => {
               context: {
                 cloudRepo: {
                   aliasContext: {
-                    kind: 'Test string',
+                    kind: 'KIND_UNSPECIFIED',
                     name: 'Test string',
                   },
                   repoId: {
@@ -1149,7 +1149,7 @@ gapi.load('client', async () => {
                 },
                 gerrit: {
                   aliasContext: {
-                    kind: 'Test string',
+                    kind: 'KIND_UNSPECIFIED',
                     name: 'Test string',
                   },
                   gerritProject: 'Test string',
@@ -1168,7 +1168,7 @@ gapi.load('client', async () => {
                 A: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -1212,7 +1212,7 @@ gapi.load('client', async () => {
           address: 'Test string',
           config: 'Test string',
           deployTime: 'Test string',
-          platform: 'Test string',
+          platform: 'PLATFORM_UNSPECIFIED',
           resourceUri: ['Test string'],
           undeployTime: 'Test string',
           userEmail: 'Test string',
@@ -1228,7 +1228,7 @@ gapi.load('client', async () => {
           layerInfo: [
             {
               arguments: 'Test string',
-              directive: 'Test string',
+              directive: 'DIRECTIVE_UNSPECIFIED',
             },
           ],
         },
@@ -1247,7 +1247,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          analysisStatus: 'Test string',
+          analysisStatus: 'ANALYSIS_STATUS_UNSPECIFIED',
           analysisStatusError: {
             code: 42,
             details: [
@@ -1258,7 +1258,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
           archiveTime: 'Test string',
-          continuousAnalysis: 'Test string',
+          continuousAnalysis: 'CONTINUOUS_ANALYSIS_UNSPECIFIED',
           cpe: 'Test string',
           files: [
             {
@@ -1291,12 +1291,12 @@ gapi.load('client', async () => {
           },
           sbomStatus: {
             error: 'Test string',
-            sbomState: 'Test string',
+            sbomState: 'SBOM_STATE_UNSPECIFIED',
           },
           vulnerabilityAttestation: {
             error: 'Test string',
             lastAttemptTime: 'Test string',
-            state: 'Test string',
+            state: 'VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED',
           },
         },
         dsseAttestation: {
@@ -1444,7 +1444,7 @@ gapi.load('client', async () => {
           ],
         },
         installation: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           license: {
             comments: 'Test string',
@@ -1457,7 +1457,7 @@ gapi.load('client', async () => {
               version: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -1468,18 +1468,18 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
         },
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
         noteName: 'Test string',
         remediation: 'Test string',
         resource: {
           contentHash: {
-            type: 'Test string',
+            type: 'NONE',
             value: 'Test string',
           },
           name: 'Test string',
@@ -1527,7 +1527,7 @@ gapi.load('client', async () => {
           ],
         },
         secret: {
-          kind: 'Test string',
+          kind: 'SECRET_KIND_UNSPECIFIED',
           locations: [
             {
               fileLocation: {
@@ -1553,7 +1553,7 @@ gapi.load('client', async () => {
           statuses: [
             {
               message: 'Test string',
-              status: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
               updateTime: 'Test string',
             },
           ],
@@ -1590,7 +1590,7 @@ gapi.load('client', async () => {
           comment: 'Test string',
           source: 'Test string',
           target: 'Test string',
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -1604,7 +1604,7 @@ gapi.load('client', async () => {
           parsedVersion: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -1612,73 +1612,73 @@ gapi.load('client', async () => {
         vulnerabilityDetails: {
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV3: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
-          effectiveSeverity: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
+          effectiveSeverity: 'SEVERITY_UNSPECIFIED',
           extraDetails: 'Test string',
           packageIssue: [
             {
@@ -1708,12 +1708,12 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
               },
-              effectiveSeverity: 'Test string',
+              effectiveSeverity: 'SEVERITY_UNSPECIFIED',
               fixedLocation: {
                 cpeUri: 'Test string',
                 fileLocation: [
@@ -1740,7 +1740,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -1758,14 +1758,14 @@ gapi.load('client', async () => {
               score: 42,
             },
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
           type: 'Test string',
           vexAssessment: {
             cve: 'Test string',
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             noteName: 'Test string',
             relatedUris: [
@@ -1777,14 +1777,14 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
                 },
               },
             ],
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
         },
@@ -1823,7 +1823,7 @@ gapi.load('client', async () => {
     /** Lists active `Occurrences` for a given project matching the filters. */
     await gapi.client.containeranalysis.projects.occurrences.list({
       filter: 'Test string',
-      kind: 'Test string',
+      kind: 'KIND_UNSPECIFIED',
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -1845,16 +1845,16 @@ gapi.load('client', async () => {
                 filePath: 'Test string',
                 lineNumber: 'Test string',
               },
-              scanner: 'Test string',
-              severity: 'Test string',
+              scanner: 'SCANNER_UNSPECIFIED',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           ],
-          maxSeverity: 'Test string',
+          maxSeverity: 'SEVERITY_UNSPECIFIED',
           perScannerVerdict: {
             maliciousContentLlmResult: {
-              maxSeverity: 'Test string',
+              maxSeverity: 'SEVERITY_UNSPECIFIED',
               modelId: 'Test string',
-              scanState: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
               tokenUsage: {
                 cacheCount: 'Test string',
                 candidateCount: 'Test string',
@@ -1864,23 +1864,23 @@ gapi.load('client', async () => {
               },
             },
             maliciousContentStaticResult: {
-              maxSeverity: 'Test string',
-              scanState: 'Test string',
+              maxSeverity: 'SEVERITY_UNSPECIFIED',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
             },
             malwareScan: {
-              scanState: 'Test string',
-              verdict: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
+              verdict: 'VERDICT_UNSPECIFIED',
             },
             workspacePolicy: {
-              scanState: 'Test string',
-              verdict: 'Test string',
+              scanState: 'SCAN_STATE_UNSPECIFIED',
+              verdict: 'VERDICT_UNSPECIFIED',
             },
           },
           skillName: 'Test string',
         },
         attestation: {
           pgpSignedAttestation: {
-            contentType: 'Test string',
+            contentType: 'CONTENT_TYPE_UNSPECIFIED',
             pgpKeyId: 'Test string',
             signature: 'Test string',
           },
@@ -2155,7 +2155,7 @@ gapi.load('client', async () => {
                 {
                   cloudRepo: {
                     aliasContext: {
-                      kind: 'Test string',
+                      kind: 'KIND_UNSPECIFIED',
                       name: 'Test string',
                     },
                     repoId: {
@@ -2169,7 +2169,7 @@ gapi.load('client', async () => {
                   },
                   gerrit: {
                     aliasContext: {
-                      kind: 'Test string',
+                      kind: 'KIND_UNSPECIFIED',
                       name: 'Test string',
                     },
                     gerritProject: 'Test string',
@@ -2193,7 +2193,7 @@ gapi.load('client', async () => {
               context: {
                 cloudRepo: {
                   aliasContext: {
-                    kind: 'Test string',
+                    kind: 'KIND_UNSPECIFIED',
                     name: 'Test string',
                   },
                   repoId: {
@@ -2207,7 +2207,7 @@ gapi.load('client', async () => {
                 },
                 gerrit: {
                   aliasContext: {
-                    kind: 'Test string',
+                    kind: 'KIND_UNSPECIFIED',
                     name: 'Test string',
                   },
                   gerritProject: 'Test string',
@@ -2226,7 +2226,7 @@ gapi.load('client', async () => {
                 A: {
                   fileHash: [
                     {
-                      type: 'Test string',
+                      type: 'NONE',
                       value: 'Test string',
                     },
                   ],
@@ -2270,7 +2270,7 @@ gapi.load('client', async () => {
           address: 'Test string',
           config: 'Test string',
           deployTime: 'Test string',
-          platform: 'Test string',
+          platform: 'PLATFORM_UNSPECIFIED',
           resourceUri: ['Test string'],
           undeployTime: 'Test string',
           userEmail: 'Test string',
@@ -2286,7 +2286,7 @@ gapi.load('client', async () => {
           layerInfo: [
             {
               arguments: 'Test string',
-              directive: 'Test string',
+              directive: 'DIRECTIVE_UNSPECIFIED',
             },
           ],
         },
@@ -2305,7 +2305,7 @@ gapi.load('client', async () => {
               message: 'Test string',
             },
           ],
-          analysisStatus: 'Test string',
+          analysisStatus: 'ANALYSIS_STATUS_UNSPECIFIED',
           analysisStatusError: {
             code: 42,
             details: [
@@ -2316,7 +2316,7 @@ gapi.load('client', async () => {
             message: 'Test string',
           },
           archiveTime: 'Test string',
-          continuousAnalysis: 'Test string',
+          continuousAnalysis: 'CONTINUOUS_ANALYSIS_UNSPECIFIED',
           cpe: 'Test string',
           files: [
             {
@@ -2349,12 +2349,12 @@ gapi.load('client', async () => {
           },
           sbomStatus: {
             error: 'Test string',
-            sbomState: 'Test string',
+            sbomState: 'SBOM_STATE_UNSPECIFIED',
           },
           vulnerabilityAttestation: {
             error: 'Test string',
             lastAttemptTime: 'Test string',
-            state: 'Test string',
+            state: 'VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED',
           },
         },
         dsseAttestation: {
@@ -2502,7 +2502,7 @@ gapi.load('client', async () => {
           ],
         },
         installation: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           license: {
             comments: 'Test string',
@@ -2515,7 +2515,7 @@ gapi.load('client', async () => {
               version: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -2526,18 +2526,18 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
         },
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         name: 'Test string',
         noteName: 'Test string',
         remediation: 'Test string',
         resource: {
           contentHash: {
-            type: 'Test string',
+            type: 'NONE',
             value: 'Test string',
           },
           name: 'Test string',
@@ -2585,7 +2585,7 @@ gapi.load('client', async () => {
           ],
         },
         secret: {
-          kind: 'Test string',
+          kind: 'SECRET_KIND_UNSPECIFIED',
           locations: [
             {
               fileLocation: {
@@ -2611,7 +2611,7 @@ gapi.load('client', async () => {
           statuses: [
             {
               message: 'Test string',
-              status: 'Test string',
+              status: 'STATUS_UNSPECIFIED',
               updateTime: 'Test string',
             },
           ],
@@ -2648,7 +2648,7 @@ gapi.load('client', async () => {
           comment: 'Test string',
           source: 'Test string',
           target: 'Test string',
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -2662,7 +2662,7 @@ gapi.load('client', async () => {
           parsedVersion: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -2670,73 +2670,73 @@ gapi.load('client', async () => {
         vulnerabilityDetails: {
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV3: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
-          effectiveSeverity: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
+          effectiveSeverity: 'SEVERITY_UNSPECIFIED',
           extraDetails: 'Test string',
           packageIssue: [
             {
@@ -2766,12 +2766,12 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
               },
-              effectiveSeverity: 'Test string',
+              effectiveSeverity: 'SEVERITY_UNSPECIFIED',
               fixedLocation: {
                 cpeUri: 'Test string',
                 fileLocation: [
@@ -2798,7 +2798,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -2816,14 +2816,14 @@ gapi.load('client', async () => {
               score: 42,
             },
           },
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
           type: 'Test string',
           vexAssessment: {
             cve: 'Test string',
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             noteName: 'Test string',
             relatedUris: [
@@ -2835,14 +2835,14 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
                 },
               },
             ],
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
         },
@@ -2988,7 +2988,7 @@ gapi.load('client', async () => {
           builderVersion: 'Test string',
           signature: {
             keyId: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             publicKey: 'Test string',
             signature: 'Test string',
           },
@@ -2996,7 +2996,7 @@ gapi.load('client', async () => {
         compliance: {
           cisBenchmark: {
             profileLevel: 42,
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
           description: 'Test string',
           impact: 'Test string',
@@ -3017,7 +3017,7 @@ gapi.load('client', async () => {
           resourceUri: ['Test string'],
         },
         discovery: {
-          analysisKind: 'Test string',
+          analysisKind: 'KIND_UNSPECIFIED',
         },
         dsseAttestation: {
           hint: {
@@ -3025,11 +3025,11 @@ gapi.load('client', async () => {
           },
         },
         expirationTime: 'Test string',
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         longDescription: 'Test string',
         name: 'Test string',
         package: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           description: 'Test string',
           digest: [
@@ -3040,13 +3040,13 @@ gapi.load('client', async () => {
           ],
           distribution: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               cpeUri: 'Test string',
               description: 'Test string',
               latestVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -3065,7 +3065,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -3088,7 +3088,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         spdxFile: {
           checksum: ['Test string'],
-          fileType: 'Test string',
+          fileType: 'FILE_TYPE_UNSPECIFIED',
           title: 'Test string',
         },
         spdxPackage: {
@@ -3100,7 +3100,7 @@ gapi.load('client', async () => {
           downloadLocation: 'Test string',
           externalRefs: [
             {
-              category: 'Test string',
+              category: 'CATEGORY_UNSPECIFIED',
               comment: 'Test string',
               locator: 'Test string',
               type: 'Test string',
@@ -3121,7 +3121,7 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         spdxRelationship: {
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -3137,7 +3137,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -3148,7 +3148,7 @@ gapi.load('client', async () => {
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             longDescription: 'Test string',
             relatedUris: [
@@ -3160,7 +3160,7 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
@@ -3168,7 +3168,7 @@ gapi.load('client', async () => {
               },
             ],
             shortDescription: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
           languageCode: 'Test string',
@@ -3176,7 +3176,7 @@ gapi.load('client', async () => {
           product: {
             id: 'Test string',
             identifierHelper: {
-              field: 'Test string',
+              field: 'IDENTIFIER_HELPER_FIELD_UNSPECIFIED',
               genericUri: 'Test string',
             },
             name: 'Test string',
@@ -3193,50 +3193,50 @@ gapi.load('client', async () => {
           advisoryPublishTime: 'Test string',
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
           cwe: ['Test string'],
           details: [
             {
@@ -3268,7 +3268,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -3277,14 +3277,14 @@ gapi.load('client', async () => {
               maxAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
               minAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -3295,7 +3295,7 @@ gapi.load('client', async () => {
               vendor: 'Test string',
             },
           ],
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
       },
     );
@@ -3351,7 +3351,7 @@ gapi.load('client', async () => {
           builderVersion: 'Test string',
           signature: {
             keyId: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             publicKey: 'Test string',
             signature: 'Test string',
           },
@@ -3359,7 +3359,7 @@ gapi.load('client', async () => {
         compliance: {
           cisBenchmark: {
             profileLevel: 42,
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
           description: 'Test string',
           impact: 'Test string',
@@ -3380,7 +3380,7 @@ gapi.load('client', async () => {
           resourceUri: ['Test string'],
         },
         discovery: {
-          analysisKind: 'Test string',
+          analysisKind: 'KIND_UNSPECIFIED',
         },
         dsseAttestation: {
           hint: {
@@ -3388,11 +3388,11 @@ gapi.load('client', async () => {
           },
         },
         expirationTime: 'Test string',
-        kind: 'Test string',
+        kind: 'KIND_UNSPECIFIED',
         longDescription: 'Test string',
         name: 'Test string',
         package: {
-          architecture: 'Test string',
+          architecture: 'ARCHITECTURE_UNSPECIFIED',
           cpeUri: 'Test string',
           description: 'Test string',
           digest: [
@@ -3403,13 +3403,13 @@ gapi.load('client', async () => {
           ],
           distribution: [
             {
-              architecture: 'Test string',
+              architecture: 'ARCHITECTURE_UNSPECIFIED',
               cpeUri: 'Test string',
               description: 'Test string',
               latestVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -3428,7 +3428,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -3451,7 +3451,7 @@ gapi.load('client', async () => {
         shortDescription: 'Test string',
         spdxFile: {
           checksum: ['Test string'],
-          fileType: 'Test string',
+          fileType: 'FILE_TYPE_UNSPECIFIED',
           title: 'Test string',
         },
         spdxPackage: {
@@ -3463,7 +3463,7 @@ gapi.load('client', async () => {
           downloadLocation: 'Test string',
           externalRefs: [
             {
-              category: 'Test string',
+              category: 'CATEGORY_UNSPECIFIED',
               comment: 'Test string',
               locator: 'Test string',
               type: 'Test string',
@@ -3484,7 +3484,7 @@ gapi.load('client', async () => {
           version: 'Test string',
         },
         spdxRelationship: {
-          type: 'Test string',
+          type: 'RELATIONSHIP_TYPE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         upgrade: {
@@ -3500,7 +3500,7 @@ gapi.load('client', async () => {
           version: {
             epoch: 42,
             inclusive: true,
-            kind: 'Test string',
+            kind: 'NORMAL',
             name: 'Test string',
             revision: 'Test string',
           },
@@ -3511,7 +3511,7 @@ gapi.load('client', async () => {
             impacts: ['Test string'],
             justification: {
               details: 'Test string',
-              justificationType: 'Test string',
+              justificationType: 'JUSTIFICATION_TYPE_UNSPECIFIED',
             },
             longDescription: 'Test string',
             relatedUris: [
@@ -3523,7 +3523,7 @@ gapi.load('client', async () => {
             remediations: [
               {
                 details: 'Test string',
-                remediationType: 'Test string',
+                remediationType: 'REMEDIATION_TYPE_UNSPECIFIED',
                 remediationUri: {
                   label: 'Test string',
                   uri: 'Test string',
@@ -3531,7 +3531,7 @@ gapi.load('client', async () => {
               },
             ],
             shortDescription: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             vulnerabilityId: 'Test string',
           },
           languageCode: 'Test string',
@@ -3539,7 +3539,7 @@ gapi.load('client', async () => {
           product: {
             id: 'Test string',
             identifierHelper: {
-              field: 'Test string',
+              field: 'IDENTIFIER_HELPER_FIELD_UNSPECIFIED',
               genericUri: 'Test string',
             },
             name: 'Test string',
@@ -3556,50 +3556,50 @@ gapi.load('client', async () => {
           advisoryPublishTime: 'Test string',
           cvssScore: 42,
           cvssV2: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
           cvssV4: {
-            attackComplexity: 'Test string',
-            attackRequirements: 'Test string',
-            attackVector: 'Test string',
-            authentication: 'Test string',
-            availabilityImpact: 'Test string',
+            attackComplexity: 'ATTACK_COMPLEXITY_UNSPECIFIED',
+            attackRequirements: 'ATTACK_REQUIREMENTS_UNSPECIFIED',
+            attackVector: 'ATTACK_VECTOR_UNSPECIFIED',
+            authentication: 'AUTHENTICATION_UNSPECIFIED',
+            availabilityImpact: 'IMPACT_UNSPECIFIED',
             baseScore: 42,
-            confidentialityImpact: 'Test string',
+            confidentialityImpact: 'IMPACT_UNSPECIFIED',
             exploitabilityScore: 42,
-            exploitMaturity: 'Test string',
+            exploitMaturity: 'EXPLOIT_MATURITY_UNSPECIFIED',
             impactScore: 42,
-            integrityImpact: 'Test string',
-            privilegesRequired: 'Test string',
-            scope: 'Test string',
-            subsequentSystemAvailabilityImpact: 'Test string',
-            subsequentSystemConfidentialityImpact: 'Test string',
-            subsequentSystemIntegrityImpact: 'Test string',
-            userInteraction: 'Test string',
-            vulnerableSystemAvailabilityImpact: 'Test string',
-            vulnerableSystemConfidentialityImpact: 'Test string',
-            vulnerableSystemIntegrityImpact: 'Test string',
+            integrityImpact: 'IMPACT_UNSPECIFIED',
+            privilegesRequired: 'PRIVILEGES_REQUIRED_UNSPECIFIED',
+            scope: 'SCOPE_UNSPECIFIED',
+            subsequentSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            subsequentSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
+            userInteraction: 'USER_INTERACTION_UNSPECIFIED',
+            vulnerableSystemAvailabilityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemConfidentialityImpact: 'IMPACT_UNSPECIFIED',
+            vulnerableSystemIntegrityImpact: 'IMPACT_UNSPECIFIED',
           },
-          cvssVersion: 'Test string',
+          cvssVersion: 'CVSS_VERSION_UNSPECIFIED',
           cwe: ['Test string'],
           details: [
             {
@@ -3631,7 +3631,7 @@ gapi.load('client', async () => {
                 version: {
                   epoch: 42,
                   inclusive: true,
-                  kind: 'Test string',
+                  kind: 'NORMAL',
                   name: 'Test string',
                   revision: 'Test string',
                 },
@@ -3640,14 +3640,14 @@ gapi.load('client', async () => {
               maxAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
               minAffectedVersion: {
                 epoch: 42,
                 inclusive: true,
-                kind: 'Test string',
+                kind: 'NORMAL',
                 name: 'Test string',
                 revision: 'Test string',
               },
@@ -3658,7 +3658,7 @@ gapi.load('client', async () => {
               vendor: 'Test string',
             },
           ],
-          severity: 'Test string',
+          severity: 'SEVERITY_UNSPECIFIED',
         },
       },
     );

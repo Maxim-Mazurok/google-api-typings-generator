@@ -75,7 +75,7 @@ gapi.load('client', async () => {
             deployPercentage: 42,
           },
         ],
-        publishType: 'Test string',
+        publishType: 'PUBLISH_TYPE_UNSPECIFIED',
         skipReview: true,
       },
     );

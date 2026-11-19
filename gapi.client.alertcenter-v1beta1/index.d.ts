@@ -43,13 +43,14 @@ declare namespace gapi.client {
     }
     interface AccessApproval {
       /** Justification for data access based on justification enums. */
-      justificationReason?:
+      justificationReason?: (
         | 'JUSTIFICATION_UNSPECIFIED'
         | 'CUSTOMER_INITIATED_SUPPORT'
         | 'GOOGLE_INITIATED_REVIEW'
         | 'GOOGLE_INITIATED_SERVICE'
         | 'THIRD_PARTY_DATA_REQUEST'
-        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'[];
+        | 'GOOGLE_RESPONSE_TO_PRODUCTION_ALERT'
+      )[];
       /** Office location of Google staff requesting access such as "US". */
       officeLocation?: string;
       /** Products within scope of the Access Approvals request. */
@@ -593,7 +594,7 @@ declare namespace gapi.client {
       /** Details of the violated rule. */
       ruleInfo?: RuleInfo;
       /** Actions suppressed due to other actions with higher priority. */
-      suppressedActionTypes?:
+      suppressedActionTypes?: (
         | 'ACTION_TYPE_UNSPECIFIED'
         | 'DRIVE_BLOCK_EXTERNAL_SHARING'
         | 'DRIVE_WARN_ON_EXTERNAL_SHARING'
@@ -628,7 +629,8 @@ declare namespace gapi.client {
         | 'CHAT_WARN_USER'
         | 'ALERT'
         | 'RULE_ACTIVATE'
-        | 'RULE_DEACTIVATE'[];
+        | 'RULE_DEACTIVATE'
+      )[];
       /** Trigger of the rule. */
       trigger?:
         | 'TRIGGER_UNSPECIFIED'
@@ -649,7 +651,7 @@ declare namespace gapi.client {
       /** Metadata related to the triggered actions. */
       triggeredActionInfo?: ActionInfo[];
       /** Actions applied as a consequence of the rule being triggered. */
-      triggeredActionTypes?:
+      triggeredActionTypes?: (
         | 'ACTION_TYPE_UNSPECIFIED'
         | 'DRIVE_BLOCK_EXTERNAL_SHARING'
         | 'DRIVE_WARN_ON_EXTERNAL_SHARING'
@@ -684,7 +686,8 @@ declare namespace gapi.client {
         | 'CHAT_WARN_USER'
         | 'ALERT'
         | 'RULE_ACTIVATE'
-        | 'RULE_DEACTIVATE'[];
+        | 'RULE_DEACTIVATE'
+      )[];
       /** Email of the user who caused the violation. Value could be empty if not applicable, for example, a violation found by drive continuous scan. */
       triggeringUserEmail?: string;
     }
@@ -873,102 +876,8 @@ declare namespace gapi.client {
       /** Issue(s) with sending to voicemail. */
       voicemailMisconfiguration?: VoicemailMisconfiguration;
     }
-    interface FeedbackResource {
-      /** Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked for deletion returns `FAILED_PRECONDITION' error. */
-      create(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Required. The identifier of the alert this feedback belongs to. */
-        alertId: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
-        customerId?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: AlertFeedback;
-      }): Request<AlertFeedback>;
-      create(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Required. The identifier of the alert this feedback belongs to. */
-          alertId: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
-          customerId?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: AlertFeedback,
-      ): Request<AlertFeedback>;
-      /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Required. The alert identifier. The "-" wildcard could be used to represent all alerts. */
-        alertId: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
-        customerId?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Optional. A query string for filtering alert feedback results. For more details, see [Query filters](https://developers.google.com/workspace/admin/alertcenter/guides/query-filters) and [Supported query filter fields](https://developers.google.com/workspace/admin/alertcenter/reference/filter-fields#alerts.feedback.list). */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<ListAlertFeedbackResponse>;
-    }
-    interface AlertsResource {
+
+    const alerts: {
       /** Performs batch delete operation on alerts. */
       batchDelete(request: {
         /** V1 error format. */
@@ -1257,9 +1166,104 @@ declare namespace gapi.client {
         },
         body: UndeleteAlertRequest,
       ): Request<Alert>;
-      feedback: FeedbackResource;
-    }
-    interface V1beta1Resource {
+      feedback: {
+        /** Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked for deletion returns `FAILED_PRECONDITION' error. */
+        create(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Required. The identifier of the alert this feedback belongs to. */
+          alertId: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
+          customerId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: AlertFeedback;
+        }): Request<AlertFeedback>;
+        create(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Required. The identifier of the alert this feedback belongs to. */
+            alertId: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
+            customerId?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: AlertFeedback,
+        ): Request<AlertFeedback>;
+        /** Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Required. The alert identifier. The "-" wildcard could be used to represent all alerts. */
+          alertId: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial "C" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793). */
+          customerId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Optional. A query string for filtering alert feedback results. For more details, see [Query filters](https://developers.google.com/workspace/admin/alertcenter/guides/query-filters) and [Supported query filter fields](https://developers.google.com/workspace/admin/alertcenter/reference/filter-fields#alerts.feedback.list). */
+          filter?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<ListAlertFeedbackResponse>;
+      };
+    };
+
+    const v1beta1: {
       /** Returns customer-level settings. */
       getSettings(request?: {
         /** V1 error format. */
@@ -1345,10 +1349,6 @@ declare namespace gapi.client {
         },
         body: Settings,
       ): Request<Settings>;
-    }
-
-    const alerts: AlertsResource;
-
-    const v1beta1: V1beta1Resource;
+    };
   }
 }

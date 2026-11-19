@@ -526,7 +526,7 @@ declare namespace gapi.client {
       /** The location of the entrance. */
       location?: GoogleTypeLatLng;
       /** A list of tags that describe the entrance. */
-      tags?: 'TAG_UNSPECIFIED' | 'PREFERRED'[];
+      tags?: ('TAG_UNSPECIFIED' | 'PREFERRED')[];
     }
     interface GoogleMapsPlacesV1PlaceEvChargeAmenitySummary {
       /** A summary of the nearby coffee options. */
@@ -570,9 +570,9 @@ declare namespace gapi.client {
       /** A token that can be used to identify this navigation point. */
       navigationPointToken?: string;
       /** Travel modes that are appropriate for this navigation point. */
-      travelModes?: 'TRAVEL_MODE_UNSPECIFIED' | 'DRIVE' | 'WALK'[];
+      travelModes?: ('TRAVEL_MODE_UNSPECIFIED' | 'DRIVE' | 'WALK')[];
       /** Lists `usages` supported by this navigation point. If empty, it does not necessarily mean its usage is restricted in any way. All navigation points can be used for general navigation. */
-      usages?: 'USAGE_UNSPECIFIED' | 'DROPOFF' | 'PICKUP' | 'PARKING'[];
+      usages?: ('USAGE_UNSPECIFIED' | 'DROPOFF' | 'PICKUP' | 'PARKING')[];
     }
     interface GoogleMapsPlacesV1PlaceNeighborhoodSummary {
       /** A detailed description of the neighborhood. */
@@ -818,13 +818,14 @@ declare namespace gapi.client {
       /** Optional. A page token, received from a previous TextSearch call. Provide this to retrieve the subsequent page. When paginating, all parameters other than `page_token`, `page_size`, and `max_result_count` provided to TextSearch must match the initial call that provided the page token. Otherwise an INVALID_ARGUMENT error is returned. */
       pageToken?: string;
       /** Used to restrict the search to places that are marked as certain price levels. Users can choose any combinations of price levels. Default to select all price levels. */
-      priceLevels?:
+      priceLevels?: (
         | 'PRICE_LEVEL_UNSPECIFIED'
         | 'PRICE_LEVEL_FREE'
         | 'PRICE_LEVEL_INEXPENSIVE'
         | 'PRICE_LEVEL_MODERATE'
         | 'PRICE_LEVEL_EXPENSIVE'
-        | 'PRICE_LEVEL_VERY_EXPENSIVE'[];
+        | 'PRICE_LEVEL_VERY_EXPENSIVE'
+      )[];
       /** How results will be ranked in the response. */
       rankPreference?: 'RANK_PREFERENCE_UNSPECIFIED' | 'DISTANCE' | 'RELEVANCE';
       /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
@@ -840,7 +841,7 @@ declare namespace gapi.client {
     }
     interface GoogleMapsPlacesV1SearchTextRequestEVOptions {
       /** Optional. The list of preferred EV connector types. A place that does not support any of the listed connector types is filtered out. */
-      connectorTypes?:
+      connectorTypes?: (
         | 'EV_CONNECTOR_TYPE_UNSPECIFIED'
         | 'EV_CONNECTOR_TYPE_OTHER'
         | 'EV_CONNECTOR_TYPE_J1772'
@@ -851,7 +852,8 @@ declare namespace gapi.client {
         | 'EV_CONNECTOR_TYPE_TESLA'
         | 'EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T'
         | 'EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET'
-        | 'EV_CONNECTOR_TYPE_NACS'[];
+        | 'EV_CONNECTOR_TYPE_NACS'
+      )[];
       /** Optional. Minimum required charging rate in kilowatts. A place with a charging rate less than the specified rate is filtered out. */
       minimumChargingRateKw?: number;
     }
@@ -1023,42 +1025,8 @@ declare namespace gapi.client {
       /** Optional. IANA Time Zone Database version number. For example "2019a". */
       version?: string;
     }
-    interface PhotosResource {
-      /** Get a photo media with a photo reference string. */
-      getMedia(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Optional. Specifies the maximum desired height, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
-        maxHeightPx?: number;
-        /** Optional. Specifies the maximum desired width, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
-        maxWidthPx?: number;
-        /** Required. The resource name of a photo media in the format: `places/{place_id}/photos/{photo_reference}/media`. The resource name of a photo as returned in a Place object's `photos.name` field comes with the format `places/{place_id}/photos/{photo_reference}`. You need to append `/media` at the end of the photo resource to get the photo media resource name. */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Optional. If set, skip the default HTTP redirect behavior and render a text format (for example, in JSON format for HTTP use case) response. If not set, an HTTP redirect will be issued to redirect the call to the image media. This option is ignored for non-HTTP requests. */
-        skipHttpRedirect?: boolean;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleMapsPlacesV1PhotoMedia>;
-    }
-    interface PlacesResource {
+
+    const places: {
       /** Returns predictions for the given input. */
       autocomplete(request: {
         /** V1 error format. */
@@ -1254,9 +1222,41 @@ declare namespace gapi.client {
         },
         body: GoogleMapsPlacesV1SearchTextRequest,
       ): Request<GoogleMapsPlacesV1SearchTextResponse>;
-      photos: PhotosResource;
-    }
-
-    const places: PlacesResource;
+      photos: {
+        /** Get a photo media with a photo reference string. */
+        getMedia(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Optional. Specifies the maximum desired height, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
+          maxHeightPx?: number;
+          /** Optional. Specifies the maximum desired width, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
+          maxWidthPx?: number;
+          /** Required. The resource name of a photo media in the format: `places/{place_id}/photos/{photo_reference}/media`. The resource name of a photo as returned in a Place object's `photos.name` field comes with the format `places/{place_id}/photos/{photo_reference}`. You need to append `/media` at the end of the photo resource to get the photo media resource name. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. If set, skip the default HTTP redirect behavior and render a text format (for example, in JSON format for HTTP use case) response. If not set, an HTTP redirect will be issued to redirect the call to the image media. This option is ignored for non-HTTP requests. */
+          skipHttpRedirect?: boolean;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<GoogleMapsPlacesV1PhotoMedia>;
+      };
+    };
   }
 }

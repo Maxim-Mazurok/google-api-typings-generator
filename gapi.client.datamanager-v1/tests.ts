@@ -52,17 +52,17 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        featureSet: 'Test string',
+        featureSet: 'FEATURE_SET_UNSPECIFIED',
         name: 'Test string',
         owningAccount: {
           accountId: 'Test string',
-          accountType: 'Test string',
-          product: 'Test string',
+          accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+          product: 'PRODUCT_UNSPECIFIED',
         },
         partnerAccount: {
           accountId: 'Test string',
-          accountType: 'Test string',
-          product: 'Test string',
+          accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+          product: 'PRODUCT_UNSPECIFIED',
         },
         partnerCustomerAccount: {
           accountId: 'Test string',
@@ -108,12 +108,13 @@ gapi.load('client', async () => {
       {
         clientAccountDisplayName: 'Test string',
         clientAccountId: 'Test string',
-        clientAccountType: 'Test string',
+        clientAccountType: 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN',
         historicalPricings: [
           {
-            buyerApprovalState: 'Test string',
+            buyerApprovalState:
+              'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
             costMicros: 'Test string',
-            costType: 'Test string',
+            costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
             currencyCode: 'Test string',
             endTime: 'Test string',
             maxCostMicros: 'Test string',
@@ -131,9 +132,10 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         pricing: {
-          buyerApprovalState: 'Test string',
+          buyerApprovalState:
+            'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
           costMicros: 'Test string',
-          costType: 'Test string',
+          costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
           currencyCode: 'Test string',
           endTime: 'Test string',
           maxCostMicros: 'Test string',
@@ -141,7 +143,7 @@ gapi.load('client', async () => {
           pricingId: 'Test string',
           startTime: 'Test string',
         },
-        status: 'Test string',
+        status: 'USER_LIST_LICENSE_STATUS_UNSPECIFIED',
         userListDisplayName: 'Test string',
         userListId: 'Test string',
       },
@@ -167,12 +169,13 @@ gapi.load('client', async () => {
       {
         clientAccountDisplayName: 'Test string',
         clientAccountId: 'Test string',
-        clientAccountType: 'Test string',
+        clientAccountType: 'USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN',
         historicalPricings: [
           {
-            buyerApprovalState: 'Test string',
+            buyerApprovalState:
+              'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
             costMicros: 'Test string',
-            costType: 'Test string',
+            costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
             currencyCode: 'Test string',
             endTime: 'Test string',
             maxCostMicros: 'Test string',
@@ -190,9 +193,10 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         pricing: {
-          buyerApprovalState: 'Test string',
+          buyerApprovalState:
+            'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
           costMicros: 'Test string',
-          costType: 'Test string',
+          costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
           currencyCode: 'Test string',
           endTime: 'Test string',
           maxCostMicros: 'Test string',
@@ -200,7 +204,7 @@ gapi.load('client', async () => {
           pricingId: 'Test string',
           startTime: 'Test string',
         },
-        status: 'Test string',
+        status: 'USER_LIST_LICENSE_STATUS_UNSPECIFIED',
         userListDisplayName: 'Test string',
         userListId: 'Test string',
       },
@@ -212,9 +216,10 @@ gapi.load('client', async () => {
       {
         historicalPricings: [
           {
-            buyerApprovalState: 'Test string',
+            buyerApprovalState:
+              'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
             costMicros: 'Test string',
-            costType: 'Test string',
+            costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
             currencyCode: 'Test string',
             endTime: 'Test string',
             maxCostMicros: 'Test string',
@@ -223,7 +228,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         ],
-        licenseType: 'Test string',
+        licenseType: 'USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED',
         metrics: {
           clickCount: 'Test string',
           endDate: 'Test string',
@@ -233,9 +238,10 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         pricing: {
-          buyerApprovalState: 'Test string',
+          buyerApprovalState:
+            'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
           costMicros: 'Test string',
-          costType: 'Test string',
+          costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
           currencyCode: 'Test string',
           endTime: 'Test string',
           maxCostMicros: 'Test string',
@@ -243,7 +249,7 @@ gapi.load('client', async () => {
           pricingId: 'Test string',
           startTime: 'Test string',
         },
-        status: 'Test string',
+        status: 'USER_LIST_LICENSE_STATUS_UNSPECIFIED',
         userListDisplayName: 'Test string',
         userListId: 'Test string',
       },
@@ -269,9 +275,10 @@ gapi.load('client', async () => {
       {
         historicalPricings: [
           {
-            buyerApprovalState: 'Test string',
+            buyerApprovalState:
+              'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
             costMicros: 'Test string',
-            costType: 'Test string',
+            costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
             currencyCode: 'Test string',
             endTime: 'Test string',
             maxCostMicros: 'Test string',
@@ -280,7 +287,7 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         ],
-        licenseType: 'Test string',
+        licenseType: 'USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED',
         metrics: {
           clickCount: 'Test string',
           endDate: 'Test string',
@@ -290,9 +297,10 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         pricing: {
-          buyerApprovalState: 'Test string',
+          buyerApprovalState:
+            'USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED',
           costMicros: 'Test string',
-          costType: 'Test string',
+          costType: 'USER_LIST_PRICING_COST_TYPE_UNSPECIFIED',
           currencyCode: 'Test string',
           endTime: 'Test string',
           maxCostMicros: 'Test string',
@@ -300,7 +308,7 @@ gapi.load('client', async () => {
           pricingId: 'Test string',
           startTime: 'Test string',
         },
-        status: 'Test string',
+        status: 'USER_LIST_LICENSE_STATUS_UNSPECIFIED',
         userListDisplayName: 'Test string',
         userListId: 'Test string',
       },
@@ -319,21 +327,21 @@ gapi.load('client', async () => {
         validateOnly: true,
       },
       {
-        accessReason: 'Test string',
-        accountAccessStatus: 'Test string',
-        closingReason: 'Test string',
+        accessReason: 'ACCESS_REASON_UNSPECIFIED',
+        accountAccessStatus: 'ACCESS_STATUS_UNSPECIFIED',
+        closingReason: 'CLOSING_REASON_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         id: 'Test string',
         ingestedUserListInfo: {
           contactIdInfo: {
-            dataSourceType: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
             matchRatePercentage: 42,
           },
           mobileIdInfo: {
             appId: 'Test string',
-            dataSourceType: 'Test string',
-            keySpace: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
+            keySpace: 'KEY_SPACE_UNSPECIFIED',
           },
           pairIdInfo: {
             advertiserIdentifierCount: 'Test string',
@@ -344,20 +352,20 @@ gapi.load('client', async () => {
           },
           partnerAudienceInfo: {
             commercePartner: 'Test string',
-            partnerAudienceSource: 'Test string',
+            partnerAudienceSource: 'PARTNER_AUDIENCE_SOURCE_UNSPECIFIED',
           },
           pseudonymousIdInfo: {
             billableRecordCount: 'Test string',
-            syncStatus: 'Test string',
+            syncStatus: 'SYNC_STATUS_UNSPECIFIED',
           },
-          uploadKeyTypes: ['Test string'],
+          uploadKeyTypes: ['UPLOAD_KEY_TYPE_UNSPECIFIED'],
           userIdInfo: {
-            dataSourceType: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
           },
         },
         integrationCode: 'Test string',
         membershipDuration: 'Test string',
-        membershipStatus: 'Test string',
+        membershipStatus: 'MEMBERSHIP_STATUS_UNSPECIFIED',
         name: 'Test string',
         readOnly: true,
         sizeInfo: {
@@ -392,21 +400,21 @@ gapi.load('client', async () => {
         validateOnly: true,
       },
       {
-        accessReason: 'Test string',
-        accountAccessStatus: 'Test string',
-        closingReason: 'Test string',
+        accessReason: 'ACCESS_REASON_UNSPECIFIED',
+        accountAccessStatus: 'ACCESS_STATUS_UNSPECIFIED',
+        closingReason: 'CLOSING_REASON_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         id: 'Test string',
         ingestedUserListInfo: {
           contactIdInfo: {
-            dataSourceType: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
             matchRatePercentage: 42,
           },
           mobileIdInfo: {
             appId: 'Test string',
-            dataSourceType: 'Test string',
-            keySpace: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
+            keySpace: 'KEY_SPACE_UNSPECIFIED',
           },
           pairIdInfo: {
             advertiserIdentifierCount: 'Test string',
@@ -417,20 +425,20 @@ gapi.load('client', async () => {
           },
           partnerAudienceInfo: {
             commercePartner: 'Test string',
-            partnerAudienceSource: 'Test string',
+            partnerAudienceSource: 'PARTNER_AUDIENCE_SOURCE_UNSPECIFIED',
           },
           pseudonymousIdInfo: {
             billableRecordCount: 'Test string',
-            syncStatus: 'Test string',
+            syncStatus: 'SYNC_STATUS_UNSPECIFIED',
           },
-          uploadKeyTypes: ['Test string'],
+          uploadKeyTypes: ['UPLOAD_KEY_TYPE_UNSPECIFIED'],
           userIdInfo: {
-            dataSourceType: 'Test string',
+            dataSourceType: 'DATA_SOURCE_TYPE_UNSPECIFIED',
           },
         },
         integrationCode: 'Test string',
         membershipDuration: 'Test string',
-        membershipStatus: 'Test string',
+        membershipStatus: 'MEMBERSHIP_STATUS_UNSPECIFIED',
         name: 'Test string',
         readOnly: true,
         sizeInfo: {
@@ -450,18 +458,18 @@ gapi.load('client', async () => {
       {
         adEvents: [
           {
-            adFormat: 'Test string',
+            adFormat: 'AD_FORMAT_UNSPECIFIED',
             adFormatString: 'Test string',
             adGroupId: 'Test string',
             adHeight: 42,
             adId: 'Test string',
-            adPlacement: 'Test string',
+            adPlacement: 'AD_PLACEMENT_UNSPECIFIED',
             adPlacementString: 'Test string',
-            adType: 'Test string',
+            adType: 'AD_TYPE_UNSPECIFIED',
             adTypeString: 'Test string',
             advertiserId: 'Test string',
             adWidth: 42,
-            attributionHint: 'Test string',
+            attributionHint: 'ATTRIBUTION_HINT_UNSPECIFIED',
             campaignId: 'Test string',
             campaignName: 'Test string',
             deviceInfo: {
@@ -479,20 +487,20 @@ gapi.load('client', async () => {
               userAgent: 'Test string',
             },
             eventId: 'Test string',
-            eventSubtype: 'Test string',
+            eventSubtype: 'EVENT_SUBTYPE_UNSPECIFIED',
             eventSubtypeString: 'Test string',
-            eventType: 'Test string',
+            eventType: 'EVENT_TYPE_UNSPECIFIED',
             ipAddress: 'Test string',
             measurementAllowed: true,
             medium: 'Test string',
             mobileDeviceId: 'Test string',
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             platformString: 'Test string',
-            platformType: 'Test string',
+            platformType: 'PLATFORM_TYPE_UNSPECIFIED',
             platformTypeString: 'Test string',
             regionCode: 'Test string',
             source: 'Test string',
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
             targetingTypeString: 'Test string',
             timestamp: 'Test string',
             userData: {
@@ -514,13 +522,13 @@ gapi.load('client', async () => {
             },
             viewabilityInfo: {
               mediaDuration: 'Test string',
-              mediaQuartile: 'Test string',
+              mediaQuartile: 'MEDIA_QUARTILE_UNSPECIFIED',
               mediaSkippable: true,
               mediaVolumePercent: 42,
               playbackDuration: 'Test string',
               viewableDuration: 'Test string',
               viewablePercent: 42,
-              viewType: 'Test string',
+              viewType: 'VIEW_TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -528,7 +536,7 @@ gapi.load('client', async () => {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -537,7 +545,7 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },
@@ -576,8 +584,8 @@ gapi.load('client', async () => {
               },
             },
             consent: {
-              adPersonalization: 'Test string',
-              adUserData: 'Test string',
+              adPersonalization: 'CONSENT_STATUS_UNSPECIFIED',
+              adUserData: 'CONSENT_STATUS_UNSPECIFIED',
             },
             destinationReferences: ['Test string'],
             googleUserIdData: {
@@ -618,36 +626,36 @@ gapi.load('client', async () => {
           },
         ],
         consent: {
-          adPersonalization: 'Test string',
-          adUserData: 'Test string',
+          adPersonalization: 'CONSENT_STATUS_UNSPECIFIED',
+          adUserData: 'CONSENT_STATUS_UNSPECIFIED',
         },
         destinations: [
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
           },
         ],
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         encryptionInfo: {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -656,12 +664,13 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },
         termsOfService: {
-          customerMatchTermsOfServiceStatus: 'Test string',
+          customerMatchTermsOfServiceStatus:
+            'TERMS_OF_SERVICE_STATUS_UNSPECIFIED',
         },
         validateOnly: true,
       },
@@ -698,8 +707,8 @@ gapi.load('client', async () => {
               },
             },
             consent: {
-              adPersonalization: 'Test string',
-              adUserData: 'Test string',
+              adPersonalization: 'CONSENT_STATUS_UNSPECIFIED',
+              adUserData: 'CONSENT_STATUS_UNSPECIFIED',
             },
             destinationReferences: ['Test string'],
             googleUserIdData: {
@@ -743,29 +752,29 @@ gapi.load('client', async () => {
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
           },
         ],
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         encryptionInfo: {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -774,7 +783,7 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },
@@ -788,18 +797,18 @@ gapi.load('client', async () => {
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
@@ -813,36 +822,36 @@ gapi.load('client', async () => {
       {},
       {
         consent: {
-          adPersonalization: 'Test string',
-          adUserData: 'Test string',
+          adPersonalization: 'CONSENT_STATUS_UNSPECIFIED',
+          adUserData: 'CONSENT_STATUS_UNSPECIFIED',
         },
         destinations: [
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
           },
         ],
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         encryptionInfo: {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -851,7 +860,7 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },
@@ -869,8 +878,8 @@ gapi.load('client', async () => {
                 {
                   encryptedId: 'Test string',
                   entityId: 'Test string',
-                  entityType: 'Test string',
-                  source: 'Test string',
+                  entityType: 'ENCRYPTION_ENTITY_TYPE_UNSPECIFIED',
+                  source: 'ENCRYPTION_SOURCE_UNSPECIFIED',
                 },
               ],
               gbraid: 'Test string',
@@ -936,8 +945,8 @@ gapi.load('client', async () => {
             },
             clientId: 'Test string',
             consent: {
-              adPersonalization: 'Test string',
-              adUserData: 'Test string',
+              adPersonalization: 'CONSENT_STATUS_UNSPECIFIED',
+              adUserData: 'CONSENT_STATUS_UNSPECIFIED',
             },
             conversionCount: 42,
             conversionValue: 42,
@@ -973,7 +982,7 @@ gapi.load('client', async () => {
               subdivisionCode: 'Test string',
             },
             eventName: 'Test string',
-            eventSource: 'Test string',
+            eventSource: 'EVENT_SOURCE_UNSPECIFIED',
             eventTimestamp: 'Test string',
             experimentalFields: [
               {
@@ -1025,8 +1034,8 @@ gapi.load('client', async () => {
                   value: 'Test string',
                 },
               ],
-              customerType: 'Test string',
-              customerValueBucket: 'Test string',
+              customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
+              customerValueBucket: 'CUSTOMER_VALUE_BUCKET_UNSPECIFIED',
             },
           },
         ],
@@ -1043,29 +1052,29 @@ gapi.load('client', async () => {
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
           },
         ],
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         encryptionInfo: {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -1074,7 +1083,7 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },
@@ -1112,29 +1121,29 @@ gapi.load('client', async () => {
           {
             linkedAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             loginAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             operatingAccount: {
               accountId: 'Test string',
-              accountType: 'Test string',
-              product: 'Test string',
+              accountType: 'ACCOUNT_TYPE_UNSPECIFIED',
+              product: 'PRODUCT_UNSPECIFIED',
             },
             productDestinationId: 'Test string',
             reference: 'Test string',
           },
         ],
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         encryptionInfo: {
           awsWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             roleArn: 'Test string',
           },
           coordinatorKeyInfo: {
@@ -1143,7 +1152,7 @@ gapi.load('client', async () => {
           gcpWrappedKeyInfo: {
             encryptedDek: 'Test string',
             kekUri: 'Test string',
-            keyType: 'Test string',
+            keyType: 'KEY_TYPE_UNSPECIFIED',
             wipProvider: 'Test string',
           },
         },

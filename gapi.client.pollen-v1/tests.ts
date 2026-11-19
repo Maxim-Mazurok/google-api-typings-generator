@@ -43,7 +43,7 @@ gapi.load('client', async () => {
     });
     /** Returns a byte array containing the data of the tile PNG image. */
     await gapi.client.pollen.mapTypes.heatmapTiles.lookupHeatmapTile({
-      mapType: 'Test string',
+      mapType: 'MAP_TYPE_UNSPECIFIED',
       x: 42,
       y: 42,
       zoom: 42,

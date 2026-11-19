@@ -53,10 +53,10 @@ gapi.load('client', async () => {
     /** Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine. */
     await gapi.client.oslogin.users.getLoginProfile({
       name: 'Test string',
-      operatingSystemType: 'Test string',
+      operatingSystemType: 'OPERATING_SYSTEM_TYPE_UNSPECIFIED',
       projectId: 'Test string',
       systemId: 'Test string',
-      view: 'Test string',
+      view: 'LOGIN_PROFILE_VIEW_UNSPECIFIED',
     });
     /** Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the login profile. */
     await gapi.client.oslogin.users.importSshPublicKey(
@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
         projectId: 'Test string',
         regions: 'Test string',
-        view: 'Test string',
+        view: 'LOGIN_PROFILE_VIEW_UNSPECIFIED',
       },
       {
         expirationTimeUsec: 'Test string',
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
     /** Deletes a POSIX account. */
     await gapi.client.oslogin.users.projects.delete({
       name: 'Test string',
-      operatingSystemType: 'Test string',
+      operatingSystemType: 'OPERATING_SYSTEM_TYPE_UNSPECIFIED',
     });
     /** Create a POSIX account if it doesn't exist. */
     await gapi.client.oslogin.users.projects.provisionPosixAccount(

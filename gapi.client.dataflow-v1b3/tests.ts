@@ -203,7 +203,7 @@ gapi.load('client', async () => {
             },
             workerLifecycleEvent: {
               containerStartTime: 'Test string',
-              event: 'Test string',
+              event: 'UNKNOWN_EVENT',
               metadata: {
                 A: 'Test string',
               },
@@ -255,7 +255,7 @@ gapi.load('client', async () => {
     await gapi.client.dataflow.projects.jobs.aggregated({
       'createTimeRange.endTime': 'Test string',
       'createTimeRange.startTime': 'Test string',
-      filter: 'Test string',
+      filter: 'UNKNOWN',
       location: 'Test string',
       name: 'Test string',
       pageSize: 42,
@@ -264,7 +264,7 @@ gapi.load('client', async () => {
       regionalFanoutRequested: true,
       'terminationTimeRange.endTime': 'Test string',
       'terminationTimeRange.startTime': 'Test string',
-      view: 'Test string',
+      view: 'JOB_VIEW_UNKNOWN',
     });
     /** Creates a Dataflow job. To create a job, we recommend using `projects.locations.jobs.create` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.create` is not recommended, as your job will always start in `us-central1`. Do not enter confidential information when you supply string values using the API. # IAM Permissions 1. Requires the `dataflow.jobs.create` permission on the project. 2. `resourcemanager.projects.get` (Specifically required for regional endpoints to resolve regional resource metadata) */
     await gapi.client.dataflow.projects.jobs.create(
@@ -272,25 +272,25 @@ gapi.load('client', async () => {
         location: 'Test string',
         projectId: 'Test string',
         replaceJobId: 'Test string',
-        view: 'Test string',
+        view: 'JOB_VIEW_UNKNOWN',
       },
       {
         clientRequestId: 'Test string',
         createdFromSnapshotId: 'Test string',
         createTime: 'Test string',
-        currentState: 'Test string',
+        currentState: 'JOB_STATE_UNKNOWN',
         currentStateTime: 'Test string',
         environment: {
           clusterManagerApiService: 'Test string',
           dataset: 'Test string',
           debugOptions: {
             dataSampling: {
-              behaviors: ['Test string'],
+              behaviors: ['DATA_SAMPLING_BEHAVIOR_UNSPECIFIED'],
             },
             enableHotKeyLogging: true,
           },
           experiments: ['Test string'],
-          flexResourceSchedulingGoal: 'Test string',
+          flexResourceSchedulingGoal: 'FLEXRS_UNSPECIFIED',
           internalExperiments: {
             A: 42,
           },
@@ -300,8 +300,8 @@ gapi.load('client', async () => {
           serviceAccountEmail: 'Test string',
           serviceKmsKeyName: 'Test string',
           serviceOptions: ['Test string'],
-          shuffleMode: 'Test string',
-          streamingMode: 'Test string',
+          shuffleMode: 'SHUFFLE_MODE_UNSPECIFIED',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           tempStoragePrefix: 'Test string',
           usePublicIps: true,
           userAgent: {
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
           workerPools: [
             {
               autoscalingSettings: {
-                algorithm: 'Test string',
+                algorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
                 maxNumWorkers: 42,
               },
               dataDisks: [
@@ -324,13 +324,13 @@ gapi.load('client', async () => {
                   sizeGb: 42,
                 },
               ],
-              defaultPackageSet: 'Test string',
+              defaultPackageSet: 'DEFAULT_PACKAGE_SET_UNKNOWN',
               diskProvisionedIops: 'Test string',
               diskProvisionedThroughputMibps: 'Test string',
               diskSizeGb: 42,
               diskSourceImage: 'Test string',
               diskType: 'Test string',
-              ipConfiguration: 'Test string',
+              ipConfiguration: 'WORKER_IP_UNSPECIFIED',
               kind: 'Test string',
               machineType: 'Test string',
               metadata: {
@@ -387,7 +387,7 @@ gapi.load('client', async () => {
                 vmId: 'Test string',
                 workflowFileName: 'Test string',
               },
-              teardownPolicy: 'Test string',
+              teardownPolicy: 'TEARDOWN_POLICY_UNKNOWN',
               workerHarnessContainerImage: 'Test string',
               zone: 'Test string',
             },
@@ -439,12 +439,12 @@ gapi.load('client', async () => {
           sdkVersion: {
             bugs: [
               {
-                severity: 'Test string',
-                type: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
                 uri: 'Test string',
               },
             ],
-            sdkSupportStatus: 'Test string',
+            sdkSupportStatus: 'UNKNOWN',
             version: 'Test string',
             versionDisplayName: 'Test string',
           },
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
                   userName: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputSource: [
                 {
@@ -540,7 +540,7 @@ gapi.load('client', async () => {
               ],
               id: 'Test string',
               inputCollectionName: ['Test string'],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputCollectionName: ['Test string'],
             },
@@ -550,7 +550,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         replacedByJobId: 'Test string',
         replaceJobId: 'Test string',
-        requestedState: 'Test string',
+        requestedState: 'JOB_STATE_UNKNOWN',
         runtimeUpdatableParams: {
           acceptableBacklogDuration: 'Test string',
           autoscalingTier: 'Test string',
@@ -584,7 +584,7 @@ gapi.load('client', async () => {
           {
             currentStateTime: 'Test string',
             executionStageName: 'Test string',
-            executionStageState: 'Test string',
+            executionStageState: 'JOB_STATE_UNKNOWN',
           },
         ],
         startTime: 'Test string',
@@ -602,7 +602,7 @@ gapi.load('client', async () => {
         transformNameMapping: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'JOB_TYPE_UNKNOWN',
       },
     );
     /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. # IAM Permissions Requires the `dataflow.jobs.get` permission on the job. */
@@ -610,7 +610,7 @@ gapi.load('client', async () => {
       jobId: 'Test string',
       location: 'Test string',
       projectId: 'Test string',
-      view: 'Test string',
+      view: 'JOB_VIEW_UNKNOWN',
     });
     /** Request the job status. To request the status of a job, we recommend using `projects.locations.jobs.getMetrics` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.getMetrics` is not recommended, as you can only request the status of jobs that are running in `us-central1`. # IAM Permissions Requires the `dataflow.metrics.get` permission on the job. */
     await gapi.client.dataflow.projects.jobs.getMetrics({
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
     await gapi.client.dataflow.projects.jobs.list({
       'createTimeRange.endTime': 'Test string',
       'createTimeRange.startTime': 'Test string',
-      filter: 'Test string',
+      filter: 'UNKNOWN',
       location: 'Test string',
       name: 'Test string',
       pageSize: 42,
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
       regionalFanoutRequested: true,
       'terminationTimeRange.endTime': 'Test string',
       'terminationTimeRange.startTime': 'Test string',
-      view: 'Test string',
+      view: 'JOB_VIEW_UNKNOWN',
     });
     /** Snapshot the state of a streaming job. # IAM Permissions Requires the `dataflow.jobs.snapshot` permission on the job. */
     await gapi.client.dataflow.projects.jobs.snapshot(
@@ -659,19 +659,19 @@ gapi.load('client', async () => {
         clientRequestId: 'Test string',
         createdFromSnapshotId: 'Test string',
         createTime: 'Test string',
-        currentState: 'Test string',
+        currentState: 'JOB_STATE_UNKNOWN',
         currentStateTime: 'Test string',
         environment: {
           clusterManagerApiService: 'Test string',
           dataset: 'Test string',
           debugOptions: {
             dataSampling: {
-              behaviors: ['Test string'],
+              behaviors: ['DATA_SAMPLING_BEHAVIOR_UNSPECIFIED'],
             },
             enableHotKeyLogging: true,
           },
           experiments: ['Test string'],
-          flexResourceSchedulingGoal: 'Test string',
+          flexResourceSchedulingGoal: 'FLEXRS_UNSPECIFIED',
           internalExperiments: {
             A: 42,
           },
@@ -681,8 +681,8 @@ gapi.load('client', async () => {
           serviceAccountEmail: 'Test string',
           serviceKmsKeyName: 'Test string',
           serviceOptions: ['Test string'],
-          shuffleMode: 'Test string',
-          streamingMode: 'Test string',
+          shuffleMode: 'SHUFFLE_MODE_UNSPECIFIED',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           tempStoragePrefix: 'Test string',
           usePublicIps: true,
           userAgent: {
@@ -695,7 +695,7 @@ gapi.load('client', async () => {
           workerPools: [
             {
               autoscalingSettings: {
-                algorithm: 'Test string',
+                algorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
                 maxNumWorkers: 42,
               },
               dataDisks: [
@@ -705,13 +705,13 @@ gapi.load('client', async () => {
                   sizeGb: 42,
                 },
               ],
-              defaultPackageSet: 'Test string',
+              defaultPackageSet: 'DEFAULT_PACKAGE_SET_UNKNOWN',
               diskProvisionedIops: 'Test string',
               diskProvisionedThroughputMibps: 'Test string',
               diskSizeGb: 42,
               diskSourceImage: 'Test string',
               diskType: 'Test string',
-              ipConfiguration: 'Test string',
+              ipConfiguration: 'WORKER_IP_UNSPECIFIED',
               kind: 'Test string',
               machineType: 'Test string',
               metadata: {
@@ -768,7 +768,7 @@ gapi.load('client', async () => {
                 vmId: 'Test string',
                 workflowFileName: 'Test string',
               },
-              teardownPolicy: 'Test string',
+              teardownPolicy: 'TEARDOWN_POLICY_UNKNOWN',
               workerHarnessContainerImage: 'Test string',
               zone: 'Test string',
             },
@@ -820,12 +820,12 @@ gapi.load('client', async () => {
           sdkVersion: {
             bugs: [
               {
-                severity: 'Test string',
-                type: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
                 uri: 'Test string',
               },
             ],
-            sdkSupportStatus: 'Test string',
+            sdkSupportStatus: 'UNKNOWN',
             version: 'Test string',
             versionDisplayName: 'Test string',
           },
@@ -888,7 +888,7 @@ gapi.load('client', async () => {
                   userName: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputSource: [
                 {
@@ -921,7 +921,7 @@ gapi.load('client', async () => {
               ],
               id: 'Test string',
               inputCollectionName: ['Test string'],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputCollectionName: ['Test string'],
             },
@@ -931,7 +931,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         replacedByJobId: 'Test string',
         replaceJobId: 'Test string',
-        requestedState: 'Test string',
+        requestedState: 'JOB_STATE_UNKNOWN',
         runtimeUpdatableParams: {
           acceptableBacklogDuration: 'Test string',
           autoscalingTier: 'Test string',
@@ -965,7 +965,7 @@ gapi.load('client', async () => {
           {
             currentStateTime: 'Test string',
             executionStageName: 'Test string',
-            executionStageState: 'Test string',
+            executionStageState: 'JOB_STATE_UNKNOWN',
           },
         ],
         startTime: 'Test string',
@@ -983,7 +983,7 @@ gapi.load('client', async () => {
         transformNameMapping: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'JOB_TYPE_UNKNOWN',
       },
     );
     /** Get encoded debug configuration for component. Not cacheable. */
@@ -1007,7 +1007,7 @@ gapi.load('client', async () => {
       {
         componentId: 'Test string',
         data: 'Test string',
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         location: 'Test string',
         workerId: 'Test string',
       },
@@ -1017,7 +1017,7 @@ gapi.load('client', async () => {
       endTime: 'Test string',
       jobId: 'Test string',
       location: 'Test string',
-      minimumImportance: 'Test string',
+      minimumImportance: 'JOB_MESSAGE_IMPORTANCE_UNKNOWN',
       pageSize: 42,
       pageToken: 'Test string',
       projectId: 'Test string',
@@ -1136,7 +1136,7 @@ gapi.load('client', async () => {
                 },
                 internal: 42,
                 nameAndKind: {
-                  kind: 'Test string',
+                  kind: 'INVALID',
                   name: 'Test string',
                 },
                 shortId: 'Test string',
@@ -1146,20 +1146,20 @@ gapi.load('client', async () => {
                 structuredNameAndMetadata: {
                   metadata: {
                     description: 'Test string',
-                    kind: 'Test string',
+                    kind: 'INVALID',
                     otherUnits: 'Test string',
-                    standardUnits: 'Test string',
+                    standardUnits: 'BYTES',
                   },
                   name: {
                     componentStepName: 'Test string',
                     executionStepName: 'Test string',
                     inputIndex: 42,
                     name: 'Test string',
-                    origin: 'Test string',
+                    origin: 'SYSTEM',
                     originalRequestingStepName: 'Test string',
                     originalStepName: 'Test string',
                     originNamespace: 'Test string',
-                    portion: 'Test string',
+                    portion: 'ALL',
                     workerId: 'Test string',
                   },
                 },
@@ -1167,7 +1167,7 @@ gapi.load('client', async () => {
             ],
             dynamicSourceSplit: {
               primary: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1189,7 +1189,7 @@ gapi.load('client', async () => {
                 },
               },
               residual: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1286,7 +1286,7 @@ gapi.load('client', async () => {
             requestedLeaseDuration: 'Test string',
             sourceFork: {
               primary: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1308,7 +1308,7 @@ gapi.load('client', async () => {
                 },
               },
               primarySource: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1330,7 +1330,7 @@ gapi.load('client', async () => {
                 },
               },
               residual: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
                 },
               },
               residualSource: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -1385,7 +1385,7 @@ gapi.load('client', async () => {
               split: {
                 bundles: [
                   {
-                    derivationMode: 'Test string',
+                    derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                     source: {
                       baseSpecs: [
                         {
@@ -1407,10 +1407,10 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                outcome: 'Test string',
+                outcome: 'SOURCE_SPLIT_OUTCOME_UNKNOWN',
                 shards: [
                   {
-                    derivationMode: 'Test string',
+                    derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                     source: {
                       baseSpecs: [
                         {
@@ -1542,7 +1542,7 @@ gapi.load('client', async () => {
             },
             workerLifecycleEvent: {
               containerStartTime: 'Test string',
-              event: 'Test string',
+              event: 'UNKNOWN_EVENT',
               metadata: {
                 A: 'Test string',
               },
@@ -1640,13 +1640,13 @@ gapi.load('client', async () => {
               additionalUserLabels: {
                 A: 'Test string',
               },
-              autoscalingAlgorithm: 'Test string',
+              autoscalingAlgorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
               diskSizeGb: 42,
               dumpHeapOnOom: true,
               enableLauncherVmSerialPortLogging: true,
               enableStreamingEngine: true,
-              flexrsGoal: 'Test string',
-              ipConfiguration: 'Test string',
+              flexrsGoal: 'FLEXRS_UNSPECIFIED',
+              ipConfiguration: 'WORKER_IP_UNSPECIFIED',
               kmsKeyName: 'Test string',
               launcherMachineType: 'Test string',
               machineType: 'Test string',
@@ -1657,7 +1657,7 @@ gapi.load('client', async () => {
               sdkContainerImage: 'Test string',
               serviceAccountEmail: 'Test string',
               stagingLocation: 'Test string',
-              streamingMode: 'Test string',
+              streamingMode: 'STREAMING_MODE_UNSPECIFIED',
               subnetwork: 'Test string',
               tempLocation: 'Test string',
               workerRegion: 'Test string',
@@ -1691,7 +1691,7 @@ gapi.load('client', async () => {
                   isOptional: true,
                   label: 'Test string',
                   name: 'Test string',
-                  paramType: 'Test string',
+                  paramType: 'DEFAULT',
                   parentName: 'Test string',
                   parentTriggerValues: ['Test string'],
                   regexes: ['Test string'],
@@ -1703,7 +1703,7 @@ gapi.load('client', async () => {
               yamlDefinition: 'Test string',
             },
             sdkInfo: {
-              language: 'Test string',
+              language: 'UNKNOWN',
               version: 'Test string',
             },
           },
@@ -1714,13 +1714,13 @@ gapi.load('client', async () => {
             additionalUserLabels: {
               A: 'Test string',
             },
-            autoscalingAlgorithm: 'Test string',
+            autoscalingAlgorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
             diskSizeGb: 42,
             dumpHeapOnOom: true,
             enableLauncherVmSerialPortLogging: true,
             enableStreamingEngine: true,
-            flexrsGoal: 'Test string',
-            ipConfiguration: 'Test string',
+            flexrsGoal: 'FLEXRS_UNSPECIFIED',
+            ipConfiguration: 'WORKER_IP_UNSPECIFIED',
             kmsKeyName: 'Test string',
             launcherMachineType: 'Test string',
             machineType: 'Test string',
@@ -1731,7 +1731,7 @@ gapi.load('client', async () => {
             sdkContainerImage: 'Test string',
             serviceAccountEmail: 'Test string',
             stagingLocation: 'Test string',
-            streamingMode: 'Test string',
+            streamingMode: 'STREAMING_MODE_UNSPECIFIED',
             subnetwork: 'Test string',
             tempLocation: 'Test string',
             workerRegion: 'Test string',
@@ -1759,25 +1759,25 @@ gapi.load('client', async () => {
         location: 'Test string',
         projectId: 'Test string',
         replaceJobId: 'Test string',
-        view: 'Test string',
+        view: 'JOB_VIEW_UNKNOWN',
       },
       {
         clientRequestId: 'Test string',
         createdFromSnapshotId: 'Test string',
         createTime: 'Test string',
-        currentState: 'Test string',
+        currentState: 'JOB_STATE_UNKNOWN',
         currentStateTime: 'Test string',
         environment: {
           clusterManagerApiService: 'Test string',
           dataset: 'Test string',
           debugOptions: {
             dataSampling: {
-              behaviors: ['Test string'],
+              behaviors: ['DATA_SAMPLING_BEHAVIOR_UNSPECIFIED'],
             },
             enableHotKeyLogging: true,
           },
           experiments: ['Test string'],
-          flexResourceSchedulingGoal: 'Test string',
+          flexResourceSchedulingGoal: 'FLEXRS_UNSPECIFIED',
           internalExperiments: {
             A: 42,
           },
@@ -1787,8 +1787,8 @@ gapi.load('client', async () => {
           serviceAccountEmail: 'Test string',
           serviceKmsKeyName: 'Test string',
           serviceOptions: ['Test string'],
-          shuffleMode: 'Test string',
-          streamingMode: 'Test string',
+          shuffleMode: 'SHUFFLE_MODE_UNSPECIFIED',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           tempStoragePrefix: 'Test string',
           usePublicIps: true,
           userAgent: {
@@ -1801,7 +1801,7 @@ gapi.load('client', async () => {
           workerPools: [
             {
               autoscalingSettings: {
-                algorithm: 'Test string',
+                algorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
                 maxNumWorkers: 42,
               },
               dataDisks: [
@@ -1811,13 +1811,13 @@ gapi.load('client', async () => {
                   sizeGb: 42,
                 },
               ],
-              defaultPackageSet: 'Test string',
+              defaultPackageSet: 'DEFAULT_PACKAGE_SET_UNKNOWN',
               diskProvisionedIops: 'Test string',
               diskProvisionedThroughputMibps: 'Test string',
               diskSizeGb: 42,
               diskSourceImage: 'Test string',
               diskType: 'Test string',
-              ipConfiguration: 'Test string',
+              ipConfiguration: 'WORKER_IP_UNSPECIFIED',
               kind: 'Test string',
               machineType: 'Test string',
               metadata: {
@@ -1874,7 +1874,7 @@ gapi.load('client', async () => {
                 vmId: 'Test string',
                 workflowFileName: 'Test string',
               },
-              teardownPolicy: 'Test string',
+              teardownPolicy: 'TEARDOWN_POLICY_UNKNOWN',
               workerHarnessContainerImage: 'Test string',
               zone: 'Test string',
             },
@@ -1926,12 +1926,12 @@ gapi.load('client', async () => {
           sdkVersion: {
             bugs: [
               {
-                severity: 'Test string',
-                type: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
                 uri: 'Test string',
               },
             ],
-            sdkSupportStatus: 'Test string',
+            sdkSupportStatus: 'UNKNOWN',
             version: 'Test string',
             versionDisplayName: 'Test string',
           },
@@ -1994,7 +1994,7 @@ gapi.load('client', async () => {
                   userName: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputSource: [
                 {
@@ -2027,7 +2027,7 @@ gapi.load('client', async () => {
               ],
               id: 'Test string',
               inputCollectionName: ['Test string'],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputCollectionName: ['Test string'],
             },
@@ -2037,7 +2037,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         replacedByJobId: 'Test string',
         replaceJobId: 'Test string',
-        requestedState: 'Test string',
+        requestedState: 'JOB_STATE_UNKNOWN',
         runtimeUpdatableParams: {
           acceptableBacklogDuration: 'Test string',
           autoscalingTier: 'Test string',
@@ -2071,7 +2071,7 @@ gapi.load('client', async () => {
           {
             currentStateTime: 'Test string',
             executionStageName: 'Test string',
-            executionStageState: 'Test string',
+            executionStageState: 'JOB_STATE_UNKNOWN',
           },
         ],
         startTime: 'Test string',
@@ -2089,7 +2089,7 @@ gapi.load('client', async () => {
         transformNameMapping: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'JOB_TYPE_UNKNOWN',
       },
     );
     /** Gets the state of the specified Cloud Dataflow job. To get the state of a job, we recommend using `projects.locations.jobs.get` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.jobs.get` is not recommended, as you can only get the state of jobs that are running in `us-central1`. # IAM Permissions Requires the `dataflow.jobs.get` permission on the job. */
@@ -2097,7 +2097,7 @@ gapi.load('client', async () => {
       jobId: 'Test string',
       location: 'Test string',
       projectId: 'Test string',
-      view: 'Test string',
+      view: 'JOB_VIEW_UNKNOWN',
     });
     /** Request detailed information about the execution status of the job. EXPERIMENTAL. This API is subject to change or removal without notice. # IAM Permissions Requires the `dataflow.metrics.get` permission on the job. */
     await gapi.client.dataflow.projects.locations.jobs.getExecutionDetails({
@@ -2118,7 +2118,7 @@ gapi.load('client', async () => {
     await gapi.client.dataflow.projects.locations.jobs.list({
       'createTimeRange.endTime': 'Test string',
       'createTimeRange.startTime': 'Test string',
-      filter: 'Test string',
+      filter: 'UNKNOWN',
       location: 'Test string',
       name: 'Test string',
       pageSize: 42,
@@ -2127,7 +2127,7 @@ gapi.load('client', async () => {
       regionalFanoutRequested: true,
       'terminationTimeRange.endTime': 'Test string',
       'terminationTimeRange.startTime': 'Test string',
-      view: 'Test string',
+      view: 'JOB_VIEW_UNKNOWN',
     });
     /** Snapshot the state of a streaming job. # IAM Permissions Requires the `dataflow.jobs.snapshot` permission on the job. */
     await gapi.client.dataflow.projects.locations.jobs.snapshot(
@@ -2155,19 +2155,19 @@ gapi.load('client', async () => {
         clientRequestId: 'Test string',
         createdFromSnapshotId: 'Test string',
         createTime: 'Test string',
-        currentState: 'Test string',
+        currentState: 'JOB_STATE_UNKNOWN',
         currentStateTime: 'Test string',
         environment: {
           clusterManagerApiService: 'Test string',
           dataset: 'Test string',
           debugOptions: {
             dataSampling: {
-              behaviors: ['Test string'],
+              behaviors: ['DATA_SAMPLING_BEHAVIOR_UNSPECIFIED'],
             },
             enableHotKeyLogging: true,
           },
           experiments: ['Test string'],
-          flexResourceSchedulingGoal: 'Test string',
+          flexResourceSchedulingGoal: 'FLEXRS_UNSPECIFIED',
           internalExperiments: {
             A: 42,
           },
@@ -2177,8 +2177,8 @@ gapi.load('client', async () => {
           serviceAccountEmail: 'Test string',
           serviceKmsKeyName: 'Test string',
           serviceOptions: ['Test string'],
-          shuffleMode: 'Test string',
-          streamingMode: 'Test string',
+          shuffleMode: 'SHUFFLE_MODE_UNSPECIFIED',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           tempStoragePrefix: 'Test string',
           usePublicIps: true,
           userAgent: {
@@ -2191,7 +2191,7 @@ gapi.load('client', async () => {
           workerPools: [
             {
               autoscalingSettings: {
-                algorithm: 'Test string',
+                algorithm: 'AUTOSCALING_ALGORITHM_UNKNOWN',
                 maxNumWorkers: 42,
               },
               dataDisks: [
@@ -2201,13 +2201,13 @@ gapi.load('client', async () => {
                   sizeGb: 42,
                 },
               ],
-              defaultPackageSet: 'Test string',
+              defaultPackageSet: 'DEFAULT_PACKAGE_SET_UNKNOWN',
               diskProvisionedIops: 'Test string',
               diskProvisionedThroughputMibps: 'Test string',
               diskSizeGb: 42,
               diskSourceImage: 'Test string',
               diskType: 'Test string',
-              ipConfiguration: 'Test string',
+              ipConfiguration: 'WORKER_IP_UNSPECIFIED',
               kind: 'Test string',
               machineType: 'Test string',
               metadata: {
@@ -2264,7 +2264,7 @@ gapi.load('client', async () => {
                 vmId: 'Test string',
                 workflowFileName: 'Test string',
               },
-              teardownPolicy: 'Test string',
+              teardownPolicy: 'TEARDOWN_POLICY_UNKNOWN',
               workerHarnessContainerImage: 'Test string',
               zone: 'Test string',
             },
@@ -2316,12 +2316,12 @@ gapi.load('client', async () => {
           sdkVersion: {
             bugs: [
               {
-                severity: 'Test string',
-                type: 'Test string',
+                severity: 'SEVERITY_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
                 uri: 'Test string',
               },
             ],
-            sdkSupportStatus: 'Test string',
+            sdkSupportStatus: 'UNKNOWN',
             version: 'Test string',
             versionDisplayName: 'Test string',
           },
@@ -2384,7 +2384,7 @@ gapi.load('client', async () => {
                   userName: 'Test string',
                 },
               ],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputSource: [
                 {
@@ -2417,7 +2417,7 @@ gapi.load('client', async () => {
               ],
               id: 'Test string',
               inputCollectionName: ['Test string'],
-              kind: 'Test string',
+              kind: 'UNKNOWN_KIND',
               name: 'Test string',
               outputCollectionName: ['Test string'],
             },
@@ -2427,7 +2427,7 @@ gapi.load('client', async () => {
         projectId: 'Test string',
         replacedByJobId: 'Test string',
         replaceJobId: 'Test string',
-        requestedState: 'Test string',
+        requestedState: 'JOB_STATE_UNKNOWN',
         runtimeUpdatableParams: {
           acceptableBacklogDuration: 'Test string',
           autoscalingTier: 'Test string',
@@ -2461,7 +2461,7 @@ gapi.load('client', async () => {
           {
             currentStateTime: 'Test string',
             executionStageName: 'Test string',
-            executionStageState: 'Test string',
+            executionStageState: 'JOB_STATE_UNKNOWN',
           },
         ],
         startTime: 'Test string',
@@ -2479,7 +2479,7 @@ gapi.load('client', async () => {
         transformNameMapping: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'JOB_TYPE_UNKNOWN',
       },
     );
     /** Get encoded debug configuration for component. Not cacheable. */
@@ -2517,7 +2517,7 @@ gapi.load('client', async () => {
       {
         componentId: 'Test string',
         data: 'Test string',
-        dataFormat: 'Test string',
+        dataFormat: 'DATA_FORMAT_UNSPECIFIED',
         location: 'Test string',
         workerId: 'Test string',
       },
@@ -2527,7 +2527,7 @@ gapi.load('client', async () => {
       endTime: 'Test string',
       jobId: 'Test string',
       location: 'Test string',
-      minimumImportance: 'Test string',
+      minimumImportance: 'JOB_MESSAGE_IMPORTANCE_UNKNOWN',
       pageSize: 42,
       pageToken: 'Test string',
       projectId: 'Test string',
@@ -2667,7 +2667,7 @@ gapi.load('client', async () => {
                 },
                 internal: 42,
                 nameAndKind: {
-                  kind: 'Test string',
+                  kind: 'INVALID',
                   name: 'Test string',
                 },
                 shortId: 'Test string',
@@ -2677,20 +2677,20 @@ gapi.load('client', async () => {
                 structuredNameAndMetadata: {
                   metadata: {
                     description: 'Test string',
-                    kind: 'Test string',
+                    kind: 'INVALID',
                     otherUnits: 'Test string',
-                    standardUnits: 'Test string',
+                    standardUnits: 'BYTES',
                   },
                   name: {
                     componentStepName: 'Test string',
                     executionStepName: 'Test string',
                     inputIndex: 42,
                     name: 'Test string',
-                    origin: 'Test string',
+                    origin: 'SYSTEM',
                     originalRequestingStepName: 'Test string',
                     originalStepName: 'Test string',
                     originNamespace: 'Test string',
-                    portion: 'Test string',
+                    portion: 'ALL',
                     workerId: 'Test string',
                   },
                 },
@@ -2698,7 +2698,7 @@ gapi.load('client', async () => {
             ],
             dynamicSourceSplit: {
               primary: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2720,7 +2720,7 @@ gapi.load('client', async () => {
                 },
               },
               residual: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2817,7 +2817,7 @@ gapi.load('client', async () => {
             requestedLeaseDuration: 'Test string',
             sourceFork: {
               primary: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2839,7 +2839,7 @@ gapi.load('client', async () => {
                 },
               },
               primarySource: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2861,7 +2861,7 @@ gapi.load('client', async () => {
                 },
               },
               residual: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2883,7 +2883,7 @@ gapi.load('client', async () => {
                 },
               },
               residualSource: {
-                derivationMode: 'Test string',
+                derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                 source: {
                   baseSpecs: [
                     {
@@ -2916,7 +2916,7 @@ gapi.load('client', async () => {
               split: {
                 bundles: [
                   {
-                    derivationMode: 'Test string',
+                    derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                     source: {
                       baseSpecs: [
                         {
@@ -2938,10 +2938,10 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                outcome: 'Test string',
+                outcome: 'SOURCE_SPLIT_OUTCOME_UNKNOWN',
                 shards: [
                   {
-                    derivationMode: 'Test string',
+                    derivationMode: 'SOURCE_DERIVATION_MODE_UNKNOWN',
                     source: {
                       baseSpecs: [
                         {
@@ -3016,14 +3016,14 @@ gapi.load('client', async () => {
           bypassTempDirValidation: true,
           diskSizeGb: 42,
           enableStreamingEngine: true,
-          ipConfiguration: 'Test string',
+          ipConfiguration: 'WORKER_IP_UNSPECIFIED',
           kmsKeyName: 'Test string',
           machineType: 'Test string',
           maxWorkers: 42,
           network: 'Test string',
           numWorkers: 42,
           serviceAccountEmail: 'Test string',
-          streamingMode: 'Test string',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           subnetwork: 'Test string',
           tempLocation: 'Test string',
           workerRegion: 'Test string',
@@ -3043,7 +3043,7 @@ gapi.load('client', async () => {
       gcsPath: 'Test string',
       location: 'Test string',
       projectId: 'Test string',
-      view: 'Test string',
+      view: 'METADATA_ONLY',
     });
     /** Launches a template. To launch a template, we recommend using `projects.locations.templates.launch` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.launch` is not recommended, because jobs launched from the template will always start in `us-central1`. # IAM Permissions Requires the following IAM permission(s) on the project: - `dataflow.jobs.create` - `resourcemanager.projects.get` */
     await gapi.client.dataflow.projects.locations.templates.launch(
@@ -3065,14 +3065,14 @@ gapi.load('client', async () => {
           bypassTempDirValidation: true,
           diskSizeGb: 42,
           enableStreamingEngine: true,
-          ipConfiguration: 'Test string',
+          ipConfiguration: 'WORKER_IP_UNSPECIFIED',
           kmsKeyName: 'Test string',
           machineType: 'Test string',
           maxWorkers: 42,
           network: 'Test string',
           numWorkers: 42,
           serviceAccountEmail: 'Test string',
-          streamingMode: 'Test string',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           subnetwork: 'Test string',
           tempLocation: 'Test string',
           workerRegion: 'Test string',
@@ -3116,14 +3116,14 @@ gapi.load('client', async () => {
           bypassTempDirValidation: true,
           diskSizeGb: 42,
           enableStreamingEngine: true,
-          ipConfiguration: 'Test string',
+          ipConfiguration: 'WORKER_IP_UNSPECIFIED',
           kmsKeyName: 'Test string',
           machineType: 'Test string',
           maxWorkers: 42,
           network: 'Test string',
           numWorkers: 42,
           serviceAccountEmail: 'Test string',
-          streamingMode: 'Test string',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           subnetwork: 'Test string',
           tempLocation: 'Test string',
           workerRegion: 'Test string',
@@ -3143,7 +3143,7 @@ gapi.load('client', async () => {
       gcsPath: 'Test string',
       location: 'Test string',
       projectId: 'Test string',
-      view: 'Test string',
+      view: 'METADATA_ONLY',
     });
     /** Launches a template. To launch a template, we recommend using `projects.locations.templates.launch` with a [regional endpoint] (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using `projects.templates.launch` is not recommended, because jobs launched from the template will always start in `us-central1`. # IAM Permissions Requires the following IAM permission(s) on the project: - `dataflow.jobs.create` - `resourcemanager.projects.get` */
     await gapi.client.dataflow.projects.templates.launch(
@@ -3165,14 +3165,14 @@ gapi.load('client', async () => {
           bypassTempDirValidation: true,
           diskSizeGb: 42,
           enableStreamingEngine: true,
-          ipConfiguration: 'Test string',
+          ipConfiguration: 'WORKER_IP_UNSPECIFIED',
           kmsKeyName: 'Test string',
           machineType: 'Test string',
           maxWorkers: 42,
           network: 'Test string',
           numWorkers: 42,
           serviceAccountEmail: 'Test string',
-          streamingMode: 'Test string',
+          streamingMode: 'STREAMING_MODE_UNSPECIFIED',
           subnetwork: 'Test string',
           tempLocation: 'Test string',
           workerRegion: 'Test string',

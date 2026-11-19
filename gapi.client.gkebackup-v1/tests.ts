@@ -162,7 +162,7 @@ gapi.load('client', async () => {
               {
                 daily: true,
                 daysOfWeek: {
-                  daysOfWeek: ['Test string'],
+                  daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
                 },
                 duration: 'Test string',
                 singleOccurrenceDate: {
@@ -200,7 +200,7 @@ gapi.load('client', async () => {
         },
         rpoRiskLevel: 42,
         rpoRiskReason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
@@ -277,7 +277,7 @@ gapi.load('client', async () => {
               {
                 daily: true,
                 daysOfWeek: {
-                  daysOfWeek: ['Test string'],
+                  daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
                 },
                 duration: 'Test string',
                 singleOccurrenceDate: {
@@ -315,7 +315,7 @@ gapi.load('client', async () => {
         },
         rpoRiskLevel: 42,
         rpoRiskReason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
@@ -333,7 +333,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -442,7 +442,7 @@ gapi.load('client', async () => {
           namespaces: ['Test string'],
         },
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         troubleshootingInfo: {
           stateReasonCode: 'Test string',
@@ -547,7 +547,7 @@ gapi.load('client', async () => {
           namespaces: ['Test string'],
         },
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         troubleshootingInfo: {
           stateReasonCode: 'Test string',
@@ -570,7 +570,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -638,7 +638,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -786,7 +786,8 @@ gapi.load('client', async () => {
         restoreChannel: 'Test string',
         restoreConfig: {
           allNamespaces: true,
-          clusterResourceConflictPolicy: 'Test string',
+          clusterResourceConflictPolicy:
+            'CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED',
           clusterResourceRestoreScope: {
             allGroupKinds: true,
             excludedGroupKinds: [
@@ -806,7 +807,8 @@ gapi.load('client', async () => {
           excludedNamespaces: {
             namespaces: ['Test string'],
           },
-          namespacedResourceRestoreMode: 'Test string',
+          namespacedResourceRestoreMode:
+            'NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED',
           noNamespaces: true,
           restoreOrder: {
             groupKindDependencies: [
@@ -853,7 +855,7 @@ gapi.load('client', async () => {
               fieldActions: [
                 {
                   fromPath: 'Test string',
-                  op: 'Test string',
+                  op: 'OP_UNSPECIFIED',
                   path: 'Test string',
                   value: 'Test string',
                 },
@@ -870,15 +872,15 @@ gapi.load('client', async () => {
               },
             },
           ],
-          volumeDataRestorePolicy: 'Test string',
+          volumeDataRestorePolicy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
           volumeDataRestorePolicyBindings: [
             {
-              policy: 'Test string',
-              volumeType: 'Test string',
+              policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
+              volumeType: 'VOLUME_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
@@ -930,7 +932,8 @@ gapi.load('client', async () => {
         restoreChannel: 'Test string',
         restoreConfig: {
           allNamespaces: true,
-          clusterResourceConflictPolicy: 'Test string',
+          clusterResourceConflictPolicy:
+            'CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED',
           clusterResourceRestoreScope: {
             allGroupKinds: true,
             excludedGroupKinds: [
@@ -950,7 +953,8 @@ gapi.load('client', async () => {
           excludedNamespaces: {
             namespaces: ['Test string'],
           },
-          namespacedResourceRestoreMode: 'Test string',
+          namespacedResourceRestoreMode:
+            'NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED',
           noNamespaces: true,
           restoreOrder: {
             groupKindDependencies: [
@@ -997,7 +1001,7 @@ gapi.load('client', async () => {
               fieldActions: [
                 {
                   fromPath: 'Test string',
-                  op: 'Test string',
+                  op: 'OP_UNSPECIFIED',
                   path: 'Test string',
                   value: 'Test string',
                 },
@@ -1014,15 +1018,15 @@ gapi.load('client', async () => {
               },
             },
           ],
-          volumeDataRestorePolicy: 'Test string',
+          volumeDataRestorePolicy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
           volumeDataRestorePolicyBindings: [
             {
-              policy: 'Test string',
-              volumeType: 'Test string',
+              policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
+              volumeType: 'VOLUME_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
@@ -1040,7 +1044,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1137,7 +1141,8 @@ gapi.load('client', async () => {
         resourcesRestoredCount: 42,
         restoreConfig: {
           allNamespaces: true,
-          clusterResourceConflictPolicy: 'Test string',
+          clusterResourceConflictPolicy:
+            'CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED',
           clusterResourceRestoreScope: {
             allGroupKinds: true,
             excludedGroupKinds: [
@@ -1157,7 +1162,8 @@ gapi.load('client', async () => {
           excludedNamespaces: {
             namespaces: ['Test string'],
           },
-          namespacedResourceRestoreMode: 'Test string',
+          namespacedResourceRestoreMode:
+            'NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED',
           noNamespaces: true,
           restoreOrder: {
             groupKindDependencies: [
@@ -1204,7 +1210,7 @@ gapi.load('client', async () => {
               fieldActions: [
                 {
                   fromPath: 'Test string',
-                  op: 'Test string',
+                  op: 'OP_UNSPECIFIED',
                   path: 'Test string',
                   value: 'Test string',
                 },
@@ -1221,15 +1227,15 @@ gapi.load('client', async () => {
               },
             },
           ],
-          volumeDataRestorePolicy: 'Test string',
+          volumeDataRestorePolicy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
           volumeDataRestorePolicyBindings: [
             {
-              policy: 'Test string',
-              volumeType: 'Test string',
+              policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
+              volumeType: 'VOLUME_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         troubleshootingInfo: {
           stateReasonCode: 'Test string',
@@ -1239,7 +1245,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         volumeDataRestorePolicyOverrides: [
           {
-            policy: 'Test string',
+            policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
             selectedPvcs: {
               namespacedNames: [
                 {
@@ -1330,7 +1336,8 @@ gapi.load('client', async () => {
         resourcesRestoredCount: 42,
         restoreConfig: {
           allNamespaces: true,
-          clusterResourceConflictPolicy: 'Test string',
+          clusterResourceConflictPolicy:
+            'CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED',
           clusterResourceRestoreScope: {
             allGroupKinds: true,
             excludedGroupKinds: [
@@ -1350,7 +1357,8 @@ gapi.load('client', async () => {
           excludedNamespaces: {
             namespaces: ['Test string'],
           },
-          namespacedResourceRestoreMode: 'Test string',
+          namespacedResourceRestoreMode:
+            'NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED',
           noNamespaces: true,
           restoreOrder: {
             groupKindDependencies: [
@@ -1397,7 +1405,7 @@ gapi.load('client', async () => {
               fieldActions: [
                 {
                   fromPath: 'Test string',
-                  op: 'Test string',
+                  op: 'OP_UNSPECIFIED',
                   path: 'Test string',
                   value: 'Test string',
                 },
@@ -1414,15 +1422,15 @@ gapi.load('client', async () => {
               },
             },
           ],
-          volumeDataRestorePolicy: 'Test string',
+          volumeDataRestorePolicy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
           volumeDataRestorePolicyBindings: [
             {
-              policy: 'Test string',
-              volumeType: 'Test string',
+              policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
+              volumeType: 'VOLUME_TYPE_UNSPECIFIED',
             },
           ],
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateReason: 'Test string',
         troubleshootingInfo: {
           stateReasonCode: 'Test string',
@@ -1432,7 +1440,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         volumeDataRestorePolicyOverrides: [
           {
-            policy: 'Test string',
+            policy: 'VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED',
             selectedPvcs: {
               namespacedNames: [
                 {
@@ -1458,7 +1466,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1526,7 +1534,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

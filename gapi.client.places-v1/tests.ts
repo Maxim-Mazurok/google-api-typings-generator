@@ -128,7 +128,7 @@ gapi.load('client', async () => {
           },
         },
         maxResultCount: 42,
-        rankPreference: 'Test string',
+        rankPreference: 'RANK_PREFERENCE_UNSPECIFIED',
         regionCode: 'Test string',
         routingParameters: {
           origin: {
@@ -141,8 +141,8 @@ gapi.load('client', async () => {
             avoidIndoor: true,
             avoidTolls: true,
           },
-          routingPreference: 'Test string',
-          travelMode: 'Test string',
+          routingPreference: 'ROUTING_PREFERENCE_UNSPECIFIED',
+          travelMode: 'TRAVEL_MODE_UNSPECIFIED',
         },
       },
     );
@@ -151,7 +151,7 @@ gapi.load('client', async () => {
       {},
       {
         evOptions: {
-          connectorTypes: ['Test string'],
+          connectorTypes: ['EV_CONNECTOR_TYPE_UNSPECIFIED'],
           minimumChargingRateKw: 42,
         },
         includedType: 'Test string',
@@ -194,8 +194,8 @@ gapi.load('client', async () => {
         openNow: true,
         pageSize: 42,
         pageToken: 'Test string',
-        priceLevels: ['Test string'],
-        rankPreference: 'Test string',
+        priceLevels: ['PRICE_LEVEL_UNSPECIFIED'],
+        rankPreference: 'RANK_PREFERENCE_UNSPECIFIED',
         regionCode: 'Test string',
         routingParameters: {
           origin: {
@@ -208,8 +208,8 @@ gapi.load('client', async () => {
             avoidIndoor: true,
             avoidTolls: true,
           },
-          routingPreference: 'Test string',
-          travelMode: 'Test string',
+          routingPreference: 'ROUTING_PREFERENCE_UNSPECIFIED',
+          travelMode: 'TRAVEL_MODE_UNSPECIFIED',
         },
         searchAlongRouteParameters: {
           polyline: {

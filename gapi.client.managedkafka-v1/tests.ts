@@ -94,11 +94,11 @@ gapi.load('client', async () => {
           externalIpAddresses: ['Test string'],
         },
         rebalanceConfig: {
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tlsConfig: {
           sslPrincipalMappingRules: 'Test string',
           trustConfig: {
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
     /** Returns the properties of a single cluster. */
     await gapi.client.managedkafka.projects.locations.clusters.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Lists the clusters in a given project and location. */
     await gapi.client.managedkafka.projects.locations.clusters.list({
@@ -184,11 +184,11 @@ gapi.load('client', async () => {
           externalIpAddresses: ['Test string'],
         },
         rebalanceConfig: {
-          mode: 'Test string',
+          mode: 'MODE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tlsConfig: {
           sslPrincipalMappingRules: 'Test string',
           trustConfig: {
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'CONSUMER_GROUP_VIEW_UNSPECIFIED',
       },
     );
     /** Updates the properties of a single consumer group. */
@@ -408,7 +408,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -464,7 +464,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -479,7 +479,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         taskRestartPolicy: {
           maximumBackoff: 'Test string',
           minimumBackoff: 'Test string',
@@ -518,7 +518,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         taskRestartPolicy: {
           maximumBackoff: 'Test string',
           minimumBackoff: 'Test string',
@@ -601,7 +601,7 @@ gapi.load('client', async () => {
     /** List schema registries. */
     await gapi.client.managedkafka.projects.locations.schemaRegistries.list({
       parent: 'Test string',
-      view: 'Test string',
+      view: 'SCHEMA_REGISTRY_VIEW_UNSPECIFIED',
     });
     /** Check compatibility of a schema with all versions or a specific version of a subject. */
     await gapi.client.managedkafka.projects.locations.schemaRegistries.compatibility.checkCompatibility(
@@ -617,7 +617,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
         verbose: true,
       },
     );
@@ -640,7 +640,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        compatibility: 'Test string',
+        compatibility: 'NONE',
         normalize: true,
       },
     );
@@ -670,7 +670,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
         verbose: true,
       },
     );
@@ -693,7 +693,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        compatibility: 'Test string',
+        compatibility: 'NONE',
         normalize: true,
       },
     );
@@ -715,7 +715,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        mode: 'Test string',
+        mode: 'NONE',
       },
     );
     /** Get the schema for the given schema id. */
@@ -785,7 +785,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
       },
     );
     /** Register a new version under a given subject with the given schema. */
@@ -804,7 +804,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
         version: 42,
       },
     );
@@ -860,7 +860,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        mode: 'Test string',
+        mode: 'NONE',
       },
     );
     /** Get the schema for the given schema id. */
@@ -930,7 +930,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
       },
     );
     /** Register a new version under a given subject with the given schema. */
@@ -949,7 +949,7 @@ gapi.load('client', async () => {
           },
         ],
         schema: 'Test string',
-        schemaType: 'Test string',
+        schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
         version: 42,
       },
     );

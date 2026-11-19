@@ -273,7 +273,8 @@ declare namespace gapi.client {
       /** The availabilities being returned. */
       availabilities?: Availability[];
     }
-    interface ConversionResource {
+
+    const conversion: {
       /** Retrieves a list of conversions from a DoubleClick Search engine account. */
       get(request?: {
         /** V1 error format. */
@@ -534,8 +535,9 @@ declare namespace gapi.client {
         },
         body: UpdateAvailabilityRequest,
       ): Request<UpdateAvailabilityResponse>;
-    }
-    interface ReportsResource {
+    };
+
+    const reports: {
       /** Generates and returns a report immediately. */
       generate(request: {
         /** V1 error format. */
@@ -729,8 +731,9 @@ declare namespace gapi.client {
         },
         body: ReportRequest,
       ): Request<Report>;
-    }
-    interface SavedColumnsResource {
+    };
+
+    const savedColumns: {
       /** Retrieve the list of saved columns for a specified advertiser. */
       list(request?: {
         /** V1 error format. */
@@ -760,12 +763,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SavedColumnList>;
-    }
-
-    const conversion: ConversionResource;
-
-    const reports: ReportsResource;
-
-    const savedColumns: SavedColumnsResource;
+    };
   }
 }

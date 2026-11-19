@@ -63,11 +63,11 @@ gapi.load('client', async () => {
       },
       {
         acceleratorType: 'Test string',
-        apiVersion: 'Test string',
+        apiVersion: 'API_VERSION_UNSPECIFIED',
         cidrBlock: 'Test string',
         createTime: 'Test string',
         description: 'Test string',
-        health: 'Test string',
+        health: 'HEALTH_UNSPECIFIED',
         healthDescription: 'Test string',
         ipAddress: 'Test string',
         labels: {
@@ -87,12 +87,12 @@ gapi.load('client', async () => {
           reserved: true,
         },
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         symptoms: [
           {
             createTime: 'Test string',
             details: 'Test string',
-            symptomType: 'Test string',
+            symptomType: 'SYMPTOM_TYPE_UNSPECIFIED',
             workerId: 'Test string',
           },
         ],

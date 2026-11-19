@@ -94,7 +94,9 @@ declare namespace gapi.client {
     }
     interface AccountPermission {
       /** Account profiles associated with this account permission. Possible values are: - "ACCOUNT_PROFILE_BASIC" - "ACCOUNT_PROFILE_STANDARD" */
-      accountProfiles?: 'ACCOUNT_PROFILE_BASIC' | 'ACCOUNT_PROFILE_STANDARD'[];
+      accountProfiles?: (
+        'ACCOUNT_PROFILE_BASIC' | 'ACCOUNT_PROFILE_STANDARD'
+      )[];
       /** ID of this account permission. */
       id?: string;
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#accountPermission". */
@@ -964,7 +966,7 @@ declare namespace gapi.client {
       /** Whether ad serving supports secure servers in this country. */
       sslEnabled?: boolean;
       /** Output only. The TV data providers supported in this country. */
-      tvDataProviders?:
+      tvDataProviders?: (
         | 'INVALID_TV_DATA_PROVIDER'
         | 'INTAGE_JP'
         | 'IBOPE_AR'
@@ -974,7 +976,8 @@ declare namespace gapi.client {
         | 'TNS_VN'
         | 'COMSCORE_NATIONAL_US'
         | 'COMSCORE_CA'
-        | 'SAMBA_AU'[];
+        | 'SAMBA_AU'
+      )[];
     }
     interface Creative {
       /** Account ID of this creative. This field, if left unset, will be auto-generated for both insert and update operations. Applicable to all creative types. */
@@ -1023,7 +1026,7 @@ declare namespace gapi.client {
       /** Click-through URL for backup image. Applicable to ENHANCED_BANNER when the primary asset type is not HTML_IMAGE. */
       backupImageClickThroughUrl?: CreativeClickThroughUrl;
       /** List of feature dependencies that will cause a backup image to be served if the browser that serves the ad does not support them. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative asset correctly. This field is initially auto-generated to contain all features detected by Campaign Manager for all the assets of this creative and can then be modified by the client. To reset this field, copy over all the creativeAssets' detected features. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
-      backupImageFeatures?:
+      backupImageFeatures?: (
         | 'CSS_FONT_FACE'
         | 'CSS_BACKGROUND_SIZE'
         | 'CSS_BORDER_IMAGE'
@@ -1089,7 +1092,8 @@ declare namespace gapi.client {
         | 'TOUCH'
         | 'WEBGL'
         | 'SVG_FILTERS'
-        | 'SVG_FE_IMAGE'[];
+        | 'SVG_FE_IMAGE'
+      )[];
       /** Reporting label used for HTML5 banner backup image. Applicable to the following creative types: DISPLAY when the primary asset type is not HTML_IMAGE. */
       backupImageReportingLabel?: string;
       /** Target window for backup image. Applicable to the following creative types: FLASH_INPAGE and HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
@@ -1101,13 +1105,14 @@ declare namespace gapi.client {
       /** List of companion creatives assigned to an in-Stream video creative. Acceptable values include IDs of existing flash and image creatives. Applicable to the following creative types: all VPAID, all INSTREAM_AUDIO and all INSTREAM_VIDEO with dynamicAssetSelection set to false. */
       companionCreatives?: string[];
       /** Compatibilities associated with this creative. This is a read-only field. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile devices or in mobile apps for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are for rendering in mobile apps. Only pre-existing creatives may have these compatibilities since new creatives will either be assigned DISPLAY or DISPLAY_INTERSTITIAL instead. IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with the VAST standard. IN_STREAM_AUDIO refers to rendering in in-stream audio ads developed with the VAST standard. Applicable to all creative types. Acceptable values are: - "APP" - "APP_INTERSTITIAL" - "IN_STREAM_VIDEO" - "IN_STREAM_AUDIO" - "DISPLAY" - "DISPLAY_INTERSTITIAL" */
-      compatibility?:
+      compatibility?: (
         | 'DISPLAY'
         | 'DISPLAY_INTERSTITIAL'
         | 'APP'
         | 'APP_INTERSTITIAL'
         | 'IN_STREAM_VIDEO'
-        | 'IN_STREAM_AUDIO'[];
+        | 'IN_STREAM_AUDIO'
+      )[];
       /** Whether Flash assets associated with the creative need to be automatically converted to HTML5. This flag is enabled by default and users can choose to disable it if they don't want the system to generate and use HTML5 asset for this creative. Applicable to the following creative type: FLASH_INPAGE. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
       convertFlashToHtml5?: boolean;
       /** List of counter events configured for the creative. For DISPLAY_IMAGE_GALLERY creatives, these are read-only and auto-generated from clickTags. Applicable to the following creative types: DISPLAY_IMAGE_GALLERY, all RICH_MEDIA, and all VPAID. */
@@ -1265,7 +1270,7 @@ declare namespace gapi.client {
       /** Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA. Value must be greater than or equal to 0. */
       customStartTimeValue?: number;
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. Applicable to the following creative types: HTML5_BANNER. Applicable to DISPLAY when the primary asset type is not HTML_IMAGE. */
-      detectedFeatures?:
+      detectedFeatures?: (
         | 'CSS_FONT_FACE'
         | 'CSS_BACKGROUND_SIZE'
         | 'CSS_BORDER_IMAGE'
@@ -1331,7 +1336,8 @@ declare namespace gapi.client {
         | 'TOUCH'
         | 'WEBGL'
         | 'SVG_FILTERS'
-        | 'SVG_FE_IMAGE'[];
+        | 'SVG_FE_IMAGE'
+      )[];
       /** Type of rich media asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA. */
       displayType?:
         | 'ASSET_DISPLAY_TYPE_INPAGE'
@@ -1453,7 +1459,7 @@ declare namespace gapi.client {
       /** List of counter events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       counterCustomEvents?: CreativeCustomEvent[];
       /** List of feature dependencies for the creative asset that are detected by Campaign Manager. Feature dependencies are features that a browser must be able to support in order to render your HTML5 creative correctly. This is a read-only, auto-generated field. */
-      detectedFeatures?:
+      detectedFeatures?: (
         | 'CSS_FONT_FACE'
         | 'CSS_BACKGROUND_SIZE'
         | 'CSS_BORDER_IMAGE'
@@ -1519,7 +1525,8 @@ declare namespace gapi.client {
         | 'TOUCH'
         | 'WEBGL'
         | 'SVG_FILTERS'
-        | 'SVG_FE_IMAGE'[];
+        | 'SVG_FE_IMAGE'
+      )[];
       /** List of exit events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       exitCustomEvents?: CreativeCustomEvent[];
       /** Numeric ID of the asset. This is a read-only, auto-generated field. */
@@ -1533,7 +1540,7 @@ declare namespace gapi.client {
       /** List of timer events configured for the asset. This is a read-only, auto-generated field and only applicable to a rich media asset. */
       timerCustomEvents?: CreativeCustomEvent[];
       /** Rules validated during code generation that generated a warning. This is a read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" - "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" - "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" - "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" - "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" - "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" - "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" - "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" - "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" - "SVG_INVALID" - "ZIP_INVALID" */
-      warnedValidationRules?:
+      warnedValidationRules?: (
         | 'CLICK_TAG_NON_TOP_LEVEL'
         | 'CLICK_TAG_MISSING'
         | 'CLICK_TAG_MORE_THAN_ONE'
@@ -1559,7 +1566,8 @@ declare namespace gapi.client {
         | 'CLICK_TAG_HARD_CODED'
         | 'SVG_INVALID'
         | 'CLICK_TAG_IN_RICH_MEDIA'
-        | 'MISSING_ENABLER_REFERENCE'[];
+        | 'MISSING_ENABLER_REFERENCE'
+      )[];
     }
     interface CreativeAssignment {
       /** Whether this creative assignment is active. When true, the creative will be included in the ad's rotation. */
@@ -1940,14 +1948,15 @@ declare namespace gapi.client {
     }
     interface DayPartTargeting {
       /** Days of the week when the ad will serve. Acceptable values are: - "SUNDAY" - "MONDAY" - "TUESDAY" - "WEDNESDAY" - "THURSDAY" - "FRIDAY" - "SATURDAY" */
-      daysOfWeek?:
+      daysOfWeek?: (
         | 'SUNDAY'
         | 'MONDAY'
         | 'TUESDAY'
         | 'WEDNESDAY'
         | 'THURSDAY'
         | 'FRIDAY'
-        | 'SATURDAY'[];
+        | 'SATURDAY'
+      )[];
       /** Hours of the day when the ad will serve, where 0 is midnight to 1 AM and 23 is 11 PM to midnight. Can be specified with days of week, in which case the ad would serve during these hours on the specified days. For example if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm (hours 9, 15, and 16) is specified, the ad would serve Monday, Wednesdays, and Fridays at 9-10am and 3-5pm. Acceptable values are 0 to 23, inclusive. */
       hoursOfDay?: number[];
       /** Whether or not to use the user's local time. If false, the America/New York time zone applies. */
@@ -2079,16 +2088,18 @@ declare namespace gapi.client {
       /** Dimension value for the ID of this directory site. This is a read-only, auto-generated field. */
       idDimensionValue?: DimensionValue;
       /** Tag types for regular placements. Acceptable values are: - "STANDARD" - "IFRAME_JAVASCRIPT_INPAGE" - "INTERNAL_REDIRECT_INPAGE" - "JAVASCRIPT_INPAGE" */
-      inpageTagFormats?:
+      inpageTagFormats?: (
         | 'STANDARD'
         | 'IFRAME_JAVASCRIPT_INPAGE'
         | 'INTERNAL_REDIRECT_INPAGE'
-        | 'JAVASCRIPT_INPAGE'[];
+        | 'JAVASCRIPT_INPAGE'
+      )[];
       /** Tag types for interstitial placements. Acceptable values are: - "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" - "JAVASCRIPT_INTERSTITIAL" */
-      interstitialTagFormats?:
+      interstitialTagFormats?: (
         | 'IFRAME_JAVASCRIPT_INTERSTITIAL'
         | 'INTERNAL_REDIRECT_INTERSTITIAL'
-        | 'JAVASCRIPT_INTERSTITIAL'[];
+        | 'JAVASCRIPT_INTERSTITIAL'
+      )[];
       /** Identifies what kind of resource this is. Value: the fixed string "dfareporting#directorySite". */
       kind?: string;
       /** Name of this directory site. */
@@ -2625,7 +2636,7 @@ declare namespace gapi.client {
       /** Value of the cat= parameter in the floodlight tag, which the ad servers use to identify the activity. This is optional: if empty, a new tag string will be generated for you. This string must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ]. This tag string must also be unique among activities of the same activity group. This field is read-only after insertion. */
       tagString?: string;
       /** List of the user-defined variables used by this conversion tag. These map to the "u[1-100]=" in the tags. Each of these can have a user defined type. Acceptable values are U1 to U100, inclusive. */
-      userDefinedVariableTypes?:
+      userDefinedVariableTypes?: (
         | 'U1'
         | 'U2'
         | 'U3'
@@ -2725,7 +2736,8 @@ declare namespace gapi.client {
         | 'U97'
         | 'U98'
         | 'U99'
-        | 'U100'[];
+        | 'U100'
+      )[];
     }
     interface FloodlightActivityDynamicTag {
       /** ID of this dynamic tag. This is a read-only, auto-generated field. */
@@ -3380,7 +3392,7 @@ declare namespace gapi.client {
       /** Subaccount ID of this placement. This field can be left blank. */
       subaccountId?: string;
       /** Tag formats to generate for this placement. This field is required on insertion. Acceptable values are: - "PLACEMENT_TAG_STANDARD" - "PLACEMENT_TAG_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_IFRAME_ILAYER" - "PLACEMENT_TAG_INTERNAL_REDIRECT" - "PLACEMENT_TAG_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" - "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" - "PLACEMENT_TAG_CLICK_COMMANDS" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" - "PLACEMENT_TAG_TRACKING" - "PLACEMENT_TAG_TRACKING_IFRAME" - "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
-      tagFormats?:
+      tagFormats?: (
         | 'PLACEMENT_TAG_STANDARD'
         | 'PLACEMENT_TAG_IFRAME_JAVASCRIPT'
         | 'PLACEMENT_TAG_IFRAME_ILAYER'
@@ -3400,7 +3412,8 @@ declare namespace gapi.client {
         | 'PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY'
         | 'PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY'
         | 'PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4'
-        | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT'[];
+        | 'PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT'
+      )[];
       /** Tag settings for this placement. */
       tagSetting?: TagSetting;
       /** Whether Verification and ActiveView are disabled for in-stream video creatives for this placement. The same setting videoActiveViewOptOut exists on the site level -- the opt out occurs if either of these settings are true. These settings are distinct from DirectorySites.settings.activeViewOptOut or Sites.siteSettings.activeViewOptOut which only apply to display ads. However, Accounts.activeViewOptOut opts out both video traffic, as well as display ads, from Verification and ActiveView. */
@@ -3888,14 +3901,15 @@ declare namespace gapi.client {
         /** The interval for which the report is repeated. Note: - "DAILY" also requires field "every" to be set. - "WEEKLY" also requires fields "every" and "repeatsOnWeekDays" to be set. - "MONTHLY" also requires fields "every" and "runsOnDayOfMonth" to be set. */
         repeats?: string;
         /** List of week days "WEEKLY" on which scheduled reports should run. */
-        repeatsOnWeekDays?:
+        repeatsOnWeekDays?: (
           | 'SUNDAY'
           | 'MONDAY'
           | 'TUESDAY'
           | 'WEDNESDAY'
           | 'THURSDAY'
           | 'FRIDAY'
-          | 'SATURDAY'[];
+          | 'SATURDAY'
+        )[];
         /** Enum to define for "MONTHLY" scheduled reports whether reports should be repeated on the same day of the month as "startDate" or the same day of the week of the month. Example: If 'startDate' is Monday, April 2nd 2012 (2012-04-02), "DAY_OF_MONTH" would run subsequent reports on the 2nd of every Month, and "WEEK_OF_MONTH" would run subsequent reports on the first Monday of the month. */
         runsOnDayOfMonth?: 'DAY_OF_MONTH' | 'WEEK_OF_MONTH';
         startDate?: string;
@@ -4754,7 +4768,7 @@ declare namespace gapi.client {
       /** Optional. The business name. */
       businessName?: string;
       /** Optional. The call to actions. Currently only one call to action is supported. */
-      callToActions?:
+      callToActions?: (
         | 'CALL_TO_ACTION_UNKNOWN'
         | 'CALL_TO_ACTION_LEARN_MORE'
         | 'CALL_TO_ACTION_GET_QUOTE'
@@ -4778,7 +4792,8 @@ declare namespace gapi.client {
         | 'CALL_TO_ACTION_SEE_MORE'
         | 'CALL_TO_ACTION_START_NOW'
         | 'CALL_TO_ACTION_VISIT_SITE'
-        | 'CALL_TO_ACTION_WATCH_NOW'[];
+        | 'CALL_TO_ACTION_WATCH_NOW'
+      )[];
       /** Optional. The descriptions. Currently only one description is supported. */
       descriptions?: string[];
       /** Optional. The headlines associated with the call to actions. Currently only one headline is supported. */
@@ -4786,7 +4801,8 @@ declare namespace gapi.client {
       /** Optional. The long headlines. Currently only one long headline is supported. */
       longHeadlines?: string[];
     }
-    interface AccountActiveAdSummariesResource {
+
+    const accountActiveAdSummaries: {
       /** Gets the account's active ad summary by account ID. */
       get(request?: {
         /** V1 error format. */
@@ -4816,8 +4832,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AccountActiveAdSummary>;
-    }
-    interface AccountPermissionGroupsResource {
+    };
+
+    const accountPermissionGroups: {
       /** Gets one account permission group by ID. */
       get(request?: {
         /** V1 error format. */
@@ -4874,8 +4891,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AccountPermissionGroupsListResponse>;
-    }
-    interface AccountPermissionsResource {
+    };
+
+    const accountPermissions: {
       /** Gets one account permission by ID. */
       get(request?: {
         /** V1 error format. */
@@ -4932,200 +4950,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AccountPermissionsListResponse>;
-    }
-    interface AccountsResource {
-      /** Gets one account by ID. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Account ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<Account>;
-      /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
-        active?: boolean;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Select only accounts with these IDs. */
-        ids?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Value of the nextPageToken from the previous result page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "account*2015" will return objects with names like "account June 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account". */
-        searchString?: string;
-        /** Field by which to sort the list. */
-        sortField?: 'ID' | 'NAME';
-        /** Order of sorted results. */
-        sortOrder?: 'ASCENDING' | 'DESCENDING';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<AccountsListResponse>;
-      /** Updates an existing account. This method supports patch semantics. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Required. Account ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Account;
-      }): Request<Account>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Required. Account ID. */
-          id: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Account,
-      ): Request<Account>;
-      /** Updates an existing account. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Account;
-      }): Request<Account>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Account,
-      ): Request<Account>;
-    }
-    interface AccountUserProfilesResource {
+    };
+
+    const accountUserProfiles: {
       /** Gets one account user profile by ID. */
       get(request?: {
         /** V1 error format. */
@@ -5378,8 +5205,202 @@ declare namespace gapi.client {
         },
         body: AccountUserProfile,
       ): Request<AccountUserProfile>;
-    }
-    interface AdsResource {
+    };
+
+    const accounts: {
+      /** Gets one account by ID. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Account ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Account>;
+      /** Retrieves the list of accounts, possibly filtered. This method supports paging. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Select only active accounts. Don't set this field to select both active and non-active accounts. */
+        active?: boolean;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Select only accounts with these IDs. */
+        ids?: string | string[];
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Maximum number of results to return. */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Value of the nextPageToken from the previous result page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "account*2015" will return objects with names like "account June 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account". */
+        searchString?: string;
+        /** Field by which to sort the list. */
+        sortField?: 'ID' | 'NAME';
+        /** Order of sorted results. */
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<AccountsListResponse>;
+      /** Updates an existing account. This method supports patch semantics. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. Account ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Account;
+      }): Request<Account>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. Account ID. */
+          id: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Account,
+      ): Request<Account>;
+      /** Updates an existing account. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Account;
+      }): Request<Account>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Account,
+      ): Request<Account>;
+    };
+
+    const ads: {
       /** Gets one ad by ID. */
       get(request?: {
         /** V1 error format. */
@@ -5678,8 +5699,9 @@ declare namespace gapi.client {
         },
         body: Ad,
       ): Request<Ad>;
-    }
-    interface AdvertiserGroupsResource {
+    };
+
+    const advertiserGroups: {
       /** Deletes an existing advertiser group. */
       delete(request?: {
         /** V1 error format. */
@@ -5955,8 +5977,9 @@ declare namespace gapi.client {
         },
         body: AdvertiserGroup,
       ): Request<AdvertiserGroup>;
-    }
-    interface AdvertiserInvoicesResource {
+    };
+
+    const advertiserInvoices: {
       /** Retrieves a list of invoices for a particular issue month. The api only works if the billing profile invoice level is set to either advertiser or campaign non-consolidated invoice level. */
       list(request?: {
         /** V1 error format. */
@@ -5992,8 +6015,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AdvertiserInvoicesListResponse>;
-    }
-    interface AdvertiserLandingPagesResource {
+    };
+
+    const advertiserLandingPages: {
       /** Gets one landing page by ID. */
       get(request?: {
         /** V1 error format. */
@@ -6248,8 +6272,9 @@ declare namespace gapi.client {
         },
         body: LandingPage,
       ): Request<LandingPage>;
-    }
-    interface AdvertisersResource {
+    };
+
+    const advertisers: {
       /** Gets one advertiser by ID. */
       get(request?: {
         /** V1 error format. */
@@ -6508,8 +6533,9 @@ declare namespace gapi.client {
         },
         body: Advertiser,
       ): Request<Advertiser>;
-    }
-    interface BillingAssignmentsResource {
+    };
+
+    const billingAssignments: {
       /** Inserts a new billing assignment and returns the new assignment. Only one of advertiser_id or campaign_id is support per request. If the new assignment has no effect (assigning a campaign to the parent advertiser billing profile or assigning an advertiser to the account billing profile), no assignment will be returned. */
       insert(request: {
         /** V1 error format. */
@@ -6601,8 +6627,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BillingAssignmentsListResponse>;
-    }
-    interface BillingProfilesResource {
+    };
+
+    const billingProfiles: {
       /** Gets one billing profile by ID. */
       get(request?: {
         /** V1 error format. */
@@ -6741,8 +6768,9 @@ declare namespace gapi.client {
         },
         body: BillingProfile,
       ): Request<BillingProfile>;
-    }
-    interface BillingRatesResource {
+    };
+
+    const billingRates: {
       /** Retrieves a list of billing rates. This method supports paging. */
       list(request?: {
         /** V1 error format. */
@@ -6772,8 +6800,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BillingRatesListResponse>;
-    }
-    interface BrowsersResource {
+    };
+
+    const browsers: {
       /** Retrieves a list of browsers. */
       list(request?: {
         /** V1 error format. */
@@ -6801,8 +6830,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BrowsersListResponse>;
-    }
-    interface CampaignCreativeAssociationsResource {
+    };
+
+    const campaignCreativeAssociations: {
       /** Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist already. */
       insert(request: {
         /** V1 error format. */
@@ -6900,8 +6930,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CampaignCreativeAssociationsListResponse>;
-    }
-    interface CampaignsResource {
+    };
+
+    const campaigns: {
       /** Gets one campaign by ID. */
       get(request?: {
         /** V1 error format. */
@@ -7162,8 +7193,9 @@ declare namespace gapi.client {
         },
         body: Campaign,
       ): Request<Campaign>;
-    }
-    interface ChangeLogsResource {
+    };
+
+    const changeLogs: {
       /** Gets one change log by ID. */
       get(request?: {
         /** V1 error format. */
@@ -7300,8 +7332,9 @@ declare namespace gapi.client {
         /** Select only change logs with these user profile IDs. */
         userProfileIds?: string | string[];
       }): Request<ChangeLogsListResponse>;
-    }
-    interface CitiesResource {
+    };
+
+    const cities: {
       /** Retrieves a list of cities, possibly filtered. */
       list(request?: {
         /** V1 error format. */
@@ -7337,8 +7370,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CitiesListResponse>;
-    }
-    interface ConnectionTypesResource {
+    };
+
+    const connectionTypes: {
       /** Gets one connection type by ID. */
       get(request?: {
         /** V1 error format. */
@@ -7395,8 +7429,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ConnectionTypesListResponse>;
-    }
-    interface ContentCategoriesResource {
+    };
+
+    const contentCategories: {
       /** Deletes an existing content category. */
       delete(request?: {
         /** V1 error format. */
@@ -7672,8 +7707,9 @@ declare namespace gapi.client {
         },
         body: ContentCategory,
       ): Request<ContentCategory>;
-    }
-    interface ConversionsResource {
+    };
+
+    const conversions: {
       /** Inserts conversions. */
       batchinsert(request: {
         /** V1 error format. */
@@ -7790,8 +7826,9 @@ declare namespace gapi.client {
         },
         body: ConversionsBatchUpdateRequest,
       ): Request<ConversionsBatchUpdateResponse>;
-    }
-    interface CountriesResource {
+    };
+
+    const countries: {
       /** Gets one country by ID. */
       get(request?: {
         /** V1 error format. */
@@ -7848,8 +7885,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CountriesListResponse>;
-    }
-    interface CreativeAssetsResource {
+    };
+
+    const creativeAssets: {
       /** Inserts a new creative asset. */
       insert(request: {
         /** V1 error format. */
@@ -7912,287 +7950,9 @@ declare namespace gapi.client {
         },
         body: CreativeAssetMetadata,
       ): Request<CreativeAssetMetadata>;
-    }
-    interface CreativeFieldsResource {
-      /** Deletes an existing creative field. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Creative Field ID */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Gets one creative field by ID. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Creative Field ID */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CreativeField>;
-      /** Inserts a new creative field. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CreativeField;
-      }): Request<CreativeField>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CreativeField,
-      ): Request<CreativeField>;
-      /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Select only creative fields that belong to these advertisers. */
-        advertiserIds?: string | string[];
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Select only creative fields with these IDs. */
-        ids?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Value of the nextPageToken from the previous result page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will return creative fields with names like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield", "creativefield 2015", or simply "creativefield". */
-        searchString?: string;
-        /** Field by which to sort the list. */
-        sortField?: 'ID' | 'NAME';
-        /** Order of sorted results. */
-        sortOrder?: 'ASCENDING' | 'DESCENDING';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<CreativeFieldsListResponse>;
-      /** Updates an existing creative field. This method supports patch semantics. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** CreativeField ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CreativeField;
-      }): Request<CreativeField>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** CreativeField ID. */
-          id: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CreativeField,
-      ): Request<CreativeField>;
-      /** Updates an existing creative field. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: CreativeField;
-      }): Request<CreativeField>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: CreativeField,
-      ): Request<CreativeField>;
-    }
-    interface CreativeFieldValuesResource {
+    };
+
+    const creativeFieldValues: {
       /** Deletes an existing creative field value. */
       delete(request?: {
         /** V1 error format. */
@@ -8486,8 +8246,289 @@ declare namespace gapi.client {
         },
         body: CreativeFieldValue,
       ): Request<CreativeFieldValue>;
-    }
-    interface CreativeGroupsResource {
+    };
+
+    const creativeFields: {
+      /** Deletes an existing creative field. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Creative Field ID */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<void>;
+      /** Gets one creative field by ID. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Creative Field ID */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<CreativeField>;
+      /** Inserts a new creative field. */
+      insert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CreativeField;
+      }): Request<CreativeField>;
+      insert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CreativeField,
+      ): Request<CreativeField>;
+      /** Retrieves a list of creative fields, possibly filtered. This method supports paging. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Select only creative fields that belong to these advertisers. */
+        advertiserIds?: string | string[];
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Select only creative fields with these IDs. */
+        ids?: string | string[];
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Maximum number of results to return. */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Value of the nextPageToken from the previous result page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will return creative fields with names like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield", "creativefield 2015", or simply "creativefield". */
+        searchString?: string;
+        /** Field by which to sort the list. */
+        sortField?: 'ID' | 'NAME';
+        /** Order of sorted results. */
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<CreativeFieldsListResponse>;
+      /** Updates an existing creative field. This method supports patch semantics. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** CreativeField ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CreativeField;
+      }): Request<CreativeField>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** CreativeField ID. */
+          id: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CreativeField,
+      ): Request<CreativeField>;
+      /** Updates an existing creative field. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CreativeField;
+      }): Request<CreativeField>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CreativeField,
+      ): Request<CreativeField>;
+    };
+
+    const creativeGroups: {
       /** Gets one creative group by ID. */
       get(request?: {
         /** V1 error format. */
@@ -8738,8 +8779,9 @@ declare namespace gapi.client {
         },
         body: CreativeGroup,
       ): Request<CreativeGroup>;
-    }
-    interface CreativesResource {
+    };
+
+    const creatives: {
       /** Gets one creative by ID. */
       get(request?: {
         /** V1 error format. */
@@ -9058,8 +9100,9 @@ declare namespace gapi.client {
         },
         body: Creative,
       ): Request<Creative>;
-    }
-    interface DimensionValuesResource {
+    };
+
+    const dimensionValues: {
       /** Retrieves list of report dimension values for a list of filters. */
       query(request: {
         /** V1 error format. */
@@ -9126,8 +9169,9 @@ declare namespace gapi.client {
         },
         body: DimensionValueRequest,
       ): Request<DimensionValueList>;
-    }
-    interface DirectorySitesResource {
+    };
+
+    const directorySites: {
       /** Gets one directory site by ID. */
       get(request?: {
         /** V1 error format. */
@@ -9264,8 +9308,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DirectorySitesListResponse>;
-    }
-    interface DynamicFeedsResource {
+    };
+
+    const dynamicFeeds: {
       /** Gets a dynamic feed by ID. */
       get(request?: {
         /** V1 error format. */
@@ -9428,8 +9473,9 @@ declare namespace gapi.client {
         },
         body: DynamicFeed,
       ): Request<DynamicFeed>;
-    }
-    interface DynamicProfilesResource {
+    };
+
+    const dynamicProfiles: {
       /** Generates code for a dynamic profile, which will need unescaping. */
       generateCode(request?: {
         /** V1 error format. */
@@ -9619,8 +9665,9 @@ declare namespace gapi.client {
         },
         body: DynamicProfile,
       ): Request<DynamicProfile>;
-    }
-    interface DynamicTargetingKeysResource {
+    };
+
+    const dynamicTargetingKeys: {
       /** Deletes an existing dynamic targeting key. */
       delete(request?: {
         /** V1 error format. */
@@ -9755,8 +9802,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<DynamicTargetingKeysListResponse>;
-    }
-    interface EventTagsResource {
+    };
+
+    const eventTags: {
       /** Deletes an existing event tag. */
       delete(request?: {
         /** V1 error format. */
@@ -10048,8 +10096,9 @@ declare namespace gapi.client {
         },
         body: EventTag,
       ): Request<EventTag>;
-    }
-    interface FilesResource {
+    };
+
+    const files: {
       /** Retrieves a report file by its report ID and file ID. This method supports media download. */
       get(request?: {
         /** V1 error format. */
@@ -10116,8 +10165,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<FileList>;
-    }
-    interface FloodlightActivitiesResource {
+    };
+
+    const floodlightActivities: {
       /** Deletes an existing floodlight activity. */
       delete(request?: {
         /** V1 error format. */
@@ -10436,8 +10486,9 @@ declare namespace gapi.client {
         },
         body: FloodlightActivity,
       ): Request<FloodlightActivity>;
-    }
-    interface FloodlightActivityGroupsResource {
+    };
+
+    const floodlightActivityGroups: {
       /** Gets one floodlight activity group by ID. */
       get(request?: {
         /** V1 error format. */
@@ -10690,8 +10741,9 @@ declare namespace gapi.client {
         },
         body: FloodlightActivityGroup,
       ): Request<FloodlightActivityGroup>;
-    }
-    interface FloodlightConfigurationsResource {
+    };
+
+    const floodlightConfigurations: {
       /** Gets one floodlight configuration by ID. */
       get(request?: {
         /** V1 error format. */
@@ -10870,8 +10922,9 @@ declare namespace gapi.client {
         },
         body: FloodlightConfiguration,
       ): Request<FloodlightConfiguration>;
-    }
-    interface LanguagesResource {
+    };
+
+    const languages: {
       /** Retrieves a list of languages. */
       list(request?: {
         /** V1 error format. */
@@ -10899,8 +10952,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<LanguagesListResponse>;
-    }
-    interface MetrosResource {
+    };
+
+    const metros: {
       /** Retrieves a list of metros. */
       list(request?: {
         /** V1 error format. */
@@ -10928,8 +10982,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<MetrosListResponse>;
-    }
-    interface MobileAppsResource {
+    };
+
+    const mobileApps: {
       /** Gets one mobile app by ID. */
       get(request?: {
         /** V1 error format. */
@@ -11020,8 +11075,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<MobileAppsListResponse>;
-    }
-    interface MobileCarriersResource {
+    };
+
+    const mobileCarriers: {
       /** Gets one mobile carrier by ID. */
       get(request?: {
         /** V1 error format. */
@@ -11078,66 +11134,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<MobileCarriersListResponse>;
-    }
-    interface OperatingSystemsResource {
-      /** Gets one operating system by DART ID. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Operating system DART ID. */
-        dartId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<OperatingSystem>;
-      /** Retrieves a list of operating systems. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<OperatingSystemsListResponse>;
-    }
-    interface OperatingSystemVersionsResource {
+    };
+
+    const operatingSystemVersions: {
       /** Gets one operating system version by ID. */
       get(request?: {
         /** V1 error format. */
@@ -11194,8 +11193,68 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<OperatingSystemVersionsListResponse>;
-    }
-    interface PlacementGroupsResource {
+    };
+
+    const operatingSystems: {
+      /** Gets one operating system by DART ID. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Operating system DART ID. */
+        dartId: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<OperatingSystem>;
+      /** Retrieves a list of operating systems. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<OperatingSystemsListResponse>;
+    };
+
+    const placementGroups: {
       /** Gets one placement group by ID. */
       get(request?: {
         /** V1 error format. */
@@ -11494,8 +11553,287 @@ declare namespace gapi.client {
         },
         body: PlacementGroup,
       ): Request<PlacementGroup>;
-    }
-    interface PlacementsResource {
+    };
+
+    const placementStrategies: {
+      /** Deletes an existing placement strategy. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Placement strategy ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<void>;
+      /** Gets one placement strategy by ID. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Placement strategy ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<PlacementStrategy>;
+      /** Inserts a new placement strategy. */
+      insert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PlacementStrategy;
+      }): Request<PlacementStrategy>;
+      insert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PlacementStrategy,
+      ): Request<PlacementStrategy>;
+      /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Select only placement strategies with these IDs. */
+        ids?: string | string[];
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Maximum number of results to return. */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Value of the nextPageToken from the previous result page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "placementstrategy*2015" will return objects with names like "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy", "placementstrategy 2015", or simply "placementstrategy". */
+        searchString?: string;
+        /** Field by which to sort the list. */
+        sortField?: 'ID' | 'NAME';
+        /** Order of sorted results. */
+        sortOrder?: 'ASCENDING' | 'DESCENDING';
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<PlacementStrategiesListResponse>;
+      /** Updates an existing placement strategy. This method supports patch semantics. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. PlacementStrategy ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PlacementStrategy;
+      }): Request<PlacementStrategy>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. PlacementStrategy ID. */
+          id: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PlacementStrategy,
+      ): Request<PlacementStrategy>;
+      /** Updates an existing placement strategy. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PlacementStrategy;
+      }): Request<PlacementStrategy>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PlacementStrategy,
+      ): Request<PlacementStrategy>;
+    };
+
+    const placements: {
       /** Generates tags for a placement. */
       generatetags(request?: {
         /** V1 error format. */
@@ -11895,285 +12233,9 @@ declare namespace gapi.client {
         },
         body: Placement,
       ): Request<Placement>;
-    }
-    interface PlacementStrategiesResource {
-      /** Deletes an existing placement strategy. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Placement strategy ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<void>;
-      /** Gets one placement strategy by ID. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Placement strategy ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PlacementStrategy>;
-      /** Inserts a new placement strategy. */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PlacementStrategy;
-      }): Request<PlacementStrategy>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PlacementStrategy,
-      ): Request<PlacementStrategy>;
-      /** Retrieves a list of placement strategies, possibly filtered. This method supports paging. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Select only placement strategies with these IDs. */
-        ids?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Value of the nextPageToken from the previous result page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "placementstrategy*2015" will return objects with names like "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy", "placementstrategy 2015", or simply "placementstrategy". */
-        searchString?: string;
-        /** Field by which to sort the list. */
-        sortField?: 'ID' | 'NAME';
-        /** Order of sorted results. */
-        sortOrder?: 'ASCENDING' | 'DESCENDING';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<PlacementStrategiesListResponse>;
-      /** Updates an existing placement strategy. This method supports patch semantics. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Required. PlacementStrategy ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PlacementStrategy;
-      }): Request<PlacementStrategy>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Required. PlacementStrategy ID. */
-          id: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PlacementStrategy,
-      ): Request<PlacementStrategy>;
-      /** Updates an existing placement strategy. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: PlacementStrategy;
-      }): Request<PlacementStrategy>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: PlacementStrategy,
-      ): Request<PlacementStrategy>;
-    }
-    interface PlatformTypesResource {
+    };
+
+    const platformTypes: {
       /** Gets one platform type by ID. */
       get(request?: {
         /** V1 error format. */
@@ -12230,8 +12292,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<PlatformTypesListResponse>;
-    }
-    interface PostalCodesResource {
+    };
+
+    const postalCodes: {
       /** Gets one postal code by ID. */
       get(request?: {
         /** V1 error format. */
@@ -12288,8 +12351,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<PostalCodesListResponse>;
-    }
-    interface RegionsResource {
+    };
+
+    const regions: {
       /** Retrieves a list of regions. */
       list(request?: {
         /** V1 error format. */
@@ -12317,8 +12381,161 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<RegionsListResponse>;
-    }
-    interface RemarketingListsResource {
+    };
+
+    const remarketingListShares: {
+      /** Gets one remarketing list share by remarketing list ID. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Remarketing list ID. */
+        remarketingListId: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<RemarketingListShare>;
+      /** Updates an existing remarketing list share. This method supports patch semantics. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. RemarketingList ID. */
+        id: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RemarketingListShare;
+      }): Request<RemarketingListShare>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. RemarketingList ID. */
+          id: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RemarketingListShare,
+      ): Request<RemarketingListShare>;
+      /** Updates an existing remarketing list share. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** User profile ID associated with this request. */
+        profileId: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RemarketingListShare;
+      }): Request<RemarketingListShare>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** User profile ID associated with this request. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RemarketingListShare,
+      ): Request<RemarketingListShare>;
+    };
+
+    const remarketingLists: {
       /** Gets one remarketing list by ID. */
       get(request?: {
         /** V1 error format. */
@@ -12569,159 +12786,9 @@ declare namespace gapi.client {
         },
         body: RemarketingList,
       ): Request<RemarketingList>;
-    }
-    interface RemarketingListSharesResource {
-      /** Gets one remarketing list share by remarketing list ID. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Remarketing list ID. */
-        remarketingListId: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<RemarketingListShare>;
-      /** Updates an existing remarketing list share. This method supports patch semantics. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Required. RemarketingList ID. */
-        id: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RemarketingListShare;
-      }): Request<RemarketingListShare>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Required. RemarketingList ID. */
-          id: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RemarketingListShare,
-      ): Request<RemarketingListShare>;
-      /** Updates an existing remarketing list share. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** User profile ID associated with this request. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RemarketingListShare;
-      }): Request<RemarketingListShare>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** User profile ID associated with this request. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RemarketingListShare,
-      ): Request<RemarketingListShare>;
-    }
-    interface ReportDataResource {
+    };
+
+    const reportData: {
       /** Executes an ad-hoc query and returns structured JSON payload data. */
       query(request: {
         /** V1 error format. */
@@ -12780,138 +12847,9 @@ declare namespace gapi.client {
         },
         body: ReportDataQueryRequest,
       ): Request<ReportDataResponse>;
-    }
-    interface CompatibleFieldsResource {
-      /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
-      query(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The Campaign Manager 360 user profile ID. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: Report;
-      }): Request<CompatibleFields>;
-      query(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** The Campaign Manager 360 user profile ID. */
-          profileId: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: Report,
-      ): Request<CompatibleFields>;
-    }
-    interface FilesResource {
-      /** Retrieves a report file by its report ID and file ID. This method supports media download. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The ID of the report file. */
-        fileId: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The Campaign Manager 360 user profile ID. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The ID of the report. */
-        reportId: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<File>;
-      /** Lists files for a report. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Maximum number of results to return. */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The value of the nextToken from the previous result page. */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The Campaign Manager 360 user profile ID. */
-        profileId: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The ID of the parent report. */
-        reportId: string;
-        /** The field by which to sort the list. */
-        sortField?: 'ID' | 'LAST_MODIFIED_TIME';
-        /** Order of sorted results. */
-        sortOrder?: 'ASCENDING' | 'DESCENDING';
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<FileList>;
-    }
-    interface ReportsResource {
+    };
+
+    const reports: {
       /** Deletes a report by its ID. */
       delete(request?: {
         /** V1 error format. */
@@ -13158,10 +13096,139 @@ declare namespace gapi.client {
         },
         body: Report,
       ): Request<Report>;
-      compatibleFields: CompatibleFieldsResource;
-      files: FilesResource;
-    }
-    interface SitesResource {
+      compatibleFields: {
+        /** Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions. */
+        query(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The Campaign Manager 360 user profile ID. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: Report;
+        }): Request<CompatibleFields>;
+        query(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** The Campaign Manager 360 user profile ID. */
+            profileId: string;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: Report,
+        ): Request<CompatibleFields>;
+      };
+      files: {
+        /** Retrieves a report file by its report ID and file ID. This method supports media download. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** The ID of the report file. */
+          fileId: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The Campaign Manager 360 user profile ID. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The ID of the report. */
+          reportId: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<File>;
+        /** Lists files for a report. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Maximum number of results to return. */
+          maxResults?: number;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The value of the nextToken from the previous result page. */
+          pageToken?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The Campaign Manager 360 user profile ID. */
+          profileId: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The ID of the parent report. */
+          reportId: string;
+          /** The field by which to sort the list. */
+          sortField?: 'ID' | 'LAST_MODIFIED_TIME';
+          /** Order of sorted results. */
+          sortOrder?: 'ASCENDING' | 'DESCENDING';
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<FileList>;
+      };
+    };
+
+    const sites: {
       /** Gets one site by ID. */
       get(request?: {
         /** V1 error format. */
@@ -13426,8 +13493,9 @@ declare namespace gapi.client {
         },
         body: Site,
       ): Request<Site>;
-    }
-    interface SizesResource {
+    };
+
+    const sizes: {
       /** Gets one size by ID. */
       get(request?: {
         /** V1 error format. */
@@ -13550,8 +13618,9 @@ declare namespace gapi.client {
         /** Select only sizes with this width. */
         width?: number;
       }): Request<SizesListResponse>;
-    }
-    interface StudioCreativeAssetsResource {
+    };
+
+    const studioCreativeAssets: {
       /** Inserts a new studio creative asset. Requests to upload an asset file must be sent to the upload URI using multipart media upload (or resumable media upload). For [multipart uploads](https://developers.google.com/doubleclick-advertisers/upload#multipart) (`uploadType=multipart`), the request uses `multipart/related` and includes two parts: * **Metadata**: A JSON object representing DfareportingStudioCreativeAssetsInsertRequest with `studioAdvertiserId`, and optional `studioAccountId` and `studioCreativeId`. * **Media**: The binary data of the asset file, specifying the `Content-Type` of the asset and a `Content-Disposition` header with `name="media"` and `filename=""` (for example, `Content-Disposition: form-data; name="media"; filename="asset.jpg"`). */
       insert(request: {
         /** V1 error format. */
@@ -13606,8 +13675,9 @@ declare namespace gapi.client {
         },
         body: DfareportingStudioCreativeAssetsInsertRequest,
       ): Request<StudioCreativeAssetsResponse>;
-    }
-    interface StudioCreativesResource {
+    };
+
+    const studioCreatives: {
       /** Gets a studio creative by ID. */
       get(request?: {
         /** V1 error format. */
@@ -13716,8 +13786,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<void>;
-    }
-    interface SubaccountsResource {
+    };
+
+    const subaccounts: {
       /** Gets one subaccount by ID. */
       get(request?: {
         /** V1 error format. */
@@ -13964,8 +14035,9 @@ declare namespace gapi.client {
         },
         body: Subaccount,
       ): Request<Subaccount>;
-    }
-    interface TargetableRemarketingListsResource {
+    };
+
+    const targetableRemarketingLists: {
       /** Gets one remarketing list by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14036,8 +14108,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TargetableRemarketingListsListResponse>;
-    }
-    interface TargetingTemplatesResource {
+    };
+
+    const targetingTemplates: {
       /** Gets one targeting template by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14286,8 +14359,9 @@ declare namespace gapi.client {
         },
         body: TargetingTemplate,
       ): Request<TargetingTemplate>;
-    }
-    interface TvCampaignDetailsResource {
+    };
+
+    const tvCampaignDetails: {
       /** Gets one TvCampaignDetail by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14333,8 +14407,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TvCampaignDetail>;
-    }
-    interface TvCampaignSummariesResource {
+    };
+
+    const tvCampaignSummaries: {
       /** Retrieves a list of TV campaign summaries. */
       list(request?: {
         /** V1 error format. */
@@ -14380,8 +14455,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TvCampaignSummariesListResponse>;
-    }
-    interface UserProfilesResource {
+    };
+
+    const userProfiles: {
       /** Gets one user profile by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14434,8 +14510,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<UserProfileList>;
-    }
-    interface UserRolePermissionGroupsResource {
+    };
+
+    const userRolePermissionGroups: {
       /** Gets one user role permission group by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14492,8 +14569,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<UserRolePermissionGroupsListResponse>;
-    }
-    interface UserRolePermissionsResource {
+    };
+
+    const userRolePermissions: {
       /** Gets one user role permission by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14552,8 +14630,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<UserRolePermissionsListResponse>;
-    }
-    interface UserRolesResource {
+    };
+
+    const userRoles: {
       /** Deletes an existing user role. */
       delete(request?: {
         /** V1 error format. */
@@ -14833,8 +14912,9 @@ declare namespace gapi.client {
         },
         body: UserRole,
       ): Request<UserRole>;
-    }
-    interface VideoFormatsResource {
+    };
+
+    const videoFormats: {
       /** Gets one video format by ID. */
       get(request?: {
         /** V1 error format. */
@@ -14891,140 +14971,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<VideoFormatsListResponse>;
-    }
-
-    const accountActiveAdSummaries: AccountActiveAdSummariesResource;
-
-    const accountPermissionGroups: AccountPermissionGroupsResource;
-
-    const accountPermissions: AccountPermissionsResource;
-
-    const accountUserProfiles: AccountUserProfilesResource;
-
-    const accounts: AccountsResource;
-
-    const ads: AdsResource;
-
-    const advertiserGroups: AdvertiserGroupsResource;
-
-    const advertiserInvoices: AdvertiserInvoicesResource;
-
-    const advertiserLandingPages: AdvertiserLandingPagesResource;
-
-    const advertisers: AdvertisersResource;
-
-    const billingAssignments: BillingAssignmentsResource;
-
-    const billingProfiles: BillingProfilesResource;
-
-    const billingRates: BillingRatesResource;
-
-    const browsers: BrowsersResource;
-
-    const campaignCreativeAssociations: CampaignCreativeAssociationsResource;
-
-    const campaigns: CampaignsResource;
-
-    const changeLogs: ChangeLogsResource;
-
-    const cities: CitiesResource;
-
-    const connectionTypes: ConnectionTypesResource;
-
-    const contentCategories: ContentCategoriesResource;
-
-    const conversions: ConversionsResource;
-
-    const countries: CountriesResource;
-
-    const creativeAssets: CreativeAssetsResource;
-
-    const creativeFieldValues: CreativeFieldValuesResource;
-
-    const creativeFields: CreativeFieldsResource;
-
-    const creativeGroups: CreativeGroupsResource;
-
-    const creatives: CreativesResource;
-
-    const dimensionValues: DimensionValuesResource;
-
-    const directorySites: DirectorySitesResource;
-
-    const dynamicFeeds: DynamicFeedsResource;
-
-    const dynamicProfiles: DynamicProfilesResource;
-
-    const dynamicTargetingKeys: DynamicTargetingKeysResource;
-
-    const eventTags: EventTagsResource;
-
-    const files: FilesResource;
-
-    const floodlightActivities: FloodlightActivitiesResource;
-
-    const floodlightActivityGroups: FloodlightActivityGroupsResource;
-
-    const floodlightConfigurations: FloodlightConfigurationsResource;
-
-    const languages: LanguagesResource;
-
-    const metros: MetrosResource;
-
-    const mobileApps: MobileAppsResource;
-
-    const mobileCarriers: MobileCarriersResource;
-
-    const operatingSystemVersions: OperatingSystemVersionsResource;
-
-    const operatingSystems: OperatingSystemsResource;
-
-    const placementGroups: PlacementGroupsResource;
-
-    const placementStrategies: PlacementStrategiesResource;
-
-    const placements: PlacementsResource;
-
-    const platformTypes: PlatformTypesResource;
-
-    const postalCodes: PostalCodesResource;
-
-    const regions: RegionsResource;
-
-    const remarketingListShares: RemarketingListSharesResource;
-
-    const remarketingLists: RemarketingListsResource;
-
-    const reportData: ReportDataResource;
-
-    const reports: ReportsResource;
-
-    const sites: SitesResource;
-
-    const sizes: SizesResource;
-
-    const studioCreativeAssets: StudioCreativeAssetsResource;
-
-    const studioCreatives: StudioCreativesResource;
-
-    const subaccounts: SubaccountsResource;
-
-    const targetableRemarketingLists: TargetableRemarketingListsResource;
-
-    const targetingTemplates: TargetingTemplatesResource;
-
-    const tvCampaignDetails: TvCampaignDetailsResource;
-
-    const tvCampaignSummaries: TvCampaignSummariesResource;
-
-    const userProfiles: UserProfilesResource;
-
-    const userRolePermissionGroups: UserRolePermissionGroupsResource;
-
-    const userRolePermissions: UserRolePermissionsResource;
-
-    const userRoles: UserRolesResource;
-
-    const videoFormats: VideoFormatsResource;
+    };
   }
 }

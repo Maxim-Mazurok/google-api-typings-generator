@@ -52,8 +52,8 @@ gapi.load('client', async () => {
         project: 'Test string',
       },
       {
-        backupKind: 'Test string',
-        databaseVersion: 'Test string',
+        backupKind: 'SQL_BACKUP_KIND_UNSPECIFIED',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         description: 'Test string',
         diskEncryptionConfiguration: {
           cmekSourceLogEncryptionEnforced: true,
@@ -79,9 +79,9 @@ gapi.load('client', async () => {
         maxChargeableBytes: 'Test string',
         selfLink: 'Test string',
         startTime: 'Test string',
-        status: 'Test string',
+        status: 'SQL_BACKUP_RUN_STATUS_UNSPECIFIED',
         timeZone: 'Test string',
-        type: 'Test string',
+        type: 'SQL_BACKUP_RUN_TYPE_UNSPECIFIED',
         windowStartTime: 'Test string',
       },
     );
@@ -102,9 +102,9 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-        backupKind: 'Test string',
+        backupKind: 'SQL_BACKUP_KIND_UNSPECIFIED',
         backupRun: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         description: 'Test string',
         error: {
           code: 'Test string',
@@ -116,14 +116,14 @@ gapi.load('client', async () => {
         instanceDeletionTime: 'Test string',
         instanceSettings: {
           availableMaintenanceVersions: ['Test string'],
-          backendType: 'Test string',
+          backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
           connectionName: 'Test string',
           createTime: 'Test string',
           currentDiskSize: 'Test string',
-          databaseCenterIntegration: 'Test string',
+          databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
           databaseCenterIntegrationEnabled: true,
           databaseInstalledVersion: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
           deploymentInfo: {
             deploymentId: 'Test string',
             source: {
@@ -133,7 +133,7 @@ gapi.load('client', async () => {
                 region: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               sourceId: {
                 name: 'Test string',
@@ -155,10 +155,10 @@ gapi.load('client', async () => {
           dnsName: 'Test string',
           dnsNames: [
             {
-              connectionType: 'Test string',
-              dnsScope: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+              dnsScope: 'DNS_SCOPE_UNSPECIFIED',
               name: 'Test string',
-              recordManager: 'Test string',
+              recordManager: 'RECORD_MANAGER_UNSPECIFIED',
             },
           ],
           etag: 'Test string',
@@ -176,12 +176,12 @@ gapi.load('client', async () => {
             oomSessionCancelEnabled: true,
           },
           includeReplicasForMajorVersionUpgrade: true,
-          instanceType: 'Test string',
+          instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
           ipAddresses: [
             {
               ipAddress: 'Test string',
               timeToRetire: 'Test string',
-              type: 'Test string',
+              type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
             },
           ],
           ipv6Address: 'Test string',
@@ -196,10 +196,10 @@ gapi.load('client', async () => {
               dnsName: 'Test string',
               dnsNames: [
                 {
-                  connectionType: 'Test string',
-                  dnsScope: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                  dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                   name: 'Test string',
-                  recordManager: 'Test string',
+                  recordManager: 'RECORD_MANAGER_UNSPECIFIED',
                 },
               ],
               gceZone: 'Test string',
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
               name: 'Test string',
@@ -216,16 +216,16 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscServiceAttachmentLink: 'Test string',
-              state: 'Test string',
+              state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
             },
           ],
           onPremisesConfiguration: {
@@ -247,12 +247,12 @@ gapi.load('client', async () => {
               project: 'Test string',
               region: 'Test string',
             },
-            sslOption: 'Test string',
+            sslOption: 'SSL_OPTION_UNSPECIFIED',
             username: 'Test string',
           },
           outOfDiskReport: {
             sqlMinRecommendedIncreaseSizeGb: 42,
-            sqlOutOfDiskState: 'Test string',
+            sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
           },
           primaryDnsName: 'Test string',
           project: 'Test string',
@@ -307,13 +307,13 @@ gapi.load('client', async () => {
           serviceAccountEmailAddress: 'Test string',
           settings: {
             acceleratedReplicaMode: true,
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             activeDirectoryConfig: {
               adminCredentialSecretName: 'Test string',
               dnsServers: ['Test string'],
               domain: 'Test string',
               kind: 'Test string',
-              mode: 'Test string',
+              mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
               organizationalUnit: 'Test string',
             },
             advancedMachineFeatures: {
@@ -321,13 +321,13 @@ gapi.load('client', async () => {
             },
             authorizedGaeApplications: ['Test string'],
             autoUpgradeEnabled: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             backupConfiguration: {
               backupRetentionSettings: {
                 retainedBackups: 42,
-                retentionUnit: 'Test string',
+                retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
               },
-              backupTier: 'Test string',
+              backupTier: 'BACKUP_TIER_UNSPECIFIED',
               binaryLogEnabled: true,
               enabled: true,
               kind: 'Test string',
@@ -335,7 +335,8 @@ gapi.load('client', async () => {
               pointInTimeRecoveryEnabled: true,
               replicationLogArchivingEnabled: true,
               startTime: 'Test string',
-              transactionalLogStorageState: 'Test string',
+              transactionalLogStorageState:
+                'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
               transactionLogRetentionDays: 42,
             },
             collation: 'Test string',
@@ -349,9 +350,9 @@ gapi.load('client', async () => {
               ],
               poolerCount: 42,
             },
-            connectorEnforcement: 'Test string',
+            connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
             crashSafeReplicationEnabled: true,
-            dataApiAccess: 'Test string',
+            dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
             databaseFlags: [
               {
                 name: 'Test string',
@@ -365,7 +366,7 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             deletionProtectionEnabled: true,
             denyMaintenancePeriods: [
               {
@@ -374,7 +375,7 @@ gapi.load('client', async () => {
                 time: 'Test string',
               },
             ],
-            edition: 'Test string',
+            edition: 'EDITION_UNSPECIFIED',
             enableDataplexIntegration: true,
             enableGoogleMlIntegration: true,
             entraidConfig: {
@@ -417,12 +418,12 @@ gapi.load('client', async () => {
                     consumerNetwork: 'Test string',
                     consumerNetworkStatus: 'Test string',
                     consumerProject: 'Test string',
-                    instanceAutoDnsStatus: 'Test string',
+                    instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                     ipAddress: 'Test string',
                     serviceConnectionPolicy: 'Test string',
                     serviceConnectionPolicyCreationResult: 'Test string',
                     status: 'Test string',
-                    writeEndpointAutoDnsStatus: 'Test string',
+                    writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   },
                 ],
                 pscAutoDnsEnabled: true,
@@ -430,10 +431,11 @@ gapi.load('client', async () => {
                 pscWriteEndpointDnsEnabled: true,
               },
               requireSsl: true,
-              serverCaMode: 'Test string',
+              serverCaMode: 'CA_MODE_UNSPECIFIED',
               serverCaPool: 'Test string',
-              serverCertificateRotationMode: 'Test string',
-              sslMode: 'Test string',
+              serverCertificateRotationMode:
+                'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+              sslMode: 'SSL_MODE_UNSPECIFIED',
             },
             kind: 'Test string',
             locationPreference: {
@@ -446,10 +448,10 @@ gapi.load('client', async () => {
               day: 42,
               hour: 42,
               kind: 'Test string',
-              updateTrack: 'Test string',
+              updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
             },
             passwordValidationPolicy: {
-              complexity: 'Test string',
+              complexity: 'COMPLEXITY_UNSPECIFIED',
               disallowCompromisedCredentials: true,
               disallowUsernameSubstring: true,
               enablePasswordPolicy: true,
@@ -470,10 +472,10 @@ gapi.load('client', async () => {
               transactionDurationThreshold: 42,
               transactionKillExcludedUserHosts: ['Test string'],
               transactionKillThresholdSeconds: 42,
-              transactionKillType: 'Test string',
+              transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
               transactionLockWaitThresholdCount: 42,
             },
-            pricingPlan: 'Test string',
+            pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
             readPoolAutoScaleConfig: {
               disableScaleIn: true,
               enabled: true,
@@ -489,7 +491,7 @@ gapi.load('client', async () => {
               ],
             },
             replicationLagMaxSeconds: 42,
-            replicationType: 'Test string',
+            replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
             retainBackupsOnDelete: true,
             settingsVersion: 'Test string',
             sqlServerAuditConfig: {
@@ -507,9 +509,9 @@ gapi.load('client', async () => {
             },
           },
           skipPrecheck: true,
-          sqlNetworkArchitecture: 'Test string',
-          state: 'Test string',
-          suspensionReason: ['Test string'],
+          sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+          state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+          suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
           switchTransactionLogsToCloudStorageEnabled: true,
           tags: {
             A: 'Test string',
@@ -532,10 +534,10 @@ gapi.load('client', async () => {
         satisfiesPzi: true,
         satisfiesPzs: true,
         selfLink: 'Test string',
-        state: 'Test string',
+        state: 'SQL_BACKUP_STATE_UNSPECIFIED',
         timeZone: 'Test string',
         ttlDays: 'Test string',
-        type: 'Test string',
+        type: 'SQL_BACKUP_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes the backup. */
@@ -564,9 +566,9 @@ gapi.load('client', async () => {
           endTime: 'Test string',
           startTime: 'Test string',
         },
-        backupKind: 'Test string',
+        backupKind: 'SQL_BACKUP_KIND_UNSPECIFIED',
         backupRun: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         description: 'Test string',
         error: {
           code: 'Test string',
@@ -578,14 +580,14 @@ gapi.load('client', async () => {
         instanceDeletionTime: 'Test string',
         instanceSettings: {
           availableMaintenanceVersions: ['Test string'],
-          backendType: 'Test string',
+          backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
           connectionName: 'Test string',
           createTime: 'Test string',
           currentDiskSize: 'Test string',
-          databaseCenterIntegration: 'Test string',
+          databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
           databaseCenterIntegrationEnabled: true,
           databaseInstalledVersion: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
           deploymentInfo: {
             deploymentId: 'Test string',
             source: {
@@ -595,7 +597,7 @@ gapi.load('client', async () => {
                 region: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               sourceId: {
                 name: 'Test string',
@@ -617,10 +619,10 @@ gapi.load('client', async () => {
           dnsName: 'Test string',
           dnsNames: [
             {
-              connectionType: 'Test string',
-              dnsScope: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+              dnsScope: 'DNS_SCOPE_UNSPECIFIED',
               name: 'Test string',
-              recordManager: 'Test string',
+              recordManager: 'RECORD_MANAGER_UNSPECIFIED',
             },
           ],
           etag: 'Test string',
@@ -638,12 +640,12 @@ gapi.load('client', async () => {
             oomSessionCancelEnabled: true,
           },
           includeReplicasForMajorVersionUpgrade: true,
-          instanceType: 'Test string',
+          instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
           ipAddresses: [
             {
               ipAddress: 'Test string',
               timeToRetire: 'Test string',
-              type: 'Test string',
+              type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
             },
           ],
           ipv6Address: 'Test string',
@@ -658,10 +660,10 @@ gapi.load('client', async () => {
               dnsName: 'Test string',
               dnsNames: [
                 {
-                  connectionType: 'Test string',
-                  dnsScope: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                  dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                   name: 'Test string',
-                  recordManager: 'Test string',
+                  recordManager: 'RECORD_MANAGER_UNSPECIFIED',
                 },
               ],
               gceZone: 'Test string',
@@ -669,7 +671,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
               name: 'Test string',
@@ -678,16 +680,16 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscServiceAttachmentLink: 'Test string',
-              state: 'Test string',
+              state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
             },
           ],
           onPremisesConfiguration: {
@@ -709,12 +711,12 @@ gapi.load('client', async () => {
               project: 'Test string',
               region: 'Test string',
             },
-            sslOption: 'Test string',
+            sslOption: 'SSL_OPTION_UNSPECIFIED',
             username: 'Test string',
           },
           outOfDiskReport: {
             sqlMinRecommendedIncreaseSizeGb: 42,
-            sqlOutOfDiskState: 'Test string',
+            sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
           },
           primaryDnsName: 'Test string',
           project: 'Test string',
@@ -769,13 +771,13 @@ gapi.load('client', async () => {
           serviceAccountEmailAddress: 'Test string',
           settings: {
             acceleratedReplicaMode: true,
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             activeDirectoryConfig: {
               adminCredentialSecretName: 'Test string',
               dnsServers: ['Test string'],
               domain: 'Test string',
               kind: 'Test string',
-              mode: 'Test string',
+              mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
               organizationalUnit: 'Test string',
             },
             advancedMachineFeatures: {
@@ -783,13 +785,13 @@ gapi.load('client', async () => {
             },
             authorizedGaeApplications: ['Test string'],
             autoUpgradeEnabled: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             backupConfiguration: {
               backupRetentionSettings: {
                 retainedBackups: 42,
-                retentionUnit: 'Test string',
+                retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
               },
-              backupTier: 'Test string',
+              backupTier: 'BACKUP_TIER_UNSPECIFIED',
               binaryLogEnabled: true,
               enabled: true,
               kind: 'Test string',
@@ -797,7 +799,8 @@ gapi.load('client', async () => {
               pointInTimeRecoveryEnabled: true,
               replicationLogArchivingEnabled: true,
               startTime: 'Test string',
-              transactionalLogStorageState: 'Test string',
+              transactionalLogStorageState:
+                'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
               transactionLogRetentionDays: 42,
             },
             collation: 'Test string',
@@ -811,9 +814,9 @@ gapi.load('client', async () => {
               ],
               poolerCount: 42,
             },
-            connectorEnforcement: 'Test string',
+            connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
             crashSafeReplicationEnabled: true,
-            dataApiAccess: 'Test string',
+            dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
             databaseFlags: [
               {
                 name: 'Test string',
@@ -827,7 +830,7 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             deletionProtectionEnabled: true,
             denyMaintenancePeriods: [
               {
@@ -836,7 +839,7 @@ gapi.load('client', async () => {
                 time: 'Test string',
               },
             ],
-            edition: 'Test string',
+            edition: 'EDITION_UNSPECIFIED',
             enableDataplexIntegration: true,
             enableGoogleMlIntegration: true,
             entraidConfig: {
@@ -879,12 +882,12 @@ gapi.load('client', async () => {
                     consumerNetwork: 'Test string',
                     consumerNetworkStatus: 'Test string',
                     consumerProject: 'Test string',
-                    instanceAutoDnsStatus: 'Test string',
+                    instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                     ipAddress: 'Test string',
                     serviceConnectionPolicy: 'Test string',
                     serviceConnectionPolicyCreationResult: 'Test string',
                     status: 'Test string',
-                    writeEndpointAutoDnsStatus: 'Test string',
+                    writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   },
                 ],
                 pscAutoDnsEnabled: true,
@@ -892,10 +895,11 @@ gapi.load('client', async () => {
                 pscWriteEndpointDnsEnabled: true,
               },
               requireSsl: true,
-              serverCaMode: 'Test string',
+              serverCaMode: 'CA_MODE_UNSPECIFIED',
               serverCaPool: 'Test string',
-              serverCertificateRotationMode: 'Test string',
-              sslMode: 'Test string',
+              serverCertificateRotationMode:
+                'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+              sslMode: 'SSL_MODE_UNSPECIFIED',
             },
             kind: 'Test string',
             locationPreference: {
@@ -908,10 +912,10 @@ gapi.load('client', async () => {
               day: 42,
               hour: 42,
               kind: 'Test string',
-              updateTrack: 'Test string',
+              updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
             },
             passwordValidationPolicy: {
-              complexity: 'Test string',
+              complexity: 'COMPLEXITY_UNSPECIFIED',
               disallowCompromisedCredentials: true,
               disallowUsernameSubstring: true,
               enablePasswordPolicy: true,
@@ -932,10 +936,10 @@ gapi.load('client', async () => {
               transactionDurationThreshold: 42,
               transactionKillExcludedUserHosts: ['Test string'],
               transactionKillThresholdSeconds: 42,
-              transactionKillType: 'Test string',
+              transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
               transactionLockWaitThresholdCount: 42,
             },
-            pricingPlan: 'Test string',
+            pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
             readPoolAutoScaleConfig: {
               disableScaleIn: true,
               enabled: true,
@@ -951,7 +955,7 @@ gapi.load('client', async () => {
               ],
             },
             replicationLagMaxSeconds: 42,
-            replicationType: 'Test string',
+            replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
             retainBackupsOnDelete: true,
             settingsVersion: 'Test string',
             sqlServerAuditConfig: {
@@ -969,9 +973,9 @@ gapi.load('client', async () => {
             },
           },
           skipPrecheck: true,
-          sqlNetworkArchitecture: 'Test string',
-          state: 'Test string',
-          suspensionReason: ['Test string'],
+          sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+          state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+          suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
           switchTransactionLogsToCloudStorageEnabled: true,
           tags: {
             A: 'Test string',
@@ -994,10 +998,10 @@ gapi.load('client', async () => {
         satisfiesPzi: true,
         satisfiesPzs: true,
         selfLink: 'Test string',
-        state: 'Test string',
+        state: 'SQL_BACKUP_STATE_UNSPECIFIED',
         timeZone: 'Test string',
         ttlDays: 'Test string',
-        type: 'Test string',
+        type: 'SQL_BACKUP_TYPE_UNSPECIFIED',
       },
     );
     /** Creates a blue-green deployment under a given project and location. This deployment provisions a synchronized green environment (target instance) from a blue production environment (source instance), facilitating updates like major version upgrades on the green instance without impacting the blue instance. */
@@ -1010,7 +1014,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         deploymentMappings: [
           {
-            currentlyServingTraffic: 'Test string',
+            currentlyServingTraffic: 'CURRENTLY_SERVING_TRAFFIC_UNSPECIFIED',
             diffs: [
               {
                 field: 'Test string',
@@ -1026,11 +1030,11 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               connection: 'Test string',
               dns: 'Test string',
@@ -1039,7 +1043,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1048,8 +1052,8 @@ gapi.load('client', async () => {
                 endTime: 'Test string',
                 errorMessage: 'Test string',
                 startTime: 'Test string',
-                state: 'Test string',
-                type: 'Test string',
+                state: 'STATE_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1060,8 +1064,8 @@ gapi.load('client', async () => {
               endTime: 'Test string',
               errorMessage: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
-              type: 'Test string',
+              state: 'STATE_UNSPECIFIED',
+              type: 'TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -1070,7 +1074,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pairedNodes: [
           {
-            currentlyServingTraffic: 'Test string',
+            currentlyServingTraffic: 'CURRENTLY_SERVING_TRAFFIC_UNSPECIFIED',
             diffs: [
               {
                 field: 'Test string',
@@ -1086,11 +1090,11 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               connection: 'Test string',
               dns: 'Test string',
@@ -1099,7 +1103,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1108,8 +1112,8 @@ gapi.load('client', async () => {
                 endTime: 'Test string',
                 errorMessage: 'Test string',
                 startTime: 'Test string',
-                state: 'Test string',
-                type: 'Test string',
+                state: 'STATE_UNSPECIFIED',
+                type: 'TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -1118,7 +1122,7 @@ gapi.load('client', async () => {
           databaseVersion: 'Test string',
         },
         sourceInstance: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         switchoverTargetInstance: 'Test string',
         targetConfig: {
           databaseVersion: 'Test string',
@@ -1133,7 +1137,7 @@ gapi.load('client', async () => {
     /** Retrieves a blue-green deployment resource under a given project and location. */
     await gapi.client.sql.blueGreenDeployments.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'BLUE_GREEN_DEPLOYMENT_VIEW_UNSPECIFIED',
     });
     /** Lists blue-green deployments under a given project. */
     await gapi.client.sql.blueGreenDeployments.list({
@@ -1265,7 +1269,7 @@ gapi.load('client', async () => {
     /** Lists all available database flags for Cloud SQL instances. */
     await gapi.client.sql.flags.list({
       databaseVersion: 'Test string',
-      flagScope: 'Test string',
+      flagScope: 'SQL_FLAG_SCOPE_UNSPECIFIED',
     });
     /** Acquire a lease for the setup of SQL Server Reporting Services (SSRS). */
     await gapi.client.sql.instances.acquireSsrsLease(
@@ -1391,7 +1395,7 @@ gapi.load('client', async () => {
         application: 'Test string',
         autoIamAuthn: true,
         database: 'Test string',
-        partialResultMode: 'Test string',
+        partialResultMode: 'PARTIAL_RESULT_MODE_UNSPECIFIED',
         passwordSecretVersion: 'Test string',
         rowLimit: 'Test string',
         sqlStatement: 'Test string',
@@ -1408,7 +1412,7 @@ gapi.load('client', async () => {
       {
         exportContext: {
           bakExportOptions: {
-            bakType: 'Test string',
+            bakType: 'BAK_TYPE_UNSPECIFIED',
             copyOnly: true,
             differentialBase: true,
             exportLogEndTime: 'Test string',
@@ -1424,7 +1428,7 @@ gapi.load('client', async () => {
             selectQuery: 'Test string',
           },
           databases: ['Test string'],
-          fileType: 'Test string',
+          fileType: 'SQL_FILE_TYPE_UNSPECIFIED',
           kind: 'Test string',
           offload: true,
           sqlExportOptions: {
@@ -1480,7 +1484,7 @@ gapi.load('client', async () => {
       {
         importContext: {
           bakImportOptions: {
-            bakType: 'Test string',
+            bakType: 'BAK_TYPE_UNSPECIFIED',
             encryptionOptions: {
               certPath: 'Test string',
               keepEncrypted: true,
@@ -1502,7 +1506,7 @@ gapi.load('client', async () => {
             table: 'Test string',
           },
           database: 'Test string',
-          fileType: 'Test string',
+          fileType: 'SQL_FILE_TYPE_UNSPECIFIED',
           importUser: 'Test string',
           kind: 'Test string',
           sqlImportOptions: {
@@ -1531,14 +1535,14 @@ gapi.load('client', async () => {
       },
       {
         availableMaintenanceVersions: ['Test string'],
-        backendType: 'Test string',
+        backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
         connectionName: 'Test string',
         createTime: 'Test string',
         currentDiskSize: 'Test string',
-        databaseCenterIntegration: 'Test string',
+        databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
         databaseCenterIntegrationEnabled: true,
         databaseInstalledVersion: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         deploymentInfo: {
           deploymentId: 'Test string',
           source: {
@@ -1548,7 +1552,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           target: {
             sourceId: {
               name: 'Test string',
@@ -1570,10 +1574,10 @@ gapi.load('client', async () => {
         dnsName: 'Test string',
         dnsNames: [
           {
-            connectionType: 'Test string',
-            dnsScope: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+            dnsScope: 'DNS_SCOPE_UNSPECIFIED',
             name: 'Test string',
-            recordManager: 'Test string',
+            recordManager: 'RECORD_MANAGER_UNSPECIFIED',
           },
         ],
         etag: 'Test string',
@@ -1591,12 +1595,12 @@ gapi.load('client', async () => {
           oomSessionCancelEnabled: true,
         },
         includeReplicasForMajorVersionUpgrade: true,
-        instanceType: 'Test string',
+        instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
         ipAddresses: [
           {
             ipAddress: 'Test string',
             timeToRetire: 'Test string',
-            type: 'Test string',
+            type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
           },
         ],
         ipv6Address: 'Test string',
@@ -1611,10 +1615,10 @@ gapi.load('client', async () => {
             dnsName: 'Test string',
             dnsNames: [
               {
-                connectionType: 'Test string',
-                dnsScope: 'Test string',
+                connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                 name: 'Test string',
-                recordManager: 'Test string',
+                recordManager: 'RECORD_MANAGER_UNSPECIFIED',
               },
             ],
             gceZone: 'Test string',
@@ -1622,7 +1626,7 @@ gapi.load('client', async () => {
               {
                 ipAddress: 'Test string',
                 timeToRetire: 'Test string',
-                type: 'Test string',
+                type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
               },
             ],
             name: 'Test string',
@@ -1631,16 +1635,16 @@ gapi.load('client', async () => {
                 consumerNetwork: 'Test string',
                 consumerNetworkStatus: 'Test string',
                 consumerProject: 'Test string',
-                instanceAutoDnsStatus: 'Test string',
+                instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 ipAddress: 'Test string',
                 serviceConnectionPolicy: 'Test string',
                 serviceConnectionPolicyCreationResult: 'Test string',
                 status: 'Test string',
-                writeEndpointAutoDnsStatus: 'Test string',
+                writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
               },
             ],
             pscServiceAttachmentLink: 'Test string',
-            state: 'Test string',
+            state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
           },
         ],
         onPremisesConfiguration: {
@@ -1662,12 +1666,12 @@ gapi.load('client', async () => {
             project: 'Test string',
             region: 'Test string',
           },
-          sslOption: 'Test string',
+          sslOption: 'SSL_OPTION_UNSPECIFIED',
           username: 'Test string',
         },
         outOfDiskReport: {
           sqlMinRecommendedIncreaseSizeGb: 42,
-          sqlOutOfDiskState: 'Test string',
+          sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
         },
         primaryDnsName: 'Test string',
         project: 'Test string',
@@ -1722,13 +1726,13 @@ gapi.load('client', async () => {
         serviceAccountEmailAddress: 'Test string',
         settings: {
           acceleratedReplicaMode: true,
-          activationPolicy: 'Test string',
+          activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
           activeDirectoryConfig: {
             adminCredentialSecretName: 'Test string',
             dnsServers: ['Test string'],
             domain: 'Test string',
             kind: 'Test string',
-            mode: 'Test string',
+            mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
             organizationalUnit: 'Test string',
           },
           advancedMachineFeatures: {
@@ -1736,13 +1740,13 @@ gapi.load('client', async () => {
           },
           authorizedGaeApplications: ['Test string'],
           autoUpgradeEnabled: true,
-          availabilityType: 'Test string',
+          availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
           backupConfiguration: {
             backupRetentionSettings: {
               retainedBackups: 42,
-              retentionUnit: 'Test string',
+              retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
             },
-            backupTier: 'Test string',
+            backupTier: 'BACKUP_TIER_UNSPECIFIED',
             binaryLogEnabled: true,
             enabled: true,
             kind: 'Test string',
@@ -1750,7 +1754,8 @@ gapi.load('client', async () => {
             pointInTimeRecoveryEnabled: true,
             replicationLogArchivingEnabled: true,
             startTime: 'Test string',
-            transactionalLogStorageState: 'Test string',
+            transactionalLogStorageState:
+              'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
             transactionLogRetentionDays: 42,
           },
           collation: 'Test string',
@@ -1764,9 +1769,9 @@ gapi.load('client', async () => {
             ],
             poolerCount: 42,
           },
-          connectorEnforcement: 'Test string',
+          connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
           crashSafeReplicationEnabled: true,
-          dataApiAccess: 'Test string',
+          dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
           databaseFlags: [
             {
               name: 'Test string',
@@ -1780,7 +1785,7 @@ gapi.load('client', async () => {
           dataDiskProvisionedIops: 'Test string',
           dataDiskProvisionedThroughput: 'Test string',
           dataDiskSizeGb: 'Test string',
-          dataDiskType: 'Test string',
+          dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
           deletionProtectionEnabled: true,
           denyMaintenancePeriods: [
             {
@@ -1789,7 +1794,7 @@ gapi.load('client', async () => {
               time: 'Test string',
             },
           ],
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           enableDataplexIntegration: true,
           enableGoogleMlIntegration: true,
           entraidConfig: {
@@ -1832,12 +1837,12 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscAutoDnsEnabled: true,
@@ -1845,10 +1850,11 @@ gapi.load('client', async () => {
               pscWriteEndpointDnsEnabled: true,
             },
             requireSsl: true,
-            serverCaMode: 'Test string',
+            serverCaMode: 'CA_MODE_UNSPECIFIED',
             serverCaPool: 'Test string',
-            serverCertificateRotationMode: 'Test string',
-            sslMode: 'Test string',
+            serverCertificateRotationMode:
+              'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
           kind: 'Test string',
           locationPreference: {
@@ -1861,10 +1867,10 @@ gapi.load('client', async () => {
             day: 42,
             hour: 42,
             kind: 'Test string',
-            updateTrack: 'Test string',
+            updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
           },
           passwordValidationPolicy: {
-            complexity: 'Test string',
+            complexity: 'COMPLEXITY_UNSPECIFIED',
             disallowCompromisedCredentials: true,
             disallowUsernameSubstring: true,
             enablePasswordPolicy: true,
@@ -1885,10 +1891,10 @@ gapi.load('client', async () => {
             transactionDurationThreshold: 42,
             transactionKillExcludedUserHosts: ['Test string'],
             transactionKillThresholdSeconds: 42,
-            transactionKillType: 'Test string',
+            transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
             transactionLockWaitThresholdCount: 42,
           },
-          pricingPlan: 'Test string',
+          pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
           readPoolAutoScaleConfig: {
             disableScaleIn: true,
             enabled: true,
@@ -1904,7 +1910,7 @@ gapi.load('client', async () => {
             ],
           },
           replicationLagMaxSeconds: 42,
-          replicationType: 'Test string',
+          replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
           retainBackupsOnDelete: true,
           settingsVersion: 'Test string',
           sqlServerAuditConfig: {
@@ -1922,9 +1928,9 @@ gapi.load('client', async () => {
           },
         },
         skipPrecheck: true,
-        sqlNetworkArchitecture: 'Test string',
-        state: 'Test string',
-        suspensionReason: ['Test string'],
+        sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+        state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+        suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
         switchTransactionLogsToCloudStorageEnabled: true,
         tags: {
           A: 'Test string',
@@ -1976,14 +1982,14 @@ gapi.load('client', async () => {
       },
       {
         availableMaintenanceVersions: ['Test string'],
-        backendType: 'Test string',
+        backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
         connectionName: 'Test string',
         createTime: 'Test string',
         currentDiskSize: 'Test string',
-        databaseCenterIntegration: 'Test string',
+        databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
         databaseCenterIntegrationEnabled: true,
         databaseInstalledVersion: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         deploymentInfo: {
           deploymentId: 'Test string',
           source: {
@@ -1993,7 +1999,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           target: {
             sourceId: {
               name: 'Test string',
@@ -2015,10 +2021,10 @@ gapi.load('client', async () => {
         dnsName: 'Test string',
         dnsNames: [
           {
-            connectionType: 'Test string',
-            dnsScope: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+            dnsScope: 'DNS_SCOPE_UNSPECIFIED',
             name: 'Test string',
-            recordManager: 'Test string',
+            recordManager: 'RECORD_MANAGER_UNSPECIFIED',
           },
         ],
         etag: 'Test string',
@@ -2036,12 +2042,12 @@ gapi.load('client', async () => {
           oomSessionCancelEnabled: true,
         },
         includeReplicasForMajorVersionUpgrade: true,
-        instanceType: 'Test string',
+        instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
         ipAddresses: [
           {
             ipAddress: 'Test string',
             timeToRetire: 'Test string',
-            type: 'Test string',
+            type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
           },
         ],
         ipv6Address: 'Test string',
@@ -2056,10 +2062,10 @@ gapi.load('client', async () => {
             dnsName: 'Test string',
             dnsNames: [
               {
-                connectionType: 'Test string',
-                dnsScope: 'Test string',
+                connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                 name: 'Test string',
-                recordManager: 'Test string',
+                recordManager: 'RECORD_MANAGER_UNSPECIFIED',
               },
             ],
             gceZone: 'Test string',
@@ -2067,7 +2073,7 @@ gapi.load('client', async () => {
               {
                 ipAddress: 'Test string',
                 timeToRetire: 'Test string',
-                type: 'Test string',
+                type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
               },
             ],
             name: 'Test string',
@@ -2076,16 +2082,16 @@ gapi.load('client', async () => {
                 consumerNetwork: 'Test string',
                 consumerNetworkStatus: 'Test string',
                 consumerProject: 'Test string',
-                instanceAutoDnsStatus: 'Test string',
+                instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 ipAddress: 'Test string',
                 serviceConnectionPolicy: 'Test string',
                 serviceConnectionPolicyCreationResult: 'Test string',
                 status: 'Test string',
-                writeEndpointAutoDnsStatus: 'Test string',
+                writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
               },
             ],
             pscServiceAttachmentLink: 'Test string',
-            state: 'Test string',
+            state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
           },
         ],
         onPremisesConfiguration: {
@@ -2107,12 +2113,12 @@ gapi.load('client', async () => {
             project: 'Test string',
             region: 'Test string',
           },
-          sslOption: 'Test string',
+          sslOption: 'SSL_OPTION_UNSPECIFIED',
           username: 'Test string',
         },
         outOfDiskReport: {
           sqlMinRecommendedIncreaseSizeGb: 42,
-          sqlOutOfDiskState: 'Test string',
+          sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
         },
         primaryDnsName: 'Test string',
         project: 'Test string',
@@ -2167,13 +2173,13 @@ gapi.load('client', async () => {
         serviceAccountEmailAddress: 'Test string',
         settings: {
           acceleratedReplicaMode: true,
-          activationPolicy: 'Test string',
+          activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
           activeDirectoryConfig: {
             adminCredentialSecretName: 'Test string',
             dnsServers: ['Test string'],
             domain: 'Test string',
             kind: 'Test string',
-            mode: 'Test string',
+            mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
             organizationalUnit: 'Test string',
           },
           advancedMachineFeatures: {
@@ -2181,13 +2187,13 @@ gapi.load('client', async () => {
           },
           authorizedGaeApplications: ['Test string'],
           autoUpgradeEnabled: true,
-          availabilityType: 'Test string',
+          availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
           backupConfiguration: {
             backupRetentionSettings: {
               retainedBackups: 42,
-              retentionUnit: 'Test string',
+              retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
             },
-            backupTier: 'Test string',
+            backupTier: 'BACKUP_TIER_UNSPECIFIED',
             binaryLogEnabled: true,
             enabled: true,
             kind: 'Test string',
@@ -2195,7 +2201,8 @@ gapi.load('client', async () => {
             pointInTimeRecoveryEnabled: true,
             replicationLogArchivingEnabled: true,
             startTime: 'Test string',
-            transactionalLogStorageState: 'Test string',
+            transactionalLogStorageState:
+              'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
             transactionLogRetentionDays: 42,
           },
           collation: 'Test string',
@@ -2209,9 +2216,9 @@ gapi.load('client', async () => {
             ],
             poolerCount: 42,
           },
-          connectorEnforcement: 'Test string',
+          connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
           crashSafeReplicationEnabled: true,
-          dataApiAccess: 'Test string',
+          dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
           databaseFlags: [
             {
               name: 'Test string',
@@ -2225,7 +2232,7 @@ gapi.load('client', async () => {
           dataDiskProvisionedIops: 'Test string',
           dataDiskProvisionedThroughput: 'Test string',
           dataDiskSizeGb: 'Test string',
-          dataDiskType: 'Test string',
+          dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
           deletionProtectionEnabled: true,
           denyMaintenancePeriods: [
             {
@@ -2234,7 +2241,7 @@ gapi.load('client', async () => {
               time: 'Test string',
             },
           ],
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           enableDataplexIntegration: true,
           enableGoogleMlIntegration: true,
           entraidConfig: {
@@ -2277,12 +2284,12 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscAutoDnsEnabled: true,
@@ -2290,10 +2297,11 @@ gapi.load('client', async () => {
               pscWriteEndpointDnsEnabled: true,
             },
             requireSsl: true,
-            serverCaMode: 'Test string',
+            serverCaMode: 'CA_MODE_UNSPECIFIED',
             serverCaPool: 'Test string',
-            serverCertificateRotationMode: 'Test string',
-            sslMode: 'Test string',
+            serverCertificateRotationMode:
+              'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
           kind: 'Test string',
           locationPreference: {
@@ -2306,10 +2314,10 @@ gapi.load('client', async () => {
             day: 42,
             hour: 42,
             kind: 'Test string',
-            updateTrack: 'Test string',
+            updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
           },
           passwordValidationPolicy: {
-            complexity: 'Test string',
+            complexity: 'COMPLEXITY_UNSPECIFIED',
             disallowCompromisedCredentials: true,
             disallowUsernameSubstring: true,
             enablePasswordPolicy: true,
@@ -2330,10 +2338,10 @@ gapi.load('client', async () => {
             transactionDurationThreshold: 42,
             transactionKillExcludedUserHosts: ['Test string'],
             transactionKillThresholdSeconds: 42,
-            transactionKillType: 'Test string',
+            transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
             transactionLockWaitThresholdCount: 42,
           },
-          pricingPlan: 'Test string',
+          pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
           readPoolAutoScaleConfig: {
             disableScaleIn: true,
             enabled: true,
@@ -2349,7 +2357,7 @@ gapi.load('client', async () => {
             ],
           },
           replicationLagMaxSeconds: 42,
-          replicationType: 'Test string',
+          replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
           retainBackupsOnDelete: true,
           settingsVersion: 'Test string',
           sqlServerAuditConfig: {
@@ -2367,9 +2375,9 @@ gapi.load('client', async () => {
           },
         },
         skipPrecheck: true,
-        sqlNetworkArchitecture: 'Test string',
-        state: 'Test string',
-        suspensionReason: ['Test string'],
+        sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+        state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+        suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
         switchTransactionLogsToCloudStorageEnabled: true,
         tags: {
           A: 'Test string',
@@ -2401,14 +2409,14 @@ gapi.load('client', async () => {
         targetInstanceClearSettingsFieldNames: ['Test string'],
         targetInstanceSettings: {
           availableMaintenanceVersions: ['Test string'],
-          backendType: 'Test string',
+          backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
           connectionName: 'Test string',
           createTime: 'Test string',
           currentDiskSize: 'Test string',
-          databaseCenterIntegration: 'Test string',
+          databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
           databaseCenterIntegrationEnabled: true,
           databaseInstalledVersion: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
           deploymentInfo: {
             deploymentId: 'Test string',
             source: {
@@ -2418,7 +2426,7 @@ gapi.load('client', async () => {
                 region: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               sourceId: {
                 name: 'Test string',
@@ -2440,10 +2448,10 @@ gapi.load('client', async () => {
           dnsName: 'Test string',
           dnsNames: [
             {
-              connectionType: 'Test string',
-              dnsScope: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+              dnsScope: 'DNS_SCOPE_UNSPECIFIED',
               name: 'Test string',
-              recordManager: 'Test string',
+              recordManager: 'RECORD_MANAGER_UNSPECIFIED',
             },
           ],
           etag: 'Test string',
@@ -2461,12 +2469,12 @@ gapi.load('client', async () => {
             oomSessionCancelEnabled: true,
           },
           includeReplicasForMajorVersionUpgrade: true,
-          instanceType: 'Test string',
+          instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
           ipAddresses: [
             {
               ipAddress: 'Test string',
               timeToRetire: 'Test string',
-              type: 'Test string',
+              type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
             },
           ],
           ipv6Address: 'Test string',
@@ -2481,10 +2489,10 @@ gapi.load('client', async () => {
               dnsName: 'Test string',
               dnsNames: [
                 {
-                  connectionType: 'Test string',
-                  dnsScope: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                  dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                   name: 'Test string',
-                  recordManager: 'Test string',
+                  recordManager: 'RECORD_MANAGER_UNSPECIFIED',
                 },
               ],
               gceZone: 'Test string',
@@ -2492,7 +2500,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
               name: 'Test string',
@@ -2501,16 +2509,16 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscServiceAttachmentLink: 'Test string',
-              state: 'Test string',
+              state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
             },
           ],
           onPremisesConfiguration: {
@@ -2532,12 +2540,12 @@ gapi.load('client', async () => {
               project: 'Test string',
               region: 'Test string',
             },
-            sslOption: 'Test string',
+            sslOption: 'SSL_OPTION_UNSPECIFIED',
             username: 'Test string',
           },
           outOfDiskReport: {
             sqlMinRecommendedIncreaseSizeGb: 42,
-            sqlOutOfDiskState: 'Test string',
+            sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
           },
           primaryDnsName: 'Test string',
           project: 'Test string',
@@ -2592,13 +2600,13 @@ gapi.load('client', async () => {
           serviceAccountEmailAddress: 'Test string',
           settings: {
             acceleratedReplicaMode: true,
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             activeDirectoryConfig: {
               adminCredentialSecretName: 'Test string',
               dnsServers: ['Test string'],
               domain: 'Test string',
               kind: 'Test string',
-              mode: 'Test string',
+              mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
               organizationalUnit: 'Test string',
             },
             advancedMachineFeatures: {
@@ -2606,13 +2614,13 @@ gapi.load('client', async () => {
             },
             authorizedGaeApplications: ['Test string'],
             autoUpgradeEnabled: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             backupConfiguration: {
               backupRetentionSettings: {
                 retainedBackups: 42,
-                retentionUnit: 'Test string',
+                retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
               },
-              backupTier: 'Test string',
+              backupTier: 'BACKUP_TIER_UNSPECIFIED',
               binaryLogEnabled: true,
               enabled: true,
               kind: 'Test string',
@@ -2620,7 +2628,8 @@ gapi.load('client', async () => {
               pointInTimeRecoveryEnabled: true,
               replicationLogArchivingEnabled: true,
               startTime: 'Test string',
-              transactionalLogStorageState: 'Test string',
+              transactionalLogStorageState:
+                'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
               transactionLogRetentionDays: 42,
             },
             collation: 'Test string',
@@ -2634,9 +2643,9 @@ gapi.load('client', async () => {
               ],
               poolerCount: 42,
             },
-            connectorEnforcement: 'Test string',
+            connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
             crashSafeReplicationEnabled: true,
-            dataApiAccess: 'Test string',
+            dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
             databaseFlags: [
               {
                 name: 'Test string',
@@ -2650,7 +2659,7 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             deletionProtectionEnabled: true,
             denyMaintenancePeriods: [
               {
@@ -2659,7 +2668,7 @@ gapi.load('client', async () => {
                 time: 'Test string',
               },
             ],
-            edition: 'Test string',
+            edition: 'EDITION_UNSPECIFIED',
             enableDataplexIntegration: true,
             enableGoogleMlIntegration: true,
             entraidConfig: {
@@ -2702,12 +2711,12 @@ gapi.load('client', async () => {
                     consumerNetwork: 'Test string',
                     consumerNetworkStatus: 'Test string',
                     consumerProject: 'Test string',
-                    instanceAutoDnsStatus: 'Test string',
+                    instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                     ipAddress: 'Test string',
                     serviceConnectionPolicy: 'Test string',
                     serviceConnectionPolicyCreationResult: 'Test string',
                     status: 'Test string',
-                    writeEndpointAutoDnsStatus: 'Test string',
+                    writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   },
                 ],
                 pscAutoDnsEnabled: true,
@@ -2715,10 +2724,11 @@ gapi.load('client', async () => {
                 pscWriteEndpointDnsEnabled: true,
               },
               requireSsl: true,
-              serverCaMode: 'Test string',
+              serverCaMode: 'CA_MODE_UNSPECIFIED',
               serverCaPool: 'Test string',
-              serverCertificateRotationMode: 'Test string',
-              sslMode: 'Test string',
+              serverCertificateRotationMode:
+                'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+              sslMode: 'SSL_MODE_UNSPECIFIED',
             },
             kind: 'Test string',
             locationPreference: {
@@ -2731,10 +2741,10 @@ gapi.load('client', async () => {
               day: 42,
               hour: 42,
               kind: 'Test string',
-              updateTrack: 'Test string',
+              updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
             },
             passwordValidationPolicy: {
-              complexity: 'Test string',
+              complexity: 'COMPLEXITY_UNSPECIFIED',
               disallowCompromisedCredentials: true,
               disallowUsernameSubstring: true,
               enablePasswordPolicy: true,
@@ -2755,10 +2765,10 @@ gapi.load('client', async () => {
               transactionDurationThreshold: 42,
               transactionKillExcludedUserHosts: ['Test string'],
               transactionKillThresholdSeconds: 42,
-              transactionKillType: 'Test string',
+              transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
               transactionLockWaitThresholdCount: 42,
             },
-            pricingPlan: 'Test string',
+            pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
             readPoolAutoScaleConfig: {
               disableScaleIn: true,
               enabled: true,
@@ -2774,7 +2784,7 @@ gapi.load('client', async () => {
               ],
             },
             replicationLagMaxSeconds: 42,
-            replicationType: 'Test string',
+            replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
             retainBackupsOnDelete: true,
             settingsVersion: 'Test string',
             sqlServerAuditConfig: {
@@ -2792,9 +2802,9 @@ gapi.load('client', async () => {
             },
           },
           skipPrecheck: true,
-          sqlNetworkArchitecture: 'Test string',
-          state: 'Test string',
-          suspensionReason: ['Test string'],
+          sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+          state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+          suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
           switchTransactionLogsToCloudStorageEnabled: true,
           tags: {
             A: 'Test string',
@@ -2825,10 +2835,10 @@ gapi.load('client', async () => {
             {
               actionsRequired: ['Test string'],
               message: 'Test string',
-              messageType: 'Test string',
+              messageType: 'MESSAGE_TYPE_UNSPECIFIED',
             },
           ],
-          targetDatabaseVersion: 'Test string',
+          targetDatabaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         },
       },
     );
@@ -2849,7 +2859,7 @@ gapi.load('client', async () => {
       {
         backupReencryptionConfig: {
           backupLimit: 42,
-          backupType: 'Test string',
+          backupType: 'BACKUP_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -2863,7 +2873,7 @@ gapi.load('client', async () => {
     await gapi.client.sql.instances.resetSslConfig({
       instance: 'Test string',
       location: 'Test string',
-      mode: 'Test string',
+      mode: 'RESET_SSL_MODE_UNSPECIFIED',
       project: 'Test string',
     });
     /** Restarts a Cloud SQL instance. */
@@ -2892,14 +2902,14 @@ gapi.load('client', async () => {
         restoreInstanceClearOverridesFieldNames: ['Test string'],
         restoreInstanceSettings: {
           availableMaintenanceVersions: ['Test string'],
-          backendType: 'Test string',
+          backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
           connectionName: 'Test string',
           createTime: 'Test string',
           currentDiskSize: 'Test string',
-          databaseCenterIntegration: 'Test string',
+          databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
           databaseCenterIntegrationEnabled: true,
           databaseInstalledVersion: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
           deploymentInfo: {
             deploymentId: 'Test string',
             source: {
@@ -2909,7 +2919,7 @@ gapi.load('client', async () => {
                 region: 'Test string',
               },
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             target: {
               sourceId: {
                 name: 'Test string',
@@ -2931,10 +2941,10 @@ gapi.load('client', async () => {
           dnsName: 'Test string',
           dnsNames: [
             {
-              connectionType: 'Test string',
-              dnsScope: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+              dnsScope: 'DNS_SCOPE_UNSPECIFIED',
               name: 'Test string',
-              recordManager: 'Test string',
+              recordManager: 'RECORD_MANAGER_UNSPECIFIED',
             },
           ],
           etag: 'Test string',
@@ -2952,12 +2962,12 @@ gapi.load('client', async () => {
             oomSessionCancelEnabled: true,
           },
           includeReplicasForMajorVersionUpgrade: true,
-          instanceType: 'Test string',
+          instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
           ipAddresses: [
             {
               ipAddress: 'Test string',
               timeToRetire: 'Test string',
-              type: 'Test string',
+              type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
             },
           ],
           ipv6Address: 'Test string',
@@ -2972,10 +2982,10 @@ gapi.load('client', async () => {
               dnsName: 'Test string',
               dnsNames: [
                 {
-                  connectionType: 'Test string',
-                  dnsScope: 'Test string',
+                  connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                  dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                   name: 'Test string',
-                  recordManager: 'Test string',
+                  recordManager: 'RECORD_MANAGER_UNSPECIFIED',
                 },
               ],
               gceZone: 'Test string',
@@ -2983,7 +2993,7 @@ gapi.load('client', async () => {
                 {
                   ipAddress: 'Test string',
                   timeToRetire: 'Test string',
-                  type: 'Test string',
+                  type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
                 },
               ],
               name: 'Test string',
@@ -2992,16 +3002,16 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscServiceAttachmentLink: 'Test string',
-              state: 'Test string',
+              state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
             },
           ],
           onPremisesConfiguration: {
@@ -3023,12 +3033,12 @@ gapi.load('client', async () => {
               project: 'Test string',
               region: 'Test string',
             },
-            sslOption: 'Test string',
+            sslOption: 'SSL_OPTION_UNSPECIFIED',
             username: 'Test string',
           },
           outOfDiskReport: {
             sqlMinRecommendedIncreaseSizeGb: 42,
-            sqlOutOfDiskState: 'Test string',
+            sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
           },
           primaryDnsName: 'Test string',
           project: 'Test string',
@@ -3083,13 +3093,13 @@ gapi.load('client', async () => {
           serviceAccountEmailAddress: 'Test string',
           settings: {
             acceleratedReplicaMode: true,
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             activeDirectoryConfig: {
               adminCredentialSecretName: 'Test string',
               dnsServers: ['Test string'],
               domain: 'Test string',
               kind: 'Test string',
-              mode: 'Test string',
+              mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
               organizationalUnit: 'Test string',
             },
             advancedMachineFeatures: {
@@ -3097,13 +3107,13 @@ gapi.load('client', async () => {
             },
             authorizedGaeApplications: ['Test string'],
             autoUpgradeEnabled: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             backupConfiguration: {
               backupRetentionSettings: {
                 retainedBackups: 42,
-                retentionUnit: 'Test string',
+                retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
               },
-              backupTier: 'Test string',
+              backupTier: 'BACKUP_TIER_UNSPECIFIED',
               binaryLogEnabled: true,
               enabled: true,
               kind: 'Test string',
@@ -3111,7 +3121,8 @@ gapi.load('client', async () => {
               pointInTimeRecoveryEnabled: true,
               replicationLogArchivingEnabled: true,
               startTime: 'Test string',
-              transactionalLogStorageState: 'Test string',
+              transactionalLogStorageState:
+                'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
               transactionLogRetentionDays: 42,
             },
             collation: 'Test string',
@@ -3125,9 +3136,9 @@ gapi.load('client', async () => {
               ],
               poolerCount: 42,
             },
-            connectorEnforcement: 'Test string',
+            connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
             crashSafeReplicationEnabled: true,
-            dataApiAccess: 'Test string',
+            dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
             databaseFlags: [
               {
                 name: 'Test string',
@@ -3141,7 +3152,7 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
             deletionProtectionEnabled: true,
             denyMaintenancePeriods: [
               {
@@ -3150,7 +3161,7 @@ gapi.load('client', async () => {
                 time: 'Test string',
               },
             ],
-            edition: 'Test string',
+            edition: 'EDITION_UNSPECIFIED',
             enableDataplexIntegration: true,
             enableGoogleMlIntegration: true,
             entraidConfig: {
@@ -3193,12 +3204,12 @@ gapi.load('client', async () => {
                     consumerNetwork: 'Test string',
                     consumerNetworkStatus: 'Test string',
                     consumerProject: 'Test string',
-                    instanceAutoDnsStatus: 'Test string',
+                    instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                     ipAddress: 'Test string',
                     serviceConnectionPolicy: 'Test string',
                     serviceConnectionPolicyCreationResult: 'Test string',
                     status: 'Test string',
-                    writeEndpointAutoDnsStatus: 'Test string',
+                    writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   },
                 ],
                 pscAutoDnsEnabled: true,
@@ -3206,10 +3217,11 @@ gapi.load('client', async () => {
                 pscWriteEndpointDnsEnabled: true,
               },
               requireSsl: true,
-              serverCaMode: 'Test string',
+              serverCaMode: 'CA_MODE_UNSPECIFIED',
               serverCaPool: 'Test string',
-              serverCertificateRotationMode: 'Test string',
-              sslMode: 'Test string',
+              serverCertificateRotationMode:
+                'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+              sslMode: 'SSL_MODE_UNSPECIFIED',
             },
             kind: 'Test string',
             locationPreference: {
@@ -3222,10 +3234,10 @@ gapi.load('client', async () => {
               day: 42,
               hour: 42,
               kind: 'Test string',
-              updateTrack: 'Test string',
+              updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
             },
             passwordValidationPolicy: {
-              complexity: 'Test string',
+              complexity: 'COMPLEXITY_UNSPECIFIED',
               disallowCompromisedCredentials: true,
               disallowUsernameSubstring: true,
               enablePasswordPolicy: true,
@@ -3246,10 +3258,10 @@ gapi.load('client', async () => {
               transactionDurationThreshold: 42,
               transactionKillExcludedUserHosts: ['Test string'],
               transactionKillThresholdSeconds: 42,
-              transactionKillType: 'Test string',
+              transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
               transactionLockWaitThresholdCount: 42,
             },
-            pricingPlan: 'Test string',
+            pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
             readPoolAutoScaleConfig: {
               disableScaleIn: true,
               enabled: true,
@@ -3265,7 +3277,7 @@ gapi.load('client', async () => {
               ],
             },
             replicationLagMaxSeconds: 42,
-            replicationType: 'Test string',
+            replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
             retainBackupsOnDelete: true,
             settingsVersion: 'Test string',
             sqlServerAuditConfig: {
@@ -3283,9 +3295,9 @@ gapi.load('client', async () => {
             },
           },
           skipPrecheck: true,
-          sqlNetworkArchitecture: 'Test string',
-          state: 'Test string',
-          suspensionReason: ['Test string'],
+          sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+          state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+          suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
           switchTransactionLogsToCloudStorageEnabled: true,
           tags: {
             A: 'Test string',
@@ -3385,14 +3397,14 @@ gapi.load('client', async () => {
       },
       {
         availableMaintenanceVersions: ['Test string'],
-        backendType: 'Test string',
+        backendType: 'SQL_BACKEND_TYPE_UNSPECIFIED',
         connectionName: 'Test string',
         createTime: 'Test string',
         currentDiskSize: 'Test string',
-        databaseCenterIntegration: 'Test string',
+        databaseCenterIntegration: 'DATABASE_CENTER_INTEGRATION_UNSPECIFIED',
         databaseCenterIntegrationEnabled: true,
         databaseInstalledVersion: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
         deploymentInfo: {
           deploymentId: 'Test string',
           source: {
@@ -3402,7 +3414,7 @@ gapi.load('client', async () => {
               region: 'Test string',
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           target: {
             sourceId: {
               name: 'Test string',
@@ -3424,10 +3436,10 @@ gapi.load('client', async () => {
         dnsName: 'Test string',
         dnsNames: [
           {
-            connectionType: 'Test string',
-            dnsScope: 'Test string',
+            connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+            dnsScope: 'DNS_SCOPE_UNSPECIFIED',
             name: 'Test string',
-            recordManager: 'Test string',
+            recordManager: 'RECORD_MANAGER_UNSPECIFIED',
           },
         ],
         etag: 'Test string',
@@ -3445,12 +3457,12 @@ gapi.load('client', async () => {
           oomSessionCancelEnabled: true,
         },
         includeReplicasForMajorVersionUpgrade: true,
-        instanceType: 'Test string',
+        instanceType: 'SQL_INSTANCE_TYPE_UNSPECIFIED',
         ipAddresses: [
           {
             ipAddress: 'Test string',
             timeToRetire: 'Test string',
-            type: 'Test string',
+            type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
           },
         ],
         ipv6Address: 'Test string',
@@ -3465,10 +3477,10 @@ gapi.load('client', async () => {
             dnsName: 'Test string',
             dnsNames: [
               {
-                connectionType: 'Test string',
-                dnsScope: 'Test string',
+                connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
+                dnsScope: 'DNS_SCOPE_UNSPECIFIED',
                 name: 'Test string',
-                recordManager: 'Test string',
+                recordManager: 'RECORD_MANAGER_UNSPECIFIED',
               },
             ],
             gceZone: 'Test string',
@@ -3476,7 +3488,7 @@ gapi.load('client', async () => {
               {
                 ipAddress: 'Test string',
                 timeToRetire: 'Test string',
-                type: 'Test string',
+                type: 'SQL_IP_ADDRESS_TYPE_UNSPECIFIED',
               },
             ],
             name: 'Test string',
@@ -3485,16 +3497,16 @@ gapi.load('client', async () => {
                 consumerNetwork: 'Test string',
                 consumerNetworkStatus: 'Test string',
                 consumerProject: 'Test string',
-                instanceAutoDnsStatus: 'Test string',
+                instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 ipAddress: 'Test string',
                 serviceConnectionPolicy: 'Test string',
                 serviceConnectionPolicyCreationResult: 'Test string',
                 status: 'Test string',
-                writeEndpointAutoDnsStatus: 'Test string',
+                writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
               },
             ],
             pscServiceAttachmentLink: 'Test string',
-            state: 'Test string',
+            state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
           },
         ],
         onPremisesConfiguration: {
@@ -3516,12 +3528,12 @@ gapi.load('client', async () => {
             project: 'Test string',
             region: 'Test string',
           },
-          sslOption: 'Test string',
+          sslOption: 'SSL_OPTION_UNSPECIFIED',
           username: 'Test string',
         },
         outOfDiskReport: {
           sqlMinRecommendedIncreaseSizeGb: 42,
-          sqlOutOfDiskState: 'Test string',
+          sqlOutOfDiskState: 'SQL_OUT_OF_DISK_STATE_UNSPECIFIED',
         },
         primaryDnsName: 'Test string',
         project: 'Test string',
@@ -3576,13 +3588,13 @@ gapi.load('client', async () => {
         serviceAccountEmailAddress: 'Test string',
         settings: {
           acceleratedReplicaMode: true,
-          activationPolicy: 'Test string',
+          activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
           activeDirectoryConfig: {
             adminCredentialSecretName: 'Test string',
             dnsServers: ['Test string'],
             domain: 'Test string',
             kind: 'Test string',
-            mode: 'Test string',
+            mode: 'ACTIVE_DIRECTORY_MODE_UNSPECIFIED',
             organizationalUnit: 'Test string',
           },
           advancedMachineFeatures: {
@@ -3590,13 +3602,13 @@ gapi.load('client', async () => {
           },
           authorizedGaeApplications: ['Test string'],
           autoUpgradeEnabled: true,
-          availabilityType: 'Test string',
+          availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
           backupConfiguration: {
             backupRetentionSettings: {
               retainedBackups: 42,
-              retentionUnit: 'Test string',
+              retentionUnit: 'RETENTION_UNIT_UNSPECIFIED',
             },
-            backupTier: 'Test string',
+            backupTier: 'BACKUP_TIER_UNSPECIFIED',
             binaryLogEnabled: true,
             enabled: true,
             kind: 'Test string',
@@ -3604,7 +3616,8 @@ gapi.load('client', async () => {
             pointInTimeRecoveryEnabled: true,
             replicationLogArchivingEnabled: true,
             startTime: 'Test string',
-            transactionalLogStorageState: 'Test string',
+            transactionalLogStorageState:
+              'TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED',
             transactionLogRetentionDays: 42,
           },
           collation: 'Test string',
@@ -3618,9 +3631,9 @@ gapi.load('client', async () => {
             ],
             poolerCount: 42,
           },
-          connectorEnforcement: 'Test string',
+          connectorEnforcement: 'CONNECTOR_ENFORCEMENT_UNSPECIFIED',
           crashSafeReplicationEnabled: true,
-          dataApiAccess: 'Test string',
+          dataApiAccess: 'DATA_API_ACCESS_UNSPECIFIED',
           databaseFlags: [
             {
               name: 'Test string',
@@ -3634,7 +3647,7 @@ gapi.load('client', async () => {
           dataDiskProvisionedIops: 'Test string',
           dataDiskProvisionedThroughput: 'Test string',
           dataDiskSizeGb: 'Test string',
-          dataDiskType: 'Test string',
+          dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
           deletionProtectionEnabled: true,
           denyMaintenancePeriods: [
             {
@@ -3643,7 +3656,7 @@ gapi.load('client', async () => {
               time: 'Test string',
             },
           ],
-          edition: 'Test string',
+          edition: 'EDITION_UNSPECIFIED',
           enableDataplexIntegration: true,
           enableGoogleMlIntegration: true,
           entraidConfig: {
@@ -3686,12 +3699,12 @@ gapi.load('client', async () => {
                   consumerNetwork: 'Test string',
                   consumerNetworkStatus: 'Test string',
                   consumerProject: 'Test string',
-                  instanceAutoDnsStatus: 'Test string',
+                  instanceAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                   ipAddress: 'Test string',
                   serviceConnectionPolicy: 'Test string',
                   serviceConnectionPolicyCreationResult: 'Test string',
                   status: 'Test string',
-                  writeEndpointAutoDnsStatus: 'Test string',
+                  writeEndpointAutoDnsStatus: 'AUTO_DNS_STATUS_UNSPECIFIED',
                 },
               ],
               pscAutoDnsEnabled: true,
@@ -3699,10 +3712,11 @@ gapi.load('client', async () => {
               pscWriteEndpointDnsEnabled: true,
             },
             requireSsl: true,
-            serverCaMode: 'Test string',
+            serverCaMode: 'CA_MODE_UNSPECIFIED',
             serverCaPool: 'Test string',
-            serverCertificateRotationMode: 'Test string',
-            sslMode: 'Test string',
+            serverCertificateRotationMode:
+              'SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
           kind: 'Test string',
           locationPreference: {
@@ -3715,10 +3729,10 @@ gapi.load('client', async () => {
             day: 42,
             hour: 42,
             kind: 'Test string',
-            updateTrack: 'Test string',
+            updateTrack: 'SQL_UPDATE_TRACK_UNSPECIFIED',
           },
           passwordValidationPolicy: {
-            complexity: 'Test string',
+            complexity: 'COMPLEXITY_UNSPECIFIED',
             disallowCompromisedCredentials: true,
             disallowUsernameSubstring: true,
             enablePasswordPolicy: true,
@@ -3739,10 +3753,10 @@ gapi.load('client', async () => {
             transactionDurationThreshold: 42,
             transactionKillExcludedUserHosts: ['Test string'],
             transactionKillThresholdSeconds: 42,
-            transactionKillType: 'Test string',
+            transactionKillType: 'TRANSACTION_KILL_TYPE_UNSPECIFIED',
             transactionLockWaitThresholdCount: 42,
           },
-          pricingPlan: 'Test string',
+          pricingPlan: 'SQL_PRICING_PLAN_UNSPECIFIED',
           readPoolAutoScaleConfig: {
             disableScaleIn: true,
             enabled: true,
@@ -3758,7 +3772,7 @@ gapi.load('client', async () => {
             ],
           },
           replicationLagMaxSeconds: 42,
-          replicationType: 'Test string',
+          replicationType: 'SQL_REPLICATION_TYPE_UNSPECIFIED',
           retainBackupsOnDelete: true,
           settingsVersion: 'Test string',
           sqlServerAuditConfig: {
@@ -3776,9 +3790,9 @@ gapi.load('client', async () => {
           },
         },
         skipPrecheck: true,
-        sqlNetworkArchitecture: 'Test string',
-        state: 'Test string',
-        suspensionReason: ['Test string'],
+        sqlNetworkArchitecture: 'SQL_NETWORK_ARCHITECTURE_UNSPECIFIED',
+        state: 'SQL_INSTANCE_STATE_UNSPECIFIED',
+        suspensionReason: ['SQL_SUSPENSION_REASON_UNSPECIFIED'],
         switchTransactionLogsToCloudStorageEnabled: true,
         tags: {
           A: 'Test string',
@@ -3846,7 +3860,7 @@ gapi.load('client', async () => {
       },
       {
         reschedule: {
-          rescheduleType: 'Test string',
+          rescheduleType: 'RESCHEDULE_TYPE_UNSPECIFIED',
           scheduleTime: 'Test string',
         },
       },
@@ -3869,7 +3883,7 @@ gapi.load('client', async () => {
       },
       {
         location: 'Test string',
-        migrationType: 'Test string',
+        migrationType: 'MIGRATION_TYPE_UNSPECIFIED',
         mysqlSyncConfig: {
           initialSyncFlags: [
             {
@@ -3880,8 +3894,8 @@ gapi.load('client', async () => {
         },
         replicaOverwriteEnabled: true,
         skipVerification: true,
-        syncMode: 'Test string',
-        syncParallelLevel: 'Test string',
+        syncMode: 'EXTERNAL_SYNC_MODE_UNSPECIFIED',
+        syncParallelLevel: 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED',
       },
     );
     /** Verify External primary instance external sync settings. */
@@ -3892,7 +3906,7 @@ gapi.load('client', async () => {
       },
       {
         location: 'Test string',
-        migrationType: 'Test string',
+        migrationType: 'MIGRATION_TYPE_UNSPECIFIED',
         mysqlSyncConfig: {
           initialSyncFlags: [
             {
@@ -3906,8 +3920,8 @@ gapi.load('client', async () => {
             database: 'Test string',
           },
         ],
-        syncMode: 'Test string',
-        syncParallelLevel: 'Test string',
+        syncMode: 'EXTERNAL_SYNC_MODE_UNSPECIFIED',
+        syncParallelLevel: 'EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED',
         verifyConnectionOnly: true,
         verifyReplicationOnly: true,
       },
@@ -3980,11 +3994,11 @@ gapi.load('client', async () => {
       },
       {
         databaseRoles: ['Test string'],
-        dualPasswordType: 'Test string',
+        dualPasswordType: 'DUAL_PASSWORD_TYPE_UNSPECIFIED',
         etag: 'Test string',
         host: 'Test string',
         iamEmail: 'Test string',
-        iamStatus: 'Test string',
+        iamStatus: 'IAM_STATUS_UNSPECIFIED',
         instance: 'Test string',
         kind: 'Test string',
         name: 'Test string',
@@ -4005,7 +4019,7 @@ gapi.load('client', async () => {
           disabled: true,
           serverRoles: ['Test string'],
         },
-        type: 'Test string',
+        type: 'BUILT_IN',
       },
     );
     /** Lists users in the specified Cloud SQL instance. */
@@ -4029,11 +4043,11 @@ gapi.load('client', async () => {
       },
       {
         databaseRoles: ['Test string'],
-        dualPasswordType: 'Test string',
+        dualPasswordType: 'DUAL_PASSWORD_TYPE_UNSPECIFIED',
         etag: 'Test string',
         host: 'Test string',
         iamEmail: 'Test string',
-        iamStatus: 'Test string',
+        iamStatus: 'IAM_STATUS_UNSPECIFIED',
         instance: 'Test string',
         kind: 'Test string',
         name: 'Test string',
@@ -4054,7 +4068,7 @@ gapi.load('client', async () => {
           disabled: true,
           serverRoles: ['Test string'],
         },
-        type: 'Test string',
+        type: 'BUILT_IN',
       },
     );
     /** Lists all captured workloads associated with the instance. */

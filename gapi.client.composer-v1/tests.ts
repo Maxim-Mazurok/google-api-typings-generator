@@ -61,16 +61,16 @@ gapi.load('client', async () => {
           dataRetentionConfig: {
             airflowMetadataRetentionConfig: {
               retentionDays: 42,
-              retentionMode: 'Test string',
+              retentionMode: 'RETENTION_MODE_UNSPECIFIED',
             },
             taskLogsRetentionConfig: {
-              storageMode: 'Test string',
+              storageMode: 'TASK_LOGS_STORAGE_MODE_UNSPECIFIED',
             },
           },
           encryptionConfig: {
             kmsKeyName: 'Test string',
           },
-          environmentSize: 'Test string',
+          environmentSize: 'ENVIRONMENT_SIZE_UNSPECIFIED',
           gkeCluster: 'Test string',
           maintenanceWindow: {
             endTime: 'Test string',
@@ -116,9 +116,9 @@ gapi.load('client', async () => {
             enablePrivateEnvironment: true,
             enablePrivatelyUsedPublicIps: true,
             networkingConfig: {
-              connectionType: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             },
-            networkingType: 'Test string',
+            networkingType: 'NETWORKING_TYPE_UNSPECIFIED',
             privateClusterConfig: {
               enablePrivateEndpoint: true,
               masterIpv4CidrBlock: 'Test string',
@@ -135,12 +135,12 @@ gapi.load('client', async () => {
               timeZone: 'Test string',
             },
           },
-          resilienceMode: 'Test string',
+          resilienceMode: 'RESILIENCE_MODE_UNSPECIFIED',
           softwareConfig: {
             airflowConfigOverrides: {
               A: 'Test string',
             },
-            auditLogsReplicationMode: 'Test string',
+            auditLogsReplicationMode: 'AUDIT_LOGS_REPLICATION_MODE_UNSPECIFIED',
             cloudDataLineageIntegration: {
               enabled: true,
             },
@@ -159,7 +159,7 @@ gapi.load('client', async () => {
             },
             pythonVersion: 'Test string',
             schedulerCount: 42,
-            webServerPluginsMode: 'Test string',
+            webServerPluginsMode: 'WEB_SERVER_PLUGINS_MODE_UNSPECIFIED',
           },
           webServerConfig: {
             machineType: 'Test string',
@@ -208,11 +208,11 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageConfig: {
           bucket: 'Test string',
         },
@@ -296,16 +296,16 @@ gapi.load('client', async () => {
           dataRetentionConfig: {
             airflowMetadataRetentionConfig: {
               retentionDays: 42,
-              retentionMode: 'Test string',
+              retentionMode: 'RETENTION_MODE_UNSPECIFIED',
             },
             taskLogsRetentionConfig: {
-              storageMode: 'Test string',
+              storageMode: 'TASK_LOGS_STORAGE_MODE_UNSPECIFIED',
             },
           },
           encryptionConfig: {
             kmsKeyName: 'Test string',
           },
-          environmentSize: 'Test string',
+          environmentSize: 'ENVIRONMENT_SIZE_UNSPECIFIED',
           gkeCluster: 'Test string',
           maintenanceWindow: {
             endTime: 'Test string',
@@ -351,9 +351,9 @@ gapi.load('client', async () => {
             enablePrivateEnvironment: true,
             enablePrivatelyUsedPublicIps: true,
             networkingConfig: {
-              connectionType: 'Test string',
+              connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
             },
-            networkingType: 'Test string',
+            networkingType: 'NETWORKING_TYPE_UNSPECIFIED',
             privateClusterConfig: {
               enablePrivateEndpoint: true,
               masterIpv4CidrBlock: 'Test string',
@@ -370,12 +370,12 @@ gapi.load('client', async () => {
               timeZone: 'Test string',
             },
           },
-          resilienceMode: 'Test string',
+          resilienceMode: 'RESILIENCE_MODE_UNSPECIFIED',
           softwareConfig: {
             airflowConfigOverrides: {
               A: 'Test string',
             },
-            auditLogsReplicationMode: 'Test string',
+            auditLogsReplicationMode: 'AUDIT_LOGS_REPLICATION_MODE_UNSPECIFIED',
             cloudDataLineageIntegration: {
               enabled: true,
             },
@@ -394,7 +394,7 @@ gapi.load('client', async () => {
             },
             pythonVersion: 'Test string',
             schedulerCount: 42,
-            webServerPluginsMode: 'Test string',
+            webServerPluginsMode: 'WEB_SERVER_PLUGINS_MODE_UNSPECIFIED',
           },
           webServerConfig: {
             machineType: 'Test string',
@@ -443,11 +443,11 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'MODE_UNSPECIFIED',
         name: 'Test string',
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storageConfig: {
           bucket: 'Test string',
         },

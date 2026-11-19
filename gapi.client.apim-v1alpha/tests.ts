@@ -64,7 +64,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         sources: ['Test string'],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
             apiObservationId: 'Test string',
             tagActions: [
               {
-                action: 'Test string',
+                action: 'ACTION_UNSPECIFIED',
                 tag: 'Test string',
               },
             ],
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
           ],
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

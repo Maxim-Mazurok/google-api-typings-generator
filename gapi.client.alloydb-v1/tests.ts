@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         clusterUid: 'Test string',
         createCompletionTime: 'Test string',
         createTime: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
         deleteTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         encryptionInfo: {
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
         },
         etag: 'Test string',
@@ -83,11 +83,11 @@ gapi.load('client', async () => {
         reconciling: true,
         satisfiesPzs: true,
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Backup. */
     await gapi.client.alloydb.projects.locations.backups.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'BACKUP_VIEW_UNSPECIFIED',
     });
     /** Lists Backups in a given project and location. */
     await gapi.client.alloydb.projects.locations.backups.list({
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'BACKUP_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single Backup. */
     await gapi.client.alloydb.projects.locations.backups.patch(
@@ -130,7 +130,7 @@ gapi.load('client', async () => {
         clusterUid: 'Test string',
         createCompletionTime: 'Test string',
         createTime: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
         deleteTime: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -138,7 +138,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         encryptionInfo: {
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
         },
         etag: 'Test string',
@@ -154,11 +154,11 @@ gapi.load('client', async () => {
         reconciling: true,
         satisfiesPzs: true,
         sizeBytes: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -192,7 +192,7 @@ gapi.load('client', async () => {
             retentionPeriod: 'Test string',
           },
           weeklySchedule: {
-            daysOfWeek: ['Test string'],
+            daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
             startTimes: [
               {
                 hours: 42,
@@ -241,7 +241,7 @@ gapi.load('client', async () => {
           instanceId: 'Test string',
           project: 'Test string',
         },
-        clusterType: 'Test string',
+        clusterType: 'CLUSTER_TYPE_UNSPECIFIED',
         continuousBackupConfig: {
           enabled: true,
           encryptionConfig: {
@@ -253,13 +253,13 @@ gapi.load('client', async () => {
           earliestRestorableTime: 'Test string',
           enabledTime: 'Test string',
           encryptionInfo: {
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersions: ['Test string'],
           },
-          schedule: ['Test string'],
+          schedule: ['DAY_OF_WEEK_UNSPECIFIED'],
         },
         createTime: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
         dataplexConfig: {
           enabled: true,
         },
@@ -269,7 +269,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         encryptionInfo: {
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
         },
         etag: 'Test string',
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
           ],
           maintenanceWindows: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -316,11 +316,12 @@ gapi.load('client', async () => {
             },
           ],
         },
-        maintenanceVersionSelectionPolicy: 'Test string',
+        maintenanceVersionSelectionPolicy:
+          'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED',
         migrationSource: {
           hostPort: 'Test string',
           referenceId: 'Test string',
-          sourceType: 'Test string',
+          sourceType: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         network: 'Test string',
@@ -341,11 +342,11 @@ gapi.load('client', async () => {
           primaryClusterName: 'Test string',
         },
         sslConfig: {
-          caSource: 'Test string',
-          sslMode: 'Test string',
+          caSource: 'CA_SOURCE_UNSPECIFIED',
+          sslMode: 'SSL_MODE_UNSPECIFIED',
         },
-        state: 'Test string',
-        subscriptionType: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -388,7 +389,7 @@ gapi.load('client', async () => {
             retentionPeriod: 'Test string',
           },
           weeklySchedule: {
-            daysOfWeek: ['Test string'],
+            daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
             startTimes: [
               {
                 hours: 42,
@@ -437,7 +438,7 @@ gapi.load('client', async () => {
           instanceId: 'Test string',
           project: 'Test string',
         },
-        clusterType: 'Test string',
+        clusterType: 'CLUSTER_TYPE_UNSPECIFIED',
         continuousBackupConfig: {
           enabled: true,
           encryptionConfig: {
@@ -449,13 +450,13 @@ gapi.load('client', async () => {
           earliestRestorableTime: 'Test string',
           enabledTime: 'Test string',
           encryptionInfo: {
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersions: ['Test string'],
           },
-          schedule: ['Test string'],
+          schedule: ['DAY_OF_WEEK_UNSPECIFIED'],
         },
         createTime: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
         dataplexConfig: {
           enabled: true,
         },
@@ -465,7 +466,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         encryptionInfo: {
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
         },
         etag: 'Test string',
@@ -502,7 +503,7 @@ gapi.load('client', async () => {
           ],
           maintenanceWindows: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -512,11 +513,12 @@ gapi.load('client', async () => {
             },
           ],
         },
-        maintenanceVersionSelectionPolicy: 'Test string',
+        maintenanceVersionSelectionPolicy:
+          'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED',
         migrationSource: {
           hostPort: 'Test string',
           referenceId: 'Test string',
-          sourceType: 'Test string',
+          sourceType: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         network: 'Test string',
@@ -537,11 +539,11 @@ gapi.load('client', async () => {
           primaryClusterName: 'Test string',
         },
         sslConfig: {
-          caSource: 'Test string',
-          sslMode: 'Test string',
+          caSource: 'CA_SOURCE_UNSPECIFIED',
+          sslMode: 'SSL_MODE_UNSPECIFIED',
         },
-        state: 'Test string',
-        subscriptionType: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -590,7 +592,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Cluster. */
     await gapi.client.alloydb.projects.locations.clusters.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'CLUSTER_VIEW_UNSPECIFIED',
     });
     /** Imports data to the cluster. Imperative only. */
     await gapi.client.alloydb.projects.locations.clusters.import(
@@ -649,7 +651,7 @@ gapi.load('client', async () => {
             retentionPeriod: 'Test string',
           },
           weeklySchedule: {
-            daysOfWeek: ['Test string'],
+            daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
             startTimes: [
               {
                 hours: 42,
@@ -698,7 +700,7 @@ gapi.load('client', async () => {
           instanceId: 'Test string',
           project: 'Test string',
         },
-        clusterType: 'Test string',
+        clusterType: 'CLUSTER_TYPE_UNSPECIFIED',
         continuousBackupConfig: {
           enabled: true,
           encryptionConfig: {
@@ -710,13 +712,13 @@ gapi.load('client', async () => {
           earliestRestorableTime: 'Test string',
           enabledTime: 'Test string',
           encryptionInfo: {
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersions: ['Test string'],
           },
-          schedule: ['Test string'],
+          schedule: ['DAY_OF_WEEK_UNSPECIFIED'],
         },
         createTime: 'Test string',
-        databaseVersion: 'Test string',
+        databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
         dataplexConfig: {
           enabled: true,
         },
@@ -726,7 +728,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         encryptionInfo: {
-          encryptionType: 'Test string',
+          encryptionType: 'TYPE_UNSPECIFIED',
           kmsKeyVersions: ['Test string'],
         },
         etag: 'Test string',
@@ -763,7 +765,7 @@ gapi.load('client', async () => {
           ],
           maintenanceWindows: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               startTime: {
                 hours: 42,
                 minutes: 42,
@@ -773,11 +775,12 @@ gapi.load('client', async () => {
             },
           ],
         },
-        maintenanceVersionSelectionPolicy: 'Test string',
+        maintenanceVersionSelectionPolicy:
+          'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED',
         migrationSource: {
           hostPort: 'Test string',
           referenceId: 'Test string',
-          sourceType: 'Test string',
+          sourceType: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         network: 'Test string',
@@ -798,11 +801,11 @@ gapi.load('client', async () => {
           primaryClusterName: 'Test string',
         },
         sslConfig: {
-          caSource: 'Test string',
-          sslMode: 'Test string',
+          caSource: 'CA_SOURCE_UNSPECIFIED',
+          sslMode: 'SSL_MODE_UNSPECIFIED',
         },
-        state: 'Test string',
-        subscriptionType: 'Test string',
+        state: 'STATE_UNSPECIFIED',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -865,7 +868,7 @@ gapi.load('client', async () => {
               retentionPeriod: 'Test string',
             },
             weeklySchedule: {
-              daysOfWeek: ['Test string'],
+              daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
               startTimes: [
                 {
                   hours: 42,
@@ -914,7 +917,7 @@ gapi.load('client', async () => {
             instanceId: 'Test string',
             project: 'Test string',
           },
-          clusterType: 'Test string',
+          clusterType: 'CLUSTER_TYPE_UNSPECIFIED',
           continuousBackupConfig: {
             enabled: true,
             encryptionConfig: {
@@ -926,13 +929,13 @@ gapi.load('client', async () => {
             earliestRestorableTime: 'Test string',
             enabledTime: 'Test string',
             encryptionInfo: {
-              encryptionType: 'Test string',
+              encryptionType: 'TYPE_UNSPECIFIED',
               kmsKeyVersions: ['Test string'],
             },
-            schedule: ['Test string'],
+            schedule: ['DAY_OF_WEEK_UNSPECIFIED'],
           },
           createTime: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
           dataplexConfig: {
             enabled: true,
           },
@@ -942,7 +945,7 @@ gapi.load('client', async () => {
             kmsKeyName: 'Test string',
           },
           encryptionInfo: {
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersions: ['Test string'],
           },
           etag: 'Test string',
@@ -979,7 +982,7 @@ gapi.load('client', async () => {
             ],
             maintenanceWindows: [
               {
-                day: 'Test string',
+                day: 'DAY_OF_WEEK_UNSPECIFIED',
                 startTime: {
                   hours: 42,
                   minutes: 42,
@@ -989,11 +992,12 @@ gapi.load('client', async () => {
               },
             ],
           },
-          maintenanceVersionSelectionPolicy: 'Test string',
+          maintenanceVersionSelectionPolicy:
+            'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED',
           migrationSource: {
             hostPort: 'Test string',
             referenceId: 'Test string',
-            sourceType: 'Test string',
+            sourceType: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED',
           },
           name: 'Test string',
           network: 'Test string',
@@ -1014,11 +1018,11 @@ gapi.load('client', async () => {
             primaryClusterName: 'Test string',
           },
           sslConfig: {
-            caSource: 'Test string',
-            sslMode: 'Test string',
+            caSource: 'CA_SOURCE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
-          state: 'Test string',
-          subscriptionType: 'Test string',
+          state: 'STATE_UNSPECIFIED',
+          subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },
@@ -1072,7 +1076,7 @@ gapi.load('client', async () => {
               retentionPeriod: 'Test string',
             },
             weeklySchedule: {
-              daysOfWeek: ['Test string'],
+              daysOfWeek: ['DAY_OF_WEEK_UNSPECIFIED'],
               startTimes: [
                 {
                   hours: 42,
@@ -1121,7 +1125,7 @@ gapi.load('client', async () => {
             instanceId: 'Test string',
             project: 'Test string',
           },
-          clusterType: 'Test string',
+          clusterType: 'CLUSTER_TYPE_UNSPECIFIED',
           continuousBackupConfig: {
             enabled: true,
             encryptionConfig: {
@@ -1133,13 +1137,13 @@ gapi.load('client', async () => {
             earliestRestorableTime: 'Test string',
             enabledTime: 'Test string',
             encryptionInfo: {
-              encryptionType: 'Test string',
+              encryptionType: 'TYPE_UNSPECIFIED',
               kmsKeyVersions: ['Test string'],
             },
-            schedule: ['Test string'],
+            schedule: ['DAY_OF_WEEK_UNSPECIFIED'],
           },
           createTime: 'Test string',
-          databaseVersion: 'Test string',
+          databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
           dataplexConfig: {
             enabled: true,
           },
@@ -1149,7 +1153,7 @@ gapi.load('client', async () => {
             kmsKeyName: 'Test string',
           },
           encryptionInfo: {
-            encryptionType: 'Test string',
+            encryptionType: 'TYPE_UNSPECIFIED',
             kmsKeyVersions: ['Test string'],
           },
           etag: 'Test string',
@@ -1186,7 +1190,7 @@ gapi.load('client', async () => {
             ],
             maintenanceWindows: [
               {
-                day: 'Test string',
+                day: 'DAY_OF_WEEK_UNSPECIFIED',
                 startTime: {
                   hours: 42,
                   minutes: 42,
@@ -1196,11 +1200,12 @@ gapi.load('client', async () => {
               },
             ],
           },
-          maintenanceVersionSelectionPolicy: 'Test string',
+          maintenanceVersionSelectionPolicy:
+            'MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED',
           migrationSource: {
             hostPort: 'Test string',
             referenceId: 'Test string',
-            sourceType: 'Test string',
+            sourceType: 'MIGRATION_SOURCE_TYPE_UNSPECIFIED',
           },
           name: 'Test string',
           network: 'Test string',
@@ -1221,11 +1226,11 @@ gapi.load('client', async () => {
             primaryClusterName: 'Test string',
           },
           sslConfig: {
-            caSource: 'Test string',
-            sslMode: 'Test string',
+            caSource: 'CA_SOURCE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
-          state: 'Test string',
-          subscriptionType: 'Test string',
+          state: 'STATE_UNSPECIFIED',
+          subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },
@@ -1260,7 +1265,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         requestId: 'Test string',
         validateOnly: true,
-        version: 'Test string',
+        version: 'DATABASE_VERSION_UNSPECIFIED',
       },
     );
     /** Creates a new Instance in a given project and location. */
@@ -1272,30 +1277,30 @@ gapi.load('client', async () => {
         validateOnly: true,
       },
       {
-        activationPolicy: 'Test string',
+        activationPolicy: 'ACTIVATION_POLICY_UNSPECIFIED',
         annotations: {
           A: 'Test string',
         },
-        availabilityType: 'Test string',
+        availabilityType: 'AVAILABILITY_TYPE_UNSPECIFIED',
         clientConnectionConfig: {
           requireConnectors: true,
           sslConfig: {
-            caSource: 'Test string',
-            sslMode: 'Test string',
+            caSource: 'CA_SOURCE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
         },
         connectionPoolConfig: {
           authproxyPoolerCount: 42,
-          authproxyPoolerScalingType: 'Test string',
+          authproxyPoolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
           enabled: true,
           flags: {
             A: 'Test string',
           },
           poolerCount: 42,
-          poolerScalingType: 'Test string',
+          poolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
         },
         createTime: 'Test string',
-        dataApiAccess: 'Test string',
+        dataApiAccess: 'DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES',
         databaseFlags: {
           A: 'Test string',
         },
@@ -1303,7 +1308,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         etag: 'Test string',
         gceZone: 'Test string',
-        instanceType: 'Test string',
+        instanceType: 'INSTANCE_TYPE_UNSPECIFIED',
         ipAddress: 'Test string',
         labels: {
           A: 'Test string',
@@ -1357,7 +1362,8 @@ gapi.load('client', async () => {
         outboundPublicIpAddresses: ['Test string'],
         pscInstanceConfig: {
           allowedConsumerProjects: ['Test string'],
-          pscAutoConnectionPolicyState: 'Test string',
+          pscAutoConnectionPolicyState:
+            'PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED',
           pscAutoConnections: [
             {
               consumerNetwork: 'Test string',
@@ -1366,7 +1372,7 @@ gapi.load('client', async () => {
               dnsAutomationInfos: [
                 {
                   fullyQualifiedDomainName: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                 },
               ],
               ipAddress: 'Test string',
@@ -1375,7 +1381,7 @@ gapi.load('client', async () => {
               status: 'Test string',
             },
           ],
-          pscAutoDnsState: 'Test string',
+          pscAutoDnsState: 'PSC_AUTO_DNS_STATE_UNSPECIFIED',
           pscDnsName: 'Test string',
           pscInterfaceConfigs: [
             {
@@ -1433,7 +1439,7 @@ gapi.load('client', async () => {
         },
         reconciling: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         writableNode: {
@@ -1454,30 +1460,30 @@ gapi.load('client', async () => {
         validateOnly: true,
       },
       {
-        activationPolicy: 'Test string',
+        activationPolicy: 'ACTIVATION_POLICY_UNSPECIFIED',
         annotations: {
           A: 'Test string',
         },
-        availabilityType: 'Test string',
+        availabilityType: 'AVAILABILITY_TYPE_UNSPECIFIED',
         clientConnectionConfig: {
           requireConnectors: true,
           sslConfig: {
-            caSource: 'Test string',
-            sslMode: 'Test string',
+            caSource: 'CA_SOURCE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
         },
         connectionPoolConfig: {
           authproxyPoolerCount: 42,
-          authproxyPoolerScalingType: 'Test string',
+          authproxyPoolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
           enabled: true,
           flags: {
             A: 'Test string',
           },
           poolerCount: 42,
-          poolerScalingType: 'Test string',
+          poolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
         },
         createTime: 'Test string',
-        dataApiAccess: 'Test string',
+        dataApiAccess: 'DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES',
         databaseFlags: {
           A: 'Test string',
         },
@@ -1485,7 +1491,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         etag: 'Test string',
         gceZone: 'Test string',
-        instanceType: 'Test string',
+        instanceType: 'INSTANCE_TYPE_UNSPECIFIED',
         ipAddress: 'Test string',
         labels: {
           A: 'Test string',
@@ -1539,7 +1545,8 @@ gapi.load('client', async () => {
         outboundPublicIpAddresses: ['Test string'],
         pscInstanceConfig: {
           allowedConsumerProjects: ['Test string'],
-          pscAutoConnectionPolicyState: 'Test string',
+          pscAutoConnectionPolicyState:
+            'PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED',
           pscAutoConnections: [
             {
               consumerNetwork: 'Test string',
@@ -1548,7 +1555,7 @@ gapi.load('client', async () => {
               dnsAutomationInfos: [
                 {
                   fullyQualifiedDomainName: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                 },
               ],
               ipAddress: 'Test string',
@@ -1557,7 +1564,7 @@ gapi.load('client', async () => {
               status: 'Test string',
             },
           ],
-          pscAutoDnsState: 'Test string',
+          pscAutoDnsState: 'PSC_AUTO_DNS_STATE_UNSPECIFIED',
           pscDnsName: 'Test string',
           pscInterfaceConfigs: [
             {
@@ -1615,7 +1622,7 @@ gapi.load('client', async () => {
         },
         reconciling: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         writableNode: {
@@ -1647,7 +1654,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Instance. */
     await gapi.client.alloydb.projects.locations.clusters.instances.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'INSTANCE_VIEW_UNSPECIFIED',
     });
     /** Get instance metadata used for a connection. */
     await gapi.client.alloydb.projects.locations.clusters.instances.getConnectionInfo(
@@ -1662,7 +1669,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        faultType: 'Test string',
+        faultType: 'FAULT_TYPE_UNSPECIFIED',
         requestId: 'Test string',
         validateOnly: true,
       },
@@ -1685,30 +1692,30 @@ gapi.load('client', async () => {
         validateOnly: true,
       },
       {
-        activationPolicy: 'Test string',
+        activationPolicy: 'ACTIVATION_POLICY_UNSPECIFIED',
         annotations: {
           A: 'Test string',
         },
-        availabilityType: 'Test string',
+        availabilityType: 'AVAILABILITY_TYPE_UNSPECIFIED',
         clientConnectionConfig: {
           requireConnectors: true,
           sslConfig: {
-            caSource: 'Test string',
-            sslMode: 'Test string',
+            caSource: 'CA_SOURCE_UNSPECIFIED',
+            sslMode: 'SSL_MODE_UNSPECIFIED',
           },
         },
         connectionPoolConfig: {
           authproxyPoolerCount: 42,
-          authproxyPoolerScalingType: 'Test string',
+          authproxyPoolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
           enabled: true,
           flags: {
             A: 'Test string',
           },
           poolerCount: 42,
-          poolerScalingType: 'Test string',
+          poolerScalingType: 'POOLER_SCALING_TYPE_UNSPECIFIED',
         },
         createTime: 'Test string',
-        dataApiAccess: 'Test string',
+        dataApiAccess: 'DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES',
         databaseFlags: {
           A: 'Test string',
         },
@@ -1716,7 +1723,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         etag: 'Test string',
         gceZone: 'Test string',
-        instanceType: 'Test string',
+        instanceType: 'INSTANCE_TYPE_UNSPECIFIED',
         ipAddress: 'Test string',
         labels: {
           A: 'Test string',
@@ -1770,7 +1777,8 @@ gapi.load('client', async () => {
         outboundPublicIpAddresses: ['Test string'],
         pscInstanceConfig: {
           allowedConsumerProjects: ['Test string'],
-          pscAutoConnectionPolicyState: 'Test string',
+          pscAutoConnectionPolicyState:
+            'PSC_AUTO_CONNECTION_POLICY_STATE_UNSPECIFIED',
           pscAutoConnections: [
             {
               consumerNetwork: 'Test string',
@@ -1779,7 +1787,7 @@ gapi.load('client', async () => {
               dnsAutomationInfos: [
                 {
                   fullyQualifiedDomainName: 'Test string',
-                  state: 'Test string',
+                  state: 'STATE_UNSPECIFIED',
                 },
               ],
               ipAddress: 'Test string',
@@ -1788,7 +1796,7 @@ gapi.load('client', async () => {
               status: 'Test string',
             },
           ],
-          pscAutoDnsState: 'Test string',
+          pscAutoDnsState: 'PSC_AUTO_DNS_STATE_UNSPECIFIED',
           pscDnsName: 'Test string',
           pscInterfaceConfigs: [
             {
@@ -1846,7 +1854,7 @@ gapi.load('client', async () => {
         },
         reconciling: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         writableNode: {
@@ -1882,7 +1890,7 @@ gapi.load('client', async () => {
         keepExtraRoles: true,
         name: 'Test string',
         password: 'Test string',
-        userType: 'Test string',
+        userType: 'USER_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a single User. */
@@ -1917,7 +1925,7 @@ gapi.load('client', async () => {
         keepExtraRoles: true,
         name: 'Test string',
         password: 'Test string',
-        userType: 'Test string',
+        userType: 'USER_TYPE_UNSPECIFIED',
       },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */
@@ -1948,7 +1956,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      scope: 'Test string',
+      scope: 'SCOPE_UNSPECIFIED',
     });
   }
 });

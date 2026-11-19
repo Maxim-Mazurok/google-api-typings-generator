@@ -80,7 +80,7 @@ gapi.load('client', async () => {
       {
         capacityCommitments: ['Test string'],
         reservations: ['Test string'],
-        targetEdition: 'Test string',
+        targetEdition: 'EDITION_UNSPECIFIED',
       },
     );
     /** Creates a new capacity commitment resource. */
@@ -93,7 +93,7 @@ gapi.load('client', async () => {
       {
         commitmentEndTime: 'Test string',
         commitmentStartTime: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         failureStatus: {
           code: 42,
           details: [
@@ -106,10 +106,10 @@ gapi.load('client', async () => {
         isFlatRate: true,
         multiRegionAuxiliary: true,
         name: 'Test string',
-        plan: 'Test string',
-        renewalPlan: 'Test string',
+        plan: 'COMMITMENT_PLAN_UNSPECIFIED',
+        renewalPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
         slotCount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a capacity commitment. Attempting to delete capacity commitment before its commitment_end_time will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`. */
@@ -152,7 +152,7 @@ gapi.load('client', async () => {
       {
         commitmentEndTime: 'Test string',
         commitmentStartTime: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         failureStatus: {
           code: 42,
           details: [
@@ -165,10 +165,10 @@ gapi.load('client', async () => {
         isFlatRate: true,
         multiRegionAuxiliary: true,
         name: 'Test string',
-        plan: 'Test string',
-        renewalPlan: 'Test string',
+        plan: 'COMMITMENT_PLAN_UNSPECIFIED',
+        renewalPlan: 'COMMITMENT_PLAN_UNSPECIFIED',
         slotCount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Splits capacity commitment to two commitments of the same plan and `commitment_end_time`. A common use case is to enable downgrading commitments. For example, in order to downgrade from 10000 slots to 8000, you might split a 10000 capacity commitment into commitments of 2000 and 8000. Then, you delete the first one after the commitment end time passes. */
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
         },
         concurrency: 'Test string',
         creationTime: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         ignoreIdleSlots: true,
         labels: {
           A: 'Test string',
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
         },
         reservationGroup: 'Test string',
         reservationGroupPath: ['Test string'],
-        scalingMode: 'Test string',
+        scalingMode: 'SCALING_MODE_UNSPECIFIED',
         schedulingPolicy: {
           concurrency: 'Test string',
           maxSlots: 'Test string',
@@ -287,7 +287,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        failoverMode: 'Test string',
+        failoverMode: 'FAILOVER_MODE_UNSPECIFIED',
       },
     );
     /** Returns information about the reservation. */
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
         },
         concurrency: 'Test string',
         creationTime: 'Test string',
-        edition: 'Test string',
+        edition: 'EDITION_UNSPECIFIED',
         ignoreIdleSlots: true,
         labels: {
           A: 'Test string',
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
         },
         reservationGroup: 'Test string',
         reservationGroupPath: ['Test string'],
-        scalingMode: 'Test string',
+        scalingMode: 'SCALING_MODE_UNSPECIFIED',
         schedulingPolicy: {
           concurrency: 'Test string',
           maxSlots: 'Test string',
@@ -368,7 +368,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
           title: 'Test string',
         },
         enableGeminiInBigquery: true,
-        jobType: 'Test string',
+        jobType: 'JOB_TYPE_UNSPECIFIED',
         name: 'Test string',
         precedence: 'Test string',
         principal: 'Test string',
@@ -424,7 +424,7 @@ gapi.load('client', async () => {
           concurrency: 'Test string',
           maxSlots: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a assignment. No expansion will happen. Example: * Organization `organizationA` contains two projects, `project1` and `project2`. * Reservation `res1` exists and was created previously. * CreateAssignment was used previously to define the following associations between entities and reservations: `` and `` In this example, deletion of the `` assignment won't affect the other assignment ``. After said deletion, queries from `project1` will still use `res1` while queries from `project2` will switch to use on-demand mode. */
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
           title: 'Test string',
         },
         enableGeminiInBigquery: true,
-        jobType: 'Test string',
+        jobType: 'JOB_TYPE_UNSPECIFIED',
         name: 'Test string',
         precedence: 'Test string',
         principal: 'Test string',
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
           concurrency: 'Test string',
           maxSlots: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Sets an access control policy for a resource. Replaces any existing policy. Supported resources are: - Reservations To call this method, you must have the following Google IAM permissions: - `bigqueryreservation.reservations.setIamPolicy` to set policies on reservations. */
@@ -496,7 +496,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

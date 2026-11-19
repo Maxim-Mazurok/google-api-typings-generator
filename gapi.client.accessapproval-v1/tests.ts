@@ -55,20 +55,22 @@ gapi.load('client', async () => {
         ancestorsEnrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         approvalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         effectiveApprovalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         enrolledAncestor: true,
         enrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         invalidKeyVersion: true,
@@ -77,7 +79,8 @@ gapi.load('client', async () => {
         notificationPubsubTopic: 'Test string',
         preferNoBroadApprovalRequests: true,
         preferredRequestExpirationDays: 42,
-        requestScopeMaxWidthPreference: 'Test string',
+        requestScopeMaxWidthPreference:
+          'REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED',
         requireCustomerVisibleJustification: true,
       },
     );
@@ -141,20 +144,22 @@ gapi.load('client', async () => {
         ancestorsEnrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         approvalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         effectiveApprovalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         enrolledAncestor: true,
         enrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         invalidKeyVersion: true,
@@ -163,7 +168,8 @@ gapi.load('client', async () => {
         notificationPubsubTopic: 'Test string',
         preferNoBroadApprovalRequests: true,
         preferredRequestExpirationDays: 42,
-        requestScopeMaxWidthPreference: 'Test string',
+        requestScopeMaxWidthPreference:
+          'REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED',
         requireCustomerVisibleJustification: true,
       },
     );
@@ -225,20 +231,22 @@ gapi.load('client', async () => {
         ancestorsEnrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         approvalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         effectiveApprovalPolicy: {
-          justificationBasedApprovalPolicy: 'Test string',
+          justificationBasedApprovalPolicy:
+            'JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED',
         },
         enrolledAncestor: true,
         enrolledServices: [
           {
             cloudProduct: 'Test string',
-            enrollmentLevel: 'Test string',
+            enrollmentLevel: 'ENROLLMENT_LEVEL_UNSPECIFIED',
           },
         ],
         invalidKeyVersion: true,
@@ -247,7 +255,8 @@ gapi.load('client', async () => {
         notificationPubsubTopic: 'Test string',
         preferNoBroadApprovalRequests: true,
         preferredRequestExpirationDays: 42,
-        requestScopeMaxWidthPreference: 'Test string',
+        requestScopeMaxWidthPreference:
+          'REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED',
         requireCustomerVisibleJustification: true,
       },
     );

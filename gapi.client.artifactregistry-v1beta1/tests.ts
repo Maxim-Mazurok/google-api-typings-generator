@@ -58,7 +58,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         description: 'Test string',
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         description: 'Test string',
-        format: 'Test string',
+        format: 'FORMAT_UNSPECIFIED',
         kmsKeyName: 'Test string',
         labels: {
           A: 'Test string',
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
     await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Lists versions. */
@@ -246,7 +246,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'VERSION_VIEW_UNSPECIFIED',
       },
     );
   }

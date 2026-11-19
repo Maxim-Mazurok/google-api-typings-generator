@@ -62,7 +62,8 @@ declare namespace gapi.client {
       /** The errors for requested URLs that have no AMP URL. */
       urlErrors?: AmpUrlError[];
     }
-    interface AmpUrlsResource {
+
+    const ampUrls: {
       /** Returns AMP URL(s) and equivalent [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format). */
       batchGet(request: {
         /** V1 error format. */
@@ -117,8 +118,6 @@ declare namespace gapi.client {
         },
         body: BatchGetAmpUrlsRequest,
       ): Request<BatchGetAmpUrlsResponse>;
-    }
-
-    const ampUrls: AmpUrlsResource;
+    };
   }
 }

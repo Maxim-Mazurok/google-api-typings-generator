@@ -108,7 +108,8 @@ declare namespace gapi.client {
         | 'SUBSCRIPTION_TIER_PRO'
         | 'SUBSCRIPTION_TIER_PRO_PLUS';
     }
-    interface RuntimesResource {
+
+    const runtimes: {
       /** Creates a Colab runtime assignment. When runtime creation is refused with a [`FAILED_PRECONDITION` (code: 9)](https://github.com/googleapis/googleapis/blob/437254f595a380cd9323111700ce0fcf9d6d2c21/google/rpc/code.proto#L128) error, a more specific error reason will be returned in the details of the Operation error wrapped in google.rpc.ErrorInfo. A requests-per-minute-per-project and a requests-per-minute-per-user quota are enforced on this API. To see the exact limit your project is subject to, after you enable the Colab API, view it in your project's [Quotas & System Limits](https://console.cloud.google.com/apis/api/colaboratory.googleapis.com/quotas) page. Note that there is no usage reporting on the per-user limit and it is not overridable at the individual user level. */
       create(request: {
         /** V1 error format. */
@@ -252,8 +253,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListRuntimesResponse>;
-    }
-    interface RuntimespecsResource {
+    };
+
+    const runtimespecs: {
       /** Lists available Colab runtime specs and their eligibility to the requesting user. */
       list(request?: {
         /** V1 error format. */
@@ -279,8 +281,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListRuntimeSpecsResponse>;
-    }
-    interface V1betaResource {
+    };
+
+    const v1beta: {
       /** Gets the subscription of the requesting user. */
       getSubscription(request?: {
         /** V1 error format. */
@@ -308,12 +311,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Subscription>;
-    }
-
-    const runtimes: RuntimesResource;
-
-    const runtimespecs: RuntimespecsResource;
-
-    const v1beta: V1betaResource;
+    };
   }
 }

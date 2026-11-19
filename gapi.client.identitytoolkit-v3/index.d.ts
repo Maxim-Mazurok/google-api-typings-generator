@@ -756,7 +756,8 @@ declare namespace gapi.client {
       /** Whether the email is registered. */
       registered?: boolean;
     }
-    interface RelyingpartyResource {
+
+    const relyingparty: {
       /** Creates the URI used by the IdP to authenticate the user. */
       createAuthUri(request: {
         /** Data format for the response. */
@@ -1458,8 +1459,6 @@ declare namespace gapi.client {
         },
         body: IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest,
       ): Request<IdentitytoolkitRelyingpartyVerifyPhoneNumberResponse>;
-    }
-
-    const relyingparty: RelyingpartyResource;
+    };
   }
 }

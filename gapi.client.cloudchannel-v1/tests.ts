@@ -110,10 +110,10 @@ gapi.load('client', async () => {
         channelPartnerCloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         inviteLinkUri: 'Test string',
-        linkState: 'Test string',
+        linkState: 'CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED',
         name: 'Test string',
         publicId: 'Test string',
         resellerCloudIdentityId: 'Test string',
@@ -133,14 +133,14 @@ gapi.load('client', async () => {
     /** Returns the requested ChannelPartnerLink resource. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: ChannelPartnerLink resource not found because of an invalid channel partner link name. Return value: The ChannelPartnerLink resource. */
     await gapi.client.cloudchannel.accounts.channelPartnerLinks.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'UNSPECIFIED',
     });
     /** List ChannelPartnerLinks belonging to a distributor. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT: Required request parameters are missing or invalid. Return value: The list of the distributor account's ChannelPartnerLink resources. */
     await gapi.client.cloudchannel.accounts.channelPartnerLinks.list({
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'UNSPECIFIED',
     });
     /** Updates a channel partner link. Distributors call this method to change a link's status. For example, to suspend a partner link. You must be a distributor to call this method. Possible error codes: * PERMISSION_DENIED: The reseller account making the request is different from the reseller account in the API request. * INVALID_ARGUMENT: * Required request parameters are missing or invalid. * Link state cannot change from invited to active or suspended. * Cannot send reseller_cloud_identity_id, invite_url, or name in update mask. * NOT_FOUND: ChannelPartnerLink resource not found. * INTERNAL: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. Return value: The updated ChannelPartnerLink resource. */
     await gapi.client.cloudchannel.accounts.channelPartnerLinks.patch(
@@ -152,10 +152,10 @@ gapi.load('client', async () => {
           channelPartnerCloudIdentityInfo: {
             adminConsoleUri: 'Test string',
             alternateEmail: 'Test string',
-            customerType: 'Test string',
+            customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
             eduData: {
-              instituteSize: 'Test string',
-              instituteType: 'Test string',
+              instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+              instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
               website: 'Test string',
             },
             isDomainVerified: true,
@@ -165,7 +165,7 @@ gapi.load('client', async () => {
           },
           createTime: 'Test string',
           inviteLinkUri: 'Test string',
-          linkState: 'Test string',
+          linkState: 'CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED',
           name: 'Test string',
           publicId: 'Test string',
           resellerCloudIdentityId: 'Test string',
@@ -199,7 +199,7 @@ gapi.load('client', async () => {
                   },
                 },
               },
-              rebillingBasis: 'Test string',
+              rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
               repricingCondition: {
                 skuGroupCondition: {
                   skuGroup: 'Test string',
@@ -215,7 +215,7 @@ gapi.load('client', async () => {
           entitlementGranularity: {
             entitlement: 'Test string',
           },
-          rebillingBasis: 'Test string',
+          rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -266,7 +266,7 @@ gapi.load('client', async () => {
                   },
                 },
               },
-              rebillingBasis: 'Test string',
+              rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
               repricingCondition: {
                 skuGroupCondition: {
                   skuGroup: 'Test string',
@@ -282,7 +282,7 @@ gapi.load('client', async () => {
           entitlementGranularity: {
             entitlement: 'Test string',
           },
-          rebillingBasis: 'Test string',
+          rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -299,10 +299,10 @@ gapi.load('client', async () => {
         cloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -312,7 +312,7 @@ gapi.load('client', async () => {
         },
         correlationId: 'Test string',
         createTime: 'Test string',
-        customerAttestationState: 'Test string',
+        customerAttestationState: 'CUSTOMER_ATTESTATION_STATE_UNSPECIFIED',
         domain: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
@@ -386,10 +386,10 @@ gapi.load('client', async () => {
         cloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
         },
         correlationId: 'Test string',
         createTime: 'Test string',
-        customerAttestationState: 'Test string',
+        customerAttestationState: 'CUSTOMER_ATTESTATION_STATE_UNSPECIFIED',
         domain: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
@@ -440,10 +440,10 @@ gapi.load('client', async () => {
         cloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -453,7 +453,7 @@ gapi.load('client', async () => {
         },
         correlationId: 'Test string',
         createTime: 'Test string',
-        customerAttestationState: 'Test string',
+        customerAttestationState: 'CUSTOMER_ATTESTATION_STATE_UNSPECIFIED',
         domain: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
@@ -526,7 +526,7 @@ gapi.load('client', async () => {
     });
     /** Lists the following: * SKUs that you can purchase for a customer * SKUs that you can upgrade or downgrade for an entitlement. Possible error codes: * PERMISSION_DENIED: The customer doesn't belong to the reseller. * INVALID_ARGUMENT: Required request parameters are missing or invalid. */
     await gapi.client.cloudchannel.accounts.customers.listPurchasableSkus({
-      'changeOfferPurchase.changeType': 'Test string',
+      'changeOfferPurchase.changeType': 'CHANGE_TYPE_UNSPECIFIED',
       'changeOfferPurchase.entitlement': 'Test string',
       'createEntitlementPurchase.product': 'Test string',
       customer: 'Test string',
@@ -547,10 +547,10 @@ gapi.load('client', async () => {
         cloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -560,7 +560,7 @@ gapi.load('client', async () => {
         },
         correlationId: 'Test string',
         createTime: 'Test string',
-        customerAttestationState: 'Test string',
+        customerAttestationState: 'CUSTOMER_ATTESTATION_STATE_UNSPECIFIED',
         domain: 'Test string',
         languageCode: 'Test string',
         name: 'Test string',
@@ -598,10 +598,10 @@ gapi.load('client', async () => {
         cloudIdentityInfo: {
           adminConsoleUri: 'Test string',
           alternateEmail: 'Test string',
-          customerType: 'Test string',
+          customerType: 'CUSTOMER_TYPE_UNSPECIFIED',
           eduData: {
-            instituteSize: 'Test string',
-            instituteType: 'Test string',
+            instituteSize: 'INSTITUTE_SIZE_UNSPECIFIED',
+            instituteType: 'INSTITUTE_TYPE_UNSPECIFIED',
             website: 'Test string',
           },
           isDomainVerified: true,
@@ -643,9 +643,9 @@ gapi.load('client', async () => {
                 enableRenewal: true,
                 paymentCycle: {
                   duration: 42,
-                  periodType: 'Test string',
+                  periodType: 'PERIOD_TYPE_UNSPECIFIED',
                 },
-                paymentPlan: 'Test string',
+                paymentPlan: 'PAYMENT_PLAN_UNSPECIFIED',
                 resizeUnitCount: true,
               },
               startTime: 'Test string',
@@ -674,9 +674,9 @@ gapi.load('client', async () => {
               provisioningId: 'Test string',
               skuId: 'Test string',
             },
-            provisioningState: 'Test string',
+            provisioningState: 'PROVISIONING_STATE_UNSPECIFIED',
             purchaseOrderId: 'Test string',
-            suspensionReasons: ['Test string'],
+            suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
             trialSettings: {
               endTime: 'Test string',
               trial: true,
@@ -705,9 +705,9 @@ gapi.load('client', async () => {
                 enableRenewal: true,
                 paymentCycle: {
                   duration: 42,
-                  periodType: 'Test string',
+                  periodType: 'PERIOD_TYPE_UNSPECIFIED',
                 },
-                paymentPlan: 'Test string',
+                paymentPlan: 'PAYMENT_PLAN_UNSPECIFIED',
                 resizeUnitCount: true,
               },
               startTime: 'Test string',
@@ -736,9 +736,9 @@ gapi.load('client', async () => {
               provisioningId: 'Test string',
               skuId: 'Test string',
             },
-            provisioningState: 'Test string',
+            provisioningState: 'PROVISIONING_STATE_UNSPECIFIED',
             purchaseOrderId: 'Test string',
-            suspensionReasons: ['Test string'],
+            suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
             trialSettings: {
               endTime: 'Test string',
               trial: true,
@@ -774,7 +774,7 @@ gapi.load('client', async () => {
                   },
                 },
               },
-              rebillingBasis: 'Test string',
+              rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
               repricingCondition: {
                 skuGroupCondition: {
                   skuGroup: 'Test string',
@@ -790,7 +790,7 @@ gapi.load('client', async () => {
           entitlementGranularity: {
             entitlement: 'Test string',
           },
-          rebillingBasis: 'Test string',
+          rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -841,7 +841,7 @@ gapi.load('client', async () => {
                   },
                 },
               },
-              rebillingBasis: 'Test string',
+              rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
               repricingCondition: {
                 skuGroupCondition: {
                   skuGroup: 'Test string',
@@ -857,7 +857,7 @@ gapi.load('client', async () => {
           entitlementGranularity: {
             entitlement: 'Test string',
           },
-          rebillingBasis: 'Test string',
+          rebillingBasis: 'REBILLING_BASIS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -943,9 +943,9 @@ gapi.load('client', async () => {
           enableRenewal: true,
           paymentCycle: {
             duration: 42,
-            periodType: 'Test string',
+            periodType: 'PERIOD_TYPE_UNSPECIFIED',
           },
-          paymentPlan: 'Test string',
+          paymentPlan: 'PAYMENT_PLAN_UNSPECIFIED',
           resizeUnitCount: true,
         },
         requestId: 'Test string',
@@ -968,9 +968,9 @@ gapi.load('client', async () => {
               enableRenewal: true,
               paymentCycle: {
                 duration: 42,
-                periodType: 'Test string',
+                periodType: 'PERIOD_TYPE_UNSPECIFIED',
               },
-              paymentPlan: 'Test string',
+              paymentPlan: 'PAYMENT_PLAN_UNSPECIFIED',
               resizeUnitCount: true,
             },
             startTime: 'Test string',
@@ -999,9 +999,9 @@ gapi.load('client', async () => {
             provisioningId: 'Test string',
             skuId: 'Test string',
           },
-          provisioningState: 'Test string',
+          provisioningState: 'PROVISIONING_STATE_UNSPECIFIED',
           purchaseOrderId: 'Test string',
-          suspensionReasons: ['Test string'],
+          suspensionReasons: ['SUSPENSION_REASON_UNSPECIFIED'],
           trialSettings: {
             endTime: 'Test string',
             trial: true,

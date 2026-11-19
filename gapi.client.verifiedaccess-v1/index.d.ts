@@ -59,7 +59,8 @@ declare namespace gapi.client {
       /** For EMCert check, device permanent id is returned here. For EUCert check, signed_public_key_and_challenge [base64 encoded] is returned if present, otherwise empty string is returned. This field is deprecated, please use device_permanent_id or signed_public_key_and_challenge fields. */
       verificationOutput?: string;
     }
-    interface ChallengeResource {
+
+    const challenge: {
       /** CreateChallenge API */
       create(request: {
         /** V1 error format. */
@@ -168,8 +169,6 @@ declare namespace gapi.client {
         },
         body: VerifyChallengeResponseRequest,
       ): Request<VerifyChallengeResponseResult>;
-    }
-
-    const challenge: ChallengeResource;
+    };
   }
 }

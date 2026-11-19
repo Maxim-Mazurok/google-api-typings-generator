@@ -84,7 +84,7 @@ gapi.load('client', async () => {
           database: 'Test string',
           instanceId: 'Test string',
           serviceAccountId: 'Test string',
-          type: 'Test string',
+          type: 'DATABASE_TYPE_UNSPECIFIED',
         },
         configuration: {
           asset: {
@@ -99,7 +99,7 @@ gapi.load('client', async () => {
                 int32Value: 42,
                 secretValue: {
                   plaintext: 'Test string',
-                  secretType: 'Test string',
+                  secretType: 'SECRET_TYPE_UNSPECIFIED',
                 },
                 stringValue: 'Test string',
               },
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
             usernamePassword: {
               password: {
                 plaintext: 'Test string',
-                secretType: 'Test string',
+                secretType: 'SECRET_TYPE_UNSPECIFIED',
               },
               username: 'Test string',
             },
@@ -129,13 +129,13 @@ gapi.load('client', async () => {
               int32Value: 42,
               secretValue: {
                 plaintext: 'Test string',
-                secretType: 'Test string',
+                secretType: 'SECRET_TYPE_UNSPECIFIED',
               },
               stringValue: 'Test string',
             },
           },
           tls: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             privatePki: {
               trustedCertificatesPem: 'Test string',
             },
@@ -244,7 +244,7 @@ gapi.load('client', async () => {
           database: 'Test string',
           instanceId: 'Test string',
           serviceAccountId: 'Test string',
-          type: 'Test string',
+          type: 'DATABASE_TYPE_UNSPECIFIED',
         },
         configuration: {
           asset: {
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
                 int32Value: 42,
                 secretValue: {
                   plaintext: 'Test string',
-                  secretType: 'Test string',
+                  secretType: 'SECRET_TYPE_UNSPECIFIED',
                 },
                 stringValue: 'Test string',
               },
@@ -268,7 +268,7 @@ gapi.load('client', async () => {
             usernamePassword: {
               password: {
                 plaintext: 'Test string',
-                secretType: 'Test string',
+                secretType: 'SECRET_TYPE_UNSPECIFIED',
               },
               username: 'Test string',
             },
@@ -289,13 +289,13 @@ gapi.load('client', async () => {
               int32Value: 42,
               secretValue: {
                 plaintext: 'Test string',
-                secretType: 'Test string',
+                secretType: 'SECRET_TYPE_UNSPECIFIED',
               },
               stringValue: 'Test string',
             },
           },
           tls: {
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             privatePki: {
               trustedCertificatesPem: 'Test string',
             },
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

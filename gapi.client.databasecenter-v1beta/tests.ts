@@ -93,7 +93,7 @@ gapi.load('client', async () => {
         signalTypeGroups: [
           {
             displayName: 'Test string',
-            signalTypes: ['Test string'],
+            signalTypes: ['SIGNAL_TYPE_UNSPECIFIED'],
           },
         ],
       },
@@ -109,27 +109,27 @@ gapi.load('client', async () => {
         parent: 'Test string',
         signalFilters: [
           {
-            signalStatus: 'Test string',
-            signalType: 'Test string',
+            signalStatus: 'SIGNAL_STATUS_UNSPECIFIED',
+            signalType: 'SIGNAL_TYPE_UNSPECIFIED',
           },
         ],
         signalProductsFilters: [
           {
             products: [
               {
-                engine: 'Test string',
+                engine: 'ENGINE_UNSPECIFIED',
                 minorVersion: 'Test string',
-                type: 'Test string',
+                type: 'PRODUCT_TYPE_UNSPECIFIED',
                 version: 'Test string',
               },
             ],
-            signalType: 'Test string',
+            signalType: 'SIGNAL_TYPE_UNSPECIFIED',
           },
         ],
         signalTypeGroups: [
           {
             displayName: 'Test string',
-            signalTypes: ['Test string'],
+            signalTypes: ['SIGNAL_TYPE_UNSPECIFIED'],
           },
         ],
       },
@@ -147,13 +147,13 @@ gapi.load('client', async () => {
           {
             products: [
               {
-                engine: 'Test string',
+                engine: 'ENGINE_UNSPECIFIED',
                 minorVersion: 'Test string',
-                type: 'Test string',
+                type: 'PRODUCT_TYPE_UNSPECIFIED',
                 version: 'Test string',
               },
             ],
-            signalType: 'Test string',
+            signalType: 'SIGNAL_TYPE_UNSPECIFIED',
           },
         ],
       },

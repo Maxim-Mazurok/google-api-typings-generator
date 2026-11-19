@@ -47,7 +47,7 @@ gapi.load('client', async () => {
             spans: [
               {
                 endTime: 'Test string',
-                kind: 'Test string',
+                kind: 'SPAN_KIND_UNSPECIFIED',
                 labels: {
                   A: 'Test string',
                 },
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       projectId: 'Test string',
       startTime: 'Test string',
-      view: 'Test string',
+      view: 'VIEW_TYPE_UNSPECIFIED',
     });
   }
 });

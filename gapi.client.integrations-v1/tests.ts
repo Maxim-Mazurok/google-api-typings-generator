@@ -35,7 +35,7 @@ gapi.load('client', async () => {
     await gapi.client.integrations.callback.generateToken({
       code: 'Test string',
       gcpProjectId: 'Test string',
-      product: 'Test string',
+      product: 'UNSPECIFIED_PRODUCT',
       redirectUri: 'Test string',
       state: 'Test string',
     });
@@ -57,7 +57,7 @@ gapi.load('client', async () => {
             triggerId: ['Test string'],
           },
         ],
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Gets the client configuration for the given project and location resource name */
@@ -95,13 +95,13 @@ gapi.load('client', async () => {
         certificateId: 'Test string',
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        credentialType: 'Test string',
+        credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
         decryptedCredential: {
           authToken: {
             token: 'Test string',
             type: 'Test string',
           },
-          credentialType: 'Test string',
+          credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
           jwt: {
             jwt: 'Test string',
             jwtHeader: 'Test string',
@@ -168,12 +168,12 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -225,8 +225,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ClientCredentials: {
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -291,8 +291,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ResourceOwnerCredentials: {
@@ -306,7 +306,7 @@ gapi.load('client', async () => {
             clientId: 'Test string',
             clientSecret: 'Test string',
             password: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -358,8 +358,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -386,10 +386,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValidTime: 'Test string',
         reason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'AUTH_CONFIG_VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an auth config. */
@@ -421,13 +421,13 @@ gapi.load('client', async () => {
         certificateId: 'Test string',
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        credentialType: 'Test string',
+        credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
         decryptedCredential: {
           authToken: {
             token: 'Test string',
             type: 'Test string',
           },
-          credentialType: 'Test string',
+          credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
           jwt: {
             jwt: 'Test string',
             jwtHeader: 'Test string',
@@ -494,12 +494,12 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -551,8 +551,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ClientCredentials: {
@@ -565,7 +565,7 @@ gapi.load('client', async () => {
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -617,8 +617,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ResourceOwnerCredentials: {
@@ -632,7 +632,7 @@ gapi.load('client', async () => {
             clientId: 'Test string',
             clientSecret: 'Test string',
             password: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -684,8 +684,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -712,10 +712,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValidTime: 'Test string',
         reason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'AUTH_CONFIG_VISIBILITY_UNSPECIFIED',
       },
     );
     /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
@@ -724,7 +724,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        certificateStatus: 'Test string',
+        certificateStatus: 'STATE_UNSPECIFIED',
         credentialId: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -762,7 +762,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        certificateStatus: 'Test string',
+        certificateStatus: 'STATE_UNSPECIFIED',
         credentialId: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        workflows: ['Test string'],
+        workflows: ['SAMPLE_INTEGRATIONS_UNSPECIFIED'],
       },
     );
     /** Update run-as service account for provisioned client */
@@ -887,7 +887,7 @@ gapi.load('client', async () => {
       {
         functionName: 'Test string',
         functionRegion: 'Test string',
-        gcfApiVersion: 'Test string',
+        gcfApiVersion: 'GCF_API_VERSION_UNSPECIFIED',
         projectId: 'Test string',
       },
     );
@@ -958,7 +958,7 @@ gapi.load('client', async () => {
         },
         parameterEntries: [
           {
-            dataType: 'Test string',
+            dataType: 'DATA_TYPE_UNSPECIFIED',
             key: 'Test string',
             masked: true,
             value: {
@@ -998,7 +998,7 @@ gapi.load('client', async () => {
         parameters: {
           parameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               key: 'Test string',
               masked: true,
               value: {
@@ -1084,7 +1084,7 @@ gapi.load('client', async () => {
         },
         parameterEntries: [
           {
-            dataType: 'Test string',
+            dataType: 'DATA_TYPE_UNSPECIFIED',
             key: 'Test string',
             masked: true,
             value: {
@@ -1186,7 +1186,7 @@ gapi.load('client', async () => {
         configParameters: {
           A: 42,
         },
-        credentialMode: 'Test string',
+        credentialMode: 'CREDENTIAL_MODE_UNSPECIFIED',
         deadlineSecondsTime: 'Test string',
         inputParameters: {
           A: {
@@ -1212,12 +1212,12 @@ gapi.load('client', async () => {
         integrationVersion: {
           cloudKmsKey: 'Test string',
           cloudLoggingDetails: {
-            cloudLoggingSeverity: 'Test string',
+            cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
             enableCloudLogging: true,
           },
           createdFromTemplate: 'Test string',
           createTime: 'Test string',
-          databasePersistencePolicy: 'Test string',
+          databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
           description: 'Test string',
           enableVariableMasking: true,
           errorCatcherConfigs: [
@@ -1241,12 +1241,12 @@ gapi.load('client', async () => {
               ],
             },
           ],
-          eucHardeningDisposition: 'Test string',
+          eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
           integrationConfigParameters: [
             {
               parameter: {
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -1268,7 +1268,7 @@ gapi.load('client', async () => {
                 },
                 description: 'Test string',
                 displayName: 'Test string',
-                inputOutputType: 'Test string',
+                inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
@@ -1300,7 +1300,7 @@ gapi.load('client', async () => {
           integrationParameters: [
             {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -1322,7 +1322,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -1335,7 +1335,7 @@ gapi.load('client', async () => {
             parameters: [
               {
                 attributes: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanValue: true,
                     doubleArray: {
@@ -1358,17 +1358,17 @@ gapi.load('client', async () => {
                   isSearchable: true,
                   logSettings: {
                     logFieldName: 'Test string',
-                    seedPeriod: 'Test string',
-                    seedScope: 'Test string',
+                    seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                    seedScope: 'SEED_SCOPE_UNSPECIFIED',
                   },
                   masked: true,
                   readOnly: true,
-                  searchable: 'Test string',
+                  searchable: 'UNSPECIFIED',
                   taskVisibility: ['Test string'],
                 },
                 children: undefined,
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -1402,14 +1402,14 @@ gapi.load('client', async () => {
                   stringValue: 'Test string',
                 },
                 description: 'Test string',
-                inOutType: 'Test string',
+                inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
                 name: 'Test string',
                 producedBy: {
                   elementIdentifier: 'Test string',
-                  elementType: 'Test string',
+                  elementType: 'UNKNOWN_TYPE',
                 },
                 producer: 'Test string',
                 protoDefName: 'Test string',
@@ -1421,12 +1421,12 @@ gapi.load('client', async () => {
           lastModifierEmail: 'Test string',
           lockHolder: 'Test string',
           name: 'Test string',
-          origin: 'Test string',
+          origin: 'UNSPECIFIED',
           parentTemplateId: 'Test string',
           runAsServiceAccount: 'Test string',
           snapshotNumber: 'Test string',
-          state: 'Test string',
-          status: 'Test string',
+          state: 'INTEGRATION_STATE_UNSPECIFIED',
+          status: 'UNKNOWN',
           taskConfigs: [
             {
               conditionalFailurePolicies: {
@@ -1434,28 +1434,28 @@ gapi.load('client', async () => {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                 ],
               },
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -1465,7 +1465,8 @@ gapi.load('client', async () => {
                   taskId: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               parameters: {
                 A: {
                   key: 'Test string',
@@ -1496,16 +1497,16 @@ gapi.load('client', async () => {
                 y: 42,
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'FINAL_STATE_UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               task: 'Test string',
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
               taskId: 'Test string',
               taskTemplate: 'Test string',
             },
@@ -1521,20 +1522,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -1543,14 +1544,14 @@ gapi.load('client', async () => {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                 ],
               },
@@ -1559,15 +1560,15 @@ gapi.load('client', async () => {
               description: 'Test string',
               disableStrictTypeValidation: true,
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               incomingEdgeCount: 42,
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
               label: 'Test string',
               lastModifiedTime: 'Test string',
               nextTasks: [
@@ -1577,7 +1578,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -1607,10 +1608,10 @@ gapi.load('client', async () => {
                   taskNumber: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               parameters: {
                 A: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   key: 'Test string',
                   masked: true,
                   value: {
@@ -1657,7 +1658,7 @@ gapi.load('client', async () => {
                 parameters: {
                   parameters: [
                     {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       key: 'Test string',
                       masked: true,
                       value: {
@@ -1699,13 +1700,13 @@ gapi.load('client', async () => {
                 taskNumbersToRollback: ['Test string'],
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               taskEntity: {
                 disabledForVpcSc: true,
@@ -1717,14 +1718,15 @@ gapi.load('client', async () => {
                       userEmail: 'Test string',
                     },
                   ],
-                  category: 'Test string',
+                  category: 'UNSPECIFIED_CATEGORY',
                   codeSearchLink: 'Test string',
-                  defaultJsonValidationOption: 'Test string',
+                  defaultJsonValidationOption:
+                    'UNSPECIFIED_JSON_VALIDATION_OPTION',
                   defaultSpec: 'Test string',
                   description: 'Test string',
                   descriptiveName: 'Test string',
                   docMarkdown: 'Test string',
-                  externalCategory: 'Test string',
+                  externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                   externalCategorySequence: 42,
                   externalDocHtml: 'Test string',
                   externalDocLink: 'Test string',
@@ -1734,8 +1736,8 @@ gapi.load('client', async () => {
                   isDeprecated: true,
                   name: 'Test string',
                   standaloneExternalDocHtml: 'Test string',
-                  status: 'Test string',
-                  system: 'Test string',
+                  status: 'UNSPECIFIED_STATUS',
+                  system: 'UNSPECIFIED_SYSTEM',
                   tags: ['Test string'],
                 },
                 paramSpecs: {
@@ -1747,14 +1749,14 @@ gapi.load('client', async () => {
                         descriptivePhrase: 'Test string',
                         helpText: 'Test string',
                         hideDefaultValue: true,
-                        inputDisplayOption: 'Test string',
+                        inputDisplayOption: 'DEFAULT',
                         isHidden: true,
                         label: 'Test string',
-                        parameterNameOption: 'Test string',
+                        parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                         subSectionLabel: 'Test string',
                         uiPlaceholderText: 'Test string',
                       },
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -1816,9 +1818,9 @@ gapi.load('client', async () => {
                 stats: {
                   dimensions: {
                     clientId: 'Test string',
-                    enumFilterType: 'Test string',
+                    enumFilterType: 'DEFAULT_INCLUSIVE',
                     errorEnumString: 'Test string',
-                    retryAttempt: 'Test string',
+                    retryAttempt: 'UNSPECIFIED',
                     taskName: 'Test string',
                     taskNumber: 'Test string',
                     triggerId: 'Test string',
@@ -1831,21 +1833,21 @@ gapi.load('client', async () => {
                   qps: 42,
                   warningRate: 42,
                 },
-                taskType: 'Test string',
+                taskType: 'TASK',
                 uiConfig: {
                   taskUiModuleConfigs: [
                     {
-                      moduleId: 'Test string',
+                      moduleId: 'UNSPECIFIED_TASK_MODULE',
                     },
                   ],
                 },
               },
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
               taskName: 'Test string',
               taskNumber: 'Test string',
               taskSpec: 'Test string',
               taskTemplateName: 'Test string',
-              taskType: 'Test string',
+              taskType: 'TASK',
             },
           ],
           teardown: {
@@ -1933,9 +1935,9 @@ gapi.load('client', async () => {
                   disableAlert: true,
                   displayName: 'Test string',
                   durationThreshold: 'Test string',
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   onlyFinalAttempt: true,
-                  thresholdType: 'Test string',
+                  thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
@@ -1954,7 +1956,8 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -1977,7 +1980,7 @@ gapi.load('client', async () => {
               trigger: 'Test string',
               triggerId: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
             },
           ],
           triggerConfigsInternal: [
@@ -1991,20 +1994,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -2021,7 +2024,7 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -2040,7 +2043,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -2116,7 +2119,7 @@ gapi.load('client', async () => {
               triggerId: 'Test string',
               triggerName: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'UNKNOWN',
             },
           ],
           updateTime: 'Test string',
@@ -2125,7 +2128,7 @@ gapi.load('client', async () => {
         parameters: {
           parameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               key: 'Test string',
               masked: true,
               value: {
@@ -2241,7 +2244,7 @@ gapi.load('client', async () => {
             stringValue: 'Test string',
           },
         },
-        replayMode: 'Test string',
+        replayMode: 'REPLAY_MODE_UNSPECIFIED',
         replayReason: 'Test string',
         updateMask: 'Test string',
       },
@@ -2290,7 +2293,7 @@ gapi.load('client', async () => {
           integration: 'Test string',
           lastModifyTime: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'RESOLUTION_STATE_UNSPECIFIED',
           suspensionConfig: {
             customMessage: 'Test string',
             notifications: [
@@ -2356,7 +2359,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    priority: 'Test string',
+                    priority: 'UNSPCIFIED',
                     quotaRetryCount: 42,
                     requestId: 'Test string',
                     resourceName: 'Test string',
@@ -2405,12 +2408,12 @@ gapi.load('client', async () => {
       {
         cloudKmsKey: 'Test string',
         cloudLoggingDetails: {
-          cloudLoggingSeverity: 'Test string',
+          cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
           enableCloudLogging: true,
         },
         createdFromTemplate: 'Test string',
         createTime: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         enableVariableMasking: true,
         errorCatcherConfigs: [
@@ -2434,12 +2437,12 @@ gapi.load('client', async () => {
             ],
           },
         ],
-        eucHardeningDisposition: 'Test string',
+        eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
         integrationConfigParameters: [
           {
             parameter: {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -2461,7 +2464,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -2493,7 +2496,7 @@ gapi.load('client', async () => {
         integrationParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -2515,7 +2518,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -2528,7 +2531,7 @@ gapi.load('client', async () => {
           parameters: [
             {
               attributes: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanValue: true,
                   doubleArray: {
@@ -2551,17 +2554,17 @@ gapi.load('client', async () => {
                 isSearchable: true,
                 logSettings: {
                   logFieldName: 'Test string',
-                  seedPeriod: 'Test string',
-                  seedScope: 'Test string',
+                  seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                  seedScope: 'SEED_SCOPE_UNSPECIFIED',
                 },
                 masked: true,
                 readOnly: true,
-                searchable: 'Test string',
+                searchable: 'UNSPECIFIED',
                 taskVisibility: ['Test string'],
               },
               children: undefined,
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -2595,14 +2598,14 @@ gapi.load('client', async () => {
                 stringValue: 'Test string',
               },
               description: 'Test string',
-              inOutType: 'Test string',
+              inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
               name: 'Test string',
               producedBy: {
                 elementIdentifier: 'Test string',
-                elementType: 'Test string',
+                elementType: 'UNKNOWN_TYPE',
               },
               producer: 'Test string',
               protoDefName: 'Test string',
@@ -2614,12 +2617,12 @@ gapi.load('client', async () => {
         lastModifierEmail: 'Test string',
         lockHolder: 'Test string',
         name: 'Test string',
-        origin: 'Test string',
+        origin: 'UNSPECIFIED',
         parentTemplateId: 'Test string',
         runAsServiceAccount: 'Test string',
         snapshotNumber: 'Test string',
-        state: 'Test string',
-        status: 'Test string',
+        state: 'INTEGRATION_STATE_UNSPECIFIED',
+        status: 'UNKNOWN',
         taskConfigs: [
           {
             conditionalFailurePolicies: {
@@ -2627,28 +2630,28 @@ gapi.load('client', async () => {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
               ],
             },
             description: 'Test string',
             displayName: 'Test string',
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
             nextTasks: [
               {
                 condition: 'Test string',
@@ -2658,7 +2661,7 @@ gapi.load('client', async () => {
                 taskId: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             parameters: {
               A: {
                 key: 'Test string',
@@ -2689,16 +2692,16 @@ gapi.load('client', async () => {
               y: 42,
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'FINAL_STATE_UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
             task: 'Test string',
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
             taskId: 'Test string',
             taskTemplate: 'Test string',
           },
@@ -2714,20 +2717,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -2736,14 +2739,14 @@ gapi.load('client', async () => {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
               ],
             },
@@ -2752,15 +2755,15 @@ gapi.load('client', async () => {
             description: 'Test string',
             disableStrictTypeValidation: true,
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             incomingEdgeCount: 42,
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
             label: 'Test string',
             lastModifiedTime: 'Test string',
             nextTasks: [
@@ -2770,7 +2773,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -2800,10 +2803,10 @@ gapi.load('client', async () => {
                 taskNumber: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             parameters: {
               A: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 key: 'Test string',
                 masked: true,
                 value: {
@@ -2850,7 +2853,7 @@ gapi.load('client', async () => {
               parameters: {
                 parameters: [
                   {
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     key: 'Test string',
                     masked: true,
                     value: {
@@ -2892,13 +2895,13 @@ gapi.load('client', async () => {
               taskNumbersToRollback: ['Test string'],
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             taskEntity: {
               disabledForVpcSc: true,
@@ -2910,14 +2913,15 @@ gapi.load('client', async () => {
                     userEmail: 'Test string',
                   },
                 ],
-                category: 'Test string',
+                category: 'UNSPECIFIED_CATEGORY',
                 codeSearchLink: 'Test string',
-                defaultJsonValidationOption: 'Test string',
+                defaultJsonValidationOption:
+                  'UNSPECIFIED_JSON_VALIDATION_OPTION',
                 defaultSpec: 'Test string',
                 description: 'Test string',
                 descriptiveName: 'Test string',
                 docMarkdown: 'Test string',
-                externalCategory: 'Test string',
+                externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                 externalCategorySequence: 42,
                 externalDocHtml: 'Test string',
                 externalDocLink: 'Test string',
@@ -2927,8 +2931,8 @@ gapi.load('client', async () => {
                 isDeprecated: true,
                 name: 'Test string',
                 standaloneExternalDocHtml: 'Test string',
-                status: 'Test string',
-                system: 'Test string',
+                status: 'UNSPECIFIED_STATUS',
+                system: 'UNSPECIFIED_SYSTEM',
                 tags: ['Test string'],
               },
               paramSpecs: {
@@ -2940,14 +2944,14 @@ gapi.load('client', async () => {
                       descriptivePhrase: 'Test string',
                       helpText: 'Test string',
                       hideDefaultValue: true,
-                      inputDisplayOption: 'Test string',
+                      inputDisplayOption: 'DEFAULT',
                       isHidden: true,
                       label: 'Test string',
-                      parameterNameOption: 'Test string',
+                      parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                       subSectionLabel: 'Test string',
                       uiPlaceholderText: 'Test string',
                     },
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -3009,9 +3013,9 @@ gapi.load('client', async () => {
               stats: {
                 dimensions: {
                   clientId: 'Test string',
-                  enumFilterType: 'Test string',
+                  enumFilterType: 'DEFAULT_INCLUSIVE',
                   errorEnumString: 'Test string',
-                  retryAttempt: 'Test string',
+                  retryAttempt: 'UNSPECIFIED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   triggerId: 'Test string',
@@ -3024,21 +3028,21 @@ gapi.load('client', async () => {
                 qps: 42,
                 warningRate: 42,
               },
-              taskType: 'Test string',
+              taskType: 'TASK',
               uiConfig: {
                 taskUiModuleConfigs: [
                   {
-                    moduleId: 'Test string',
+                    moduleId: 'UNSPECIFIED_TASK_MODULE',
                   },
                 ],
               },
             },
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
             taskName: 'Test string',
             taskNumber: 'Test string',
             taskSpec: 'Test string',
             taskTemplateName: 'Test string',
-            taskType: 'Test string',
+            taskType: 'TASK',
           },
         ],
         teardown: {
@@ -3126,9 +3130,9 @@ gapi.load('client', async () => {
                 disableAlert: true,
                 displayName: 'Test string',
                 durationThreshold: 'Test string',
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 onlyFinalAttempt: true,
-                thresholdType: 'Test string',
+                thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
@@ -3147,7 +3151,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -3170,7 +3174,7 @@ gapi.load('client', async () => {
             trigger: 'Test string',
             triggerId: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
           },
         ],
         triggerConfigsInternal: [
@@ -3184,20 +3188,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -3214,7 +3218,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -3233,7 +3237,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -3309,7 +3313,7 @@ gapi.load('client', async () => {
             triggerId: 'Test string',
             triggerName: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'UNKNOWN',
           },
         ],
         updateTime: 'Test string',
@@ -3325,15 +3329,15 @@ gapi.load('client', async () => {
     /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.integrations.versions.download(
       {
-        fileFormat: 'Test string',
-        files: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
+        files: 'INTEGRATION_FILE_UNSPECIFIED',
         name: 'Test string',
       },
     );
     /** Downloads an Integration version package like IntegrationVersion,Integration Config etc. Retrieves the IntegrationVersion package for a given `integration_id` and returns the response as a JSON. */
     await gapi.client.integrations.projects.locations.integrations.versions.downloadJsonPackage(
       {
-        files: 'Test string',
+        files: 'INTEGRATION_FILE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -3363,12 +3367,12 @@ gapi.load('client', async () => {
       {
         cloudKmsKey: 'Test string',
         cloudLoggingDetails: {
-          cloudLoggingSeverity: 'Test string',
+          cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
           enableCloudLogging: true,
         },
         createdFromTemplate: 'Test string',
         createTime: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         enableVariableMasking: true,
         errorCatcherConfigs: [
@@ -3392,12 +3396,12 @@ gapi.load('client', async () => {
             ],
           },
         ],
-        eucHardeningDisposition: 'Test string',
+        eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
         integrationConfigParameters: [
           {
             parameter: {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -3419,7 +3423,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -3451,7 +3455,7 @@ gapi.load('client', async () => {
         integrationParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -3473,7 +3477,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -3486,7 +3490,7 @@ gapi.load('client', async () => {
           parameters: [
             {
               attributes: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanValue: true,
                   doubleArray: {
@@ -3509,17 +3513,17 @@ gapi.load('client', async () => {
                 isSearchable: true,
                 logSettings: {
                   logFieldName: 'Test string',
-                  seedPeriod: 'Test string',
-                  seedScope: 'Test string',
+                  seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                  seedScope: 'SEED_SCOPE_UNSPECIFIED',
                 },
                 masked: true,
                 readOnly: true,
-                searchable: 'Test string',
+                searchable: 'UNSPECIFIED',
                 taskVisibility: ['Test string'],
               },
               children: undefined,
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -3553,14 +3557,14 @@ gapi.load('client', async () => {
                 stringValue: 'Test string',
               },
               description: 'Test string',
-              inOutType: 'Test string',
+              inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
               name: 'Test string',
               producedBy: {
                 elementIdentifier: 'Test string',
-                elementType: 'Test string',
+                elementType: 'UNKNOWN_TYPE',
               },
               producer: 'Test string',
               protoDefName: 'Test string',
@@ -3572,12 +3576,12 @@ gapi.load('client', async () => {
         lastModifierEmail: 'Test string',
         lockHolder: 'Test string',
         name: 'Test string',
-        origin: 'Test string',
+        origin: 'UNSPECIFIED',
         parentTemplateId: 'Test string',
         runAsServiceAccount: 'Test string',
         snapshotNumber: 'Test string',
-        state: 'Test string',
-        status: 'Test string',
+        state: 'INTEGRATION_STATE_UNSPECIFIED',
+        status: 'UNKNOWN',
         taskConfigs: [
           {
             conditionalFailurePolicies: {
@@ -3585,28 +3589,28 @@ gapi.load('client', async () => {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
               ],
             },
             description: 'Test string',
             displayName: 'Test string',
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
             nextTasks: [
               {
                 condition: 'Test string',
@@ -3616,7 +3620,7 @@ gapi.load('client', async () => {
                 taskId: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             parameters: {
               A: {
                 key: 'Test string',
@@ -3647,16 +3651,16 @@ gapi.load('client', async () => {
               y: 42,
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'FINAL_STATE_UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
             task: 'Test string',
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
             taskId: 'Test string',
             taskTemplate: 'Test string',
           },
@@ -3672,20 +3676,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -3694,14 +3698,14 @@ gapi.load('client', async () => {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
               ],
             },
@@ -3710,15 +3714,15 @@ gapi.load('client', async () => {
             description: 'Test string',
             disableStrictTypeValidation: true,
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             incomingEdgeCount: 42,
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
             label: 'Test string',
             lastModifiedTime: 'Test string',
             nextTasks: [
@@ -3728,7 +3732,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -3758,10 +3762,10 @@ gapi.load('client', async () => {
                 taskNumber: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             parameters: {
               A: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 key: 'Test string',
                 masked: true,
                 value: {
@@ -3808,7 +3812,7 @@ gapi.load('client', async () => {
               parameters: {
                 parameters: [
                   {
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     key: 'Test string',
                     masked: true,
                     value: {
@@ -3850,13 +3854,13 @@ gapi.load('client', async () => {
               taskNumbersToRollback: ['Test string'],
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             taskEntity: {
               disabledForVpcSc: true,
@@ -3868,14 +3872,15 @@ gapi.load('client', async () => {
                     userEmail: 'Test string',
                   },
                 ],
-                category: 'Test string',
+                category: 'UNSPECIFIED_CATEGORY',
                 codeSearchLink: 'Test string',
-                defaultJsonValidationOption: 'Test string',
+                defaultJsonValidationOption:
+                  'UNSPECIFIED_JSON_VALIDATION_OPTION',
                 defaultSpec: 'Test string',
                 description: 'Test string',
                 descriptiveName: 'Test string',
                 docMarkdown: 'Test string',
-                externalCategory: 'Test string',
+                externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                 externalCategorySequence: 42,
                 externalDocHtml: 'Test string',
                 externalDocLink: 'Test string',
@@ -3885,8 +3890,8 @@ gapi.load('client', async () => {
                 isDeprecated: true,
                 name: 'Test string',
                 standaloneExternalDocHtml: 'Test string',
-                status: 'Test string',
-                system: 'Test string',
+                status: 'UNSPECIFIED_STATUS',
+                system: 'UNSPECIFIED_SYSTEM',
                 tags: ['Test string'],
               },
               paramSpecs: {
@@ -3898,14 +3903,14 @@ gapi.load('client', async () => {
                       descriptivePhrase: 'Test string',
                       helpText: 'Test string',
                       hideDefaultValue: true,
-                      inputDisplayOption: 'Test string',
+                      inputDisplayOption: 'DEFAULT',
                       isHidden: true,
                       label: 'Test string',
-                      parameterNameOption: 'Test string',
+                      parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                       subSectionLabel: 'Test string',
                       uiPlaceholderText: 'Test string',
                     },
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -3967,9 +3972,9 @@ gapi.load('client', async () => {
               stats: {
                 dimensions: {
                   clientId: 'Test string',
-                  enumFilterType: 'Test string',
+                  enumFilterType: 'DEFAULT_INCLUSIVE',
                   errorEnumString: 'Test string',
-                  retryAttempt: 'Test string',
+                  retryAttempt: 'UNSPECIFIED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   triggerId: 'Test string',
@@ -3982,21 +3987,21 @@ gapi.load('client', async () => {
                 qps: 42,
                 warningRate: 42,
               },
-              taskType: 'Test string',
+              taskType: 'TASK',
               uiConfig: {
                 taskUiModuleConfigs: [
                   {
-                    moduleId: 'Test string',
+                    moduleId: 'UNSPECIFIED_TASK_MODULE',
                   },
                 ],
               },
             },
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
             taskName: 'Test string',
             taskNumber: 'Test string',
             taskSpec: 'Test string',
             taskTemplateName: 'Test string',
-            taskType: 'Test string',
+            taskType: 'TASK',
           },
         ],
         teardown: {
@@ -4084,9 +4089,9 @@ gapi.load('client', async () => {
                 disableAlert: true,
                 displayName: 'Test string',
                 durationThreshold: 'Test string',
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 onlyFinalAttempt: true,
-                thresholdType: 'Test string',
+                thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
@@ -4105,7 +4110,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -4128,7 +4133,7 @@ gapi.load('client', async () => {
             trigger: 'Test string',
             triggerId: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
           },
         ],
         triggerConfigsInternal: [
@@ -4142,20 +4147,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -4172,7 +4177,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -4191,7 +4196,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -4267,7 +4272,7 @@ gapi.load('client', async () => {
             triggerId: 'Test string',
             triggerName: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'UNKNOWN',
           },
         ],
         updateTime: 'Test string',
@@ -4297,7 +4302,7 @@ gapi.load('client', async () => {
         configParameters: {
           A: 42,
         },
-        credentialMode: 'Test string',
+        credentialMode: 'CREDENTIAL_MODE_UNSPECIFIED',
         deadlineSecondsTime: 'Test string',
         inputParameters: {
           A: {
@@ -4323,12 +4328,12 @@ gapi.load('client', async () => {
         integrationVersion: {
           cloudKmsKey: 'Test string',
           cloudLoggingDetails: {
-            cloudLoggingSeverity: 'Test string',
+            cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
             enableCloudLogging: true,
           },
           createdFromTemplate: 'Test string',
           createTime: 'Test string',
-          databasePersistencePolicy: 'Test string',
+          databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
           description: 'Test string',
           enableVariableMasking: true,
           errorCatcherConfigs: [
@@ -4352,12 +4357,12 @@ gapi.load('client', async () => {
               ],
             },
           ],
-          eucHardeningDisposition: 'Test string',
+          eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
           integrationConfigParameters: [
             {
               parameter: {
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -4379,7 +4384,7 @@ gapi.load('client', async () => {
                 },
                 description: 'Test string',
                 displayName: 'Test string',
-                inputOutputType: 'Test string',
+                inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
@@ -4411,7 +4416,7 @@ gapi.load('client', async () => {
           integrationParameters: [
             {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -4433,7 +4438,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -4446,7 +4451,7 @@ gapi.load('client', async () => {
             parameters: [
               {
                 attributes: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanValue: true,
                     doubleArray: {
@@ -4469,17 +4474,17 @@ gapi.load('client', async () => {
                   isSearchable: true,
                   logSettings: {
                     logFieldName: 'Test string',
-                    seedPeriod: 'Test string',
-                    seedScope: 'Test string',
+                    seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                    seedScope: 'SEED_SCOPE_UNSPECIFIED',
                   },
                   masked: true,
                   readOnly: true,
-                  searchable: 'Test string',
+                  searchable: 'UNSPECIFIED',
                   taskVisibility: ['Test string'],
                 },
                 children: undefined,
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -4513,14 +4518,14 @@ gapi.load('client', async () => {
                   stringValue: 'Test string',
                 },
                 description: 'Test string',
-                inOutType: 'Test string',
+                inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
                 name: 'Test string',
                 producedBy: {
                   elementIdentifier: 'Test string',
-                  elementType: 'Test string',
+                  elementType: 'UNKNOWN_TYPE',
                 },
                 producer: 'Test string',
                 protoDefName: 'Test string',
@@ -4532,12 +4537,12 @@ gapi.load('client', async () => {
           lastModifierEmail: 'Test string',
           lockHolder: 'Test string',
           name: 'Test string',
-          origin: 'Test string',
+          origin: 'UNSPECIFIED',
           parentTemplateId: 'Test string',
           runAsServiceAccount: 'Test string',
           snapshotNumber: 'Test string',
-          state: 'Test string',
-          status: 'Test string',
+          state: 'INTEGRATION_STATE_UNSPECIFIED',
+          status: 'UNKNOWN',
           taskConfigs: [
             {
               conditionalFailurePolicies: {
@@ -4545,28 +4550,28 @@ gapi.load('client', async () => {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                 ],
               },
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -4576,7 +4581,8 @@ gapi.load('client', async () => {
                   taskId: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               parameters: {
                 A: {
                   key: 'Test string',
@@ -4607,16 +4613,16 @@ gapi.load('client', async () => {
                 y: 42,
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'FINAL_STATE_UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               task: 'Test string',
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
               taskId: 'Test string',
               taskTemplate: 'Test string',
             },
@@ -4632,20 +4638,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -4654,14 +4660,14 @@ gapi.load('client', async () => {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                 ],
               },
@@ -4670,15 +4676,15 @@ gapi.load('client', async () => {
               description: 'Test string',
               disableStrictTypeValidation: true,
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               incomingEdgeCount: 42,
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
               label: 'Test string',
               lastModifiedTime: 'Test string',
               nextTasks: [
@@ -4688,7 +4694,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -4718,10 +4724,10 @@ gapi.load('client', async () => {
                   taskNumber: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               parameters: {
                 A: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   key: 'Test string',
                   masked: true,
                   value: {
@@ -4768,7 +4774,7 @@ gapi.load('client', async () => {
                 parameters: {
                   parameters: [
                     {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       key: 'Test string',
                       masked: true,
                       value: {
@@ -4810,13 +4816,13 @@ gapi.load('client', async () => {
                 taskNumbersToRollback: ['Test string'],
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               taskEntity: {
                 disabledForVpcSc: true,
@@ -4828,14 +4834,15 @@ gapi.load('client', async () => {
                       userEmail: 'Test string',
                     },
                   ],
-                  category: 'Test string',
+                  category: 'UNSPECIFIED_CATEGORY',
                   codeSearchLink: 'Test string',
-                  defaultJsonValidationOption: 'Test string',
+                  defaultJsonValidationOption:
+                    'UNSPECIFIED_JSON_VALIDATION_OPTION',
                   defaultSpec: 'Test string',
                   description: 'Test string',
                   descriptiveName: 'Test string',
                   docMarkdown: 'Test string',
-                  externalCategory: 'Test string',
+                  externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                   externalCategorySequence: 42,
                   externalDocHtml: 'Test string',
                   externalDocLink: 'Test string',
@@ -4845,8 +4852,8 @@ gapi.load('client', async () => {
                   isDeprecated: true,
                   name: 'Test string',
                   standaloneExternalDocHtml: 'Test string',
-                  status: 'Test string',
-                  system: 'Test string',
+                  status: 'UNSPECIFIED_STATUS',
+                  system: 'UNSPECIFIED_SYSTEM',
                   tags: ['Test string'],
                 },
                 paramSpecs: {
@@ -4858,14 +4865,14 @@ gapi.load('client', async () => {
                         descriptivePhrase: 'Test string',
                         helpText: 'Test string',
                         hideDefaultValue: true,
-                        inputDisplayOption: 'Test string',
+                        inputDisplayOption: 'DEFAULT',
                         isHidden: true,
                         label: 'Test string',
-                        parameterNameOption: 'Test string',
+                        parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                         subSectionLabel: 'Test string',
                         uiPlaceholderText: 'Test string',
                       },
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -4927,9 +4934,9 @@ gapi.load('client', async () => {
                 stats: {
                   dimensions: {
                     clientId: 'Test string',
-                    enumFilterType: 'Test string',
+                    enumFilterType: 'DEFAULT_INCLUSIVE',
                     errorEnumString: 'Test string',
-                    retryAttempt: 'Test string',
+                    retryAttempt: 'UNSPECIFIED',
                     taskName: 'Test string',
                     taskNumber: 'Test string',
                     triggerId: 'Test string',
@@ -4942,21 +4949,21 @@ gapi.load('client', async () => {
                   qps: 42,
                   warningRate: 42,
                 },
-                taskType: 'Test string',
+                taskType: 'TASK',
                 uiConfig: {
                   taskUiModuleConfigs: [
                     {
-                      moduleId: 'Test string',
+                      moduleId: 'UNSPECIFIED_TASK_MODULE',
                     },
                   ],
                 },
               },
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
               taskName: 'Test string',
               taskNumber: 'Test string',
               taskSpec: 'Test string',
               taskTemplateName: 'Test string',
-              taskType: 'Test string',
+              taskType: 'TASK',
             },
           ],
           teardown: {
@@ -5044,9 +5051,9 @@ gapi.load('client', async () => {
                   disableAlert: true,
                   displayName: 'Test string',
                   durationThreshold: 'Test string',
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   onlyFinalAttempt: true,
-                  thresholdType: 'Test string',
+                  thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
@@ -5065,7 +5072,8 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -5088,7 +5096,7 @@ gapi.load('client', async () => {
               trigger: 'Test string',
               triggerId: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
             },
           ],
           triggerConfigsInternal: [
@@ -5102,20 +5110,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -5132,7 +5140,7 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -5151,7 +5159,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -5227,7 +5235,7 @@ gapi.load('client', async () => {
               triggerId: 'Test string',
               triggerName: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'UNKNOWN',
             },
           ],
           updateTime: 'Test string',
@@ -5236,7 +5244,7 @@ gapi.load('client', async () => {
         parameters: {
           parameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               key: 'Test string',
               masked: true,
               value: {
@@ -5292,7 +5300,7 @@ gapi.load('client', async () => {
       },
       {
         content: 'Test string',
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Creates a new test case */
@@ -5304,7 +5312,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         lastModifierEmail: 'Test string',
@@ -5313,7 +5321,7 @@ gapi.load('client', async () => {
         testInputParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -5335,7 +5343,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -5348,7 +5356,7 @@ gapi.load('client', async () => {
           {
             assertions: [
               {
-                assertionStrategy: 'Test string',
+                assertionStrategy: 'ASSERTION_STRATEGY_UNSPECIFIED',
                 condition: 'Test string',
                 parameter: {
                   key: 'Test string',
@@ -5378,7 +5386,7 @@ gapi.load('client', async () => {
             ],
             mockConfig: {
               failedExecutions: 'Test string',
-              mockStrategy: 'Test string',
+              mockStrategy: 'MOCK_STRATEGY_UNSPECIFIED',
               parameters: [
                 {
                   key: 'Test string',
@@ -5412,28 +5420,28 @@ gapi.load('client', async () => {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                 ],
               },
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -5443,7 +5451,8 @@ gapi.load('client', async () => {
                   taskId: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               parameters: {
                 A: {
                   key: 'Test string',
@@ -5474,16 +5483,16 @@ gapi.load('client', async () => {
                 y: 42,
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'FINAL_STATE_UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               task: 'Test string',
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
               taskId: 'Test string',
               taskTemplate: 'Test string',
             },
@@ -5498,9 +5507,9 @@ gapi.load('client', async () => {
               disableAlert: true,
               displayName: 'Test string',
               durationThreshold: 'Test string',
-              metricType: 'Test string',
+              metricType: 'METRIC_TYPE_UNSPECIFIED',
               onlyFinalAttempt: true,
-              thresholdType: 'Test string',
+              thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
               thresholdValue: {
                 absolute: 'Test string',
                 percentage: 42,
@@ -5519,7 +5528,7 @@ gapi.load('client', async () => {
             names: ['Test string'],
           },
           label: 'Test string',
-          nextTasksExecutionPolicy: 'Test string',
+          nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
           outputVariables: {
             names: ['Test string'],
           },
@@ -5542,7 +5551,7 @@ gapi.load('client', async () => {
           trigger: 'Test string',
           triggerId: 'Test string',
           triggerNumber: 'Test string',
-          triggerType: 'Test string',
+          triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
         },
         triggerId: 'Test string',
         updateTime: 'Test string',
@@ -5557,7 +5566,7 @@ gapi.load('client', async () => {
     /** Downloads a test case. Retrieves the `TestCase` for a given `test_case_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.integrations.versions.testCases.download(
       {
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -5623,7 +5632,7 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         lastModifierEmail: 'Test string',
@@ -5632,7 +5641,7 @@ gapi.load('client', async () => {
         testInputParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -5654,7 +5663,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -5667,7 +5676,7 @@ gapi.load('client', async () => {
           {
             assertions: [
               {
-                assertionStrategy: 'Test string',
+                assertionStrategy: 'ASSERTION_STRATEGY_UNSPECIFIED',
                 condition: 'Test string',
                 parameter: {
                   key: 'Test string',
@@ -5697,7 +5706,7 @@ gapi.load('client', async () => {
             ],
             mockConfig: {
               failedExecutions: 'Test string',
-              mockStrategy: 'Test string',
+              mockStrategy: 'MOCK_STRATEGY_UNSPECIFIED',
               parameters: [
                 {
                   key: 'Test string',
@@ -5731,28 +5740,28 @@ gapi.load('client', async () => {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                 ],
               },
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -5762,7 +5771,8 @@ gapi.load('client', async () => {
                   taskId: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               parameters: {
                 A: {
                   key: 'Test string',
@@ -5793,16 +5803,16 @@ gapi.load('client', async () => {
                 y: 42,
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'FINAL_STATE_UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               task: 'Test string',
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
               taskId: 'Test string',
               taskTemplate: 'Test string',
             },
@@ -5817,9 +5827,9 @@ gapi.load('client', async () => {
               disableAlert: true,
               displayName: 'Test string',
               durationThreshold: 'Test string',
-              metricType: 'Test string',
+              metricType: 'METRIC_TYPE_UNSPECIFIED',
               onlyFinalAttempt: true,
-              thresholdType: 'Test string',
+              thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
               thresholdValue: {
                 absolute: 'Test string',
                 percentage: 42,
@@ -5838,7 +5848,7 @@ gapi.load('client', async () => {
             names: ['Test string'],
           },
           label: 'Test string',
-          nextTasksExecutionPolicy: 'Test string',
+          nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
           outputVariables: {
             names: ['Test string'],
           },
@@ -5861,7 +5871,7 @@ gapi.load('client', async () => {
           trigger: 'Test string',
           triggerId: 'Test string',
           triggerNumber: 'Test string',
-          triggerType: 'Test string',
+          triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
         },
         triggerId: 'Test string',
         updateTime: 'Test string',
@@ -5881,7 +5891,7 @@ gapi.load('client', async () => {
       },
       {
         content: 'Test string',
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config. */
@@ -5896,13 +5906,13 @@ gapi.load('client', async () => {
         certificateId: 'Test string',
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        credentialType: 'Test string',
+        credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
         decryptedCredential: {
           authToken: {
             token: 'Test string',
             type: 'Test string',
           },
-          credentialType: 'Test string',
+          credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
           jwt: {
             jwt: 'Test string',
             jwtHeader: 'Test string',
@@ -5969,12 +5979,12 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6026,8 +6036,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ClientCredentials: {
@@ -6040,7 +6050,7 @@ gapi.load('client', async () => {
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6092,8 +6102,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ResourceOwnerCredentials: {
@@ -6107,7 +6117,7 @@ gapi.load('client', async () => {
             clientId: 'Test string',
             clientSecret: 'Test string',
             password: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6159,8 +6169,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -6187,10 +6197,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValidTime: 'Test string',
         reason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'AUTH_CONFIG_VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an auth config. */
@@ -6226,13 +6236,13 @@ gapi.load('client', async () => {
         certificateId: 'Test string',
         createTime: 'Test string',
         creatorEmail: 'Test string',
-        credentialType: 'Test string',
+        credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
         decryptedCredential: {
           authToken: {
             token: 'Test string',
             type: 'Test string',
           },
-          credentialType: 'Test string',
+          credentialType: 'CREDENTIAL_TYPE_UNSPECIFIED',
           jwt: {
             jwt: 'Test string',
             jwtHeader: 'Test string',
@@ -6299,12 +6309,12 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6356,8 +6366,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ClientCredentials: {
@@ -6370,7 +6380,7 @@ gapi.load('client', async () => {
             },
             clientId: 'Test string',
             clientSecret: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6422,8 +6432,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
           },
           oauth2ResourceOwnerCredentials: {
@@ -6437,7 +6447,7 @@ gapi.load('client', async () => {
             clientId: 'Test string',
             clientSecret: 'Test string',
             password: 'Test string',
-            requestType: 'Test string',
+            requestType: 'REQUEST_TYPE_UNSPECIFIED',
             scope: 'Test string',
             tokenEndpoint: 'Test string',
             tokenParams: {
@@ -6489,8 +6499,8 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              keyType: 'Test string',
-              valueType: 'Test string',
+              keyType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
+              valueType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -6517,10 +6527,10 @@ gapi.load('client', async () => {
         name: 'Test string',
         overrideValidTime: 'Test string',
         reason: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         validTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'AUTH_CONFIG_VISIBILITY_UNSPECIFIED',
       },
     );
     /** Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate. */
@@ -6529,7 +6539,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        certificateStatus: 'Test string',
+        certificateStatus: 'STATE_UNSPECIFIED',
         credentialId: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -6573,7 +6583,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        certificateStatus: 'Test string',
+        certificateStatus: 'STATE_UNSPECIFIED',
         credentialId: 'Test string',
         description: 'Test string',
         displayName: 'Test string',
@@ -6596,7 +6606,7 @@ gapi.load('client', async () => {
       {
         functionName: 'Test string',
         functionRegion: 'Test string',
-        gcfApiVersion: 'Test string',
+        gcfApiVersion: 'GCF_API_VERSION_UNSPECIFIED',
         projectId: 'Test string',
       },
     );
@@ -6631,7 +6641,7 @@ gapi.load('client', async () => {
         },
         parameterEntries: [
           {
-            dataType: 'Test string',
+            dataType: 'DATA_TYPE_UNSPECIFIED',
             key: 'Test string',
             masked: true,
             value: {
@@ -6671,7 +6681,7 @@ gapi.load('client', async () => {
         parameters: {
           parameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               key: 'Test string',
               masked: true,
               value: {
@@ -6752,7 +6762,7 @@ gapi.load('client', async () => {
         },
         parameterEntries: [
           {
-            dataType: 'Test string',
+            dataType: 'DATA_TYPE_UNSPECIFIED',
             key: 'Test string',
             masked: true,
             value: {
@@ -6845,7 +6855,7 @@ gapi.load('client', async () => {
         configParameters: {
           A: 42,
         },
-        credentialMode: 'Test string',
+        credentialMode: 'CREDENTIAL_MODE_UNSPECIFIED',
         deadlineSecondsTime: 'Test string',
         inputParameters: {
           A: {
@@ -6871,12 +6881,12 @@ gapi.load('client', async () => {
         integrationVersion: {
           cloudKmsKey: 'Test string',
           cloudLoggingDetails: {
-            cloudLoggingSeverity: 'Test string',
+            cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
             enableCloudLogging: true,
           },
           createdFromTemplate: 'Test string',
           createTime: 'Test string',
-          databasePersistencePolicy: 'Test string',
+          databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
           description: 'Test string',
           enableVariableMasking: true,
           errorCatcherConfigs: [
@@ -6900,12 +6910,12 @@ gapi.load('client', async () => {
               ],
             },
           ],
-          eucHardeningDisposition: 'Test string',
+          eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
           integrationConfigParameters: [
             {
               parameter: {
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -6927,7 +6937,7 @@ gapi.load('client', async () => {
                 },
                 description: 'Test string',
                 displayName: 'Test string',
-                inputOutputType: 'Test string',
+                inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
@@ -6959,7 +6969,7 @@ gapi.load('client', async () => {
           integrationParameters: [
             {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -6981,7 +6991,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -6994,7 +7004,7 @@ gapi.load('client', async () => {
             parameters: [
               {
                 attributes: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanValue: true,
                     doubleArray: {
@@ -7017,17 +7027,17 @@ gapi.load('client', async () => {
                   isSearchable: true,
                   logSettings: {
                     logFieldName: 'Test string',
-                    seedPeriod: 'Test string',
-                    seedScope: 'Test string',
+                    seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                    seedScope: 'SEED_SCOPE_UNSPECIFIED',
                   },
                   masked: true,
                   readOnly: true,
-                  searchable: 'Test string',
+                  searchable: 'UNSPECIFIED',
                   taskVisibility: ['Test string'],
                 },
                 children: undefined,
                 containsLargeData: true,
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanArray: {
                     booleanValues: [true],
@@ -7061,14 +7071,14 @@ gapi.load('client', async () => {
                   stringValue: 'Test string',
                 },
                 description: 'Test string',
-                inOutType: 'Test string',
+                inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                 isTransient: true,
                 jsonSchema: 'Test string',
                 key: 'Test string',
                 name: 'Test string',
                 producedBy: {
                   elementIdentifier: 'Test string',
-                  elementType: 'Test string',
+                  elementType: 'UNKNOWN_TYPE',
                 },
                 producer: 'Test string',
                 protoDefName: 'Test string',
@@ -7080,12 +7090,12 @@ gapi.load('client', async () => {
           lastModifierEmail: 'Test string',
           lockHolder: 'Test string',
           name: 'Test string',
-          origin: 'Test string',
+          origin: 'UNSPECIFIED',
           parentTemplateId: 'Test string',
           runAsServiceAccount: 'Test string',
           snapshotNumber: 'Test string',
-          state: 'Test string',
-          status: 'Test string',
+          state: 'INTEGRATION_STATE_UNSPECIFIED',
+          status: 'UNKNOWN',
           taskConfigs: [
             {
               conditionalFailurePolicies: {
@@ -7093,28 +7103,28 @@ gapi.load('client', async () => {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                 ],
               },
               description: 'Test string',
               displayName: 'Test string',
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
               nextTasks: [
                 {
                   condition: 'Test string',
@@ -7124,7 +7134,8 @@ gapi.load('client', async () => {
                   taskId: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               parameters: {
                 A: {
                   key: 'Test string',
@@ -7155,16 +7166,16 @@ gapi.load('client', async () => {
                 y: 42,
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'FINAL_STATE_UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               task: 'Test string',
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
               taskId: 'Test string',
               taskTemplate: 'Test string',
             },
@@ -7180,20 +7191,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -7202,14 +7213,14 @@ gapi.load('client', async () => {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
                 failurePolicies: [
                   {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                 ],
               },
@@ -7218,15 +7229,15 @@ gapi.load('client', async () => {
               description: 'Test string',
               disableStrictTypeValidation: true,
               errorCatcherId: 'Test string',
-              externalTaskType: 'Test string',
+              externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
               failurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               incomingEdgeCount: 42,
-              jsonValidationOption: 'Test string',
+              jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
               label: 'Test string',
               lastModifiedTime: 'Test string',
               nextTasks: [
@@ -7236,7 +7247,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -7266,10 +7277,10 @@ gapi.load('client', async () => {
                   taskNumber: 'Test string',
                 },
               ],
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               parameters: {
                 A: {
-                  dataType: 'Test string',
+                  dataType: 'DATA_TYPE_UNSPECIFIED',
                   key: 'Test string',
                   masked: true,
                   value: {
@@ -7316,7 +7327,7 @@ gapi.load('client', async () => {
                 parameters: {
                   parameters: [
                     {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       key: 'Test string',
                       masked: true,
                       value: {
@@ -7358,13 +7369,13 @@ gapi.load('client', async () => {
                 taskNumbersToRollback: ['Test string'],
               },
               successPolicy: {
-                finalState: 'Test string',
+                finalState: 'UNSPECIFIED',
               },
               synchronousCallFailurePolicy: {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               taskEntity: {
                 disabledForVpcSc: true,
@@ -7376,14 +7387,15 @@ gapi.load('client', async () => {
                       userEmail: 'Test string',
                     },
                   ],
-                  category: 'Test string',
+                  category: 'UNSPECIFIED_CATEGORY',
                   codeSearchLink: 'Test string',
-                  defaultJsonValidationOption: 'Test string',
+                  defaultJsonValidationOption:
+                    'UNSPECIFIED_JSON_VALIDATION_OPTION',
                   defaultSpec: 'Test string',
                   description: 'Test string',
                   descriptiveName: 'Test string',
                   docMarkdown: 'Test string',
-                  externalCategory: 'Test string',
+                  externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                   externalCategorySequence: 42,
                   externalDocHtml: 'Test string',
                   externalDocLink: 'Test string',
@@ -7393,8 +7405,8 @@ gapi.load('client', async () => {
                   isDeprecated: true,
                   name: 'Test string',
                   standaloneExternalDocHtml: 'Test string',
-                  status: 'Test string',
-                  system: 'Test string',
+                  status: 'UNSPECIFIED_STATUS',
+                  system: 'UNSPECIFIED_SYSTEM',
                   tags: ['Test string'],
                 },
                 paramSpecs: {
@@ -7406,14 +7418,14 @@ gapi.load('client', async () => {
                         descriptivePhrase: 'Test string',
                         helpText: 'Test string',
                         hideDefaultValue: true,
-                        inputDisplayOption: 'Test string',
+                        inputDisplayOption: 'DEFAULT',
                         isHidden: true,
                         label: 'Test string',
-                        parameterNameOption: 'Test string',
+                        parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                         subSectionLabel: 'Test string',
                         uiPlaceholderText: 'Test string',
                       },
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -7475,9 +7487,9 @@ gapi.load('client', async () => {
                 stats: {
                   dimensions: {
                     clientId: 'Test string',
-                    enumFilterType: 'Test string',
+                    enumFilterType: 'DEFAULT_INCLUSIVE',
                     errorEnumString: 'Test string',
-                    retryAttempt: 'Test string',
+                    retryAttempt: 'UNSPECIFIED',
                     taskName: 'Test string',
                     taskNumber: 'Test string',
                     triggerId: 'Test string',
@@ -7490,21 +7502,21 @@ gapi.load('client', async () => {
                   qps: 42,
                   warningRate: 42,
                 },
-                taskType: 'Test string',
+                taskType: 'TASK',
                 uiConfig: {
                   taskUiModuleConfigs: [
                     {
-                      moduleId: 'Test string',
+                      moduleId: 'UNSPECIFIED_TASK_MODULE',
                     },
                   ],
                 },
               },
-              taskExecutionStrategy: 'Test string',
+              taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
               taskName: 'Test string',
               taskNumber: 'Test string',
               taskSpec: 'Test string',
               taskTemplateName: 'Test string',
-              taskType: 'Test string',
+              taskType: 'TASK',
             },
           ],
           teardown: {
@@ -7592,9 +7604,9 @@ gapi.load('client', async () => {
                   disableAlert: true,
                   displayName: 'Test string',
                   durationThreshold: 'Test string',
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   onlyFinalAttempt: true,
-                  thresholdType: 'Test string',
+                  thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
@@ -7613,7 +7625,8 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy:
+                'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -7636,7 +7649,7 @@ gapi.load('client', async () => {
               trigger: 'Test string',
               triggerId: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
             },
           ],
           triggerConfigsInternal: [
@@ -7650,20 +7663,20 @@ gapi.load('client', async () => {
                   durationThresholdMs: 'Test string',
                   errorEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
-                  metricType: 'Test string',
+                  metricType: 'METRIC_TYPE_UNSPECIFIED',
                   numAggregationPeriods: 42,
                   onlyFinalAttempt: true,
                   playbookUrl: 'Test string',
-                  thresholdType: 'Test string',
+                  thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                   thresholdValue: {
                     absolute: 'Test string',
                     percentage: 42,
                   },
                   warningEnumList: {
                     enumStrings: ['Test string'],
-                    filterType: 'Test string',
+                    filterType: 'DEFAULT_INCLUSIVE',
                   },
                 },
               ],
@@ -7680,7 +7693,7 @@ gapi.load('client', async () => {
                 names: ['Test string'],
               },
               label: 'Test string',
-              nextTasksExecutionPolicy: 'Test string',
+              nextTasksExecutionPolicy: 'UNSPECIFIED',
               outputVariables: {
                 names: ['Test string'],
               },
@@ -7699,7 +7712,7 @@ gapi.load('client', async () => {
                       conditions: [
                         {
                           eventPropertyKey: 'Test string',
-                          operator: 'Test string',
+                          operator: 'UNSET',
                           value: {
                             booleanValue: true,
                             doubleArray: {
@@ -7775,7 +7788,7 @@ gapi.load('client', async () => {
               triggerId: 'Test string',
               triggerName: 'Test string',
               triggerNumber: 'Test string',
-              triggerType: 'Test string',
+              triggerType: 'UNKNOWN',
             },
           ],
           updateTime: 'Test string',
@@ -7784,7 +7797,7 @@ gapi.load('client', async () => {
         parameters: {
           parameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               key: 'Test string',
               masked: true,
               value: {
@@ -7908,7 +7921,7 @@ gapi.load('client', async () => {
           integration: 'Test string',
           lastModifyTime: 'Test string',
           name: 'Test string',
-          state: 'Test string',
+          state: 'RESOLUTION_STATE_UNSPECIFIED',
           suspensionConfig: {
             customMessage: 'Test string',
             notifications: [
@@ -7974,7 +7987,7 @@ gapi.load('client', async () => {
                         },
                       ],
                     },
-                    priority: 'Test string',
+                    priority: 'UNSPCIFIED',
                     quotaRetryCount: 42,
                     requestId: 'Test string',
                     resourceName: 'Test string',
@@ -8023,12 +8036,12 @@ gapi.load('client', async () => {
       {
         cloudKmsKey: 'Test string',
         cloudLoggingDetails: {
-          cloudLoggingSeverity: 'Test string',
+          cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
           enableCloudLogging: true,
         },
         createdFromTemplate: 'Test string',
         createTime: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         enableVariableMasking: true,
         errorCatcherConfigs: [
@@ -8052,12 +8065,12 @@ gapi.load('client', async () => {
             ],
           },
         ],
-        eucHardeningDisposition: 'Test string',
+        eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
         integrationConfigParameters: [
           {
             parameter: {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -8079,7 +8092,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -8111,7 +8124,7 @@ gapi.load('client', async () => {
         integrationParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -8133,7 +8146,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -8146,7 +8159,7 @@ gapi.load('client', async () => {
           parameters: [
             {
               attributes: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanValue: true,
                   doubleArray: {
@@ -8169,17 +8182,17 @@ gapi.load('client', async () => {
                 isSearchable: true,
                 logSettings: {
                   logFieldName: 'Test string',
-                  seedPeriod: 'Test string',
-                  seedScope: 'Test string',
+                  seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                  seedScope: 'SEED_SCOPE_UNSPECIFIED',
                 },
                 masked: true,
                 readOnly: true,
-                searchable: 'Test string',
+                searchable: 'UNSPECIFIED',
                 taskVisibility: ['Test string'],
               },
               children: undefined,
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -8213,14 +8226,14 @@ gapi.load('client', async () => {
                 stringValue: 'Test string',
               },
               description: 'Test string',
-              inOutType: 'Test string',
+              inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
               name: 'Test string',
               producedBy: {
                 elementIdentifier: 'Test string',
-                elementType: 'Test string',
+                elementType: 'UNKNOWN_TYPE',
               },
               producer: 'Test string',
               protoDefName: 'Test string',
@@ -8232,12 +8245,12 @@ gapi.load('client', async () => {
         lastModifierEmail: 'Test string',
         lockHolder: 'Test string',
         name: 'Test string',
-        origin: 'Test string',
+        origin: 'UNSPECIFIED',
         parentTemplateId: 'Test string',
         runAsServiceAccount: 'Test string',
         snapshotNumber: 'Test string',
-        state: 'Test string',
-        status: 'Test string',
+        state: 'INTEGRATION_STATE_UNSPECIFIED',
+        status: 'UNKNOWN',
         taskConfigs: [
           {
             conditionalFailurePolicies: {
@@ -8245,28 +8258,28 @@ gapi.load('client', async () => {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
               ],
             },
             description: 'Test string',
             displayName: 'Test string',
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
             nextTasks: [
               {
                 condition: 'Test string',
@@ -8276,7 +8289,7 @@ gapi.load('client', async () => {
                 taskId: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             parameters: {
               A: {
                 key: 'Test string',
@@ -8307,16 +8320,16 @@ gapi.load('client', async () => {
               y: 42,
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'FINAL_STATE_UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
             task: 'Test string',
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
             taskId: 'Test string',
             taskTemplate: 'Test string',
           },
@@ -8332,20 +8345,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -8354,14 +8367,14 @@ gapi.load('client', async () => {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
               ],
             },
@@ -8370,15 +8383,15 @@ gapi.load('client', async () => {
             description: 'Test string',
             disableStrictTypeValidation: true,
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             incomingEdgeCount: 42,
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
             label: 'Test string',
             lastModifiedTime: 'Test string',
             nextTasks: [
@@ -8388,7 +8401,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -8418,10 +8431,10 @@ gapi.load('client', async () => {
                 taskNumber: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             parameters: {
               A: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 key: 'Test string',
                 masked: true,
                 value: {
@@ -8468,7 +8481,7 @@ gapi.load('client', async () => {
               parameters: {
                 parameters: [
                   {
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     key: 'Test string',
                     masked: true,
                     value: {
@@ -8510,13 +8523,13 @@ gapi.load('client', async () => {
               taskNumbersToRollback: ['Test string'],
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             taskEntity: {
               disabledForVpcSc: true,
@@ -8528,14 +8541,15 @@ gapi.load('client', async () => {
                     userEmail: 'Test string',
                   },
                 ],
-                category: 'Test string',
+                category: 'UNSPECIFIED_CATEGORY',
                 codeSearchLink: 'Test string',
-                defaultJsonValidationOption: 'Test string',
+                defaultJsonValidationOption:
+                  'UNSPECIFIED_JSON_VALIDATION_OPTION',
                 defaultSpec: 'Test string',
                 description: 'Test string',
                 descriptiveName: 'Test string',
                 docMarkdown: 'Test string',
-                externalCategory: 'Test string',
+                externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                 externalCategorySequence: 42,
                 externalDocHtml: 'Test string',
                 externalDocLink: 'Test string',
@@ -8545,8 +8559,8 @@ gapi.load('client', async () => {
                 isDeprecated: true,
                 name: 'Test string',
                 standaloneExternalDocHtml: 'Test string',
-                status: 'Test string',
-                system: 'Test string',
+                status: 'UNSPECIFIED_STATUS',
+                system: 'UNSPECIFIED_SYSTEM',
                 tags: ['Test string'],
               },
               paramSpecs: {
@@ -8558,14 +8572,14 @@ gapi.load('client', async () => {
                       descriptivePhrase: 'Test string',
                       helpText: 'Test string',
                       hideDefaultValue: true,
-                      inputDisplayOption: 'Test string',
+                      inputDisplayOption: 'DEFAULT',
                       isHidden: true,
                       label: 'Test string',
-                      parameterNameOption: 'Test string',
+                      parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                       subSectionLabel: 'Test string',
                       uiPlaceholderText: 'Test string',
                     },
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -8627,9 +8641,9 @@ gapi.load('client', async () => {
               stats: {
                 dimensions: {
                   clientId: 'Test string',
-                  enumFilterType: 'Test string',
+                  enumFilterType: 'DEFAULT_INCLUSIVE',
                   errorEnumString: 'Test string',
-                  retryAttempt: 'Test string',
+                  retryAttempt: 'UNSPECIFIED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   triggerId: 'Test string',
@@ -8642,21 +8656,21 @@ gapi.load('client', async () => {
                 qps: 42,
                 warningRate: 42,
               },
-              taskType: 'Test string',
+              taskType: 'TASK',
               uiConfig: {
                 taskUiModuleConfigs: [
                   {
-                    moduleId: 'Test string',
+                    moduleId: 'UNSPECIFIED_TASK_MODULE',
                   },
                 ],
               },
             },
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
             taskName: 'Test string',
             taskNumber: 'Test string',
             taskSpec: 'Test string',
             taskTemplateName: 'Test string',
-            taskType: 'Test string',
+            taskType: 'TASK',
           },
         ],
         teardown: {
@@ -8744,9 +8758,9 @@ gapi.load('client', async () => {
                 disableAlert: true,
                 displayName: 'Test string',
                 durationThreshold: 'Test string',
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 onlyFinalAttempt: true,
-                thresholdType: 'Test string',
+                thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
@@ -8765,7 +8779,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -8788,7 +8802,7 @@ gapi.load('client', async () => {
             trigger: 'Test string',
             triggerId: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
           },
         ],
         triggerConfigsInternal: [
@@ -8802,20 +8816,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -8832,7 +8846,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -8851,7 +8865,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -8927,7 +8941,7 @@ gapi.load('client', async () => {
             triggerId: 'Test string',
             triggerName: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'UNKNOWN',
           },
         ],
         updateTime: 'Test string',
@@ -8943,8 +8957,8 @@ gapi.load('client', async () => {
     /** Downloads an integration. Retrieves the `IntegrationVersion` for a given `integration_id` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.products.integrations.versions.download(
       {
-        fileFormat: 'Test string',
-        files: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
+        files: 'INTEGRATION_FILE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -8974,12 +8988,12 @@ gapi.load('client', async () => {
       {
         cloudKmsKey: 'Test string',
         cloudLoggingDetails: {
-          cloudLoggingSeverity: 'Test string',
+          cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
           enableCloudLogging: true,
         },
         createdFromTemplate: 'Test string',
         createTime: 'Test string',
-        databasePersistencePolicy: 'Test string',
+        databasePersistencePolicy: 'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
         description: 'Test string',
         enableVariableMasking: true,
         errorCatcherConfigs: [
@@ -9003,12 +9017,12 @@ gapi.load('client', async () => {
             ],
           },
         ],
-        eucHardeningDisposition: 'Test string',
+        eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
         integrationConfigParameters: [
           {
             parameter: {
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -9030,7 +9044,7 @@ gapi.load('client', async () => {
               },
               description: 'Test string',
               displayName: 'Test string',
-              inputOutputType: 'Test string',
+              inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
@@ -9062,7 +9076,7 @@ gapi.load('client', async () => {
         integrationParameters: [
           {
             containsLargeData: true,
-            dataType: 'Test string',
+            dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
             defaultValue: {
               booleanArray: {
                 booleanValues: [true],
@@ -9084,7 +9098,7 @@ gapi.load('client', async () => {
             },
             description: 'Test string',
             displayName: 'Test string',
-            inputOutputType: 'Test string',
+            inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
             isTransient: true,
             jsonSchema: 'Test string',
             key: 'Test string',
@@ -9097,7 +9111,7 @@ gapi.load('client', async () => {
           parameters: [
             {
               attributes: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 defaultValue: {
                   booleanValue: true,
                   doubleArray: {
@@ -9120,17 +9134,17 @@ gapi.load('client', async () => {
                 isSearchable: true,
                 logSettings: {
                   logFieldName: 'Test string',
-                  seedPeriod: 'Test string',
-                  seedScope: 'Test string',
+                  seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                  seedScope: 'SEED_SCOPE_UNSPECIFIED',
                 },
                 masked: true,
                 readOnly: true,
-                searchable: 'Test string',
+                searchable: 'UNSPECIFIED',
                 taskVisibility: ['Test string'],
               },
               children: undefined,
               containsLargeData: true,
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               defaultValue: {
                 booleanArray: {
                   booleanValues: [true],
@@ -9164,14 +9178,14 @@ gapi.load('client', async () => {
                 stringValue: 'Test string',
               },
               description: 'Test string',
-              inOutType: 'Test string',
+              inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
               isTransient: true,
               jsonSchema: 'Test string',
               key: 'Test string',
               name: 'Test string',
               producedBy: {
                 elementIdentifier: 'Test string',
-                elementType: 'Test string',
+                elementType: 'UNKNOWN_TYPE',
               },
               producer: 'Test string',
               protoDefName: 'Test string',
@@ -9183,12 +9197,12 @@ gapi.load('client', async () => {
         lastModifierEmail: 'Test string',
         lockHolder: 'Test string',
         name: 'Test string',
-        origin: 'Test string',
+        origin: 'UNSPECIFIED',
         parentTemplateId: 'Test string',
         runAsServiceAccount: 'Test string',
         snapshotNumber: 'Test string',
-        state: 'Test string',
-        status: 'Test string',
+        state: 'INTEGRATION_STATE_UNSPECIFIED',
+        status: 'UNKNOWN',
         taskConfigs: [
           {
             conditionalFailurePolicies: {
@@ -9196,28 +9210,28 @@ gapi.load('client', async () => {
                 condition: 'Test string',
                 intervalTime: 'Test string',
                 maxRetries: 42,
-                retryStrategy: 'Test string',
+                retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   condition: 'Test string',
                   intervalTime: 'Test string',
                   maxRetries: 42,
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                 },
               ],
             },
             description: 'Test string',
             displayName: 'Test string',
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
             nextTasks: [
               {
                 condition: 'Test string',
@@ -9227,7 +9241,7 @@ gapi.load('client', async () => {
                 taskId: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             parameters: {
               A: {
                 key: 'Test string',
@@ -9258,16 +9272,16 @@ gapi.load('client', async () => {
               y: 42,
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'FINAL_STATE_UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               condition: 'Test string',
               intervalTime: 'Test string',
               maxRetries: 42,
-              retryStrategy: 'Test string',
+              retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
             },
             task: 'Test string',
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
             taskId: 'Test string',
             taskTemplate: 'Test string',
           },
@@ -9283,20 +9297,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -9305,14 +9319,14 @@ gapi.load('client', async () => {
                 intervalInSeconds: 'Test string',
                 maxNumRetries: 42,
                 retryCondition: 'Test string',
-                retryStrategy: 'Test string',
+                retryStrategy: 'UNSPECIFIED',
               },
               failurePolicies: [
                 {
                   intervalInSeconds: 'Test string',
                   maxNumRetries: 42,
                   retryCondition: 'Test string',
-                  retryStrategy: 'Test string',
+                  retryStrategy: 'UNSPECIFIED',
                 },
               ],
             },
@@ -9321,15 +9335,15 @@ gapi.load('client', async () => {
             description: 'Test string',
             disableStrictTypeValidation: true,
             errorCatcherId: 'Test string',
-            externalTaskType: 'Test string',
+            externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
             failurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             incomingEdgeCount: 42,
-            jsonValidationOption: 'Test string',
+            jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
             label: 'Test string',
             lastModifiedTime: 'Test string',
             nextTasks: [
@@ -9339,7 +9353,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -9369,10 +9383,10 @@ gapi.load('client', async () => {
                 taskNumber: 'Test string',
               },
             ],
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             parameters: {
               A: {
-                dataType: 'Test string',
+                dataType: 'DATA_TYPE_UNSPECIFIED',
                 key: 'Test string',
                 masked: true,
                 value: {
@@ -9419,7 +9433,7 @@ gapi.load('client', async () => {
               parameters: {
                 parameters: [
                   {
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     key: 'Test string',
                     masked: true,
                     value: {
@@ -9461,13 +9475,13 @@ gapi.load('client', async () => {
               taskNumbersToRollback: ['Test string'],
             },
             successPolicy: {
-              finalState: 'Test string',
+              finalState: 'UNSPECIFIED',
             },
             synchronousCallFailurePolicy: {
               intervalInSeconds: 'Test string',
               maxNumRetries: 42,
               retryCondition: 'Test string',
-              retryStrategy: 'Test string',
+              retryStrategy: 'UNSPECIFIED',
             },
             taskEntity: {
               disabledForVpcSc: true,
@@ -9479,14 +9493,15 @@ gapi.load('client', async () => {
                     userEmail: 'Test string',
                   },
                 ],
-                category: 'Test string',
+                category: 'UNSPECIFIED_CATEGORY',
                 codeSearchLink: 'Test string',
-                defaultJsonValidationOption: 'Test string',
+                defaultJsonValidationOption:
+                  'UNSPECIFIED_JSON_VALIDATION_OPTION',
                 defaultSpec: 'Test string',
                 description: 'Test string',
                 descriptiveName: 'Test string',
                 docMarkdown: 'Test string',
-                externalCategory: 'Test string',
+                externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                 externalCategorySequence: 42,
                 externalDocHtml: 'Test string',
                 externalDocLink: 'Test string',
@@ -9496,8 +9511,8 @@ gapi.load('client', async () => {
                 isDeprecated: true,
                 name: 'Test string',
                 standaloneExternalDocHtml: 'Test string',
-                status: 'Test string',
-                system: 'Test string',
+                status: 'UNSPECIFIED_STATUS',
+                system: 'UNSPECIFIED_SYSTEM',
                 tags: ['Test string'],
               },
               paramSpecs: {
@@ -9509,14 +9524,14 @@ gapi.load('client', async () => {
                       descriptivePhrase: 'Test string',
                       helpText: 'Test string',
                       hideDefaultValue: true,
-                      inputDisplayOption: 'Test string',
+                      inputDisplayOption: 'DEFAULT',
                       isHidden: true,
                       label: 'Test string',
-                      parameterNameOption: 'Test string',
+                      parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                       subSectionLabel: 'Test string',
                       uiPlaceholderText: 'Test string',
                     },
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -9578,9 +9593,9 @@ gapi.load('client', async () => {
               stats: {
                 dimensions: {
                   clientId: 'Test string',
-                  enumFilterType: 'Test string',
+                  enumFilterType: 'DEFAULT_INCLUSIVE',
                   errorEnumString: 'Test string',
-                  retryAttempt: 'Test string',
+                  retryAttempt: 'UNSPECIFIED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   triggerId: 'Test string',
@@ -9593,21 +9608,21 @@ gapi.load('client', async () => {
                 qps: 42,
                 warningRate: 42,
               },
-              taskType: 'Test string',
+              taskType: 'TASK',
               uiConfig: {
                 taskUiModuleConfigs: [
                   {
-                    moduleId: 'Test string',
+                    moduleId: 'UNSPECIFIED_TASK_MODULE',
                   },
                 ],
               },
             },
-            taskExecutionStrategy: 'Test string',
+            taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
             taskName: 'Test string',
             taskNumber: 'Test string',
             taskSpec: 'Test string',
             taskTemplateName: 'Test string',
-            taskType: 'Test string',
+            taskType: 'TASK',
           },
         ],
         teardown: {
@@ -9695,9 +9710,9 @@ gapi.load('client', async () => {
                 disableAlert: true,
                 displayName: 'Test string',
                 durationThreshold: 'Test string',
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 onlyFinalAttempt: true,
-                thresholdType: 'Test string',
+                thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
@@ -9716,7 +9731,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -9739,7 +9754,7 @@ gapi.load('client', async () => {
             trigger: 'Test string',
             triggerId: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
           },
         ],
         triggerConfigsInternal: [
@@ -9753,20 +9768,20 @@ gapi.load('client', async () => {
                 durationThresholdMs: 'Test string',
                 errorEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
-                metricType: 'Test string',
+                metricType: 'METRIC_TYPE_UNSPECIFIED',
                 numAggregationPeriods: 42,
                 onlyFinalAttempt: true,
                 playbookUrl: 'Test string',
-                thresholdType: 'Test string',
+                thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                 thresholdValue: {
                   absolute: 'Test string',
                   percentage: 42,
                 },
                 warningEnumList: {
                   enumStrings: ['Test string'],
-                  filterType: 'Test string',
+                  filterType: 'DEFAULT_INCLUSIVE',
                 },
               },
             ],
@@ -9783,7 +9798,7 @@ gapi.load('client', async () => {
               names: ['Test string'],
             },
             label: 'Test string',
-            nextTasksExecutionPolicy: 'Test string',
+            nextTasksExecutionPolicy: 'UNSPECIFIED',
             outputVariables: {
               names: ['Test string'],
             },
@@ -9802,7 +9817,7 @@ gapi.load('client', async () => {
                     conditions: [
                       {
                         eventPropertyKey: 'Test string',
-                        operator: 'Test string',
+                        operator: 'UNSET',
                         value: {
                           booleanValue: true,
                           doubleArray: {
@@ -9878,7 +9893,7 @@ gapi.load('client', async () => {
             triggerId: 'Test string',
             triggerName: 'Test string',
             triggerNumber: 'Test string',
-            triggerType: 'Test string',
+            triggerType: 'UNKNOWN',
           },
         ],
         updateTime: 'Test string',
@@ -9918,7 +9933,7 @@ gapi.load('client', async () => {
       },
       {
         content: 'Test string',
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance. */
@@ -10150,11 +10165,11 @@ gapi.load('client', async () => {
       },
       {
         author: 'Test string',
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         components: [
           {
             name: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -10170,12 +10185,13 @@ gapi.load('client', async () => {
             integrationVersion: {
               cloudKmsKey: 'Test string',
               cloudLoggingDetails: {
-                cloudLoggingSeverity: 'Test string',
+                cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
                 enableCloudLogging: true,
               },
               createdFromTemplate: 'Test string',
               createTime: 'Test string',
-              databasePersistencePolicy: 'Test string',
+              databasePersistencePolicy:
+                'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
               description: 'Test string',
               enableVariableMasking: true,
               errorCatcherConfigs: [
@@ -10199,12 +10215,12 @@ gapi.load('client', async () => {
                   ],
                 },
               ],
-              eucHardeningDisposition: 'Test string',
+              eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
               integrationConfigParameters: [
                 {
                   parameter: {
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -10226,7 +10242,7 @@ gapi.load('client', async () => {
                     },
                     description: 'Test string',
                     displayName: 'Test string',
-                    inputOutputType: 'Test string',
+                    inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
@@ -10258,7 +10274,7 @@ gapi.load('client', async () => {
               integrationParameters: [
                 {
                   containsLargeData: true,
-                  dataType: 'Test string',
+                  dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanArray: {
                       booleanValues: [true],
@@ -10280,7 +10296,7 @@ gapi.load('client', async () => {
                   },
                   description: 'Test string',
                   displayName: 'Test string',
-                  inputOutputType: 'Test string',
+                  inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                   isTransient: true,
                   jsonSchema: 'Test string',
                   key: 'Test string',
@@ -10293,7 +10309,7 @@ gapi.load('client', async () => {
                 parameters: [
                   {
                     attributes: {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanValue: true,
                         doubleArray: {
@@ -10316,17 +10332,17 @@ gapi.load('client', async () => {
                       isSearchable: true,
                       logSettings: {
                         logFieldName: 'Test string',
-                        seedPeriod: 'Test string',
-                        seedScope: 'Test string',
+                        seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                        seedScope: 'SEED_SCOPE_UNSPECIFIED',
                       },
                       masked: true,
                       readOnly: true,
-                      searchable: 'Test string',
+                      searchable: 'UNSPECIFIED',
                       taskVisibility: ['Test string'],
                     },
                     children: undefined,
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -10360,14 +10376,14 @@ gapi.load('client', async () => {
                       stringValue: 'Test string',
                     },
                     description: 'Test string',
-                    inOutType: 'Test string',
+                    inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
                     name: 'Test string',
                     producedBy: {
                       elementIdentifier: 'Test string',
-                      elementType: 'Test string',
+                      elementType: 'UNKNOWN_TYPE',
                     },
                     producer: 'Test string',
                     protoDefName: 'Test string',
@@ -10379,12 +10395,12 @@ gapi.load('client', async () => {
               lastModifierEmail: 'Test string',
               lockHolder: 'Test string',
               name: 'Test string',
-              origin: 'Test string',
+              origin: 'UNSPECIFIED',
               parentTemplateId: 'Test string',
               runAsServiceAccount: 'Test string',
               snapshotNumber: 'Test string',
-              state: 'Test string',
-              status: 'Test string',
+              state: 'INTEGRATION_STATE_UNSPECIFIED',
+              status: 'UNKNOWN',
               taskConfigs: [
                 {
                   conditionalFailurePolicies: {
@@ -10392,28 +10408,28 @@ gapi.load('client', async () => {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
                     failurePolicies: [
                       {
                         condition: 'Test string',
                         intervalTime: 'Test string',
                         maxRetries: 42,
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                       },
                     ],
                   },
                   description: 'Test string',
                   displayName: 'Test string',
                   errorCatcherId: 'Test string',
-                  externalTaskType: 'Test string',
+                  externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                   failurePolicy: {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
-                  jsonValidationOption: 'Test string',
+                  jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
                   nextTasks: [
                     {
                       condition: 'Test string',
@@ -10423,7 +10439,8 @@ gapi.load('client', async () => {
                       taskId: 'Test string',
                     },
                   ],
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy:
+                    'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                   parameters: {
                     A: {
                       key: 'Test string',
@@ -10454,16 +10471,16 @@ gapi.load('client', async () => {
                     y: 42,
                   },
                   successPolicy: {
-                    finalState: 'Test string',
+                    finalState: 'FINAL_STATE_UNSPECIFIED',
                   },
                   synchronousCallFailurePolicy: {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                   task: 'Test string',
-                  taskExecutionStrategy: 'Test string',
+                  taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
                   taskId: 'Test string',
                   taskTemplate: 'Test string',
                 },
@@ -10479,20 +10496,20 @@ gapi.load('client', async () => {
                       durationThresholdMs: 'Test string',
                       errorEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       numAggregationPeriods: 42,
                       onlyFinalAttempt: true,
                       playbookUrl: 'Test string',
-                      thresholdType: 'Test string',
+                      thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
                       },
                       warningEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
                     },
                   ],
@@ -10501,14 +10518,14 @@ gapi.load('client', async () => {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     failurePolicies: [
                       {
                         intervalInSeconds: 'Test string',
                         maxNumRetries: 42,
                         retryCondition: 'Test string',
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'UNSPECIFIED',
                       },
                     ],
                   },
@@ -10517,15 +10534,15 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   disableStrictTypeValidation: true,
                   errorCatcherId: 'Test string',
-                  externalTaskType: 'Test string',
+                  externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                   failurePolicy: {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                   incomingEdgeCount: 42,
-                  jsonValidationOption: 'Test string',
+                  jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
                   label: 'Test string',
                   lastModifiedTime: 'Test string',
                   nextTasks: [
@@ -10535,7 +10552,7 @@ gapi.load('client', async () => {
                           conditions: [
                             {
                               eventPropertyKey: 'Test string',
-                              operator: 'Test string',
+                              operator: 'UNSET',
                               value: {
                                 booleanValue: true,
                                 doubleArray: {
@@ -10565,10 +10582,10 @@ gapi.load('client', async () => {
                       taskNumber: 'Test string',
                     },
                   ],
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy: 'UNSPECIFIED',
                   parameters: {
                     A: {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       key: 'Test string',
                       masked: true,
                       value: {
@@ -10615,7 +10632,7 @@ gapi.load('client', async () => {
                     parameters: {
                       parameters: [
                         {
-                          dataType: 'Test string',
+                          dataType: 'DATA_TYPE_UNSPECIFIED',
                           key: 'Test string',
                           masked: true,
                           value: {
@@ -10657,13 +10674,13 @@ gapi.load('client', async () => {
                     taskNumbersToRollback: ['Test string'],
                   },
                   successPolicy: {
-                    finalState: 'Test string',
+                    finalState: 'UNSPECIFIED',
                   },
                   synchronousCallFailurePolicy: {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                   taskEntity: {
                     disabledForVpcSc: true,
@@ -10675,14 +10692,15 @@ gapi.load('client', async () => {
                           userEmail: 'Test string',
                         },
                       ],
-                      category: 'Test string',
+                      category: 'UNSPECIFIED_CATEGORY',
                       codeSearchLink: 'Test string',
-                      defaultJsonValidationOption: 'Test string',
+                      defaultJsonValidationOption:
+                        'UNSPECIFIED_JSON_VALIDATION_OPTION',
                       defaultSpec: 'Test string',
                       description: 'Test string',
                       descriptiveName: 'Test string',
                       docMarkdown: 'Test string',
-                      externalCategory: 'Test string',
+                      externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                       externalCategorySequence: 42,
                       externalDocHtml: 'Test string',
                       externalDocLink: 'Test string',
@@ -10692,8 +10710,8 @@ gapi.load('client', async () => {
                       isDeprecated: true,
                       name: 'Test string',
                       standaloneExternalDocHtml: 'Test string',
-                      status: 'Test string',
-                      system: 'Test string',
+                      status: 'UNSPECIFIED_STATUS',
+                      system: 'UNSPECIFIED_SYSTEM',
                       tags: ['Test string'],
                     },
                     paramSpecs: {
@@ -10705,14 +10723,14 @@ gapi.load('client', async () => {
                             descriptivePhrase: 'Test string',
                             helpText: 'Test string',
                             hideDefaultValue: true,
-                            inputDisplayOption: 'Test string',
+                            inputDisplayOption: 'DEFAULT',
                             isHidden: true,
                             label: 'Test string',
-                            parameterNameOption: 'Test string',
+                            parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                             subSectionLabel: 'Test string',
                             uiPlaceholderText: 'Test string',
                           },
-                          dataType: 'Test string',
+                          dataType: 'DATA_TYPE_UNSPECIFIED',
                           defaultValue: {
                             booleanArray: {
                               booleanValues: [true],
@@ -10774,9 +10792,9 @@ gapi.load('client', async () => {
                     stats: {
                       dimensions: {
                         clientId: 'Test string',
-                        enumFilterType: 'Test string',
+                        enumFilterType: 'DEFAULT_INCLUSIVE',
                         errorEnumString: 'Test string',
-                        retryAttempt: 'Test string',
+                        retryAttempt: 'UNSPECIFIED',
                         taskName: 'Test string',
                         taskNumber: 'Test string',
                         triggerId: 'Test string',
@@ -10789,21 +10807,21 @@ gapi.load('client', async () => {
                       qps: 42,
                       warningRate: 42,
                     },
-                    taskType: 'Test string',
+                    taskType: 'TASK',
                     uiConfig: {
                       taskUiModuleConfigs: [
                         {
-                          moduleId: 'Test string',
+                          moduleId: 'UNSPECIFIED_TASK_MODULE',
                         },
                       ],
                     },
                   },
-                  taskExecutionStrategy: 'Test string',
+                  taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   taskSpec: 'Test string',
                   taskTemplateName: 'Test string',
-                  taskType: 'Test string',
+                  taskType: 'TASK',
                 },
               ],
               teardown: {
@@ -10891,9 +10909,9 @@ gapi.load('client', async () => {
                       disableAlert: true,
                       displayName: 'Test string',
                       durationThreshold: 'Test string',
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       onlyFinalAttempt: true,
-                      thresholdType: 'Test string',
+                      thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
@@ -10912,7 +10930,8 @@ gapi.load('client', async () => {
                     names: ['Test string'],
                   },
                   label: 'Test string',
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy:
+                    'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                   outputVariables: {
                     names: ['Test string'],
                   },
@@ -10935,7 +10954,7 @@ gapi.load('client', async () => {
                   trigger: 'Test string',
                   triggerId: 'Test string',
                   triggerNumber: 'Test string',
-                  triggerType: 'Test string',
+                  triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
                 },
               ],
               triggerConfigsInternal: [
@@ -10949,20 +10968,20 @@ gapi.load('client', async () => {
                       durationThresholdMs: 'Test string',
                       errorEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       numAggregationPeriods: 42,
                       onlyFinalAttempt: true,
                       playbookUrl: 'Test string',
-                      thresholdType: 'Test string',
+                      thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
                       },
                       warningEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
                     },
                   ],
@@ -10979,7 +10998,7 @@ gapi.load('client', async () => {
                     names: ['Test string'],
                   },
                   label: 'Test string',
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy: 'UNSPECIFIED',
                   outputVariables: {
                     names: ['Test string'],
                   },
@@ -10998,7 +11017,7 @@ gapi.load('client', async () => {
                           conditions: [
                             {
                               eventPropertyKey: 'Test string',
-                              operator: 'Test string',
+                              operator: 'UNSET',
                               value: {
                                 booleanValue: true,
                                 doubleArray: {
@@ -11074,7 +11093,7 @@ gapi.load('client', async () => {
                   triggerId: 'Test string',
                   triggerName: 'Test string',
                   triggerNumber: 'Test string',
-                  triggerType: 'Test string',
+                  triggerType: 'UNKNOWN',
                 },
               ],
               updateTime: 'Test string',
@@ -11087,12 +11106,13 @@ gapi.load('client', async () => {
               integrationVersion: {
                 cloudKmsKey: 'Test string',
                 cloudLoggingDetails: {
-                  cloudLoggingSeverity: 'Test string',
+                  cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
                   enableCloudLogging: true,
                 },
                 createdFromTemplate: 'Test string',
                 createTime: 'Test string',
-                databasePersistencePolicy: 'Test string',
+                databasePersistencePolicy:
+                  'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
                 description: 'Test string',
                 enableVariableMasking: true,
                 errorCatcherConfigs: [
@@ -11116,12 +11136,13 @@ gapi.load('client', async () => {
                     ],
                   },
                 ],
-                eucHardeningDisposition: 'Test string',
+                eucHardeningDisposition:
+                  'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
                 integrationConfigParameters: [
                   {
                     parameter: {
                       containsLargeData: true,
-                      dataType: 'Test string',
+                      dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -11143,7 +11164,7 @@ gapi.load('client', async () => {
                       },
                       description: 'Test string',
                       displayName: 'Test string',
-                      inputOutputType: 'Test string',
+                      inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                       isTransient: true,
                       jsonSchema: 'Test string',
                       key: 'Test string',
@@ -11175,7 +11196,7 @@ gapi.load('client', async () => {
                 integrationParameters: [
                   {
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -11197,7 +11218,7 @@ gapi.load('client', async () => {
                     },
                     description: 'Test string',
                     displayName: 'Test string',
-                    inputOutputType: 'Test string',
+                    inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
@@ -11210,7 +11231,7 @@ gapi.load('client', async () => {
                   parameters: [
                     {
                       attributes: {
-                        dataType: 'Test string',
+                        dataType: 'DATA_TYPE_UNSPECIFIED',
                         defaultValue: {
                           booleanValue: true,
                           doubleArray: {
@@ -11233,17 +11254,17 @@ gapi.load('client', async () => {
                         isSearchable: true,
                         logSettings: {
                           logFieldName: 'Test string',
-                          seedPeriod: 'Test string',
-                          seedScope: 'Test string',
+                          seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                          seedScope: 'SEED_SCOPE_UNSPECIFIED',
                         },
                         masked: true,
                         readOnly: true,
-                        searchable: 'Test string',
+                        searchable: 'UNSPECIFIED',
                         taskVisibility: ['Test string'],
                       },
                       children: undefined,
                       containsLargeData: true,
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -11277,14 +11298,14 @@ gapi.load('client', async () => {
                         stringValue: 'Test string',
                       },
                       description: 'Test string',
-                      inOutType: 'Test string',
+                      inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                       isTransient: true,
                       jsonSchema: 'Test string',
                       key: 'Test string',
                       name: 'Test string',
                       producedBy: {
                         elementIdentifier: 'Test string',
-                        elementType: 'Test string',
+                        elementType: 'UNKNOWN_TYPE',
                       },
                       producer: 'Test string',
                       protoDefName: 'Test string',
@@ -11296,12 +11317,12 @@ gapi.load('client', async () => {
                 lastModifierEmail: 'Test string',
                 lockHolder: 'Test string',
                 name: 'Test string',
-                origin: 'Test string',
+                origin: 'UNSPECIFIED',
                 parentTemplateId: 'Test string',
                 runAsServiceAccount: 'Test string',
                 snapshotNumber: 'Test string',
-                state: 'Test string',
-                status: 'Test string',
+                state: 'INTEGRATION_STATE_UNSPECIFIED',
+                status: 'UNKNOWN',
                 taskConfigs: [
                   {
                     conditionalFailurePolicies: {
@@ -11309,28 +11330,28 @@ gapi.load('client', async () => {
                         condition: 'Test string',
                         intervalTime: 'Test string',
                         maxRetries: 42,
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                       },
                       failurePolicies: [
                         {
                           condition: 'Test string',
                           intervalTime: 'Test string',
                           maxRetries: 42,
-                          retryStrategy: 'Test string',
+                          retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                         },
                       ],
                     },
                     description: 'Test string',
                     displayName: 'Test string',
                     errorCatcherId: 'Test string',
-                    externalTaskType: 'Test string',
+                    externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                     failurePolicy: {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
-                    jsonValidationOption: 'Test string',
+                    jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
                     nextTasks: [
                       {
                         condition: 'Test string',
@@ -11340,7 +11361,8 @@ gapi.load('client', async () => {
                         taskId: 'Test string',
                       },
                     ],
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy:
+                      'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                     parameters: {
                       A: {
                         key: 'Test string',
@@ -11371,16 +11393,17 @@ gapi.load('client', async () => {
                       y: 42,
                     },
                     successPolicy: {
-                      finalState: 'Test string',
+                      finalState: 'FINAL_STATE_UNSPECIFIED',
                     },
                     synchronousCallFailurePolicy: {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
                     task: 'Test string',
-                    taskExecutionStrategy: 'Test string',
+                    taskExecutionStrategy:
+                      'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
                     taskId: 'Test string',
                     taskTemplate: 'Test string',
                   },
@@ -11396,20 +11419,20 @@ gapi.load('client', async () => {
                         durationThresholdMs: 'Test string',
                         errorEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         numAggregationPeriods: 42,
                         onlyFinalAttempt: true,
                         playbookUrl: 'Test string',
-                        thresholdType: 'Test string',
+                        thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
                         },
                         warningEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
                       },
                     ],
@@ -11418,14 +11441,14 @@ gapi.load('client', async () => {
                         intervalInSeconds: 'Test string',
                         maxNumRetries: 42,
                         retryCondition: 'Test string',
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'UNSPECIFIED',
                       },
                       failurePolicies: [
                         {
                           intervalInSeconds: 'Test string',
                           maxNumRetries: 42,
                           retryCondition: 'Test string',
-                          retryStrategy: 'Test string',
+                          retryStrategy: 'UNSPECIFIED',
                         },
                       ],
                     },
@@ -11434,15 +11457,15 @@ gapi.load('client', async () => {
                     description: 'Test string',
                     disableStrictTypeValidation: true,
                     errorCatcherId: 'Test string',
-                    externalTaskType: 'Test string',
+                    externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                     failurePolicy: {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     incomingEdgeCount: 42,
-                    jsonValidationOption: 'Test string',
+                    jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
                     label: 'Test string',
                     lastModifiedTime: 'Test string',
                     nextTasks: [
@@ -11452,7 +11475,7 @@ gapi.load('client', async () => {
                             conditions: [
                               {
                                 eventPropertyKey: 'Test string',
-                                operator: 'Test string',
+                                operator: 'UNSET',
                                 value: {
                                   booleanValue: true,
                                   doubleArray: {
@@ -11482,10 +11505,10 @@ gapi.load('client', async () => {
                         taskNumber: 'Test string',
                       },
                     ],
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy: 'UNSPECIFIED',
                     parameters: {
                       A: {
-                        dataType: 'Test string',
+                        dataType: 'DATA_TYPE_UNSPECIFIED',
                         key: 'Test string',
                         masked: true,
                         value: {
@@ -11532,7 +11555,7 @@ gapi.load('client', async () => {
                       parameters: {
                         parameters: [
                           {
-                            dataType: 'Test string',
+                            dataType: 'DATA_TYPE_UNSPECIFIED',
                             key: 'Test string',
                             masked: true,
                             value: {
@@ -11574,13 +11597,13 @@ gapi.load('client', async () => {
                       taskNumbersToRollback: ['Test string'],
                     },
                     successPolicy: {
-                      finalState: 'Test string',
+                      finalState: 'UNSPECIFIED',
                     },
                     synchronousCallFailurePolicy: {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     taskEntity: {
                       disabledForVpcSc: true,
@@ -11592,14 +11615,15 @@ gapi.load('client', async () => {
                             userEmail: 'Test string',
                           },
                         ],
-                        category: 'Test string',
+                        category: 'UNSPECIFIED_CATEGORY',
                         codeSearchLink: 'Test string',
-                        defaultJsonValidationOption: 'Test string',
+                        defaultJsonValidationOption:
+                          'UNSPECIFIED_JSON_VALIDATION_OPTION',
                         defaultSpec: 'Test string',
                         description: 'Test string',
                         descriptiveName: 'Test string',
                         docMarkdown: 'Test string',
-                        externalCategory: 'Test string',
+                        externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                         externalCategorySequence: 42,
                         externalDocHtml: 'Test string',
                         externalDocLink: 'Test string',
@@ -11609,8 +11633,8 @@ gapi.load('client', async () => {
                         isDeprecated: true,
                         name: 'Test string',
                         standaloneExternalDocHtml: 'Test string',
-                        status: 'Test string',
-                        system: 'Test string',
+                        status: 'UNSPECIFIED_STATUS',
+                        system: 'UNSPECIFIED_SYSTEM',
                         tags: ['Test string'],
                       },
                       paramSpecs: {
@@ -11622,14 +11646,14 @@ gapi.load('client', async () => {
                               descriptivePhrase: 'Test string',
                               helpText: 'Test string',
                               hideDefaultValue: true,
-                              inputDisplayOption: 'Test string',
+                              inputDisplayOption: 'DEFAULT',
                               isHidden: true,
                               label: 'Test string',
-                              parameterNameOption: 'Test string',
+                              parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                               subSectionLabel: 'Test string',
                               uiPlaceholderText: 'Test string',
                             },
-                            dataType: 'Test string',
+                            dataType: 'DATA_TYPE_UNSPECIFIED',
                             defaultValue: {
                               booleanArray: {
                                 booleanValues: [true],
@@ -11691,9 +11715,9 @@ gapi.load('client', async () => {
                       stats: {
                         dimensions: {
                           clientId: 'Test string',
-                          enumFilterType: 'Test string',
+                          enumFilterType: 'DEFAULT_INCLUSIVE',
                           errorEnumString: 'Test string',
-                          retryAttempt: 'Test string',
+                          retryAttempt: 'UNSPECIFIED',
                           taskName: 'Test string',
                           taskNumber: 'Test string',
                           triggerId: 'Test string',
@@ -11706,21 +11730,21 @@ gapi.load('client', async () => {
                         qps: 42,
                         warningRate: 42,
                       },
-                      taskType: 'Test string',
+                      taskType: 'TASK',
                       uiConfig: {
                         taskUiModuleConfigs: [
                           {
-                            moduleId: 'Test string',
+                            moduleId: 'UNSPECIFIED_TASK_MODULE',
                           },
                         ],
                       },
                     },
-                    taskExecutionStrategy: 'Test string',
+                    taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
                     taskName: 'Test string',
                     taskNumber: 'Test string',
                     taskSpec: 'Test string',
                     taskTemplateName: 'Test string',
-                    taskType: 'Test string',
+                    taskType: 'TASK',
                   },
                 ],
                 teardown: {
@@ -11808,9 +11832,9 @@ gapi.load('client', async () => {
                         disableAlert: true,
                         displayName: 'Test string',
                         durationThreshold: 'Test string',
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         onlyFinalAttempt: true,
-                        thresholdType: 'Test string',
+                        thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
@@ -11829,7 +11853,8 @@ gapi.load('client', async () => {
                       names: ['Test string'],
                     },
                     label: 'Test string',
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy:
+                      'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                     outputVariables: {
                       names: ['Test string'],
                     },
@@ -11852,7 +11877,7 @@ gapi.load('client', async () => {
                     trigger: 'Test string',
                     triggerId: 'Test string',
                     triggerNumber: 'Test string',
-                    triggerType: 'Test string',
+                    triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
                   },
                 ],
                 triggerConfigsInternal: [
@@ -11866,20 +11891,20 @@ gapi.load('client', async () => {
                         durationThresholdMs: 'Test string',
                         errorEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         numAggregationPeriods: 42,
                         onlyFinalAttempt: true,
                         playbookUrl: 'Test string',
-                        thresholdType: 'Test string',
+                        thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
                         },
                         warningEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
                       },
                     ],
@@ -11896,7 +11921,7 @@ gapi.load('client', async () => {
                       names: ['Test string'],
                     },
                     label: 'Test string',
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy: 'UNSPECIFIED',
                     outputVariables: {
                       names: ['Test string'],
                     },
@@ -11915,7 +11940,7 @@ gapi.load('client', async () => {
                             conditions: [
                               {
                                 eventPropertyKey: 'Test string',
-                                operator: 'Test string',
+                                operator: 'UNSET',
                                 value: {
                                   booleanValue: true,
                                   doubleArray: {
@@ -11991,7 +12016,7 @@ gapi.load('client', async () => {
                     triggerId: 'Test string',
                     triggerName: 'Test string',
                     triggerNumber: 'Test string',
-                    triggerType: 'Test string',
+                    triggerType: 'UNKNOWN',
                   },
                 ],
                 updateTime: 'Test string',
@@ -12004,7 +12029,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         usageCount: 'Test string',
         usageInfo: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes a template */
@@ -12013,7 +12038,7 @@ gapi.load('client', async () => {
     });
     /** Downloads a template. Retrieves the `Template` and returns the response as a string. */
     await gapi.client.integrations.projects.locations.templates.download({
-      fileFormat: 'Test string',
+      fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       name: 'Test string',
     });
     /** Get a template in the specified project. */
@@ -12052,11 +12077,11 @@ gapi.load('client', async () => {
       },
       {
         author: 'Test string',
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         components: [
           {
             name: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -12072,12 +12097,13 @@ gapi.load('client', async () => {
             integrationVersion: {
               cloudKmsKey: 'Test string',
               cloudLoggingDetails: {
-                cloudLoggingSeverity: 'Test string',
+                cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
                 enableCloudLogging: true,
               },
               createdFromTemplate: 'Test string',
               createTime: 'Test string',
-              databasePersistencePolicy: 'Test string',
+              databasePersistencePolicy:
+                'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
               description: 'Test string',
               enableVariableMasking: true,
               errorCatcherConfigs: [
@@ -12101,12 +12127,12 @@ gapi.load('client', async () => {
                   ],
                 },
               ],
-              eucHardeningDisposition: 'Test string',
+              eucHardeningDisposition: 'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
               integrationConfigParameters: [
                 {
                   parameter: {
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -12128,7 +12154,7 @@ gapi.load('client', async () => {
                     },
                     description: 'Test string',
                     displayName: 'Test string',
-                    inputOutputType: 'Test string',
+                    inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
@@ -12160,7 +12186,7 @@ gapi.load('client', async () => {
               integrationParameters: [
                 {
                   containsLargeData: true,
-                  dataType: 'Test string',
+                  dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                   defaultValue: {
                     booleanArray: {
                       booleanValues: [true],
@@ -12182,7 +12208,7 @@ gapi.load('client', async () => {
                   },
                   description: 'Test string',
                   displayName: 'Test string',
-                  inputOutputType: 'Test string',
+                  inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                   isTransient: true,
                   jsonSchema: 'Test string',
                   key: 'Test string',
@@ -12195,7 +12221,7 @@ gapi.load('client', async () => {
                 parameters: [
                   {
                     attributes: {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanValue: true,
                         doubleArray: {
@@ -12218,17 +12244,17 @@ gapi.load('client', async () => {
                       isSearchable: true,
                       logSettings: {
                         logFieldName: 'Test string',
-                        seedPeriod: 'Test string',
-                        seedScope: 'Test string',
+                        seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                        seedScope: 'SEED_SCOPE_UNSPECIFIED',
                       },
                       masked: true,
                       readOnly: true,
-                      searchable: 'Test string',
+                      searchable: 'UNSPECIFIED',
                       taskVisibility: ['Test string'],
                     },
                     children: undefined,
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -12262,14 +12288,14 @@ gapi.load('client', async () => {
                       stringValue: 'Test string',
                     },
                     description: 'Test string',
-                    inOutType: 'Test string',
+                    inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
                     name: 'Test string',
                     producedBy: {
                       elementIdentifier: 'Test string',
-                      elementType: 'Test string',
+                      elementType: 'UNKNOWN_TYPE',
                     },
                     producer: 'Test string',
                     protoDefName: 'Test string',
@@ -12281,12 +12307,12 @@ gapi.load('client', async () => {
               lastModifierEmail: 'Test string',
               lockHolder: 'Test string',
               name: 'Test string',
-              origin: 'Test string',
+              origin: 'UNSPECIFIED',
               parentTemplateId: 'Test string',
               runAsServiceAccount: 'Test string',
               snapshotNumber: 'Test string',
-              state: 'Test string',
-              status: 'Test string',
+              state: 'INTEGRATION_STATE_UNSPECIFIED',
+              status: 'UNKNOWN',
               taskConfigs: [
                 {
                   conditionalFailurePolicies: {
@@ -12294,28 +12320,28 @@ gapi.load('client', async () => {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
                     failurePolicies: [
                       {
                         condition: 'Test string',
                         intervalTime: 'Test string',
                         maxRetries: 42,
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                       },
                     ],
                   },
                   description: 'Test string',
                   displayName: 'Test string',
                   errorCatcherId: 'Test string',
-                  externalTaskType: 'Test string',
+                  externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                   failurePolicy: {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
-                  jsonValidationOption: 'Test string',
+                  jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
                   nextTasks: [
                     {
                       condition: 'Test string',
@@ -12325,7 +12351,8 @@ gapi.load('client', async () => {
                       taskId: 'Test string',
                     },
                   ],
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy:
+                    'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                   parameters: {
                     A: {
                       key: 'Test string',
@@ -12356,16 +12383,16 @@ gapi.load('client', async () => {
                     y: 42,
                   },
                   successPolicy: {
-                    finalState: 'Test string',
+                    finalState: 'FINAL_STATE_UNSPECIFIED',
                   },
                   synchronousCallFailurePolicy: {
                     condition: 'Test string',
                     intervalTime: 'Test string',
                     maxRetries: 42,
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                   },
                   task: 'Test string',
-                  taskExecutionStrategy: 'Test string',
+                  taskExecutionStrategy: 'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
                   taskId: 'Test string',
                   taskTemplate: 'Test string',
                 },
@@ -12381,20 +12408,20 @@ gapi.load('client', async () => {
                       durationThresholdMs: 'Test string',
                       errorEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       numAggregationPeriods: 42,
                       onlyFinalAttempt: true,
                       playbookUrl: 'Test string',
-                      thresholdType: 'Test string',
+                      thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
                       },
                       warningEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
                     },
                   ],
@@ -12403,14 +12430,14 @@ gapi.load('client', async () => {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     failurePolicies: [
                       {
                         intervalInSeconds: 'Test string',
                         maxNumRetries: 42,
                         retryCondition: 'Test string',
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'UNSPECIFIED',
                       },
                     ],
                   },
@@ -12419,15 +12446,15 @@ gapi.load('client', async () => {
                   description: 'Test string',
                   disableStrictTypeValidation: true,
                   errorCatcherId: 'Test string',
-                  externalTaskType: 'Test string',
+                  externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                   failurePolicy: {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                   incomingEdgeCount: 42,
-                  jsonValidationOption: 'Test string',
+                  jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
                   label: 'Test string',
                   lastModifiedTime: 'Test string',
                   nextTasks: [
@@ -12437,7 +12464,7 @@ gapi.load('client', async () => {
                           conditions: [
                             {
                               eventPropertyKey: 'Test string',
-                              operator: 'Test string',
+                              operator: 'UNSET',
                               value: {
                                 booleanValue: true,
                                 doubleArray: {
@@ -12467,10 +12494,10 @@ gapi.load('client', async () => {
                       taskNumber: 'Test string',
                     },
                   ],
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy: 'UNSPECIFIED',
                   parameters: {
                     A: {
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       key: 'Test string',
                       masked: true,
                       value: {
@@ -12517,7 +12544,7 @@ gapi.load('client', async () => {
                     parameters: {
                       parameters: [
                         {
-                          dataType: 'Test string',
+                          dataType: 'DATA_TYPE_UNSPECIFIED',
                           key: 'Test string',
                           masked: true,
                           value: {
@@ -12559,13 +12586,13 @@ gapi.load('client', async () => {
                     taskNumbersToRollback: ['Test string'],
                   },
                   successPolicy: {
-                    finalState: 'Test string',
+                    finalState: 'UNSPECIFIED',
                   },
                   synchronousCallFailurePolicy: {
                     intervalInSeconds: 'Test string',
                     maxNumRetries: 42,
                     retryCondition: 'Test string',
-                    retryStrategy: 'Test string',
+                    retryStrategy: 'UNSPECIFIED',
                   },
                   taskEntity: {
                     disabledForVpcSc: true,
@@ -12577,14 +12604,15 @@ gapi.load('client', async () => {
                           userEmail: 'Test string',
                         },
                       ],
-                      category: 'Test string',
+                      category: 'UNSPECIFIED_CATEGORY',
                       codeSearchLink: 'Test string',
-                      defaultJsonValidationOption: 'Test string',
+                      defaultJsonValidationOption:
+                        'UNSPECIFIED_JSON_VALIDATION_OPTION',
                       defaultSpec: 'Test string',
                       description: 'Test string',
                       descriptiveName: 'Test string',
                       docMarkdown: 'Test string',
-                      externalCategory: 'Test string',
+                      externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                       externalCategorySequence: 42,
                       externalDocHtml: 'Test string',
                       externalDocLink: 'Test string',
@@ -12594,8 +12622,8 @@ gapi.load('client', async () => {
                       isDeprecated: true,
                       name: 'Test string',
                       standaloneExternalDocHtml: 'Test string',
-                      status: 'Test string',
-                      system: 'Test string',
+                      status: 'UNSPECIFIED_STATUS',
+                      system: 'UNSPECIFIED_SYSTEM',
                       tags: ['Test string'],
                     },
                     paramSpecs: {
@@ -12607,14 +12635,14 @@ gapi.load('client', async () => {
                             descriptivePhrase: 'Test string',
                             helpText: 'Test string',
                             hideDefaultValue: true,
-                            inputDisplayOption: 'Test string',
+                            inputDisplayOption: 'DEFAULT',
                             isHidden: true,
                             label: 'Test string',
-                            parameterNameOption: 'Test string',
+                            parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                             subSectionLabel: 'Test string',
                             uiPlaceholderText: 'Test string',
                           },
-                          dataType: 'Test string',
+                          dataType: 'DATA_TYPE_UNSPECIFIED',
                           defaultValue: {
                             booleanArray: {
                               booleanValues: [true],
@@ -12676,9 +12704,9 @@ gapi.load('client', async () => {
                     stats: {
                       dimensions: {
                         clientId: 'Test string',
-                        enumFilterType: 'Test string',
+                        enumFilterType: 'DEFAULT_INCLUSIVE',
                         errorEnumString: 'Test string',
-                        retryAttempt: 'Test string',
+                        retryAttempt: 'UNSPECIFIED',
                         taskName: 'Test string',
                         taskNumber: 'Test string',
                         triggerId: 'Test string',
@@ -12691,21 +12719,21 @@ gapi.load('client', async () => {
                       qps: 42,
                       warningRate: 42,
                     },
-                    taskType: 'Test string',
+                    taskType: 'TASK',
                     uiConfig: {
                       taskUiModuleConfigs: [
                         {
-                          moduleId: 'Test string',
+                          moduleId: 'UNSPECIFIED_TASK_MODULE',
                         },
                       ],
                     },
                   },
-                  taskExecutionStrategy: 'Test string',
+                  taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
                   taskName: 'Test string',
                   taskNumber: 'Test string',
                   taskSpec: 'Test string',
                   taskTemplateName: 'Test string',
-                  taskType: 'Test string',
+                  taskType: 'TASK',
                 },
               ],
               teardown: {
@@ -12793,9 +12821,9 @@ gapi.load('client', async () => {
                       disableAlert: true,
                       displayName: 'Test string',
                       durationThreshold: 'Test string',
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       onlyFinalAttempt: true,
-                      thresholdType: 'Test string',
+                      thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
@@ -12814,7 +12842,8 @@ gapi.load('client', async () => {
                     names: ['Test string'],
                   },
                   label: 'Test string',
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy:
+                    'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                   outputVariables: {
                     names: ['Test string'],
                   },
@@ -12837,7 +12866,7 @@ gapi.load('client', async () => {
                   trigger: 'Test string',
                   triggerId: 'Test string',
                   triggerNumber: 'Test string',
-                  triggerType: 'Test string',
+                  triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
                 },
               ],
               triggerConfigsInternal: [
@@ -12851,20 +12880,20 @@ gapi.load('client', async () => {
                       durationThresholdMs: 'Test string',
                       errorEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
-                      metricType: 'Test string',
+                      metricType: 'METRIC_TYPE_UNSPECIFIED',
                       numAggregationPeriods: 42,
                       onlyFinalAttempt: true,
                       playbookUrl: 'Test string',
-                      thresholdType: 'Test string',
+                      thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                       thresholdValue: {
                         absolute: 'Test string',
                         percentage: 42,
                       },
                       warningEnumList: {
                         enumStrings: ['Test string'],
-                        filterType: 'Test string',
+                        filterType: 'DEFAULT_INCLUSIVE',
                       },
                     },
                   ],
@@ -12881,7 +12910,7 @@ gapi.load('client', async () => {
                     names: ['Test string'],
                   },
                   label: 'Test string',
-                  nextTasksExecutionPolicy: 'Test string',
+                  nextTasksExecutionPolicy: 'UNSPECIFIED',
                   outputVariables: {
                     names: ['Test string'],
                   },
@@ -12900,7 +12929,7 @@ gapi.load('client', async () => {
                           conditions: [
                             {
                               eventPropertyKey: 'Test string',
-                              operator: 'Test string',
+                              operator: 'UNSET',
                               value: {
                                 booleanValue: true,
                                 doubleArray: {
@@ -12976,7 +13005,7 @@ gapi.load('client', async () => {
                   triggerId: 'Test string',
                   triggerName: 'Test string',
                   triggerNumber: 'Test string',
-                  triggerType: 'Test string',
+                  triggerType: 'UNKNOWN',
                 },
               ],
               updateTime: 'Test string',
@@ -12989,12 +13018,13 @@ gapi.load('client', async () => {
               integrationVersion: {
                 cloudKmsKey: 'Test string',
                 cloudLoggingDetails: {
-                  cloudLoggingSeverity: 'Test string',
+                  cloudLoggingSeverity: 'CLOUD_LOGGING_SEVERITY_UNSPECIFIED',
                   enableCloudLogging: true,
                 },
                 createdFromTemplate: 'Test string',
                 createTime: 'Test string',
-                databasePersistencePolicy: 'Test string',
+                databasePersistencePolicy:
+                  'DATABASE_PERSISTENCE_POLICY_UNSPECIFIED',
                 description: 'Test string',
                 enableVariableMasking: true,
                 errorCatcherConfigs: [
@@ -13018,12 +13048,13 @@ gapi.load('client', async () => {
                     ],
                   },
                 ],
-                eucHardeningDisposition: 'Test string',
+                eucHardeningDisposition:
+                  'EUC_HARDENING_DISPOSITION_UNSPECIFIED',
                 integrationConfigParameters: [
                   {
                     parameter: {
                       containsLargeData: true,
-                      dataType: 'Test string',
+                      dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -13045,7 +13076,7 @@ gapi.load('client', async () => {
                       },
                       description: 'Test string',
                       displayName: 'Test string',
-                      inputOutputType: 'Test string',
+                      inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                       isTransient: true,
                       jsonSchema: 'Test string',
                       key: 'Test string',
@@ -13077,7 +13108,7 @@ gapi.load('client', async () => {
                 integrationParameters: [
                   {
                     containsLargeData: true,
-                    dataType: 'Test string',
+                    dataType: 'INTEGRATION_PARAMETER_DATA_TYPE_UNSPECIFIED',
                     defaultValue: {
                       booleanArray: {
                         booleanValues: [true],
@@ -13099,7 +13130,7 @@ gapi.load('client', async () => {
                     },
                     description: 'Test string',
                     displayName: 'Test string',
-                    inputOutputType: 'Test string',
+                    inputOutputType: 'IN_OUT_TYPE_UNSPECIFIED',
                     isTransient: true,
                     jsonSchema: 'Test string',
                     key: 'Test string',
@@ -13112,7 +13143,7 @@ gapi.load('client', async () => {
                   parameters: [
                     {
                       attributes: {
-                        dataType: 'Test string',
+                        dataType: 'DATA_TYPE_UNSPECIFIED',
                         defaultValue: {
                           booleanValue: true,
                           doubleArray: {
@@ -13135,17 +13166,17 @@ gapi.load('client', async () => {
                         isSearchable: true,
                         logSettings: {
                           logFieldName: 'Test string',
-                          seedPeriod: 'Test string',
-                          seedScope: 'Test string',
+                          seedPeriod: 'SEED_PERIOD_UNSPECIFIED',
+                          seedScope: 'SEED_SCOPE_UNSPECIFIED',
                         },
                         masked: true,
                         readOnly: true,
-                        searchable: 'Test string',
+                        searchable: 'UNSPECIFIED',
                         taskVisibility: ['Test string'],
                       },
                       children: undefined,
                       containsLargeData: true,
-                      dataType: 'Test string',
+                      dataType: 'DATA_TYPE_UNSPECIFIED',
                       defaultValue: {
                         booleanArray: {
                           booleanValues: [true],
@@ -13179,14 +13210,14 @@ gapi.load('client', async () => {
                         stringValue: 'Test string',
                       },
                       description: 'Test string',
-                      inOutType: 'Test string',
+                      inOutType: 'IN_OUT_TYPE_UNSPECIFIED',
                       isTransient: true,
                       jsonSchema: 'Test string',
                       key: 'Test string',
                       name: 'Test string',
                       producedBy: {
                         elementIdentifier: 'Test string',
-                        elementType: 'Test string',
+                        elementType: 'UNKNOWN_TYPE',
                       },
                       producer: 'Test string',
                       protoDefName: 'Test string',
@@ -13198,12 +13229,12 @@ gapi.load('client', async () => {
                 lastModifierEmail: 'Test string',
                 lockHolder: 'Test string',
                 name: 'Test string',
-                origin: 'Test string',
+                origin: 'UNSPECIFIED',
                 parentTemplateId: 'Test string',
                 runAsServiceAccount: 'Test string',
                 snapshotNumber: 'Test string',
-                state: 'Test string',
-                status: 'Test string',
+                state: 'INTEGRATION_STATE_UNSPECIFIED',
+                status: 'UNKNOWN',
                 taskConfigs: [
                   {
                     conditionalFailurePolicies: {
@@ -13211,28 +13242,28 @@ gapi.load('client', async () => {
                         condition: 'Test string',
                         intervalTime: 'Test string',
                         maxRetries: 42,
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                       },
                       failurePolicies: [
                         {
                           condition: 'Test string',
                           intervalTime: 'Test string',
                           maxRetries: 42,
-                          retryStrategy: 'Test string',
+                          retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                         },
                       ],
                     },
                     description: 'Test string',
                     displayName: 'Test string',
                     errorCatcherId: 'Test string',
-                    externalTaskType: 'Test string',
+                    externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                     failurePolicy: {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
-                    jsonValidationOption: 'Test string',
+                    jsonValidationOption: 'JSON_VALIDATION_OPTION_UNSPECIFIED',
                     nextTasks: [
                       {
                         condition: 'Test string',
@@ -13242,7 +13273,8 @@ gapi.load('client', async () => {
                         taskId: 'Test string',
                       },
                     ],
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy:
+                      'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                     parameters: {
                       A: {
                         key: 'Test string',
@@ -13273,16 +13305,17 @@ gapi.load('client', async () => {
                       y: 42,
                     },
                     successPolicy: {
-                      finalState: 'Test string',
+                      finalState: 'FINAL_STATE_UNSPECIFIED',
                     },
                     synchronousCallFailurePolicy: {
                       condition: 'Test string',
                       intervalTime: 'Test string',
                       maxRetries: 42,
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'RETRY_STRATEGY_UNSPECIFIED',
                     },
                     task: 'Test string',
-                    taskExecutionStrategy: 'Test string',
+                    taskExecutionStrategy:
+                      'TASK_EXECUTION_STRATEGY_UNSPECIFIED',
                     taskId: 'Test string',
                     taskTemplate: 'Test string',
                   },
@@ -13298,20 +13331,20 @@ gapi.load('client', async () => {
                         durationThresholdMs: 'Test string',
                         errorEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         numAggregationPeriods: 42,
                         onlyFinalAttempt: true,
                         playbookUrl: 'Test string',
-                        thresholdType: 'Test string',
+                        thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
                         },
                         warningEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
                       },
                     ],
@@ -13320,14 +13353,14 @@ gapi.load('client', async () => {
                         intervalInSeconds: 'Test string',
                         maxNumRetries: 42,
                         retryCondition: 'Test string',
-                        retryStrategy: 'Test string',
+                        retryStrategy: 'UNSPECIFIED',
                       },
                       failurePolicies: [
                         {
                           intervalInSeconds: 'Test string',
                           maxNumRetries: 42,
                           retryCondition: 'Test string',
-                          retryStrategy: 'Test string',
+                          retryStrategy: 'UNSPECIFIED',
                         },
                       ],
                     },
@@ -13336,15 +13369,15 @@ gapi.load('client', async () => {
                     description: 'Test string',
                     disableStrictTypeValidation: true,
                     errorCatcherId: 'Test string',
-                    externalTaskType: 'Test string',
+                    externalTaskType: 'EXTERNAL_TASK_TYPE_UNSPECIFIED',
                     failurePolicy: {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     incomingEdgeCount: 42,
-                    jsonValidationOption: 'Test string',
+                    jsonValidationOption: 'UNSPECIFIED_JSON_VALIDATION_OPTION',
                     label: 'Test string',
                     lastModifiedTime: 'Test string',
                     nextTasks: [
@@ -13354,7 +13387,7 @@ gapi.load('client', async () => {
                             conditions: [
                               {
                                 eventPropertyKey: 'Test string',
-                                operator: 'Test string',
+                                operator: 'UNSET',
                                 value: {
                                   booleanValue: true,
                                   doubleArray: {
@@ -13384,10 +13417,10 @@ gapi.load('client', async () => {
                         taskNumber: 'Test string',
                       },
                     ],
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy: 'UNSPECIFIED',
                     parameters: {
                       A: {
-                        dataType: 'Test string',
+                        dataType: 'DATA_TYPE_UNSPECIFIED',
                         key: 'Test string',
                         masked: true,
                         value: {
@@ -13434,7 +13467,7 @@ gapi.load('client', async () => {
                       parameters: {
                         parameters: [
                           {
-                            dataType: 'Test string',
+                            dataType: 'DATA_TYPE_UNSPECIFIED',
                             key: 'Test string',
                             masked: true,
                             value: {
@@ -13476,13 +13509,13 @@ gapi.load('client', async () => {
                       taskNumbersToRollback: ['Test string'],
                     },
                     successPolicy: {
-                      finalState: 'Test string',
+                      finalState: 'UNSPECIFIED',
                     },
                     synchronousCallFailurePolicy: {
                       intervalInSeconds: 'Test string',
                       maxNumRetries: 42,
                       retryCondition: 'Test string',
-                      retryStrategy: 'Test string',
+                      retryStrategy: 'UNSPECIFIED',
                     },
                     taskEntity: {
                       disabledForVpcSc: true,
@@ -13494,14 +13527,15 @@ gapi.load('client', async () => {
                             userEmail: 'Test string',
                           },
                         ],
-                        category: 'Test string',
+                        category: 'UNSPECIFIED_CATEGORY',
                         codeSearchLink: 'Test string',
-                        defaultJsonValidationOption: 'Test string',
+                        defaultJsonValidationOption:
+                          'UNSPECIFIED_JSON_VALIDATION_OPTION',
                         defaultSpec: 'Test string',
                         description: 'Test string',
                         descriptiveName: 'Test string',
                         docMarkdown: 'Test string',
-                        externalCategory: 'Test string',
+                        externalCategory: 'UNSPECIFIED_EXTERNAL_CATEGORY',
                         externalCategorySequence: 42,
                         externalDocHtml: 'Test string',
                         externalDocLink: 'Test string',
@@ -13511,8 +13545,8 @@ gapi.load('client', async () => {
                         isDeprecated: true,
                         name: 'Test string',
                         standaloneExternalDocHtml: 'Test string',
-                        status: 'Test string',
-                        system: 'Test string',
+                        status: 'UNSPECIFIED_STATUS',
+                        system: 'UNSPECIFIED_SYSTEM',
                         tags: ['Test string'],
                       },
                       paramSpecs: {
@@ -13524,14 +13558,14 @@ gapi.load('client', async () => {
                               descriptivePhrase: 'Test string',
                               helpText: 'Test string',
                               hideDefaultValue: true,
-                              inputDisplayOption: 'Test string',
+                              inputDisplayOption: 'DEFAULT',
                               isHidden: true,
                               label: 'Test string',
-                              parameterNameOption: 'Test string',
+                              parameterNameOption: 'DEFAULT_NOT_PARAMETER_NAME',
                               subSectionLabel: 'Test string',
                               uiPlaceholderText: 'Test string',
                             },
-                            dataType: 'Test string',
+                            dataType: 'DATA_TYPE_UNSPECIFIED',
                             defaultValue: {
                               booleanArray: {
                                 booleanValues: [true],
@@ -13593,9 +13627,9 @@ gapi.load('client', async () => {
                       stats: {
                         dimensions: {
                           clientId: 'Test string',
-                          enumFilterType: 'Test string',
+                          enumFilterType: 'DEFAULT_INCLUSIVE',
                           errorEnumString: 'Test string',
-                          retryAttempt: 'Test string',
+                          retryAttempt: 'UNSPECIFIED',
                           taskName: 'Test string',
                           taskNumber: 'Test string',
                           triggerId: 'Test string',
@@ -13608,21 +13642,21 @@ gapi.load('client', async () => {
                         qps: 42,
                         warningRate: 42,
                       },
-                      taskType: 'Test string',
+                      taskType: 'TASK',
                       uiConfig: {
                         taskUiModuleConfigs: [
                           {
-                            moduleId: 'Test string',
+                            moduleId: 'UNSPECIFIED_TASK_MODULE',
                           },
                         ],
                       },
                     },
-                    taskExecutionStrategy: 'Test string',
+                    taskExecutionStrategy: 'WHEN_ALL_SUCCEED',
                     taskName: 'Test string',
                     taskNumber: 'Test string',
                     taskSpec: 'Test string',
                     taskTemplateName: 'Test string',
-                    taskType: 'Test string',
+                    taskType: 'TASK',
                   },
                 ],
                 teardown: {
@@ -13710,9 +13744,9 @@ gapi.load('client', async () => {
                         disableAlert: true,
                         displayName: 'Test string',
                         durationThreshold: 'Test string',
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         onlyFinalAttempt: true,
-                        thresholdType: 'Test string',
+                        thresholdType: 'THRESHOLD_TYPE_UNSPECIFIED',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
@@ -13731,7 +13765,8 @@ gapi.load('client', async () => {
                       names: ['Test string'],
                     },
                     label: 'Test string',
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy:
+                      'NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED',
                     outputVariables: {
                       names: ['Test string'],
                     },
@@ -13754,7 +13789,7 @@ gapi.load('client', async () => {
                     trigger: 'Test string',
                     triggerId: 'Test string',
                     triggerNumber: 'Test string',
-                    triggerType: 'Test string',
+                    triggerType: 'TRIGGER_TYPE_UNSPECIFIED',
                   },
                 ],
                 triggerConfigsInternal: [
@@ -13768,20 +13803,20 @@ gapi.load('client', async () => {
                         durationThresholdMs: 'Test string',
                         errorEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
-                        metricType: 'Test string',
+                        metricType: 'METRIC_TYPE_UNSPECIFIED',
                         numAggregationPeriods: 42,
                         onlyFinalAttempt: true,
                         playbookUrl: 'Test string',
-                        thresholdType: 'Test string',
+                        thresholdType: 'UNSPECIFIED_THRESHOLD_TYPE',
                         thresholdValue: {
                           absolute: 'Test string',
                           percentage: 42,
                         },
                         warningEnumList: {
                           enumStrings: ['Test string'],
-                          filterType: 'Test string',
+                          filterType: 'DEFAULT_INCLUSIVE',
                         },
                       },
                     ],
@@ -13798,7 +13833,7 @@ gapi.load('client', async () => {
                       names: ['Test string'],
                     },
                     label: 'Test string',
-                    nextTasksExecutionPolicy: 'Test string',
+                    nextTasksExecutionPolicy: 'UNSPECIFIED',
                     outputVariables: {
                       names: ['Test string'],
                     },
@@ -13817,7 +13852,7 @@ gapi.load('client', async () => {
                             conditions: [
                               {
                                 eventPropertyKey: 'Test string',
-                                operator: 'Test string',
+                                operator: 'UNSET',
                                 value: {
                                   booleanValue: true,
                                   doubleArray: {
@@ -13893,7 +13928,7 @@ gapi.load('client', async () => {
                     triggerId: 'Test string',
                     triggerName: 'Test string',
                     triggerNumber: 'Test string',
-                    triggerType: 'Test string',
+                    triggerType: 'UNKNOWN',
                   },
                 ],
                 updateTime: 'Test string',
@@ -13906,7 +13941,7 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
         usageCount: 'Test string',
         usageInfo: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Search templates based on user query and filters. This api would query the templates and return a list of templates based on the user filter. */
@@ -13945,7 +13980,7 @@ gapi.load('client', async () => {
       },
       {
         content: 'Test string',
-        fileFormat: 'Test string',
+        fileFormat: 'FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Use the template to create integration. This api would keep track of usage_count and last_used_time. PERMISSION_DENIED would be thrown if template is not accessible by client. */

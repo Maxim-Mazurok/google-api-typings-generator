@@ -40,7 +40,7 @@ gapi.load('client', async () => {
       {},
       {
         notifyTime: 'Test string',
-        type: 'Test string',
+        type: 'URL_NOTIFICATION_TYPE_UNSPECIFIED',
         url: 'Test string',
       },
     );

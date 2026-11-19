@@ -41,9 +41,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions. */
@@ -54,9 +54,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** Analyzes the sentiment of the provided text. */
@@ -67,9 +67,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties. */
@@ -80,9 +80,9 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
       },
     );
     /** A convenience method that provides all the features that analyzeSentiment, analyzeEntities, and analyzeSyntax provide in one call. */
@@ -93,14 +93,15 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        encodingType: 'Test string',
+        encodingType: 'NONE',
         features: {
           classificationModelOptions: {
             v1Model: {},
             v2Model: {
-              contentCategoriesVersion: 'Test string',
+              contentCategoriesVersion:
+                'CONTENT_CATEGORIES_VERSION_UNSPECIFIED',
             },
           },
           classifyText: true,
@@ -119,14 +120,14 @@ gapi.load('client', async () => {
         classificationModelOptions: {
           v1Model: {},
           v2Model: {
-            contentCategoriesVersion: 'Test string',
+            contentCategoriesVersion: 'CONTENT_CATEGORIES_VERSION_UNSPECIFIED',
           },
         },
         document: {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -138,7 +139,7 @@ gapi.load('client', async () => {
           content: 'Test string',
           gcsContentUri: 'Test string',
           language: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );

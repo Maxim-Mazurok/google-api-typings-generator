@@ -45,8 +45,8 @@ gapi.load('client', async () => {
       },
       {
         catalogItemLevelConfig: {
-          eventItemLevel: 'Test string',
-          predictItemLevel: 'Test string',
+          eventItemLevel: 'CATALOG_ITEM_LEVEL_UNSPECIFIED',
+          predictItemLevel: 'CATALOG_ITEM_LEVEL_UNSPECIFIED',
         },
         defaultEventStoreId: 'Test string',
         displayName: 'Test string',
@@ -102,7 +102,7 @@ gapi.load('client', async () => {
             max: 42,
             min: 42,
           },
-          stockState: 'Test string',
+          stockState: 'STOCK_STATE_UNSPECIFIED',
         },
         tags: ['Test string'],
         title: 'Test string',
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
                     max: 42,
                     min: 42,
                   },
-                  stockState: 'Test string',
+                  stockState: 'STOCK_STATE_UNSPECIFIED',
                 },
                 tags: ['Test string'],
                 title: 'Test string',
@@ -216,7 +216,7 @@ gapi.load('client', async () => {
                   referrerUri: 'Test string',
                   uri: 'Test string',
                 },
-                eventSource: 'Test string',
+                eventSource: 'EVENT_SOURCE_UNSPECIFIED',
                 eventTime: 'Test string',
                 eventType: 'Test string',
                 productEventDetail: {
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
                       },
                       originalPrice: 42,
                       quantity: 42,
-                      stockState: 'Test string',
+                      stockState: 'STOCK_STATE_UNSPECIFIED',
                     },
                   ],
                   purchaseTransaction: {
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
             max: 42,
             min: 42,
           },
-          stockState: 'Test string',
+          stockState: 'STOCK_STATE_UNSPECIFIED',
         },
         tags: ['Test string'],
         title: 'Test string',
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
             referrerUri: 'Test string',
             uri: 'Test string',
           },
-          eventSource: 'Test string',
+          eventSource: 'EVENT_SOURCE_UNSPECIFIED',
           eventTime: 'Test string',
           eventType: 'Test string',
           productEventDetail: {
@@ -426,7 +426,7 @@ gapi.load('client', async () => {
                 },
                 originalPrice: 42,
                 quantity: 42,
-                stockState: 'Test string',
+                stockState: 'STOCK_STATE_UNSPECIFIED',
               },
             ],
             purchaseTransaction: {
@@ -549,7 +549,7 @@ gapi.load('client', async () => {
                     max: 42,
                     min: 42,
                   },
-                  stockState: 'Test string',
+                  stockState: 'STOCK_STATE_UNSPECIFIED',
                 },
                 tags: ['Test string'],
                 title: 'Test string',
@@ -582,7 +582,7 @@ gapi.load('client', async () => {
                   referrerUri: 'Test string',
                   uri: 'Test string',
                 },
-                eventSource: 'Test string',
+                eventSource: 'EVENT_SOURCE_UNSPECIFIED',
                 eventTime: 'Test string',
                 eventType: 'Test string',
                 productEventDetail: {
@@ -613,7 +613,7 @@ gapi.load('client', async () => {
                       },
                       originalPrice: 42,
                       quantity: 42,
-                      stockState: 'Test string',
+                      stockState: 'STOCK_STATE_UNSPECIFIED',
                     },
                   ],
                   purchaseTransaction: {
@@ -668,7 +668,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        userEventRejoinScope: 'Test string',
+        userEventRejoinScope: 'USER_EVENT_REJOIN_SCOPE_UNSPECIFIED',
       },
     );
     /** Writes a single user event. */
@@ -696,7 +696,7 @@ gapi.load('client', async () => {
           referrerUri: 'Test string',
           uri: 'Test string',
         },
-        eventSource: 'Test string',
+        eventSource: 'EVENT_SOURCE_UNSPECIFIED',
         eventTime: 'Test string',
         eventType: 'Test string',
         productEventDetail: {
@@ -727,7 +727,7 @@ gapi.load('client', async () => {
               },
               originalPrice: 42,
               quantity: 42,
-              stockState: 'Test string',
+              stockState: 'STOCK_STATE_UNSPECIFIED',
             },
           ],
           purchaseTransaction: {

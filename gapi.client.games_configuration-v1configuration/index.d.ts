@@ -152,7 +152,8 @@ declare namespace gapi.client {
       /** The locale strings. */
       translations?: LocalizedString[];
     }
-    interface AchievementConfigurationsResource {
+
+    const achievementConfigurations: {
       /** Delete the achievement configuration with the given ID. */
       delete(request?: {
         /** V1 error format. */
@@ -354,8 +355,9 @@ declare namespace gapi.client {
         },
         body: AchievementConfiguration,
       ): Request<AchievementConfiguration>;
-    }
-    interface LeaderboardConfigurationsResource {
+    };
+
+    const leaderboardConfigurations: {
       /** Delete the leaderboard configuration with the given ID. */
       delete(request?: {
         /** V1 error format. */
@@ -557,10 +559,6 @@ declare namespace gapi.client {
         },
         body: LeaderboardConfiguration,
       ): Request<LeaderboardConfiguration>;
-    }
-
-    const achievementConfigurations: AchievementConfigurationsResource;
-
-    const leaderboardConfigurations: LeaderboardConfigurationsResource;
+    };
   }
 }

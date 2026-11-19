@@ -56,33 +56,33 @@ gapi.load('client', async () => {
         siteUrl: 'Test string',
       },
       {
-        aggregationType: 'Test string',
-        dataState: 'Test string',
+        aggregationType: 'AUTO',
+        dataState: 'DATA_STATE_UNSPECIFIED',
         dimensionFilterGroups: [
           {
             filterLists: [
               {
-                dimension: 'Test string',
+                dimension: 'QUERY',
                 expressions: ['Test string'],
               },
             ],
             filters: [
               {
-                dimension: 'Test string',
+                dimension: 'QUERY',
                 expression: 'Test string',
-                operator: 'Test string',
+                operator: 'EQUALS',
               },
             ],
-            groupType: 'Test string',
+            groupType: 'AND',
           },
         ],
-        dimensions: ['Test string'],
+        dimensions: ['DATE'],
         endDate: 'Test string',
         rowLimit: 42,
-        searchType: 'Test string',
+        searchType: 'WEB',
         startDate: 'Test string',
         startRow: 42,
-        type: 'Test string',
+        type: 'WEB',
       },
     );
     /** Deletes a sitemap from the Sitemaps report. Does not stop Google from crawling this sitemap or the URLs that were previously crawled in the deleted sitemap. */

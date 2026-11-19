@@ -61,7 +61,7 @@ gapi.load('client', async () => {
           },
         },
         advertiserId: 'Test string',
-        containsEuPoliticalAds: 'Test string',
+        containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
         creativeConfig: {
           dynamicCreativeEnabled: true,
           iasClientId: 'Test string',
@@ -73,14 +73,14 @@ gapi.load('client', async () => {
             overridePartnerSdfConfig: true,
             sdfConfig: {
               adminEmail: 'Test string',
-              version: 'Test string',
+              version: 'SDF_VERSION_UNSPECIFIED',
             },
           },
         },
         defaultBusinessName: 'Test string',
         defaultLogoAssetId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         generalConfig: {
           currencyCode: 'Test string',
           domainUrl: 'Test string',
@@ -114,7 +114,7 @@ gapi.load('client', async () => {
             assignedTargetingOptions: [
               {
                 ageRangeDetails: {
-                  ageRange: 'Test string',
+                  ageRange: 'AGE_RANGE_UNSPECIFIED',
                 },
                 appCategoryDetails: {
                   displayName: 'Test string',
@@ -123,7 +123,7 @@ gapi.load('client', async () => {
                 },
                 appDetails: {
                   appId: 'Test string',
-                  appPlatform: 'Test string',
+                  appPlatform: 'APP_PLATFORM_UNSPECIFIED',
                   displayName: 'Test string',
                   negative: true,
                 },
@@ -160,10 +160,11 @@ gapi.load('client', async () => {
                   },
                 },
                 audioContentTypeDetails: {
-                  audioContentType: 'Test string',
+                  audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
                 },
                 authorizedSellerStatusDetails: {
-                  authorizedSellerStatus: 'Test string',
+                  authorizedSellerStatus:
+                    'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 browserDetails: {
@@ -174,7 +175,7 @@ gapi.load('client', async () => {
                 businessChainDetails: {
                   displayName: 'Test string',
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 carrierAndIspDetails: {
@@ -184,7 +185,7 @@ gapi.load('client', async () => {
                 },
                 categoryDetails: {
                   displayName: 'Test string',
-                  exclusionStatus: 'Test string',
+                  exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
@@ -193,7 +194,7 @@ gapi.load('client', async () => {
                   negative: true,
                 },
                 contentDurationDetails: {
-                  contentDuration: 'Test string',
+                  contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 contentGenreDetails: {
@@ -202,22 +203,24 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 contentInstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentInstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentInstreamPosition:
+                    'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentOutstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentOutstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentOutstreamPosition:
+                    'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentStreamTypeDetails: {
-                  contentStreamType: 'Test string',
+                  contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 dayAndTimeDetails: {
-                  dayOfWeek: 'Test string',
+                  dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                   endHour: 42,
                   startHour: 42,
-                  timeZoneResolution: 'Test string',
+                  timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
                 },
                 deviceMakeModelDetails: {
                   displayName: 'Test string',
@@ -225,31 +228,31 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 deviceTypeDetails: {
-                  deviceType: 'Test string',
+                  deviceType: 'DEVICE_TYPE_UNSPECIFIED',
                   youtubeAndPartnersBidMultiplier: 42,
                 },
                 digitalContentLabelExclusionDetails: {
-                  excludedContentRatingTier: 'Test string',
+                  excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
                 },
                 environmentDetails: {
-                  environment: 'Test string',
+                  environment: 'ENVIRONMENT_UNSPECIFIED',
                 },
                 exchangeDetails: {
-                  exchange: 'Test string',
+                  exchange: 'EXCHANGE_UNSPECIFIED',
                 },
                 genderDetails: {
-                  gender: 'Test string',
+                  gender: 'GENDER_UNSPECIFIED',
                 },
                 geoRegionDetails: {
                   displayName: 'Test string',
-                  geoRegionType: 'Test string',
+                  geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
                 householdIncomeDetails: {
-                  householdIncome: 'Test string',
+                  householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
                 },
-                inheritance: 'Test string',
+                inheritance: 'INHERITANCE_UNSPECIFIED',
                 inventorySourceDetails: {
                   inventorySourceId: 'Test string',
                 },
@@ -268,17 +271,17 @@ gapi.load('client', async () => {
                 },
                 name: 'Test string',
                 nativeContentPositionDetails: {
-                  contentPosition: 'Test string',
+                  contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
                 },
                 negativeKeywordListDetails: {
                   negativeKeywordListId: 'Test string',
                 },
                 omidDetails: {
-                  omid: 'Test string',
+                  omid: 'OMID_UNSPECIFIED',
                 },
                 onScreenPositionDetails: {
-                  adType: 'Test string',
-                  onScreenPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 operatingSystemDetails: {
@@ -287,80 +290,86 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 parentalStatusDetails: {
-                  parentalStatus: 'Test string',
+                  parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
                 },
                 poiDetails: {
                   displayName: 'Test string',
                   latitude: 42,
                   longitude: 42,
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 proximityLocationListDetails: {
                   proximityLocationListId: 'Test string',
                   proximityRadius: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
                 },
                 regionalLocationListDetails: {
                   negative: true,
                   regionalLocationListId: 'Test string',
                 },
                 sensitiveCategoryExclusionDetails: {
-                  excludedSensitiveCategory: 'Test string',
+                  excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
                 },
                 sessionPositionDetails: {
-                  sessionPosition: 'Test string',
+                  sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
                 },
                 subExchangeDetails: {
                   targetingOptionId: 'Test string',
                 },
-                targetingType: 'Test string',
+                targetingType: 'TARGETING_TYPE_UNSPECIFIED',
                 thirdPartyVerifierDetails: {
                   adloox: {
-                    excludedAdlooxCategories: ['Test string'],
+                    excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
                   },
                   doubleVerify: {
                     appStarRating: {
-                      avoidedStarRating: 'Test string',
+                      avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
                       avoidInsufficientStarRating: true,
                     },
-                    avoidedAgeRatings: ['Test string'],
+                    avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
                     brandSafetyCategories: {
-                      avoidedHighSeverityCategories: ['Test string'],
-                      avoidedMediumSeverityCategories: ['Test string'],
+                      avoidedHighSeverityCategories: [
+                        'HIGHER_SEVERITY_UNSPECIFIED',
+                      ],
+                      avoidedMediumSeverityCategories: [
+                        'MEDIUM_SEVERITY_UNSPECIFIED',
+                      ],
                       avoidUnknownBrandSafetyCategory: true,
                     },
                     customSegmentId: 'Test string',
                     displayViewability: {
-                      iab: 'Test string',
-                      viewableDuring: 'Test string',
+                      iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+                      viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
                     },
                     fraudInvalidTraffic: {
-                      avoidedFraudOption: 'Test string',
+                      avoidedFraudOption: 'FRAUD_UNSPECIFIED',
                       avoidInsufficientOption: true,
                     },
                     videoViewability: {
-                      playerImpressionRate: 'Test string',
-                      videoIab: 'Test string',
-                      videoViewableRate: 'Test string',
+                      playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+                      videoIab: 'VIDEO_IAB_UNSPECIFIED',
+                      videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
                     },
                   },
                   integralAdScience: {
                     customSegmentId: ['Test string'],
-                    displayViewability: 'Test string',
-                    excludedAdFraudRisk: 'Test string',
-                    excludedAdultRisk: 'Test string',
-                    excludedAlcoholRisk: 'Test string',
-                    excludedDrugsRisk: 'Test string',
-                    excludedGamblingRisk: 'Test string',
-                    excludedHateSpeechRisk: 'Test string',
-                    excludedIllegalDownloadsRisk: 'Test string',
-                    excludedOffensiveLanguageRisk: 'Test string',
-                    excludedViolenceRisk: 'Test string',
+                    displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+                    excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+                    excludedAdultRisk: 'ADULT_UNSPECIFIED',
+                    excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+                    excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+                    excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+                    excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+                    excludedIllegalDownloadsRisk:
+                      'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+                    excludedOffensiveLanguageRisk:
+                      'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+                    excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
                     excludeUnrateable: true,
-                    traqScoreOption: 'Test string',
-                    videoViewability: 'Test string',
+                    traqScoreOption: 'TRAQ_UNSPECIFIED',
+                    videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
                   },
                 },
                 urlDetails: {
@@ -369,13 +378,13 @@ gapi.load('client', async () => {
                 },
                 userRewardedContentDetails: {
                   targetingOptionId: 'Test string',
-                  userRewardedContent: 'Test string',
+                  userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
                 },
                 videoPlayerSizeDetails: {
-                  videoPlayerSize: 'Test string',
+                  videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
                 },
                 viewabilityDetails: {
-                  viewability: 'Test string',
+                  viewability: 'VIEWABILITY_UNSPECIFIED',
                 },
                 youtubeChannelDetails: {
                   channelId: 'Test string',
@@ -391,13 +400,13 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
         deleteRequests: [
           {
             assignedTargetingOptionIds: ['Test string'],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
       },
@@ -444,7 +453,7 @@ gapi.load('client', async () => {
           },
         },
         advertiserId: 'Test string',
-        containsEuPoliticalAds: 'Test string',
+        containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
         creativeConfig: {
           dynamicCreativeEnabled: true,
           iasClientId: 'Test string',
@@ -456,14 +465,14 @@ gapi.load('client', async () => {
             overridePartnerSdfConfig: true,
             sdfConfig: {
               adminEmail: 'Test string',
-              version: 'Test string',
+              version: 'SDF_VERSION_UNSPECIFIED',
             },
           },
         },
         defaultBusinessName: 'Test string',
         defaultLogoAssetId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         generalConfig: {
           currencyCode: 'Test string',
           domainUrl: 'Test string',
@@ -502,7 +511,7 @@ gapi.load('client', async () => {
           {
             budgetAmountMicros: 'Test string',
             budgetId: 'Test string',
-            budgetUnit: 'Test string',
+            budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
             dateRange: {
               endDate: {
                 day: 42,
@@ -517,7 +526,7 @@ gapi.load('client', async () => {
             },
             displayName: 'Test string',
             externalBudgetId: 'Test string',
-            externalBudgetSource: 'Test string',
+            externalBudgetSource: 'EXTERNAL_BUDGET_SOURCE_UNSPECIFIED',
             invoiceGroupingId: 'Test string',
             prismaConfig: {
               prismaCpeCode: {
@@ -525,7 +534,7 @@ gapi.load('client', async () => {
                 prismaEstimateCode: 'Test string',
                 prismaProductCode: 'Test string',
               },
-              prismaType: 'Test string',
+              prismaType: 'PRISMA_TYPE_UNSPECIFIED',
               supplier: 'Test string',
             },
           },
@@ -546,21 +555,21 @@ gapi.load('client', async () => {
           plannedSpendAmountMicros: 'Test string',
         },
         campaignGoal: {
-          campaignGoalType: 'Test string',
+          campaignGoalType: 'CAMPAIGN_GOAL_TYPE_UNSPECIFIED',
           performanceGoal: {
             performanceGoalAmountMicros: 'Test string',
             performanceGoalPercentageMicros: 'Test string',
             performanceGoalString: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType: 'PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
         },
         campaignId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
@@ -599,7 +608,7 @@ gapi.load('client', async () => {
           {
             budgetAmountMicros: 'Test string',
             budgetId: 'Test string',
-            budgetUnit: 'Test string',
+            budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
             dateRange: {
               endDate: {
                 day: 42,
@@ -614,7 +623,7 @@ gapi.load('client', async () => {
             },
             displayName: 'Test string',
             externalBudgetId: 'Test string',
-            externalBudgetSource: 'Test string',
+            externalBudgetSource: 'EXTERNAL_BUDGET_SOURCE_UNSPECIFIED',
             invoiceGroupingId: 'Test string',
             prismaConfig: {
               prismaCpeCode: {
@@ -622,7 +631,7 @@ gapi.load('client', async () => {
                 prismaEstimateCode: 'Test string',
                 prismaProductCode: 'Test string',
               },
-              prismaType: 'Test string',
+              prismaType: 'PRISMA_TYPE_UNSPECIFIED',
               supplier: 'Test string',
             },
           },
@@ -643,21 +652,21 @@ gapi.load('client', async () => {
           plannedSpendAmountMicros: 'Test string',
         },
         campaignGoal: {
-          campaignGoalType: 'Test string',
+          campaignGoalType: 'CAMPAIGN_GOAL_TYPE_UNSPECIFIED',
           performanceGoal: {
             performanceGoalAmountMicros: 'Test string',
             performanceGoalPercentageMicros: 'Test string',
             performanceGoalString: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType: 'PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
         },
         campaignId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
@@ -798,7 +807,7 @@ gapi.load('client', async () => {
               content: 'Test string',
               mediaId: 'Test string',
             },
-            role: 'Test string',
+            role: 'ASSET_ROLE_UNSPECIFIED',
           },
         ],
         cmPlacementId: 'Test string',
@@ -815,27 +824,27 @@ gapi.load('client', async () => {
           },
         ],
         createTime: 'Test string',
-        creativeAttributes: ['Test string'],
+        creativeAttributes: ['CREATIVE_ATTRIBUTE_UNSPECIFIED'],
         creativeId: 'Test string',
-        creativeType: 'Test string',
+        creativeType: 'CREATIVE_TYPE_UNSPECIFIED',
         dimensions: {
           heightPixels: 42,
           widthPixels: 42,
         },
         displayName: 'Test string',
         dynamic: true,
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         exitEvents: [
           {
             name: 'Test string',
             reportingName: 'Test string',
-            type: 'Test string',
+            type: 'EXIT_EVENT_TYPE_UNSPECIFIED',
             url: 'Test string',
           },
         ],
-        expandingDirection: 'Test string',
+        expandingDirection: 'EXPANDING_DIRECTION_UNSPECIFIED',
         expandOnHover: true,
-        hostingSource: 'Test string',
+        hostingSource: 'HOSTING_SOURCE_UNSPECIFIED',
         html5Video: true,
         iasCampaignMonitoring: true,
         integrationCode: 'Test string',
@@ -852,7 +861,7 @@ gapi.load('client', async () => {
             widthPixels: 42,
           },
           landingPageUrl: 'Test string',
-          position: 'Test string',
+          position: 'OBA_ICON_POSITION_UNSPECIFIED',
           program: 'Test string',
           resourceMimeType: 'Test string',
           resourceUrl: 'Test string',
@@ -867,19 +876,19 @@ gapi.load('client', async () => {
         requireMraid: true,
         requirePingForAttribution: true,
         reviewStatus: {
-          approvalStatus: 'Test string',
-          contentAndPolicyReviewStatus: 'Test string',
-          creativeAndLandingPageReviewStatus: 'Test string',
+          approvalStatus: 'APPROVAL_STATUS_UNSPECIFIED',
+          contentAndPolicyReviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+          creativeAndLandingPageReviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           exchangeReviewStatuses: [
             {
-              exchange: 'Test string',
-              status: 'Test string',
+              exchange: 'EXCHANGE_UNSPECIFIED',
+              status: 'REVIEW_STATUS_UNSPECIFIED',
             },
           ],
           publisherReviewStatuses: [
             {
               publisherName: 'Test string',
-              status: 'Test string',
+              status: 'REVIEW_STATUS_UNSPECIFIED',
             },
           ],
         },
@@ -888,11 +897,12 @@ gapi.load('client', async () => {
           seconds: 'Test string',
         },
         skippable: true,
-        syntheticContentAttestationStatus: 'Test string',
+        syntheticContentAttestationStatus:
+          'SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED',
         thirdPartyTag: 'Test string',
         thirdPartyUrls: [
           {
-            type: 'Test string',
+            type: 'THIRD_PARTY_URL_TYPE_UNSPECIFIED',
             url: 'Test string',
           },
         ],
@@ -921,7 +931,7 @@ gapi.load('client', async () => {
         ],
         universalAdId: {
           id: 'Test string',
-          registry: 'Test string',
+          registry: 'UNIVERSAL_AD_REGISTRY_UNSPECIFIED',
         },
         updateTime: 'Test string',
         vastTagUrl: 'Test string',
@@ -968,7 +978,7 @@ gapi.load('client', async () => {
               content: 'Test string',
               mediaId: 'Test string',
             },
-            role: 'Test string',
+            role: 'ASSET_ROLE_UNSPECIFIED',
           },
         ],
         cmPlacementId: 'Test string',
@@ -985,27 +995,27 @@ gapi.load('client', async () => {
           },
         ],
         createTime: 'Test string',
-        creativeAttributes: ['Test string'],
+        creativeAttributes: ['CREATIVE_ATTRIBUTE_UNSPECIFIED'],
         creativeId: 'Test string',
-        creativeType: 'Test string',
+        creativeType: 'CREATIVE_TYPE_UNSPECIFIED',
         dimensions: {
           heightPixels: 42,
           widthPixels: 42,
         },
         displayName: 'Test string',
         dynamic: true,
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         exitEvents: [
           {
             name: 'Test string',
             reportingName: 'Test string',
-            type: 'Test string',
+            type: 'EXIT_EVENT_TYPE_UNSPECIFIED',
             url: 'Test string',
           },
         ],
-        expandingDirection: 'Test string',
+        expandingDirection: 'EXPANDING_DIRECTION_UNSPECIFIED',
         expandOnHover: true,
-        hostingSource: 'Test string',
+        hostingSource: 'HOSTING_SOURCE_UNSPECIFIED',
         html5Video: true,
         iasCampaignMonitoring: true,
         integrationCode: 'Test string',
@@ -1022,7 +1032,7 @@ gapi.load('client', async () => {
             widthPixels: 42,
           },
           landingPageUrl: 'Test string',
-          position: 'Test string',
+          position: 'OBA_ICON_POSITION_UNSPECIFIED',
           program: 'Test string',
           resourceMimeType: 'Test string',
           resourceUrl: 'Test string',
@@ -1037,19 +1047,19 @@ gapi.load('client', async () => {
         requireMraid: true,
         requirePingForAttribution: true,
         reviewStatus: {
-          approvalStatus: 'Test string',
-          contentAndPolicyReviewStatus: 'Test string',
-          creativeAndLandingPageReviewStatus: 'Test string',
+          approvalStatus: 'APPROVAL_STATUS_UNSPECIFIED',
+          contentAndPolicyReviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
+          creativeAndLandingPageReviewStatus: 'REVIEW_STATUS_UNSPECIFIED',
           exchangeReviewStatuses: [
             {
-              exchange: 'Test string',
-              status: 'Test string',
+              exchange: 'EXCHANGE_UNSPECIFIED',
+              status: 'REVIEW_STATUS_UNSPECIFIED',
             },
           ],
           publisherReviewStatuses: [
             {
               publisherName: 'Test string',
-              status: 'Test string',
+              status: 'REVIEW_STATUS_UNSPECIFIED',
             },
           ],
         },
@@ -1058,11 +1068,12 @@ gapi.load('client', async () => {
           seconds: 'Test string',
         },
         skippable: true,
-        syntheticContentAttestationStatus: 'Test string',
+        syntheticContentAttestationStatus:
+          'SYNTHETIC_CONTENT_ATTESTATION_STATUS_UNSPECIFIED',
         thirdPartyTag: 'Test string',
         thirdPartyUrls: [
           {
-            type: 'Test string',
+            type: 'THIRD_PARTY_URL_TYPE_UNSPECIFIED',
             url: 'Test string',
           },
         ],
@@ -1091,7 +1102,7 @@ gapi.load('client', async () => {
         ],
         universalAdId: {
           id: 'Test string',
-          registry: 'Test string',
+          registry: 'UNIVERSAL_AD_REGISTRY_UNSPECIFIED',
         },
         updateTime: 'Test string',
         vastTagUrl: 'Test string',
@@ -1108,8 +1119,8 @@ gapi.load('client', async () => {
         bidStrategy: {
           demandGenBid: {
             effectiveBiddingValue: 'Test string',
-            effectiveBiddingValueSource: 'Test string',
-            type: 'Test string',
+            effectiveBiddingValueSource: 'BIDDING_SOURCE_UNSPECIFIED',
+            type: 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
           fixedBid: {
@@ -1118,25 +1129,27 @@ gapi.load('client', async () => {
           maximizeSpendAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
             raiseBidForDeals: true,
           },
           performanceGoalAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
             performanceGoalAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
           youtubeAndPartnersBid: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         },
-        billableOutcome: 'Test string',
+        billableOutcome: 'BILLABLE_OUTCOME_UNSPECIFIED',
         budget: {
-          automationType: 'Test string',
+          automationType: 'INSERTION_ORDER_AUTOMATION_TYPE_UNSPECIFIED',
           budgetSegments: [
             {
               budgetAmountMicros: 'Test string',
@@ -1156,20 +1169,20 @@ gapi.load('client', async () => {
               description: 'Test string',
             },
           ],
-          budgetUnit: 'Test string',
+          budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
         },
         campaignId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
         insertionOrderId: 'Test string',
-        insertionOrderType: 'Test string',
+        insertionOrderType: 'INSERTION_ORDER_TYPE_UNSPECIFIED',
         integrationDetails: {
           details: 'Test string',
           integrationCode: 'Test string',
@@ -1178,25 +1191,25 @@ gapi.load('client', async () => {
         pacing: {
           dailyMaxImpressions: 'Test string',
           dailyMaxMicros: 'Test string',
-          pacingPeriod: 'Test string',
-          pacingType: 'Test string',
+          pacingPeriod: 'PACING_PERIOD_UNSPECIFIED',
+          pacingType: 'PACING_TYPE_UNSPECIFIED',
         },
         partnerCosts: [
           {
-            costType: 'Test string',
+            costType: 'PARTNER_COST_TYPE_UNSPECIFIED',
             feeAmount: 'Test string',
             feePercentageMillis: 'Test string',
-            feeType: 'Test string',
-            invoiceType: 'Test string',
+            feeType: 'PARTNER_COST_FEE_TYPE_UNSPECIFIED',
+            invoiceType: 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED',
           },
         ],
         performanceGoal: {
           performanceGoalAmountMicros: 'Test string',
           performanceGoalPercentageMicros: 'Test string',
           performanceGoalString: 'Test string',
-          performanceGoalType: 'Test string',
+          performanceGoalType: 'PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
         },
-        reservationType: 'Test string',
+        reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1230,8 +1243,8 @@ gapi.load('client', async () => {
         bidStrategy: {
           demandGenBid: {
             effectiveBiddingValue: 'Test string',
-            effectiveBiddingValueSource: 'Test string',
-            type: 'Test string',
+            effectiveBiddingValueSource: 'BIDDING_SOURCE_UNSPECIFIED',
+            type: 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
           fixedBid: {
@@ -1240,25 +1253,27 @@ gapi.load('client', async () => {
           maximizeSpendAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
             raiseBidForDeals: true,
           },
           performanceGoalAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
             performanceGoalAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
           youtubeAndPartnersBid: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         },
-        billableOutcome: 'Test string',
+        billableOutcome: 'BILLABLE_OUTCOME_UNSPECIFIED',
         budget: {
-          automationType: 'Test string',
+          automationType: 'INSERTION_ORDER_AUTOMATION_TYPE_UNSPECIFIED',
           budgetSegments: [
             {
               budgetAmountMicros: 'Test string',
@@ -1278,20 +1293,20 @@ gapi.load('client', async () => {
               description: 'Test string',
             },
           ],
-          budgetUnit: 'Test string',
+          budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
         },
         campaignId: 'Test string',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
         insertionOrderId: 'Test string',
-        insertionOrderType: 'Test string',
+        insertionOrderType: 'INSERTION_ORDER_TYPE_UNSPECIFIED',
         integrationDetails: {
           details: 'Test string',
           integrationCode: 'Test string',
@@ -1300,25 +1315,25 @@ gapi.load('client', async () => {
         pacing: {
           dailyMaxImpressions: 'Test string',
           dailyMaxMicros: 'Test string',
-          pacingPeriod: 'Test string',
-          pacingType: 'Test string',
+          pacingPeriod: 'PACING_PERIOD_UNSPECIFIED',
+          pacingType: 'PACING_TYPE_UNSPECIFIED',
         },
         partnerCosts: [
           {
-            costType: 'Test string',
+            costType: 'PARTNER_COST_TYPE_UNSPECIFIED',
             feeAmount: 'Test string',
             feePercentageMillis: 'Test string',
-            feeType: 'Test string',
-            invoiceType: 'Test string',
+            feeType: 'PARTNER_COST_FEE_TYPE_UNSPECIFIED',
+            invoiceType: 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED',
           },
         ],
         performanceGoal: {
           performanceGoalAmountMicros: 'Test string',
           performanceGoalPercentageMicros: 'Test string',
           performanceGoalString: 'Test string',
-          performanceGoalType: 'Test string',
+          performanceGoalType: 'PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
         },
-        reservationType: 'Test string',
+        reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1326,7 +1341,7 @@ gapi.load('client', async () => {
     await gapi.client.displayvideo.advertisers.invoices.list({
       advertiserId: 'Test string',
       issueMonth: 'Test string',
-      loiSapinInvoiceType: 'Test string',
+      loiSapinInvoiceType: 'LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
     });
@@ -1346,7 +1361,7 @@ gapi.load('client', async () => {
             assignedTargetingOptions: [
               {
                 ageRangeDetails: {
-                  ageRange: 'Test string',
+                  ageRange: 'AGE_RANGE_UNSPECIFIED',
                 },
                 appCategoryDetails: {
                   displayName: 'Test string',
@@ -1355,7 +1370,7 @@ gapi.load('client', async () => {
                 },
                 appDetails: {
                   appId: 'Test string',
-                  appPlatform: 'Test string',
+                  appPlatform: 'APP_PLATFORM_UNSPECIFIED',
                   displayName: 'Test string',
                   negative: true,
                 },
@@ -1392,10 +1407,11 @@ gapi.load('client', async () => {
                   },
                 },
                 audioContentTypeDetails: {
-                  audioContentType: 'Test string',
+                  audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
                 },
                 authorizedSellerStatusDetails: {
-                  authorizedSellerStatus: 'Test string',
+                  authorizedSellerStatus:
+                    'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 browserDetails: {
@@ -1406,7 +1422,7 @@ gapi.load('client', async () => {
                 businessChainDetails: {
                   displayName: 'Test string',
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 carrierAndIspDetails: {
@@ -1416,7 +1432,7 @@ gapi.load('client', async () => {
                 },
                 categoryDetails: {
                   displayName: 'Test string',
-                  exclusionStatus: 'Test string',
+                  exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
@@ -1425,7 +1441,7 @@ gapi.load('client', async () => {
                   negative: true,
                 },
                 contentDurationDetails: {
-                  contentDuration: 'Test string',
+                  contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 contentGenreDetails: {
@@ -1434,22 +1450,24 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 contentInstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentInstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentInstreamPosition:
+                    'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentOutstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentOutstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentOutstreamPosition:
+                    'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentStreamTypeDetails: {
-                  contentStreamType: 'Test string',
+                  contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 dayAndTimeDetails: {
-                  dayOfWeek: 'Test string',
+                  dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                   endHour: 42,
                   startHour: 42,
-                  timeZoneResolution: 'Test string',
+                  timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
                 },
                 deviceMakeModelDetails: {
                   displayName: 'Test string',
@@ -1457,31 +1475,31 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 deviceTypeDetails: {
-                  deviceType: 'Test string',
+                  deviceType: 'DEVICE_TYPE_UNSPECIFIED',
                   youtubeAndPartnersBidMultiplier: 42,
                 },
                 digitalContentLabelExclusionDetails: {
-                  excludedContentRatingTier: 'Test string',
+                  excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
                 },
                 environmentDetails: {
-                  environment: 'Test string',
+                  environment: 'ENVIRONMENT_UNSPECIFIED',
                 },
                 exchangeDetails: {
-                  exchange: 'Test string',
+                  exchange: 'EXCHANGE_UNSPECIFIED',
                 },
                 genderDetails: {
-                  gender: 'Test string',
+                  gender: 'GENDER_UNSPECIFIED',
                 },
                 geoRegionDetails: {
                   displayName: 'Test string',
-                  geoRegionType: 'Test string',
+                  geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
                 householdIncomeDetails: {
-                  householdIncome: 'Test string',
+                  householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
                 },
-                inheritance: 'Test string',
+                inheritance: 'INHERITANCE_UNSPECIFIED',
                 inventorySourceDetails: {
                   inventorySourceId: 'Test string',
                 },
@@ -1500,17 +1518,17 @@ gapi.load('client', async () => {
                 },
                 name: 'Test string',
                 nativeContentPositionDetails: {
-                  contentPosition: 'Test string',
+                  contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
                 },
                 negativeKeywordListDetails: {
                   negativeKeywordListId: 'Test string',
                 },
                 omidDetails: {
-                  omid: 'Test string',
+                  omid: 'OMID_UNSPECIFIED',
                 },
                 onScreenPositionDetails: {
-                  adType: 'Test string',
-                  onScreenPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 operatingSystemDetails: {
@@ -1519,80 +1537,86 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 parentalStatusDetails: {
-                  parentalStatus: 'Test string',
+                  parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
                 },
                 poiDetails: {
                   displayName: 'Test string',
                   latitude: 42,
                   longitude: 42,
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 proximityLocationListDetails: {
                   proximityLocationListId: 'Test string',
                   proximityRadius: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
                 },
                 regionalLocationListDetails: {
                   negative: true,
                   regionalLocationListId: 'Test string',
                 },
                 sensitiveCategoryExclusionDetails: {
-                  excludedSensitiveCategory: 'Test string',
+                  excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
                 },
                 sessionPositionDetails: {
-                  sessionPosition: 'Test string',
+                  sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
                 },
                 subExchangeDetails: {
                   targetingOptionId: 'Test string',
                 },
-                targetingType: 'Test string',
+                targetingType: 'TARGETING_TYPE_UNSPECIFIED',
                 thirdPartyVerifierDetails: {
                   adloox: {
-                    excludedAdlooxCategories: ['Test string'],
+                    excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
                   },
                   doubleVerify: {
                     appStarRating: {
-                      avoidedStarRating: 'Test string',
+                      avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
                       avoidInsufficientStarRating: true,
                     },
-                    avoidedAgeRatings: ['Test string'],
+                    avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
                     brandSafetyCategories: {
-                      avoidedHighSeverityCategories: ['Test string'],
-                      avoidedMediumSeverityCategories: ['Test string'],
+                      avoidedHighSeverityCategories: [
+                        'HIGHER_SEVERITY_UNSPECIFIED',
+                      ],
+                      avoidedMediumSeverityCategories: [
+                        'MEDIUM_SEVERITY_UNSPECIFIED',
+                      ],
                       avoidUnknownBrandSafetyCategory: true,
                     },
                     customSegmentId: 'Test string',
                     displayViewability: {
-                      iab: 'Test string',
-                      viewableDuring: 'Test string',
+                      iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+                      viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
                     },
                     fraudInvalidTraffic: {
-                      avoidedFraudOption: 'Test string',
+                      avoidedFraudOption: 'FRAUD_UNSPECIFIED',
                       avoidInsufficientOption: true,
                     },
                     videoViewability: {
-                      playerImpressionRate: 'Test string',
-                      videoIab: 'Test string',
-                      videoViewableRate: 'Test string',
+                      playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+                      videoIab: 'VIDEO_IAB_UNSPECIFIED',
+                      videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
                     },
                   },
                   integralAdScience: {
                     customSegmentId: ['Test string'],
-                    displayViewability: 'Test string',
-                    excludedAdFraudRisk: 'Test string',
-                    excludedAdultRisk: 'Test string',
-                    excludedAlcoholRisk: 'Test string',
-                    excludedDrugsRisk: 'Test string',
-                    excludedGamblingRisk: 'Test string',
-                    excludedHateSpeechRisk: 'Test string',
-                    excludedIllegalDownloadsRisk: 'Test string',
-                    excludedOffensiveLanguageRisk: 'Test string',
-                    excludedViolenceRisk: 'Test string',
+                    displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+                    excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+                    excludedAdultRisk: 'ADULT_UNSPECIFIED',
+                    excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+                    excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+                    excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+                    excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+                    excludedIllegalDownloadsRisk:
+                      'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+                    excludedOffensiveLanguageRisk:
+                      'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+                    excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
                     excludeUnrateable: true,
-                    traqScoreOption: 'Test string',
-                    videoViewability: 'Test string',
+                    traqScoreOption: 'TRAQ_UNSPECIFIED',
+                    videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
                   },
                 },
                 urlDetails: {
@@ -1601,13 +1625,13 @@ gapi.load('client', async () => {
                 },
                 userRewardedContentDetails: {
                   targetingOptionId: 'Test string',
-                  userRewardedContent: 'Test string',
+                  userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
                 },
                 videoPlayerSizeDetails: {
-                  videoPlayerSize: 'Test string',
+                  videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
                 },
                 viewabilityDetails: {
-                  viewability: 'Test string',
+                  viewability: 'VIEWABILITY_UNSPECIFIED',
                 },
                 youtubeChannelDetails: {
                   channelId: 'Test string',
@@ -1623,13 +1647,13 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
         deleteRequests: [
           {
             assignedTargetingOptionIds: ['Test string'],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
         lineItemIds: ['Test string'],
@@ -1658,8 +1682,8 @@ gapi.load('client', async () => {
           bidStrategy: {
             demandGenBid: {
               effectiveBiddingValue: 'Test string',
-              effectiveBiddingValueSource: 'Test string',
-              type: 'Test string',
+              effectiveBiddingValueSource: 'BIDDING_SOURCE_UNSPECIFIED',
+              type: 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
             fixedBid: {
@@ -1668,29 +1692,32 @@ gapi.load('client', async () => {
             maximizeSpendAutoBid: {
               customBiddingAlgorithmId: 'Test string',
               maxAverageCpmBidAmountMicros: 'Test string',
-              performanceGoalType: 'Test string',
+              performanceGoalType:
+                'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
               raiseBidForDeals: true,
             },
             performanceGoalAutoBid: {
               customBiddingAlgorithmId: 'Test string',
               maxAverageCpmBidAmountMicros: 'Test string',
               performanceGoalAmountMicros: 'Test string',
-              performanceGoalType: 'Test string',
+              performanceGoalType:
+                'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
             },
             youtubeAndPartnersBid: {
-              adGroupEffectiveTargetCpaSource: 'Test string',
+              adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
               adGroupEffectiveTargetCpaValue: 'Test string',
-              type: 'Test string',
+              type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
           },
           budget: {
-            budgetAllocationType: 'Test string',
-            budgetUnit: 'Test string',
+            budgetAllocationType:
+              'LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNSPECIFIED',
+            budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
             maxAmount: 'Test string',
           },
           campaignId: 'Test string',
-          containsEuPoliticalAds: 'Test string',
+          containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
           conversionCounting: {
             floodlightActivityConfigs: [
               {
@@ -1710,31 +1737,31 @@ gapi.load('client', async () => {
               brandLiftVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               brandSafetyVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               reachVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               viewabilityVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
             },
           },
           displayName: 'Test string',
-          entityStatus: 'Test string',
+          entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
           excludeNewExchanges: true,
           flight: {
             dateRange: {
@@ -1749,12 +1776,12 @@ gapi.load('client', async () => {
                 year: 42,
               },
             },
-            flightDateType: 'Test string',
+            flightDateType: 'LINE_ITEM_FLIGHT_DATE_TYPE_UNSPECIFIED',
           },
           frequencyCap: {
             maxImpressions: 42,
             maxViews: 42,
-            timeUnit: 'Test string',
+            timeUnit: 'TIME_UNIT_UNSPECIFIED',
             timeUnitCount: 42,
             unlimited: true,
           },
@@ -1764,11 +1791,11 @@ gapi.load('client', async () => {
             integrationCode: 'Test string',
           },
           lineItemId: 'Test string',
-          lineItemType: 'Test string',
+          lineItemType: 'LINE_ITEM_TYPE_UNSPECIFIED',
           mobileApp: {
             appId: 'Test string',
             displayName: 'Test string',
-            platform: 'Test string',
+            platform: 'PLATFORM_UNSPECIFIED',
             publisher: 'Test string',
           },
           name: 'Test string',
@@ -1776,39 +1803,41 @@ gapi.load('client', async () => {
           pacing: {
             dailyMaxImpressions: 'Test string',
             dailyMaxMicros: 'Test string',
-            pacingPeriod: 'Test string',
-            pacingType: 'Test string',
+            pacingPeriod: 'PACING_PERIOD_UNSPECIFIED',
+            pacingType: 'PACING_TYPE_UNSPECIFIED',
           },
           partnerCosts: [
             {
-              costType: 'Test string',
+              costType: 'PARTNER_COST_TYPE_UNSPECIFIED',
               feeAmount: 'Test string',
               feePercentageMillis: 'Test string',
-              feeType: 'Test string',
-              invoiceType: 'Test string',
+              feeType: 'PARTNER_COST_FEE_TYPE_UNSPECIFIED',
+              invoiceType: 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED',
             },
           ],
           partnerRevenueModel: {
             markupAmount: 'Test string',
-            markupType: 'Test string',
+            markupType: 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_UNSPECIFIED',
           },
-          reservationType: 'Test string',
+          reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
           targetingExpansion: {
             excludeDemographicExpansion: true,
             excludeFirstPartyAudience: true,
-            targetingExpansionLevel: 'Test string',
+            targetingExpansionLevel: 'TARGETING_EXPANSION_LEVEL_UNSPECIFIED',
           },
           updateTime: 'Test string',
-          warningMessages: ['Test string'],
+          warningMessages: ['LINE_ITEM_WARNING_MESSAGE_UNSPECIFIED'],
           youtubeAndPartnersSettings: {
             biddingStrategy: {
-              adGroupEffectiveTargetCpaSource: 'Test string',
+              adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
               adGroupEffectiveTargetCpaValue: 'Test string',
-              type: 'Test string',
+              type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
               value: 'Test string',
             },
-            contentCategory: 'Test string',
-            effectiveContentCategory: 'Test string',
+            contentCategory:
+              'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
+            effectiveContentCategory:
+              'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
             inventorySourceSettings: {
               includeGoogleTv: true,
               includeYoutubeSearch: true,
@@ -1820,32 +1849,32 @@ gapi.load('client', async () => {
             relatedVideoIds: ['Test string'],
             targetFrequency: {
               targetCount: 'Test string',
-              timeUnit: 'Test string',
+              timeUnit: 'TIME_UNIT_UNSPECIFIED',
               timeUnitCount: 42,
             },
             thirdPartyMeasurementSettings: {
               brandLiftVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               brandSafetyVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               reachVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
               viewabilityVendorConfigs: [
                 {
                   placementId: 'Test string',
-                  vendor: 'Test string',
+                  vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
                 },
               ],
             },
@@ -1856,11 +1885,11 @@ gapi.load('client', async () => {
               allowShorts: true,
             },
             videoAdSequenceSettings: {
-              minimumDuration: 'Test string',
+              minimumDuration: 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED',
               steps: [
                 {
                   adGroupId: 'Test string',
-                  interactionType: 'Test string',
+                  interactionType: 'INTERACTION_TYPE_UNSPECIFIED',
                   previousStepId: 'Test string',
                   stepId: 'Test string',
                 },
@@ -1869,7 +1898,7 @@ gapi.load('client', async () => {
             viewFrequencyCap: {
               maxImpressions: 42,
               maxViews: 42,
-              timeUnit: 'Test string',
+              timeUnit: 'TIME_UNIT_UNSPECIFIED',
               timeUnitCount: 42,
               unlimited: true,
             },
@@ -1888,8 +1917,8 @@ gapi.load('client', async () => {
         bidStrategy: {
           demandGenBid: {
             effectiveBiddingValue: 'Test string',
-            effectiveBiddingValueSource: 'Test string',
-            type: 'Test string',
+            effectiveBiddingValueSource: 'BIDDING_SOURCE_UNSPECIFIED',
+            type: 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
           fixedBid: {
@@ -1898,29 +1927,31 @@ gapi.load('client', async () => {
           maximizeSpendAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
             raiseBidForDeals: true,
           },
           performanceGoalAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
             performanceGoalAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
           youtubeAndPartnersBid: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         },
         budget: {
-          budgetAllocationType: 'Test string',
-          budgetUnit: 'Test string',
+          budgetAllocationType: 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNSPECIFIED',
+          budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
           maxAmount: 'Test string',
         },
         campaignId: 'Test string',
-        containsEuPoliticalAds: 'Test string',
+        containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
         conversionCounting: {
           floodlightActivityConfigs: [
             {
@@ -1940,31 +1971,31 @@ gapi.load('client', async () => {
             brandLiftVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             brandSafetyVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             reachVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             viewabilityVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
           },
         },
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         excludeNewExchanges: true,
         flight: {
           dateRange: {
@@ -1979,12 +2010,12 @@ gapi.load('client', async () => {
               year: 42,
             },
           },
-          flightDateType: 'Test string',
+          flightDateType: 'LINE_ITEM_FLIGHT_DATE_TYPE_UNSPECIFIED',
         },
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
@@ -1994,11 +2025,11 @@ gapi.load('client', async () => {
           integrationCode: 'Test string',
         },
         lineItemId: 'Test string',
-        lineItemType: 'Test string',
+        lineItemType: 'LINE_ITEM_TYPE_UNSPECIFIED',
         mobileApp: {
           appId: 'Test string',
           displayName: 'Test string',
-          platform: 'Test string',
+          platform: 'PLATFORM_UNSPECIFIED',
           publisher: 'Test string',
         },
         name: 'Test string',
@@ -2006,39 +2037,40 @@ gapi.load('client', async () => {
         pacing: {
           dailyMaxImpressions: 'Test string',
           dailyMaxMicros: 'Test string',
-          pacingPeriod: 'Test string',
-          pacingType: 'Test string',
+          pacingPeriod: 'PACING_PERIOD_UNSPECIFIED',
+          pacingType: 'PACING_TYPE_UNSPECIFIED',
         },
         partnerCosts: [
           {
-            costType: 'Test string',
+            costType: 'PARTNER_COST_TYPE_UNSPECIFIED',
             feeAmount: 'Test string',
             feePercentageMillis: 'Test string',
-            feeType: 'Test string',
-            invoiceType: 'Test string',
+            feeType: 'PARTNER_COST_FEE_TYPE_UNSPECIFIED',
+            invoiceType: 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED',
           },
         ],
         partnerRevenueModel: {
           markupAmount: 'Test string',
-          markupType: 'Test string',
+          markupType: 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_UNSPECIFIED',
         },
-        reservationType: 'Test string',
+        reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
         targetingExpansion: {
           excludeDemographicExpansion: true,
           excludeFirstPartyAudience: true,
-          targetingExpansionLevel: 'Test string',
+          targetingExpansionLevel: 'TARGETING_EXPANSION_LEVEL_UNSPECIFIED',
         },
         updateTime: 'Test string',
-        warningMessages: ['Test string'],
+        warningMessages: ['LINE_ITEM_WARNING_MESSAGE_UNSPECIFIED'],
         youtubeAndPartnersSettings: {
           biddingStrategy: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
-          contentCategory: 'Test string',
-          effectiveContentCategory: 'Test string',
+          contentCategory: 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
+          effectiveContentCategory:
+            'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
           inventorySourceSettings: {
             includeGoogleTv: true,
             includeYoutubeSearch: true,
@@ -2050,32 +2082,32 @@ gapi.load('client', async () => {
           relatedVideoIds: ['Test string'],
           targetFrequency: {
             targetCount: 'Test string',
-            timeUnit: 'Test string',
+            timeUnit: 'TIME_UNIT_UNSPECIFIED',
             timeUnitCount: 42,
           },
           thirdPartyMeasurementSettings: {
             brandLiftVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             brandSafetyVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             reachVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             viewabilityVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
           },
@@ -2086,11 +2118,11 @@ gapi.load('client', async () => {
             allowShorts: true,
           },
           videoAdSequenceSettings: {
-            minimumDuration: 'Test string',
+            minimumDuration: 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED',
             steps: [
               {
                 adGroupId: 'Test string',
-                interactionType: 'Test string',
+                interactionType: 'INTERACTION_TYPE_UNSPECIFIED',
                 previousStepId: 'Test string',
                 stepId: 'Test string',
               },
@@ -2099,7 +2131,7 @@ gapi.load('client', async () => {
           viewFrequencyCap: {
             maxImpressions: 42,
             maxViews: 42,
-            timeUnit: 'Test string',
+            timeUnit: 'TIME_UNIT_UNSPECIFIED',
             timeUnitCount: 42,
             unlimited: true,
           },
@@ -2118,7 +2150,7 @@ gapi.load('client', async () => {
         lineItemId: 'Test string',
       },
       {
-        containsEuPoliticalAds: 'Test string',
+        containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
         targetDisplayName: 'Test string',
       },
     );
@@ -2147,8 +2179,8 @@ gapi.load('client', async () => {
         bidStrategy: {
           demandGenBid: {
             effectiveBiddingValue: 'Test string',
-            effectiveBiddingValueSource: 'Test string',
-            type: 'Test string',
+            effectiveBiddingValueSource: 'BIDDING_SOURCE_UNSPECIFIED',
+            type: 'DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
           fixedBid: {
@@ -2157,29 +2189,31 @@ gapi.load('client', async () => {
           maximizeSpendAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
             raiseBidForDeals: true,
           },
           performanceGoalAutoBid: {
             customBiddingAlgorithmId: 'Test string',
             maxAverageCpmBidAmountMicros: 'Test string',
             performanceGoalAmountMicros: 'Test string',
-            performanceGoalType: 'Test string',
+            performanceGoalType:
+              'BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED',
           },
           youtubeAndPartnersBid: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
         },
         budget: {
-          budgetAllocationType: 'Test string',
-          budgetUnit: 'Test string',
+          budgetAllocationType: 'LINE_ITEM_BUDGET_ALLOCATION_TYPE_UNSPECIFIED',
+          budgetUnit: 'BUDGET_UNIT_UNSPECIFIED',
           maxAmount: 'Test string',
         },
         campaignId: 'Test string',
-        containsEuPoliticalAds: 'Test string',
+        containsEuPoliticalAds: 'EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN',
         conversionCounting: {
           floodlightActivityConfigs: [
             {
@@ -2199,31 +2233,31 @@ gapi.load('client', async () => {
             brandLiftVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             brandSafetyVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             reachVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             viewabilityVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
           },
         },
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         excludeNewExchanges: true,
         flight: {
           dateRange: {
@@ -2238,12 +2272,12 @@ gapi.load('client', async () => {
               year: 42,
             },
           },
-          flightDateType: 'Test string',
+          flightDateType: 'LINE_ITEM_FLIGHT_DATE_TYPE_UNSPECIFIED',
         },
         frequencyCap: {
           maxImpressions: 42,
           maxViews: 42,
-          timeUnit: 'Test string',
+          timeUnit: 'TIME_UNIT_UNSPECIFIED',
           timeUnitCount: 42,
           unlimited: true,
         },
@@ -2253,11 +2287,11 @@ gapi.load('client', async () => {
           integrationCode: 'Test string',
         },
         lineItemId: 'Test string',
-        lineItemType: 'Test string',
+        lineItemType: 'LINE_ITEM_TYPE_UNSPECIFIED',
         mobileApp: {
           appId: 'Test string',
           displayName: 'Test string',
-          platform: 'Test string',
+          platform: 'PLATFORM_UNSPECIFIED',
           publisher: 'Test string',
         },
         name: 'Test string',
@@ -2265,39 +2299,40 @@ gapi.load('client', async () => {
         pacing: {
           dailyMaxImpressions: 'Test string',
           dailyMaxMicros: 'Test string',
-          pacingPeriod: 'Test string',
-          pacingType: 'Test string',
+          pacingPeriod: 'PACING_PERIOD_UNSPECIFIED',
+          pacingType: 'PACING_TYPE_UNSPECIFIED',
         },
         partnerCosts: [
           {
-            costType: 'Test string',
+            costType: 'PARTNER_COST_TYPE_UNSPECIFIED',
             feeAmount: 'Test string',
             feePercentageMillis: 'Test string',
-            feeType: 'Test string',
-            invoiceType: 'Test string',
+            feeType: 'PARTNER_COST_FEE_TYPE_UNSPECIFIED',
+            invoiceType: 'PARTNER_COST_INVOICE_TYPE_UNSPECIFIED',
           },
         ],
         partnerRevenueModel: {
           markupAmount: 'Test string',
-          markupType: 'Test string',
+          markupType: 'PARTNER_REVENUE_MODEL_MARKUP_TYPE_UNSPECIFIED',
         },
-        reservationType: 'Test string',
+        reservationType: 'RESERVATION_TYPE_UNSPECIFIED',
         targetingExpansion: {
           excludeDemographicExpansion: true,
           excludeFirstPartyAudience: true,
-          targetingExpansionLevel: 'Test string',
+          targetingExpansionLevel: 'TARGETING_EXPANSION_LEVEL_UNSPECIFIED',
         },
         updateTime: 'Test string',
-        warningMessages: ['Test string'],
+        warningMessages: ['LINE_ITEM_WARNING_MESSAGE_UNSPECIFIED'],
         youtubeAndPartnersSettings: {
           biddingStrategy: {
-            adGroupEffectiveTargetCpaSource: 'Test string',
+            adGroupEffectiveTargetCpaSource: 'BIDDING_SOURCE_UNSPECIFIED',
             adGroupEffectiveTargetCpaValue: 'Test string',
-            type: 'Test string',
+            type: 'YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_UNSPECIFIED',
             value: 'Test string',
           },
-          contentCategory: 'Test string',
-          effectiveContentCategory: 'Test string',
+          contentCategory: 'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
+          effectiveContentCategory:
+            'YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED',
           inventorySourceSettings: {
             includeGoogleTv: true,
             includeYoutubeSearch: true,
@@ -2309,32 +2344,32 @@ gapi.load('client', async () => {
           relatedVideoIds: ['Test string'],
           targetFrequency: {
             targetCount: 'Test string',
-            timeUnit: 'Test string',
+            timeUnit: 'TIME_UNIT_UNSPECIFIED',
             timeUnitCount: 42,
           },
           thirdPartyMeasurementSettings: {
             brandLiftVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             brandSafetyVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             reachVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
             viewabilityVendorConfigs: [
               {
                 placementId: 'Test string',
-                vendor: 'Test string',
+                vendor: 'THIRD_PARTY_VENDOR_UNSPECIFIED',
               },
             ],
           },
@@ -2345,11 +2380,11 @@ gapi.load('client', async () => {
             allowShorts: true,
           },
           videoAdSequenceSettings: {
-            minimumDuration: 'Test string',
+            minimumDuration: 'VIDEO_AD_SEQUENCE_MINIMUM_DURATION_UNSPECIFIED',
             steps: [
               {
                 adGroupId: 'Test string',
-                interactionType: 'Test string',
+                interactionType: 'INTERACTION_TYPE_UNSPECIFIED',
                 previousStepId: 'Test string',
                 stepId: 'Test string',
               },
@@ -2358,7 +2393,7 @@ gapi.load('client', async () => {
           viewFrequencyCap: {
             maxImpressions: 42,
             maxViews: 42,
-            timeUnit: 'Test string',
+            timeUnit: 'TIME_UNIT_UNSPECIFIED',
             timeUnitCount: 42,
             unlimited: true,
           },
@@ -2370,11 +2405,11 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         lineItemId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
       {
         ageRangeDetails: {
-          ageRange: 'Test string',
+          ageRange: 'AGE_RANGE_UNSPECIFIED',
         },
         appCategoryDetails: {
           displayName: 'Test string',
@@ -2383,7 +2418,7 @@ gapi.load('client', async () => {
         },
         appDetails: {
           appId: 'Test string',
-          appPlatform: 'Test string',
+          appPlatform: 'APP_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           negative: true,
         },
@@ -2420,10 +2455,10 @@ gapi.load('client', async () => {
           },
         },
         audioContentTypeDetails: {
-          audioContentType: 'Test string',
+          audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
         },
         authorizedSellerStatusDetails: {
-          authorizedSellerStatus: 'Test string',
+          authorizedSellerStatus: 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         browserDetails: {
@@ -2434,7 +2469,7 @@ gapi.load('client', async () => {
         businessChainDetails: {
           displayName: 'Test string',
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         carrierAndIspDetails: {
@@ -2444,7 +2479,7 @@ gapi.load('client', async () => {
         },
         categoryDetails: {
           displayName: 'Test string',
-          exclusionStatus: 'Test string',
+          exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
           negative: true,
           targetingOptionId: 'Test string',
         },
@@ -2453,7 +2488,7 @@ gapi.load('client', async () => {
           negative: true,
         },
         contentDurationDetails: {
-          contentDuration: 'Test string',
+          contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         contentGenreDetails: {
@@ -2462,22 +2497,22 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         contentInstreamPositionDetails: {
-          adType: 'Test string',
-          contentInstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentInstreamPosition: 'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
         },
         contentOutstreamPositionDetails: {
-          adType: 'Test string',
-          contentOutstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentOutstreamPosition: 'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
         },
         contentStreamTypeDetails: {
-          contentStreamType: 'Test string',
+          contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         dayAndTimeDetails: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           endHour: 42,
           startHour: 42,
-          timeZoneResolution: 'Test string',
+          timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
         },
         deviceMakeModelDetails: {
           displayName: 'Test string',
@@ -2485,31 +2520,31 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         deviceTypeDetails: {
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           youtubeAndPartnersBidMultiplier: 42,
         },
         digitalContentLabelExclusionDetails: {
-          excludedContentRatingTier: 'Test string',
+          excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
         },
         environmentDetails: {
-          environment: 'Test string',
+          environment: 'ENVIRONMENT_UNSPECIFIED',
         },
         exchangeDetails: {
-          exchange: 'Test string',
+          exchange: 'EXCHANGE_UNSPECIFIED',
         },
         genderDetails: {
-          gender: 'Test string',
+          gender: 'GENDER_UNSPECIFIED',
         },
         geoRegionDetails: {
           displayName: 'Test string',
-          geoRegionType: 'Test string',
+          geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
           negative: true,
           targetingOptionId: 'Test string',
         },
         householdIncomeDetails: {
-          householdIncome: 'Test string',
+          householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
         },
-        inheritance: 'Test string',
+        inheritance: 'INHERITANCE_UNSPECIFIED',
         inventorySourceDetails: {
           inventorySourceId: 'Test string',
         },
@@ -2528,17 +2563,17 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         nativeContentPositionDetails: {
-          contentPosition: 'Test string',
+          contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
         },
         negativeKeywordListDetails: {
           negativeKeywordListId: 'Test string',
         },
         omidDetails: {
-          omid: 'Test string',
+          omid: 'OMID_UNSPECIFIED',
         },
         onScreenPositionDetails: {
-          adType: 'Test string',
-          onScreenPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         operatingSystemDetails: {
@@ -2547,80 +2582,80 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         parentalStatusDetails: {
-          parentalStatus: 'Test string',
+          parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
         },
         poiDetails: {
           displayName: 'Test string',
           latitude: 42,
           longitude: 42,
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         proximityLocationListDetails: {
           proximityLocationListId: 'Test string',
           proximityRadius: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
         },
         regionalLocationListDetails: {
           negative: true,
           regionalLocationListId: 'Test string',
         },
         sensitiveCategoryExclusionDetails: {
-          excludedSensitiveCategory: 'Test string',
+          excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
         },
         sessionPositionDetails: {
-          sessionPosition: 'Test string',
+          sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
         },
         subExchangeDetails: {
           targetingOptionId: 'Test string',
         },
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
         thirdPartyVerifierDetails: {
           adloox: {
-            excludedAdlooxCategories: ['Test string'],
+            excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
           },
           doubleVerify: {
             appStarRating: {
-              avoidedStarRating: 'Test string',
+              avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
               avoidInsufficientStarRating: true,
             },
-            avoidedAgeRatings: ['Test string'],
+            avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
             brandSafetyCategories: {
-              avoidedHighSeverityCategories: ['Test string'],
-              avoidedMediumSeverityCategories: ['Test string'],
+              avoidedHighSeverityCategories: ['HIGHER_SEVERITY_UNSPECIFIED'],
+              avoidedMediumSeverityCategories: ['MEDIUM_SEVERITY_UNSPECIFIED'],
               avoidUnknownBrandSafetyCategory: true,
             },
             customSegmentId: 'Test string',
             displayViewability: {
-              iab: 'Test string',
-              viewableDuring: 'Test string',
+              iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+              viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
             },
             fraudInvalidTraffic: {
-              avoidedFraudOption: 'Test string',
+              avoidedFraudOption: 'FRAUD_UNSPECIFIED',
               avoidInsufficientOption: true,
             },
             videoViewability: {
-              playerImpressionRate: 'Test string',
-              videoIab: 'Test string',
-              videoViewableRate: 'Test string',
+              playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+              videoIab: 'VIDEO_IAB_UNSPECIFIED',
+              videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
             },
           },
           integralAdScience: {
             customSegmentId: ['Test string'],
-            displayViewability: 'Test string',
-            excludedAdFraudRisk: 'Test string',
-            excludedAdultRisk: 'Test string',
-            excludedAlcoholRisk: 'Test string',
-            excludedDrugsRisk: 'Test string',
-            excludedGamblingRisk: 'Test string',
-            excludedHateSpeechRisk: 'Test string',
-            excludedIllegalDownloadsRisk: 'Test string',
-            excludedOffensiveLanguageRisk: 'Test string',
-            excludedViolenceRisk: 'Test string',
+            displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+            excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+            excludedAdultRisk: 'ADULT_UNSPECIFIED',
+            excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+            excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+            excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+            excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+            excludedIllegalDownloadsRisk: 'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+            excludedOffensiveLanguageRisk: 'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+            excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
             excludeUnrateable: true,
-            traqScoreOption: 'Test string',
-            videoViewability: 'Test string',
+            traqScoreOption: 'TRAQ_UNSPECIFIED',
+            videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
           },
         },
         urlDetails: {
@@ -2629,13 +2664,13 @@ gapi.load('client', async () => {
         },
         userRewardedContentDetails: {
           targetingOptionId: 'Test string',
-          userRewardedContent: 'Test string',
+          userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
         },
         videoPlayerSizeDetails: {
-          videoPlayerSize: 'Test string',
+          videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
         },
         viewabilityDetails: {
-          viewability: 'Test string',
+          viewability: 'VIEWABILITY_UNSPECIFIED',
         },
         youtubeChannelDetails: {
           channelId: 'Test string',
@@ -2657,7 +2692,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
         lineItemId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a single targeting option assigned to a line item. */
@@ -2666,7 +2701,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
         lineItemId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Lists the targeting options assigned to a line item. */
@@ -2678,7 +2713,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Creates a new location list. Returns the newly created location list if successful. */
@@ -2690,7 +2725,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         displayName: 'Test string',
         locationListId: 'Test string',
-        locationType: 'Test string',
+        locationType: 'TARGETING_LOCATION_TYPE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2718,7 +2753,7 @@ gapi.load('client', async () => {
         advertiserId: 'Test string',
         displayName: 'Test string',
         locationListId: 'Test string',
-        locationType: 'Test string',
+        locationType: 'TARGETING_LOCATION_TYPE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2789,7 +2824,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         latestActivationTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         triggerId: 'Test string',
       },
     );
@@ -2827,7 +2862,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         latestActivationTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         triggerId: 'Test string',
       },
     );
@@ -2940,11 +2975,11 @@ gapi.load('client', async () => {
     await gapi.client.displayvideo.advertisers.targetingTypes.assignedTargetingOptions.create(
       {
         advertiserId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
       {
         ageRangeDetails: {
-          ageRange: 'Test string',
+          ageRange: 'AGE_RANGE_UNSPECIFIED',
         },
         appCategoryDetails: {
           displayName: 'Test string',
@@ -2953,7 +2988,7 @@ gapi.load('client', async () => {
         },
         appDetails: {
           appId: 'Test string',
-          appPlatform: 'Test string',
+          appPlatform: 'APP_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           negative: true,
         },
@@ -2990,10 +3025,10 @@ gapi.load('client', async () => {
           },
         },
         audioContentTypeDetails: {
-          audioContentType: 'Test string',
+          audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
         },
         authorizedSellerStatusDetails: {
-          authorizedSellerStatus: 'Test string',
+          authorizedSellerStatus: 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         browserDetails: {
@@ -3004,7 +3039,7 @@ gapi.load('client', async () => {
         businessChainDetails: {
           displayName: 'Test string',
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         carrierAndIspDetails: {
@@ -3014,7 +3049,7 @@ gapi.load('client', async () => {
         },
         categoryDetails: {
           displayName: 'Test string',
-          exclusionStatus: 'Test string',
+          exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
           negative: true,
           targetingOptionId: 'Test string',
         },
@@ -3023,7 +3058,7 @@ gapi.load('client', async () => {
           negative: true,
         },
         contentDurationDetails: {
-          contentDuration: 'Test string',
+          contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         contentGenreDetails: {
@@ -3032,22 +3067,22 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         contentInstreamPositionDetails: {
-          adType: 'Test string',
-          contentInstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentInstreamPosition: 'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
         },
         contentOutstreamPositionDetails: {
-          adType: 'Test string',
-          contentOutstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentOutstreamPosition: 'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
         },
         contentStreamTypeDetails: {
-          contentStreamType: 'Test string',
+          contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         dayAndTimeDetails: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           endHour: 42,
           startHour: 42,
-          timeZoneResolution: 'Test string',
+          timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
         },
         deviceMakeModelDetails: {
           displayName: 'Test string',
@@ -3055,31 +3090,31 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         deviceTypeDetails: {
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           youtubeAndPartnersBidMultiplier: 42,
         },
         digitalContentLabelExclusionDetails: {
-          excludedContentRatingTier: 'Test string',
+          excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
         },
         environmentDetails: {
-          environment: 'Test string',
+          environment: 'ENVIRONMENT_UNSPECIFIED',
         },
         exchangeDetails: {
-          exchange: 'Test string',
+          exchange: 'EXCHANGE_UNSPECIFIED',
         },
         genderDetails: {
-          gender: 'Test string',
+          gender: 'GENDER_UNSPECIFIED',
         },
         geoRegionDetails: {
           displayName: 'Test string',
-          geoRegionType: 'Test string',
+          geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
           negative: true,
           targetingOptionId: 'Test string',
         },
         householdIncomeDetails: {
-          householdIncome: 'Test string',
+          householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
         },
-        inheritance: 'Test string',
+        inheritance: 'INHERITANCE_UNSPECIFIED',
         inventorySourceDetails: {
           inventorySourceId: 'Test string',
         },
@@ -3098,17 +3133,17 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         nativeContentPositionDetails: {
-          contentPosition: 'Test string',
+          contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
         },
         negativeKeywordListDetails: {
           negativeKeywordListId: 'Test string',
         },
         omidDetails: {
-          omid: 'Test string',
+          omid: 'OMID_UNSPECIFIED',
         },
         onScreenPositionDetails: {
-          adType: 'Test string',
-          onScreenPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         operatingSystemDetails: {
@@ -3117,80 +3152,80 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         parentalStatusDetails: {
-          parentalStatus: 'Test string',
+          parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
         },
         poiDetails: {
           displayName: 'Test string',
           latitude: 42,
           longitude: 42,
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         proximityLocationListDetails: {
           proximityLocationListId: 'Test string',
           proximityRadius: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
         },
         regionalLocationListDetails: {
           negative: true,
           regionalLocationListId: 'Test string',
         },
         sensitiveCategoryExclusionDetails: {
-          excludedSensitiveCategory: 'Test string',
+          excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
         },
         sessionPositionDetails: {
-          sessionPosition: 'Test string',
+          sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
         },
         subExchangeDetails: {
           targetingOptionId: 'Test string',
         },
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
         thirdPartyVerifierDetails: {
           adloox: {
-            excludedAdlooxCategories: ['Test string'],
+            excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
           },
           doubleVerify: {
             appStarRating: {
-              avoidedStarRating: 'Test string',
+              avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
               avoidInsufficientStarRating: true,
             },
-            avoidedAgeRatings: ['Test string'],
+            avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
             brandSafetyCategories: {
-              avoidedHighSeverityCategories: ['Test string'],
-              avoidedMediumSeverityCategories: ['Test string'],
+              avoidedHighSeverityCategories: ['HIGHER_SEVERITY_UNSPECIFIED'],
+              avoidedMediumSeverityCategories: ['MEDIUM_SEVERITY_UNSPECIFIED'],
               avoidUnknownBrandSafetyCategory: true,
             },
             customSegmentId: 'Test string',
             displayViewability: {
-              iab: 'Test string',
-              viewableDuring: 'Test string',
+              iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+              viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
             },
             fraudInvalidTraffic: {
-              avoidedFraudOption: 'Test string',
+              avoidedFraudOption: 'FRAUD_UNSPECIFIED',
               avoidInsufficientOption: true,
             },
             videoViewability: {
-              playerImpressionRate: 'Test string',
-              videoIab: 'Test string',
-              videoViewableRate: 'Test string',
+              playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+              videoIab: 'VIDEO_IAB_UNSPECIFIED',
+              videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
             },
           },
           integralAdScience: {
             customSegmentId: ['Test string'],
-            displayViewability: 'Test string',
-            excludedAdFraudRisk: 'Test string',
-            excludedAdultRisk: 'Test string',
-            excludedAlcoholRisk: 'Test string',
-            excludedDrugsRisk: 'Test string',
-            excludedGamblingRisk: 'Test string',
-            excludedHateSpeechRisk: 'Test string',
-            excludedIllegalDownloadsRisk: 'Test string',
-            excludedOffensiveLanguageRisk: 'Test string',
-            excludedViolenceRisk: 'Test string',
+            displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+            excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+            excludedAdultRisk: 'ADULT_UNSPECIFIED',
+            excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+            excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+            excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+            excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+            excludedIllegalDownloadsRisk: 'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+            excludedOffensiveLanguageRisk: 'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+            excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
             excludeUnrateable: true,
-            traqScoreOption: 'Test string',
-            videoViewability: 'Test string',
+            traqScoreOption: 'TRAQ_UNSPECIFIED',
+            videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
           },
         },
         urlDetails: {
@@ -3199,13 +3234,13 @@ gapi.load('client', async () => {
         },
         userRewardedContentDetails: {
           targetingOptionId: 'Test string',
-          userRewardedContent: 'Test string',
+          userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
         },
         videoPlayerSizeDetails: {
-          videoPlayerSize: 'Test string',
+          videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
         },
         viewabilityDetails: {
-          viewability: 'Test string',
+          viewability: 'VIEWABILITY_UNSPECIFIED',
         },
         youtubeChannelDetails: {
           channelId: 'Test string',
@@ -3226,7 +3261,7 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a single targeting option assigned to an advertiser. */
@@ -3234,7 +3269,7 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Lists the targeting options assigned to an advertiser. */
@@ -3245,7 +3280,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a YouTube ad group ad. */
@@ -3290,7 +3325,7 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         assignedTargetingOptionId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
         youtubeAdGroupId: 'Test string',
       },
     );
@@ -3302,7 +3337,7 @@ gapi.load('client', async () => {
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
         youtubeAdGroupId: 'Test string',
       },
     );
@@ -3327,14 +3362,14 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         customBiddingAlgorithmId: 'Test string',
-        customBiddingAlgorithmType: 'Test string',
+        customBiddingAlgorithmType: 'CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         modelDetails: [
           {
             advertiserId: 'Test string',
-            readinessState: 'Test string',
-            suspensionState: 'Test string',
+            readinessState: 'READINESS_STATE_UNSPECIFIED',
+            suspensionState: 'SUSPENSION_STATE_UNSPECIFIED',
           },
         ],
         name: 'Test string',
@@ -3366,14 +3401,14 @@ gapi.load('client', async () => {
       {
         advertiserId: 'Test string',
         customBiddingAlgorithmId: 'Test string',
-        customBiddingAlgorithmType: 'Test string',
+        customBiddingAlgorithmType: 'CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED',
         displayName: 'Test string',
-        entityStatus: 'Test string',
+        entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         modelDetails: [
           {
             advertiserId: 'Test string',
-            readinessState: 'Test string',
-            suspensionState: 'Test string',
+            readinessState: 'READINESS_STATE_UNSPECIFIED',
+            suspensionState: 'SUSPENSION_STATE_UNSPECIFIED',
           },
         ],
         name: 'Test string',
@@ -3402,7 +3437,7 @@ gapi.load('client', async () => {
         errors: [
           {
             column: 'Test string',
-            errorCode: 'Test string',
+            errorCode: 'ERROR_CODE_UNSPECIFIED',
             errorMessage: 'Test string',
             line: 'Test string',
           },
@@ -3411,7 +3446,7 @@ gapi.load('client', async () => {
         script: {
           resourceName: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Gets a custom bidding script. */
@@ -3458,10 +3493,10 @@ gapi.load('client', async () => {
       {
         activeViewConfig: {
           displayName: 'Test string',
-          minimumDuration: 'Test string',
-          minimumQuartile: 'Test string',
-          minimumViewability: 'Test string',
-          minimumVolume: 'Test string',
+          minimumDuration: 'VIDEO_DURATION_UNSPECIFIED',
+          minimumQuartile: 'VIDEO_DURATION_QUARTILE_UNSPECIFIED',
+          minimumViewability: 'VIEWABILITY_PERCENT_UNSPECIFIED',
+          minimumVolume: 'VIDEO_VOLUME_PERCENT_UNSPECIFIED',
         },
         customVariables: {
           A: 42,
@@ -3473,7 +3508,7 @@ gapi.load('client', async () => {
           impressionDays: 42,
         },
         name: 'Test string',
-        webTagType: 'Test string',
+        webTagType: 'WEB_TAG_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a Floodlight activity. */
@@ -3515,7 +3550,7 @@ gapi.load('client', async () => {
         defaultAdvertiserId: 'Test string',
         defaultCampaignId: 'Test string',
         displayName: 'Test string',
-        exchange: 'Test string',
+        exchange: 'EXCHANGE_UNSPECIFIED',
         guaranteedOrderId: 'Test string',
         legacyGuaranteedOrderId: 'Test string',
         name: 'Test string',
@@ -3525,9 +3560,9 @@ gapi.load('client', async () => {
         readWriteAdvertiserId: 'Test string',
         readWritePartnerId: 'Test string',
         status: {
-          configStatus: 'Test string',
+          configStatus: 'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED',
           entityPauseReason: 'Test string',
-          entityStatus: 'Test string',
+          entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -3571,7 +3606,7 @@ gapi.load('client', async () => {
         defaultAdvertiserId: 'Test string',
         defaultCampaignId: 'Test string',
         displayName: 'Test string',
-        exchange: 'Test string',
+        exchange: 'EXCHANGE_UNSPECIFIED',
         guaranteedOrderId: 'Test string',
         legacyGuaranteedOrderId: 'Test string',
         name: 'Test string',
@@ -3581,9 +3616,9 @@ gapi.load('client', async () => {
         readWriteAdvertiserId: 'Test string',
         readWritePartnerId: 'Test string',
         status: {
-          configStatus: 'Test string',
+          configStatus: 'GUARANTEED_ORDER_CONFIG_STATUS_UNSPECIFIED',
           entityPauseReason: 'Test string',
-          entityStatus: 'Test string',
+          entityStatus: 'ENTITY_STATUS_UNSPECIFIED',
         },
         updateTime: 'Test string',
       },
@@ -3711,7 +3746,7 @@ gapi.load('client', async () => {
             assignedTargetingOptions: [
               {
                 ageRangeDetails: {
-                  ageRange: 'Test string',
+                  ageRange: 'AGE_RANGE_UNSPECIFIED',
                 },
                 appCategoryDetails: {
                   displayName: 'Test string',
@@ -3720,7 +3755,7 @@ gapi.load('client', async () => {
                 },
                 appDetails: {
                   appId: 'Test string',
-                  appPlatform: 'Test string',
+                  appPlatform: 'APP_PLATFORM_UNSPECIFIED',
                   displayName: 'Test string',
                   negative: true,
                 },
@@ -3757,10 +3792,11 @@ gapi.load('client', async () => {
                   },
                 },
                 audioContentTypeDetails: {
-                  audioContentType: 'Test string',
+                  audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
                 },
                 authorizedSellerStatusDetails: {
-                  authorizedSellerStatus: 'Test string',
+                  authorizedSellerStatus:
+                    'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 browserDetails: {
@@ -3771,7 +3807,7 @@ gapi.load('client', async () => {
                 businessChainDetails: {
                   displayName: 'Test string',
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 carrierAndIspDetails: {
@@ -3781,7 +3817,7 @@ gapi.load('client', async () => {
                 },
                 categoryDetails: {
                   displayName: 'Test string',
-                  exclusionStatus: 'Test string',
+                  exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
@@ -3790,7 +3826,7 @@ gapi.load('client', async () => {
                   negative: true,
                 },
                 contentDurationDetails: {
-                  contentDuration: 'Test string',
+                  contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 contentGenreDetails: {
@@ -3799,22 +3835,24 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 contentInstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentInstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentInstreamPosition:
+                    'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentOutstreamPositionDetails: {
-                  adType: 'Test string',
-                  contentOutstreamPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  contentOutstreamPosition:
+                    'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
                 },
                 contentStreamTypeDetails: {
-                  contentStreamType: 'Test string',
+                  contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 dayAndTimeDetails: {
-                  dayOfWeek: 'Test string',
+                  dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
                   endHour: 42,
                   startHour: 42,
-                  timeZoneResolution: 'Test string',
+                  timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
                 },
                 deviceMakeModelDetails: {
                   displayName: 'Test string',
@@ -3822,31 +3860,31 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 deviceTypeDetails: {
-                  deviceType: 'Test string',
+                  deviceType: 'DEVICE_TYPE_UNSPECIFIED',
                   youtubeAndPartnersBidMultiplier: 42,
                 },
                 digitalContentLabelExclusionDetails: {
-                  excludedContentRatingTier: 'Test string',
+                  excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
                 },
                 environmentDetails: {
-                  environment: 'Test string',
+                  environment: 'ENVIRONMENT_UNSPECIFIED',
                 },
                 exchangeDetails: {
-                  exchange: 'Test string',
+                  exchange: 'EXCHANGE_UNSPECIFIED',
                 },
                 genderDetails: {
-                  gender: 'Test string',
+                  gender: 'GENDER_UNSPECIFIED',
                 },
                 geoRegionDetails: {
                   displayName: 'Test string',
-                  geoRegionType: 'Test string',
+                  geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
                   negative: true,
                   targetingOptionId: 'Test string',
                 },
                 householdIncomeDetails: {
-                  householdIncome: 'Test string',
+                  householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
                 },
-                inheritance: 'Test string',
+                inheritance: 'INHERITANCE_UNSPECIFIED',
                 inventorySourceDetails: {
                   inventorySourceId: 'Test string',
                 },
@@ -3865,17 +3903,17 @@ gapi.load('client', async () => {
                 },
                 name: 'Test string',
                 nativeContentPositionDetails: {
-                  contentPosition: 'Test string',
+                  contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
                 },
                 negativeKeywordListDetails: {
                   negativeKeywordListId: 'Test string',
                 },
                 omidDetails: {
-                  omid: 'Test string',
+                  omid: 'OMID_UNSPECIFIED',
                 },
                 onScreenPositionDetails: {
-                  adType: 'Test string',
-                  onScreenPosition: 'Test string',
+                  adType: 'AD_TYPE_UNSPECIFIED',
+                  onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 operatingSystemDetails: {
@@ -3884,80 +3922,86 @@ gapi.load('client', async () => {
                   targetingOptionId: 'Test string',
                 },
                 parentalStatusDetails: {
-                  parentalStatus: 'Test string',
+                  parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
                 },
                 poiDetails: {
                   displayName: 'Test string',
                   latitude: 42,
                   longitude: 42,
                   proximityRadiusAmount: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
                   targetingOptionId: 'Test string',
                 },
                 proximityLocationListDetails: {
                   proximityLocationListId: 'Test string',
                   proximityRadius: 42,
-                  proximityRadiusUnit: 'Test string',
+                  proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
                 },
                 regionalLocationListDetails: {
                   negative: true,
                   regionalLocationListId: 'Test string',
                 },
                 sensitiveCategoryExclusionDetails: {
-                  excludedSensitiveCategory: 'Test string',
+                  excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
                 },
                 sessionPositionDetails: {
-                  sessionPosition: 'Test string',
+                  sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
                 },
                 subExchangeDetails: {
                   targetingOptionId: 'Test string',
                 },
-                targetingType: 'Test string',
+                targetingType: 'TARGETING_TYPE_UNSPECIFIED',
                 thirdPartyVerifierDetails: {
                   adloox: {
-                    excludedAdlooxCategories: ['Test string'],
+                    excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
                   },
                   doubleVerify: {
                     appStarRating: {
-                      avoidedStarRating: 'Test string',
+                      avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
                       avoidInsufficientStarRating: true,
                     },
-                    avoidedAgeRatings: ['Test string'],
+                    avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
                     brandSafetyCategories: {
-                      avoidedHighSeverityCategories: ['Test string'],
-                      avoidedMediumSeverityCategories: ['Test string'],
+                      avoidedHighSeverityCategories: [
+                        'HIGHER_SEVERITY_UNSPECIFIED',
+                      ],
+                      avoidedMediumSeverityCategories: [
+                        'MEDIUM_SEVERITY_UNSPECIFIED',
+                      ],
                       avoidUnknownBrandSafetyCategory: true,
                     },
                     customSegmentId: 'Test string',
                     displayViewability: {
-                      iab: 'Test string',
-                      viewableDuring: 'Test string',
+                      iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+                      viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
                     },
                     fraudInvalidTraffic: {
-                      avoidedFraudOption: 'Test string',
+                      avoidedFraudOption: 'FRAUD_UNSPECIFIED',
                       avoidInsufficientOption: true,
                     },
                     videoViewability: {
-                      playerImpressionRate: 'Test string',
-                      videoIab: 'Test string',
-                      videoViewableRate: 'Test string',
+                      playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+                      videoIab: 'VIDEO_IAB_UNSPECIFIED',
+                      videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
                     },
                   },
                   integralAdScience: {
                     customSegmentId: ['Test string'],
-                    displayViewability: 'Test string',
-                    excludedAdFraudRisk: 'Test string',
-                    excludedAdultRisk: 'Test string',
-                    excludedAlcoholRisk: 'Test string',
-                    excludedDrugsRisk: 'Test string',
-                    excludedGamblingRisk: 'Test string',
-                    excludedHateSpeechRisk: 'Test string',
-                    excludedIllegalDownloadsRisk: 'Test string',
-                    excludedOffensiveLanguageRisk: 'Test string',
-                    excludedViolenceRisk: 'Test string',
+                    displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+                    excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+                    excludedAdultRisk: 'ADULT_UNSPECIFIED',
+                    excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+                    excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+                    excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+                    excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+                    excludedIllegalDownloadsRisk:
+                      'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+                    excludedOffensiveLanguageRisk:
+                      'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+                    excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
                     excludeUnrateable: true,
-                    traqScoreOption: 'Test string',
-                    videoViewability: 'Test string',
+                    traqScoreOption: 'TRAQ_UNSPECIFIED',
+                    videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
                   },
                 },
                 urlDetails: {
@@ -3966,13 +4010,13 @@ gapi.load('client', async () => {
                 },
                 userRewardedContentDetails: {
                   targetingOptionId: 'Test string',
-                  userRewardedContent: 'Test string',
+                  userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
                 },
                 videoPlayerSizeDetails: {
-                  videoPlayerSize: 'Test string',
+                  videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
                 },
                 viewabilityDetails: {
-                  viewability: 'Test string',
+                  viewability: 'VIEWABILITY_UNSPECIFIED',
                 },
                 youtubeChannelDetails: {
                   channelId: 'Test string',
@@ -3988,13 +4032,13 @@ gapi.load('client', async () => {
                 },
               },
             ],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
         deleteRequests: [
           {
             assignedTargetingOptionIds: ['Test string'],
-            targetingType: 'Test string',
+            targetingType: 'TARGETING_TYPE_UNSPECIFIED',
           },
         ],
       },
@@ -4127,11 +4171,11 @@ gapi.load('client', async () => {
     await gapi.client.displayvideo.partners.targetingTypes.assignedTargetingOptions.create(
       {
         partnerId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
       {
         ageRangeDetails: {
-          ageRange: 'Test string',
+          ageRange: 'AGE_RANGE_UNSPECIFIED',
         },
         appCategoryDetails: {
           displayName: 'Test string',
@@ -4140,7 +4184,7 @@ gapi.load('client', async () => {
         },
         appDetails: {
           appId: 'Test string',
-          appPlatform: 'Test string',
+          appPlatform: 'APP_PLATFORM_UNSPECIFIED',
           displayName: 'Test string',
           negative: true,
         },
@@ -4177,10 +4221,10 @@ gapi.load('client', async () => {
           },
         },
         audioContentTypeDetails: {
-          audioContentType: 'Test string',
+          audioContentType: 'AUDIO_CONTENT_TYPE_UNSPECIFIED',
         },
         authorizedSellerStatusDetails: {
-          authorizedSellerStatus: 'Test string',
+          authorizedSellerStatus: 'AUTHORIZED_SELLER_STATUS_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         browserDetails: {
@@ -4191,7 +4235,7 @@ gapi.load('client', async () => {
         businessChainDetails: {
           displayName: 'Test string',
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         carrierAndIspDetails: {
@@ -4201,7 +4245,7 @@ gapi.load('client', async () => {
         },
         categoryDetails: {
           displayName: 'Test string',
-          exclusionStatus: 'Test string',
+          exclusionStatus: 'CATEGORY_EXCLUSION_STATUS_UNSPECIFIED',
           negative: true,
           targetingOptionId: 'Test string',
         },
@@ -4210,7 +4254,7 @@ gapi.load('client', async () => {
           negative: true,
         },
         contentDurationDetails: {
-          contentDuration: 'Test string',
+          contentDuration: 'CONTENT_DURATION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         contentGenreDetails: {
@@ -4219,22 +4263,22 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         contentInstreamPositionDetails: {
-          adType: 'Test string',
-          contentInstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentInstreamPosition: 'CONTENT_INSTREAM_POSITION_UNSPECIFIED',
         },
         contentOutstreamPositionDetails: {
-          adType: 'Test string',
-          contentOutstreamPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          contentOutstreamPosition: 'CONTENT_OUTSTREAM_POSITION_UNSPECIFIED',
         },
         contentStreamTypeDetails: {
-          contentStreamType: 'Test string',
+          contentStreamType: 'CONTENT_STREAM_TYPE_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         dayAndTimeDetails: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           endHour: 42,
           startHour: 42,
-          timeZoneResolution: 'Test string',
+          timeZoneResolution: 'TIME_ZONE_RESOLUTION_UNSPECIFIED',
         },
         deviceMakeModelDetails: {
           displayName: 'Test string',
@@ -4242,31 +4286,31 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         deviceTypeDetails: {
-          deviceType: 'Test string',
+          deviceType: 'DEVICE_TYPE_UNSPECIFIED',
           youtubeAndPartnersBidMultiplier: 42,
         },
         digitalContentLabelExclusionDetails: {
-          excludedContentRatingTier: 'Test string',
+          excludedContentRatingTier: 'CONTENT_RATING_TIER_UNSPECIFIED',
         },
         environmentDetails: {
-          environment: 'Test string',
+          environment: 'ENVIRONMENT_UNSPECIFIED',
         },
         exchangeDetails: {
-          exchange: 'Test string',
+          exchange: 'EXCHANGE_UNSPECIFIED',
         },
         genderDetails: {
-          gender: 'Test string',
+          gender: 'GENDER_UNSPECIFIED',
         },
         geoRegionDetails: {
           displayName: 'Test string',
-          geoRegionType: 'Test string',
+          geoRegionType: 'GEO_REGION_TYPE_UNKNOWN',
           negative: true,
           targetingOptionId: 'Test string',
         },
         householdIncomeDetails: {
-          householdIncome: 'Test string',
+          householdIncome: 'HOUSEHOLD_INCOME_UNSPECIFIED',
         },
-        inheritance: 'Test string',
+        inheritance: 'INHERITANCE_UNSPECIFIED',
         inventorySourceDetails: {
           inventorySourceId: 'Test string',
         },
@@ -4285,17 +4329,17 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         nativeContentPositionDetails: {
-          contentPosition: 'Test string',
+          contentPosition: 'NATIVE_CONTENT_POSITION_UNSPECIFIED',
         },
         negativeKeywordListDetails: {
           negativeKeywordListId: 'Test string',
         },
         omidDetails: {
-          omid: 'Test string',
+          omid: 'OMID_UNSPECIFIED',
         },
         onScreenPositionDetails: {
-          adType: 'Test string',
-          onScreenPosition: 'Test string',
+          adType: 'AD_TYPE_UNSPECIFIED',
+          onScreenPosition: 'ON_SCREEN_POSITION_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         operatingSystemDetails: {
@@ -4304,80 +4348,80 @@ gapi.load('client', async () => {
           targetingOptionId: 'Test string',
         },
         parentalStatusDetails: {
-          parentalStatus: 'Test string',
+          parentalStatus: 'PARENTAL_STATUS_UNSPECIFIED',
         },
         poiDetails: {
           displayName: 'Test string',
           latitude: 42,
           longitude: 42,
           proximityRadiusAmount: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'DISTANCE_UNIT_UNSPECIFIED',
           targetingOptionId: 'Test string',
         },
         proximityLocationListDetails: {
           proximityLocationListId: 'Test string',
           proximityRadius: 42,
-          proximityRadiusUnit: 'Test string',
+          proximityRadiusUnit: 'PROXIMITY_RADIUS_UNIT_UNSPECIFIED',
         },
         regionalLocationListDetails: {
           negative: true,
           regionalLocationListId: 'Test string',
         },
         sensitiveCategoryExclusionDetails: {
-          excludedSensitiveCategory: 'Test string',
+          excludedSensitiveCategory: 'SENSITIVE_CATEGORY_UNSPECIFIED',
         },
         sessionPositionDetails: {
-          sessionPosition: 'Test string',
+          sessionPosition: 'SESSION_POSITION_UNSPECIFIED',
         },
         subExchangeDetails: {
           targetingOptionId: 'Test string',
         },
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
         thirdPartyVerifierDetails: {
           adloox: {
-            excludedAdlooxCategories: ['Test string'],
+            excludedAdlooxCategories: ['ADLOOX_UNSPECIFIED'],
           },
           doubleVerify: {
             appStarRating: {
-              avoidedStarRating: 'Test string',
+              avoidedStarRating: 'APP_STAR_RATE_UNSPECIFIED',
               avoidInsufficientStarRating: true,
             },
-            avoidedAgeRatings: ['Test string'],
+            avoidedAgeRatings: ['AGE_RATING_UNSPECIFIED'],
             brandSafetyCategories: {
-              avoidedHighSeverityCategories: ['Test string'],
-              avoidedMediumSeverityCategories: ['Test string'],
+              avoidedHighSeverityCategories: ['HIGHER_SEVERITY_UNSPECIFIED'],
+              avoidedMediumSeverityCategories: ['MEDIUM_SEVERITY_UNSPECIFIED'],
               avoidUnknownBrandSafetyCategory: true,
             },
             customSegmentId: 'Test string',
             displayViewability: {
-              iab: 'Test string',
-              viewableDuring: 'Test string',
+              iab: 'IAB_VIEWED_RATE_UNSPECIFIED',
+              viewableDuring: 'AVERAGE_VIEW_DURATION_UNSPECIFIED',
             },
             fraudInvalidTraffic: {
-              avoidedFraudOption: 'Test string',
+              avoidedFraudOption: 'FRAUD_UNSPECIFIED',
               avoidInsufficientOption: true,
             },
             videoViewability: {
-              playerImpressionRate: 'Test string',
-              videoIab: 'Test string',
-              videoViewableRate: 'Test string',
+              playerImpressionRate: 'PLAYER_SIZE_400X300_UNSPECIFIED',
+              videoIab: 'VIDEO_IAB_UNSPECIFIED',
+              videoViewableRate: 'VIDEO_VIEWABLE_RATE_UNSPECIFIED',
             },
           },
           integralAdScience: {
             customSegmentId: ['Test string'],
-            displayViewability: 'Test string',
-            excludedAdFraudRisk: 'Test string',
-            excludedAdultRisk: 'Test string',
-            excludedAlcoholRisk: 'Test string',
-            excludedDrugsRisk: 'Test string',
-            excludedGamblingRisk: 'Test string',
-            excludedHateSpeechRisk: 'Test string',
-            excludedIllegalDownloadsRisk: 'Test string',
-            excludedOffensiveLanguageRisk: 'Test string',
-            excludedViolenceRisk: 'Test string',
+            displayViewability: 'PERFORMANCE_VIEWABILITY_UNSPECIFIED',
+            excludedAdFraudRisk: 'SUSPICIOUS_ACTIVITY_UNSPECIFIED',
+            excludedAdultRisk: 'ADULT_UNSPECIFIED',
+            excludedAlcoholRisk: 'ALCOHOL_UNSPECIFIED',
+            excludedDrugsRisk: 'DRUGS_UNSPECIFIED',
+            excludedGamblingRisk: 'GAMBLING_UNSPECIFIED',
+            excludedHateSpeechRisk: 'HATE_SPEECH_UNSPECIFIED',
+            excludedIllegalDownloadsRisk: 'ILLEGAL_DOWNLOADS_UNSPECIFIED',
+            excludedOffensiveLanguageRisk: 'OFFENSIVE_LANGUAGE_UNSPECIFIED',
+            excludedViolenceRisk: 'VIOLENCE_UNSPECIFIED',
             excludeUnrateable: true,
-            traqScoreOption: 'Test string',
-            videoViewability: 'Test string',
+            traqScoreOption: 'TRAQ_UNSPECIFIED',
+            videoViewability: 'VIDEO_VIEWABILITY_UNSPECIFIED',
           },
         },
         urlDetails: {
@@ -4386,13 +4430,13 @@ gapi.load('client', async () => {
         },
         userRewardedContentDetails: {
           targetingOptionId: 'Test string',
-          userRewardedContent: 'Test string',
+          userRewardedContent: 'USER_REWARDED_CONTENT_UNSPECIFIED',
         },
         videoPlayerSizeDetails: {
-          videoPlayerSize: 'Test string',
+          videoPlayerSize: 'VIDEO_PLAYER_SIZE_UNSPECIFIED',
         },
         viewabilityDetails: {
-          viewability: 'Test string',
+          viewability: 'VIEWABILITY_UNSPECIFIED',
         },
         youtubeChannelDetails: {
           channelId: 'Test string',
@@ -4413,7 +4457,7 @@ gapi.load('client', async () => {
       {
         assignedTargetingOptionId: 'Test string',
         partnerId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Gets a single targeting option assigned to a partner. */
@@ -4421,7 +4465,7 @@ gapi.load('client', async () => {
       {
         assignedTargetingOptionId: 'Test string',
         partnerId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Lists the targeting options assigned to a partner. */
@@ -4432,7 +4476,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         partnerId: 'Test string',
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
     );
     /** Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download. The state of operation can be retrieved with `sdfdownloadtasks.operations.get`. Any errors can be found in the error.message. Note that error.details is expected to be empty. */
@@ -4452,12 +4496,12 @@ gapi.load('client', async () => {
           inventorySourceIds: ['Test string'],
         },
         parentEntityFilter: {
-          fileType: ['Test string'],
+          fileType: ['FILE_TYPE_UNSPECIFIED'],
           filterIds: ['Test string'],
-          filterType: 'Test string',
+          filterType: 'FILTER_TYPE_UNSPECIFIED',
         },
         partnerId: 'Test string',
-        version: 'Test string',
+        version: 'SDF_VERSION_UNSPECIFIED',
       },
     );
     /** Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds. */
@@ -4468,7 +4512,7 @@ gapi.load('client', async () => {
     await gapi.client.displayvideo.targetingTypes.targetingOptions.get({
       advertiserId: 'Test string',
       targetingOptionId: 'Test string',
-      targetingType: 'Test string',
+      targetingType: 'TARGETING_TYPE_UNSPECIFIED',
     });
     /** Lists targeting options of a given type. */
     await gapi.client.displayvideo.targetingTypes.targetingOptions.list({
@@ -4477,12 +4521,12 @@ gapi.load('client', async () => {
       orderBy: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      targetingType: 'Test string',
+      targetingType: 'TARGETING_TYPE_UNSPECIFIED',
     });
     /** Searches for targeting options of a given type based on the given search terms. */
     await gapi.client.displayvideo.targetingTypes.targetingOptions.search(
       {
-        targetingType: 'Test string',
+        targetingType: 'TARGETING_TYPE_UNSPECIFIED',
       },
       {
         advertiserId: 'Test string',
@@ -4511,7 +4555,7 @@ gapi.load('client', async () => {
             advertiserId: 'Test string',
             assignedUserRoleId: 'Test string',
             partnerId: 'Test string',
-            userRole: 'Test string',
+            userRole: 'USER_ROLE_UNSPECIFIED',
           },
         ],
         deletedAssignedUserRoles: ['Test string'],
@@ -4526,7 +4570,7 @@ gapi.load('client', async () => {
             advertiserId: 'Test string',
             assignedUserRoleId: 'Test string',
             partnerId: 'Test string',
-            userRole: 'Test string',
+            userRole: 'USER_ROLE_UNSPECIFIED',
           },
         ],
         displayName: 'Test string',
@@ -4563,7 +4607,7 @@ gapi.load('client', async () => {
             advertiserId: 'Test string',
             assignedUserRoleId: 'Test string',
             partnerId: 'Test string',
-            userRole: 'Test string',
+            userRole: 'USER_ROLE_UNSPECIFIED',
           },
         ],
         displayName: 'Test string',

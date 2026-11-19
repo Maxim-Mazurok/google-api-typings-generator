@@ -140,7 +140,8 @@ declare namespace gapi.client {
       /** Indication whether the plant is in season or not. */
       inSeason?: boolean;
     }
-    interface ForecastResource {
+
+    const forecast: {
       /** Returns up to 5 days of daily pollen information in more than 65 countries, up to 1km resolution. */
       lookup(request?: {
         /** V1 error format. */
@@ -180,48 +181,45 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<LookupForecastResponse>;
-    }
-    interface HeatmapTilesResource {
-      /** Returns a byte array containing the data of the tile PNG image. */
-      lookupHeatmapTile(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The type of the pollen heatmap. Defines the combination of pollen type and index that the map will graphically represent. */
-        mapType: 'MAP_TYPE_UNSPECIFIED' | 'TREE_UPI' | 'GRASS_UPI' | 'WEED_UPI';
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Required. Defines the east-west point in the requested tile. */
-        x: number;
-        /** Required. Defines the north-south point in the requested tile. */
-        y: number;
-        /** Required. The map's zoom level. Defines how large or small the contents of a map appear in a map view. * Zoom level 0 is the entire world in a single tile. * Zoom level 1 is the entire world in 4 tiles. * Zoom level 2 is the entire world in 16 tiles. * Zoom level 16 is the entire world in 65,536 tiles. Allowed values: 0-16 */
-        zoom: number;
-      }): Request<HttpBody>;
-    }
-    interface MapTypesResource {
-      heatmapTiles: HeatmapTilesResource;
-    }
+    };
 
-    const forecast: ForecastResource;
-
-    const mapTypes: MapTypesResource;
+    const mapTypes: {
+      heatmapTiles: {
+        /** Returns a byte array containing the data of the tile PNG image. */
+        lookupHeatmapTile(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The type of the pollen heatmap. Defines the combination of pollen type and index that the map will graphically represent. */
+          mapType:
+            'MAP_TYPE_UNSPECIFIED' | 'TREE_UPI' | 'GRASS_UPI' | 'WEED_UPI';
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Required. Defines the east-west point in the requested tile. */
+          x: number;
+          /** Required. Defines the north-south point in the requested tile. */
+          y: number;
+          /** Required. The map's zoom level. Defines how large or small the contents of a map appear in a map view. * Zoom level 0 is the entire world in a single tile. * Zoom level 1 is the entire world in 4 tiles. * Zoom level 2 is the entire world in 16 tiles. * Zoom level 16 is the entire world in 65,536 tiles. Allowed values: 0-16 */
+          zoom: number;
+        }): Request<HttpBody>;
+      };
+    };
   }
 }

@@ -301,7 +301,8 @@ declare namespace gapi.client {
       /** Total size and sunlight quantiles for the part of the roof that was assigned to some roof segment. Despite the name, this may not include the entire building. See building_stats. */
       wholeRoofStats?: SizeAndSunshineStats;
     }
-    interface BuildingInsightsResource {
+
+    const buildingInsights: {
       /** Locates the building whose centroid is closest to a query point. Returns an error with code `NOT_FOUND` if there are no buildings within approximately 50m of the query point. */
       findClosest(request?: {
         /** V1 error format. */
@@ -356,8 +357,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<BuildingInsights>;
-    }
-    interface DataLayersResource {
+    };
+
+    const dataLayers: {
       /** Gets solar information for a region surrounding a location. Returns an error with code `NOT_FOUND` if the location is outside the coverage area. */
       get(request?: {
         /** V1 error format. */
@@ -414,8 +416,9 @@ declare namespace gapi.client {
           | 'IMAGERY_AND_ALL_FLUX_LAYERS'
           | 'FULL_LAYERS';
       }): Request<DataLayers>;
-    }
-    interface GeoTiffResource {
+    };
+
+    const geoTiff: {
       /** Returns an image by its ID. */
       get(request?: {
         /** V1 error format. */
@@ -443,12 +446,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<HttpBody>;
-    }
-
-    const buildingInsights: BuildingInsightsResource;
-
-    const dataLayers: DataLayersResource;
-
-    const geoTiff: GeoTiffResource;
+    };
   }
 }

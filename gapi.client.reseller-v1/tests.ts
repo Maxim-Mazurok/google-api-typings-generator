@@ -47,7 +47,7 @@ gapi.load('client', async () => {
         customerDomain: 'Test string',
         customerDomainVerified: true,
         customerId: 'Test string',
-        customerType: 'Test string',
+        customerType: 'customerTypeUnspecified',
         kind: 'Test string',
         phoneNumber: 'Test string',
         postalAddress: {
@@ -78,7 +78,7 @@ gapi.load('client', async () => {
         customerDomain: 'Test string',
         customerDomainVerified: true,
         customerId: 'Test string',
-        customerType: 'Test string',
+        customerType: 'customerTypeUnspecified',
         kind: 'Test string',
         phoneNumber: 'Test string',
         postalAddress: {
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
         customerDomain: 'Test string',
         customerDomainVerified: true,
         customerId: 'Test string',
-        customerType: 'Test string',
+        customerType: 'customerTypeUnspecified',
         kind: 'Test string',
         phoneNumber: 'Test string',
         postalAddress: {
@@ -191,7 +191,7 @@ gapi.load('client', async () => {
     /** Cancels, suspends, or transfers a subscription to direct. */
     await gapi.client.reseller.subscriptions.delete({
       customerId: 'Test string',
-      deletionType: 'Test string',
+      deletionType: 'deletion_type_undefined',
       subscriptionId: 'Test string',
     });
     /** Gets a specific subscription. The `subscriptionId` can be found using the [Retrieve all reseller subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions) method. For more information about retrieving a specific subscription, see the information descrived in [manage subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_subscription). */
@@ -202,7 +202,7 @@ gapi.load('client', async () => {
     /** Creates or transfer a subscription. Create a subscription for a customer's account that you ordered using the [Order a new customer account](https://developers.google.com/workspace/admin/reseller/v1/reference/customers/insert.html) method. For more information about creating a subscription for different payment plans, see [manage subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#create_subscription).\ If you did not order the customer's account using the customer insert method, use the customer's `customerAuthToken` when creating a subscription for that customer. If transferring a G Suite subscription with an associated Google Drive or Google Vault subscription, use the [batch operation](https://developers.google.com/workspace/admin/reseller/v1/how-tos/batch.html) to transfer all of these subscriptions. For more information, see how to [transfer subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription). */
     await gapi.client.reseller.subscriptions.insert(
       {
-        action: 'Test string',
+        action: 'actionUnspecified',
         customerAuthToken: 'Test string',
         customerId: 'Test string',
         sourceSkuId: 'Test string',

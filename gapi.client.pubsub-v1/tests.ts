@@ -48,7 +48,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           revisionCreateTime: 'Test string',
           revisionId: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a schema. */
@@ -82,7 +82,7 @@ gapi.load('client', async () => {
     /** Gets a schema. */
     await gapi.client.pubsub.projects.schemas.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'SCHEMA_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.pubsub.projects.schemas.getIamPolicy({
@@ -94,14 +94,14 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'SCHEMA_VIEW_UNSPECIFIED',
     });
     /** Lists all schema revisions for the named schema. */
     await gapi.client.pubsub.projects.schemas.listRevisions({
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'SCHEMA_VIEW_UNSPECIFIED',
     });
     /** Creates a new schema revision that is a copy of the provided revision_id. */
     await gapi.client.pubsub.projects.schemas.rollback(
@@ -160,7 +160,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           revisionCreateTime: 'Test string',
           revisionId: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        encoding: 'Test string',
+        encoding: 'ENCODING_UNSPECIFIED',
         message: 'Test string',
         name: 'Test string',
         schema: {
@@ -182,7 +182,7 @@ gapi.load('client', async () => {
           name: 'Test string',
           revisionCreateTime: 'Test string',
           revisionId: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -293,7 +293,7 @@ gapi.load('client', async () => {
         bigqueryConfig: {
           dropUnknownFields: true,
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           table: 'Test string',
           useTableSchema: true,
           useTopicSchema: true,
@@ -309,7 +309,7 @@ gapi.load('client', async () => {
             rowKeySchema: {},
           },
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           table: 'Test string',
           writeMetadata: true,
         },
@@ -326,7 +326,7 @@ gapi.load('client', async () => {
           maxDuration: 'Test string',
           maxMessages: 'Test string',
           serviceAccountEmail: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           textConfig: {},
         },
         deadLetterPolicy: {
@@ -356,8 +356,8 @@ gapi.load('client', async () => {
               },
             },
             compression: {
-              compressionAlgorithm: 'Test string',
-              compressionMode: 'Test string',
+              compressionAlgorithm: 'COMPRESSION_ALGORITHM_UNSPECIFIED',
+              compressionMode: 'COMPRESSION_MODE_UNSPECIFIED',
             },
             disabled: true,
             enabled: true,
@@ -387,7 +387,7 @@ gapi.load('client', async () => {
           maximumBackoff: 'Test string',
           minimumBackoff: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
           bigqueryConfig: {
             dropUnknownFields: true,
             serviceAccountEmail: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             table: 'Test string',
             useTableSchema: true,
             useTopicSchema: true,
@@ -481,7 +481,7 @@ gapi.load('client', async () => {
               rowKeySchema: {},
             },
             serviceAccountEmail: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             table: 'Test string',
             writeMetadata: true,
           },
@@ -498,7 +498,7 @@ gapi.load('client', async () => {
             maxDuration: 'Test string',
             maxMessages: 'Test string',
             serviceAccountEmail: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             textConfig: {},
           },
           deadLetterPolicy: {
@@ -528,8 +528,8 @@ gapi.load('client', async () => {
                 },
               },
               compression: {
-                compressionAlgorithm: 'Test string',
-                compressionMode: 'Test string',
+                compressionAlgorithm: 'COMPRESSION_ALGORITHM_UNSPECIFIED',
+                compressionMode: 'COMPRESSION_MODE_UNSPECIFIED',
               },
               disabled: true,
               enabled: true,
@@ -559,7 +559,7 @@ gapi.load('client', async () => {
             maximumBackoff: 'Test string',
             minimumBackoff: 'Test string',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },
@@ -633,14 +633,14 @@ gapi.load('client', async () => {
             awsRoleArn: 'Test string',
             consumerArn: 'Test string',
             gcpServiceAccount: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             streamArn: 'Test string',
           },
           awsMsk: {
             awsRoleArn: 'Test string',
             clusterArn: 'Test string',
             gcpServiceAccount: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             topic: 'Test string',
           },
           azureEventHubs: {
@@ -649,7 +649,7 @@ gapi.load('client', async () => {
             gcpServiceAccount: 'Test string',
             namespace: 'Test string',
             resourceGroup: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             subscriptionId: 'Test string',
             tenantId: 'Test string',
           },
@@ -659,7 +659,7 @@ gapi.load('client', async () => {
             matchGlob: 'Test string',
             minimumObjectCreateTime: 'Test string',
             pubsubAvroFormat: {},
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             textFormat: {
               delimiter: 'Test string',
             },
@@ -669,11 +669,11 @@ gapi.load('client', async () => {
             clusterId: 'Test string',
             gcpServiceAccount: 'Test string',
             identityPoolId: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             topic: 'Test string',
           },
           platformLogsSettings: {
-            severity: 'Test string',
+            severity: 'SEVERITY_UNSPECIFIED',
           },
         },
         kmsKeyName: 'Test string',
@@ -697,8 +697,8 @@ gapi.load('client', async () => {
               },
             },
             compression: {
-              compressionAlgorithm: 'Test string',
-              compressionMode: 'Test string',
+              compressionAlgorithm: 'COMPRESSION_ALGORITHM_UNSPECIFIED',
+              compressionMode: 'COMPRESSION_MODE_UNSPECIFIED',
             },
             disabled: true,
             enabled: true,
@@ -711,12 +711,12 @@ gapi.load('client', async () => {
         name: 'Test string',
         satisfiesPzs: true,
         schemaSettings: {
-          encoding: 'Test string',
+          encoding: 'ENCODING_UNSPECIFIED',
           firstRevisionId: 'Test string',
           lastRevisionId: 'Test string',
           schema: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         tags: {
           A: 'Test string',
         },
@@ -753,14 +753,14 @@ gapi.load('client', async () => {
               awsRoleArn: 'Test string',
               consumerArn: 'Test string',
               gcpServiceAccount: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               streamArn: 'Test string',
             },
             awsMsk: {
               awsRoleArn: 'Test string',
               clusterArn: 'Test string',
               gcpServiceAccount: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               topic: 'Test string',
             },
             azureEventHubs: {
@@ -769,7 +769,7 @@ gapi.load('client', async () => {
               gcpServiceAccount: 'Test string',
               namespace: 'Test string',
               resourceGroup: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               subscriptionId: 'Test string',
               tenantId: 'Test string',
             },
@@ -779,7 +779,7 @@ gapi.load('client', async () => {
               matchGlob: 'Test string',
               minimumObjectCreateTime: 'Test string',
               pubsubAvroFormat: {},
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               textFormat: {
                 delimiter: 'Test string',
               },
@@ -789,11 +789,11 @@ gapi.load('client', async () => {
               clusterId: 'Test string',
               gcpServiceAccount: 'Test string',
               identityPoolId: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               topic: 'Test string',
             },
             platformLogsSettings: {
-              severity: 'Test string',
+              severity: 'SEVERITY_UNSPECIFIED',
             },
           },
           kmsKeyName: 'Test string',
@@ -817,8 +817,8 @@ gapi.load('client', async () => {
                 },
               },
               compression: {
-                compressionAlgorithm: 'Test string',
-                compressionMode: 'Test string',
+                compressionAlgorithm: 'COMPRESSION_ALGORITHM_UNSPECIFIED',
+                compressionMode: 'COMPRESSION_MODE_UNSPECIFIED',
               },
               disabled: true,
               enabled: true,
@@ -831,12 +831,12 @@ gapi.load('client', async () => {
           name: 'Test string',
           satisfiesPzs: true,
           schemaSettings: {
-            encoding: 'Test string',
+            encoding: 'ENCODING_UNSPECIFIED',
             firstRevisionId: 'Test string',
             lastRevisionId: 'Test string',
             schema: 'Test string',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           tags: {
             A: 'Test string',
           },

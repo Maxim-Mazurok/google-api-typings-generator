@@ -97,7 +97,8 @@ gapi.load('client', async () => {
                   enableTwoPass: true,
                   entropyCoder: 'Test string',
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   heightPixels: 42,
@@ -121,7 +122,8 @@ gapi.load('client', async () => {
                   crfLevel: 42,
                   enableTwoPass: true,
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   hdr10: {},
@@ -141,7 +143,8 @@ gapi.load('client', async () => {
                   bitrateBps: 42,
                   crfLevel: 42,
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   heightPixels: 42,
@@ -238,11 +241,11 @@ gapi.load('client', async () => {
           manifests: [
             {
               dash: {
-                segmentReferenceScheme: 'Test string',
+                segmentReferenceScheme: 'SEGMENT_REFERENCE_SCHEME_UNSPECIFIED',
               },
               fileName: 'Test string',
               muxStreams: ['Test string'],
-              type: 'Test string',
+              type: 'MANIFEST_TYPE_UNSPECIFIED',
             },
           ],
           muxStreams: [
@@ -273,7 +276,7 @@ gapi.load('client', async () => {
                   },
                   animationFade: {
                     endTimeOffset: 'Test string',
-                    fadeType: 'Test string',
+                    fadeType: 'FADE_TYPE_UNSPECIFIED',
                     startTimeOffset: 'Test string',
                     xy: {
                       x: 42,
@@ -334,12 +337,12 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        mode: 'Test string',
+        mode: 'PROCESSING_MODE_UNSPECIFIED',
         name: 'Test string',
-        optimization: 'Test string',
+        optimization: 'OPTIMIZATION_STRATEGY_UNSPECIFIED',
         outputUri: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'PROCESSING_STATE_UNSPECIFIED',
         templateId: 'Test string',
         ttlAfterCompletionDays: 42,
       },
@@ -427,7 +430,8 @@ gapi.load('client', async () => {
                   enableTwoPass: true,
                   entropyCoder: 'Test string',
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   heightPixels: 42,
@@ -451,7 +455,8 @@ gapi.load('client', async () => {
                   crfLevel: 42,
                   enableTwoPass: true,
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   hdr10: {},
@@ -471,7 +476,8 @@ gapi.load('client', async () => {
                   bitrateBps: 42,
                   crfLevel: 42,
                   frameRate: 42,
-                  frameRateConversionStrategy: 'Test string',
+                  frameRateConversionStrategy:
+                    'FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED',
                   gopDuration: 'Test string',
                   gopFrameCount: 42,
                   heightPixels: 42,
@@ -568,11 +574,11 @@ gapi.load('client', async () => {
           manifests: [
             {
               dash: {
-                segmentReferenceScheme: 'Test string',
+                segmentReferenceScheme: 'SEGMENT_REFERENCE_SCHEME_UNSPECIFIED',
               },
               fileName: 'Test string',
               muxStreams: ['Test string'],
-              type: 'Test string',
+              type: 'MANIFEST_TYPE_UNSPECIFIED',
             },
           ],
           muxStreams: [
@@ -603,7 +609,7 @@ gapi.load('client', async () => {
                   },
                   animationFade: {
                     endTimeOffset: 'Test string',
-                    fadeType: 'Test string',
+                    fadeType: 'FADE_TYPE_UNSPECIFIED',
                     startTimeOffset: 'Test string',
                     xy: {
                       x: 42,

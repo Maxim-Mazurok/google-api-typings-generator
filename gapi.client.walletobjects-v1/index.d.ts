@@ -368,7 +368,7 @@ declare namespace gapi.client {
     }
     interface DiscoverableProgramMerchantSignupInfo {
       /** User data that is sent in a POST request to the signup website URL. This information is encoded and then shared so that the merchant's website can prefill fields used to enroll the user for the discoverable program. */
-      signupSharedDatas?:
+      signupSharedDatas?: (
         | 'SHARED_DATA_TYPE_UNSPECIFIED'
         | 'FIRST_NAME'
         | 'LAST_NAME'
@@ -381,7 +381,8 @@ declare namespace gapi.client {
         | 'ZIPCODE'
         | 'COUNTRY'
         | 'EMAIL'
-        | 'PHONE'[];
+        | 'PHONE'
+      )[];
       /** The URL to direct the user to for the merchant's signup site. */
       signupWebsite?: Uri;
     }
@@ -2071,10 +2072,11 @@ declare namespace gapi.client {
     }
     interface PassConstraints {
       /** The NFC constraints for the pass. */
-      nfcConstraint?:
+      nfcConstraint?: (
         | 'NFC_CONSTRAINT_UNSPECIFIED'
         | 'BLOCK_PAYMENT'
-        | 'BLOCK_CLOSED_LOOP_TRANSIT'[];
+        | 'BLOCK_CLOSED_LOOP_TRANSIT'
+      )[];
       /** The screenshot eligibility for the pass. */
       screenshotEligibility?:
         'SCREENSHOT_ELIGIBILITY_UNSPECIFIED' | 'ELIGIBLE' | 'INELIGIBLE';
@@ -2693,7 +2695,8 @@ declare namespace gapi.client {
       /** Constraints that all must be met for the module to be shown. */
       viewConstraints?: ModuleViewConstraints;
     }
-    interface EventticketclassResource {
+
+    const eventticketclass: {
       /** Adds a message to the event ticket class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -2980,8 +2983,9 @@ declare namespace gapi.client {
         },
         body: EventTicketClass,
       ): Request<EventTicketClass>;
-    }
-    interface EventticketobjectResource {
+    };
+
+    const eventticketobject: {
       /** Adds a message to the event ticket object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -3326,8 +3330,9 @@ declare namespace gapi.client {
         },
         body: EventTicketObject,
       ): Request<EventTicketObject>;
-    }
-    interface FlightclassResource {
+    };
+
+    const flightclass: {
       /** Adds a message to the flight class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -3614,8 +3619,9 @@ declare namespace gapi.client {
         },
         body: FlightClass,
       ): Request<FlightClass>;
-    }
-    interface FlightobjectResource {
+    };
+
+    const flightobject: {
       /** Adds a message to the flight object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -3902,8 +3908,9 @@ declare namespace gapi.client {
         },
         body: FlightObject,
       ): Request<FlightObject>;
-    }
-    interface GenericclassResource {
+    };
+
+    const genericclass: {
       /** Adds a message to the generic class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -4190,8 +4197,9 @@ declare namespace gapi.client {
         },
         body: GenericClass,
       ): Request<GenericClass>;
-    }
-    interface GenericobjectResource {
+    };
+
+    const genericobject: {
       /** Adds a message to the generic object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -4478,8 +4486,9 @@ declare namespace gapi.client {
         },
         body: GenericObject,
       ): Request<GenericObject>;
-    }
-    interface GiftcardclassResource {
+    };
+
+    const giftcardclass: {
       /** Adds a message to the gift card class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -4766,8 +4775,9 @@ declare namespace gapi.client {
         },
         body: GiftCardClass,
       ): Request<GiftCardClass>;
-    }
-    interface GiftcardobjectResource {
+    };
+
+    const giftcardobject: {
       /** Adds a message to the gift card object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -5054,8 +5064,9 @@ declare namespace gapi.client {
         },
         body: GiftCardObject,
       ): Request<GiftCardObject>;
-    }
-    interface IssuerResource {
+    };
+
+    const issuer: {
       /** Returns the issuer with the given issuer ID. */
       get(request?: {
         /** V1 error format. */
@@ -5278,8 +5289,9 @@ declare namespace gapi.client {
         },
         body: Issuer,
       ): Request<Issuer>;
-    }
-    interface JWTResource {
+    };
+
+    const jwt: {
       /** Inserts the resources in the JWT. */
       insert(request: {
         /** V1 error format. */
@@ -5388,8 +5400,9 @@ declare namespace gapi.client {
         },
         body: JwtValidateRequest,
       ): Request<{}>;
-    }
-    interface LoyaltyclassResource {
+    };
+
+    const loyaltyclass: {
       /** Adds a message to the loyalty class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -5676,8 +5689,9 @@ declare namespace gapi.client {
         },
         body: LoyaltyClass,
       ): Request<LoyaltyClass>;
-    }
-    interface LoyaltyobjectResource {
+    };
+
+    const loyaltyobject: {
       /** Adds a message to the loyalty object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -6022,8 +6036,9 @@ declare namespace gapi.client {
         },
         body: LoyaltyObject,
       ): Request<LoyaltyObject>;
-    }
-    interface MediaResource {
+    };
+
+    const media: {
       /** Downloads rotating barcode values for the transit object referenced by the given object ID. */
       download(request?: {
         /** V1 error format. */
@@ -6109,8 +6124,9 @@ declare namespace gapi.client {
         },
         body: TransitObjectUploadRotatingBarcodeValuesRequest,
       ): Request<{}>;
-    }
-    interface OfferclassResource {
+    };
+
+    const offerclass: {
       /** Adds a message to the offer class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -6397,8 +6413,9 @@ declare namespace gapi.client {
         },
         body: OfferClass,
       ): Request<OfferClass>;
-    }
-    interface OfferobjectResource {
+    };
+
+    const offerobject: {
       /** Adds a message to the offer object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -6685,8 +6702,9 @@ declare namespace gapi.client {
         },
         body: OfferObject,
       ): Request<OfferObject>;
-    }
-    interface PermissionsResource {
+    };
+
+    const permissions: {
       /** Returns the permissions for the given issuer id. */
       get(request?: {
         /** V1 error format. */
@@ -6772,8 +6790,9 @@ declare namespace gapi.client {
         },
         body: Permissions,
       ): Request<Permissions>;
-    }
-    interface SmarttapResource {
+    };
+
+    const smarttap: {
       /** Inserts the smart tap. */
       insert(request: {
         /** V1 error format. */
@@ -6828,8 +6847,9 @@ declare namespace gapi.client {
         },
         body: SmartTap,
       ): Request<SmartTap>;
-    }
-    interface TransitclassResource {
+    };
+
+    const transitclass: {
       /** Adds a message to the transit class referenced by the given class ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -7116,8 +7136,9 @@ declare namespace gapi.client {
         },
         body: TransitClass,
       ): Request<TransitClass>;
-    }
-    interface TransitobjectResource {
+    };
+
+    const transitobject: {
       /** Adds a message to the transit object referenced by the given object ID. */
       addmessage(request: {
         /** V1 error format. */
@@ -7404,108 +7425,67 @@ declare namespace gapi.client {
         },
         body: TransitObject,
       ): Request<TransitObject>;
-    }
-    interface PrivateContentResource {
-      /** Provide Google with information about awaiting private pass update. This will allow Google to provide the update notification to the device that currently holds this pass. */
-      setPassUpdateNotice(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: SetPassUpdateNoticeRequest;
-      }): Request<{}>;
-      setPassUpdateNotice(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: SetPassUpdateNoticeRequest,
-      ): Request<{}>;
-    }
-    interface V1Resource {
-      privateContent: PrivateContentResource;
-    }
-    interface WalletobjectsResource {
-      v1: V1Resource;
-    }
+    };
 
-    const eventticketclass: EventticketclassResource;
-
-    const eventticketobject: EventticketobjectResource;
-
-    const flightclass: FlightclassResource;
-
-    const flightobject: FlightobjectResource;
-
-    const genericclass: GenericclassResource;
-
-    const genericobject: GenericobjectResource;
-
-    const giftcardclass: GiftcardclassResource;
-
-    const giftcardobject: GiftcardobjectResource;
-
-    const issuer: IssuerResource;
-
-    const jwt: JWTResource;
-
-    const loyaltyclass: LoyaltyclassResource;
-
-    const loyaltyobject: LoyaltyobjectResource;
-
-    const media: MediaResource;
-
-    const offerclass: OfferclassResource;
-
-    const offerobject: OfferobjectResource;
-
-    const permissions: PermissionsResource;
-
-    const smarttap: SmarttapResource;
-
-    const transitclass: TransitclassResource;
-
-    const transitobject: TransitobjectResource;
-
-    const walletobjects: WalletobjectsResource;
+    const walletobjects: {
+      v1: {
+        privateContent: {
+          /** Provide Google with information about awaiting private pass update. This will allow Google to provide the update notification to the device that currently holds this pass. */
+          setPassUpdateNotice(request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+            /** Request body */
+            resource: SetPassUpdateNoticeRequest;
+          }): Request<{}>;
+          setPassUpdateNotice(
+            request: {
+              /** V1 error format. */
+              '$.xgafv'?: '1' | '2';
+              /** OAuth access token. */
+              access_token?: string;
+              /** Data format for response. */
+              alt?: 'json' | 'media' | 'proto';
+              /** JSONP */
+              callback?: string;
+              /** Selector specifying which fields to include in a partial response. */
+              fields?: string;
+              /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+              key?: string;
+              /** OAuth 2.0 token for the current user. */
+              oauth_token?: string;
+              /** Returns response with indentations and line breaks. */
+              prettyPrint?: boolean;
+              /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+              quotaUser?: string;
+              /** Upload protocol for media (e.g. "raw", "multipart"). */
+              upload_protocol?: string;
+              /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+              uploadType?: string;
+            },
+            body: SetPassUpdateNoticeRequest,
+          ): Request<{}>;
+        };
+      };
+    };
   }
 }

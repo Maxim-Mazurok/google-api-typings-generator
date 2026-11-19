@@ -122,10 +122,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -153,10 +153,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -198,10 +198,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -236,10 +236,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -388,7 +388,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -397,7 +397,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -405,7 +405,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -416,7 +416,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -425,7 +425,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -448,14 +448,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -470,7 +470,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -479,11 +479,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -492,7 +492,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -572,7 +572,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -581,7 +581,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -595,7 +595,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -604,14 +604,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -626,7 +626,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -635,11 +635,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -648,7 +648,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
@@ -692,7 +692,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -744,7 +744,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -781,7 +781,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -932,7 +932,7 @@ gapi.load('client', async () => {
               },
               type: 'Test string',
             },
-            severity: 'Test string',
+            severity: 'DEFAULT',
             sourceLocation: {
               file: 'Test string',
               function: 'Test string',
@@ -1033,7 +1033,7 @@ gapi.load('client', async () => {
             },
           ],
           filter: 'Test string',
-          mode: 'Test string',
+          mode: 'FILTER_WRITE_MODE_UNSPECIFIED',
         },
         disableDefaultSink: true,
         kmsKeyName: 'Test string',
@@ -1118,10 +1118,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1149,10 +1149,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1194,10 +1194,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1232,10 +1232,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1255,7 +1255,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -1469,7 +1469,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -1478,7 +1478,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -1486,7 +1486,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -1497,7 +1497,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1506,7 +1506,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -1520,7 +1520,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1529,14 +1529,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -1551,7 +1551,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1560,11 +1560,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -1573,7 +1573,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
@@ -1625,7 +1625,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -1634,7 +1634,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -1642,7 +1642,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -1653,7 +1653,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1662,7 +1662,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -1676,7 +1676,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1685,14 +1685,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -1707,7 +1707,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -1716,11 +1716,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -1729,7 +1729,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
@@ -1773,7 +1773,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -1825,7 +1825,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -1862,7 +1862,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -1900,10 +1900,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1931,10 +1931,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -1976,10 +1976,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2014,10 +2014,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2037,7 +2037,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2217,7 +2217,7 @@ gapi.load('client', async () => {
             },
           ],
           filter: 'Test string',
-          mode: 'Test string',
+          mode: 'FILTER_WRITE_MODE_UNSPECIFIED',
         },
         disableDefaultSink: true,
         kmsKeyName: 'Test string',
@@ -2302,10 +2302,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2333,10 +2333,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2378,10 +2378,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2416,10 +2416,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -2439,7 +2439,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -2653,7 +2653,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -2662,7 +2662,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -2670,7 +2670,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -2681,7 +2681,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2690,7 +2690,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -2704,7 +2704,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2713,14 +2713,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -2735,7 +2735,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2744,11 +2744,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -2757,7 +2757,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
@@ -2809,7 +2809,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -2818,7 +2818,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -2826,7 +2826,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -2837,7 +2837,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2846,7 +2846,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -2860,7 +2860,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2869,14 +2869,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -2891,7 +2891,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -2900,11 +2900,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -2913,7 +2913,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
@@ -2957,7 +2957,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -3009,7 +3009,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -3046,7 +3046,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -3135,10 +3135,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -3166,10 +3166,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -3211,10 +3211,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -3249,10 +3249,10 @@ gapi.load('client', async () => {
           {
             createTime: 'Test string',
             fieldPath: 'Test string',
-            type: 'Test string',
+            type: 'INDEX_TYPE_UNSPECIFIED',
           },
         ],
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         locked: true,
         name: 'Test string',
         restrictedFields: ['Test string'],
@@ -3272,7 +3272,7 @@ gapi.load('client', async () => {
         },
         createTime: 'Test string',
         description: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
       },
     );
@@ -3486,7 +3486,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -3495,7 +3495,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -3503,7 +3503,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -3514,7 +3514,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3523,7 +3523,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -3537,7 +3537,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3546,14 +3546,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -3568,7 +3568,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3577,11 +3577,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -3590,7 +3590,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes an existing SavedQuery that was created by the user making the request. */
@@ -3642,7 +3642,7 @@ gapi.load('client', async () => {
                   alias: 'Test string',
                   cast: 'Test string',
                   field: 'Test string',
-                  operation: 'Test string',
+                  operation: 'FIELD_OPERATION_UNSPECIFIED',
                   regexExtraction: 'Test string',
                   sqlAggregationFunction: {
                     parameters: [42],
@@ -3651,7 +3651,7 @@ gapi.load('client', async () => {
                   truncationGranularity: 'Test string',
                   virtualField: {
                     underlyingFieldSources: undefined,
-                    virtualFieldType: 'Test string',
+                    virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -3659,7 +3659,7 @@ gapi.load('client', async () => {
             filter: {
               childPredicates: undefined,
               leafPredicate: {
-                comparator: 'Test string',
+                comparator: 'COMPARATOR_UNSPECIFIED',
                 fieldSource: {
                   aliasRef: 'Test string',
                   columnType: 'Test string',
@@ -3670,7 +3670,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3679,7 +3679,7 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
@@ -3693,7 +3693,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3702,14 +3702,14 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
                 isNegation: true,
                 literalValue: 42,
               },
-              operatorType: 'Test string',
+              operatorType: 'OPERATOR_TYPE_UNSPECIFIED',
             },
             limit: 'Test string',
             orderBys: [
@@ -3724,7 +3724,7 @@ gapi.load('client', async () => {
                     alias: 'Test string',
                     cast: 'Test string',
                     field: 'Test string',
-                    operation: 'Test string',
+                    operation: 'FIELD_OPERATION_UNSPECIFIED',
                     regexExtraction: 'Test string',
                     sqlAggregationFunction: {
                       parameters: [42],
@@ -3733,11 +3733,11 @@ gapi.load('client', async () => {
                     truncationGranularity: 'Test string',
                     virtualField: {
                       underlyingFieldSources: undefined,
-                      virtualFieldType: 'Test string',
+                      virtualFieldType: 'VIRTUAL_FIELD_TYPE_UNSPECIFIED',
                     },
                   },
                 },
-                sortOrderDirection: 'Test string',
+                sortOrderDirection: 'SORT_ORDER_UNSPECIFIED',
               },
             ],
             resourceNames: ['Test string'],
@@ -3746,7 +3746,7 @@ gapi.load('client', async () => {
           sqlQueryText: 'Test string',
         },
         updateTime: 'Test string',
-        visibility: 'Test string',
+        visibility: 'VISIBILITY_UNSPECIFIED',
       },
     );
     /** Deletes all the log entries in a log for the global _Default Log Bucket. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted. Entries received after the delete operation with a timestamp before the operation will be deleted. */
@@ -3796,28 +3796,30 @@ gapi.load('client', async () => {
             {
               description: 'Test string',
               key: 'Test string',
-              valueType: 'Test string',
+              valueType: 'STRING',
             },
           ],
-          launchStage: 'Test string',
+          launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
           metadata: {
             ingestDelay: 'Test string',
-            launchStage: 'Test string',
+            launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
             samplePeriod: 'Test string',
-            timeSeriesResourceHierarchyLevel: ['Test string'],
+            timeSeriesResourceHierarchyLevel: [
+              'TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED',
+            ],
           },
-          metricKind: 'Test string',
+          metricKind: 'METRIC_KIND_UNSPECIFIED',
           monitoredResourceTypes: ['Test string'],
           name: 'Test string',
           type: 'Test string',
           unit: 'Test string',
-          valueType: 'Test string',
+          valueType: 'VALUE_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         resourceName: 'Test string',
         updateTime: 'Test string',
         valueExtractor: 'Test string',
-        version: 'Test string',
+        version: 'V2',
       },
     );
     /** Deletes a logs-based metric. */
@@ -3870,28 +3872,30 @@ gapi.load('client', async () => {
             {
               description: 'Test string',
               key: 'Test string',
-              valueType: 'Test string',
+              valueType: 'STRING',
             },
           ],
-          launchStage: 'Test string',
+          launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
           metadata: {
             ingestDelay: 'Test string',
-            launchStage: 'Test string',
+            launchStage: 'LAUNCH_STAGE_UNSPECIFIED',
             samplePeriod: 'Test string',
-            timeSeriesResourceHierarchyLevel: ['Test string'],
+            timeSeriesResourceHierarchyLevel: [
+              'TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED',
+            ],
           },
-          metricKind: 'Test string',
+          metricKind: 'METRIC_KIND_UNSPECIFIED',
           monitoredResourceTypes: ['Test string'],
           name: 'Test string',
           type: 'Test string',
           unit: 'Test string',
-          valueType: 'Test string',
+          valueType: 'VALUE_TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         resourceName: 'Test string',
         updateTime: 'Test string',
         valueExtractor: 'Test string',
-        version: 'Test string',
+        version: 'V2',
       },
     );
     /** Creates a sink that exports specified log entries to a destination. The export begins upon ingress, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink. */
@@ -3924,7 +3928,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -3976,7 +3980,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -4013,7 +4017,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -4049,7 +4053,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -4101,7 +4105,7 @@ gapi.load('client', async () => {
         includeChildren: true,
         interceptChildren: true,
         name: 'Test string',
-        outputVersionFormat: 'Test string',
+        outputVersionFormat: 'VERSION_FORMAT_UNSPECIFIED',
         resourceName: 'Test string',
         updateTime: 'Test string',
         writerIdentity: 'Test string',
@@ -4147,7 +4151,7 @@ gapi.load('client', async () => {
             },
           ],
           filter: 'Test string',
-          mode: 'Test string',
+          mode: 'FILTER_WRITE_MODE_UNSPECIFIED',
         },
         disableDefaultSink: true,
         kmsKeyName: 'Test string',

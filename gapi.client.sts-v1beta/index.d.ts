@@ -106,7 +106,8 @@ declare namespace gapi.client {
       /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
       title?: string;
     }
-    interface V1betaResource {
+
+    const v1beta: {
       /** Exchanges a credential for a Google OAuth 2.0 access token. The token asserts an external identity within a workload identity pool, or it applies a Credential Access Boundary to a Google access token. When you call this method, do not send the `Authorization` HTTP header in the request. This method does not require the `Authorization` header, and using the header can cause the request to fail. */
       token(request: {
         /** V1 error format. */
@@ -161,8 +162,6 @@ declare namespace gapi.client {
         },
         body: GoogleIdentityStsV1betaExchangeTokenRequest,
       ): Request<GoogleIdentityStsV1betaExchangeTokenResponse>;
-    }
-
-    const v1beta: V1betaResource;
+    };
   }
 }

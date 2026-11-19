@@ -52,7 +52,7 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        format: 'Test string',
+        format: 'PARAMETER_FORMAT_UNSPECIFIED',
         kmsKey: 'Test string',
         labels: {
           A: 'Test string',
@@ -94,7 +94,7 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        format: 'Test string',
+        format: 'PARAMETER_FORMAT_UNSPECIFIED',
         kmsKey: 'Test string',
         labels: {
           A: 'Test string',
@@ -118,7 +118,7 @@ gapi.load('client', async () => {
         requestId: 'Test string',
       },
       {
-        checksumSource: 'Test string',
+        checksumSource: 'CHECKSUM_SOURCE_UNSPECIFIED',
         createTime: 'Test string',
         disabled: true,
         kmsKeyVersion: 'Test string',
@@ -141,7 +141,7 @@ gapi.load('client', async () => {
     await gapi.client.parametermanager.projects.locations.parameters.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VIEW_UNSPECIFIED',
       },
     );
     /** Lists ParameterVersions in a given project, location, and parameter. */
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        checksumSource: 'Test string',
+        checksumSource: 'CHECKSUM_SOURCE_UNSPECIFIED',
         createTime: 'Test string',
         disabled: true,
         kmsKeyVersion: 'Test string',
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        format: 'Test string',
+        format: 'TEMPLATE_FORMAT_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -223,7 +223,7 @@ gapi.load('client', async () => {
       },
       {
         createTime: 'Test string',
-        format: 'Test string',
+        format: 'TEMPLATE_FORMAT_UNSPECIFIED',
         labels: {
           A: 'Test string',
         },
@@ -259,7 +259,7 @@ gapi.load('client', async () => {
     await gapi.client.parametermanager.projects.locations.templates.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'VIEW_UNSPECIFIED',
       },
     );
     /** Lists TemplateVersions in a given project, location, and template. */

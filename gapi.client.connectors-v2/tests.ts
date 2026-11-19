@@ -74,7 +74,7 @@ gapi.load('client', async () => {
             value: 'Test string',
           },
         ],
-        httpMethod: 'Test string',
+        httpMethod: 'HTTP_METHOD_UNSPECIFIED',
         rawBody: 'Test string',
         url: 'Test string',
       },
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
           query: 'Test string',
           queryParameters: [
             {
-              dataType: 'Test string',
+              dataType: 'DATA_TYPE_UNSPECIFIED',
               value: 42,
             },
           ],
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
           {
             entityName: 'Test string',
             name: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
           },
         ],
       },
@@ -154,7 +154,7 @@ gapi.load('client', async () => {
     await gapi.client.connectors.projects.locations.connections.actions.get({
       'executionConfig.headers': 'Test string',
       name: 'Test string',
-      view: 'Test string',
+      view: 'ACTION_SCHEMA_VIEW_UNSPECIFIED',
     });
     /** Gets the schema of all the actions supported by the connector. */
     await gapi.client.connectors.projects.locations.connections.actions.list({
@@ -162,7 +162,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'ACTION_VIEW_UNSPECIFIED',
     });
     /** Gets metadata of given entity type */
     await gapi.client.connectors.projects.locations.connections.entityTypes.get(
@@ -170,7 +170,7 @@ gapi.load('client', async () => {
         contextMetadata: 'Test string',
         'executionConfig.headers': 'Test string',
         name: 'Test string',
-        view: 'Test string',
+        view: 'ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED',
       },
     );
     /** Lists metadata related to all entity types present in the external system. */
@@ -180,7 +180,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'ENTITY_TYPE_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a new entity row of the specified entity type in the external system. The field values for creating the row are contained in the body of the request. The response message contains a `Entity` message object returned as a response by the external system. */

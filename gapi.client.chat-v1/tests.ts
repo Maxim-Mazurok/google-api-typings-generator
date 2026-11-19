@@ -195,7 +195,7 @@ gapi.load('client', async () => {
               ],
             },
           },
-          accessState: 'Test string',
+          accessState: 'ACCESS_STATE_UNSPECIFIED',
           audience: 'Test string',
         },
         adminInstalled: true,
@@ -258,18 +258,19 @@ gapi.load('client', async () => {
             membersAllowed: true,
           },
         },
-        predefinedPermissionSettings: 'Test string',
+        predefinedPermissionSettings:
+          'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
         singleUserBotDm: true,
         spaceDetails: {
           description: 'Test string',
           guidelines: 'Test string',
         },
-        spaceHistoryState: 'Test string',
-        spaceThreadingState: 'Test string',
-        spaceType: 'Test string',
+        spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+        spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+        spaceType: 'SPACE_TYPE_UNSPECIFIED',
         spaceUri: 'Test string',
         threaded: true,
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a named space. Always performs a cascading delete, which means that the space's child resources—like messages posted in the space and memberships in the space—are also deleted. For an example, see [Delete a space](https://developers.google.com/workspace/chat/delete-spaces). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) and the authorization scope: - `https://www.googleapis.com/auth/chat.app.delete` (only in spaces the app created) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.delete` - `https://www.googleapis.com/auth/chat.import` (import mode spaces only) - User authentication grants administrator privileges when an administrator account authenticates, `use_admin_access` is `true`, and the following authorization scope is used: - `https://www.googleapis.com/auth/chat.admin.delete` */
@@ -285,7 +286,7 @@ gapi.load('client', async () => {
     await gapi.client.chat.spaces.findGroupChats({
       pageSize: 42,
       pageToken: 'Test string',
-      spaceView: 'Test string',
+      spaceView: 'SPACE_VIEW_UNSPECIFIED',
       users: 'Test string',
     });
     /** Returns details about a space. For an example, see [Get details about a space](https://developers.google.com/workspace/chat/get-spaces). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.bot` - `https://www.googleapis.com/auth/chat.app.spaces` with [administrator approval](https://support.google.com/a?p=chat-app-auth) - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.spaces.readonly` - `https://www.googleapis.com/auth/chat.spaces` - User authentication grants administrator privileges when an administrator account authenticates, `use_admin_access` is `true`, and one of the following authorization scopes is used: - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` - `https://www.googleapis.com/auth/chat.admin.spaces` App authentication has the following limitations: - `space.access_settings` is only populated when using the `chat.app.spaces` scope. - `space.predefind_permission_settings` and `space.permission_settings` are only populated when using the `chat.app.spaces` scope, and only for spaces the app created. */
@@ -337,7 +338,7 @@ gapi.load('client', async () => {
               ],
             },
           },
-          accessState: 'Test string',
+          accessState: 'ACCESS_STATE_UNSPECIFIED',
           audience: 'Test string',
         },
         adminInstalled: true,
@@ -400,18 +401,19 @@ gapi.load('client', async () => {
             membersAllowed: true,
           },
         },
-        predefinedPermissionSettings: 'Test string',
+        predefinedPermissionSettings:
+          'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
         singleUserBotDm: true,
         spaceDetails: {
           description: 'Test string',
           guidelines: 'Test string',
         },
-        spaceHistoryState: 'Test string',
-        spaceThreadingState: 'Test string',
-        spaceType: 'Test string',
+        spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+        spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+        spaceType: 'SPACE_TYPE_UNSPECIFIED',
         spaceUri: 'Test string',
         threaded: true,
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
       },
     );
     /** Returns a list of spaces in a Google Workspace organization. For an example, see [Search for and manage spaces](https://developers.google.com/workspace/chat/search-manage-admin). When `use_admin_access` is set to `false`, the results are limited to spaces where the calling user is a joined member. To search with administrator privileges, set `use_admin_access` to `true`. Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.spaces.readonly` - `https://www.googleapis.com/auth/chat.spaces` - [User authentication with administrator privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges) and one of the following [authorization scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` - `https://www.googleapis.com/auth/chat.admin.spaces` */
@@ -428,7 +430,7 @@ gapi.load('client', async () => {
       {
         memberships: [
           {
-            affiliation: 'Test string',
+            affiliation: 'AFFILIATION_UNSPECIFIED',
             createTime: 'Test string',
             deleteTime: 'Test string',
             groupMember: {
@@ -441,11 +443,11 @@ gapi.load('client', async () => {
               email: 'Test string',
               isAnonymous: true,
               name: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             name: 'Test string',
-            role: 'Test string',
-            state: 'Test string',
+            role: 'MEMBERSHIP_ROLE_UNSPECIFIED',
+            state: 'MEMBERSHIP_STATE_UNSPECIFIED',
           },
         ],
         requestId: 'Test string',
@@ -480,7 +482,7 @@ gapi.load('client', async () => {
                 ],
               },
             },
-            accessState: 'Test string',
+            accessState: 'ACCESS_STATE_UNSPECIFIED',
             audience: 'Test string',
           },
           adminInstalled: true,
@@ -543,18 +545,19 @@ gapi.load('client', async () => {
               membersAllowed: true,
             },
           },
-          predefinedPermissionSettings: 'Test string',
+          predefinedPermissionSettings:
+            'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
           singleUserBotDm: true,
           spaceDetails: {
             description: 'Test string',
             guidelines: 'Test string',
           },
-          spaceHistoryState: 'Test string',
-          spaceThreadingState: 'Test string',
-          spaceType: 'Test string',
+          spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+          spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+          spaceType: 'SPACE_TYPE_UNSPECIFIED',
           spaceUri: 'Test string',
           threaded: true,
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -565,7 +568,7 @@ gapi.load('client', async () => {
         useAdminAccess: true,
       },
       {
-        affiliation: 'Test string',
+        affiliation: 'AFFILIATION_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         groupMember: {
@@ -578,11 +581,11 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
-        role: 'Test string',
-        state: 'Test string',
+        role: 'MEMBERSHIP_ROLE_UNSPECIFIED',
+        state: 'MEMBERSHIP_STATE_UNSPECIFIED',
       },
     );
     /** Deletes a membership. For an example, see [Remove a user or a Google Chat app from a space](https://developers.google.com/workspace/chat/delete-members). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) and the authorization scope: - `https://www.googleapis.com/auth/chat.app.memberships` - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.memberships` - `https://www.googleapis.com/auth/chat.memberships.app` (to remove the calling app from the space) - `https://www.googleapis.com/auth/chat.import` (import mode spaces only) - User authentication grants administrator privileges when an administrator account authenticates, `use_admin_access` is `true`, and the following authorization scope is used: - `https://www.googleapis.com/auth/chat.admin.memberships` App authentication is not supported for the following use cases: - Removing a Google Group from a space. - Removing a Chat app from a space. To delete memberships for space managers, the requester must be a space manager. If you're using [app authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) the Chat app must be the space creator. */
@@ -613,7 +616,7 @@ gapi.load('client', async () => {
         useAdminAccess: true,
       },
       {
-        affiliation: 'Test string',
+        affiliation: 'AFFILIATION_UNSPECIFIED',
         createTime: 'Test string',
         deleteTime: 'Test string',
         groupMember: {
@@ -626,11 +629,11 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
-        role: 'Test string',
-        state: 'Test string',
+        role: 'MEMBERSHIP_ROLE_UNSPECIFIED',
+        state: 'MEMBERSHIP_STATE_UNSPECIFIED',
       },
     );
     /** Creates a message pin. Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following [authorization scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.spaces.pins` - `https://www.googleapis.com/auth/chat.spaces` */
@@ -656,9 +659,10 @@ gapi.load('client', async () => {
     /** Creates a message in a Google Chat space. For an example, see [Send a message](https://developers.google.com/workspace/chat/create-messages). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.messages.create` - `https://www.googleapis.com/auth/chat.messages` - `https://www.googleapis.com/auth/chat.import` (import mode spaces only) Chat attributes the message sender differently depending on the type of authentication that you use in your request. The following image shows how Chat attributes a message when you use app authentication. Chat displays the Chat app as the message sender. The content of the message can contain text (`text`), cards (`cardsV2`), and accessory widgets (`accessoryWidgets`). ![Message sent with app authentication](https://developers.google.com/workspace/chat/images/message-app-auth.svg) The following image shows how Chat attributes a message when you use user authentication. Chat displays the user as the message sender and attributes the Chat app to the message by displaying its name. The content of message can only contain text (`text`). ![Message sent with user authentication](https://developers.google.com/workspace/chat/images/message-user-auth.svg) The maximum message size, including the message contents, is 32,000 bytes. For [webhook](https://developers.google.com/workspace/chat/quickstart/webhooks) requests, the response doesn't contain the full message. The response only populates the `name` and `thread.name` fields in addition to the information that was in the request. */
     await gapi.client.chat.spaces.messages.create(
       {
-        'createMessageNotificationOptions.notificationType': 'Test string',
+        'createMessageNotificationOptions.notificationType':
+          'NOTIFICATION_TYPE_NONE',
         messageId: 'Test string',
-        messageReplyOption: 'Test string',
+        messageReplyOption: 'MESSAGE_REPLY_OPTION_UNSPECIFIED',
         parent: 'Test string',
         requestId: 'Test string',
         threadKey: 'Test string',
@@ -680,7 +684,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -693,8 +697,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -711,14 +715,14 @@ gapi.load('client', async () => {
                           onClick: undefined,
                         },
                       ],
-                      displayStyle: 'Test string',
+                      displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                       expressionData: [
                         {
                           conditions: [
                             {
                               actionRuleId: 'Test string',
                               expressionDataCondition: {
-                                conditionType: 'Test string',
+                                conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                               },
                             },
                           ],
@@ -727,7 +731,7 @@ gapi.load('client', async () => {
                               actionRuleId: 'Test string',
                               commonWidgetAction: {
                                 updateVisibilityAction: {
-                                  visibility: 'Test string',
+                                  visibility: 'VISIBILITY_UNSPECIFIED',
                                 },
                               },
                               postEventTriggers: [
@@ -747,7 +751,7 @@ gapi.load('client', async () => {
                       },
                       header: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
@@ -755,18 +759,19 @@ gapi.load('client', async () => {
                       name: 'Test string',
                       peekCardHeader: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
                       },
-                      sectionDividerStyle: 'Test string',
+                      sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                       sections: [
                         {
                           collapseControl: {
                             collapseButton: undefined,
                             expandButton: undefined,
-                            horizontalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                           },
                           collapsible: true,
                           header: 'Test string',
@@ -789,7 +794,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -804,7 +809,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -820,7 +825,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -833,14 +838,17 @@ gapi.load('client', async () => {
                                     onClick: undefined,
                                   },
                                 ],
-                                layout: 'Test string',
+                                layout: 'LAYOUT_UNSPECIFIED',
                               },
                               columns: {
                                 columnItems: [
                                   {
-                                    horizontalAlignment: 'Test string',
-                                    horizontalSizeStyle: 'Test string',
-                                    verticalAlignment: 'Test string',
+                                    horizontalAlignment:
+                                      'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                                    horizontalSizeStyle:
+                                      'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                                    verticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     widgets: [
                                       {
                                         buttonList: undefined,
@@ -853,7 +861,7 @@ gapi.load('client', async () => {
                                               icon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -866,7 +874,7 @@ gapi.load('client', async () => {
                                               onClick: undefined,
                                             },
                                           ],
-                                          layout: 'Test string',
+                                          layout: 'LAYOUT_UNSPECIFIED',
                                         },
                                         dateTimePicker: {
                                           hostAppDataSource: {
@@ -877,7 +885,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           label: 'Test string',
@@ -885,8 +893,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -897,7 +906,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           timezoneOffsetDate: 42,
-                                          type: 'Test string',
+                                          type: 'DATE_AND_TIME',
                                           valueMsEpoch: 'Test string',
                                         },
                                         decoratedText: {
@@ -905,18 +914,20 @@ gapi.load('client', async () => {
                                           bottomLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           button: undefined,
                                           contentText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           endIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -928,7 +939,7 @@ gapi.load('client', async () => {
                                           icon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -941,7 +952,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -951,15 +962,16 @@ gapi.load('client', async () => {
                                             },
                                           },
                                           startIconVerticalAlignment:
-                                            'Test string',
+                                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                           switchControl: {
-                                            controlType: 'Test string',
+                                            controlType: 'SWITCH',
                                             name: 'Test string',
                                             onChangeAction: {
                                               allWidgetsAreRequired: true,
                                               function: 'Test string',
-                                              interaction: 'Test string',
-                                              loadIndicator: 'Test string',
+                                              interaction:
+                                                'INTERACTION_UNSPECIFIED',
+                                              loadIndicator: 'SPINNER',
                                               parameters: [
                                                 {
                                                   key: 'Test string',
@@ -977,7 +989,8 @@ gapi.load('client', async () => {
                                           topLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           wrapText: true,
                                         },
@@ -991,7 +1004,7 @@ gapi.load('client', async () => {
                                             {
                                               minCharactersTrigger: 42,
                                               platformDataSource: {
-                                                commonDataSource: 'Test string',
+                                                commonDataSource: 'UNKNOWN',
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
@@ -1000,15 +1013,16 @@ gapi.load('client', async () => {
                                                   },
                                                   workflowDataSource: {
                                                     includeVariables: true,
-                                                    type: 'Test string',
+                                                    type: 'UNKNOWN',
                                                   },
                                                 },
                                               },
                                               remoteDataSource: {
                                                 allWidgetsAreRequired: true,
                                                 function: 'Test string',
-                                                interaction: 'Test string',
-                                                loadIndicator: 'Test string',
+                                                interaction:
+                                                  'INTERACTION_UNSPECIFIED',
+                                                loadIndicator: 'SPINNER',
                                                 parameters: [
                                                   {
                                                     key: 'Test string',
@@ -1025,8 +1039,9 @@ gapi.load('client', async () => {
                                           externalDataSource: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -1053,8 +1068,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -1065,7 +1081,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           platformDataSource: {
-                                            commonDataSource: 'Test string',
+                                            commonDataSource: 'UNKNOWN',
                                             hostAppDataSource: {
                                               chatDataSource: {
                                                 spaceDataSource: {
@@ -1074,18 +1090,19 @@ gapi.load('client', async () => {
                                               },
                                               workflowDataSource: {
                                                 includeVariables: true,
-                                                type: 'Test string',
+                                                type: 'UNKNOWN',
                                               },
                                             },
                                           },
-                                          type: 'Test string',
+                                          type: 'CHECK_BOX',
                                         },
                                         textInput: {
                                           autoCompleteAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -1104,7 +1121,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           initialSuggestions: {
@@ -1119,8 +1136,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -1131,17 +1149,17 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           placeholderText: 'Test string',
-                                          type: 'Test string',
+                                          type: 'SINGLE_LINE',
                                           validation: {
                                             characterLimit: 42,
-                                            inputType: 'Test string',
+                                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                                           },
                                           value: 'Test string',
                                         },
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -1157,7 +1175,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 label: 'Test string',
@@ -1165,8 +1183,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -1177,7 +1195,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 timezoneOffsetDate: 42,
-                                type: 'Test string',
+                                type: 'DATE_AND_TIME',
                                 valueMsEpoch: 'Test string',
                               },
                               decoratedText: {
@@ -1185,18 +1203,18 @@ gapi.load('client', async () => {
                                 bottomLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 button: undefined,
                                 contentText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 endIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -1208,7 +1226,7 @@ gapi.load('client', async () => {
                                 icon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -1221,7 +1239,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -1230,15 +1248,16 @@ gapi.load('client', async () => {
                                     weight: 42,
                                   },
                                 },
-                                startIconVerticalAlignment: 'Test string',
+                                startIconVerticalAlignment:
+                                  'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                 switchControl: {
-                                  controlType: 'Test string',
+                                  controlType: 'SWITCH',
                                   name: 'Test string',
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -1256,7 +1275,7 @@ gapi.load('client', async () => {
                                 topLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 wrapText: true,
                               },
@@ -1266,7 +1285,7 @@ gapi.load('client', async () => {
                                   actionRuleId: 'Test string',
                                   commonWidgetAction: {
                                     updateVisibilityAction: {
-                                      visibility: 'Test string',
+                                      visibility: 'VISIBILITY_UNSPECIFIED',
                                     },
                                   },
                                   postEventTriggers: [
@@ -1285,7 +1304,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 columnCount: 42,
                                 items: [
@@ -1301,15 +1320,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        type: 'Test string',
+                                        type: 'BORDER_TYPE_UNSPECIFIED',
                                       },
                                       cropStyle: {
                                         aspectRatio: 42,
-                                        type: 'Test string',
+                                        type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                       },
                                       imageUri: 'Test string',
                                     },
-                                    layout: 'Test string',
+                                    layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                                     subtitle: 'Test string',
                                     title: 'Test string',
                                   },
@@ -1317,7 +1336,8 @@ gapi.load('client', async () => {
                                 onClick: undefined,
                                 title: 'Test string',
                               },
-                              horizontalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                               id: 'Test string',
                               image: {
                                 altText: 'Test string',
@@ -1329,7 +1349,7 @@ gapi.load('client', async () => {
                                   {
                                     minCharactersTrigger: 42,
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -1338,15 +1358,15 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
                                     remoteDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -1361,8 +1381,8 @@ gapi.load('client', async () => {
                                 externalDataSource: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -1389,8 +1409,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -1401,7 +1421,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 platformDataSource: {
-                                  commonDataSource: 'Test string',
+                                  commonDataSource: 'UNKNOWN',
                                   hostAppDataSource: {
                                     chatDataSource: {
                                       spaceDataSource: {
@@ -1410,18 +1430,18 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                 },
-                                type: 'Test string',
+                                type: 'CHECK_BOX',
                               },
                               textInput: {
                                 autoCompleteAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -1440,7 +1460,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 initialSuggestions: {
@@ -1455,8 +1475,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -1467,19 +1487,19 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 placeholderText: 'Test string',
-                                type: 'Test string',
+                                type: 'SINGLE_LINE',
                                 validation: {
                                   characterLimit: 42,
-                                  inputType: 'Test string',
+                                  inputType: 'INPUT_TYPE_UNSPECIFIED',
                                 },
                                 value: 'Test string',
                               },
                               textParagraph: {
                                 maxLines: 42,
                                 text: 'Test string',
-                                textSyntax: 'Test string',
+                                textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                               },
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           ],
                         },
@@ -1488,8 +1508,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -1500,8 +1520,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -1512,7 +1532,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -1527,7 +1547,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -1536,7 +1556,7 @@ gapi.load('client', async () => {
         actionResponse: {
           dialogAction: {
             actionStatus: {
-              statusCode: 'Test string',
+              statusCode: 'OK',
               userFacingMessage: 'Test string',
             },
             dialog: {
@@ -1548,8 +1568,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1563,8 +1583,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1575,8 +1595,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -1587,7 +1607,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -1603,14 +1623,14 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                displayStyle: 'Test string',
+                displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                 expressionData: [
                   {
                     conditions: [
                       {
                         actionRuleId: 'Test string',
                         expressionDataCondition: {
-                          conditionType: 'Test string',
+                          conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                         },
                       },
                     ],
@@ -1619,7 +1639,7 @@ gapi.load('client', async () => {
                         actionRuleId: 'Test string',
                         commonWidgetAction: {
                           updateVisibilityAction: {
-                            visibility: 'Test string',
+                            visibility: 'VISIBILITY_UNSPECIFIED',
                           },
                         },
                         postEventTriggers: [
@@ -1646,7 +1666,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -1659,8 +1679,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1674,8 +1694,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1686,8 +1706,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -1698,7 +1718,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -1713,7 +1733,7 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   secondaryButton: {
                     altText: 'Test string',
@@ -1727,7 +1747,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -1740,8 +1760,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1755,8 +1775,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -1767,8 +1787,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -1779,7 +1799,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -1794,12 +1814,12 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
                 header: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
@@ -1807,12 +1827,12 @@ gapi.load('client', async () => {
                 name: 'Test string',
                 peekCardHeader: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
                 },
-                sectionDividerStyle: 'Test string',
+                sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                 sections: [
                   {
                     collapseControl: {
@@ -1828,7 +1848,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -1841,8 +1861,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -1856,8 +1876,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -1868,8 +1888,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -1880,7 +1900,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -1895,7 +1915,7 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       expandButton: {
                         altText: 'Test string',
@@ -1909,7 +1929,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -1922,8 +1942,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -1937,8 +1957,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -1949,8 +1969,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -1961,7 +1981,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -1976,9 +1996,9 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                     },
                     collapsible: true,
                     header: 'Test string',
@@ -2000,7 +2020,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -2013,8 +2033,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -2028,8 +2048,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -2040,8 +2060,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -2052,7 +2072,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -2067,7 +2087,7 @@ gapi.load('client', async () => {
                                 },
                               },
                               text: 'Test string',
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -2090,7 +2110,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -2103,8 +2123,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2118,8 +2139,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2130,8 +2152,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -2142,7 +2164,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -2157,7 +2179,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -2168,8 +2190,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2183,8 +2205,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2195,8 +2217,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -2207,7 +2229,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -2225,7 +2247,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -2245,7 +2267,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -2258,8 +2280,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2273,8 +2296,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2285,8 +2309,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -2297,7 +2321,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -2312,7 +2336,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -2323,8 +2347,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2338,8 +2362,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2350,8 +2374,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -2362,7 +2386,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -2380,7 +2404,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -2396,7 +2420,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -2410,8 +2434,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -2425,8 +2449,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -2437,8 +2461,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -2449,7 +2473,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -2465,14 +2489,17 @@ gapi.load('client', async () => {
                               },
                             },
                           ],
-                          layout: 'Test string',
+                          layout: 'LAYOUT_UNSPECIFIED',
                         },
                         columns: {
                           columnItems: [
                             {
-                              horizontalAlignment: 'Test string',
-                              horizontalSizeStyle: 'Test string',
-                              verticalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                              horizontalSizeStyle:
+                                'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                              verticalAlignment:
+                                'VERTICAL_ALIGNMENT_UNSPECIFIED',
                               widgets: [
                                 {
                                   buttonList: {
@@ -2489,7 +2516,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -2502,8 +2529,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2517,8 +2545,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2529,8 +2558,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -2541,7 +2570,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -2556,7 +2585,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -2569,7 +2598,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -2583,8 +2612,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2598,8 +2628,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -2610,8 +2641,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -2622,7 +2653,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -2638,7 +2669,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     ],
-                                    layout: 'Test string',
+                                    layout: 'LAYOUT_UNSPECIFIED',
                                   },
                                   dateTimePicker: {
                                     hostAppDataSource: {
@@ -2649,7 +2680,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     label: 'Test string',
@@ -2657,8 +2688,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -2669,7 +2700,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     timezoneOffsetDate: 42,
-                                    type: 'Test string',
+                                    type: 'DATE_AND_TIME',
                                     valueMsEpoch: 'Test string',
                                   },
                                   decoratedText: {
@@ -2677,7 +2708,7 @@ gapi.load('client', async () => {
                                     bottomLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     button: {
                                       altText: 'Test string',
@@ -2691,7 +2722,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -2704,8 +2735,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -2719,8 +2751,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -2731,8 +2764,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -2743,7 +2776,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -2758,17 +2791,17 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                     contentText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     endIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -2780,7 +2813,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -2793,8 +2826,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2808,8 +2841,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2820,8 +2853,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -2832,7 +2865,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -2849,7 +2882,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -2858,15 +2891,16 @@ gapi.load('client', async () => {
                                         weight: 42,
                                       },
                                     },
-                                    startIconVerticalAlignment: 'Test string',
+                                    startIconVerticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     switchControl: {
-                                      controlType: 'Test string',
+                                      controlType: 'SWITCH',
                                       name: 'Test string',
                                       onChangeAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2884,7 +2918,7 @@ gapi.load('client', async () => {
                                     topLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     wrapText: true,
                                   },
@@ -2895,8 +2929,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2910,8 +2944,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -2922,8 +2956,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -2934,7 +2968,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -2954,7 +2988,7 @@ gapi.load('client', async () => {
                                       {
                                         minCharactersTrigger: 42,
                                         platformDataSource: {
-                                          commonDataSource: 'Test string',
+                                          commonDataSource: 'UNKNOWN',
                                           hostAppDataSource: {
                                             chatDataSource: {
                                               spaceDataSource: {
@@ -2963,15 +2997,16 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                         },
                                         remoteDataSource: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -2986,8 +3021,8 @@ gapi.load('client', async () => {
                                     externalDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -3014,8 +3049,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -3026,7 +3061,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -3035,18 +3070,18 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
-                                    type: 'Test string',
+                                    type: 'CHECK_BOX',
                                   },
                                   textInput: {
                                     autoCompleteAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -3065,7 +3100,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     initialSuggestions: {
@@ -3080,8 +3115,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -3092,17 +3127,17 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     placeholderText: 'Test string',
-                                    type: 'Test string',
+                                    type: 'SINGLE_LINE',
                                     validation: {
                                       characterLimit: 42,
-                                      inputType: 'Test string',
+                                      inputType: 'INPUT_TYPE_UNSPECIFIED',
                                     },
                                     value: 'Test string',
                                   },
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -3118,7 +3153,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           label: 'Test string',
@@ -3126,8 +3161,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -3138,7 +3173,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           timezoneOffsetDate: 42,
-                          type: 'Test string',
+                          type: 'DATE_AND_TIME',
                           valueMsEpoch: 'Test string',
                         },
                         decoratedText: {
@@ -3146,7 +3181,7 @@ gapi.load('client', async () => {
                           bottomLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           button: {
                             altText: 'Test string',
@@ -3160,7 +3195,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -3173,8 +3208,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -3188,8 +3223,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -3200,8 +3235,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -3212,7 +3247,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -3227,17 +3262,17 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                           contentText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           endIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -3249,7 +3284,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -3262,8 +3297,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3277,8 +3312,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3289,8 +3324,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -3301,7 +3336,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -3318,7 +3353,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -3327,15 +3362,16 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          startIconVerticalAlignment: 'Test string',
+                          startIconVerticalAlignment:
+                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                           switchControl: {
-                            controlType: 'Test string',
+                            controlType: 'SWITCH',
                             name: 'Test string',
                             onChangeAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3353,7 +3389,7 @@ gapi.load('client', async () => {
                           topLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           wrapText: true,
                         },
@@ -3363,7 +3399,7 @@ gapi.load('client', async () => {
                             actionRuleId: 'Test string',
                             commonWidgetAction: {
                               updateVisibilityAction: {
-                                visibility: 'Test string',
+                                visibility: 'VISIBILITY_UNSPECIFIED',
                               },
                             },
                             postEventTriggers: [
@@ -3382,7 +3418,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            type: 'Test string',
+                            type: 'BORDER_TYPE_UNSPECIFIED',
                           },
                           columnCount: 42,
                           items: [
@@ -3398,15 +3434,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 cropStyle: {
                                   aspectRatio: 42,
-                                  type: 'Test string',
+                                  type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                 },
                                 imageUri: 'Test string',
                               },
-                              layout: 'Test string',
+                              layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                               subtitle: 'Test string',
                               title: 'Test string',
                             },
@@ -3415,8 +3451,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3430,8 +3466,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3442,8 +3478,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -3454,7 +3490,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -3470,7 +3506,7 @@ gapi.load('client', async () => {
                           },
                           title: 'Test string',
                         },
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                         id: 'Test string',
                         image: {
                           altText: 'Test string',
@@ -3479,8 +3515,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3494,8 +3530,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -3506,8 +3542,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -3518,7 +3554,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -3538,7 +3574,7 @@ gapi.load('client', async () => {
                             {
                               minCharactersTrigger: 42,
                               platformDataSource: {
-                                commonDataSource: 'Test string',
+                                commonDataSource: 'UNKNOWN',
                                 hostAppDataSource: {
                                   chatDataSource: {
                                     spaceDataSource: {
@@ -3547,15 +3583,15 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                               },
                               remoteDataSource: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -3570,8 +3606,8 @@ gapi.load('client', async () => {
                           externalDataSource: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -3598,8 +3634,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -3610,7 +3646,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           platformDataSource: {
-                            commonDataSource: 'Test string',
+                            commonDataSource: 'UNKNOWN',
                             hostAppDataSource: {
                               chatDataSource: {
                                 spaceDataSource: {
@@ -3619,18 +3655,18 @@ gapi.load('client', async () => {
                               },
                               workflowDataSource: {
                                 includeVariables: true,
-                                type: 'Test string',
+                                type: 'UNKNOWN',
                               },
                             },
                           },
-                          type: 'Test string',
+                          type: 'CHECK_BOX',
                         },
                         textInput: {
                           autoCompleteAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -3649,7 +3685,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           initialSuggestions: {
@@ -3664,8 +3700,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -3676,19 +3712,19 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           placeholderText: 'Test string',
-                          type: 'Test string',
+                          type: 'SINGLE_LINE',
                           validation: {
                             characterLimit: 42,
-                            inputType: 'Test string',
+                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                           },
                           value: 'Test string',
                         },
                         textParagraph: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
-                        visibility: 'Test string',
+                        visibility: 'VISIBILITY_UNSPECIFIED',
                       },
                     ],
                   },
@@ -3696,7 +3732,7 @@ gapi.load('client', async () => {
               },
             },
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           updatedWidget: {
             suggestions: {
               items: [
@@ -3745,11 +3781,11 @@ gapi.load('client', async () => {
                 mimeType: 'Test string',
               },
               meetSpaceLinkData: {
-                huddleStatus: 'Test string',
+                huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                 meetingCode: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              richLinkType: 'Test string',
+              richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
               uri: 'Test string',
             },
             slashCommand: {
@@ -3760,17 +3796,17 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               commandId: 'Test string',
               commandName: 'Test string',
               triggersDialog: true,
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             startIndex: 42,
-            type: 'Test string',
+            type: 'ANNOTATION_TYPE_UNSPECIFIED',
             userMention: {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               user: {
                 avatarUrl: 'Test string',
                 displayName: 'Test string',
@@ -3778,7 +3814,7 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             },
           },
@@ -3802,7 +3838,7 @@ gapi.load('client', async () => {
               driveFileId: 'Test string',
             },
             name: 'Test string',
-            source: 'Test string',
+            source: 'SOURCE_UNSPECIFIED',
             thumbnailUri: 'Test string',
           },
         ],
@@ -3828,7 +3864,7 @@ gapi.load('client', async () => {
               },
             ],
             header: {
-              imageStyle: 'Test string',
+              imageStyle: 'IMAGE_STYLE_UNSPECIFIED',
               imageUrl: 'Test string',
               subtitle: 'Test string',
               title: 'Test string',
@@ -3842,7 +3878,7 @@ gapi.load('client', async () => {
                     buttons: [
                       {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -3901,7 +3937,7 @@ gapi.load('client', async () => {
                       bottomLabel: 'Test string',
                       button: {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -3939,7 +3975,7 @@ gapi.load('client', async () => {
                       },
                       content: 'Test string',
                       contentMultiline: true,
-                      icon: 'Test string',
+                      icon: 'ICON_UNSPECIFIED',
                       iconUrl: 'Test string',
                       onClick: {
                         action: {
@@ -3976,8 +4012,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -3991,8 +4027,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -4003,8 +4039,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -4015,7 +4051,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -4031,14 +4067,14 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              displayStyle: 'Test string',
+              displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
               expressionData: [
                 {
                   conditions: [
                     {
                       actionRuleId: 'Test string',
                       expressionDataCondition: {
-                        conditionType: 'Test string',
+                        conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -4047,7 +4083,7 @@ gapi.load('client', async () => {
                       actionRuleId: 'Test string',
                       commonWidgetAction: {
                         updateVisibilityAction: {
-                          visibility: 'Test string',
+                          visibility: 'VISIBILITY_UNSPECIFIED',
                         },
                       },
                       postEventTriggers: [
@@ -4074,7 +4110,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -4087,8 +4123,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -4102,8 +4138,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -4114,8 +4150,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -4126,7 +4162,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -4141,7 +4177,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 secondaryButton: {
                   altText: 'Test string',
@@ -4155,7 +4191,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -4168,8 +4204,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -4183,8 +4219,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -4195,8 +4231,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -4207,7 +4243,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -4222,12 +4258,12 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               },
               header: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
@@ -4235,12 +4271,12 @@ gapi.load('client', async () => {
               name: 'Test string',
               peekCardHeader: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
               },
-              sectionDividerStyle: 'Test string',
+              sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
               sections: [
                 {
                   collapseControl: {
@@ -4256,7 +4292,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -4269,8 +4305,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -4284,8 +4320,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -4296,8 +4332,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -4308,7 +4344,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -4323,7 +4359,7 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     expandButton: {
                       altText: 'Test string',
@@ -4337,7 +4373,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -4350,8 +4386,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -4365,8 +4401,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -4377,8 +4413,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -4389,7 +4425,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -4404,9 +4440,9 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                   },
                   collapsible: true,
                   header: 'Test string',
@@ -4428,7 +4464,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -4441,8 +4477,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -4456,8 +4492,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -4468,8 +4504,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -4480,7 +4516,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -4495,7 +4531,7 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -4518,7 +4554,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -4531,8 +4567,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4546,8 +4583,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4558,8 +4596,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -4570,7 +4608,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -4585,7 +4623,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -4596,8 +4634,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -4611,8 +4649,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -4623,8 +4661,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -4635,7 +4673,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -4653,7 +4691,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -4673,7 +4711,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -4686,8 +4724,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4701,8 +4740,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4713,8 +4753,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -4725,7 +4765,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -4740,7 +4780,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -4751,8 +4791,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -4766,8 +4806,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -4778,8 +4818,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -4790,7 +4830,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -4808,7 +4848,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -4824,7 +4864,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -4838,8 +4878,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -4853,8 +4893,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -4865,8 +4905,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -4877,7 +4917,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -4893,14 +4933,16 @@ gapi.load('client', async () => {
                             },
                           },
                         ],
-                        layout: 'Test string',
+                        layout: 'LAYOUT_UNSPECIFIED',
                       },
                       columns: {
                         columnItems: [
                           {
-                            horizontalAlignment: 'Test string',
-                            horizontalSizeStyle: 'Test string',
-                            verticalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                            horizontalSizeStyle:
+                              'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                            verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                             widgets: [
                               {
                                 buttonList: {
@@ -4917,7 +4959,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -4930,8 +4972,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4945,8 +4988,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -4957,8 +5001,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -4969,7 +5013,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -4984,7 +5028,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -4997,7 +5041,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -5011,8 +5055,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -5026,8 +5071,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -5038,8 +5084,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -5050,7 +5096,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -5066,7 +5112,7 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   ],
-                                  layout: 'Test string',
+                                  layout: 'LAYOUT_UNSPECIFIED',
                                 },
                                 dateTimePicker: {
                                   hostAppDataSource: {
@@ -5077,7 +5123,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   label: 'Test string',
@@ -5085,8 +5131,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -5097,7 +5143,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   timezoneOffsetDate: 42,
-                                  type: 'Test string',
+                                  type: 'DATE_AND_TIME',
                                   valueMsEpoch: 'Test string',
                                 },
                                 decoratedText: {
@@ -5105,7 +5151,7 @@ gapi.load('client', async () => {
                                   bottomLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   button: {
                                     altText: 'Test string',
@@ -5119,7 +5165,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -5132,8 +5178,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -5147,8 +5193,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -5159,8 +5205,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -5171,7 +5217,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -5186,17 +5232,17 @@ gapi.load('client', async () => {
                                       },
                                     },
                                     text: 'Test string',
-                                    type: 'Test string',
+                                    type: 'TYPE_UNSPECIFIED',
                                   },
                                   contentText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   endIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -5208,7 +5254,7 @@ gapi.load('client', async () => {
                                   icon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -5221,8 +5267,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -5236,8 +5282,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -5248,8 +5294,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -5260,7 +5306,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -5277,7 +5323,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -5286,15 +5332,16 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  startIconVerticalAlignment: 'Test string',
+                                  startIconVerticalAlignment:
+                                    'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                   switchControl: {
-                                    controlType: 'Test string',
+                                    controlType: 'SWITCH',
                                     name: 'Test string',
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -5312,7 +5359,7 @@ gapi.load('client', async () => {
                                   topLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   wrapText: true,
                                 },
@@ -5323,8 +5370,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -5338,8 +5385,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -5350,8 +5397,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -5362,7 +5409,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -5382,7 +5429,7 @@ gapi.load('client', async () => {
                                     {
                                       minCharactersTrigger: 42,
                                       platformDataSource: {
-                                        commonDataSource: 'Test string',
+                                        commonDataSource: 'UNKNOWN',
                                         hostAppDataSource: {
                                           chatDataSource: {
                                             spaceDataSource: {
@@ -5391,15 +5438,15 @@ gapi.load('client', async () => {
                                           },
                                           workflowDataSource: {
                                             includeVariables: true,
-                                            type: 'Test string',
+                                            type: 'UNKNOWN',
                                           },
                                         },
                                       },
                                       remoteDataSource: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -5414,8 +5461,8 @@ gapi.load('client', async () => {
                                   externalDataSource: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -5442,8 +5489,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -5454,7 +5501,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   platformDataSource: {
-                                    commonDataSource: 'Test string',
+                                    commonDataSource: 'UNKNOWN',
                                     hostAppDataSource: {
                                       chatDataSource: {
                                         spaceDataSource: {
@@ -5463,18 +5510,18 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'CHECK_BOX',
                                 },
                                 textInput: {
                                   autoCompleteAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -5493,7 +5540,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   initialSuggestions: {
@@ -5508,8 +5555,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -5520,17 +5567,17 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   placeholderText: 'Test string',
-                                  type: 'Test string',
+                                  type: 'SINGLE_LINE',
                                   validation: {
                                     characterLimit: 42,
-                                    inputType: 'Test string',
+                                    inputType: 'INPUT_TYPE_UNSPECIFIED',
                                   },
                                   value: 'Test string',
                                 },
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -5546,7 +5593,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         label: 'Test string',
@@ -5554,8 +5601,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -5566,7 +5613,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         timezoneOffsetDate: 42,
-                        type: 'Test string',
+                        type: 'DATE_AND_TIME',
                         valueMsEpoch: 'Test string',
                       },
                       decoratedText: {
@@ -5574,7 +5621,7 @@ gapi.load('client', async () => {
                         bottomLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         button: {
                           altText: 'Test string',
@@ -5588,7 +5635,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -5601,8 +5648,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -5616,8 +5663,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -5628,8 +5675,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -5640,7 +5687,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -5655,17 +5702,17 @@ gapi.load('client', async () => {
                             },
                           },
                           text: 'Test string',
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         contentText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         endIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -5677,7 +5724,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -5690,8 +5737,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5705,8 +5752,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5717,8 +5764,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -5729,7 +5776,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -5746,7 +5793,7 @@ gapi.load('client', async () => {
                         startIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -5755,15 +5802,16 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        startIconVerticalAlignment: 'Test string',
+                        startIconVerticalAlignment:
+                          'VERTICAL_ALIGNMENT_UNSPECIFIED',
                         switchControl: {
-                          controlType: 'Test string',
+                          controlType: 'SWITCH',
                           name: 'Test string',
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5781,7 +5829,7 @@ gapi.load('client', async () => {
                         topLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         wrapText: true,
                       },
@@ -5791,7 +5839,7 @@ gapi.load('client', async () => {
                           actionRuleId: 'Test string',
                           commonWidgetAction: {
                             updateVisibilityAction: {
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           },
                           postEventTriggers: [
@@ -5810,7 +5858,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          type: 'Test string',
+                          type: 'BORDER_TYPE_UNSPECIFIED',
                         },
                         columnCount: 42,
                         items: [
@@ -5826,15 +5874,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                type: 'Test string',
+                                type: 'BORDER_TYPE_UNSPECIFIED',
                               },
                               cropStyle: {
                                 aspectRatio: 42,
-                                type: 'Test string',
+                                type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                               },
                               imageUri: 'Test string',
                             },
-                            layout: 'Test string',
+                            layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                             subtitle: 'Test string',
                             title: 'Test string',
                           },
@@ -5843,8 +5891,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5858,8 +5906,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5870,8 +5918,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -5882,7 +5930,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -5898,7 +5946,7 @@ gapi.load('client', async () => {
                         },
                         title: 'Test string',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       id: 'Test string',
                       image: {
                         altText: 'Test string',
@@ -5907,8 +5955,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5922,8 +5970,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -5934,8 +5982,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -5946,7 +5994,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -5966,7 +6014,7 @@ gapi.load('client', async () => {
                           {
                             minCharactersTrigger: 42,
                             platformDataSource: {
-                              commonDataSource: 'Test string',
+                              commonDataSource: 'UNKNOWN',
                               hostAppDataSource: {
                                 chatDataSource: {
                                   spaceDataSource: {
@@ -5975,15 +6023,15 @@ gapi.load('client', async () => {
                                 },
                                 workflowDataSource: {
                                   includeVariables: true,
-                                  type: 'Test string',
+                                  type: 'UNKNOWN',
                                 },
                               },
                             },
                             remoteDataSource: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -5998,8 +6046,8 @@ gapi.load('client', async () => {
                         externalDataSource: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -6026,8 +6074,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -6038,7 +6086,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         platformDataSource: {
-                          commonDataSource: 'Test string',
+                          commonDataSource: 'UNKNOWN',
                           hostAppDataSource: {
                             chatDataSource: {
                               spaceDataSource: {
@@ -6047,18 +6095,18 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                         },
-                        type: 'Test string',
+                        type: 'CHECK_BOX',
                       },
                       textInput: {
                         autoCompleteAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -6077,7 +6125,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         initialSuggestions: {
@@ -6092,8 +6140,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -6104,19 +6152,19 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         placeholderText: 'Test string',
-                        type: 'Test string',
+                        type: 'SINGLE_LINE',
                         validation: {
                           characterLimit: 42,
-                          inputType: 'Test string',
+                          inputType: 'INPUT_TYPE_UNSPECIFIED',
                         },
                         value: 'Test string',
                       },
                       textParagraph: {
                         maxLines: 42,
                         text: 'Test string',
-                        textSyntax: 'Test string',
+                        textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                       },
-                      visibility: 'Test string',
+                      visibility: 'VISIBILITY_UNSPECIFIED',
                     },
                   ],
                 },
@@ -6130,7 +6178,7 @@ gapi.load('client', async () => {
               email: 'Test string',
               isAnonymous: true,
               name: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -6138,7 +6186,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         deleteTime: 'Test string',
         deletionMetadata: {
-          deletionType: 'Test string',
+          deletionType: 'DELETION_TYPE_UNSPECIFIED',
         },
         elements: {
           citations: [
@@ -6198,7 +6246,7 @@ gapi.load('client', async () => {
         fallbackText: 'Test string',
         formattedText: 'Test string',
         lastUpdateTime: 'Test string',
-        markupSyntax: 'Test string',
+        markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
         matchedUrl: {
           url: 'Test string',
         },
@@ -6210,7 +6258,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         quotedMessageMetadata: {
           forwardedMetadata: {
@@ -6252,11 +6300,11 @@ gapi.load('client', async () => {
                     mimeType: 'Test string',
                   },
                   meetSpaceLinkData: {
-                    huddleStatus: 'Test string',
+                    huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                     meetingCode: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  richLinkType: 'Test string',
+                  richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
                   uri: 'Test string',
                 },
                 slashCommand: {
@@ -6267,17 +6315,17 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   commandId: 'Test string',
                   commandName: 'Test string',
                   triggersDialog: true,
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 startIndex: 42,
-                type: 'Test string',
+                type: 'ANNOTATION_TYPE_UNSPECIFIED',
                 userMention: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                   user: {
                     avatarUrl: 'Test string',
                     displayName: 'Test string',
@@ -6285,7 +6333,7 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -6303,7 +6351,7 @@ gapi.load('client', async () => {
                   driveFileId: 'Test string',
                 },
                 name: 'Test string',
-                source: 'Test string',
+                source: 'SOURCE_UNSPECIFIED',
                 thumbnailUri: 'Test string',
               },
             ],
@@ -6311,7 +6359,7 @@ gapi.load('client', async () => {
             sender: 'Test string',
             text: 'Test string',
           },
-          quoteType: 'Test string',
+          quoteType: 'QUOTE_TYPE_UNSPECIFIED',
         },
         sender: {
           avatarUrl: 'Test string',
@@ -6320,7 +6368,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         silent: true,
         slashCommand: {
@@ -6357,7 +6405,7 @@ gapi.load('client', async () => {
                 ],
               },
             },
-            accessState: 'Test string',
+            accessState: 'ACCESS_STATE_UNSPECIFIED',
             audience: 'Test string',
           },
           adminInstalled: true,
@@ -6420,18 +6468,19 @@ gapi.load('client', async () => {
               membersAllowed: true,
             },
           },
-          predefinedPermissionSettings: 'Test string',
+          predefinedPermissionSettings:
+            'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
           singleUserBotDm: true,
           spaceDetails: {
             description: 'Test string',
             guidelines: 'Test string',
           },
-          spaceHistoryState: 'Test string',
-          spaceThreadingState: 'Test string',
-          spaceType: 'Test string',
+          spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+          spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+          spaceType: 'SPACE_TYPE_UNSPECIFIED',
           spaceUri: 'Test string',
           threaded: true,
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         text: 'Test string',
         thread: {
@@ -6448,13 +6497,13 @@ gapi.load('client', async () => {
     });
     /** Returns details about a message. For an example, see [Get details about a message](https://developers.google.com/workspace/chat/get-messages). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.bot`: When using this authorization scope, this method returns details about a message the Chat app has access to, like direct messages and [slash commands](https://developers.google.com/workspace/chat/slash-commands) that invoke the Chat app. - `https://www.googleapis.com/auth/chat.app.messages.readonly` with [administrator approval](https://support.google.com/a?p=chat-app-auth). When using this authentication scope, this method returns details about a public message in a space. - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.messages.readonly` - `https://www.googleapis.com/auth/chat.messages` Note: Might return a message from a blocked member or space. */
     await gapi.client.chat.spaces.messages.get({
-      markupSyntax: 'Test string',
+      markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
       name: 'Test string',
     });
     /** Lists messages in a space that the caller is a member of, including messages from blocked members and spaces. System messages, like those announcing new space members, aren't included. If you list messages from a space with no messages, the response is an empty object. When using a REST/HTTP interface, the response contains an empty JSON object, `{}`. For an example, see [List messages](https://developers.google.com/workspace/chat/api/guides/v1/messages/list). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with [administrator approval](https://support.google.com/a?p=chat-app-auth) with the authorization scope: - `https://www.googleapis.com/auth/chat.app.messages.readonly`. When using this authentication scope, this method only returns public messages in a space. It doesn't include private messages. - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.messages.readonly` - `https://www.googleapis.com/auth/chat.messages` - `https://www.googleapis.com/auth/chat.import` (import mode spaces only) */
     await gapi.client.chat.spaces.messages.list({
       filter: 'Test string',
-      markupSyntax: 'Test string',
+      markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
       orderBy: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
@@ -6485,7 +6534,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -6498,8 +6547,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -6516,14 +6565,14 @@ gapi.load('client', async () => {
                           onClick: undefined,
                         },
                       ],
-                      displayStyle: 'Test string',
+                      displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                       expressionData: [
                         {
                           conditions: [
                             {
                               actionRuleId: 'Test string',
                               expressionDataCondition: {
-                                conditionType: 'Test string',
+                                conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                               },
                             },
                           ],
@@ -6532,7 +6581,7 @@ gapi.load('client', async () => {
                               actionRuleId: 'Test string',
                               commonWidgetAction: {
                                 updateVisibilityAction: {
-                                  visibility: 'Test string',
+                                  visibility: 'VISIBILITY_UNSPECIFIED',
                                 },
                               },
                               postEventTriggers: [
@@ -6552,7 +6601,7 @@ gapi.load('client', async () => {
                       },
                       header: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
@@ -6560,18 +6609,19 @@ gapi.load('client', async () => {
                       name: 'Test string',
                       peekCardHeader: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
                       },
-                      sectionDividerStyle: 'Test string',
+                      sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                       sections: [
                         {
                           collapseControl: {
                             collapseButton: undefined,
                             expandButton: undefined,
-                            horizontalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                           },
                           collapsible: true,
                           header: 'Test string',
@@ -6594,7 +6644,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -6609,7 +6659,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -6625,7 +6675,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -6638,14 +6688,17 @@ gapi.load('client', async () => {
                                     onClick: undefined,
                                   },
                                 ],
-                                layout: 'Test string',
+                                layout: 'LAYOUT_UNSPECIFIED',
                               },
                               columns: {
                                 columnItems: [
                                   {
-                                    horizontalAlignment: 'Test string',
-                                    horizontalSizeStyle: 'Test string',
-                                    verticalAlignment: 'Test string',
+                                    horizontalAlignment:
+                                      'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                                    horizontalSizeStyle:
+                                      'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                                    verticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     widgets: [
                                       {
                                         buttonList: undefined,
@@ -6658,7 +6711,7 @@ gapi.load('client', async () => {
                                               icon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -6671,7 +6724,7 @@ gapi.load('client', async () => {
                                               onClick: undefined,
                                             },
                                           ],
-                                          layout: 'Test string',
+                                          layout: 'LAYOUT_UNSPECIFIED',
                                         },
                                         dateTimePicker: {
                                           hostAppDataSource: {
@@ -6682,7 +6735,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           label: 'Test string',
@@ -6690,8 +6743,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -6702,7 +6756,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           timezoneOffsetDate: 42,
-                                          type: 'Test string',
+                                          type: 'DATE_AND_TIME',
                                           valueMsEpoch: 'Test string',
                                         },
                                         decoratedText: {
@@ -6710,18 +6764,20 @@ gapi.load('client', async () => {
                                           bottomLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           button: undefined,
                                           contentText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           endIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -6733,7 +6789,7 @@ gapi.load('client', async () => {
                                           icon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -6746,7 +6802,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -6756,15 +6812,16 @@ gapi.load('client', async () => {
                                             },
                                           },
                                           startIconVerticalAlignment:
-                                            'Test string',
+                                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                           switchControl: {
-                                            controlType: 'Test string',
+                                            controlType: 'SWITCH',
                                             name: 'Test string',
                                             onChangeAction: {
                                               allWidgetsAreRequired: true,
                                               function: 'Test string',
-                                              interaction: 'Test string',
-                                              loadIndicator: 'Test string',
+                                              interaction:
+                                                'INTERACTION_UNSPECIFIED',
+                                              loadIndicator: 'SPINNER',
                                               parameters: [
                                                 {
                                                   key: 'Test string',
@@ -6782,7 +6839,8 @@ gapi.load('client', async () => {
                                           topLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           wrapText: true,
                                         },
@@ -6796,7 +6854,7 @@ gapi.load('client', async () => {
                                             {
                                               minCharactersTrigger: 42,
                                               platformDataSource: {
-                                                commonDataSource: 'Test string',
+                                                commonDataSource: 'UNKNOWN',
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
@@ -6805,15 +6863,16 @@ gapi.load('client', async () => {
                                                   },
                                                   workflowDataSource: {
                                                     includeVariables: true,
-                                                    type: 'Test string',
+                                                    type: 'UNKNOWN',
                                                   },
                                                 },
                                               },
                                               remoteDataSource: {
                                                 allWidgetsAreRequired: true,
                                                 function: 'Test string',
-                                                interaction: 'Test string',
-                                                loadIndicator: 'Test string',
+                                                interaction:
+                                                  'INTERACTION_UNSPECIFIED',
+                                                loadIndicator: 'SPINNER',
                                                 parameters: [
                                                   {
                                                     key: 'Test string',
@@ -6830,8 +6889,9 @@ gapi.load('client', async () => {
                                           externalDataSource: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -6858,8 +6918,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -6870,7 +6931,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           platformDataSource: {
-                                            commonDataSource: 'Test string',
+                                            commonDataSource: 'UNKNOWN',
                                             hostAppDataSource: {
                                               chatDataSource: {
                                                 spaceDataSource: {
@@ -6879,18 +6940,19 @@ gapi.load('client', async () => {
                                               },
                                               workflowDataSource: {
                                                 includeVariables: true,
-                                                type: 'Test string',
+                                                type: 'UNKNOWN',
                                               },
                                             },
                                           },
-                                          type: 'Test string',
+                                          type: 'CHECK_BOX',
                                         },
                                         textInput: {
                                           autoCompleteAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -6909,7 +6971,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           initialSuggestions: {
@@ -6924,8 +6986,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -6936,17 +6999,17 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           placeholderText: 'Test string',
-                                          type: 'Test string',
+                                          type: 'SINGLE_LINE',
                                           validation: {
                                             characterLimit: 42,
-                                            inputType: 'Test string',
+                                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                                           },
                                           value: 'Test string',
                                         },
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -6962,7 +7025,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 label: 'Test string',
@@ -6970,8 +7033,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -6982,7 +7045,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 timezoneOffsetDate: 42,
-                                type: 'Test string',
+                                type: 'DATE_AND_TIME',
                                 valueMsEpoch: 'Test string',
                               },
                               decoratedText: {
@@ -6990,18 +7053,18 @@ gapi.load('client', async () => {
                                 bottomLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 button: undefined,
                                 contentText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 endIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -7013,7 +7076,7 @@ gapi.load('client', async () => {
                                 icon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -7026,7 +7089,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -7035,15 +7098,16 @@ gapi.load('client', async () => {
                                     weight: 42,
                                   },
                                 },
-                                startIconVerticalAlignment: 'Test string',
+                                startIconVerticalAlignment:
+                                  'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                 switchControl: {
-                                  controlType: 'Test string',
+                                  controlType: 'SWITCH',
                                   name: 'Test string',
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -7061,7 +7125,7 @@ gapi.load('client', async () => {
                                 topLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 wrapText: true,
                               },
@@ -7071,7 +7135,7 @@ gapi.load('client', async () => {
                                   actionRuleId: 'Test string',
                                   commonWidgetAction: {
                                     updateVisibilityAction: {
-                                      visibility: 'Test string',
+                                      visibility: 'VISIBILITY_UNSPECIFIED',
                                     },
                                   },
                                   postEventTriggers: [
@@ -7090,7 +7154,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 columnCount: 42,
                                 items: [
@@ -7106,15 +7170,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        type: 'Test string',
+                                        type: 'BORDER_TYPE_UNSPECIFIED',
                                       },
                                       cropStyle: {
                                         aspectRatio: 42,
-                                        type: 'Test string',
+                                        type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                       },
                                       imageUri: 'Test string',
                                     },
-                                    layout: 'Test string',
+                                    layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                                     subtitle: 'Test string',
                                     title: 'Test string',
                                   },
@@ -7122,7 +7186,8 @@ gapi.load('client', async () => {
                                 onClick: undefined,
                                 title: 'Test string',
                               },
-                              horizontalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                               id: 'Test string',
                               image: {
                                 altText: 'Test string',
@@ -7134,7 +7199,7 @@ gapi.load('client', async () => {
                                   {
                                     minCharactersTrigger: 42,
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -7143,15 +7208,15 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
                                     remoteDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -7166,8 +7231,8 @@ gapi.load('client', async () => {
                                 externalDataSource: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7194,8 +7259,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7206,7 +7271,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 platformDataSource: {
-                                  commonDataSource: 'Test string',
+                                  commonDataSource: 'UNKNOWN',
                                   hostAppDataSource: {
                                     chatDataSource: {
                                       spaceDataSource: {
@@ -7215,18 +7280,18 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                 },
-                                type: 'Test string',
+                                type: 'CHECK_BOX',
                               },
                               textInput: {
                                 autoCompleteAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7245,7 +7310,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 initialSuggestions: {
@@ -7260,8 +7325,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7272,19 +7337,19 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 placeholderText: 'Test string',
-                                type: 'Test string',
+                                type: 'SINGLE_LINE',
                                 validation: {
                                   characterLimit: 42,
-                                  inputType: 'Test string',
+                                  inputType: 'INPUT_TYPE_UNSPECIFIED',
                                 },
                                 value: 'Test string',
                               },
                               textParagraph: {
                                 maxLines: 42,
                                 text: 'Test string',
-                                textSyntax: 'Test string',
+                                textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                               },
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           ],
                         },
@@ -7293,8 +7358,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -7305,8 +7370,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -7317,7 +7382,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -7332,7 +7397,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -7341,7 +7406,7 @@ gapi.load('client', async () => {
         actionResponse: {
           dialogAction: {
             actionStatus: {
-              statusCode: 'Test string',
+              statusCode: 'OK',
               userFacingMessage: 'Test string',
             },
             dialog: {
@@ -7353,8 +7418,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7368,8 +7433,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7380,8 +7445,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -7392,7 +7457,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -7408,14 +7473,14 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                displayStyle: 'Test string',
+                displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                 expressionData: [
                   {
                     conditions: [
                       {
                         actionRuleId: 'Test string',
                         expressionDataCondition: {
-                          conditionType: 'Test string',
+                          conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                         },
                       },
                     ],
@@ -7424,7 +7489,7 @@ gapi.load('client', async () => {
                         actionRuleId: 'Test string',
                         commonWidgetAction: {
                           updateVisibilityAction: {
-                            visibility: 'Test string',
+                            visibility: 'VISIBILITY_UNSPECIFIED',
                           },
                         },
                         postEventTriggers: [
@@ -7451,7 +7516,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -7464,8 +7529,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7479,8 +7544,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7491,8 +7556,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -7503,7 +7568,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -7518,7 +7583,7 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   secondaryButton: {
                     altText: 'Test string',
@@ -7532,7 +7597,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -7545,8 +7610,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7560,8 +7625,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -7572,8 +7637,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -7584,7 +7649,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -7599,12 +7664,12 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
                 header: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
@@ -7612,12 +7677,12 @@ gapi.load('client', async () => {
                 name: 'Test string',
                 peekCardHeader: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
                 },
-                sectionDividerStyle: 'Test string',
+                sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                 sections: [
                   {
                     collapseControl: {
@@ -7633,7 +7698,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -7646,8 +7711,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -7661,8 +7726,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -7673,8 +7738,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -7685,7 +7750,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -7700,7 +7765,7 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       expandButton: {
                         altText: 'Test string',
@@ -7714,7 +7779,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -7727,8 +7792,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -7742,8 +7807,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -7754,8 +7819,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -7766,7 +7831,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -7781,9 +7846,9 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                     },
                     collapsible: true,
                     header: 'Test string',
@@ -7805,7 +7870,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -7818,8 +7883,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7833,8 +7898,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -7845,8 +7910,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -7857,7 +7922,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -7872,7 +7937,7 @@ gapi.load('client', async () => {
                                 },
                               },
                               text: 'Test string',
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -7895,7 +7960,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -7908,8 +7973,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -7923,8 +7989,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -7935,8 +8002,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -7947,7 +8014,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -7962,7 +8029,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -7973,8 +8040,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -7988,8 +8055,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8000,8 +8067,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -8012,7 +8079,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -8030,7 +8097,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -8050,7 +8117,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -8063,8 +8130,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8078,8 +8146,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8090,8 +8159,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -8102,7 +8171,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -8117,7 +8186,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -8128,8 +8197,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8143,8 +8212,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8155,8 +8224,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -8167,7 +8236,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -8185,7 +8254,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -8201,7 +8270,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -8215,8 +8284,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -8230,8 +8299,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -8242,8 +8311,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -8254,7 +8323,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -8270,14 +8339,17 @@ gapi.load('client', async () => {
                               },
                             },
                           ],
-                          layout: 'Test string',
+                          layout: 'LAYOUT_UNSPECIFIED',
                         },
                         columns: {
                           columnItems: [
                             {
-                              horizontalAlignment: 'Test string',
-                              horizontalSizeStyle: 'Test string',
-                              verticalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                              horizontalSizeStyle:
+                                'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                              verticalAlignment:
+                                'VERTICAL_ALIGNMENT_UNSPECIFIED',
                               widgets: [
                                 {
                                   buttonList: {
@@ -8294,7 +8366,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -8307,8 +8379,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8322,8 +8395,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8334,8 +8408,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -8346,7 +8420,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -8361,7 +8435,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -8374,7 +8448,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -8388,8 +8462,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8403,8 +8478,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -8415,8 +8491,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -8427,7 +8503,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -8443,7 +8519,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     ],
-                                    layout: 'Test string',
+                                    layout: 'LAYOUT_UNSPECIFIED',
                                   },
                                   dateTimePicker: {
                                     hostAppDataSource: {
@@ -8454,7 +8530,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     label: 'Test string',
@@ -8462,8 +8538,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -8474,7 +8550,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     timezoneOffsetDate: 42,
-                                    type: 'Test string',
+                                    type: 'DATE_AND_TIME',
                                     valueMsEpoch: 'Test string',
                                   },
                                   decoratedText: {
@@ -8482,7 +8558,7 @@ gapi.load('client', async () => {
                                     bottomLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     button: {
                                       altText: 'Test string',
@@ -8496,7 +8572,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -8509,8 +8585,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -8524,8 +8601,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -8536,8 +8614,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -8548,7 +8626,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -8563,17 +8641,17 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                     contentText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     endIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -8585,7 +8663,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -8598,8 +8676,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8613,8 +8691,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8625,8 +8703,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -8637,7 +8715,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -8654,7 +8732,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -8663,15 +8741,16 @@ gapi.load('client', async () => {
                                         weight: 42,
                                       },
                                     },
-                                    startIconVerticalAlignment: 'Test string',
+                                    startIconVerticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     switchControl: {
-                                      controlType: 'Test string',
+                                      controlType: 'SWITCH',
                                       name: 'Test string',
                                       onChangeAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8689,7 +8768,7 @@ gapi.load('client', async () => {
                                     topLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     wrapText: true,
                                   },
@@ -8700,8 +8779,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8715,8 +8794,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -8727,8 +8806,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -8739,7 +8818,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -8759,7 +8838,7 @@ gapi.load('client', async () => {
                                       {
                                         minCharactersTrigger: 42,
                                         platformDataSource: {
-                                          commonDataSource: 'Test string',
+                                          commonDataSource: 'UNKNOWN',
                                           hostAppDataSource: {
                                             chatDataSource: {
                                               spaceDataSource: {
@@ -8768,15 +8847,16 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                         },
                                         remoteDataSource: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -8791,8 +8871,8 @@ gapi.load('client', async () => {
                                     externalDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -8819,8 +8899,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -8831,7 +8911,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -8840,18 +8920,18 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
-                                    type: 'Test string',
+                                    type: 'CHECK_BOX',
                                   },
                                   textInput: {
                                     autoCompleteAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -8870,7 +8950,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     initialSuggestions: {
@@ -8885,8 +8965,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -8897,17 +8977,17 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     placeholderText: 'Test string',
-                                    type: 'Test string',
+                                    type: 'SINGLE_LINE',
                                     validation: {
                                       characterLimit: 42,
-                                      inputType: 'Test string',
+                                      inputType: 'INPUT_TYPE_UNSPECIFIED',
                                     },
                                     value: 'Test string',
                                   },
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -8923,7 +9003,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           label: 'Test string',
@@ -8931,8 +9011,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -8943,7 +9023,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           timezoneOffsetDate: 42,
-                          type: 'Test string',
+                          type: 'DATE_AND_TIME',
                           valueMsEpoch: 'Test string',
                         },
                         decoratedText: {
@@ -8951,7 +9031,7 @@ gapi.load('client', async () => {
                           bottomLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           button: {
                             altText: 'Test string',
@@ -8965,7 +9045,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -8978,8 +9058,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -8993,8 +9073,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -9005,8 +9085,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -9017,7 +9097,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -9032,17 +9112,17 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                           contentText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           endIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -9054,7 +9134,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -9067,8 +9147,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9082,8 +9162,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9094,8 +9174,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -9106,7 +9186,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -9123,7 +9203,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -9132,15 +9212,16 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          startIconVerticalAlignment: 'Test string',
+                          startIconVerticalAlignment:
+                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                           switchControl: {
-                            controlType: 'Test string',
+                            controlType: 'SWITCH',
                             name: 'Test string',
                             onChangeAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9158,7 +9239,7 @@ gapi.load('client', async () => {
                           topLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           wrapText: true,
                         },
@@ -9168,7 +9249,7 @@ gapi.load('client', async () => {
                             actionRuleId: 'Test string',
                             commonWidgetAction: {
                               updateVisibilityAction: {
-                                visibility: 'Test string',
+                                visibility: 'VISIBILITY_UNSPECIFIED',
                               },
                             },
                             postEventTriggers: [
@@ -9187,7 +9268,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            type: 'Test string',
+                            type: 'BORDER_TYPE_UNSPECIFIED',
                           },
                           columnCount: 42,
                           items: [
@@ -9203,15 +9284,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 cropStyle: {
                                   aspectRatio: 42,
-                                  type: 'Test string',
+                                  type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                 },
                                 imageUri: 'Test string',
                               },
-                              layout: 'Test string',
+                              layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                               subtitle: 'Test string',
                               title: 'Test string',
                             },
@@ -9220,8 +9301,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9235,8 +9316,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9247,8 +9328,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -9259,7 +9340,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -9275,7 +9356,7 @@ gapi.load('client', async () => {
                           },
                           title: 'Test string',
                         },
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                         id: 'Test string',
                         image: {
                           altText: 'Test string',
@@ -9284,8 +9365,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9299,8 +9380,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -9311,8 +9392,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -9323,7 +9404,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -9343,7 +9424,7 @@ gapi.load('client', async () => {
                             {
                               minCharactersTrigger: 42,
                               platformDataSource: {
-                                commonDataSource: 'Test string',
+                                commonDataSource: 'UNKNOWN',
                                 hostAppDataSource: {
                                   chatDataSource: {
                                     spaceDataSource: {
@@ -9352,15 +9433,15 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                               },
                               remoteDataSource: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -9375,8 +9456,8 @@ gapi.load('client', async () => {
                           externalDataSource: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -9403,8 +9484,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -9415,7 +9496,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           platformDataSource: {
-                            commonDataSource: 'Test string',
+                            commonDataSource: 'UNKNOWN',
                             hostAppDataSource: {
                               chatDataSource: {
                                 spaceDataSource: {
@@ -9424,18 +9505,18 @@ gapi.load('client', async () => {
                               },
                               workflowDataSource: {
                                 includeVariables: true,
-                                type: 'Test string',
+                                type: 'UNKNOWN',
                               },
                             },
                           },
-                          type: 'Test string',
+                          type: 'CHECK_BOX',
                         },
                         textInput: {
                           autoCompleteAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -9454,7 +9535,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           initialSuggestions: {
@@ -9469,8 +9550,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -9481,19 +9562,19 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           placeholderText: 'Test string',
-                          type: 'Test string',
+                          type: 'SINGLE_LINE',
                           validation: {
                             characterLimit: 42,
-                            inputType: 'Test string',
+                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                           },
                           value: 'Test string',
                         },
                         textParagraph: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
-                        visibility: 'Test string',
+                        visibility: 'VISIBILITY_UNSPECIFIED',
                       },
                     ],
                   },
@@ -9501,7 +9582,7 @@ gapi.load('client', async () => {
               },
             },
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           updatedWidget: {
             suggestions: {
               items: [
@@ -9550,11 +9631,11 @@ gapi.load('client', async () => {
                 mimeType: 'Test string',
               },
               meetSpaceLinkData: {
-                huddleStatus: 'Test string',
+                huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                 meetingCode: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              richLinkType: 'Test string',
+              richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
               uri: 'Test string',
             },
             slashCommand: {
@@ -9565,17 +9646,17 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               commandId: 'Test string',
               commandName: 'Test string',
               triggersDialog: true,
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             startIndex: 42,
-            type: 'Test string',
+            type: 'ANNOTATION_TYPE_UNSPECIFIED',
             userMention: {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               user: {
                 avatarUrl: 'Test string',
                 displayName: 'Test string',
@@ -9583,7 +9664,7 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             },
           },
@@ -9607,7 +9688,7 @@ gapi.load('client', async () => {
               driveFileId: 'Test string',
             },
             name: 'Test string',
-            source: 'Test string',
+            source: 'SOURCE_UNSPECIFIED',
             thumbnailUri: 'Test string',
           },
         ],
@@ -9633,7 +9714,7 @@ gapi.load('client', async () => {
               },
             ],
             header: {
-              imageStyle: 'Test string',
+              imageStyle: 'IMAGE_STYLE_UNSPECIFIED',
               imageUrl: 'Test string',
               subtitle: 'Test string',
               title: 'Test string',
@@ -9647,7 +9728,7 @@ gapi.load('client', async () => {
                     buttons: [
                       {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -9706,7 +9787,7 @@ gapi.load('client', async () => {
                       bottomLabel: 'Test string',
                       button: {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -9744,7 +9825,7 @@ gapi.load('client', async () => {
                       },
                       content: 'Test string',
                       contentMultiline: true,
-                      icon: 'Test string',
+                      icon: 'ICON_UNSPECIFIED',
                       iconUrl: 'Test string',
                       onClick: {
                         action: {
@@ -9781,8 +9862,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -9796,8 +9877,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -9808,8 +9889,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -9820,7 +9901,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -9836,14 +9917,14 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              displayStyle: 'Test string',
+              displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
               expressionData: [
                 {
                   conditions: [
                     {
                       actionRuleId: 'Test string',
                       expressionDataCondition: {
-                        conditionType: 'Test string',
+                        conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -9852,7 +9933,7 @@ gapi.load('client', async () => {
                       actionRuleId: 'Test string',
                       commonWidgetAction: {
                         updateVisibilityAction: {
-                          visibility: 'Test string',
+                          visibility: 'VISIBILITY_UNSPECIFIED',
                         },
                       },
                       postEventTriggers: [
@@ -9879,7 +9960,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -9892,8 +9973,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -9907,8 +9988,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -9919,8 +10000,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -9931,7 +10012,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -9946,7 +10027,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 secondaryButton: {
                   altText: 'Test string',
@@ -9960,7 +10041,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -9973,8 +10054,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -9988,8 +10069,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -10000,8 +10081,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -10012,7 +10093,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -10027,12 +10108,12 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               },
               header: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
@@ -10040,12 +10121,12 @@ gapi.load('client', async () => {
               name: 'Test string',
               peekCardHeader: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
               },
-              sectionDividerStyle: 'Test string',
+              sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
               sections: [
                 {
                   collapseControl: {
@@ -10061,7 +10142,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -10074,8 +10155,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -10089,8 +10170,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -10101,8 +10182,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -10113,7 +10194,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -10128,7 +10209,7 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     expandButton: {
                       altText: 'Test string',
@@ -10142,7 +10223,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -10155,8 +10236,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -10170,8 +10251,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -10182,8 +10263,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -10194,7 +10275,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -10209,9 +10290,9 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                   },
                   collapsible: true,
                   header: 'Test string',
@@ -10233,7 +10314,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -10246,8 +10327,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -10261,8 +10342,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -10273,8 +10354,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -10285,7 +10366,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -10300,7 +10381,7 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -10323,7 +10404,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -10336,8 +10417,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10351,8 +10433,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10363,8 +10446,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -10375,7 +10458,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -10390,7 +10473,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -10401,8 +10484,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -10416,8 +10499,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -10428,8 +10511,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -10440,7 +10523,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -10458,7 +10541,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -10478,7 +10561,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -10491,8 +10574,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10506,8 +10590,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10518,8 +10603,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -10530,7 +10615,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -10545,7 +10630,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -10556,8 +10641,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -10571,8 +10656,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -10583,8 +10668,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -10595,7 +10680,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -10613,7 +10698,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -10629,7 +10714,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -10643,8 +10728,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -10658,8 +10743,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -10670,8 +10755,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -10682,7 +10767,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -10698,14 +10783,16 @@ gapi.load('client', async () => {
                             },
                           },
                         ],
-                        layout: 'Test string',
+                        layout: 'LAYOUT_UNSPECIFIED',
                       },
                       columns: {
                         columnItems: [
                           {
-                            horizontalAlignment: 'Test string',
-                            horizontalSizeStyle: 'Test string',
-                            verticalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                            horizontalSizeStyle:
+                              'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                            verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                             widgets: [
                               {
                                 buttonList: {
@@ -10722,7 +10809,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -10735,8 +10822,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10750,8 +10838,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10762,8 +10851,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -10774,7 +10863,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -10789,7 +10878,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -10802,7 +10891,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -10816,8 +10905,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10831,8 +10921,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -10843,8 +10934,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -10855,7 +10946,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -10871,7 +10962,7 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   ],
-                                  layout: 'Test string',
+                                  layout: 'LAYOUT_UNSPECIFIED',
                                 },
                                 dateTimePicker: {
                                   hostAppDataSource: {
@@ -10882,7 +10973,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   label: 'Test string',
@@ -10890,8 +10981,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -10902,7 +10993,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   timezoneOffsetDate: 42,
-                                  type: 'Test string',
+                                  type: 'DATE_AND_TIME',
                                   valueMsEpoch: 'Test string',
                                 },
                                 decoratedText: {
@@ -10910,7 +11001,7 @@ gapi.load('client', async () => {
                                   bottomLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   button: {
                                     altText: 'Test string',
@@ -10924,7 +11015,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -10937,8 +11028,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -10952,8 +11043,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -10964,8 +11055,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -10976,7 +11067,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -10991,17 +11082,17 @@ gapi.load('client', async () => {
                                       },
                                     },
                                     text: 'Test string',
-                                    type: 'Test string',
+                                    type: 'TYPE_UNSPECIFIED',
                                   },
                                   contentText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   endIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -11013,7 +11104,7 @@ gapi.load('client', async () => {
                                   icon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -11026,8 +11117,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -11041,8 +11132,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -11053,8 +11144,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -11065,7 +11156,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -11082,7 +11173,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -11091,15 +11182,16 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  startIconVerticalAlignment: 'Test string',
+                                  startIconVerticalAlignment:
+                                    'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                   switchControl: {
-                                    controlType: 'Test string',
+                                    controlType: 'SWITCH',
                                     name: 'Test string',
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -11117,7 +11209,7 @@ gapi.load('client', async () => {
                                   topLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   wrapText: true,
                                 },
@@ -11128,8 +11220,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -11143,8 +11235,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -11155,8 +11247,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -11167,7 +11259,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -11187,7 +11279,7 @@ gapi.load('client', async () => {
                                     {
                                       minCharactersTrigger: 42,
                                       platformDataSource: {
-                                        commonDataSource: 'Test string',
+                                        commonDataSource: 'UNKNOWN',
                                         hostAppDataSource: {
                                           chatDataSource: {
                                             spaceDataSource: {
@@ -11196,15 +11288,15 @@ gapi.load('client', async () => {
                                           },
                                           workflowDataSource: {
                                             includeVariables: true,
-                                            type: 'Test string',
+                                            type: 'UNKNOWN',
                                           },
                                         },
                                       },
                                       remoteDataSource: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -11219,8 +11311,8 @@ gapi.load('client', async () => {
                                   externalDataSource: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -11247,8 +11339,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -11259,7 +11351,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   platformDataSource: {
-                                    commonDataSource: 'Test string',
+                                    commonDataSource: 'UNKNOWN',
                                     hostAppDataSource: {
                                       chatDataSource: {
                                         spaceDataSource: {
@@ -11268,18 +11360,18 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'CHECK_BOX',
                                 },
                                 textInput: {
                                   autoCompleteAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -11298,7 +11390,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   initialSuggestions: {
@@ -11313,8 +11405,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -11325,17 +11417,17 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   placeholderText: 'Test string',
-                                  type: 'Test string',
+                                  type: 'SINGLE_LINE',
                                   validation: {
                                     characterLimit: 42,
-                                    inputType: 'Test string',
+                                    inputType: 'INPUT_TYPE_UNSPECIFIED',
                                   },
                                   value: 'Test string',
                                 },
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -11351,7 +11443,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         label: 'Test string',
@@ -11359,8 +11451,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -11371,7 +11463,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         timezoneOffsetDate: 42,
-                        type: 'Test string',
+                        type: 'DATE_AND_TIME',
                         valueMsEpoch: 'Test string',
                       },
                       decoratedText: {
@@ -11379,7 +11471,7 @@ gapi.load('client', async () => {
                         bottomLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         button: {
                           altText: 'Test string',
@@ -11393,7 +11485,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -11406,8 +11498,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -11421,8 +11513,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -11433,8 +11525,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -11445,7 +11537,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -11460,17 +11552,17 @@ gapi.load('client', async () => {
                             },
                           },
                           text: 'Test string',
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         contentText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         endIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -11482,7 +11574,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -11495,8 +11587,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11510,8 +11602,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11522,8 +11614,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -11534,7 +11626,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -11551,7 +11643,7 @@ gapi.load('client', async () => {
                         startIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -11560,15 +11652,16 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        startIconVerticalAlignment: 'Test string',
+                        startIconVerticalAlignment:
+                          'VERTICAL_ALIGNMENT_UNSPECIFIED',
                         switchControl: {
-                          controlType: 'Test string',
+                          controlType: 'SWITCH',
                           name: 'Test string',
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11586,7 +11679,7 @@ gapi.load('client', async () => {
                         topLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         wrapText: true,
                       },
@@ -11596,7 +11689,7 @@ gapi.load('client', async () => {
                           actionRuleId: 'Test string',
                           commonWidgetAction: {
                             updateVisibilityAction: {
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           },
                           postEventTriggers: [
@@ -11615,7 +11708,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          type: 'Test string',
+                          type: 'BORDER_TYPE_UNSPECIFIED',
                         },
                         columnCount: 42,
                         items: [
@@ -11631,15 +11724,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                type: 'Test string',
+                                type: 'BORDER_TYPE_UNSPECIFIED',
                               },
                               cropStyle: {
                                 aspectRatio: 42,
-                                type: 'Test string',
+                                type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                               },
                               imageUri: 'Test string',
                             },
-                            layout: 'Test string',
+                            layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                             subtitle: 'Test string',
                             title: 'Test string',
                           },
@@ -11648,8 +11741,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11663,8 +11756,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11675,8 +11768,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -11687,7 +11780,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -11703,7 +11796,7 @@ gapi.load('client', async () => {
                         },
                         title: 'Test string',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       id: 'Test string',
                       image: {
                         altText: 'Test string',
@@ -11712,8 +11805,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11727,8 +11820,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -11739,8 +11832,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -11751,7 +11844,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -11771,7 +11864,7 @@ gapi.load('client', async () => {
                           {
                             minCharactersTrigger: 42,
                             platformDataSource: {
-                              commonDataSource: 'Test string',
+                              commonDataSource: 'UNKNOWN',
                               hostAppDataSource: {
                                 chatDataSource: {
                                   spaceDataSource: {
@@ -11780,15 +11873,15 @@ gapi.load('client', async () => {
                                 },
                                 workflowDataSource: {
                                   includeVariables: true,
-                                  type: 'Test string',
+                                  type: 'UNKNOWN',
                                 },
                               },
                             },
                             remoteDataSource: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -11803,8 +11896,8 @@ gapi.load('client', async () => {
                         externalDataSource: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -11831,8 +11924,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -11843,7 +11936,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         platformDataSource: {
-                          commonDataSource: 'Test string',
+                          commonDataSource: 'UNKNOWN',
                           hostAppDataSource: {
                             chatDataSource: {
                               spaceDataSource: {
@@ -11852,18 +11945,18 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                         },
-                        type: 'Test string',
+                        type: 'CHECK_BOX',
                       },
                       textInput: {
                         autoCompleteAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -11882,7 +11975,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         initialSuggestions: {
@@ -11897,8 +11990,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -11909,19 +12002,19 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         placeholderText: 'Test string',
-                        type: 'Test string',
+                        type: 'SINGLE_LINE',
                         validation: {
                           characterLimit: 42,
-                          inputType: 'Test string',
+                          inputType: 'INPUT_TYPE_UNSPECIFIED',
                         },
                         value: 'Test string',
                       },
                       textParagraph: {
                         maxLines: 42,
                         text: 'Test string',
-                        textSyntax: 'Test string',
+                        textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                       },
-                      visibility: 'Test string',
+                      visibility: 'VISIBILITY_UNSPECIFIED',
                     },
                   ],
                 },
@@ -11935,7 +12028,7 @@ gapi.load('client', async () => {
               email: 'Test string',
               isAnonymous: true,
               name: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -11943,7 +12036,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         deleteTime: 'Test string',
         deletionMetadata: {
-          deletionType: 'Test string',
+          deletionType: 'DELETION_TYPE_UNSPECIFIED',
         },
         elements: {
           citations: [
@@ -12003,7 +12096,7 @@ gapi.load('client', async () => {
         fallbackText: 'Test string',
         formattedText: 'Test string',
         lastUpdateTime: 'Test string',
-        markupSyntax: 'Test string',
+        markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
         matchedUrl: {
           url: 'Test string',
         },
@@ -12015,7 +12108,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         quotedMessageMetadata: {
           forwardedMetadata: {
@@ -12057,11 +12150,11 @@ gapi.load('client', async () => {
                     mimeType: 'Test string',
                   },
                   meetSpaceLinkData: {
-                    huddleStatus: 'Test string',
+                    huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                     meetingCode: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  richLinkType: 'Test string',
+                  richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
                   uri: 'Test string',
                 },
                 slashCommand: {
@@ -12072,17 +12165,17 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   commandId: 'Test string',
                   commandName: 'Test string',
                   triggersDialog: true,
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 startIndex: 42,
-                type: 'Test string',
+                type: 'ANNOTATION_TYPE_UNSPECIFIED',
                 userMention: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                   user: {
                     avatarUrl: 'Test string',
                     displayName: 'Test string',
@@ -12090,7 +12183,7 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -12108,7 +12201,7 @@ gapi.load('client', async () => {
                   driveFileId: 'Test string',
                 },
                 name: 'Test string',
-                source: 'Test string',
+                source: 'SOURCE_UNSPECIFIED',
                 thumbnailUri: 'Test string',
               },
             ],
@@ -12116,7 +12209,7 @@ gapi.load('client', async () => {
             sender: 'Test string',
             text: 'Test string',
           },
-          quoteType: 'Test string',
+          quoteType: 'QUOTE_TYPE_UNSPECIFIED',
         },
         sender: {
           avatarUrl: 'Test string',
@@ -12125,7 +12218,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         silent: true,
         slashCommand: {
@@ -12162,7 +12255,7 @@ gapi.load('client', async () => {
                 ],
               },
             },
-            accessState: 'Test string',
+            accessState: 'ACCESS_STATE_UNSPECIFIED',
             audience: 'Test string',
           },
           adminInstalled: true,
@@ -12225,18 +12318,19 @@ gapi.load('client', async () => {
               membersAllowed: true,
             },
           },
-          predefinedPermissionSettings: 'Test string',
+          predefinedPermissionSettings:
+            'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
           singleUserBotDm: true,
           spaceDetails: {
             description: 'Test string',
             guidelines: 'Test string',
           },
-          spaceHistoryState: 'Test string',
-          spaceThreadingState: 'Test string',
-          spaceType: 'Test string',
+          spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+          spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+          spaceType: 'SPACE_TYPE_UNSPECIFIED',
           spaceUri: 'Test string',
           threaded: true,
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         text: 'Test string',
         thread: {
@@ -12262,8 +12356,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12277,8 +12371,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12289,8 +12383,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -12301,7 +12395,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -12317,14 +12411,14 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              displayStyle: 'Test string',
+              displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
               expressionData: [
                 {
                   conditions: [
                     {
                       actionRuleId: 'Test string',
                       expressionDataCondition: {
-                        conditionType: 'Test string',
+                        conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -12333,7 +12427,7 @@ gapi.load('client', async () => {
                       actionRuleId: 'Test string',
                       commonWidgetAction: {
                         updateVisibilityAction: {
-                          visibility: 'Test string',
+                          visibility: 'VISIBILITY_UNSPECIFIED',
                         },
                       },
                       postEventTriggers: [
@@ -12360,7 +12454,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -12373,8 +12467,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12388,8 +12482,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12400,8 +12494,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -12412,7 +12506,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -12427,7 +12521,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 secondaryButton: {
                   altText: 'Test string',
@@ -12441,7 +12535,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -12454,8 +12548,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12469,8 +12563,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -12481,8 +12575,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -12493,7 +12587,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -12508,12 +12602,12 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               },
               header: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
@@ -12521,12 +12615,12 @@ gapi.load('client', async () => {
               name: 'Test string',
               peekCardHeader: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
               },
-              sectionDividerStyle: 'Test string',
+              sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
               sections: [
                 {
                   collapseControl: {
@@ -12542,7 +12636,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -12555,8 +12649,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -12570,8 +12664,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -12582,8 +12676,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -12594,7 +12688,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -12609,7 +12703,7 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     expandButton: {
                       altText: 'Test string',
@@ -12623,7 +12717,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -12636,8 +12730,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -12651,8 +12745,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -12663,8 +12757,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -12675,7 +12769,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -12690,9 +12784,9 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                   },
                   collapsible: true,
                   header: 'Test string',
@@ -12714,7 +12808,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -12727,8 +12821,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -12742,8 +12836,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -12754,8 +12848,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -12766,7 +12860,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -12781,7 +12875,7 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -12804,7 +12898,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -12817,8 +12911,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -12832,8 +12927,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -12844,8 +12940,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -12856,7 +12952,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -12871,7 +12967,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -12882,8 +12978,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -12897,8 +12993,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -12909,8 +13005,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -12921,7 +13017,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -12939,7 +13035,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -12959,7 +13055,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -12972,8 +13068,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -12987,8 +13084,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -12999,8 +13097,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -13011,7 +13109,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -13026,7 +13124,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -13037,8 +13135,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13052,8 +13150,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13064,8 +13162,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -13076,7 +13174,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -13094,7 +13192,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -13110,7 +13208,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -13124,8 +13222,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -13139,8 +13237,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -13151,8 +13249,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -13163,7 +13261,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -13179,14 +13277,16 @@ gapi.load('client', async () => {
                             },
                           },
                         ],
-                        layout: 'Test string',
+                        layout: 'LAYOUT_UNSPECIFIED',
                       },
                       columns: {
                         columnItems: [
                           {
-                            horizontalAlignment: 'Test string',
-                            horizontalSizeStyle: 'Test string',
-                            verticalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                            horizontalSizeStyle:
+                              'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                            verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                             widgets: [
                               {
                                 buttonList: {
@@ -13203,7 +13303,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -13216,8 +13316,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -13231,8 +13332,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -13243,8 +13345,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -13255,7 +13357,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -13270,7 +13372,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -13283,7 +13385,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -13297,8 +13399,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -13312,8 +13415,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -13324,8 +13428,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -13336,7 +13440,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -13352,7 +13456,7 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   ],
-                                  layout: 'Test string',
+                                  layout: 'LAYOUT_UNSPECIFIED',
                                 },
                                 dateTimePicker: {
                                   hostAppDataSource: {
@@ -13363,7 +13467,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   label: 'Test string',
@@ -13371,8 +13475,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -13383,7 +13487,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   timezoneOffsetDate: 42,
-                                  type: 'Test string',
+                                  type: 'DATE_AND_TIME',
                                   valueMsEpoch: 'Test string',
                                 },
                                 decoratedText: {
@@ -13391,7 +13495,7 @@ gapi.load('client', async () => {
                                   bottomLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   button: {
                                     altText: 'Test string',
@@ -13405,7 +13509,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -13418,8 +13522,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -13433,8 +13537,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -13445,8 +13549,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -13457,7 +13561,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -13472,17 +13576,17 @@ gapi.load('client', async () => {
                                       },
                                     },
                                     text: 'Test string',
-                                    type: 'Test string',
+                                    type: 'TYPE_UNSPECIFIED',
                                   },
                                   contentText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   endIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -13494,7 +13598,7 @@ gapi.load('client', async () => {
                                   icon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -13507,8 +13611,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13522,8 +13626,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13534,8 +13638,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -13546,7 +13650,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -13563,7 +13667,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -13572,15 +13676,16 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  startIconVerticalAlignment: 'Test string',
+                                  startIconVerticalAlignment:
+                                    'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                   switchControl: {
-                                    controlType: 'Test string',
+                                    controlType: 'SWITCH',
                                     name: 'Test string',
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13598,7 +13703,7 @@ gapi.load('client', async () => {
                                   topLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   wrapText: true,
                                 },
@@ -13609,8 +13714,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13624,8 +13729,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -13636,8 +13741,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -13648,7 +13753,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -13668,7 +13773,7 @@ gapi.load('client', async () => {
                                     {
                                       minCharactersTrigger: 42,
                                       platformDataSource: {
-                                        commonDataSource: 'Test string',
+                                        commonDataSource: 'UNKNOWN',
                                         hostAppDataSource: {
                                           chatDataSource: {
                                             spaceDataSource: {
@@ -13677,15 +13782,15 @@ gapi.load('client', async () => {
                                           },
                                           workflowDataSource: {
                                             includeVariables: true,
-                                            type: 'Test string',
+                                            type: 'UNKNOWN',
                                           },
                                         },
                                       },
                                       remoteDataSource: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -13700,8 +13805,8 @@ gapi.load('client', async () => {
                                   externalDataSource: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -13728,8 +13833,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -13740,7 +13845,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   platformDataSource: {
-                                    commonDataSource: 'Test string',
+                                    commonDataSource: 'UNKNOWN',
                                     hostAppDataSource: {
                                       chatDataSource: {
                                         spaceDataSource: {
@@ -13749,18 +13854,18 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'CHECK_BOX',
                                 },
                                 textInput: {
                                   autoCompleteAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -13779,7 +13884,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   initialSuggestions: {
@@ -13794,8 +13899,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -13806,17 +13911,17 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   placeholderText: 'Test string',
-                                  type: 'Test string',
+                                  type: 'SINGLE_LINE',
                                   validation: {
                                     characterLimit: 42,
-                                    inputType: 'Test string',
+                                    inputType: 'INPUT_TYPE_UNSPECIFIED',
                                   },
                                   value: 'Test string',
                                 },
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -13832,7 +13937,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         label: 'Test string',
@@ -13840,8 +13945,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -13852,7 +13957,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         timezoneOffsetDate: 42,
-                        type: 'Test string',
+                        type: 'DATE_AND_TIME',
                         valueMsEpoch: 'Test string',
                       },
                       decoratedText: {
@@ -13860,7 +13965,7 @@ gapi.load('client', async () => {
                         bottomLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         button: {
                           altText: 'Test string',
@@ -13874,7 +13979,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -13887,8 +13992,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -13902,8 +14007,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -13914,8 +14019,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -13926,7 +14031,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -13941,17 +14046,17 @@ gapi.load('client', async () => {
                             },
                           },
                           text: 'Test string',
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         contentText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         endIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -13963,7 +14068,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -13976,8 +14081,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -13991,8 +14096,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14003,8 +14108,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -14015,7 +14120,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -14032,7 +14137,7 @@ gapi.load('client', async () => {
                         startIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -14041,15 +14146,16 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        startIconVerticalAlignment: 'Test string',
+                        startIconVerticalAlignment:
+                          'VERTICAL_ALIGNMENT_UNSPECIFIED',
                         switchControl: {
-                          controlType: 'Test string',
+                          controlType: 'SWITCH',
                           name: 'Test string',
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14067,7 +14173,7 @@ gapi.load('client', async () => {
                         topLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         wrapText: true,
                       },
@@ -14077,7 +14183,7 @@ gapi.load('client', async () => {
                           actionRuleId: 'Test string',
                           commonWidgetAction: {
                             updateVisibilityAction: {
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           },
                           postEventTriggers: [
@@ -14096,7 +14202,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          type: 'Test string',
+                          type: 'BORDER_TYPE_UNSPECIFIED',
                         },
                         columnCount: 42,
                         items: [
@@ -14112,15 +14218,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                type: 'Test string',
+                                type: 'BORDER_TYPE_UNSPECIFIED',
                               },
                               cropStyle: {
                                 aspectRatio: 42,
-                                type: 'Test string',
+                                type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                               },
                               imageUri: 'Test string',
                             },
-                            layout: 'Test string',
+                            layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                             subtitle: 'Test string',
                             title: 'Test string',
                           },
@@ -14129,8 +14235,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14144,8 +14250,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14156,8 +14262,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -14168,7 +14274,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -14184,7 +14290,7 @@ gapi.load('client', async () => {
                         },
                         title: 'Test string',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       id: 'Test string',
                       image: {
                         altText: 'Test string',
@@ -14193,8 +14299,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14208,8 +14314,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -14220,8 +14326,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -14232,7 +14338,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -14252,7 +14358,7 @@ gapi.load('client', async () => {
                           {
                             minCharactersTrigger: 42,
                             platformDataSource: {
-                              commonDataSource: 'Test string',
+                              commonDataSource: 'UNKNOWN',
                               hostAppDataSource: {
                                 chatDataSource: {
                                   spaceDataSource: {
@@ -14261,15 +14367,15 @@ gapi.load('client', async () => {
                                 },
                                 workflowDataSource: {
                                   includeVariables: true,
-                                  type: 'Test string',
+                                  type: 'UNKNOWN',
                                 },
                               },
                             },
                             remoteDataSource: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -14284,8 +14390,8 @@ gapi.load('client', async () => {
                         externalDataSource: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -14312,8 +14418,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -14324,7 +14430,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         platformDataSource: {
-                          commonDataSource: 'Test string',
+                          commonDataSource: 'UNKNOWN',
                           hostAppDataSource: {
                             chatDataSource: {
                               spaceDataSource: {
@@ -14333,18 +14439,18 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                         },
-                        type: 'Test string',
+                        type: 'CHECK_BOX',
                       },
                       textInput: {
                         autoCompleteAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -14363,7 +14469,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         initialSuggestions: {
@@ -14378,8 +14484,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -14390,19 +14496,19 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         placeholderText: 'Test string',
-                        type: 'Test string',
+                        type: 'SINGLE_LINE',
                         validation: {
                           characterLimit: 42,
-                          inputType: 'Test string',
+                          inputType: 'INPUT_TYPE_UNSPECIFIED',
                         },
                         value: 'Test string',
                       },
                       textParagraph: {
                         maxLines: 42,
                         text: 'Test string',
-                        textSyntax: 'Test string',
+                        textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                       },
-                      visibility: 'Test string',
+                      visibility: 'VISIBILITY_UNSPECIFIED',
                     },
                   ],
                 },
@@ -14416,7 +14522,7 @@ gapi.load('client', async () => {
               email: 'Test string',
               isAnonymous: true,
               name: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -14429,11 +14535,11 @@ gapi.load('client', async () => {
       },
       {
         filter: 'Test string',
-        markupSyntax: 'Test string',
+        markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        view: 'Test string',
+        view: 'SEARCH_MESSAGES_VIEW_UNSPECIFIED',
       },
     );
     /** Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For an example, see [Update a message](https://developers.google.com/workspace/chat/update-messages). Supports the following types of [authentication](https://developers.google.com/workspace/chat/authenticate-authorize): - [App authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` - [User authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following authorization scopes: - `https://www.googleapis.com/auth/chat.messages` - `https://www.googleapis.com/auth/chat.import` (import mode spaces only) When using app authentication, requests can only update messages created by the calling Chat app. */
@@ -14460,7 +14566,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -14473,8 +14579,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -14491,14 +14597,14 @@ gapi.load('client', async () => {
                           onClick: undefined,
                         },
                       ],
-                      displayStyle: 'Test string',
+                      displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                       expressionData: [
                         {
                           conditions: [
                             {
                               actionRuleId: 'Test string',
                               expressionDataCondition: {
-                                conditionType: 'Test string',
+                                conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                               },
                             },
                           ],
@@ -14507,7 +14613,7 @@ gapi.load('client', async () => {
                               actionRuleId: 'Test string',
                               commonWidgetAction: {
                                 updateVisibilityAction: {
-                                  visibility: 'Test string',
+                                  visibility: 'VISIBILITY_UNSPECIFIED',
                                 },
                               },
                               postEventTriggers: [
@@ -14527,7 +14633,7 @@ gapi.load('client', async () => {
                       },
                       header: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
@@ -14535,18 +14641,19 @@ gapi.load('client', async () => {
                       name: 'Test string',
                       peekCardHeader: {
                         imageAltText: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         imageUrl: 'Test string',
                         subtitle: 'Test string',
                         title: 'Test string',
                       },
-                      sectionDividerStyle: 'Test string',
+                      sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                       sections: [
                         {
                           collapseControl: {
                             collapseButton: undefined,
                             expandButton: undefined,
-                            horizontalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                           },
                           collapsible: true,
                           header: 'Test string',
@@ -14569,7 +14676,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -14584,7 +14691,7 @@ gapi.load('client', async () => {
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -14600,7 +14707,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -14613,14 +14720,17 @@ gapi.load('client', async () => {
                                     onClick: undefined,
                                   },
                                 ],
-                                layout: 'Test string',
+                                layout: 'LAYOUT_UNSPECIFIED',
                               },
                               columns: {
                                 columnItems: [
                                   {
-                                    horizontalAlignment: 'Test string',
-                                    horizontalSizeStyle: 'Test string',
-                                    verticalAlignment: 'Test string',
+                                    horizontalAlignment:
+                                      'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                                    horizontalSizeStyle:
+                                      'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                                    verticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     widgets: [
                                       {
                                         buttonList: undefined,
@@ -14633,7 +14743,7 @@ gapi.load('client', async () => {
                                               icon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -14646,7 +14756,7 @@ gapi.load('client', async () => {
                                               onClick: undefined,
                                             },
                                           ],
-                                          layout: 'Test string',
+                                          layout: 'LAYOUT_UNSPECIFIED',
                                         },
                                         dateTimePicker: {
                                           hostAppDataSource: {
@@ -14657,7 +14767,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           label: 'Test string',
@@ -14665,8 +14775,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -14677,7 +14788,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           timezoneOffsetDate: 42,
-                                          type: 'Test string',
+                                          type: 'DATE_AND_TIME',
                                           valueMsEpoch: 'Test string',
                                         },
                                         decoratedText: {
@@ -14685,18 +14796,20 @@ gapi.load('client', async () => {
                                           bottomLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           button: undefined,
                                           contentText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           endIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -14708,7 +14821,7 @@ gapi.load('client', async () => {
                                           icon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -14721,7 +14834,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -14731,15 +14844,16 @@ gapi.load('client', async () => {
                                             },
                                           },
                                           startIconVerticalAlignment:
-                                            'Test string',
+                                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                           switchControl: {
-                                            controlType: 'Test string',
+                                            controlType: 'SWITCH',
                                             name: 'Test string',
                                             onChangeAction: {
                                               allWidgetsAreRequired: true,
                                               function: 'Test string',
-                                              interaction: 'Test string',
-                                              loadIndicator: 'Test string',
+                                              interaction:
+                                                'INTERACTION_UNSPECIFIED',
+                                              loadIndicator: 'SPINNER',
                                               parameters: [
                                                 {
                                                   key: 'Test string',
@@ -14757,7 +14871,8 @@ gapi.load('client', async () => {
                                           topLabelText: {
                                             maxLines: 42,
                                             text: 'Test string',
-                                            textSyntax: 'Test string',
+                                            textSyntax:
+                                              'TEXT_SYNTAX_UNSPECIFIED',
                                           },
                                           wrapText: true,
                                         },
@@ -14771,7 +14886,7 @@ gapi.load('client', async () => {
                                             {
                                               minCharactersTrigger: 42,
                                               platformDataSource: {
-                                                commonDataSource: 'Test string',
+                                                commonDataSource: 'UNKNOWN',
                                                 hostAppDataSource: {
                                                   chatDataSource: {
                                                     spaceDataSource: {
@@ -14780,15 +14895,16 @@ gapi.load('client', async () => {
                                                   },
                                                   workflowDataSource: {
                                                     includeVariables: true,
-                                                    type: 'Test string',
+                                                    type: 'UNKNOWN',
                                                   },
                                                 },
                                               },
                                               remoteDataSource: {
                                                 allWidgetsAreRequired: true,
                                                 function: 'Test string',
-                                                interaction: 'Test string',
-                                                loadIndicator: 'Test string',
+                                                interaction:
+                                                  'INTERACTION_UNSPECIFIED',
+                                                loadIndicator: 'SPINNER',
                                                 parameters: [
                                                   {
                                                     key: 'Test string',
@@ -14805,8 +14921,9 @@ gapi.load('client', async () => {
                                           externalDataSource: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -14833,8 +14950,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -14845,7 +14963,7 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           platformDataSource: {
-                                            commonDataSource: 'Test string',
+                                            commonDataSource: 'UNKNOWN',
                                             hostAppDataSource: {
                                               chatDataSource: {
                                                 spaceDataSource: {
@@ -14854,18 +14972,19 @@ gapi.load('client', async () => {
                                               },
                                               workflowDataSource: {
                                                 includeVariables: true,
-                                                type: 'Test string',
+                                                type: 'UNKNOWN',
                                               },
                                             },
                                           },
-                                          type: 'Test string',
+                                          type: 'CHECK_BOX',
                                         },
                                         textInput: {
                                           autoCompleteAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -14884,7 +15003,7 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                           initialSuggestions: {
@@ -14899,8 +15018,9 @@ gapi.load('client', async () => {
                                           onChangeAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -14911,17 +15031,17 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           placeholderText: 'Test string',
-                                          type: 'Test string',
+                                          type: 'SINGLE_LINE',
                                           validation: {
                                             characterLimit: 42,
-                                            inputType: 'Test string',
+                                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                                           },
                                           value: 'Test string',
                                         },
                                         textParagraph: {
                                           maxLines: 42,
                                           text: 'Test string',
-                                          textSyntax: 'Test string',
+                                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                         },
                                       },
                                     ],
@@ -14937,7 +15057,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 label: 'Test string',
@@ -14945,8 +15065,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -14957,7 +15077,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 timezoneOffsetDate: 42,
-                                type: 'Test string',
+                                type: 'DATE_AND_TIME',
                                 valueMsEpoch: 'Test string',
                               },
                               decoratedText: {
@@ -14965,18 +15085,18 @@ gapi.load('client', async () => {
                                 bottomLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 button: undefined,
                                 contentText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 endIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -14988,7 +15108,7 @@ gapi.load('client', async () => {
                                 icon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -15001,7 +15121,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -15010,15 +15130,16 @@ gapi.load('client', async () => {
                                     weight: 42,
                                   },
                                 },
-                                startIconVerticalAlignment: 'Test string',
+                                startIconVerticalAlignment:
+                                  'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                 switchControl: {
-                                  controlType: 'Test string',
+                                  controlType: 'SWITCH',
                                   name: 'Test string',
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -15036,7 +15157,7 @@ gapi.load('client', async () => {
                                 topLabelText: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                                 wrapText: true,
                               },
@@ -15046,7 +15167,7 @@ gapi.load('client', async () => {
                                   actionRuleId: 'Test string',
                                   commonWidgetAction: {
                                     updateVisibilityAction: {
-                                      visibility: 'Test string',
+                                      visibility: 'VISIBILITY_UNSPECIFIED',
                                     },
                                   },
                                   postEventTriggers: [
@@ -15065,7 +15186,7 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 columnCount: 42,
                                 items: [
@@ -15081,15 +15202,15 @@ gapi.load('client', async () => {
                                           green: 42,
                                           red: 42,
                                         },
-                                        type: 'Test string',
+                                        type: 'BORDER_TYPE_UNSPECIFIED',
                                       },
                                       cropStyle: {
                                         aspectRatio: 42,
-                                        type: 'Test string',
+                                        type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                       },
                                       imageUri: 'Test string',
                                     },
-                                    layout: 'Test string',
+                                    layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                                     subtitle: 'Test string',
                                     title: 'Test string',
                                   },
@@ -15097,7 +15218,8 @@ gapi.load('client', async () => {
                                 onClick: undefined,
                                 title: 'Test string',
                               },
-                              horizontalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                               id: 'Test string',
                               image: {
                                 altText: 'Test string',
@@ -15109,7 +15231,7 @@ gapi.load('client', async () => {
                                   {
                                     minCharactersTrigger: 42,
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -15118,15 +15240,15 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
                                     remoteDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -15141,8 +15263,8 @@ gapi.load('client', async () => {
                                 externalDataSource: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15169,8 +15291,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15181,7 +15303,7 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 platformDataSource: {
-                                  commonDataSource: 'Test string',
+                                  commonDataSource: 'UNKNOWN',
                                   hostAppDataSource: {
                                     chatDataSource: {
                                       spaceDataSource: {
@@ -15190,18 +15312,18 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                 },
-                                type: 'Test string',
+                                type: 'CHECK_BOX',
                               },
                               textInput: {
                                 autoCompleteAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15220,7 +15342,7 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                                 initialSuggestions: {
@@ -15235,8 +15357,8 @@ gapi.load('client', async () => {
                                 onChangeAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15247,19 +15369,19 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 placeholderText: 'Test string',
-                                type: 'Test string',
+                                type: 'SINGLE_LINE',
                                 validation: {
                                   characterLimit: 42,
-                                  inputType: 'Test string',
+                                  inputType: 'INPUT_TYPE_UNSPECIFIED',
                                 },
                                 value: 'Test string',
                               },
                               textParagraph: {
                                 maxLines: 42,
                                 text: 'Test string',
-                                textSyntax: 'Test string',
+                                textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                               },
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           ],
                         },
@@ -15268,8 +15390,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -15280,8 +15402,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -15292,7 +15414,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -15307,7 +15429,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               ],
             },
@@ -15316,7 +15438,7 @@ gapi.load('client', async () => {
         actionResponse: {
           dialogAction: {
             actionStatus: {
-              statusCode: 'Test string',
+              statusCode: 'OK',
               userFacingMessage: 'Test string',
             },
             dialog: {
@@ -15328,8 +15450,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15343,8 +15465,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15355,8 +15477,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -15367,7 +15489,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -15383,14 +15505,14 @@ gapi.load('client', async () => {
                     },
                   },
                 ],
-                displayStyle: 'Test string',
+                displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
                 expressionData: [
                   {
                     conditions: [
                       {
                         actionRuleId: 'Test string',
                         expressionDataCondition: {
-                          conditionType: 'Test string',
+                          conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                         },
                       },
                     ],
@@ -15399,7 +15521,7 @@ gapi.load('client', async () => {
                         actionRuleId: 'Test string',
                         commonWidgetAction: {
                           updateVisibilityAction: {
-                            visibility: 'Test string',
+                            visibility: 'VISIBILITY_UNSPECIFIED',
                           },
                         },
                         postEventTriggers: [
@@ -15426,7 +15548,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -15439,8 +15561,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15454,8 +15576,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15466,8 +15588,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -15478,7 +15600,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -15493,7 +15615,7 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   secondaryButton: {
                     altText: 'Test string',
@@ -15507,7 +15629,7 @@ gapi.load('client', async () => {
                     icon: {
                       altText: 'Test string',
                       iconUrl: 'Test string',
-                      imageType: 'Test string',
+                      imageType: 'SQUARE',
                       knownIcon: 'Test string',
                       materialIcon: {
                         fill: true,
@@ -15520,8 +15642,8 @@ gapi.load('client', async () => {
                       action: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15535,8 +15657,8 @@ gapi.load('client', async () => {
                       openDynamicLinkAction: {
                         allWidgetsAreRequired: true,
                         function: 'Test string',
-                        interaction: 'Test string',
-                        loadIndicator: 'Test string',
+                        interaction: 'INTERACTION_UNSPECIFIED',
+                        loadIndicator: 'SPINNER',
                         parameters: [
                           {
                             key: 'Test string',
@@ -15547,8 +15669,8 @@ gapi.load('client', async () => {
                         requiredWidgets: ['Test string'],
                       },
                       openLink: {
-                        onClose: 'Test string',
-                        openAs: 'Test string',
+                        onClose: 'NOTHING',
+                        openAs: 'FULL_SIZE',
                         url: 'Test string',
                       },
                       overflowMenu: {
@@ -15559,7 +15681,7 @@ gapi.load('client', async () => {
                             startIcon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -15574,12 +15696,12 @@ gapi.load('client', async () => {
                       },
                     },
                     text: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
                 header: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
@@ -15587,12 +15709,12 @@ gapi.load('client', async () => {
                 name: 'Test string',
                 peekCardHeader: {
                   imageAltText: 'Test string',
-                  imageType: 'Test string',
+                  imageType: 'SQUARE',
                   imageUrl: 'Test string',
                   subtitle: 'Test string',
                   title: 'Test string',
                 },
-                sectionDividerStyle: 'Test string',
+                sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
                 sections: [
                   {
                     collapseControl: {
@@ -15608,7 +15730,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -15621,8 +15743,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -15636,8 +15758,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -15648,8 +15770,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -15660,7 +15782,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -15675,7 +15797,7 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       expandButton: {
                         altText: 'Test string',
@@ -15689,7 +15811,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -15702,8 +15824,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -15717,8 +15839,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -15729,8 +15851,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -15741,7 +15863,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -15756,9 +15878,9 @@ gapi.load('client', async () => {
                           },
                         },
                         text: 'Test string',
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                     },
                     collapsible: true,
                     header: 'Test string',
@@ -15780,7 +15902,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -15793,8 +15915,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15808,8 +15930,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -15820,8 +15942,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -15832,7 +15954,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -15847,7 +15969,7 @@ gapi.load('client', async () => {
                                 },
                               },
                               text: 'Test string',
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -15870,7 +15992,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -15883,8 +16005,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -15898,8 +16021,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -15910,8 +16034,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -15922,7 +16046,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -15937,7 +16061,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -15948,8 +16072,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -15963,8 +16087,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -15975,8 +16099,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -15987,7 +16111,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -16005,7 +16129,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -16025,7 +16149,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -16038,8 +16162,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16053,8 +16178,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16065,8 +16191,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -16077,7 +16203,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -16092,7 +16218,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -16103,8 +16229,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16118,8 +16244,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16130,8 +16256,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -16142,7 +16268,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -16160,7 +16286,7 @@ gapi.load('client', async () => {
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -16176,7 +16302,7 @@ gapi.load('client', async () => {
                               icon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -16190,8 +16316,8 @@ gapi.load('client', async () => {
                                 action: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -16205,8 +16331,8 @@ gapi.load('client', async () => {
                                 openDynamicLinkAction: {
                                   allWidgetsAreRequired: true,
                                   function: 'Test string',
-                                  interaction: 'Test string',
-                                  loadIndicator: 'Test string',
+                                  interaction: 'INTERACTION_UNSPECIFIED',
+                                  loadIndicator: 'SPINNER',
                                   parameters: [
                                     {
                                       key: 'Test string',
@@ -16217,8 +16343,8 @@ gapi.load('client', async () => {
                                   requiredWidgets: ['Test string'],
                                 },
                                 openLink: {
-                                  onClose: 'Test string',
-                                  openAs: 'Test string',
+                                  onClose: 'NOTHING',
+                                  openAs: 'FULL_SIZE',
                                   url: 'Test string',
                                 },
                                 overflowMenu: {
@@ -16229,7 +16355,7 @@ gapi.load('client', async () => {
                                       startIcon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -16245,14 +16371,17 @@ gapi.load('client', async () => {
                               },
                             },
                           ],
-                          layout: 'Test string',
+                          layout: 'LAYOUT_UNSPECIFIED',
                         },
                         columns: {
                           columnItems: [
                             {
-                              horizontalAlignment: 'Test string',
-                              horizontalSizeStyle: 'Test string',
-                              verticalAlignment: 'Test string',
+                              horizontalAlignment:
+                                'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                              horizontalSizeStyle:
+                                'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                              verticalAlignment:
+                                'VERTICAL_ALIGNMENT_UNSPECIFIED',
                               widgets: [
                                 {
                                   buttonList: {
@@ -16269,7 +16398,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -16282,8 +16411,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16297,8 +16427,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16309,8 +16440,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -16321,7 +16452,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -16336,7 +16467,7 @@ gapi.load('client', async () => {
                                           },
                                         },
                                         text: 'Test string',
-                                        type: 'Test string',
+                                        type: 'TYPE_UNSPECIFIED',
                                       },
                                     ],
                                   },
@@ -16349,7 +16480,7 @@ gapi.load('client', async () => {
                                         icon: {
                                           altText: 'Test string',
                                           iconUrl: 'Test string',
-                                          imageType: 'Test string',
+                                          imageType: 'SQUARE',
                                           knownIcon: 'Test string',
                                           materialIcon: {
                                             fill: true,
@@ -16363,8 +16494,9 @@ gapi.load('client', async () => {
                                           action: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16378,8 +16510,9 @@ gapi.load('client', async () => {
                                           openDynamicLinkAction: {
                                             allWidgetsAreRequired: true,
                                             function: 'Test string',
-                                            interaction: 'Test string',
-                                            loadIndicator: 'Test string',
+                                            interaction:
+                                              'INTERACTION_UNSPECIFIED',
+                                            loadIndicator: 'SPINNER',
                                             parameters: [
                                               {
                                                 key: 'Test string',
@@ -16390,8 +16523,8 @@ gapi.load('client', async () => {
                                             requiredWidgets: ['Test string'],
                                           },
                                           openLink: {
-                                            onClose: 'Test string',
-                                            openAs: 'Test string',
+                                            onClose: 'NOTHING',
+                                            openAs: 'FULL_SIZE',
                                             url: 'Test string',
                                           },
                                           overflowMenu: {
@@ -16402,7 +16535,7 @@ gapi.load('client', async () => {
                                                 startIcon: {
                                                   altText: 'Test string',
                                                   iconUrl: 'Test string',
-                                                  imageType: 'Test string',
+                                                  imageType: 'SQUARE',
                                                   knownIcon: 'Test string',
                                                   materialIcon: {
                                                     fill: true,
@@ -16418,7 +16551,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     ],
-                                    layout: 'Test string',
+                                    layout: 'LAYOUT_UNSPECIFIED',
                                   },
                                   dateTimePicker: {
                                     hostAppDataSource: {
@@ -16429,7 +16562,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     label: 'Test string',
@@ -16437,8 +16570,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -16449,7 +16582,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     timezoneOffsetDate: 42,
-                                    type: 'Test string',
+                                    type: 'DATE_AND_TIME',
                                     valueMsEpoch: 'Test string',
                                   },
                                   decoratedText: {
@@ -16457,7 +16590,7 @@ gapi.load('client', async () => {
                                     bottomLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     button: {
                                       altText: 'Test string',
@@ -16471,7 +16604,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -16484,8 +16617,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -16499,8 +16633,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -16511,8 +16646,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -16523,7 +16658,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -16538,17 +16673,17 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                     contentText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     endIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -16560,7 +16695,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -16573,8 +16708,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16588,8 +16723,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16600,8 +16735,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -16612,7 +16747,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -16629,7 +16764,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -16638,15 +16773,16 @@ gapi.load('client', async () => {
                                         weight: 42,
                                       },
                                     },
-                                    startIconVerticalAlignment: 'Test string',
+                                    startIconVerticalAlignment:
+                                      'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                     switchControl: {
-                                      controlType: 'Test string',
+                                      controlType: 'SWITCH',
                                       name: 'Test string',
                                       onChangeAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16664,7 +16800,7 @@ gapi.load('client', async () => {
                                     topLabelText: {
                                       maxLines: 42,
                                       text: 'Test string',
-                                      textSyntax: 'Test string',
+                                      textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                     },
                                     wrapText: true,
                                   },
@@ -16675,8 +16811,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16690,8 +16826,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -16702,8 +16838,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -16714,7 +16850,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -16734,7 +16870,7 @@ gapi.load('client', async () => {
                                       {
                                         minCharactersTrigger: 42,
                                         platformDataSource: {
-                                          commonDataSource: 'Test string',
+                                          commonDataSource: 'UNKNOWN',
                                           hostAppDataSource: {
                                             chatDataSource: {
                                               spaceDataSource: {
@@ -16743,15 +16879,16 @@ gapi.load('client', async () => {
                                             },
                                             workflowDataSource: {
                                               includeVariables: true,
-                                              type: 'Test string',
+                                              type: 'UNKNOWN',
                                             },
                                           },
                                         },
                                         remoteDataSource: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -16766,8 +16903,8 @@ gapi.load('client', async () => {
                                     externalDataSource: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -16794,8 +16931,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -16806,7 +16943,7 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     platformDataSource: {
-                                      commonDataSource: 'Test string',
+                                      commonDataSource: 'UNKNOWN',
                                       hostAppDataSource: {
                                         chatDataSource: {
                                           spaceDataSource: {
@@ -16815,18 +16952,18 @@ gapi.load('client', async () => {
                                         },
                                         workflowDataSource: {
                                           includeVariables: true,
-                                          type: 'Test string',
+                                          type: 'UNKNOWN',
                                         },
                                       },
                                     },
-                                    type: 'Test string',
+                                    type: 'CHECK_BOX',
                                   },
                                   textInput: {
                                     autoCompleteAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -16845,7 +16982,7 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                     initialSuggestions: {
@@ -16860,8 +16997,8 @@ gapi.load('client', async () => {
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -16872,17 +17009,17 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     placeholderText: 'Test string',
-                                    type: 'Test string',
+                                    type: 'SINGLE_LINE',
                                     validation: {
                                       characterLimit: 42,
-                                      inputType: 'Test string',
+                                      inputType: 'INPUT_TYPE_UNSPECIFIED',
                                     },
                                     value: 'Test string',
                                   },
                                   textParagraph: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -16898,7 +17035,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           label: 'Test string',
@@ -16906,8 +17043,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -16918,7 +17055,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           timezoneOffsetDate: 42,
-                          type: 'Test string',
+                          type: 'DATE_AND_TIME',
                           valueMsEpoch: 'Test string',
                         },
                         decoratedText: {
@@ -16926,7 +17063,7 @@ gapi.load('client', async () => {
                           bottomLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           button: {
                             altText: 'Test string',
@@ -16940,7 +17077,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -16953,8 +17090,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -16968,8 +17105,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -16980,8 +17117,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -16992,7 +17129,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -17007,17 +17144,17 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                           contentText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           endIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -17029,7 +17166,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -17042,8 +17179,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17057,8 +17194,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17069,8 +17206,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -17081,7 +17218,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -17098,7 +17235,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -17107,15 +17244,16 @@ gapi.load('client', async () => {
                               weight: 42,
                             },
                           },
-                          startIconVerticalAlignment: 'Test string',
+                          startIconVerticalAlignment:
+                            'VERTICAL_ALIGNMENT_UNSPECIFIED',
                           switchControl: {
-                            controlType: 'Test string',
+                            controlType: 'SWITCH',
                             name: 'Test string',
                             onChangeAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17133,7 +17271,7 @@ gapi.load('client', async () => {
                           topLabelText: {
                             maxLines: 42,
                             text: 'Test string',
-                            textSyntax: 'Test string',
+                            textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                           },
                           wrapText: true,
                         },
@@ -17143,7 +17281,7 @@ gapi.load('client', async () => {
                             actionRuleId: 'Test string',
                             commonWidgetAction: {
                               updateVisibilityAction: {
-                                visibility: 'Test string',
+                                visibility: 'VISIBILITY_UNSPECIFIED',
                               },
                             },
                             postEventTriggers: [
@@ -17162,7 +17300,7 @@ gapi.load('client', async () => {
                               green: 42,
                               red: 42,
                             },
-                            type: 'Test string',
+                            type: 'BORDER_TYPE_UNSPECIFIED',
                           },
                           columnCount: 42,
                           items: [
@@ -17178,15 +17316,15 @@ gapi.load('client', async () => {
                                     green: 42,
                                     red: 42,
                                   },
-                                  type: 'Test string',
+                                  type: 'BORDER_TYPE_UNSPECIFIED',
                                 },
                                 cropStyle: {
                                   aspectRatio: 42,
-                                  type: 'Test string',
+                                  type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                                 },
                                 imageUri: 'Test string',
                               },
-                              layout: 'Test string',
+                              layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                               subtitle: 'Test string',
                               title: 'Test string',
                             },
@@ -17195,8 +17333,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17210,8 +17348,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17222,8 +17360,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -17234,7 +17372,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -17250,7 +17388,7 @@ gapi.load('client', async () => {
                           },
                           title: 'Test string',
                         },
-                        horizontalAlignment: 'Test string',
+                        horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                         id: 'Test string',
                         image: {
                           altText: 'Test string',
@@ -17259,8 +17397,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17274,8 +17412,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -17286,8 +17424,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -17298,7 +17436,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -17318,7 +17456,7 @@ gapi.load('client', async () => {
                             {
                               minCharactersTrigger: 42,
                               platformDataSource: {
-                                commonDataSource: 'Test string',
+                                commonDataSource: 'UNKNOWN',
                                 hostAppDataSource: {
                                   chatDataSource: {
                                     spaceDataSource: {
@@ -17327,15 +17465,15 @@ gapi.load('client', async () => {
                                   },
                                   workflowDataSource: {
                                     includeVariables: true,
-                                    type: 'Test string',
+                                    type: 'UNKNOWN',
                                   },
                                 },
                               },
                               remoteDataSource: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -17350,8 +17488,8 @@ gapi.load('client', async () => {
                           externalDataSource: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -17378,8 +17516,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -17390,7 +17528,7 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           platformDataSource: {
-                            commonDataSource: 'Test string',
+                            commonDataSource: 'UNKNOWN',
                             hostAppDataSource: {
                               chatDataSource: {
                                 spaceDataSource: {
@@ -17399,18 +17537,18 @@ gapi.load('client', async () => {
                               },
                               workflowDataSource: {
                                 includeVariables: true,
-                                type: 'Test string',
+                                type: 'UNKNOWN',
                               },
                             },
                           },
-                          type: 'Test string',
+                          type: 'CHECK_BOX',
                         },
                         textInput: {
                           autoCompleteAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -17429,7 +17567,7 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                           initialSuggestions: {
@@ -17444,8 +17582,8 @@ gapi.load('client', async () => {
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -17456,19 +17594,19 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           placeholderText: 'Test string',
-                          type: 'Test string',
+                          type: 'SINGLE_LINE',
                           validation: {
                             characterLimit: 42,
-                            inputType: 'Test string',
+                            inputType: 'INPUT_TYPE_UNSPECIFIED',
                           },
                           value: 'Test string',
                         },
                         textParagraph: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
-                        visibility: 'Test string',
+                        visibility: 'VISIBILITY_UNSPECIFIED',
                       },
                     ],
                   },
@@ -17476,7 +17614,7 @@ gapi.load('client', async () => {
               },
             },
           },
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           updatedWidget: {
             suggestions: {
               items: [
@@ -17525,11 +17663,11 @@ gapi.load('client', async () => {
                 mimeType: 'Test string',
               },
               meetSpaceLinkData: {
-                huddleStatus: 'Test string',
+                huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                 meetingCode: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
-              richLinkType: 'Test string',
+              richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
               uri: 'Test string',
             },
             slashCommand: {
@@ -17540,17 +17678,17 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               commandId: 'Test string',
               commandName: 'Test string',
               triggersDialog: true,
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             startIndex: 42,
-            type: 'Test string',
+            type: 'ANNOTATION_TYPE_UNSPECIFIED',
             userMention: {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               user: {
                 avatarUrl: 'Test string',
                 displayName: 'Test string',
@@ -17558,7 +17696,7 @@ gapi.load('client', async () => {
                 email: 'Test string',
                 isAnonymous: true,
                 name: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
             },
           },
@@ -17582,7 +17720,7 @@ gapi.load('client', async () => {
               driveFileId: 'Test string',
             },
             name: 'Test string',
-            source: 'Test string',
+            source: 'SOURCE_UNSPECIFIED',
             thumbnailUri: 'Test string',
           },
         ],
@@ -17608,7 +17746,7 @@ gapi.load('client', async () => {
               },
             ],
             header: {
-              imageStyle: 'Test string',
+              imageStyle: 'IMAGE_STYLE_UNSPECIFIED',
               imageUrl: 'Test string',
               subtitle: 'Test string',
               title: 'Test string',
@@ -17622,7 +17760,7 @@ gapi.load('client', async () => {
                     buttons: [
                       {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -17681,7 +17819,7 @@ gapi.load('client', async () => {
                       bottomLabel: 'Test string',
                       button: {
                         imageButton: {
-                          icon: 'Test string',
+                          icon: 'ICON_UNSPECIFIED',
                           iconUrl: 'Test string',
                           name: 'Test string',
                           onClick: {
@@ -17719,7 +17857,7 @@ gapi.load('client', async () => {
                       },
                       content: 'Test string',
                       contentMultiline: true,
-                      icon: 'Test string',
+                      icon: 'ICON_UNSPECIFIED',
                       iconUrl: 'Test string',
                       onClick: {
                         action: {
@@ -17756,8 +17894,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17771,8 +17909,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17783,8 +17921,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -17795,7 +17933,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -17811,14 +17949,14 @@ gapi.load('client', async () => {
                   },
                 },
               ],
-              displayStyle: 'Test string',
+              displayStyle: 'DISPLAY_STYLE_UNSPECIFIED',
               expressionData: [
                 {
                   conditions: [
                     {
                       actionRuleId: 'Test string',
                       expressionDataCondition: {
-                        conditionType: 'Test string',
+                        conditionType: 'CONDITION_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -17827,7 +17965,7 @@ gapi.load('client', async () => {
                       actionRuleId: 'Test string',
                       commonWidgetAction: {
                         updateVisibilityAction: {
-                          visibility: 'Test string',
+                          visibility: 'VISIBILITY_UNSPECIFIED',
                         },
                       },
                       postEventTriggers: [
@@ -17854,7 +17992,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -17867,8 +18005,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17882,8 +18020,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17894,8 +18032,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -17906,7 +18044,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -17921,7 +18059,7 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 secondaryButton: {
                   altText: 'Test string',
@@ -17935,7 +18073,7 @@ gapi.load('client', async () => {
                   icon: {
                     altText: 'Test string',
                     iconUrl: 'Test string',
-                    imageType: 'Test string',
+                    imageType: 'SQUARE',
                     knownIcon: 'Test string',
                     materialIcon: {
                       fill: true,
@@ -17948,8 +18086,8 @@ gapi.load('client', async () => {
                     action: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17963,8 +18101,8 @@ gapi.load('client', async () => {
                     openDynamicLinkAction: {
                       allWidgetsAreRequired: true,
                       function: 'Test string',
-                      interaction: 'Test string',
-                      loadIndicator: 'Test string',
+                      interaction: 'INTERACTION_UNSPECIFIED',
+                      loadIndicator: 'SPINNER',
                       parameters: [
                         {
                           key: 'Test string',
@@ -17975,8 +18113,8 @@ gapi.load('client', async () => {
                       requiredWidgets: ['Test string'],
                     },
                     openLink: {
-                      onClose: 'Test string',
-                      openAs: 'Test string',
+                      onClose: 'NOTHING',
+                      openAs: 'FULL_SIZE',
                       url: 'Test string',
                     },
                     overflowMenu: {
@@ -17987,7 +18125,7 @@ gapi.load('client', async () => {
                           startIcon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -18002,12 +18140,12 @@ gapi.load('client', async () => {
                     },
                   },
                   text: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
               },
               header: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
@@ -18015,12 +18153,12 @@ gapi.load('client', async () => {
               name: 'Test string',
               peekCardHeader: {
                 imageAltText: 'Test string',
-                imageType: 'Test string',
+                imageType: 'SQUARE',
                 imageUrl: 'Test string',
                 subtitle: 'Test string',
                 title: 'Test string',
               },
-              sectionDividerStyle: 'Test string',
+              sectionDividerStyle: 'DIVIDER_STYLE_UNSPECIFIED',
               sections: [
                 {
                   collapseControl: {
@@ -18036,7 +18174,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -18049,8 +18187,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -18064,8 +18202,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -18076,8 +18214,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -18088,7 +18226,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -18103,7 +18241,7 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     expandButton: {
                       altText: 'Test string',
@@ -18117,7 +18255,7 @@ gapi.load('client', async () => {
                       icon: {
                         altText: 'Test string',
                         iconUrl: 'Test string',
-                        imageType: 'Test string',
+                        imageType: 'SQUARE',
                         knownIcon: 'Test string',
                         materialIcon: {
                           fill: true,
@@ -18130,8 +18268,8 @@ gapi.load('client', async () => {
                         action: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -18145,8 +18283,8 @@ gapi.load('client', async () => {
                         openDynamicLinkAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -18157,8 +18295,8 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         openLink: {
-                          onClose: 'Test string',
-                          openAs: 'Test string',
+                          onClose: 'NOTHING',
+                          openAs: 'FULL_SIZE',
                           url: 'Test string',
                         },
                         overflowMenu: {
@@ -18169,7 +18307,7 @@ gapi.load('client', async () => {
                               startIcon: {
                                 altText: 'Test string',
                                 iconUrl: 'Test string',
-                                imageType: 'Test string',
+                                imageType: 'SQUARE',
                                 knownIcon: 'Test string',
                                 materialIcon: {
                                   fill: true,
@@ -18184,9 +18322,9 @@ gapi.load('client', async () => {
                         },
                       },
                       text: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
-                    horizontalAlignment: 'Test string',
+                    horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                   },
                   collapsible: true,
                   header: 'Test string',
@@ -18208,7 +18346,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -18221,8 +18359,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -18236,8 +18374,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -18248,8 +18386,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -18260,7 +18398,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -18275,7 +18413,7 @@ gapi.load('client', async () => {
                               },
                             },
                             text: 'Test string',
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -18298,7 +18436,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -18311,8 +18449,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18326,8 +18465,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18338,8 +18478,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -18350,7 +18490,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -18365,7 +18505,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -18376,8 +18516,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -18391,8 +18531,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -18403,8 +18543,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -18415,7 +18555,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -18433,7 +18573,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -18453,7 +18593,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -18466,8 +18606,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18481,8 +18622,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18493,8 +18635,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -18505,7 +18647,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -18520,7 +18662,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -18531,8 +18673,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -18546,8 +18688,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -18558,8 +18700,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -18570,7 +18712,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -18588,7 +18730,7 @@ gapi.load('client', async () => {
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -18604,7 +18746,7 @@ gapi.load('client', async () => {
                             icon: {
                               altText: 'Test string',
                               iconUrl: 'Test string',
-                              imageType: 'Test string',
+                              imageType: 'SQUARE',
                               knownIcon: 'Test string',
                               materialIcon: {
                                 fill: true,
@@ -18618,8 +18760,8 @@ gapi.load('client', async () => {
                               action: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -18633,8 +18775,8 @@ gapi.load('client', async () => {
                               openDynamicLinkAction: {
                                 allWidgetsAreRequired: true,
                                 function: 'Test string',
-                                interaction: 'Test string',
-                                loadIndicator: 'Test string',
+                                interaction: 'INTERACTION_UNSPECIFIED',
+                                loadIndicator: 'SPINNER',
                                 parameters: [
                                   {
                                     key: 'Test string',
@@ -18645,8 +18787,8 @@ gapi.load('client', async () => {
                                 requiredWidgets: ['Test string'],
                               },
                               openLink: {
-                                onClose: 'Test string',
-                                openAs: 'Test string',
+                                onClose: 'NOTHING',
+                                openAs: 'FULL_SIZE',
                                 url: 'Test string',
                               },
                               overflowMenu: {
@@ -18657,7 +18799,7 @@ gapi.load('client', async () => {
                                     startIcon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -18673,14 +18815,16 @@ gapi.load('client', async () => {
                             },
                           },
                         ],
-                        layout: 'Test string',
+                        layout: 'LAYOUT_UNSPECIFIED',
                       },
                       columns: {
                         columnItems: [
                           {
-                            horizontalAlignment: 'Test string',
-                            horizontalSizeStyle: 'Test string',
-                            verticalAlignment: 'Test string',
+                            horizontalAlignment:
+                              'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
+                            horizontalSizeStyle:
+                              'HORIZONTAL_SIZE_STYLE_UNSPECIFIED',
+                            verticalAlignment: 'VERTICAL_ALIGNMENT_UNSPECIFIED',
                             widgets: [
                               {
                                 buttonList: {
@@ -18697,7 +18841,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -18710,8 +18854,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18725,8 +18870,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18737,8 +18883,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -18749,7 +18895,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -18764,7 +18910,7 @@ gapi.load('client', async () => {
                                         },
                                       },
                                       text: 'Test string',
-                                      type: 'Test string',
+                                      type: 'TYPE_UNSPECIFIED',
                                     },
                                   ],
                                 },
@@ -18777,7 +18923,7 @@ gapi.load('client', async () => {
                                       icon: {
                                         altText: 'Test string',
                                         iconUrl: 'Test string',
-                                        imageType: 'Test string',
+                                        imageType: 'SQUARE',
                                         knownIcon: 'Test string',
                                         materialIcon: {
                                           fill: true,
@@ -18791,8 +18937,9 @@ gapi.load('client', async () => {
                                         action: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18806,8 +18953,9 @@ gapi.load('client', async () => {
                                         openDynamicLinkAction: {
                                           allWidgetsAreRequired: true,
                                           function: 'Test string',
-                                          interaction: 'Test string',
-                                          loadIndicator: 'Test string',
+                                          interaction:
+                                            'INTERACTION_UNSPECIFIED',
+                                          loadIndicator: 'SPINNER',
                                           parameters: [
                                             {
                                               key: 'Test string',
@@ -18818,8 +18966,8 @@ gapi.load('client', async () => {
                                           requiredWidgets: ['Test string'],
                                         },
                                         openLink: {
-                                          onClose: 'Test string',
-                                          openAs: 'Test string',
+                                          onClose: 'NOTHING',
+                                          openAs: 'FULL_SIZE',
                                           url: 'Test string',
                                         },
                                         overflowMenu: {
@@ -18830,7 +18978,7 @@ gapi.load('client', async () => {
                                               startIcon: {
                                                 altText: 'Test string',
                                                 iconUrl: 'Test string',
-                                                imageType: 'Test string',
+                                                imageType: 'SQUARE',
                                                 knownIcon: 'Test string',
                                                 materialIcon: {
                                                   fill: true,
@@ -18846,7 +18994,7 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   ],
-                                  layout: 'Test string',
+                                  layout: 'LAYOUT_UNSPECIFIED',
                                 },
                                 dateTimePicker: {
                                   hostAppDataSource: {
@@ -18857,7 +19005,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   label: 'Test string',
@@ -18865,8 +19013,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -18877,7 +19025,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   timezoneOffsetDate: 42,
-                                  type: 'Test string',
+                                  type: 'DATE_AND_TIME',
                                   valueMsEpoch: 'Test string',
                                 },
                                 decoratedText: {
@@ -18885,7 +19033,7 @@ gapi.load('client', async () => {
                                   bottomLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   button: {
                                     altText: 'Test string',
@@ -18899,7 +19047,7 @@ gapi.load('client', async () => {
                                     icon: {
                                       altText: 'Test string',
                                       iconUrl: 'Test string',
-                                      imageType: 'Test string',
+                                      imageType: 'SQUARE',
                                       knownIcon: 'Test string',
                                       materialIcon: {
                                         fill: true,
@@ -18912,8 +19060,8 @@ gapi.load('client', async () => {
                                       action: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -18927,8 +19075,8 @@ gapi.load('client', async () => {
                                       openDynamicLinkAction: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -18939,8 +19087,8 @@ gapi.load('client', async () => {
                                         requiredWidgets: ['Test string'],
                                       },
                                       openLink: {
-                                        onClose: 'Test string',
-                                        openAs: 'Test string',
+                                        onClose: 'NOTHING',
+                                        openAs: 'FULL_SIZE',
                                         url: 'Test string',
                                       },
                                       overflowMenu: {
@@ -18951,7 +19099,7 @@ gapi.load('client', async () => {
                                             startIcon: {
                                               altText: 'Test string',
                                               iconUrl: 'Test string',
-                                              imageType: 'Test string',
+                                              imageType: 'SQUARE',
                                               knownIcon: 'Test string',
                                               materialIcon: {
                                                 fill: true,
@@ -18966,17 +19114,17 @@ gapi.load('client', async () => {
                                       },
                                     },
                                     text: 'Test string',
-                                    type: 'Test string',
+                                    type: 'TYPE_UNSPECIFIED',
                                   },
                                   contentText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   endIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -18988,7 +19136,7 @@ gapi.load('client', async () => {
                                   icon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -19001,8 +19149,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -19016,8 +19164,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -19028,8 +19176,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -19040,7 +19188,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -19057,7 +19205,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -19066,15 +19214,16 @@ gapi.load('client', async () => {
                                       weight: 42,
                                     },
                                   },
-                                  startIconVerticalAlignment: 'Test string',
+                                  startIconVerticalAlignment:
+                                    'VERTICAL_ALIGNMENT_UNSPECIFIED',
                                   switchControl: {
-                                    controlType: 'Test string',
+                                    controlType: 'SWITCH',
                                     name: 'Test string',
                                     onChangeAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -19092,7 +19241,7 @@ gapi.load('client', async () => {
                                   topLabelText: {
                                     maxLines: 42,
                                     text: 'Test string',
-                                    textSyntax: 'Test string',
+                                    textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                   },
                                   wrapText: true,
                                 },
@@ -19103,8 +19252,8 @@ gapi.load('client', async () => {
                                     action: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -19118,8 +19267,8 @@ gapi.load('client', async () => {
                                     openDynamicLinkAction: {
                                       allWidgetsAreRequired: true,
                                       function: 'Test string',
-                                      interaction: 'Test string',
-                                      loadIndicator: 'Test string',
+                                      interaction: 'INTERACTION_UNSPECIFIED',
+                                      loadIndicator: 'SPINNER',
                                       parameters: [
                                         {
                                           key: 'Test string',
@@ -19130,8 +19279,8 @@ gapi.load('client', async () => {
                                       requiredWidgets: ['Test string'],
                                     },
                                     openLink: {
-                                      onClose: 'Test string',
-                                      openAs: 'Test string',
+                                      onClose: 'NOTHING',
+                                      openAs: 'FULL_SIZE',
                                       url: 'Test string',
                                     },
                                     overflowMenu: {
@@ -19142,7 +19291,7 @@ gapi.load('client', async () => {
                                           startIcon: {
                                             altText: 'Test string',
                                             iconUrl: 'Test string',
-                                            imageType: 'Test string',
+                                            imageType: 'SQUARE',
                                             knownIcon: 'Test string',
                                             materialIcon: {
                                               fill: true,
@@ -19162,7 +19311,7 @@ gapi.load('client', async () => {
                                     {
                                       minCharactersTrigger: 42,
                                       platformDataSource: {
-                                        commonDataSource: 'Test string',
+                                        commonDataSource: 'UNKNOWN',
                                         hostAppDataSource: {
                                           chatDataSource: {
                                             spaceDataSource: {
@@ -19171,15 +19320,15 @@ gapi.load('client', async () => {
                                           },
                                           workflowDataSource: {
                                             includeVariables: true,
-                                            type: 'Test string',
+                                            type: 'UNKNOWN',
                                           },
                                         },
                                       },
                                       remoteDataSource: {
                                         allWidgetsAreRequired: true,
                                         function: 'Test string',
-                                        interaction: 'Test string',
-                                        loadIndicator: 'Test string',
+                                        interaction: 'INTERACTION_UNSPECIFIED',
+                                        loadIndicator: 'SPINNER',
                                         parameters: [
                                           {
                                             key: 'Test string',
@@ -19194,8 +19343,8 @@ gapi.load('client', async () => {
                                   externalDataSource: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -19222,8 +19371,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -19234,7 +19383,7 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   platformDataSource: {
-                                    commonDataSource: 'Test string',
+                                    commonDataSource: 'UNKNOWN',
                                     hostAppDataSource: {
                                       chatDataSource: {
                                         spaceDataSource: {
@@ -19243,18 +19392,18 @@ gapi.load('client', async () => {
                                       },
                                       workflowDataSource: {
                                         includeVariables: true,
-                                        type: 'Test string',
+                                        type: 'UNKNOWN',
                                       },
                                     },
                                   },
-                                  type: 'Test string',
+                                  type: 'CHECK_BOX',
                                 },
                                 textInput: {
                                   autoCompleteAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -19273,7 +19422,7 @@ gapi.load('client', async () => {
                                     },
                                     workflowDataSource: {
                                       includeVariables: true,
-                                      type: 'Test string',
+                                      type: 'UNKNOWN',
                                     },
                                   },
                                   initialSuggestions: {
@@ -19288,8 +19437,8 @@ gapi.load('client', async () => {
                                   onChangeAction: {
                                     allWidgetsAreRequired: true,
                                     function: 'Test string',
-                                    interaction: 'Test string',
-                                    loadIndicator: 'Test string',
+                                    interaction: 'INTERACTION_UNSPECIFIED',
+                                    loadIndicator: 'SPINNER',
                                     parameters: [
                                       {
                                         key: 'Test string',
@@ -19300,17 +19449,17 @@ gapi.load('client', async () => {
                                     requiredWidgets: ['Test string'],
                                   },
                                   placeholderText: 'Test string',
-                                  type: 'Test string',
+                                  type: 'SINGLE_LINE',
                                   validation: {
                                     characterLimit: 42,
-                                    inputType: 'Test string',
+                                    inputType: 'INPUT_TYPE_UNSPECIFIED',
                                   },
                                   value: 'Test string',
                                 },
                                 textParagraph: {
                                   maxLines: 42,
                                   text: 'Test string',
-                                  textSyntax: 'Test string',
+                                  textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -19326,7 +19475,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         label: 'Test string',
@@ -19334,8 +19483,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -19346,7 +19495,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         timezoneOffsetDate: 42,
-                        type: 'Test string',
+                        type: 'DATE_AND_TIME',
                         valueMsEpoch: 'Test string',
                       },
                       decoratedText: {
@@ -19354,7 +19503,7 @@ gapi.load('client', async () => {
                         bottomLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         button: {
                           altText: 'Test string',
@@ -19368,7 +19517,7 @@ gapi.load('client', async () => {
                           icon: {
                             altText: 'Test string',
                             iconUrl: 'Test string',
-                            imageType: 'Test string',
+                            imageType: 'SQUARE',
                             knownIcon: 'Test string',
                             materialIcon: {
                               fill: true,
@@ -19381,8 +19530,8 @@ gapi.load('client', async () => {
                             action: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -19396,8 +19545,8 @@ gapi.load('client', async () => {
                             openDynamicLinkAction: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -19408,8 +19557,8 @@ gapi.load('client', async () => {
                               requiredWidgets: ['Test string'],
                             },
                             openLink: {
-                              onClose: 'Test string',
-                              openAs: 'Test string',
+                              onClose: 'NOTHING',
+                              openAs: 'FULL_SIZE',
                               url: 'Test string',
                             },
                             overflowMenu: {
@@ -19420,7 +19569,7 @@ gapi.load('client', async () => {
                                   startIcon: {
                                     altText: 'Test string',
                                     iconUrl: 'Test string',
-                                    imageType: 'Test string',
+                                    imageType: 'SQUARE',
                                     knownIcon: 'Test string',
                                     materialIcon: {
                                       fill: true,
@@ -19435,17 +19584,17 @@ gapi.load('client', async () => {
                             },
                           },
                           text: 'Test string',
-                          type: 'Test string',
+                          type: 'TYPE_UNSPECIFIED',
                         },
                         contentText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         endIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -19457,7 +19606,7 @@ gapi.load('client', async () => {
                         icon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -19470,8 +19619,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19485,8 +19634,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19497,8 +19646,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -19509,7 +19658,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -19526,7 +19675,7 @@ gapi.load('client', async () => {
                         startIcon: {
                           altText: 'Test string',
                           iconUrl: 'Test string',
-                          imageType: 'Test string',
+                          imageType: 'SQUARE',
                           knownIcon: 'Test string',
                           materialIcon: {
                             fill: true,
@@ -19535,15 +19684,16 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        startIconVerticalAlignment: 'Test string',
+                        startIconVerticalAlignment:
+                          'VERTICAL_ALIGNMENT_UNSPECIFIED',
                         switchControl: {
-                          controlType: 'Test string',
+                          controlType: 'SWITCH',
                           name: 'Test string',
                           onChangeAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19561,7 +19711,7 @@ gapi.load('client', async () => {
                         topLabelText: {
                           maxLines: 42,
                           text: 'Test string',
-                          textSyntax: 'Test string',
+                          textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                         },
                         wrapText: true,
                       },
@@ -19571,7 +19721,7 @@ gapi.load('client', async () => {
                           actionRuleId: 'Test string',
                           commonWidgetAction: {
                             updateVisibilityAction: {
-                              visibility: 'Test string',
+                              visibility: 'VISIBILITY_UNSPECIFIED',
                             },
                           },
                           postEventTriggers: [
@@ -19590,7 +19740,7 @@ gapi.load('client', async () => {
                             green: 42,
                             red: 42,
                           },
-                          type: 'Test string',
+                          type: 'BORDER_TYPE_UNSPECIFIED',
                         },
                         columnCount: 42,
                         items: [
@@ -19606,15 +19756,15 @@ gapi.load('client', async () => {
                                   green: 42,
                                   red: 42,
                                 },
-                                type: 'Test string',
+                                type: 'BORDER_TYPE_UNSPECIFIED',
                               },
                               cropStyle: {
                                 aspectRatio: 42,
-                                type: 'Test string',
+                                type: 'IMAGE_CROP_TYPE_UNSPECIFIED',
                               },
                               imageUri: 'Test string',
                             },
-                            layout: 'Test string',
+                            layout: 'GRID_ITEM_LAYOUT_UNSPECIFIED',
                             subtitle: 'Test string',
                             title: 'Test string',
                           },
@@ -19623,8 +19773,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19638,8 +19788,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19650,8 +19800,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -19662,7 +19812,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -19678,7 +19828,7 @@ gapi.load('client', async () => {
                         },
                         title: 'Test string',
                       },
-                      horizontalAlignment: 'Test string',
+                      horizontalAlignment: 'HORIZONTAL_ALIGNMENT_UNSPECIFIED',
                       id: 'Test string',
                       image: {
                         altText: 'Test string',
@@ -19687,8 +19837,8 @@ gapi.load('client', async () => {
                           action: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19702,8 +19852,8 @@ gapi.load('client', async () => {
                           openDynamicLinkAction: {
                             allWidgetsAreRequired: true,
                             function: 'Test string',
-                            interaction: 'Test string',
-                            loadIndicator: 'Test string',
+                            interaction: 'INTERACTION_UNSPECIFIED',
+                            loadIndicator: 'SPINNER',
                             parameters: [
                               {
                                 key: 'Test string',
@@ -19714,8 +19864,8 @@ gapi.load('client', async () => {
                             requiredWidgets: ['Test string'],
                           },
                           openLink: {
-                            onClose: 'Test string',
-                            openAs: 'Test string',
+                            onClose: 'NOTHING',
+                            openAs: 'FULL_SIZE',
                             url: 'Test string',
                           },
                           overflowMenu: {
@@ -19726,7 +19876,7 @@ gapi.load('client', async () => {
                                 startIcon: {
                                   altText: 'Test string',
                                   iconUrl: 'Test string',
-                                  imageType: 'Test string',
+                                  imageType: 'SQUARE',
                                   knownIcon: 'Test string',
                                   materialIcon: {
                                     fill: true,
@@ -19746,7 +19896,7 @@ gapi.load('client', async () => {
                           {
                             minCharactersTrigger: 42,
                             platformDataSource: {
-                              commonDataSource: 'Test string',
+                              commonDataSource: 'UNKNOWN',
                               hostAppDataSource: {
                                 chatDataSource: {
                                   spaceDataSource: {
@@ -19755,15 +19905,15 @@ gapi.load('client', async () => {
                                 },
                                 workflowDataSource: {
                                   includeVariables: true,
-                                  type: 'Test string',
+                                  type: 'UNKNOWN',
                                 },
                               },
                             },
                             remoteDataSource: {
                               allWidgetsAreRequired: true,
                               function: 'Test string',
-                              interaction: 'Test string',
-                              loadIndicator: 'Test string',
+                              interaction: 'INTERACTION_UNSPECIFIED',
+                              loadIndicator: 'SPINNER',
                               parameters: [
                                 {
                                   key: 'Test string',
@@ -19778,8 +19928,8 @@ gapi.load('client', async () => {
                         externalDataSource: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -19806,8 +19956,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -19818,7 +19968,7 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         platformDataSource: {
-                          commonDataSource: 'Test string',
+                          commonDataSource: 'UNKNOWN',
                           hostAppDataSource: {
                             chatDataSource: {
                               spaceDataSource: {
@@ -19827,18 +19977,18 @@ gapi.load('client', async () => {
                             },
                             workflowDataSource: {
                               includeVariables: true,
-                              type: 'Test string',
+                              type: 'UNKNOWN',
                             },
                           },
                         },
-                        type: 'Test string',
+                        type: 'CHECK_BOX',
                       },
                       textInput: {
                         autoCompleteAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -19857,7 +20007,7 @@ gapi.load('client', async () => {
                           },
                           workflowDataSource: {
                             includeVariables: true,
-                            type: 'Test string',
+                            type: 'UNKNOWN',
                           },
                         },
                         initialSuggestions: {
@@ -19872,8 +20022,8 @@ gapi.load('client', async () => {
                         onChangeAction: {
                           allWidgetsAreRequired: true,
                           function: 'Test string',
-                          interaction: 'Test string',
-                          loadIndicator: 'Test string',
+                          interaction: 'INTERACTION_UNSPECIFIED',
+                          loadIndicator: 'SPINNER',
                           parameters: [
                             {
                               key: 'Test string',
@@ -19884,19 +20034,19 @@ gapi.load('client', async () => {
                           requiredWidgets: ['Test string'],
                         },
                         placeholderText: 'Test string',
-                        type: 'Test string',
+                        type: 'SINGLE_LINE',
                         validation: {
                           characterLimit: 42,
-                          inputType: 'Test string',
+                          inputType: 'INPUT_TYPE_UNSPECIFIED',
                         },
                         value: 'Test string',
                       },
                       textParagraph: {
                         maxLines: 42,
                         text: 'Test string',
-                        textSyntax: 'Test string',
+                        textSyntax: 'TEXT_SYNTAX_UNSPECIFIED',
                       },
-                      visibility: 'Test string',
+                      visibility: 'VISIBILITY_UNSPECIFIED',
                     },
                   ],
                 },
@@ -19910,7 +20060,7 @@ gapi.load('client', async () => {
               email: 'Test string',
               isAnonymous: true,
               name: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
           },
         ],
@@ -19918,7 +20068,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         deleteTime: 'Test string',
         deletionMetadata: {
-          deletionType: 'Test string',
+          deletionType: 'DELETION_TYPE_UNSPECIFIED',
         },
         elements: {
           citations: [
@@ -19978,7 +20128,7 @@ gapi.load('client', async () => {
         fallbackText: 'Test string',
         formattedText: 'Test string',
         lastUpdateTime: 'Test string',
-        markupSyntax: 'Test string',
+        markupSyntax: 'MARKUP_SYNTAX_UNSPECIFIED',
         matchedUrl: {
           url: 'Test string',
         },
@@ -19990,7 +20140,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         quotedMessageMetadata: {
           forwardedMetadata: {
@@ -20032,11 +20182,11 @@ gapi.load('client', async () => {
                     mimeType: 'Test string',
                   },
                   meetSpaceLinkData: {
-                    huddleStatus: 'Test string',
+                    huddleStatus: 'HUDDLE_STATUS_UNSPECIFIED',
                     meetingCode: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
-                  richLinkType: 'Test string',
+                  richLinkType: 'RICH_LINK_TYPE_UNSPECIFIED',
                   uri: 'Test string',
                 },
                 slashCommand: {
@@ -20047,17 +20197,17 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   commandId: 'Test string',
                   commandName: 'Test string',
                   triggersDialog: true,
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 startIndex: 42,
-                type: 'Test string',
+                type: 'ANNOTATION_TYPE_UNSPECIFIED',
                 userMention: {
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                   user: {
                     avatarUrl: 'Test string',
                     displayName: 'Test string',
@@ -20065,7 +20215,7 @@ gapi.load('client', async () => {
                     email: 'Test string',
                     isAnonymous: true,
                     name: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                 },
               },
@@ -20083,7 +20233,7 @@ gapi.load('client', async () => {
                   driveFileId: 'Test string',
                 },
                 name: 'Test string',
-                source: 'Test string',
+                source: 'SOURCE_UNSPECIFIED',
                 thumbnailUri: 'Test string',
               },
             ],
@@ -20091,7 +20241,7 @@ gapi.load('client', async () => {
             sender: 'Test string',
             text: 'Test string',
           },
-          quoteType: 'Test string',
+          quoteType: 'QUOTE_TYPE_UNSPECIFIED',
         },
         sender: {
           avatarUrl: 'Test string',
@@ -20100,7 +20250,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         silent: true,
         slashCommand: {
@@ -20137,7 +20287,7 @@ gapi.load('client', async () => {
                 ],
               },
             },
-            accessState: 'Test string',
+            accessState: 'ACCESS_STATE_UNSPECIFIED',
             audience: 'Test string',
           },
           adminInstalled: true,
@@ -20200,18 +20350,19 @@ gapi.load('client', async () => {
               membersAllowed: true,
             },
           },
-          predefinedPermissionSettings: 'Test string',
+          predefinedPermissionSettings:
+            'PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED',
           singleUserBotDm: true,
           spaceDetails: {
             description: 'Test string',
             guidelines: 'Test string',
           },
-          spaceHistoryState: 'Test string',
-          spaceThreadingState: 'Test string',
-          spaceType: 'Test string',
+          spaceHistoryState: 'HISTORY_STATE_UNSPECIFIED',
+          spaceThreadingState: 'SPACE_THREADING_STATE_UNSPECIFIED',
+          spaceType: 'SPACE_TYPE_UNSPECIFIED',
           spaceUri: 'Test string',
           threaded: true,
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         text: 'Test string',
         thread: {
@@ -20252,7 +20403,7 @@ gapi.load('client', async () => {
           email: 'Test string',
           isAnonymous: true,
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
       },
     );
@@ -20338,7 +20489,7 @@ gapi.load('client', async () => {
           expirationTime: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Creates a section in Google Chat. Sections help users group conversations and customize the list of spaces displayed in Chat navigation panel. Only sections of type `CUSTOM_SECTION` can be created. For details, see [Create and organize sections in Google Chat](https://support.google.com/chat/answer/16059854). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with the [authorization scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.users.sections` */
@@ -20350,7 +20501,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sortOrder: 42,
-        type: 'Test string',
+        type: 'SECTION_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a section of type `CUSTOM_SECTION`. If the section contains items, such as spaces, the items are moved to Google Chat's default sections and are not deleted. For details, see [Create and organize sections in Google Chat](https://support.google.com/chat/answer/16059854). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with the [authorization scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.users.sections` */
@@ -20373,7 +20524,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         sortOrder: 42,
-        type: 'Test string',
+        type: 'SECTION_TYPE_UNSPECIFIED',
       },
     );
     /** Changes the sort order of a section. For details, see [Create and organize sections in Google Chat](https://support.google.com/chat/answer/16059854). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with the [authorization scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.users.sections` */
@@ -20382,7 +20533,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        relativePosition: 'Test string',
+        relativePosition: 'POSITION_UNSPECIFIED',
         sortOrder: 42,
       },
     );
@@ -20428,9 +20579,9 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        muteSetting: 'Test string',
+        muteSetting: 'MUTE_SETTING_UNSPECIFIED',
         name: 'Test string',
-        notificationSetting: 'Test string',
+        notificationSetting: 'NOTIFICATION_SETTING_UNSPECIFIED',
       },
     );
     /** Returns details about a user's read state within a thread, used to identify read and unread messages. For an example, see [Get details about a user's thread read state](https://developers.google.com/workspace/chat/get-thread-read-state). Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user) with one of the following [authorization scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes): - `https://www.googleapis.com/auth/chat.users.readstate.readonly` - `https://www.googleapis.com/auth/chat.users.readstate` */

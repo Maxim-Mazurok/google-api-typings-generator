@@ -60,7 +60,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
                 fromDocumentComparison: true,
                 fromImportedDocument: true,
                 postId: 'Test string',
-                suggestionAction: 'Test string',
+                suggestionAction: 'SUGGESTION_ACTION_TYPE_UNSPECIFIED',
                 updateTime: 'Test string',
               },
               suggestionId: 'Test string',
@@ -102,11 +102,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -162,11 +162,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -220,7 +220,7 @@ gapi.load('client', async () => {
                 segmentId: 'Test string',
                 tabId: 'Test string',
               },
-              type: 'Test string',
+              type: 'HEADER_FOOTER_TYPE_UNSPECIFIED',
             },
             createFootnote: {
               endOfSegmentLocation: {
@@ -239,7 +239,7 @@ gapi.load('client', async () => {
                 segmentId: 'Test string',
                 tabId: 'Test string',
               },
-              type: 'Test string',
+              type: 'HEADER_FOOTER_TYPE_UNSPECIFIED',
             },
             createNamedRange: {
               name: 'Test string',
@@ -251,7 +251,7 @@ gapi.load('client', async () => {
               },
             },
             createParagraphBullets: {
-              bulletPreset: 'Test string',
+              bulletPreset: 'BULLET_GLYPH_PRESET_UNSPECIFIED',
               range: {
                 endIndex: 42,
                 segmentId: 'Test string',
@@ -346,10 +346,10 @@ gapi.load('client', async () => {
             },
             insertDate: {
               dateElementProperties: {
-                dateFormat: 'Test string',
+                dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                 displayText: 'Test string',
                 locale: 'Test string',
-                timeFormat: 'Test string',
+                timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                 timestamp: 'Test string',
                 timeZoneId: 'Test string',
               },
@@ -389,11 +389,11 @@ gapi.load('client', async () => {
               objectSize: {
                 height: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 width: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               uri: 'Test string',
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
                 segmentId: 'Test string',
                 tabId: 'Test string',
               },
-              sectionType: 'Test string',
+              sectionType: 'SECTION_TYPE_UNSPECIFIED',
             },
             insertTable: {
               columns: 42,
@@ -540,7 +540,7 @@ gapi.load('client', async () => {
             },
             replaceImage: {
               imageObjectId: 'Test string',
-              imageReplaceMethod: 'Test string',
+              imageReplaceMethod: 'IMAGE_REPLACE_METHOD_UNSPECIFIED',
               tabId: 'Test string',
               uri: 'Test string',
             },
@@ -589,7 +589,7 @@ gapi.load('client', async () => {
                 defaultFooterId: 'Test string',
                 defaultHeaderId: 'Test string',
                 documentFormat: {
-                  documentMode: 'Test string',
+                  documentMode: 'DOCUMENT_MODE_UNSPECIFIED',
                 },
                 evenPageFooterId: 'Test string',
                 evenPageHeaderId: 'Test string',
@@ -598,37 +598,37 @@ gapi.load('client', async () => {
                 flipPageOrientation: true,
                 marginBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginFooter: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginHeader: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 pageNumberStart: 42,
                 pageSize: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 useCustomHeaderFooterMargins: true,
@@ -666,11 +666,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      baselineOffset: 'Test string',
+                      baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                       bold: true,
                       fontSize: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       foregroundColor: {
                         color: {
@@ -727,9 +727,9 @@ gapi.load('client', async () => {
             updateNamedStyle: {
               fields: 'Test string',
               namedStyle: {
-                namedStyleType: 'Test string',
+                namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                 paragraphStyle: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   avoidWidowAndOrphan: true,
                   borderBetween: {
                     color: {
@@ -741,14 +741,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderBottom: {
@@ -761,14 +761,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderLeft: {
@@ -781,14 +781,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderRight: {
@@ -801,14 +801,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderTop: {
@@ -821,34 +821,34 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
-                  direction: 'Test string',
+                  direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                   headingId: 'Test string',
                   indentEnd: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   indentFirstLine: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   indentStart: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   keepLinesTogether: true,
                   keepWithNext: true,
                   lineSpacing: 42,
-                  namedStyleType: 'Test string',
+                  namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                   pageBreakBefore: true,
                   shading: {
                     backgroundColor: {
@@ -863,19 +863,19 @@ gapi.load('client', async () => {
                   },
                   spaceAbove: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   spaceBelow: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
-                  spacingMode: 'Test string',
+                  spacingMode: 'SPACING_MODE_UNSPECIFIED',
                   tabStops: [
                     {
-                      alignment: 'Test string',
+                      alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                       offset: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
@@ -890,11 +890,11 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  baselineOffset: 'Test string',
+                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                   bold: true,
                   fontSize: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   foregroundColor: {
                     color: {
@@ -934,7 +934,7 @@ gapi.load('client', async () => {
             updateParagraphStyle: {
               fields: 'Test string',
               paragraphStyle: {
-                alignment: 'Test string',
+                alignment: 'ALIGNMENT_UNSPECIFIED',
                 avoidWidowAndOrphan: true,
                 borderBetween: {
                   color: {
@@ -946,14 +946,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderBottom: {
@@ -966,14 +966,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderLeft: {
@@ -986,14 +986,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderRight: {
@@ -1006,14 +1006,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderTop: {
@@ -1026,34 +1026,34 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
-                direction: 'Test string',
+                direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                 headingId: 'Test string',
                 indentEnd: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentFirstLine: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentStart: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 keepLinesTogether: true,
                 keepWithNext: true,
                 lineSpacing: 42,
-                namedStyleType: 'Test string',
+                namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                 pageBreakBefore: true,
                 shading: {
                   backgroundColor: {
@@ -1068,19 +1068,19 @@ gapi.load('client', async () => {
                 },
                 spaceAbove: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 spaceBelow: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
-                spacingMode: 'Test string',
+                spacingMode: 'SPACING_MODE_UNSPECIFIED',
                 tabStops: [
                   {
-                    alignment: 'Test string',
+                    alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                     offset: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 ],
@@ -1105,16 +1105,16 @@ gapi.load('client', async () => {
                   {
                     paddingEnd: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 ],
-                columnSeparatorStyle: 'Test string',
-                contentDirection: 'Test string',
+                columnSeparatorStyle: 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                 defaultFooterId: 'Test string',
                 defaultHeaderId: 'Test string',
                 evenPageFooterId: 'Test string',
@@ -1124,30 +1124,30 @@ gapi.load('client', async () => {
                 flipPageOrientation: true,
                 marginBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginFooter: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginHeader: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 pageNumberStart: 42,
-                sectionType: 'Test string',
+                sectionType: 'SECTION_TYPE_UNSPECIFIED',
                 useFirstPageHeaderFooter: true,
               },
             },
@@ -1173,10 +1173,10 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderLeft: {
@@ -1189,10 +1189,10 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderRight: {
@@ -1205,10 +1205,10 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderTop: {
@@ -1221,29 +1221,29 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 columnSpan: 42,
-                contentAlignment: 'Test string',
+                contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                 paddingBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 paddingLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 paddingRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 paddingTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 rowSpan: 42,
               },
@@ -1272,9 +1272,9 @@ gapi.load('client', async () => {
               tableColumnProperties: {
                 width: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
-                widthType: 'Test string',
+                widthType: 'WIDTH_TYPE_UNSPECIFIED',
               },
               tableStartLocation: {
                 index: 42,
@@ -1288,7 +1288,7 @@ gapi.load('client', async () => {
               tableRowStyle: {
                 minRowHeight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 preventOverflow: true,
                 tableHeader: true,
@@ -1317,11 +1317,11 @@ gapi.load('client', async () => {
                     },
                   },
                 },
-                baselineOffset: 'Test string',
+                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                 bold: true,
                 fontSize: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 foregroundColor: {
                   color: {
@@ -1361,7 +1361,7 @@ gapi.load('client', async () => {
         writeControl: {
           requiredRevisionId: 'Test string',
           targetRevisionId: 'Test string',
-          writeMode: 'Test string',
+          writeMode: 'WRITE_MODE_UNSPECIFIED',
         },
       },
     );
@@ -1387,11 +1387,11 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    baselineOffset: 'Test string',
+                    baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                     bold: true,
                     fontSize: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     foregroundColor: {
                       color: {
@@ -1443,11 +1443,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -1506,11 +1506,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -1544,7 +1544,7 @@ gapi.load('client', async () => {
                           weight: 42,
                         },
                       },
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     columnBreak: {
                       suggestedDeletionIds: ['Test string'],
@@ -1561,11 +1561,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -1624,11 +1624,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -1665,10 +1665,10 @@ gapi.load('client', async () => {
                     },
                     dateElement: {
                       dateElementProperties: {
-                        dateFormat: 'Test string',
+                        dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                         displayText: 'Test string',
                         locale: 'Test string',
-                        timeFormat: 'Test string',
+                        timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                         timestamp: 'Test string',
                         timeZoneId: 'Test string',
                       },
@@ -1676,10 +1676,10 @@ gapi.load('client', async () => {
                       suggestedDateElementPropertiesChanges: {
                         A: {
                           dateElementProperties: {
-                            dateFormat: 'Test string',
+                            dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                             displayText: 'Test string',
                             locale: 'Test string',
-                            timeFormat: 'Test string',
+                            timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                             timestamp: 'Test string',
                             timeZoneId: 'Test string',
                           },
@@ -1706,11 +1706,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -1769,11 +1769,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -1841,11 +1841,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -1904,11 +1904,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -1965,11 +1965,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2028,11 +2028,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2082,11 +2082,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2145,11 +2145,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2200,11 +2200,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2263,11 +2263,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2317,11 +2317,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2380,11 +2380,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2439,11 +2439,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2502,11 +2502,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2562,11 +2562,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2625,11 +2625,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2681,11 +2681,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -2744,11 +2744,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -2786,7 +2786,7 @@ gapi.load('client', async () => {
                   },
                 ],
                 paragraphStyle: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   avoidWidowAndOrphan: true,
                   borderBetween: {
                     color: {
@@ -2798,14 +2798,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderBottom: {
@@ -2818,14 +2818,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderLeft: {
@@ -2838,14 +2838,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderRight: {
@@ -2858,14 +2858,14 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                   borderTop: {
@@ -2878,34 +2878,34 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    dashStyle: 'Test string',
+                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                     padding: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     width: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
-                  direction: 'Test string',
+                  direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                   headingId: 'Test string',
                   indentEnd: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   indentFirstLine: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   indentStart: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   keepLinesTogether: true,
                   keepWithNext: true,
                   lineSpacing: 42,
-                  namedStyleType: 'Test string',
+                  namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                   pageBreakBefore: true,
                   shading: {
                     backgroundColor: {
@@ -2920,19 +2920,19 @@ gapi.load('client', async () => {
                   },
                   spaceAbove: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   spaceBelow: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
-                  spacingMode: 'Test string',
+                  spacingMode: 'SPACING_MODE_UNSPECIFIED',
                   tabStops: [
                     {
-                      alignment: 'Test string',
+                      alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                       offset: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
@@ -2953,11 +2953,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -3014,7 +3014,7 @@ gapi.load('client', async () => {
                 suggestedParagraphStyleChanges: {
                   A: {
                     paragraphStyle: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       avoidWidowAndOrphan: true,
                       borderBetween: {
                         color: {
@@ -3026,14 +3026,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderBottom: {
@@ -3046,14 +3046,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderLeft: {
@@ -3066,14 +3066,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderRight: {
@@ -3086,14 +3086,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderTop: {
@@ -3106,34 +3106,34 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
-                      direction: 'Test string',
+                      direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                       headingId: 'Test string',
                       indentEnd: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       indentFirstLine: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       indentStart: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       keepLinesTogether: true,
                       keepWithNext: true,
                       lineSpacing: 42,
-                      namedStyleType: 'Test string',
+                      namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                       pageBreakBefore: true,
                       shading: {
                         backgroundColor: {
@@ -3148,19 +3148,19 @@ gapi.load('client', async () => {
                       },
                       spaceAbove: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       spaceBelow: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      spacingMode: 'Test string',
+                      spacingMode: 'SPACING_MODE_UNSPECIFIED',
                       tabStops: [
                         {
-                          alignment: 'Test string',
+                          alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                           offset: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       ],
@@ -3204,16 +3204,16 @@ gapi.load('client', async () => {
                     {
                       paddingEnd: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   ],
-                  columnSeparatorStyle: 'Test string',
-                  contentDirection: 'Test string',
+                  columnSeparatorStyle: 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                  contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                   defaultFooterId: 'Test string',
                   defaultHeaderId: 'Test string',
                   evenPageFooterId: 'Test string',
@@ -3223,30 +3223,30 @@ gapi.load('client', async () => {
                   flipPageOrientation: true,
                   marginBottom: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   marginFooter: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   marginHeader: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   marginLeft: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   marginRight: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   marginTop: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   pageNumberStart: 42,
-                  sectionType: 'Test string',
+                  sectionType: 'SECTION_TYPE_UNSPECIFIED',
                   useFirstPageHeaderFooter: true,
                 },
                 suggestedDeletionIds: ['Test string'],
@@ -3269,7 +3269,7 @@ gapi.load('client', async () => {
                         tableRowStyle: {
                           minRowHeight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           preventOverflow: true,
                           tableHeader: true,
@@ -3308,10 +3308,10 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderLeft: {
@@ -3324,10 +3324,10 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderRight: {
@@ -3340,10 +3340,10 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderTop: {
@@ -3356,29 +3356,29 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               columnSpan: 42,
-                              contentAlignment: 'Test string',
+                              contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                               paddingBottom: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               paddingLeft: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               paddingRight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               paddingTop: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               rowSpan: 42,
                             },
@@ -3418,10 +3418,10 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderLeft: {
@@ -3434,10 +3434,10 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderRight: {
@@ -3450,10 +3450,10 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderTop: {
@@ -3466,29 +3466,29 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           columnSpan: 42,
-                          contentAlignment: 'Test string',
+                          contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                           paddingBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           paddingLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           paddingRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           paddingTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           rowSpan: 42,
                         },
@@ -3497,7 +3497,7 @@ gapi.load('client', async () => {
                     tableRowStyle: {
                       minRowHeight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       preventOverflow: true,
                       tableHeader: true,
@@ -3509,9 +3509,9 @@ gapi.load('client', async () => {
                     {
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      widthType: 'Test string',
+                      widthType: 'WIDTH_TYPE_UNSPECIFIED',
                     },
                   ],
                 },
@@ -3536,7 +3536,7 @@ gapi.load('client', async () => {
                 me: true,
                 user: 'Test string',
               },
-              commentAction: 'Test string',
+              commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
               content: 'Test string',
               contentHtml: 'Test string',
               createTime: 'Test string',
@@ -3545,7 +3545,7 @@ gapi.load('client', async () => {
               fromDocumentComparison: true,
               fromImportedDocument: true,
               postId: 'Test string',
-              suggestionAction: 'Test string',
+              suggestionAction: 'SUGGESTION_ACTION_TYPE_UNSPECIFIED',
               updateTime: 'Test string',
             },
             plainTextQuote: 'Test string',
@@ -3558,7 +3558,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -3567,14 +3567,14 @@ gapi.load('client', async () => {
                 fromDocumentComparison: true,
                 fromImportedDocument: true,
                 postId: 'Test string',
-                suggestionAction: 'Test string',
+                suggestionAction: 'SUGGESTION_ACTION_TYPE_UNSPECIFIED',
                 updateTime: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
           },
         ],
-        commentsViewMode: 'Test string',
+        commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
         documentId: 'Test string',
         documentStyle: {
           background: {
@@ -3591,7 +3591,7 @@ gapi.load('client', async () => {
           defaultFooterId: 'Test string',
           defaultHeaderId: 'Test string',
           documentFormat: {
-            documentMode: 'Test string',
+            documentMode: 'DOCUMENT_MODE_UNSPECIFIED',
           },
           evenPageFooterId: 'Test string',
           evenPageHeaderId: 'Test string',
@@ -3600,37 +3600,37 @@ gapi.load('client', async () => {
           flipPageOrientation: true,
           marginBottom: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           marginFooter: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           marginHeader: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           marginLeft: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           marginRight: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           marginTop: {
             magnitude: 42,
-            unit: 'Test string',
+            unit: 'UNIT_UNSPECIFIED',
           },
           pageNumberStart: 42,
           pageSize: {
             height: {
               magnitude: 42,
-              unit: 'Test string',
+              unit: 'UNIT_UNSPECIFIED',
             },
             width: {
               magnitude: 42,
-              unit: 'Test string',
+              unit: 'UNIT_UNSPECIFIED',
             },
           },
           useCustomHeaderFooterMargins: true,
@@ -3656,11 +3656,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      baselineOffset: 'Test string',
+                      baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                       bold: true,
                       fontSize: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       foregroundColor: {
                         color: {
@@ -3712,11 +3712,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -3775,11 +3775,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -3813,7 +3813,7 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       columnBreak: {
                         suggestedDeletionIds: ['Test string'],
@@ -3830,11 +3830,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -3893,11 +3893,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -3934,10 +3934,10 @@ gapi.load('client', async () => {
                       },
                       dateElement: {
                         dateElementProperties: {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           displayText: 'Test string',
                           locale: 'Test string',
-                          timeFormat: 'Test string',
+                          timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                           timestamp: 'Test string',
                           timeZoneId: 'Test string',
                         },
@@ -3945,10 +3945,10 @@ gapi.load('client', async () => {
                         suggestedDateElementPropertiesChanges: {
                           A: {
                             dateElementProperties: {
-                              dateFormat: 'Test string',
+                              dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                               displayText: 'Test string',
                               locale: 'Test string',
-                              timeFormat: 'Test string',
+                              timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                               timestamp: 'Test string',
                               timeZoneId: 'Test string',
                             },
@@ -3975,11 +3975,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4038,11 +4038,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4110,11 +4110,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4173,11 +4173,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4234,11 +4234,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4297,11 +4297,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4351,11 +4351,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4414,11 +4414,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4469,11 +4469,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4532,11 +4532,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4586,11 +4586,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4649,11 +4649,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4708,11 +4708,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4771,11 +4771,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4831,11 +4831,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -4894,11 +4894,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -4950,11 +4950,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -5013,11 +5013,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -5055,7 +5055,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   paragraphStyle: {
-                    alignment: 'Test string',
+                    alignment: 'ALIGNMENT_UNSPECIFIED',
                     avoidWidowAndOrphan: true,
                     borderBetween: {
                       color: {
@@ -5067,14 +5067,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderBottom: {
@@ -5087,14 +5087,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderLeft: {
@@ -5107,14 +5107,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderRight: {
@@ -5127,14 +5127,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderTop: {
@@ -5147,34 +5147,34 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
-                    direction: 'Test string',
+                    direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                     headingId: 'Test string',
                     indentEnd: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentFirstLine: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentStart: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     keepLinesTogether: true,
                     keepWithNext: true,
                     lineSpacing: 42,
-                    namedStyleType: 'Test string',
+                    namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                     pageBreakBefore: true,
                     shading: {
                       backgroundColor: {
@@ -5189,19 +5189,19 @@ gapi.load('client', async () => {
                     },
                     spaceAbove: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     spaceBelow: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    spacingMode: 'Test string',
+                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                     tabStops: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                         offset: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
@@ -5222,11 +5222,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -5283,7 +5283,7 @@ gapi.load('client', async () => {
                   suggestedParagraphStyleChanges: {
                     A: {
                       paragraphStyle: {
-                        alignment: 'Test string',
+                        alignment: 'ALIGNMENT_UNSPECIFIED',
                         avoidWidowAndOrphan: true,
                         borderBetween: {
                           color: {
@@ -5295,14 +5295,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderBottom: {
@@ -5315,14 +5315,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderLeft: {
@@ -5335,14 +5335,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderRight: {
@@ -5355,14 +5355,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderTop: {
@@ -5375,34 +5375,34 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
-                        direction: 'Test string',
+                        direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                         headingId: 'Test string',
                         indentEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentFirstLine: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentStart: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         keepLinesTogether: true,
                         keepWithNext: true,
                         lineSpacing: 42,
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         pageBreakBefore: true,
                         shading: {
                           backgroundColor: {
@@ -5417,19 +5417,19 @@ gapi.load('client', async () => {
                         },
                         spaceAbove: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         spaceBelow: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        spacingMode: 'Test string',
+                        spacingMode: 'SPACING_MODE_UNSPECIFIED',
                         tabStops: [
                           {
-                            alignment: 'Test string',
+                            alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                             offset: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
@@ -5473,16 +5473,16 @@ gapi.load('client', async () => {
                       {
                         paddingEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
-                    columnSeparatorStyle: 'Test string',
-                    contentDirection: 'Test string',
+                    columnSeparatorStyle: 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                    contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                     defaultFooterId: 'Test string',
                     defaultHeaderId: 'Test string',
                     evenPageFooterId: 'Test string',
@@ -5492,30 +5492,30 @@ gapi.load('client', async () => {
                     flipPageOrientation: true,
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginFooter: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginHeader: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     pageNumberStart: 42,
-                    sectionType: 'Test string',
+                    sectionType: 'SECTION_TYPE_UNSPECIFIED',
                     useFirstPageHeaderFooter: true,
                   },
                   suggestedDeletionIds: ['Test string'],
@@ -5538,7 +5538,7 @@ gapi.load('client', async () => {
                           tableRowStyle: {
                             minRowHeight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             preventOverflow: true,
                             tableHeader: true,
@@ -5577,10 +5577,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderLeft: {
@@ -5593,10 +5593,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderRight: {
@@ -5609,10 +5609,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderTop: {
@@ -5625,29 +5625,30 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 columnSpan: 42,
-                                contentAlignment: 'Test string',
+                                contentAlignment:
+                                  'CONTENT_ALIGNMENT_UNSPECIFIED',
                                 paddingBottom: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingLeft: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingRight: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingTop: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 rowSpan: 42,
                               },
@@ -5687,10 +5688,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderLeft: {
@@ -5703,10 +5704,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderRight: {
@@ -5719,10 +5720,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderTop: {
@@ -5735,29 +5736,29 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             columnSpan: 42,
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             paddingBottom: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingLeft: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingRight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingTop: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             rowSpan: 42,
                           },
@@ -5766,7 +5767,7 @@ gapi.load('client', async () => {
                       tableRowStyle: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         preventOverflow: true,
                         tableHeader: true,
@@ -5778,9 +5779,9 @@ gapi.load('client', async () => {
                       {
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        widthType: 'Test string',
+                        widthType: 'WIDTH_TYPE_UNSPECIFIED',
                       },
                     ],
                   },
@@ -5814,11 +5815,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      baselineOffset: 'Test string',
+                      baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                       bold: true,
                       fontSize: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       foregroundColor: {
                         color: {
@@ -5870,11 +5871,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -5933,11 +5934,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -5971,7 +5972,7 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       columnBreak: {
                         suggestedDeletionIds: ['Test string'],
@@ -5988,11 +5989,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6051,11 +6052,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6092,10 +6093,10 @@ gapi.load('client', async () => {
                       },
                       dateElement: {
                         dateElementProperties: {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           displayText: 'Test string',
                           locale: 'Test string',
-                          timeFormat: 'Test string',
+                          timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                           timestamp: 'Test string',
                           timeZoneId: 'Test string',
                         },
@@ -6103,10 +6104,10 @@ gapi.load('client', async () => {
                         suggestedDateElementPropertiesChanges: {
                           A: {
                             dateElementProperties: {
-                              dateFormat: 'Test string',
+                              dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                               displayText: 'Test string',
                               locale: 'Test string',
-                              timeFormat: 'Test string',
+                              timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                               timestamp: 'Test string',
                               timeZoneId: 'Test string',
                             },
@@ -6133,11 +6134,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6196,11 +6197,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6268,11 +6269,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6331,11 +6332,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6392,11 +6393,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6455,11 +6456,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6509,11 +6510,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6572,11 +6573,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6627,11 +6628,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6690,11 +6691,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6744,11 +6745,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6807,11 +6808,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6866,11 +6867,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -6929,11 +6930,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -6989,11 +6990,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -7052,11 +7053,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -7108,11 +7109,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -7171,11 +7172,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -7213,7 +7214,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   paragraphStyle: {
-                    alignment: 'Test string',
+                    alignment: 'ALIGNMENT_UNSPECIFIED',
                     avoidWidowAndOrphan: true,
                     borderBetween: {
                       color: {
@@ -7225,14 +7226,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderBottom: {
@@ -7245,14 +7246,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderLeft: {
@@ -7265,14 +7266,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderRight: {
@@ -7285,14 +7286,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderTop: {
@@ -7305,34 +7306,34 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
-                    direction: 'Test string',
+                    direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                     headingId: 'Test string',
                     indentEnd: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentFirstLine: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentStart: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     keepLinesTogether: true,
                     keepWithNext: true,
                     lineSpacing: 42,
-                    namedStyleType: 'Test string',
+                    namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                     pageBreakBefore: true,
                     shading: {
                       backgroundColor: {
@@ -7347,19 +7348,19 @@ gapi.load('client', async () => {
                     },
                     spaceAbove: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     spaceBelow: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    spacingMode: 'Test string',
+                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                     tabStops: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                         offset: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
@@ -7380,11 +7381,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -7441,7 +7442,7 @@ gapi.load('client', async () => {
                   suggestedParagraphStyleChanges: {
                     A: {
                       paragraphStyle: {
-                        alignment: 'Test string',
+                        alignment: 'ALIGNMENT_UNSPECIFIED',
                         avoidWidowAndOrphan: true,
                         borderBetween: {
                           color: {
@@ -7453,14 +7454,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderBottom: {
@@ -7473,14 +7474,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderLeft: {
@@ -7493,14 +7494,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderRight: {
@@ -7513,14 +7514,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderTop: {
@@ -7533,34 +7534,34 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
-                        direction: 'Test string',
+                        direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                         headingId: 'Test string',
                         indentEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentFirstLine: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentStart: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         keepLinesTogether: true,
                         keepWithNext: true,
                         lineSpacing: 42,
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         pageBreakBefore: true,
                         shading: {
                           backgroundColor: {
@@ -7575,19 +7576,19 @@ gapi.load('client', async () => {
                         },
                         spaceAbove: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         spaceBelow: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        spacingMode: 'Test string',
+                        spacingMode: 'SPACING_MODE_UNSPECIFIED',
                         tabStops: [
                           {
-                            alignment: 'Test string',
+                            alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                             offset: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
@@ -7631,16 +7632,16 @@ gapi.load('client', async () => {
                       {
                         paddingEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
-                    columnSeparatorStyle: 'Test string',
-                    contentDirection: 'Test string',
+                    columnSeparatorStyle: 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                    contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                     defaultFooterId: 'Test string',
                     defaultHeaderId: 'Test string',
                     evenPageFooterId: 'Test string',
@@ -7650,30 +7651,30 @@ gapi.load('client', async () => {
                     flipPageOrientation: true,
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginFooter: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginHeader: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     pageNumberStart: 42,
-                    sectionType: 'Test string',
+                    sectionType: 'SECTION_TYPE_UNSPECIFIED',
                     useFirstPageHeaderFooter: true,
                   },
                   suggestedDeletionIds: ['Test string'],
@@ -7696,7 +7697,7 @@ gapi.load('client', async () => {
                           tableRowStyle: {
                             minRowHeight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             preventOverflow: true,
                             tableHeader: true,
@@ -7735,10 +7736,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderLeft: {
@@ -7751,10 +7752,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderRight: {
@@ -7767,10 +7768,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderTop: {
@@ -7783,29 +7784,30 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 columnSpan: 42,
-                                contentAlignment: 'Test string',
+                                contentAlignment:
+                                  'CONTENT_ALIGNMENT_UNSPECIFIED',
                                 paddingBottom: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingLeft: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingRight: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingTop: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 rowSpan: 42,
                               },
@@ -7845,10 +7847,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderLeft: {
@@ -7861,10 +7863,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderRight: {
@@ -7877,10 +7879,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderTop: {
@@ -7893,29 +7895,29 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             columnSpan: 42,
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             paddingBottom: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingLeft: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingRight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingTop: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             rowSpan: 42,
                           },
@@ -7924,7 +7926,7 @@ gapi.load('client', async () => {
                       tableRowStyle: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         preventOverflow: true,
                         tableHeader: true,
@@ -7936,9 +7938,9 @@ gapi.load('client', async () => {
                       {
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        widthType: 'Test string',
+                        widthType: 'WIDTH_TYPE_UNSPECIFIED',
                       },
                     ],
                   },
@@ -7972,11 +7974,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      baselineOffset: 'Test string',
+                      baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                       bold: true,
                       fontSize: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       foregroundColor: {
                         color: {
@@ -8028,11 +8030,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8091,11 +8093,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8129,7 +8131,7 @@ gapi.load('client', async () => {
                             weight: 42,
                           },
                         },
-                        type: 'Test string',
+                        type: 'TYPE_UNSPECIFIED',
                       },
                       columnBreak: {
                         suggestedDeletionIds: ['Test string'],
@@ -8146,11 +8148,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8209,11 +8211,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8250,10 +8252,10 @@ gapi.load('client', async () => {
                       },
                       dateElement: {
                         dateElementProperties: {
-                          dateFormat: 'Test string',
+                          dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                           displayText: 'Test string',
                           locale: 'Test string',
-                          timeFormat: 'Test string',
+                          timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                           timestamp: 'Test string',
                           timeZoneId: 'Test string',
                         },
@@ -8261,10 +8263,10 @@ gapi.load('client', async () => {
                         suggestedDateElementPropertiesChanges: {
                           A: {
                             dateElementProperties: {
-                              dateFormat: 'Test string',
+                              dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                               displayText: 'Test string',
                               locale: 'Test string',
-                              timeFormat: 'Test string',
+                              timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                               timestamp: 'Test string',
                               timeZoneId: 'Test string',
                             },
@@ -8291,11 +8293,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8354,11 +8356,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8426,11 +8428,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8489,11 +8491,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8550,11 +8552,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8613,11 +8615,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8667,11 +8669,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8730,11 +8732,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8785,11 +8787,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8848,11 +8850,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -8902,11 +8904,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -8965,11 +8967,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -9024,11 +9026,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -9087,11 +9089,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -9147,11 +9149,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -9210,11 +9212,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -9266,11 +9268,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -9329,11 +9331,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -9371,7 +9373,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   paragraphStyle: {
-                    alignment: 'Test string',
+                    alignment: 'ALIGNMENT_UNSPECIFIED',
                     avoidWidowAndOrphan: true,
                     borderBetween: {
                       color: {
@@ -9383,14 +9385,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderBottom: {
@@ -9403,14 +9405,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderLeft: {
@@ -9423,14 +9425,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderRight: {
@@ -9443,14 +9445,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderTop: {
@@ -9463,34 +9465,34 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
-                    direction: 'Test string',
+                    direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                     headingId: 'Test string',
                     indentEnd: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentFirstLine: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentStart: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     keepLinesTogether: true,
                     keepWithNext: true,
                     lineSpacing: 42,
-                    namedStyleType: 'Test string',
+                    namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                     pageBreakBefore: true,
                     shading: {
                       backgroundColor: {
@@ -9505,19 +9507,19 @@ gapi.load('client', async () => {
                     },
                     spaceAbove: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     spaceBelow: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    spacingMode: 'Test string',
+                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                     tabStops: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                         offset: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
@@ -9538,11 +9540,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -9599,7 +9601,7 @@ gapi.load('client', async () => {
                   suggestedParagraphStyleChanges: {
                     A: {
                       paragraphStyle: {
-                        alignment: 'Test string',
+                        alignment: 'ALIGNMENT_UNSPECIFIED',
                         avoidWidowAndOrphan: true,
                         borderBetween: {
                           color: {
@@ -9611,14 +9613,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderBottom: {
@@ -9631,14 +9633,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderLeft: {
@@ -9651,14 +9653,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderRight: {
@@ -9671,14 +9673,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderTop: {
@@ -9691,34 +9693,34 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
-                        direction: 'Test string',
+                        direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                         headingId: 'Test string',
                         indentEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentFirstLine: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentStart: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         keepLinesTogether: true,
                         keepWithNext: true,
                         lineSpacing: 42,
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         pageBreakBefore: true,
                         shading: {
                           backgroundColor: {
@@ -9733,19 +9735,19 @@ gapi.load('client', async () => {
                         },
                         spaceAbove: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         spaceBelow: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        spacingMode: 'Test string',
+                        spacingMode: 'SPACING_MODE_UNSPECIFIED',
                         tabStops: [
                           {
-                            alignment: 'Test string',
+                            alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                             offset: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
@@ -9789,16 +9791,16 @@ gapi.load('client', async () => {
                       {
                         paddingEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
-                    columnSeparatorStyle: 'Test string',
-                    contentDirection: 'Test string',
+                    columnSeparatorStyle: 'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                    contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                     defaultFooterId: 'Test string',
                     defaultHeaderId: 'Test string',
                     evenPageFooterId: 'Test string',
@@ -9808,30 +9810,30 @@ gapi.load('client', async () => {
                     flipPageOrientation: true,
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginFooter: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginHeader: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     pageNumberStart: 42,
-                    sectionType: 'Test string',
+                    sectionType: 'SECTION_TYPE_UNSPECIFIED',
                     useFirstPageHeaderFooter: true,
                   },
                   suggestedDeletionIds: ['Test string'],
@@ -9854,7 +9856,7 @@ gapi.load('client', async () => {
                           tableRowStyle: {
                             minRowHeight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             preventOverflow: true,
                             tableHeader: true,
@@ -9893,10 +9895,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderLeft: {
@@ -9909,10 +9911,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderRight: {
@@ -9925,10 +9927,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderTop: {
@@ -9941,29 +9943,30 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 columnSpan: 42,
-                                contentAlignment: 'Test string',
+                                contentAlignment:
+                                  'CONTENT_ALIGNMENT_UNSPECIFIED',
                                 paddingBottom: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingLeft: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingRight: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingTop: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 rowSpan: 42,
                               },
@@ -10003,10 +10006,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderLeft: {
@@ -10019,10 +10022,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderRight: {
@@ -10035,10 +10038,10 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderTop: {
@@ -10051,29 +10054,29 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             columnSpan: 42,
-                            contentAlignment: 'Test string',
+                            contentAlignment: 'CONTENT_ALIGNMENT_UNSPECIFIED',
                             paddingBottom: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingLeft: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingRight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             paddingTop: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             rowSpan: 42,
                           },
@@ -10082,7 +10085,7 @@ gapi.load('client', async () => {
                       tableRowStyle: {
                         minRowHeight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         preventOverflow: true,
                         tableHeader: true,
@@ -10094,9 +10097,9 @@ gapi.load('client', async () => {
                       {
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        widthType: 'Test string',
+                        widthType: 'WIDTH_TYPE_UNSPECIFIED',
                       },
                     ],
                   },
@@ -10127,11 +10130,11 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
-                  propertyState: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                  propertyState: 'RENDERED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 imageProperties: {
@@ -10157,28 +10160,28 @@ gapi.load('client', async () => {
                 },
                 marginBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 title: 'Test string',
@@ -10202,11 +10205,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
-                      propertyState: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                      propertyState: 'RENDERED',
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     imageProperties: {
@@ -10232,28 +10235,28 @@ gapi.load('client', async () => {
                     },
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     size: {
                       height: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     title: 'Test string',
@@ -10311,17 +10314,17 @@ gapi.load('client', async () => {
             listProperties: {
               nestingLevels: [
                 {
-                  bulletAlignment: 'Test string',
+                  bulletAlignment: 'BULLET_ALIGNMENT_UNSPECIFIED',
                   glyphFormat: 'Test string',
                   glyphSymbol: 'Test string',
-                  glyphType: 'Test string',
+                  glyphType: 'GLYPH_TYPE_UNSPECIFIED',
                   indentFirstLine: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   indentStart: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   startNumber: 42,
                   textStyle: {
@@ -10334,11 +10337,11 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    baselineOffset: 'Test string',
+                    baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                     bold: true,
                     fontSize: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     foregroundColor: {
                       color: {
@@ -10382,17 +10385,17 @@ gapi.load('client', async () => {
                 listProperties: {
                   nestingLevels: [
                     {
-                      bulletAlignment: 'Test string',
+                      bulletAlignment: 'BULLET_ALIGNMENT_UNSPECIFIED',
                       glyphFormat: 'Test string',
                       glyphSymbol: 'Test string',
-                      glyphType: 'Test string',
+                      glyphType: 'GLYPH_TYPE_UNSPECIFIED',
                       indentFirstLine: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       indentStart: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       startNumber: 42,
                       textStyle: {
@@ -10405,11 +10408,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        baselineOffset: 'Test string',
+                        baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                         bold: true,
                         fontSize: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         foregroundColor: {
                           color: {
@@ -10498,9 +10501,9 @@ gapi.load('client', async () => {
         namedStyles: {
           styles: [
             {
-              namedStyleType: 'Test string',
+              namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
               paragraphStyle: {
-                alignment: 'Test string',
+                alignment: 'ALIGNMENT_UNSPECIFIED',
                 avoidWidowAndOrphan: true,
                 borderBetween: {
                   color: {
@@ -10512,14 +10515,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderBottom: {
@@ -10532,14 +10535,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderLeft: {
@@ -10552,14 +10555,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderRight: {
@@ -10572,14 +10575,14 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 borderTop: {
@@ -10592,34 +10595,34 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                   padding: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
-                direction: 'Test string',
+                direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                 headingId: 'Test string',
                 indentEnd: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentFirstLine: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 indentStart: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 keepLinesTogether: true,
                 keepWithNext: true,
                 lineSpacing: 42,
-                namedStyleType: 'Test string',
+                namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                 pageBreakBefore: true,
                 shading: {
                   backgroundColor: {
@@ -10634,19 +10637,19 @@ gapi.load('client', async () => {
                 },
                 spaceAbove: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 spaceBelow: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
-                spacingMode: 'Test string',
+                spacingMode: 'SPACING_MODE_UNSPECIFIED',
                 tabStops: [
                   {
-                    alignment: 'Test string',
+                    alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                     offset: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 ],
@@ -10661,11 +10664,11 @@ gapi.load('client', async () => {
                     },
                   },
                 },
-                baselineOffset: 'Test string',
+                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                 bold: true,
                 fontSize: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 foregroundColor: {
                   color: {
@@ -10719,11 +10722,11 @@ gapi.load('client', async () => {
                       },
                     },
                   },
-                  dashStyle: 'Test string',
-                  propertyState: 'Test string',
+                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                  propertyState: 'RENDERED',
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 imageProperties: {
@@ -10749,41 +10752,41 @@ gapi.load('client', async () => {
                 },
                 marginBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 size: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 title: 'Test string',
               },
               positioning: {
-                layout: 'Test string',
+                layout: 'POSITIONED_OBJECT_LAYOUT_UNSPECIFIED',
                 leftOffset: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 topOffset: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
             },
@@ -10805,11 +10808,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
-                      propertyState: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                      propertyState: 'RENDERED',
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     imageProperties: {
@@ -10835,41 +10838,41 @@ gapi.load('client', async () => {
                     },
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     size: {
                       height: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     title: 'Test string',
                   },
                   positioning: {
-                    layout: 'Test string',
+                    layout: 'POSITIONED_OBJECT_LAYOUT_UNSPECIFIED',
                     leftOffset: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     topOffset: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                   },
                 },
@@ -10942,7 +10945,7 @@ gapi.load('client', async () => {
               defaultFooterId: 'Test string',
               defaultHeaderId: 'Test string',
               documentFormat: {
-                documentMode: 'Test string',
+                documentMode: 'DOCUMENT_MODE_UNSPECIFIED',
               },
               evenPageFooterId: 'Test string',
               evenPageHeaderId: 'Test string',
@@ -10951,37 +10954,37 @@ gapi.load('client', async () => {
               flipPageOrientation: true,
               marginBottom: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               marginFooter: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               marginHeader: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               marginLeft: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               marginRight: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               marginTop: {
                 magnitude: 42,
-                unit: 'Test string',
+                unit: 'UNIT_UNSPECIFIED',
               },
               pageNumberStart: 42,
               pageSize: {
                 height: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 width: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
               },
               useCustomHeaderFooterMargins: true,
@@ -11021,9 +11024,9 @@ gapi.load('client', async () => {
             namedStyles: {
               styles: [
                 {
-                  namedStyleType: 'Test string',
+                  namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                   paragraphStyle: {
-                    alignment: 'Test string',
+                    alignment: 'ALIGNMENT_UNSPECIFIED',
                     avoidWidowAndOrphan: true,
                     borderBetween: {
                       color: {
@@ -11035,14 +11038,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderBottom: {
@@ -11055,14 +11058,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderLeft: {
@@ -11075,14 +11078,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderRight: {
@@ -11095,14 +11098,14 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     borderTop: {
@@ -11115,34 +11118,34 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      dashStyle: 'Test string',
+                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                       padding: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
-                    direction: 'Test string',
+                    direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                     headingId: 'Test string',
                     indentEnd: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentFirstLine: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     indentStart: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     keepLinesTogether: true,
                     keepWithNext: true,
                     lineSpacing: 42,
-                    namedStyleType: 'Test string',
+                    namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                     pageBreakBefore: true,
                     shading: {
                       backgroundColor: {
@@ -11157,19 +11160,19 @@ gapi.load('client', async () => {
                     },
                     spaceAbove: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     spaceBelow: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
-                    spacingMode: 'Test string',
+                    spacingMode: 'SPACING_MODE_UNSPECIFIED',
                     tabStops: [
                       {
-                        alignment: 'Test string',
+                        alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                         offset: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                     ],
@@ -11184,11 +11187,11 @@ gapi.load('client', async () => {
                         },
                       },
                     },
-                    baselineOffset: 'Test string',
+                    baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                     bold: true,
                     fontSize: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     foregroundColor: {
                       color: {
@@ -11228,7 +11231,7 @@ gapi.load('client', async () => {
             namedStylesSuggestionState: {
               stylesSuggestionStates: [
                 {
-                  namedStyleType: 'Test string',
+                  namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                   paragraphStyleSuggestionState: {
                     alignmentSuggested: true,
                     avoidWidowAndOrphanSuggested: true,
@@ -11282,7 +11285,7 @@ gapi.load('client', async () => {
                 me: true,
                 user: 'Test string',
               },
-              commentAction: 'Test string',
+              commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
               content: 'Test string',
               contentHtml: 'Test string',
               createTime: 'Test string',
@@ -11291,7 +11294,7 @@ gapi.load('client', async () => {
               fromDocumentComparison: true,
               fromImportedDocument: true,
               postId: 'Test string',
-              suggestionAction: 'Test string',
+              suggestionAction: 'SUGGESTION_ACTION_TYPE_UNSPECIFIED',
               updateTime: 'Test string',
             },
             replies: [
@@ -11303,7 +11306,7 @@ gapi.load('client', async () => {
                   me: true,
                   user: 'Test string',
                 },
-                commentAction: 'Test string',
+                commentAction: 'COMMENT_ACTION_TYPE_UNSPECIFIED',
                 content: 'Test string',
                 contentHtml: 'Test string',
                 createTime: 'Test string',
@@ -11312,17 +11315,17 @@ gapi.load('client', async () => {
                 fromDocumentComparison: true,
                 fromImportedDocument: true,
                 postId: 'Test string',
-                suggestionAction: 'Test string',
+                suggestionAction: 'SUGGESTION_ACTION_TYPE_UNSPECIFIED',
                 updateTime: 'Test string',
               },
             ],
-            status: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
             suggestionId: 'Test string',
             summaryHtml: 'Test string',
             summaryText: 'Test string',
           },
         ],
-        suggestionsViewMode: 'Test string',
+        suggestionsViewMode: 'DEFAULT_FOR_CURRENT_ACCESS',
         tabs: [
           {
             childTabs: undefined,
@@ -11345,11 +11348,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -11401,11 +11404,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -11464,11 +11467,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -11502,7 +11505,7 @@ gapi.load('client', async () => {
                                 weight: 42,
                               },
                             },
-                            type: 'Test string',
+                            type: 'TYPE_UNSPECIFIED',
                           },
                           columnBreak: {
                             suggestedDeletionIds: ['Test string'],
@@ -11519,11 +11522,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -11582,11 +11585,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -11623,10 +11626,10 @@ gapi.load('client', async () => {
                           },
                           dateElement: {
                             dateElementProperties: {
-                              dateFormat: 'Test string',
+                              dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                               displayText: 'Test string',
                               locale: 'Test string',
-                              timeFormat: 'Test string',
+                              timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                               timestamp: 'Test string',
                               timeZoneId: 'Test string',
                             },
@@ -11634,10 +11637,10 @@ gapi.load('client', async () => {
                             suggestedDateElementPropertiesChanges: {
                               A: {
                                 dateElementProperties: {
-                                  dateFormat: 'Test string',
+                                  dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                   displayText: 'Test string',
                                   locale: 'Test string',
-                                  timeFormat: 'Test string',
+                                  timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                   timestamp: 'Test string',
                                   timeZoneId: 'Test string',
                                 },
@@ -11664,11 +11667,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -11727,11 +11730,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -11799,11 +11802,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -11862,11 +11865,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -11923,11 +11926,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -11986,11 +11989,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12040,11 +12043,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12103,11 +12106,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12158,11 +12161,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12221,11 +12224,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12275,11 +12278,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12338,11 +12341,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12397,11 +12400,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12460,11 +12463,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12520,11 +12523,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12583,11 +12586,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12639,11 +12642,11 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  baselineOffset: 'Test string',
+                                  baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                   bold: true,
                                   fontSize: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   foregroundColor: {
                                     color: {
@@ -12702,11 +12705,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12744,7 +12747,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       paragraphStyle: {
-                        alignment: 'Test string',
+                        alignment: 'ALIGNMENT_UNSPECIFIED',
                         avoidWidowAndOrphan: true,
                         borderBetween: {
                           color: {
@@ -12756,14 +12759,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderBottom: {
@@ -12776,14 +12779,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderLeft: {
@@ -12796,14 +12799,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderRight: {
@@ -12816,14 +12819,14 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                         borderTop: {
@@ -12836,34 +12839,34 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          dashStyle: 'Test string',
+                          dashStyle: 'DASH_STYLE_UNSPECIFIED',
                           padding: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           width: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
-                        direction: 'Test string',
+                        direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                         headingId: 'Test string',
                         indentEnd: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentFirstLine: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentStart: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         keepLinesTogether: true,
                         keepWithNext: true,
                         lineSpacing: 42,
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         pageBreakBefore: true,
                         shading: {
                           backgroundColor: {
@@ -12878,19 +12881,19 @@ gapi.load('client', async () => {
                         },
                         spaceAbove: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         spaceBelow: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
-                        spacingMode: 'Test string',
+                        spacingMode: 'SPACING_MODE_UNSPECIFIED',
                         tabStops: [
                           {
-                            alignment: 'Test string',
+                            alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                             offset: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
@@ -12911,11 +12914,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -12972,7 +12975,7 @@ gapi.load('client', async () => {
                       suggestedParagraphStyleChanges: {
                         A: {
                           paragraphStyle: {
-                            alignment: 'Test string',
+                            alignment: 'ALIGNMENT_UNSPECIFIED',
                             avoidWidowAndOrphan: true,
                             borderBetween: {
                               color: {
@@ -12984,14 +12987,14 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               padding: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderBottom: {
@@ -13004,14 +13007,14 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               padding: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderLeft: {
@@ -13024,14 +13027,14 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               padding: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderRight: {
@@ -13044,14 +13047,14 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               padding: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                             borderTop: {
@@ -13064,34 +13067,34 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              dashStyle: 'Test string',
+                              dashStyle: 'DASH_STYLE_UNSPECIFIED',
                               padding: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
-                            direction: 'Test string',
+                            direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                             headingId: 'Test string',
                             indentEnd: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentFirstLine: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentStart: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             keepLinesTogether: true,
                             keepWithNext: true,
                             lineSpacing: 42,
-                            namedStyleType: 'Test string',
+                            namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                             pageBreakBefore: true,
                             shading: {
                               backgroundColor: {
@@ -13106,19 +13109,19 @@ gapi.load('client', async () => {
                             },
                             spaceAbove: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             spaceBelow: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            spacingMode: 'Test string',
+                            spacingMode: 'SPACING_MODE_UNSPECIFIED',
                             tabStops: [
                               {
-                                alignment: 'Test string',
+                                alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                                 offset: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                             ],
@@ -13162,16 +13165,17 @@ gapi.load('client', async () => {
                           {
                             paddingEnd: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                         ],
-                        columnSeparatorStyle: 'Test string',
-                        contentDirection: 'Test string',
+                        columnSeparatorStyle:
+                          'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                        contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                         defaultFooterId: 'Test string',
                         defaultHeaderId: 'Test string',
                         evenPageFooterId: 'Test string',
@@ -13181,30 +13185,30 @@ gapi.load('client', async () => {
                         flipPageOrientation: true,
                         marginBottom: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         marginFooter: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         marginHeader: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         marginLeft: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         marginRight: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         marginTop: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         pageNumberStart: 42,
-                        sectionType: 'Test string',
+                        sectionType: 'SECTION_TYPE_UNSPECIFIED',
                         useFirstPageHeaderFooter: true,
                       },
                       suggestedDeletionIds: ['Test string'],
@@ -13227,7 +13231,7 @@ gapi.load('client', async () => {
                               tableRowStyle: {
                                 minRowHeight: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 preventOverflow: true,
                                 tableHeader: true,
@@ -13266,10 +13270,10 @@ gapi.load('client', async () => {
                                           },
                                         },
                                       },
-                                      dashStyle: 'Test string',
+                                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                       width: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                     },
                                     borderLeft: {
@@ -13282,10 +13286,10 @@ gapi.load('client', async () => {
                                           },
                                         },
                                       },
-                                      dashStyle: 'Test string',
+                                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                       width: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                     },
                                     borderRight: {
@@ -13298,10 +13302,10 @@ gapi.load('client', async () => {
                                           },
                                         },
                                       },
-                                      dashStyle: 'Test string',
+                                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                       width: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                     },
                                     borderTop: {
@@ -13314,29 +13318,30 @@ gapi.load('client', async () => {
                                           },
                                         },
                                       },
-                                      dashStyle: 'Test string',
+                                      dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                       width: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                     },
                                     columnSpan: 42,
-                                    contentAlignment: 'Test string',
+                                    contentAlignment:
+                                      'CONTENT_ALIGNMENT_UNSPECIFIED',
                                     paddingBottom: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     paddingLeft: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     paddingRight: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     paddingTop: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     rowSpan: 42,
                                   },
@@ -13376,10 +13381,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderLeft: {
@@ -13392,10 +13397,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderRight: {
@@ -13408,10 +13413,10 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 borderTop: {
@@ -13424,29 +13429,30 @@ gapi.load('client', async () => {
                                       },
                                     },
                                   },
-                                  dashStyle: 'Test string',
+                                  dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                   width: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                                 columnSpan: 42,
-                                contentAlignment: 'Test string',
+                                contentAlignment:
+                                  'CONTENT_ALIGNMENT_UNSPECIFIED',
                                 paddingBottom: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingLeft: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingRight: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 paddingTop: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 rowSpan: 42,
                               },
@@ -13455,7 +13461,7 @@ gapi.load('client', async () => {
                           tableRowStyle: {
                             minRowHeight: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             preventOverflow: true,
                             tableHeader: true,
@@ -13467,9 +13473,9 @@ gapi.load('client', async () => {
                           {
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
-                            widthType: 'Test string',
+                            widthType: 'WIDTH_TYPE_UNSPECIFIED',
                           },
                         ],
                       },
@@ -13510,7 +13516,7 @@ gapi.load('client', async () => {
                 defaultFooterId: 'Test string',
                 defaultHeaderId: 'Test string',
                 documentFormat: {
-                  documentMode: 'Test string',
+                  documentMode: 'DOCUMENT_MODE_UNSPECIFIED',
                 },
                 evenPageFooterId: 'Test string',
                 evenPageHeaderId: 'Test string',
@@ -13519,37 +13525,37 @@ gapi.load('client', async () => {
                 flipPageOrientation: true,
                 marginBottom: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginFooter: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginHeader: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginLeft: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginRight: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 marginTop: {
                   magnitude: 42,
-                  unit: 'Test string',
+                  unit: 'UNIT_UNSPECIFIED',
                 },
                 pageNumberStart: 42,
                 pageSize: {
                   height: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                   width: {
                     magnitude: 42,
-                    unit: 'Test string',
+                    unit: 'UNIT_UNSPECIFIED',
                   },
                 },
                 useCustomHeaderFooterMargins: true,
@@ -13574,11 +13580,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -13634,11 +13640,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -13704,11 +13710,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -13760,11 +13766,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -13823,11 +13830,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -13861,7 +13868,7 @@ gapi.load('client', async () => {
                                   weight: 42,
                                 },
                               },
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                             columnBreak: {
                               suggestedDeletionIds: ['Test string'],
@@ -13878,11 +13885,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -13941,11 +13949,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -13982,10 +13990,10 @@ gapi.load('client', async () => {
                             },
                             dateElement: {
                               dateElementProperties: {
-                                dateFormat: 'Test string',
+                                dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                 displayText: 'Test string',
                                 locale: 'Test string',
-                                timeFormat: 'Test string',
+                                timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                 timestamp: 'Test string',
                                 timeZoneId: 'Test string',
                               },
@@ -13993,10 +14001,10 @@ gapi.load('client', async () => {
                               suggestedDateElementPropertiesChanges: {
                                 A: {
                                   dateElementProperties: {
-                                    dateFormat: 'Test string',
+                                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                     displayText: 'Test string',
                                     locale: 'Test string',
-                                    timeFormat: 'Test string',
+                                    timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                     timestamp: 'Test string',
                                     timeZoneId: 'Test string',
                                   },
@@ -14023,11 +14031,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14086,11 +14095,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14158,11 +14167,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14221,11 +14231,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14282,11 +14292,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14345,11 +14356,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14399,11 +14410,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14462,11 +14474,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14517,11 +14529,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14580,11 +14593,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14634,11 +14647,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14697,11 +14711,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14756,11 +14770,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14819,11 +14834,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14879,11 +14894,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -14942,11 +14958,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -14998,11 +15014,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -15061,11 +15078,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -15103,7 +15120,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         paragraphStyle: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           avoidWidowAndOrphan: true,
                           borderBetween: {
                             color: {
@@ -15115,14 +15132,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderBottom: {
@@ -15135,14 +15152,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderLeft: {
@@ -15155,14 +15172,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderRight: {
@@ -15175,14 +15192,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderTop: {
@@ -15195,34 +15212,34 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
-                          direction: 'Test string',
+                          direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                           headingId: 'Test string',
                           indentEnd: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentFirstLine: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentStart: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           keepLinesTogether: true,
                           keepWithNext: true,
                           lineSpacing: 42,
-                          namedStyleType: 'Test string',
+                          namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                           pageBreakBefore: true,
                           shading: {
                             backgroundColor: {
@@ -15237,19 +15254,19 @@ gapi.load('client', async () => {
                           },
                           spaceAbove: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           spaceBelow: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
-                          spacingMode: 'Test string',
+                          spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           tabStops: [
                             {
-                              alignment: 'Test string',
+                              alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                               offset: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
@@ -15270,11 +15287,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -15331,7 +15348,7 @@ gapi.load('client', async () => {
                         suggestedParagraphStyleChanges: {
                           A: {
                             paragraphStyle: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               avoidWidowAndOrphan: true,
                               borderBetween: {
                                 color: {
@@ -15343,14 +15360,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderBottom: {
@@ -15363,14 +15380,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderLeft: {
@@ -15383,14 +15400,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderRight: {
@@ -15403,14 +15420,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderTop: {
@@ -15423,34 +15440,34 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
-                              direction: 'Test string',
+                              direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                               headingId: 'Test string',
                               indentEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentFirstLine: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentStart: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               keepLinesTogether: true,
                               keepWithNext: true,
                               lineSpacing: 42,
-                              namedStyleType: 'Test string',
+                              namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                               pageBreakBefore: true,
                               shading: {
                                 backgroundColor: {
@@ -15465,19 +15482,19 @@ gapi.load('client', async () => {
                               },
                               spaceAbove: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               spaceBelow: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              spacingMode: 'Test string',
+                              spacingMode: 'SPACING_MODE_UNSPECIFIED',
                               tabStops: [
                                 {
-                                  alignment: 'Test string',
+                                  alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                                   offset: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -15521,16 +15538,17 @@ gapi.load('client', async () => {
                             {
                               paddingEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
-                          columnSeparatorStyle: 'Test string',
-                          contentDirection: 'Test string',
+                          columnSeparatorStyle:
+                            'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                          contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                           defaultFooterId: 'Test string',
                           defaultHeaderId: 'Test string',
                           evenPageFooterId: 'Test string',
@@ -15540,30 +15558,30 @@ gapi.load('client', async () => {
                           flipPageOrientation: true,
                           marginBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginFooter: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginHeader: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           pageNumberStart: 42,
-                          sectionType: 'Test string',
+                          sectionType: 'SECTION_TYPE_UNSPECIFIED',
                           useFirstPageHeaderFooter: true,
                         },
                         suggestedDeletionIds: ['Test string'],
@@ -15586,7 +15604,7 @@ gapi.load('client', async () => {
                                 tableRowStyle: {
                                   minRowHeight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   preventOverflow: true,
                                   tableHeader: true,
@@ -15625,10 +15643,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderLeft: {
@@ -15641,10 +15659,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderRight: {
@@ -15657,10 +15675,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderTop: {
@@ -15673,29 +15691,30 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       columnSpan: 42,
-                                      contentAlignment: 'Test string',
+                                      contentAlignment:
+                                        'CONTENT_ALIGNMENT_UNSPECIFIED',
                                       paddingBottom: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingLeft: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingRight: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingTop: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       rowSpan: 42,
                                     },
@@ -15735,10 +15754,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderLeft: {
@@ -15751,10 +15770,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderRight: {
@@ -15767,10 +15786,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderTop: {
@@ -15783,29 +15802,30 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   columnSpan: 42,
-                                  contentAlignment: 'Test string',
+                                  contentAlignment:
+                                    'CONTENT_ALIGNMENT_UNSPECIFIED',
                                   paddingBottom: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingLeft: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingRight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingTop: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   rowSpan: 42,
                                 },
@@ -15814,7 +15834,7 @@ gapi.load('client', async () => {
                             tableRowStyle: {
                               minRowHeight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               preventOverflow: true,
                               tableHeader: true,
@@ -15826,9 +15846,9 @@ gapi.load('client', async () => {
                             {
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              widthType: 'Test string',
+                              widthType: 'WIDTH_TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -15862,11 +15882,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -15918,11 +15938,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -15981,11 +16002,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16019,7 +16040,7 @@ gapi.load('client', async () => {
                                   weight: 42,
                                 },
                               },
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                             columnBreak: {
                               suggestedDeletionIds: ['Test string'],
@@ -16036,11 +16057,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16099,11 +16121,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16140,10 +16162,10 @@ gapi.load('client', async () => {
                             },
                             dateElement: {
                               dateElementProperties: {
-                                dateFormat: 'Test string',
+                                dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                 displayText: 'Test string',
                                 locale: 'Test string',
-                                timeFormat: 'Test string',
+                                timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                 timestamp: 'Test string',
                                 timeZoneId: 'Test string',
                               },
@@ -16151,10 +16173,10 @@ gapi.load('client', async () => {
                               suggestedDateElementPropertiesChanges: {
                                 A: {
                                   dateElementProperties: {
-                                    dateFormat: 'Test string',
+                                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                     displayText: 'Test string',
                                     locale: 'Test string',
-                                    timeFormat: 'Test string',
+                                    timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                     timestamp: 'Test string',
                                     timeZoneId: 'Test string',
                                   },
@@ -16181,11 +16203,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16244,11 +16267,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16316,11 +16339,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16379,11 +16403,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16440,11 +16464,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16503,11 +16528,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16557,11 +16582,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16620,11 +16646,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16675,11 +16701,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16738,11 +16765,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16792,11 +16819,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16855,11 +16883,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -16914,11 +16942,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -16977,11 +17006,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -17037,11 +17066,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -17100,11 +17130,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -17156,11 +17186,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -17219,11 +17250,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -17261,7 +17292,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         paragraphStyle: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           avoidWidowAndOrphan: true,
                           borderBetween: {
                             color: {
@@ -17273,14 +17304,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderBottom: {
@@ -17293,14 +17324,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderLeft: {
@@ -17313,14 +17344,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderRight: {
@@ -17333,14 +17364,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderTop: {
@@ -17353,34 +17384,34 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
-                          direction: 'Test string',
+                          direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                           headingId: 'Test string',
                           indentEnd: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentFirstLine: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentStart: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           keepLinesTogether: true,
                           keepWithNext: true,
                           lineSpacing: 42,
-                          namedStyleType: 'Test string',
+                          namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                           pageBreakBefore: true,
                           shading: {
                             backgroundColor: {
@@ -17395,19 +17426,19 @@ gapi.load('client', async () => {
                           },
                           spaceAbove: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           spaceBelow: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
-                          spacingMode: 'Test string',
+                          spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           tabStops: [
                             {
-                              alignment: 'Test string',
+                              alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                               offset: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
@@ -17428,11 +17459,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -17489,7 +17520,7 @@ gapi.load('client', async () => {
                         suggestedParagraphStyleChanges: {
                           A: {
                             paragraphStyle: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               avoidWidowAndOrphan: true,
                               borderBetween: {
                                 color: {
@@ -17501,14 +17532,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderBottom: {
@@ -17521,14 +17552,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderLeft: {
@@ -17541,14 +17572,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderRight: {
@@ -17561,14 +17592,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderTop: {
@@ -17581,34 +17612,34 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
-                              direction: 'Test string',
+                              direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                               headingId: 'Test string',
                               indentEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentFirstLine: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentStart: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               keepLinesTogether: true,
                               keepWithNext: true,
                               lineSpacing: 42,
-                              namedStyleType: 'Test string',
+                              namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                               pageBreakBefore: true,
                               shading: {
                                 backgroundColor: {
@@ -17623,19 +17654,19 @@ gapi.load('client', async () => {
                               },
                               spaceAbove: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               spaceBelow: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              spacingMode: 'Test string',
+                              spacingMode: 'SPACING_MODE_UNSPECIFIED',
                               tabStops: [
                                 {
-                                  alignment: 'Test string',
+                                  alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                                   offset: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -17679,16 +17710,17 @@ gapi.load('client', async () => {
                             {
                               paddingEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
-                          columnSeparatorStyle: 'Test string',
-                          contentDirection: 'Test string',
+                          columnSeparatorStyle:
+                            'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                          contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                           defaultFooterId: 'Test string',
                           defaultHeaderId: 'Test string',
                           evenPageFooterId: 'Test string',
@@ -17698,30 +17730,30 @@ gapi.load('client', async () => {
                           flipPageOrientation: true,
                           marginBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginFooter: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginHeader: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           pageNumberStart: 42,
-                          sectionType: 'Test string',
+                          sectionType: 'SECTION_TYPE_UNSPECIFIED',
                           useFirstPageHeaderFooter: true,
                         },
                         suggestedDeletionIds: ['Test string'],
@@ -17744,7 +17776,7 @@ gapi.load('client', async () => {
                                 tableRowStyle: {
                                   minRowHeight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   preventOverflow: true,
                                   tableHeader: true,
@@ -17783,10 +17815,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderLeft: {
@@ -17799,10 +17831,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderRight: {
@@ -17815,10 +17847,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderTop: {
@@ -17831,29 +17863,30 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       columnSpan: 42,
-                                      contentAlignment: 'Test string',
+                                      contentAlignment:
+                                        'CONTENT_ALIGNMENT_UNSPECIFIED',
                                       paddingBottom: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingLeft: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingRight: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingTop: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       rowSpan: 42,
                                     },
@@ -17893,10 +17926,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderLeft: {
@@ -17909,10 +17942,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderRight: {
@@ -17925,10 +17958,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderTop: {
@@ -17941,29 +17974,30 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   columnSpan: 42,
-                                  contentAlignment: 'Test string',
+                                  contentAlignment:
+                                    'CONTENT_ALIGNMENT_UNSPECIFIED',
                                   paddingBottom: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingLeft: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingRight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingTop: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   rowSpan: 42,
                                 },
@@ -17972,7 +18006,7 @@ gapi.load('client', async () => {
                             tableRowStyle: {
                               minRowHeight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               preventOverflow: true,
                               tableHeader: true,
@@ -17984,9 +18018,9 @@ gapi.load('client', async () => {
                             {
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              widthType: 'Test string',
+                              widthType: 'WIDTH_TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -18020,11 +18054,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            baselineOffset: 'Test string',
+                            baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                             bold: true,
                             fontSize: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             foregroundColor: {
                               color: {
@@ -18076,11 +18110,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18139,11 +18174,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18177,7 +18212,7 @@ gapi.load('client', async () => {
                                   weight: 42,
                                 },
                               },
-                              type: 'Test string',
+                              type: 'TYPE_UNSPECIFIED',
                             },
                             columnBreak: {
                               suggestedDeletionIds: ['Test string'],
@@ -18194,11 +18229,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18257,11 +18293,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18298,10 +18334,10 @@ gapi.load('client', async () => {
                             },
                             dateElement: {
                               dateElementProperties: {
-                                dateFormat: 'Test string',
+                                dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                 displayText: 'Test string',
                                 locale: 'Test string',
-                                timeFormat: 'Test string',
+                                timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                 timestamp: 'Test string',
                                 timeZoneId: 'Test string',
                               },
@@ -18309,10 +18345,10 @@ gapi.load('client', async () => {
                               suggestedDateElementPropertiesChanges: {
                                 A: {
                                   dateElementProperties: {
-                                    dateFormat: 'Test string',
+                                    dateFormat: 'DATE_FORMAT_UNSPECIFIED',
                                     displayText: 'Test string',
                                     locale: 'Test string',
-                                    timeFormat: 'Test string',
+                                    timeFormat: 'TIME_FORMAT_UNSPECIFIED',
                                     timestamp: 'Test string',
                                     timeZoneId: 'Test string',
                                   },
@@ -18339,11 +18375,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18402,11 +18439,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18474,11 +18511,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18537,11 +18575,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18598,11 +18636,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18661,11 +18700,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18715,11 +18754,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18778,11 +18818,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18833,11 +18873,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -18896,11 +18937,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -18950,11 +18991,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -19013,11 +19055,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -19072,11 +19114,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -19135,11 +19178,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -19195,11 +19238,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -19258,11 +19302,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -19314,11 +19358,12 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    baselineOffset: 'Test string',
+                                    baselineOffset:
+                                      'BASELINE_OFFSET_UNSPECIFIED',
                                     bold: true,
                                     fontSize: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                     foregroundColor: {
                                       color: {
@@ -19377,11 +19422,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -19419,7 +19464,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         paragraphStyle: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           avoidWidowAndOrphan: true,
                           borderBetween: {
                             color: {
@@ -19431,14 +19476,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderBottom: {
@@ -19451,14 +19496,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderLeft: {
@@ -19471,14 +19516,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderRight: {
@@ -19491,14 +19536,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderTop: {
@@ -19511,34 +19556,34 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
-                          direction: 'Test string',
+                          direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                           headingId: 'Test string',
                           indentEnd: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentFirstLine: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentStart: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           keepLinesTogether: true,
                           keepWithNext: true,
                           lineSpacing: 42,
-                          namedStyleType: 'Test string',
+                          namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                           pageBreakBefore: true,
                           shading: {
                             backgroundColor: {
@@ -19553,19 +19598,19 @@ gapi.load('client', async () => {
                           },
                           spaceAbove: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           spaceBelow: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
-                          spacingMode: 'Test string',
+                          spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           tabStops: [
                             {
-                              alignment: 'Test string',
+                              alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                               offset: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
@@ -19586,11 +19631,11 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                baselineOffset: 'Test string',
+                                baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                                 bold: true,
                                 fontSize: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 foregroundColor: {
                                   color: {
@@ -19647,7 +19692,7 @@ gapi.load('client', async () => {
                         suggestedParagraphStyleChanges: {
                           A: {
                             paragraphStyle: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               avoidWidowAndOrphan: true,
                               borderBetween: {
                                 color: {
@@ -19659,14 +19704,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderBottom: {
@@ -19679,14 +19724,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderLeft: {
@@ -19699,14 +19744,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderRight: {
@@ -19719,14 +19764,14 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
                               borderTop: {
@@ -19739,34 +19784,34 @@ gapi.load('client', async () => {
                                     },
                                   },
                                 },
-                                dashStyle: 'Test string',
+                                dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                 padding: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                                 width: {
                                   magnitude: 42,
-                                  unit: 'Test string',
+                                  unit: 'UNIT_UNSPECIFIED',
                                 },
                               },
-                              direction: 'Test string',
+                              direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                               headingId: 'Test string',
                               indentEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentFirstLine: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               indentStart: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               keepLinesTogether: true,
                               keepWithNext: true,
                               lineSpacing: 42,
-                              namedStyleType: 'Test string',
+                              namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                               pageBreakBefore: true,
                               shading: {
                                 backgroundColor: {
@@ -19781,19 +19826,19 @@ gapi.load('client', async () => {
                               },
                               spaceAbove: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               spaceBelow: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              spacingMode: 'Test string',
+                              spacingMode: 'SPACING_MODE_UNSPECIFIED',
                               tabStops: [
                                 {
-                                  alignment: 'Test string',
+                                  alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                                   offset: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                 },
                               ],
@@ -19837,16 +19882,17 @@ gapi.load('client', async () => {
                             {
                               paddingEnd: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
-                          columnSeparatorStyle: 'Test string',
-                          contentDirection: 'Test string',
+                          columnSeparatorStyle:
+                            'COLUMN_SEPARATOR_STYLE_UNSPECIFIED',
+                          contentDirection: 'CONTENT_DIRECTION_UNSPECIFIED',
                           defaultFooterId: 'Test string',
                           defaultHeaderId: 'Test string',
                           evenPageFooterId: 'Test string',
@@ -19856,30 +19902,30 @@ gapi.load('client', async () => {
                           flipPageOrientation: true,
                           marginBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginFooter: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginHeader: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           pageNumberStart: 42,
-                          sectionType: 'Test string',
+                          sectionType: 'SECTION_TYPE_UNSPECIFIED',
                           useFirstPageHeaderFooter: true,
                         },
                         suggestedDeletionIds: ['Test string'],
@@ -19902,7 +19948,7 @@ gapi.load('client', async () => {
                                 tableRowStyle: {
                                   minRowHeight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   preventOverflow: true,
                                   tableHeader: true,
@@ -19941,10 +19987,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderLeft: {
@@ -19957,10 +20003,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderRight: {
@@ -19973,10 +20019,10 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       borderTop: {
@@ -19989,29 +20035,30 @@ gapi.load('client', async () => {
                                             },
                                           },
                                         },
-                                        dashStyle: 'Test string',
+                                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                         width: {
                                           magnitude: 42,
-                                          unit: 'Test string',
+                                          unit: 'UNIT_UNSPECIFIED',
                                         },
                                       },
                                       columnSpan: 42,
-                                      contentAlignment: 'Test string',
+                                      contentAlignment:
+                                        'CONTENT_ALIGNMENT_UNSPECIFIED',
                                       paddingBottom: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingLeft: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingRight: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       paddingTop: {
                                         magnitude: 42,
-                                        unit: 'Test string',
+                                        unit: 'UNIT_UNSPECIFIED',
                                       },
                                       rowSpan: 42,
                                     },
@@ -20051,10 +20098,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderLeft: {
@@ -20067,10 +20114,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderRight: {
@@ -20083,10 +20130,10 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   borderTop: {
@@ -20099,29 +20146,30 @@ gapi.load('client', async () => {
                                         },
                                       },
                                     },
-                                    dashStyle: 'Test string',
+                                    dashStyle: 'DASH_STYLE_UNSPECIFIED',
                                     width: {
                                       magnitude: 42,
-                                      unit: 'Test string',
+                                      unit: 'UNIT_UNSPECIFIED',
                                     },
                                   },
                                   columnSpan: 42,
-                                  contentAlignment: 'Test string',
+                                  contentAlignment:
+                                    'CONTENT_ALIGNMENT_UNSPECIFIED',
                                   paddingBottom: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingLeft: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingRight: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   paddingTop: {
                                     magnitude: 42,
-                                    unit: 'Test string',
+                                    unit: 'UNIT_UNSPECIFIED',
                                   },
                                   rowSpan: 42,
                                 },
@@ -20130,7 +20178,7 @@ gapi.load('client', async () => {
                             tableRowStyle: {
                               minRowHeight: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               preventOverflow: true,
                               tableHeader: true,
@@ -20142,9 +20190,9 @@ gapi.load('client', async () => {
                             {
                               width: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
-                              widthType: 'Test string',
+                              widthType: 'WIDTH_TYPE_UNSPECIFIED',
                             },
                           ],
                         },
@@ -20175,11 +20223,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
-                        propertyState: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                        propertyState: 'RENDERED',
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       imageProperties: {
@@ -20205,28 +20253,28 @@ gapi.load('client', async () => {
                       },
                       marginBottom: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginLeft: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginRight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginTop: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       size: {
                         height: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       title: 'Test string',
@@ -20250,11 +20298,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
-                            propertyState: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                            propertyState: 'RENDERED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           imageProperties: {
@@ -20280,28 +20328,28 @@ gapi.load('client', async () => {
                           },
                           marginBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           size: {
                             height: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           title: 'Test string',
@@ -20359,17 +20407,17 @@ gapi.load('client', async () => {
                   listProperties: {
                     nestingLevels: [
                       {
-                        bulletAlignment: 'Test string',
+                        bulletAlignment: 'BULLET_ALIGNMENT_UNSPECIFIED',
                         glyphFormat: 'Test string',
                         glyphSymbol: 'Test string',
-                        glyphType: 'Test string',
+                        glyphType: 'GLYPH_TYPE_UNSPECIFIED',
                         indentFirstLine: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         indentStart: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         startNumber: 42,
                         textStyle: {
@@ -20382,11 +20430,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -20430,17 +20478,17 @@ gapi.load('client', async () => {
                       listProperties: {
                         nestingLevels: [
                           {
-                            bulletAlignment: 'Test string',
+                            bulletAlignment: 'BULLET_ALIGNMENT_UNSPECIFIED',
                             glyphFormat: 'Test string',
                             glyphSymbol: 'Test string',
-                            glyphType: 'Test string',
+                            glyphType: 'GLYPH_TYPE_UNSPECIFIED',
                             indentFirstLine: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             indentStart: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             startNumber: 42,
                             textStyle: {
@@ -20453,11 +20501,11 @@ gapi.load('client', async () => {
                                   },
                                 },
                               },
-                              baselineOffset: 'Test string',
+                              baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                               bold: true,
                               fontSize: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                               foregroundColor: {
                                 color: {
@@ -20546,9 +20594,9 @@ gapi.load('client', async () => {
               namedStyles: {
                 styles: [
                   {
-                    namedStyleType: 'Test string',
+                    namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                     paragraphStyle: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       avoidWidowAndOrphan: true,
                       borderBetween: {
                         color: {
@@ -20560,14 +20608,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderBottom: {
@@ -20580,14 +20628,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderLeft: {
@@ -20600,14 +20648,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderRight: {
@@ -20620,14 +20668,14 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       borderTop: {
@@ -20640,34 +20688,34 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
                         padding: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
-                      direction: 'Test string',
+                      direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                       headingId: 'Test string',
                       indentEnd: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       indentFirstLine: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       indentStart: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       keepLinesTogether: true,
                       keepWithNext: true,
                       lineSpacing: 42,
-                      namedStyleType: 'Test string',
+                      namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                       pageBreakBefore: true,
                       shading: {
                         backgroundColor: {
@@ -20682,19 +20730,19 @@ gapi.load('client', async () => {
                       },
                       spaceAbove: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       spaceBelow: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
-                      spacingMode: 'Test string',
+                      spacingMode: 'SPACING_MODE_UNSPECIFIED',
                       tabStops: [
                         {
-                          alignment: 'Test string',
+                          alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                           offset: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       ],
@@ -20709,11 +20757,11 @@ gapi.load('client', async () => {
                           },
                         },
                       },
-                      baselineOffset: 'Test string',
+                      baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                       bold: true,
                       fontSize: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       foregroundColor: {
                         color: {
@@ -20767,11 +20815,11 @@ gapi.load('client', async () => {
                             },
                           },
                         },
-                        dashStyle: 'Test string',
-                        propertyState: 'Test string',
+                        dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                        propertyState: 'RENDERED',
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       imageProperties: {
@@ -20797,41 +20845,41 @@ gapi.load('client', async () => {
                       },
                       marginBottom: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginLeft: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginRight: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       marginTop: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       size: {
                         height: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                         width: {
                           magnitude: 42,
-                          unit: 'Test string',
+                          unit: 'UNIT_UNSPECIFIED',
                         },
                       },
                       title: 'Test string',
                     },
                     positioning: {
-                      layout: 'Test string',
+                      layout: 'POSITIONED_OBJECT_LAYOUT_UNSPECIFIED',
                       leftOffset: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       topOffset: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                   },
@@ -20853,11 +20901,11 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
-                            propertyState: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
+                            propertyState: 'RENDERED',
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           imageProperties: {
@@ -20883,41 +20931,41 @@ gapi.load('client', async () => {
                           },
                           marginBottom: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginLeft: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginRight: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           marginTop: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           size: {
                             height: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           title: 'Test string',
                         },
                         positioning: {
-                          layout: 'Test string',
+                          layout: 'POSITIONED_OBJECT_LAYOUT_UNSPECIFIED',
                           leftOffset: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           topOffset: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                         },
                       },
@@ -20989,7 +21037,7 @@ gapi.load('client', async () => {
                     defaultFooterId: 'Test string',
                     defaultHeaderId: 'Test string',
                     documentFormat: {
-                      documentMode: 'Test string',
+                      documentMode: 'DOCUMENT_MODE_UNSPECIFIED',
                     },
                     evenPageFooterId: 'Test string',
                     evenPageHeaderId: 'Test string',
@@ -20998,37 +21046,37 @@ gapi.load('client', async () => {
                     flipPageOrientation: true,
                     marginBottom: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginFooter: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginHeader: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginLeft: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginRight: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     marginTop: {
                       magnitude: 42,
-                      unit: 'Test string',
+                      unit: 'UNIT_UNSPECIFIED',
                     },
                     pageNumberStart: 42,
                     pageSize: {
                       height: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                       width: {
                         magnitude: 42,
-                        unit: 'Test string',
+                        unit: 'UNIT_UNSPECIFIED',
                       },
                     },
                     useCustomHeaderFooterMargins: true,
@@ -21068,9 +21116,9 @@ gapi.load('client', async () => {
                   namedStyles: {
                     styles: [
                       {
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         paragraphStyle: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           avoidWidowAndOrphan: true,
                           borderBetween: {
                             color: {
@@ -21082,14 +21130,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderBottom: {
@@ -21102,14 +21150,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderLeft: {
@@ -21122,14 +21170,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderRight: {
@@ -21142,14 +21190,14 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
                           borderTop: {
@@ -21162,34 +21210,34 @@ gapi.load('client', async () => {
                                 },
                               },
                             },
-                            dashStyle: 'Test string',
+                            dashStyle: 'DASH_STYLE_UNSPECIFIED',
                             padding: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                             width: {
                               magnitude: 42,
-                              unit: 'Test string',
+                              unit: 'UNIT_UNSPECIFIED',
                             },
                           },
-                          direction: 'Test string',
+                          direction: 'CONTENT_DIRECTION_UNSPECIFIED',
                           headingId: 'Test string',
                           indentEnd: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentFirstLine: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           indentStart: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           keepLinesTogether: true,
                           keepWithNext: true,
                           lineSpacing: 42,
-                          namedStyleType: 'Test string',
+                          namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                           pageBreakBefore: true,
                           shading: {
                             backgroundColor: {
@@ -21204,19 +21252,19 @@ gapi.load('client', async () => {
                           },
                           spaceAbove: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           spaceBelow: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
-                          spacingMode: 'Test string',
+                          spacingMode: 'SPACING_MODE_UNSPECIFIED',
                           tabStops: [
                             {
-                              alignment: 'Test string',
+                              alignment: 'TAB_STOP_ALIGNMENT_UNSPECIFIED',
                               offset: {
                                 magnitude: 42,
-                                unit: 'Test string',
+                                unit: 'UNIT_UNSPECIFIED',
                               },
                             },
                           ],
@@ -21231,11 +21279,11 @@ gapi.load('client', async () => {
                               },
                             },
                           },
-                          baselineOffset: 'Test string',
+                          baselineOffset: 'BASELINE_OFFSET_UNSPECIFIED',
                           bold: true,
                           fontSize: {
                             magnitude: 42,
-                            unit: 'Test string',
+                            unit: 'UNIT_UNSPECIFIED',
                           },
                           foregroundColor: {
                             color: {
@@ -21275,7 +21323,7 @@ gapi.load('client', async () => {
                   namedStylesSuggestionState: {
                     stylesSuggestionStates: [
                       {
-                        namedStyleType: 'Test string',
+                        namedStyleType: 'NAMED_STYLE_TYPE_UNSPECIFIED',
                         paragraphStyleSuggestionState: {
                           alignmentSuggested: true,
                           avoidWidowAndOrphanSuggested: true,
@@ -21335,10 +21383,10 @@ gapi.load('client', async () => {
     );
     /** Gets the latest version of the specified document. */
     await gapi.client.docs.documents.get({
-      commentsViewMode: 'Test string',
+      commentsViewMode: 'COMMENTS_VIEW_MODE_UNSPECIFIED',
       documentId: 'Test string',
       includeTabsContent: true,
-      suggestionsViewMode: 'Test string',
+      suggestionsViewMode: 'DEFAULT_FOR_CURRENT_ACCESS',
     });
   }
 });

@@ -59,7 +59,7 @@ gapi.load('client', async () => {
         annotations: {
           A: 'Test string',
         },
-        attributeValueType: 'Test string',
+        attributeValueType: 'FLAG_ATTRIBUTE_VALUE_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         etag: 'Test string',
         key: 'Test string',
@@ -69,7 +69,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-        valueType: 'Test string',
+        valueType: 'FLAG_ATTRIBUTE_VALUE_TYPE_UNSPECIFIED',
       },
     );
     /** Delete a single flag attribute. */
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
         annotations: {
           A: 'Test string',
         },
-        attributeValueType: 'Test string',
+        attributeValueType: 'FLAG_ATTRIBUTE_VALUE_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         etag: 'Test string',
         key: 'Test string',
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         uid: 'Test string',
         updateTime: 'Test string',
-        valueType: 'Test string',
+        valueType: 'FLAG_ATTRIBUTE_VALUE_TYPE_UNSPECIFIED',
       },
     );
     /** Create a new flag release. */
@@ -312,17 +312,17 @@ gapi.load('client', async () => {
             ],
           },
           flagSet: 'Test string',
-          flagValueType: 'Test string',
+          flagValueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
           key: 'Test string',
           labels: {
             A: 'Test string',
           },
           name: 'Test string',
-          state: 'Test string',
+          state: 'FLAG_STATE_UNSPECIFIED',
           uid: 'Test string',
           unitKind: 'Test string',
           updateTime: 'Test string',
-          valueType: 'Test string',
+          valueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
           variants: [
             {
               booleanValue: true,
@@ -459,17 +459,17 @@ gapi.load('client', async () => {
             ],
           },
           flagSet: 'Test string',
-          flagValueType: 'Test string',
+          flagValueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
           key: 'Test string',
           labels: {
             A: 'Test string',
           },
           name: 'Test string',
-          state: 'Test string',
+          state: 'FLAG_STATE_UNSPECIFIED',
           uid: 'Test string',
           unitKind: 'Test string',
           updateTime: 'Test string',
-          valueType: 'Test string',
+          valueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
           variants: [
             {
               booleanValue: true,
@@ -539,17 +539,17 @@ gapi.load('client', async () => {
           ],
         },
         flagSet: 'Test string',
-        flagValueType: 'Test string',
+        flagValueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
         key: 'Test string',
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'FLAG_STATE_UNSPECIFIED',
         uid: 'Test string',
         unitKind: 'Test string',
         updateTime: 'Test string',
-        valueType: 'Test string',
+        valueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
         variants: [
           {
             booleanValue: true,
@@ -635,17 +635,17 @@ gapi.load('client', async () => {
           ],
         },
         flagSet: 'Test string',
-        flagValueType: 'Test string',
+        flagValueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
         key: 'Test string',
         labels: {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'FLAG_STATE_UNSPECIFIED',
         uid: 'Test string',
         unitKind: 'Test string',
         updateTime: 'Test string',
-        valueType: 'Test string',
+        valueType: 'FLAG_VALUE_TYPE_UNSPECIFIED',
         variants: [
           {
             booleanValue: true,
@@ -689,14 +689,14 @@ gapi.load('client', async () => {
         etag: 'Test string',
         inputVariableDefaults: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
         ],
         inputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         outputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -769,14 +769,14 @@ gapi.load('client', async () => {
         etag: 'Test string',
         inputVariableDefaults: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
         ],
         inputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -787,7 +787,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         outputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -821,7 +821,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        locationType: 'Test string',
+        locationType: 'LOCATION_TYPE_UNSPECIFIED',
         name: 'Test string',
         rolloutOrchestrationStrategy: 'Test string',
         uid: 'Test string',
@@ -834,7 +834,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-        updateUnitKindStrategy: 'Test string',
+        updateUnitKindStrategy: 'UPDATE_UNIT_KIND_STRATEGY_UNSPECIFIED',
       },
     );
     /** Delete a single rollout kind. */
@@ -877,7 +877,7 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        locationType: 'Test string',
+        locationType: 'LOCATION_TYPE_UNSPECIFIED',
         name: 'Test string',
         rolloutOrchestrationStrategy: 'Test string',
         uid: 'Test string',
@@ -890,7 +890,7 @@ gapi.load('client', async () => {
           },
         },
         updateTime: 'Test string',
-        updateUnitKindStrategy: 'Test string',
+        updateUnitKindStrategy: 'UPDATE_UNIT_KIND_STRATEGY_UNSPECIFIED',
       },
     );
     /** Create a new rollout. */
@@ -906,7 +906,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         control: {
-          action: 'Test string',
+          action: 'ROLLOUT_ACTION_UNSPECIFIED',
           runParams: {
             retryFailedOperations: true,
           },
@@ -927,7 +927,7 @@ gapi.load('client', async () => {
         rolloutOrchestrationStrategy: 'Test string',
         rootRollout: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'ROLLOUT_STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         stateTransitionTime: 'Test string',
         stats: {
@@ -976,7 +976,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         control: {
-          action: 'Test string',
+          action: 'ROLLOUT_ACTION_UNSPECIFIED',
           runParams: {
             retryFailedOperations: true,
           },
@@ -997,7 +997,7 @@ gapi.load('client', async () => {
         rolloutOrchestrationStrategy: 'Test string',
         rootRollout: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'ROLLOUT_STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         stateTransitionTime: 'Test string',
         stats: {
@@ -1037,8 +1037,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1058,11 +1058,11 @@ gapi.load('client', async () => {
         locations: [
           {
             name: 'Test string',
-            type: 'Test string',
+            type: 'LOCATION_TYPE_UNSPECIFIED',
           },
         ],
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -1109,8 +1109,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1130,11 +1130,11 @@ gapi.load('client', async () => {
         locations: [
           {
             name: 'Test string',
-            type: 'Test string',
+            type: 'LOCATION_TYPE_UNSPECIFIED',
           },
         ],
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -1258,10 +1258,10 @@ gapi.load('client', async () => {
         appParams: {
           group: 'Test string',
           scope: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         },
-        boundaryType: 'Test string',
+        boundaryType: 'BOUNDARY_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         defaultFlagRevisions: ['Test string'],
         defaultRelease: 'Test string',
@@ -1356,10 +1356,10 @@ gapi.load('client', async () => {
         appParams: {
           group: 'Test string',
           scope: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
         },
-        boundaryType: 'Test string',
+        boundaryType: 'BOUNDARY_TYPE_UNSPECIFIED',
         createTime: 'Test string',
         defaultFlagRevisions: ['Test string'],
         defaultRelease: 'Test string',
@@ -1429,8 +1429,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1449,7 +1449,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        errorCategory: 'Test string',
+        errorCategory: 'UNIT_OPERATION_ERROR_CATEGORY_UNSPECIFIED',
         etag: 'Test string',
         flagUpdate: {
           flagRelease: 'Test string',
@@ -1462,7 +1462,7 @@ gapi.load('client', async () => {
         provision: {
           inputVariables: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               value: 'Test string',
               variable: 'Test string',
             },
@@ -1473,14 +1473,14 @@ gapi.load('client', async () => {
         schedule: {
           startTime: 'Test string',
         },
-        state: 'Test string',
+        state: 'UNIT_OPERATION_STATE_UNKNOWN',
         uid: 'Test string',
         unit: 'Test string',
         updateTime: 'Test string',
         upgrade: {
           inputVariables: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               value: 'Test string',
               variable: 'Test string',
             },
@@ -1526,8 +1526,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1546,7 +1546,7 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        errorCategory: 'Test string',
+        errorCategory: 'UNIT_OPERATION_ERROR_CATEGORY_UNSPECIFIED',
         etag: 'Test string',
         flagUpdate: {
           flagRelease: 'Test string',
@@ -1559,7 +1559,7 @@ gapi.load('client', async () => {
         provision: {
           inputVariables: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               value: 'Test string',
               variable: 'Test string',
             },
@@ -1570,14 +1570,14 @@ gapi.load('client', async () => {
         schedule: {
           startTime: 'Test string',
         },
-        state: 'Test string',
+        state: 'UNIT_OPERATION_STATE_UNKNOWN',
         uid: 'Test string',
         unit: 'Test string',
         updateTime: 'Test string',
         upgrade: {
           inputVariables: [
             {
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
               value: 'Test string',
               variable: 'Test string',
             },
@@ -1604,8 +1604,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1623,7 +1623,7 @@ gapi.load('client', async () => {
         ],
         deploymentLocation: {
           name: 'Test string',
-          type: 'Test string',
+          type: 'LOCATION_TYPE_UNSPECIFIED',
         },
         engine: {
           engineId: 'Test string',
@@ -1634,7 +1634,7 @@ gapi.load('client', async () => {
         flagRevisions: ['Test string'],
         inputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -1645,12 +1645,12 @@ gapi.load('client', async () => {
         maintenance: {
           pinnedUntilTime: 'Test string',
         },
-        managementMode: 'Test string',
+        managementMode: 'MANAGEMENT_MODE_UNSPECIFIED',
         name: 'Test string',
         ongoingOperations: ['Test string'],
         outputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -1660,9 +1660,9 @@ gapi.load('client', async () => {
         satisfiesPzi: true,
         satisfiesPzs: true,
         scheduledOperations: ['Test string'],
-        state: 'Test string',
+        state: 'UNIT_STATE_UNSPECIFIED',
         systemCleanupAt: 'Test string',
-        systemManagedState: 'Test string',
+        systemManagedState: 'SYSTEM_MANAGED_STATE_UNSPECIFIED',
         tenant: 'Test string',
         uid: 'Test string',
         unitGroup: 'Test string',
@@ -1707,8 +1707,8 @@ gapi.load('client', async () => {
             lastTransitionTime: 'Test string',
             message: 'Test string',
             reason: 'Test string',
-            status: 'Test string',
-            type: 'Test string',
+            status: 'STATUS_UNSPECIFIED',
+            type: 'TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -1726,7 +1726,7 @@ gapi.load('client', async () => {
         ],
         deploymentLocation: {
           name: 'Test string',
-          type: 'Test string',
+          type: 'LOCATION_TYPE_UNSPECIFIED',
         },
         engine: {
           engineId: 'Test string',
@@ -1737,7 +1737,7 @@ gapi.load('client', async () => {
         flagRevisions: ['Test string'],
         inputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -1748,12 +1748,12 @@ gapi.load('client', async () => {
         maintenance: {
           pinnedUntilTime: 'Test string',
         },
-        managementMode: 'Test string',
+        managementMode: 'MANAGEMENT_MODE_UNSPECIFIED',
         name: 'Test string',
         ongoingOperations: ['Test string'],
         outputVariables: [
           {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             value: 'Test string',
             variable: 'Test string',
           },
@@ -1763,9 +1763,9 @@ gapi.load('client', async () => {
         satisfiesPzi: true,
         satisfiesPzs: true,
         scheduledOperations: ['Test string'],
-        state: 'Test string',
+        state: 'UNIT_STATE_UNSPECIFIED',
         systemCleanupAt: 'Test string',
-        systemManagedState: 'Test string',
+        systemManagedState: 'SYSTEM_MANAGED_STATE_UNSPECIFIED',
         tenant: 'Test string',
         uid: 'Test string',
         unitGroup: 'Test string',

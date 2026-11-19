@@ -36,7 +36,7 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV5FullHashFullHashDetail {
       /** Unordered list. Additional attributes about those full hashes. This may be empty. */
-      attributes?: 'THREAT_ATTRIBUTE_UNSPECIFIED' | 'CANARY' | 'FRAME_ONLY'[];
+      attributes?: ('THREAT_ATTRIBUTE_UNSPECIFIED' | 'CANARY' | 'FRAME_ONLY')[];
       /** The type of threat. This field will never be empty. */
       threatType?:
         | 'THREAT_TYPE_UNSPECIFIED'
@@ -80,18 +80,17 @@ declare namespace gapi.client {
         | 'SIXTEEN_BYTES'
         | 'THIRTY_TWO_BYTES';
       /** Unordered list. If not empty, this specifies that the hash list represents a list of likely safe hashes, and this enumerates the ways they are considered likely safe. This field is mutually exclusive with the threat_types field. */
-      likelySafeTypes?:
-        | 'LIKELY_SAFE_TYPE_UNSPECIFIED'
-        | 'GENERAL_BROWSING'
-        | 'CSD'
-        | 'DOWNLOAD'[];
+      likelySafeTypes?: (
+        'LIKELY_SAFE_TYPE_UNSPECIFIED' | 'GENERAL_BROWSING' | 'CSD' | 'DOWNLOAD'
+      )[];
       /** Unordered list. If not empty, this specifies that the hash list is a kind of threat list, and this enumerates the kind of threats associated with hashes or hash prefixes in this hash list. May be empty if the entry does not represent a threat, i.e. in the case that it represents a likely safe type. */
-      threatTypes?:
+      threatTypes?: (
         | 'THREAT_TYPE_UNSPECIFIED'
         | 'MALWARE'
         | 'SOCIAL_ENGINEERING'
         | 'UNWANTED_SOFTWARE'
-        | 'POTENTIALLY_HARMFUL_APPLICATION'[];
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+      )[];
     }
     interface GoogleSecuritySafebrowsingV5ListHashListsResponse {
       /** The hash lists in an arbitrary order. Only metadata about the hash lists will be included, not the contents. */
@@ -161,45 +160,18 @@ declare namespace gapi.client {
     }
     interface GoogleSecuritySafebrowsingV5ThreatUrl {
       /** Unordered list. The unordered list of threat that the URL is classified as. */
-      threatTypes?:
+      threatTypes?: (
         | 'THREAT_TYPE_UNSPECIFIED'
         | 'MALWARE'
         | 'SOCIAL_ENGINEERING'
         | 'UNWANTED_SOFTWARE'
-        | 'POTENTIALLY_HARMFUL_APPLICATION'[];
+        | 'POTENTIALLY_HARMFUL_APPLICATION'
+      )[];
       /** The requested URL that was matched by one or more threats. */
       url?: string;
     }
-    interface HashesResource {
-      /** Searches for full hashes matching the specified prefixes. This is a custom method as defined by https://google.aip.dev/136 (the custom method refers to this method having a custom name within Google's general API development nomenclature; it does not refer to using a custom HTTP method). */
-      search(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Required. The hash prefixes to be looked up. Clients MUST NOT send more than 1000 hash prefixes. However, following the URL processing procedure, clients SHOULD NOT need to send more than 30 hash prefixes. Currently each hash prefix is required to be exactly 4 bytes long. This MAY be relaxed in the future. */
-        hashPrefixes?: string | string[];
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleSecuritySafebrowsingV5SearchHashesResponse>;
-    }
-    interface HashListResource {
+
+    const hashList: {
       /** Gets the latest contents of a hash list. A hash list may either by a threat list or a non-threat list such as the Global Cache. This is a standard Get method as defined by https://google.aip.dev/131 and the HTTP method is also GET. */
       get(request?: {
         /** V1 error format. */
@@ -233,8 +205,9 @@ declare namespace gapi.client {
         /** The version of the hash list that the client already has. If this is the first time the client is fetching the hash list, this field MUST be left empty. Otherwise, the client SHOULD supply the version previously received from the server. The client MUST NOT manipulate those bytes. **What's new in V5**: in V4 of the API, this was called `states`; it is now renamed to `version` for clarity. */
         version?: string;
       }): Request<GoogleSecuritySafebrowsingV5HashList>;
-    }
-    interface HashListsResource {
+    };
+
+    const hashLists: {
       /** Gets multiple hash lists at once. It is very common for a client to need to get multiple hash lists. Using this method is preferred over using the regular Get method multiple times. This is a standard batch Get method as defined by https://google.aip.dev/231 and the HTTP method is also GET. */
       batchGet(request?: {
         /** V1 error format. */
@@ -297,8 +270,39 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleSecuritySafebrowsingV5ListHashListsResponse>;
-    }
-    interface UrlsResource {
+    };
+
+    const hashes: {
+      /** Searches for full hashes matching the specified prefixes. This is a custom method as defined by https://google.aip.dev/136 (the custom method refers to this method having a custom name within Google's general API development nomenclature; it does not refer to using a custom HTTP method). */
+      search(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. The hash prefixes to be looked up. Clients MUST NOT send more than 1000 hash prefixes. However, following the URL processing procedure, clients SHOULD NOT need to send more than 30 hash prefixes. Currently each hash prefix is required to be exactly 4 bytes long. This MAY be relaxed in the future. */
+        hashPrefixes?: string | string[];
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleSecuritySafebrowsingV5SearchHashesResponse>;
+    };
+
+    const urls: {
       /** Searches for URLs matching known threats. Each URL and it's host-suffix and path-prefix expressions (up to a limited depth) are checked. This means that the response may contain URLs that were not included in the request, but are expressions of the requested URLs. */
       search(request?: {
         /** V1 error format. */
@@ -326,14 +330,6 @@ declare namespace gapi.client {
         /** Required. The URLs to be looked up. Clients MUST NOT send more than 50 URLs. */
         urls?: string | string[];
       }): Request<GoogleSecuritySafebrowsingV5SearchUrlsResponse>;
-    }
-
-    const hashList: HashListResource;
-
-    const hashLists: HashListsResource;
-
-    const hashes: HashesResource;
-
-    const urls: UrlsResource;
+    };
   }
 }

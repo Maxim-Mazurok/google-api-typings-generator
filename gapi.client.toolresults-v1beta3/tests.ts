@@ -49,7 +49,7 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         historyId: 'Test string',
         name: 'Test string',
-        testPlatform: 'Test string',
+        testPlatform: 'unknownPlatform',
       },
     );
     /** Gets a History. May return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist */
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
           successDetail: {
             otherNativeCrash: true,
           },
-          summary: 'Test string',
+          summary: 'unset',
         },
         specification: {
           androidTest: {
@@ -153,7 +153,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'unknownState',
         testExecutionMatrixId: 'Test string',
       },
     );
@@ -213,7 +213,7 @@ gapi.load('client', async () => {
           successDetail: {
             otherNativeCrash: true,
           },
-          summary: 'Test string',
+          summary: 'unset',
         },
         specification: {
           androidTest: {
@@ -260,7 +260,7 @@ gapi.load('client', async () => {
             },
           },
         },
-        state: 'Test string',
+        state: 'unknownState',
         testExecutionMatrixId: 'Test string',
       },
     );
@@ -344,7 +344,7 @@ gapi.load('client', async () => {
             individualOutcome: [
               {
                 multistepNumber: 42,
-                outcomeSummary: 'Test string',
+                outcomeSummary: 'unset',
                 runDuration: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -352,7 +352,7 @@ gapi.load('client', async () => {
                 stepId: 'Test string',
               },
             ],
-            rollUp: 'Test string',
+            rollUp: 'unset',
           },
           primaryStepId: 'Test string',
         },
@@ -381,24 +381,24 @@ gapi.load('client', async () => {
           successDetail: {
             otherNativeCrash: true,
           },
-          summary: 'Test string',
+          summary: 'unset',
         },
         runDuration: {
           nanos: 42,
           seconds: 'Test string',
         },
-        state: 'Test string',
+        state: 'unknownState',
         stepId: 'Test string',
         testExecutionStep: {
           testIssues: [
             {
-              category: 'Test string',
+              category: 'unspecifiedCategory',
               errorMessage: 'Test string',
-              severity: 'Test string',
+              severity: 'unspecifiedSeverity',
               stackTrace: {
                 exception: 'Test string',
               },
-              type: 'Test string',
+              type: 'unspecifiedType',
               warning_migration: {
                 typeUrl: 'Test string',
                 value: 'Test string',
@@ -553,7 +553,7 @@ gapi.load('client', async () => {
             individualOutcome: [
               {
                 multistepNumber: 42,
-                outcomeSummary: 'Test string',
+                outcomeSummary: 'unset',
                 runDuration: {
                   nanos: 42,
                   seconds: 'Test string',
@@ -561,7 +561,7 @@ gapi.load('client', async () => {
                 stepId: 'Test string',
               },
             ],
-            rollUp: 'Test string',
+            rollUp: 'unset',
           },
           primaryStepId: 'Test string',
         },
@@ -590,24 +590,24 @@ gapi.load('client', async () => {
           successDetail: {
             otherNativeCrash: true,
           },
-          summary: 'Test string',
+          summary: 'unset',
         },
         runDuration: {
           nanos: 42,
           seconds: 'Test string',
         },
-        state: 'Test string',
+        state: 'unknownState',
         stepId: 'Test string',
         testExecutionStep: {
           testIssues: [
             {
-              category: 'Test string',
+              category: 'unspecifiedCategory',
               errorMessage: 'Test string',
-              severity: 'Test string',
+              severity: 'unspecifiedSeverity',
               stackTrace: {
                 exception: 'Test string',
               },
-              type: 'Test string',
+              type: 'unspecifiedType',
               warning_migration: {
                 typeUrl: 'Test string',
                 value: 'Test string',
@@ -763,7 +763,7 @@ gapi.load('client', async () => {
             memoryTotalInKibibyte: 'Test string',
           },
         },
-        perfMetrics: ['Test string'],
+        perfMetrics: ['perfMetricTypeUnspecified'],
         projectId: 'Test string',
         stepId: 'Test string',
       },
@@ -778,9 +778,9 @@ gapi.load('client', async () => {
       },
       {
         basicPerfSampleSeries: {
-          perfMetricType: 'Test string',
-          perfUnit: 'Test string',
-          sampleSeriesLabel: 'Test string',
+          perfMetricType: 'perfMetricTypeUnspecified',
+          perfUnit: 'perfUnitUnspecified',
+          sampleSeriesLabel: 'sampleSeriesTypeUnspecified',
         },
         executionId: 'Test string',
         historyId: 'Test string',
@@ -803,7 +803,7 @@ gapi.load('client', async () => {
     await gapi.client.toolresults.projects.histories.executions.steps.perfSampleSeries.list(
       {
         executionId: 'Test string',
-        filter: 'Test string',
+        filter: 'perfMetricTypeUnspecified',
         historyId: 'Test string',
         projectId: 'Test string',
         stepId: 'Test string',

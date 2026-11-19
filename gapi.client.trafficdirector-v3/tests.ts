@@ -81,7 +81,7 @@ gapi.load('client', async () => {
                 namedPort: 'Test string',
                 networkNamespaceFilepath: 'Test string',
                 portValue: 42,
-                protocol: 'Test string',
+                protocol: 'TCP',
                 resolverName: 'Test string',
               },
             },

@@ -750,7 +750,8 @@ declare namespace gapi.client {
       /** Output only. A list of resource types supported by Deployment Manager. */
       types?: Type[];
     }
-    interface DeploymentsResource {
+
+    const deployments: {
       /** Cancels and removes the preview currently associated with the deployment. */
       cancelPreview(request: {
         /** V1 error format. */
@@ -1289,8 +1290,9 @@ declare namespace gapi.client {
         },
         body: Deployment,
       ): Request<Operation>;
-    }
-    interface ManifestsResource {
+    };
+
+    const manifests: {
       /** Gets information about a specific manifest. */
       get(request?: {
         /** V1 error format. */
@@ -1360,8 +1362,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ManifestsListResponse>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Gets information about a specific operation. */
       get(request?: {
         /** V1 error format. */
@@ -1427,8 +1430,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<OperationsListResponse>;
-    }
-    interface ResourcesResource {
+    };
+
+    const resources: {
       /** Gets information about a single resource. */
       get(request?: {
         /** V1 error format. */
@@ -1498,8 +1502,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ResourcesListResponse>;
-    }
-    interface TypesResource {
+    };
+
+    const types: {
       /** Lists all resource types for Deployment Manager. */
       list(request?: {
         /** V1 error format. */
@@ -1535,16 +1540,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<TypesListResponse>;
-    }
-
-    const deployments: DeploymentsResource;
-
-    const manifests: ManifestsResource;
-
-    const operations: OperationsResource;
-
-    const resources: ResourcesResource;
-
-    const types: TypesResource;
+    };
   }
 }

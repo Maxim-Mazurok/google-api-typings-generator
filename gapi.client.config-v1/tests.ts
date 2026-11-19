@@ -91,16 +91,16 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        provisioningState: 'Test string',
+        provisioningState: 'PROVISIONING_STATE_UNSPECIFIED',
         provisioningStateDescription: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateDescription: 'Test string',
         updateTime: 'Test string',
       },
     );
     /** Deletes a DeploymentGroup */
     await gapi.client.config.projects.locations.deploymentGroups.delete({
-      deploymentReferencePolicy: 'Test string',
+      deploymentReferencePolicy: 'DEPLOYMENT_REFERENCE_POLICY_UNSPECIFIED',
       force: true,
       name: 'Test string',
       requestId: 'Test string',
@@ -111,7 +111,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        deletePolicy: 'Test string',
+        deletePolicy: 'DELETE_POLICY_UNSPECIFIED',
         force: true,
       },
     );
@@ -159,9 +159,9 @@ gapi.load('client', async () => {
           ],
           message: 'Test string',
         },
-        provisioningState: 'Test string',
+        provisioningState: 'PROVISIONING_STATE_UNSPECIFIED',
         provisioningStateDescription: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateDescription: 'Test string',
         updateTime: 'Test string',
       },
@@ -192,21 +192,21 @@ gapi.load('client', async () => {
                   },
                 },
               },
-              errorCode: 'Test string',
+              errorCode: 'ERROR_CODE_UNSPECIFIED',
               errorLogs: 'Test string',
               importExistingResources: true,
               labels: {
                 A: 'Test string',
               },
               latestRevision: 'Test string',
-              lockState: 'Test string',
+              lockState: 'LOCK_STATE_UNSPECIFIED',
               name: 'Test string',
               providerConfig: {
-                sourceType: 'Test string',
+                sourceType: 'PROVIDER_SOURCE_UNSPECIFIED',
               },
-              quotaValidation: 'Test string',
+              quotaValidation: 'QUOTA_VALIDATION_UNSPECIFIED',
               serviceAccount: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               stateDetail: 'Test string',
               terraformBlueprint: {
                 externalValues: {
@@ -292,21 +292,21 @@ gapi.load('client', async () => {
             },
           },
         },
-        errorCode: 'Test string',
+        errorCode: 'ERROR_CODE_UNSPECIFIED',
         errorLogs: 'Test string',
         importExistingResources: true,
         labels: {
           A: 'Test string',
         },
         latestRevision: 'Test string',
-        lockState: 'Test string',
+        lockState: 'LOCK_STATE_UNSPECIFIED',
         name: 'Test string',
         providerConfig: {
-          sourceType: 'Test string',
+          sourceType: 'PROVIDER_SOURCE_UNSPECIFIED',
         },
-        quotaValidation: 'Test string',
+        quotaValidation: 'QUOTA_VALIDATION_UNSPECIFIED',
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateDetail: 'Test string',
         terraformBlueprint: {
           externalValues: {
@@ -353,7 +353,7 @@ gapi.load('client', async () => {
     );
     /** Deletes a Deployment. */
     await gapi.client.config.projects.locations.deployments.delete({
-      deletePolicy: 'Test string',
+      deletePolicy: 'DELETE_POLICY_UNSPECIFIED',
       force: true,
       name: 'Test string',
       requestId: 'Test string',
@@ -438,21 +438,21 @@ gapi.load('client', async () => {
             },
           },
         },
-        errorCode: 'Test string',
+        errorCode: 'ERROR_CODE_UNSPECIFIED',
         errorLogs: 'Test string',
         importExistingResources: true,
         labels: {
           A: 'Test string',
         },
         latestRevision: 'Test string',
-        lockState: 'Test string',
+        lockState: 'LOCK_STATE_UNSPECIFIED',
         name: 'Test string',
         providerConfig: {
-          sourceType: 'Test string',
+          sourceType: 'PROVIDER_SOURCE_UNSPECIFIED',
         },
-        quotaValidation: 'Test string',
+        quotaValidation: 'QUOTA_VALIDATION_UNSPECIFIED',
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateDetail: 'Test string',
         terraformBlueprint: {
           externalValues: {
@@ -509,7 +509,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -624,7 +624,7 @@ gapi.load('client', async () => {
         build: 'Test string',
         createTime: 'Test string',
         deployment: 'Test string',
-        errorCode: 'Test string',
+        errorCode: 'ERROR_CODE_UNSPECIFIED',
         errorLogs: 'Test string',
         errorStatus: {
           code: 42,
@@ -644,12 +644,12 @@ gapi.load('client', async () => {
           artifacts: 'Test string',
           content: 'Test string',
         },
-        previewMode: 'Test string',
+        previewMode: 'PREVIEW_MODE_UNSPECIFIED',
         providerConfig: {
-          sourceType: 'Test string',
+          sourceType: 'PROVIDER_SOURCE_UNSPECIFIED',
         },
         serviceAccount: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         terraformBlueprint: {
           externalValues: {
             A: {

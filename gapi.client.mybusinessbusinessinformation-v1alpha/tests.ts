@@ -93,14 +93,14 @@ gapi.load('client', async () => {
             hoursTypeId: 'Test string',
             periods: [
               {
-                closeDay: 'Test string',
+                closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 closeTime: {
                   hours: 42,
                   minutes: 42,
                   nanos: 42,
                   seconds: 42,
                 },
-                openDay: 'Test string',
+                openDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 openTime: {
                   hours: 42,
                   minutes: 42,
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
             month: 42,
             year: 42,
           },
-          status: 'Test string',
+          status: 'OPEN_FOR_BUSINESS_UNSPECIFIED',
         },
         phoneNumbers: {
           additionalPhones: ['Test string'],
@@ -131,14 +131,14 @@ gapi.load('client', async () => {
         regularHours: {
           periods: [
             {
-              closeDay: 'Test string',
+              closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
               closeTime: {
                 hours: 42,
                 minutes: 42,
                 nanos: 42,
                 seconds: 42,
               },
-              openDay: 'Test string',
+              openDay: 'DAY_OF_WEEK_UNSPECIFIED',
               openTime: {
                 hours: 42,
                 minutes: 42,
@@ -152,17 +152,17 @@ gapi.load('client', async () => {
           childrenLocations: [
             {
               placeId: 'Test string',
-              relationType: 'Test string',
+              relationType: 'RELATION_TYPE_UNSPECIFIED',
             },
           ],
           parentChain: 'Test string',
           parentLocation: {
             placeId: 'Test string',
-            relationType: 'Test string',
+            relationType: 'RELATION_TYPE_UNSPECIFIED',
           },
         },
         serviceArea: {
-          businessType: 'Test string',
+          businessType: 'BUSINESS_TYPE_UNSPECIFIED',
           places: {
             placeInfos: [
               {
@@ -265,7 +265,7 @@ gapi.load('client', async () => {
       languageCode: 'Test string',
       names: 'Test string',
       regionCode: 'Test string',
-      view: 'Test string',
+      view: 'CATEGORY_VIEW_UNSPECIFIED',
     });
     /** Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant'). */
     await gapi.client.mybusinessbusinessinformation.categories.list({
@@ -274,7 +274,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       regionCode: 'Test string',
-      view: 'Test string',
+      view: 'CATEGORY_VIEW_UNSPECIFIED',
     });
     /** Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist. */
     await gapi.client.mybusinessbusinessinformation.chains.get({
@@ -359,14 +359,14 @@ gapi.load('client', async () => {
               hoursTypeId: 'Test string',
               periods: [
                 {
-                  closeDay: 'Test string',
+                  closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
                   closeTime: {
                     hours: 42,
                     minutes: 42,
                     nanos: 42,
                     seconds: 42,
                   },
-                  openDay: 'Test string',
+                  openDay: 'DAY_OF_WEEK_UNSPECIFIED',
                   openTime: {
                     hours: 42,
                     minutes: 42,
@@ -385,7 +385,7 @@ gapi.load('client', async () => {
               month: 42,
               year: 42,
             },
-            status: 'Test string',
+            status: 'OPEN_FOR_BUSINESS_UNSPECIFIED',
           },
           phoneNumbers: {
             additionalPhones: ['Test string'],
@@ -397,14 +397,14 @@ gapi.load('client', async () => {
           regularHours: {
             periods: [
               {
-                closeDay: 'Test string',
+                closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 closeTime: {
                   hours: 42,
                   minutes: 42,
                   nanos: 42,
                   seconds: 42,
                 },
-                openDay: 'Test string',
+                openDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 openTime: {
                   hours: 42,
                   minutes: 42,
@@ -418,17 +418,17 @@ gapi.load('client', async () => {
             childrenLocations: [
               {
                 placeId: 'Test string',
-                relationType: 'Test string',
+                relationType: 'RELATION_TYPE_UNSPECIFIED',
               },
             ],
             parentChain: 'Test string',
             parentLocation: {
               placeId: 'Test string',
-              relationType: 'Test string',
+              relationType: 'RELATION_TYPE_UNSPECIFIED',
             },
           },
           serviceArea: {
-            businessType: 'Test string',
+            businessType: 'BUSINESS_TYPE_UNSPECIFIED',
             places: {
               placeInfos: [
                 {
@@ -609,14 +609,14 @@ gapi.load('client', async () => {
             hoursTypeId: 'Test string',
             periods: [
               {
-                closeDay: 'Test string',
+                closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 closeTime: {
                   hours: 42,
                   minutes: 42,
                   nanos: 42,
                   seconds: 42,
                 },
-                openDay: 'Test string',
+                openDay: 'DAY_OF_WEEK_UNSPECIFIED',
                 openTime: {
                   hours: 42,
                   minutes: 42,
@@ -635,7 +635,7 @@ gapi.load('client', async () => {
             month: 42,
             year: 42,
           },
-          status: 'Test string',
+          status: 'OPEN_FOR_BUSINESS_UNSPECIFIED',
         },
         phoneNumbers: {
           additionalPhones: ['Test string'],
@@ -647,14 +647,14 @@ gapi.load('client', async () => {
         regularHours: {
           periods: [
             {
-              closeDay: 'Test string',
+              closeDay: 'DAY_OF_WEEK_UNSPECIFIED',
               closeTime: {
                 hours: 42,
                 minutes: 42,
                 nanos: 42,
                 seconds: 42,
               },
-              openDay: 'Test string',
+              openDay: 'DAY_OF_WEEK_UNSPECIFIED',
               openTime: {
                 hours: 42,
                 minutes: 42,
@@ -668,17 +668,17 @@ gapi.load('client', async () => {
           childrenLocations: [
             {
               placeId: 'Test string',
-              relationType: 'Test string',
+              relationType: 'RELATION_TYPE_UNSPECIFIED',
             },
           ],
           parentChain: 'Test string',
           parentLocation: {
             placeId: 'Test string',
-            relationType: 'Test string',
+            relationType: 'RELATION_TYPE_UNSPECIFIED',
           },
         },
         serviceArea: {
-          businessType: 'Test string',
+          businessType: 'BUSINESS_TYPE_UNSPECIFIED',
           places: {
             placeInfos: [
               {
@@ -777,7 +777,7 @@ gapi.load('client', async () => {
               },
             ],
             values: [42],
-            valueType: 'Test string',
+            valueType: 'ATTRIBUTE_VALUE_TYPE_UNSPECIFIED',
           },
         ],
         name: 'Test string',

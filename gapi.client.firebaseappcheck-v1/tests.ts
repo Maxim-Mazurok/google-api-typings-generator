@@ -301,7 +301,7 @@ gapi.load('client', async () => {
           allowUnrecognizedVersion: true,
         },
         deviceIntegrity: {
-          minDeviceRecognitionLevel: 'Test string',
+          minDeviceRecognitionLevel: 'DEVICE_RECOGNITION_LEVEL_UNSPECIFIED',
         },
         name: 'Test string',
         tokenTtl: 'Test string',
@@ -369,10 +369,10 @@ gapi.load('client', async () => {
         requests: [
           {
             service: {
-              enforcementMode: 'Test string',
+              enforcementMode: 'OFF',
               etag: 'Test string',
               name: 'Test string',
-              replayProtection: 'Test string',
+              replayProtection: 'OFF',
               updateTime: 'Test string',
             },
             updateMask: 'Test string',
@@ -398,10 +398,10 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        enforcementMode: 'Test string',
+        enforcementMode: 'OFF',
         etag: 'Test string',
         name: 'Test string',
-        replayProtection: 'Test string',
+        replayProtection: 'OFF',
         updateTime: 'Test string',
       },
     );
@@ -414,7 +414,7 @@ gapi.load('client', async () => {
         requests: [
           {
             resourcePolicy: {
-              enforcementMode: 'Test string',
+              enforcementMode: 'OFF',
               etag: 'Test string',
               name: 'Test string',
               targetResource: 'Test string',
@@ -432,7 +432,7 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
-        enforcementMode: 'Test string',
+        enforcementMode: 'OFF',
         etag: 'Test string',
         name: 'Test string',
         targetResource: 'Test string',
@@ -464,7 +464,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        enforcementMode: 'Test string',
+        enforcementMode: 'OFF',
         etag: 'Test string',
         name: 'Test string',
         targetResource: 'Test string',

@@ -167,9 +167,6 @@ var client_id = '',
     // Copy your Nest user information
     'https://www.googleapis.com/auth/dataportability.nest.user',
 
-    // Move a copy of your food purchase and reservation activity
-    'https://www.googleapis.com/auth/dataportability.order_reserve.purchases_reservations',
-
     // Usage and diagnostic data from your Pixel devices.
     'https://www.googleapis.com/auth/dataportability.pixel.device_data',
 

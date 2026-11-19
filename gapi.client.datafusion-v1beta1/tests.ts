@@ -59,8 +59,8 @@ gapi.load('client', async () => {
       {
         accelerators: [
           {
-            acceleratorType: 'Test string',
-            state: 'Test string',
+            acceleratorType: 'ACCELERATOR_TYPE_UNSPECIFIED',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         apiEndpoint: 'Test string',
@@ -68,7 +68,7 @@ gapi.load('client', async () => {
           {
             availableFeatures: ['Test string'],
             defaultVersion: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             versionNumber: 'Test string',
           },
         ],
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
         dataplexDataLineageIntegrationEnabled: true,
         dataprocServiceAccount: 'Test string',
         description: 'Test string',
-        disabledReason: ['Test string'],
+        disabledReason: ['DISABLED_REASON_UNSPECIFIED'],
         displayName: 'Test string',
         enableRbac: true,
         enableStackdriverLogging: true,
@@ -101,7 +101,7 @@ gapi.load('client', async () => {
           {
             endTime: 'Test string',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         maintenancePolicy: {
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         networkConfig: {
-          connectionType: 'Test string',
+          connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
           ipAllocation: 'Test string',
           network: 'Test string',
           privateServiceConnectConfig: {
@@ -143,13 +143,13 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         serviceAccount: 'Test string',
         serviceEndpoint: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
         },
         tenantProjectId: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         version: 'Test string',
         workforceIdentityServiceEndpoint: 'Test string',
@@ -187,8 +187,8 @@ gapi.load('client', async () => {
       {
         accelerators: [
           {
-            acceleratorType: 'Test string',
-            state: 'Test string',
+            acceleratorType: 'ACCELERATOR_TYPE_UNSPECIFIED',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         apiEndpoint: 'Test string',
@@ -196,7 +196,7 @@ gapi.load('client', async () => {
           {
             availableFeatures: ['Test string'],
             defaultVersion: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
             versionNumber: 'Test string',
           },
         ],
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
         dataplexDataLineageIntegrationEnabled: true,
         dataprocServiceAccount: 'Test string',
         description: 'Test string',
-        disabledReason: ['Test string'],
+        disabledReason: ['DISABLED_REASON_UNSPECIFIED'],
         displayName: 'Test string',
         enableRbac: true,
         enableStackdriverLogging: true,
@@ -229,7 +229,7 @@ gapi.load('client', async () => {
           {
             endTime: 'Test string',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
         ],
         maintenancePolicy: {
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         networkConfig: {
-          connectionType: 'Test string',
+          connectionType: 'CONNECTION_TYPE_UNSPECIFIED',
           ipAllocation: 'Test string',
           network: 'Test string',
           privateServiceConnectConfig: {
@@ -271,13 +271,13 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         serviceAccount: 'Test string',
         serviceEndpoint: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
         },
         tenantProjectId: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         version: 'Test string',
         workforceIdentityServiceEndpoint: 'Test string',
@@ -303,7 +303,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -381,7 +381,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'NAMESPACE_VIEW_UNSPECIFIED',
     });
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.datafusion.projects.locations.instances.namespaces.setIamPolicy(
@@ -395,7 +395,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

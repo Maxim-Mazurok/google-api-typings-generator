@@ -664,7 +664,8 @@ declare namespace gapi.client {
       /** A timestamp value. When stored in the Datastore, precise only to microseconds; any additional precision is rounded down. */
       timestampValue?: string;
     }
-    interface ProjectsResource {
+
+    const projects: {
       /** Allocates IDs for the given keys, which is useful for referencing an entity before it is inserted. */
       allocateIds(request: {
         /** V1 error format. */
@@ -1129,8 +1130,6 @@ declare namespace gapi.client {
         },
         body: RunQueryRequest,
       ): Request<RunQueryResponse>;
-    }
-
-    const projects: ProjectsResource;
+    };
   }
 }

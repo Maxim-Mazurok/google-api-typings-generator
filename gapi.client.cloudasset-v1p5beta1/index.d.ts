@@ -245,14 +245,16 @@ declare namespace gapi.client {
     }
     interface GoogleIdentityAccesscontextmanagerV1DevicePolicy {
       /** Allowed device management levels. An empty list allows all management levels. */
-      allowedDeviceManagementLevels?:
-        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'[];
+      allowedDeviceManagementLevels?: (
+        'MANAGEMENT_UNSPECIFIED' | 'NONE' | 'BASIC' | 'COMPLETE'
+      )[];
       /** Allowed encryption statuses. An empty list allows all statuses. */
-      allowedEncryptionStatuses?:
+      allowedEncryptionStatuses?: (
         | 'ENCRYPTION_UNSPECIFIED'
         | 'ENCRYPTION_UNSUPPORTED'
         | 'UNENCRYPTED'
-        | 'ENCRYPTED'[];
+        | 'ENCRYPTED'
+      )[];
       /** Allowed OS versions. An empty list allows all types and all versions. */
       osConstraints?: GoogleIdentityAccesscontextmanagerV1OsConstraint[];
       /** Whether the device needs to be approved by the customer admin. */
@@ -419,9 +421,10 @@ declare namespace gapi.client {
       /** Whether to restrict API calls within the Service Perimeter to the list of APIs specified in `allowed_services`. */
       enableRestriction?: boolean;
       /** Defines the enforcement scopes of service patterns. */
-      servicePatternsEnforcementScopes?:
+      servicePatternsEnforcementScopes?: (
         | 'SERVICE_PATTERNS_ENFORCEMENT_SCOPE_UNSPECIFIED'
-        | 'GOOGLE_APIS_VIA_PRIVATE_PATH'[];
+        | 'GOOGLE_APIS_VIA_PRIVATE_PATH'
+      )[];
     }
     interface GoogleIdentityAccesscontextmanagerV1VpcNetworkSource {
       /** Sub-segment ranges of a VPC network. */
@@ -465,7 +468,8 @@ declare namespace gapi.client {
       /** The API version. Example: "v1". */
       version?: string;
     }
-    interface AssetsResource {
+
+    const assets: {
       /** Lists assets with time and resource types and returns paged results in response. */
       list(request?: {
         /** V1 error format. */
@@ -508,8 +512,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListAssetsResponse>;
-    }
-
-    const assets: AssetsResource;
+    };
   }
 }

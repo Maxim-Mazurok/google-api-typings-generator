@@ -318,7 +318,7 @@ gapi.load('client', async () => {
                   flakyTestRetryStrategy: {
                     flakyTestAttempts: 42,
                     parallelRetry: true,
-                    testReductionMode: 'Test string',
+                    testReductionMode: 'TEST_REDUCTION_MODE_UNSPECIFIED',
                   },
                 },
               },
@@ -361,15 +361,15 @@ gapi.load('client', async () => {
                           A: 'Test string',
                         },
                         reason: 'Test string',
-                        type: 'Test string',
+                        type: 'ISSUE_TYPE_UNSPECIFIED',
                       },
                     },
-                    resultType: 'Test string',
+                    resultType: 'RESULT_TYPE_UNSPECIFIED',
                   },
                   startTime: 'Test string',
                   status: {
                     progressMessages: ['Test string'],
-                    statusType: 'Test string',
+                    statusType: 'STATUS_TYPE_UNSPECIFIED',
                   },
                   warnings: [
                     {
@@ -379,7 +379,7 @@ gapi.load('client', async () => {
                           A: 'Test string',
                         },
                         reason: 'Test string',
-                        type: 'Test string',
+                        type: 'ISSUE_TYPE_UNSPECIFIED',
                       },
                     },
                   ],
@@ -404,15 +404,15 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     reason: 'Test string',
-                    type: 'Test string',
+                    type: 'ISSUE_TYPE_UNSPECIFIED',
                   },
                 },
-                resultType: 'Test string',
+                resultType: 'RESULT_TYPE_UNSPECIFIED',
               },
               startTime: 'Test string',
               status: {
                 progressMessages: ['Test string'],
-                statusType: 'Test string',
+                statusType: 'STATUS_TYPE_UNSPECIFIED',
               },
               warnings: [
                 {
@@ -422,7 +422,7 @@ gapi.load('client', async () => {
                       A: 'Test string',
                     },
                     reason: 'Test string',
-                    type: 'Test string',
+                    type: 'ISSUE_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -436,15 +436,15 @@ gapi.load('client', async () => {
                   A: 'Test string',
                 },
                 reason: 'Test string',
-                type: 'Test string',
+                type: 'ISSUE_TYPE_UNSPECIFIED',
               },
             },
-            resultType: 'Test string',
+            resultType: 'RESULT_TYPE_UNSPECIFIED',
           },
           startTime: 'Test string',
           status: {
             progressMessages: ['Test string'],
-            statusType: 'Test string',
+            statusType: 'STATUS_TYPE_UNSPECIFIED',
           },
         },
       },
@@ -457,7 +457,7 @@ gapi.load('client', async () => {
     /** Returns information about a previously created automation session. */
     await gapi.client.devicerun.projects.locations.sessions.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'SESSION_VIEW_UNSPECIFIED',
     });
     /** Lists previously created automation sessions. Sessions may still be in-progress, or may have finished successfully, or unsuccessfully. */
     await gapi.client.devicerun.projects.locations.sessions.list({
@@ -466,7 +466,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'SESSION_VIEW_UNSPECIFIED',
     });
     /** Returns information about a specific software version. */
     await gapi.client.devicerun.projects.locations.softwareVersions.get({

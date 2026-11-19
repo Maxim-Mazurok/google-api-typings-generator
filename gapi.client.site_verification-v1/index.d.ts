@@ -62,7 +62,8 @@ declare namespace gapi.client {
         type?: string;
       };
     }
-    interface WebResourceResource {
+
+    const webResource: {
       /** Relinquish ownership of a website or domain. */
       delete(request?: {
         /** Data format for the response. */
@@ -282,8 +283,6 @@ declare namespace gapi.client {
         },
         body: SiteVerificationWebResourceResource,
       ): Request<SiteVerificationWebResourceResource>;
-    }
-
-    const webResource: WebResourceResource;
+    };
   }
 }

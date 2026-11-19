@@ -869,7 +869,8 @@ declare namespace gapi.client {
       /** The (inclusive) start of the time period. */
       start?: string;
     }
-    interface AclResource {
+
+    const acl: {
       /** Deletes an access control rule. */
       delete(request?: {
         /** Data format for the response. */
@@ -1158,8 +1159,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface CalendarListResource {
+    };
+
+    const calendarList: {
       /** Removes a calendar from the user's calendar list. */
       delete(request?: {
         /** Data format for the response. */
@@ -1462,8 +1464,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface CalendarsResource {
+    };
+
+    const calendars: {
       /** Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account. */
       clear(request?: {
         /** Data format for the response. */
@@ -1675,8 +1678,9 @@ declare namespace gapi.client {
         },
         body: Calendar,
       ): Request<Calendar>;
-    }
-    interface ChannelsResource {
+    };
+
+    const channels: {
       /** Stop watching resources through this channel */
       stop(request: {
         /** Data format for the response. */
@@ -1715,8 +1719,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<void>;
-    }
-    interface ColorsResource {
+    };
+
+    const colors: {
       /** Returns the color definitions for calendars and events. */
       get(request?: {
         /** Data format for the response. */
@@ -1734,8 +1739,9 @@ declare namespace gapi.client {
         /** Deprecated. Please use quotaUser instead. */
         userIp?: string;
       }): Request<Colors>;
-    }
-    interface EventsResource {
+    };
+
+    const events: {
       /** Deletes an event. */
       delete(request?: {
         /** Data format for the response. */
@@ -2487,8 +2493,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface FreebusyResource {
+    };
+
+    const freebusy: {
       /** Returns free/busy information for a set of calendars. */
       query(request: {
         /** Data format for the response. */
@@ -2527,8 +2534,9 @@ declare namespace gapi.client {
         },
         body: FreeBusyRequest,
       ): Request<FreeBusyResponse>;
-    }
-    interface SettingsResource {
+    };
+
+    const settings: {
       /** Returns a single user setting. */
       get(request?: {
         /** Data format for the response. */
@@ -2636,22 +2644,6 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-
-    const acl: AclResource;
-
-    const calendarList: CalendarListResource;
-
-    const calendars: CalendarsResource;
-
-    const channels: ChannelsResource;
-
-    const colors: ColorsResource;
-
-    const events: EventsResource;
-
-    const freebusy: FreebusyResource;
-
-    const settings: SettingsResource;
+    };
   }
 }

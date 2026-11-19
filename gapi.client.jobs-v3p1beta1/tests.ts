@@ -41,8 +41,8 @@ gapi.load('client', async () => {
       name: 'Test string',
       pageSize: 42,
       query: 'Test string',
-      scope: 'Test string',
-      type: 'Test string',
+      scope: 'COMPLETION_SCOPE_UNSPECIFIED',
+      type: 'COMPLETION_TYPE_UNSPECIFIED',
     });
     /** Report events issued when end user interacts with customer's application that uses Cloud Talent Solution. You may inspect the created events in [self service tools](https://console.cloud.google.com/talent-solution/overview). [Learn more](https://cloud.google.com/talent-solution/docs/management-tools) about self service tools. */
     await gapi.client.jobs.projects.clientEvents.create(
@@ -58,7 +58,7 @@ gapi.load('client', async () => {
           },
           jobEvent: {
             jobs: ['Test string'],
-            type: 'Test string',
+            type: 'JOB_EVENT_TYPE_UNSPECIFIED',
           },
           parentEventId: 'Test string',
           requestId: 'Test string',
@@ -79,7 +79,7 @@ gapi.load('client', async () => {
                 latitude: 42,
                 longitude: 42,
               },
-              locationType: 'Test string',
+              locationType: 'LOCATION_TYPE_UNSPECIFIED',
               postalAddress: {
                 addressLines: ['Test string'],
                 administrativeArea: 'Test string',
@@ -104,7 +104,7 @@ gapi.load('client', async () => {
           imageUri: 'Test string',
           keywordSearchableJobCustomAttributes: ['Test string'],
           name: 'Test string',
-          size: 'Test string',
+          size: 'COMPANY_SIZE_UNSPECIFIED',
           suspended: true,
           websiteUri: 'Test string',
         },
@@ -139,7 +139,7 @@ gapi.load('client', async () => {
                 latitude: 42,
                 longitude: 42,
               },
-              locationType: 'Test string',
+              locationType: 'LOCATION_TYPE_UNSPECIFIED',
               postalAddress: {
                 addressLines: ['Test string'],
                 administrativeArea: 'Test string',
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
           imageUri: 'Test string',
           keywordSearchableJobCustomAttributes: ['Test string'],
           name: 'Test string',
-          size: 'Test string',
+          size: 'COMPANY_SIZE_UNSPECIFIED',
           suspended: true,
           websiteUri: 'Test string',
         },
@@ -241,8 +241,8 @@ gapi.load('client', async () => {
                     units: 'Test string',
                   },
                 },
-                type: 'Test string',
-                unit: 'Test string',
+                type: 'COMPENSATION_TYPE_UNSPECIFIED',
+                unit: 'COMPENSATION_UNIT_UNSPECIFIED',
               },
             ],
           },
@@ -253,17 +253,17 @@ gapi.load('client', async () => {
               stringValues: ['Test string'],
             },
           },
-          degreeTypes: ['Test string'],
+          degreeTypes: ['DEGREE_TYPE_UNSPECIFIED'],
           department: 'Test string',
           derivedInfo: {
-            jobCategories: ['Test string'],
+            jobCategories: ['JOB_CATEGORY_UNSPECIFIED'],
             locations: [
               {
                 latLng: {
                   latitude: 42,
                   longitude: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'LOCATION_TYPE_UNSPECIFIED',
                 postalAddress: {
                   addressLines: ['Test string'],
                   administrativeArea: 'Test string',
@@ -282,29 +282,29 @@ gapi.load('client', async () => {
             ],
           },
           description: 'Test string',
-          employmentTypes: ['Test string'],
+          employmentTypes: ['EMPLOYMENT_TYPE_UNSPECIFIED'],
           incentives: 'Test string',
-          jobBenefits: ['Test string'],
+          jobBenefits: ['JOB_BENEFIT_UNSPECIFIED'],
           jobEndTime: 'Test string',
-          jobLevel: 'Test string',
+          jobLevel: 'JOB_LEVEL_UNSPECIFIED',
           jobStartTime: 'Test string',
           languageCode: 'Test string',
           name: 'Test string',
           postingCreateTime: 'Test string',
           postingExpireTime: 'Test string',
           postingPublishTime: 'Test string',
-          postingRegion: 'Test string',
+          postingRegion: 'POSTING_REGION_UNSPECIFIED',
           postingUpdateTime: 'Test string',
           processingOptions: {
             disableStreetAddressResolution: true,
-            htmlSanitization: 'Test string',
+            htmlSanitization: 'HTML_SANITIZATION_UNSPECIFIED',
           },
           promotionValue: 42,
           qualifications: 'Test string',
           requisitionId: 'Test string',
           responsibilities: 'Test string',
           title: 'Test string',
-          visibility: 'Test string',
+          visibility: 'VISIBILITY_UNSPECIFIED',
         },
       },
     );
@@ -319,7 +319,7 @@ gapi.load('client', async () => {
     /** Lists jobs by filter. */
     await gapi.client.jobs.projects.jobs.list({
       filter: 'Test string',
-      jobView: 'Test string',
+      jobView: 'JOB_VIEW_UNSPECIFIED',
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
@@ -385,8 +385,8 @@ gapi.load('client', async () => {
                     units: 'Test string',
                   },
                 },
-                type: 'Test string',
-                unit: 'Test string',
+                type: 'COMPENSATION_TYPE_UNSPECIFIED',
+                unit: 'COMPENSATION_UNIT_UNSPECIFIED',
               },
             ],
           },
@@ -397,17 +397,17 @@ gapi.load('client', async () => {
               stringValues: ['Test string'],
             },
           },
-          degreeTypes: ['Test string'],
+          degreeTypes: ['DEGREE_TYPE_UNSPECIFIED'],
           department: 'Test string',
           derivedInfo: {
-            jobCategories: ['Test string'],
+            jobCategories: ['JOB_CATEGORY_UNSPECIFIED'],
             locations: [
               {
                 latLng: {
                   latitude: 42,
                   longitude: 42,
                 },
-                locationType: 'Test string',
+                locationType: 'LOCATION_TYPE_UNSPECIFIED',
                 postalAddress: {
                   addressLines: ['Test string'],
                   administrativeArea: 'Test string',
@@ -426,29 +426,29 @@ gapi.load('client', async () => {
             ],
           },
           description: 'Test string',
-          employmentTypes: ['Test string'],
+          employmentTypes: ['EMPLOYMENT_TYPE_UNSPECIFIED'],
           incentives: 'Test string',
-          jobBenefits: ['Test string'],
+          jobBenefits: ['JOB_BENEFIT_UNSPECIFIED'],
           jobEndTime: 'Test string',
-          jobLevel: 'Test string',
+          jobLevel: 'JOB_LEVEL_UNSPECIFIED',
           jobStartTime: 'Test string',
           languageCode: 'Test string',
           name: 'Test string',
           postingCreateTime: 'Test string',
           postingExpireTime: 'Test string',
           postingPublishTime: 'Test string',
-          postingRegion: 'Test string',
+          postingRegion: 'POSTING_REGION_UNSPECIFIED',
           postingUpdateTime: 'Test string',
           processingOptions: {
             disableStreetAddressResolution: true,
-            htmlSanitization: 'Test string',
+            htmlSanitization: 'HTML_SANITIZATION_UNSPECIFIED',
           },
           promotionValue: 42,
           qualifications: 'Test string',
           requisitionId: 'Test string',
           responsibilities: 'Test string',
           title: 'Test string',
-          visibility: 'Test string',
+          visibility: 'VISIBILITY_UNSPECIFIED',
         },
         updateMask: 'Test string',
       },
@@ -460,11 +460,11 @@ gapi.load('client', async () => {
       },
       {
         customRankingInfo: {
-          importanceLevel: 'Test string',
+          importanceLevel: 'IMPORTANCE_LEVEL_UNSPECIFIED',
           rankingExpression: 'Test string',
         },
         disableKeywordMatch: true,
-        diversificationLevel: 'Test string',
+        diversificationLevel: 'DIVERSIFICATION_LEVEL_UNSPECIFIED',
         enableBroadening: true,
         histogramFacets: {
           compensationHistogramFacets: [
@@ -473,7 +473,7 @@ gapi.load('client', async () => {
                 bucketBounds: [42],
                 requiresMinMax: true,
               },
-              type: 'Test string',
+              type: 'COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED',
             },
           ],
           customAttributeHistogramFacets: [
@@ -486,7 +486,7 @@ gapi.load('client', async () => {
               stringValueHistogram: true,
             },
           ],
-          simpleHistogramFacets: ['Test string'],
+          simpleHistogramFacets: ['SEARCH_TYPE_UNSPECIFIED'],
         },
         histogramQueries: [
           {
@@ -496,14 +496,14 @@ gapi.load('client', async () => {
         jobQuery: {
           commuteFilter: {
             allowImpreciseAddresses: true,
-            commuteMethod: 'Test string',
+            commuteMethod: 'COMMUTE_METHOD_UNSPECIFIED',
             departureTime: {
               hours: 42,
               minutes: 42,
               nanos: 42,
               seconds: 42,
             },
-            roadTraffic: 'Test string',
+            roadTraffic: 'ROAD_TRAFFIC_UNSPECIFIED',
             startCoordinates: {
               latitude: 42,
               longitude: 42,
@@ -526,14 +526,14 @@ gapi.load('client', async () => {
                 units: 'Test string',
               },
             },
-            type: 'Test string',
-            units: ['Test string'],
+            type: 'FILTER_TYPE_UNSPECIFIED',
+            units: ['COMPENSATION_UNIT_UNSPECIFIED'],
           },
           customAttributeFilter: 'Test string',
           disableSpellCheck: true,
-          employmentTypes: ['Test string'],
+          employmentTypes: ['EMPLOYMENT_TYPE_UNSPECIFIED'],
           excludedJobs: ['Test string'],
-          jobCategories: ['Test string'],
+          jobCategories: ['JOB_CATEGORY_UNSPECIFIED'],
           languageCodes: ['Test string'],
           locationFilters: [
             {
@@ -544,7 +544,7 @@ gapi.load('client', async () => {
                 longitude: 42,
               },
               regionCode: 'Test string',
-              telecommutePreference: 'Test string',
+              telecommutePreference: 'TELECOMMUTE_PREFERENCE_UNSPECIFIED',
             },
           ],
           publishTimeRange: {
@@ -554,14 +554,14 @@ gapi.load('client', async () => {
           query: 'Test string',
           queryLanguageCode: 'Test string',
         },
-        jobView: 'Test string',
+        jobView: 'JOB_VIEW_UNSPECIFIED',
         offset: 42,
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         requestMetadata: {
           deviceInfo: {
-            deviceType: 'Test string',
+            deviceType: 'DEVICE_TYPE_UNSPECIFIED',
             id: 'Test string',
           },
           domain: 'Test string',
@@ -569,7 +569,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         requirePreciseResultSize: true,
-        searchMode: 'Test string',
+        searchMode: 'SEARCH_MODE_UNSPECIFIED',
       },
     );
     /** Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), and has different algorithmic adjustments that are targeted to passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against. */
@@ -579,11 +579,11 @@ gapi.load('client', async () => {
       },
       {
         customRankingInfo: {
-          importanceLevel: 'Test string',
+          importanceLevel: 'IMPORTANCE_LEVEL_UNSPECIFIED',
           rankingExpression: 'Test string',
         },
         disableKeywordMatch: true,
-        diversificationLevel: 'Test string',
+        diversificationLevel: 'DIVERSIFICATION_LEVEL_UNSPECIFIED',
         enableBroadening: true,
         histogramFacets: {
           compensationHistogramFacets: [
@@ -592,7 +592,7 @@ gapi.load('client', async () => {
                 bucketBounds: [42],
                 requiresMinMax: true,
               },
-              type: 'Test string',
+              type: 'COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED',
             },
           ],
           customAttributeHistogramFacets: [
@@ -605,7 +605,7 @@ gapi.load('client', async () => {
               stringValueHistogram: true,
             },
           ],
-          simpleHistogramFacets: ['Test string'],
+          simpleHistogramFacets: ['SEARCH_TYPE_UNSPECIFIED'],
         },
         histogramQueries: [
           {
@@ -615,14 +615,14 @@ gapi.load('client', async () => {
         jobQuery: {
           commuteFilter: {
             allowImpreciseAddresses: true,
-            commuteMethod: 'Test string',
+            commuteMethod: 'COMMUTE_METHOD_UNSPECIFIED',
             departureTime: {
               hours: 42,
               minutes: 42,
               nanos: 42,
               seconds: 42,
             },
-            roadTraffic: 'Test string',
+            roadTraffic: 'ROAD_TRAFFIC_UNSPECIFIED',
             startCoordinates: {
               latitude: 42,
               longitude: 42,
@@ -645,14 +645,14 @@ gapi.load('client', async () => {
                 units: 'Test string',
               },
             },
-            type: 'Test string',
-            units: ['Test string'],
+            type: 'FILTER_TYPE_UNSPECIFIED',
+            units: ['COMPENSATION_UNIT_UNSPECIFIED'],
           },
           customAttributeFilter: 'Test string',
           disableSpellCheck: true,
-          employmentTypes: ['Test string'],
+          employmentTypes: ['EMPLOYMENT_TYPE_UNSPECIFIED'],
           excludedJobs: ['Test string'],
-          jobCategories: ['Test string'],
+          jobCategories: ['JOB_CATEGORY_UNSPECIFIED'],
           languageCodes: ['Test string'],
           locationFilters: [
             {
@@ -663,7 +663,7 @@ gapi.load('client', async () => {
                 longitude: 42,
               },
               regionCode: 'Test string',
-              telecommutePreference: 'Test string',
+              telecommutePreference: 'TELECOMMUTE_PREFERENCE_UNSPECIFIED',
             },
           ],
           publishTimeRange: {
@@ -673,14 +673,14 @@ gapi.load('client', async () => {
           query: 'Test string',
           queryLanguageCode: 'Test string',
         },
-        jobView: 'Test string',
+        jobView: 'JOB_VIEW_UNSPECIFIED',
         offset: 42,
         orderBy: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
         requestMetadata: {
           deviceInfo: {
-            deviceType: 'Test string',
+            deviceType: 'DEVICE_TYPE_UNSPECIFIED',
             id: 'Test string',
           },
           domain: 'Test string',
@@ -688,7 +688,7 @@ gapi.load('client', async () => {
           userId: 'Test string',
         },
         requirePreciseResultSize: true,
-        searchMode: 'Test string',
+        searchMode: 'SEARCH_MODE_UNSPECIFIED',
       },
     );
     /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */

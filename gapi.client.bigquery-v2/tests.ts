@@ -53,7 +53,7 @@ gapi.load('client', async () => {
     await gapi.client.bigquery.datasets.get({
       accessPolicyVersion: 42,
       datasetId: 'Test string',
-      datasetView: 'Test string',
+      datasetView: 'DATASET_VIEW_UNSPECIFIED',
       projectId: 'Test string',
     });
     /** Creates a new empty dataset. # IAM Permissions Requires the `bigquery.datasets.create` permission on the project. */
@@ -76,7 +76,7 @@ gapi.load('client', async () => {
                 datasetId: 'Test string',
                 projectId: 'Test string',
               },
-              targetTypes: ['Test string'],
+              targetTypes: ['TARGET_TYPE_UNSPECIFIED'],
             },
             domain: 'Test string',
             groupByEmail: 'Test string',
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         defaultPartitionExpirationMs: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         defaultTableExpirationMs: 'Test string',
         description: 'Test string',
         etag: 'Test string',
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         linkedDatasetMetadata: {
-          linkState: 'Test string',
+          linkState: 'LINK_STATE_UNSPECIFIED',
         },
         linkedDatasetSource: {
           sourceDataset: {
@@ -153,19 +153,19 @@ gapi.load('client', async () => {
             replicaOptions: {
               defaultKmsKeyName: 'Test string',
             },
-            replicaState: 'Test string',
+            replicaState: 'REPLICA_STATE_UNSPECIFIED',
           },
         ],
         resourceTags: {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
         selfLink: 'Test string',
-        storageBillingModel: 'Test string',
+        storageBillingModel: 'STORAGE_BILLING_MODEL_UNSPECIFIED',
         tags: [
           {
             tagKey: 'Test string',
@@ -189,7 +189,7 @@ gapi.load('client', async () => {
         accessPolicyVersion: 42,
         datasetId: 'Test string',
         projectId: 'Test string',
-        updateMode: 'Test string',
+        updateMode: 'UPDATE_MODE_UNSPECIFIED',
       },
       {
         access: [
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
                 datasetId: 'Test string',
                 projectId: 'Test string',
               },
-              targetTypes: ['Test string'],
+              targetTypes: ['TARGET_TYPE_UNSPECIFIED'],
             },
             domain: 'Test string',
             groupByEmail: 'Test string',
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         defaultPartitionExpirationMs: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         defaultTableExpirationMs: 'Test string',
         description: 'Test string',
         etag: 'Test string',
@@ -260,7 +260,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         linkedDatasetMetadata: {
-          linkState: 'Test string',
+          linkState: 'LINK_STATE_UNSPECIFIED',
         },
         linkedDatasetSource: {
           sourceDataset: {
@@ -282,19 +282,19 @@ gapi.load('client', async () => {
             replicaOptions: {
               defaultKmsKeyName: 'Test string',
             },
-            replicaState: 'Test string',
+            replicaState: 'REPLICA_STATE_UNSPECIFIED',
           },
         ],
         resourceTags: {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
         selfLink: 'Test string',
-        storageBillingModel: 'Test string',
+        storageBillingModel: 'STORAGE_BILLING_MODEL_UNSPECIFIED',
         tags: [
           {
             tagKey: 'Test string',
@@ -320,7 +320,7 @@ gapi.load('client', async () => {
         accessPolicyVersion: 42,
         datasetId: 'Test string',
         projectId: 'Test string',
-        updateMode: 'Test string',
+        updateMode: 'UPDATE_MODE_UNSPECIFIED',
       },
       {
         access: [
@@ -336,7 +336,7 @@ gapi.load('client', async () => {
                 datasetId: 'Test string',
                 projectId: 'Test string',
               },
-              targetTypes: ['Test string'],
+              targetTypes: ['TARGET_TYPE_UNSPECIFIED'],
             },
             domain: 'Test string',
             groupByEmail: 'Test string',
@@ -367,7 +367,7 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         defaultPartitionExpirationMs: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         defaultTableExpirationMs: 'Test string',
         description: 'Test string',
         etag: 'Test string',
@@ -391,7 +391,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         linkedDatasetMetadata: {
-          linkState: 'Test string',
+          linkState: 'LINK_STATE_UNSPECIFIED',
         },
         linkedDatasetSource: {
           sourceDataset: {
@@ -413,19 +413,19 @@ gapi.load('client', async () => {
             replicaOptions: {
               defaultKmsKeyName: 'Test string',
             },
-            replicaState: 'Test string',
+            replicaState: 'REPLICA_STATE_UNSPECIFIED',
           },
         ],
         resourceTags: {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
         selfLink: 'Test string',
-        storageBillingModel: 'Test string',
+        storageBillingModel: 'STORAGE_BILLING_MODEL_UNSPECIFIED',
         tags: [
           {
             tagKey: 'Test string',
@@ -455,7 +455,8 @@ gapi.load('client', async () => {
     });
     /** RPC to get the results of a query job. # IAM Permissions Requires the following IAM permission(s) to use this method: - `bigquery.jobs.get` on the job. - `bigquery.tables.getData` on the destination table. If the user matches the creator of the job, the following IAM permission(s) are required instead: - `bigquery.jobs.create` on the project. - `bigquery.tables.getData` on the destination table. */
     await gapi.client.bigquery.jobs.getQueryResults({
-      'formatOptions.timestampOutputFormat': 'Test string',
+      'formatOptions.timestampOutputFormat':
+        'TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED',
       'formatOptions.useInt64Timestamp': true,
       jobId: 'Test string',
       location: 'Test string',
@@ -483,7 +484,7 @@ gapi.load('client', async () => {
               projectId: 'Test string',
               tableId: 'Test string',
             },
-            operationType: 'Test string',
+            operationType: 'OPERATION_TYPE_UNSPECIFIED',
             sourceTable: {
               datasetId: 'Test string',
               projectId: 'Test string',
@@ -539,7 +540,7 @@ gapi.load('client', async () => {
             clustering: {
               fields: ['Test string'],
             },
-            columnNameCharacterMap: 'Test string',
+            columnNameCharacterMap: 'COLUMN_NAME_CHARACTER_MAP_UNSPECIFIED',
             connectionProperties: [
               {
                 key: 'Test string',
@@ -551,7 +552,7 @@ gapi.load('client', async () => {
             createSession: true,
             dateFormat: 'Test string',
             datetimeFormat: 'Test string',
-            decimalTargetTypes: ['Test string'],
+            decimalTargetTypes: ['DECIMAL_TARGET_TYPE_UNSPECIFIED'],
             destinationEncryptionConfiguration: {
               kmsKeyName: 'Test string',
             },
@@ -570,7 +571,7 @@ gapi.load('client', async () => {
             },
             encoding: 'Test string',
             fieldDelimiter: 'Test string',
-            fileSetSpecType: 'Test string',
+            fileSetSpecType: 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH',
             hivePartitioningOptions: {
               fields: ['Test string'],
               mode: 'Test string',
@@ -578,14 +579,14 @@ gapi.load('client', async () => {
               sourceUriPrefix: 'Test string',
             },
             ignoreUnknownValues: true,
-            jsonExtension: 'Test string',
+            jsonExtension: 'JSON_EXTENSION_UNSPECIFIED',
             maxBadRecords: 42,
             nullMarker: 'Test string',
             nullMarkers: ['Test string'],
             parquetOptions: {
               enableListInference: true,
               enumAsString: true,
-              mapTargetType: 'Test string',
+              mapTargetType: 'MAP_TARGET_TYPE_UNSPECIFIED',
             },
             preserveAsciiControlCharacters: true,
             projectionFields: ['Test string'],
@@ -633,7 +634,7 @@ gapi.load('client', async () => {
                       generationExpression: 'Test string',
                       stored: true,
                     },
-                    generatedMode: 'Test string',
+                    generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                   },
                   maxLength: 'Test string',
                   mode: 'Test string',
@@ -645,21 +646,21 @@ gapi.load('client', async () => {
                   rangeElementType: {
                     type: 'Test string',
                   },
-                  roundingMode: 'Test string',
+                  roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                   scale: 'Test string',
                   timestampPrecision: 'Test string',
                   type: 'Test string',
                 },
               ],
               foreignTypeInfo: {
-                typeSystem: 'Test string',
+                typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
               },
             },
             schemaInline: 'Test string',
             schemaInlineFormat: 'Test string',
             schemaUpdateOptions: ['Test string'],
             skipLeadingRows: 42,
-            sourceColumnMatch: 'Test string',
+            sourceColumnMatch: 'SOURCE_COLUMN_MATCH_UNSPECIFIED',
             sourceFormat: 'Test string',
             sourceUris: ['Test string'],
             timeFormat: 'Test string',
@@ -746,7 +747,7 @@ gapi.load('client', async () => {
             },
             schemaUpdateOptions: ['Test string'],
             scriptOptions: {
-              keyResultStatement: 'Test string',
+              keyResultStatement: 'KEY_RESULT_STATEMENT_KIND_UNSPECIFIED',
               statementByteBudget: 'Test string',
               statementTimeoutMs: 'Test string',
             },
@@ -768,7 +769,7 @@ gapi.load('client', async () => {
                       },
                     ],
                   },
-                  typeKind: 'Test string',
+                  typeKind: 'TYPE_KIND_UNSPECIFIED',
                 },
               },
               values: {
@@ -828,8 +829,8 @@ gapi.load('client', async () => {
                 },
                 dateFormat: 'Test string',
                 datetimeFormat: 'Test string',
-                decimalTargetTypes: ['Test string'],
-                fileSetSpecType: 'Test string',
+                decimalTargetTypes: ['DECIMAL_TARGET_TYPE_UNSPECIFIED'],
+                fileSetSpecType: 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH',
                 googleSheetsOptions: {
                   range: 'Test string',
                   skipLeadingRows: 'Test string',
@@ -841,17 +842,17 @@ gapi.load('client', async () => {
                   sourceUriPrefix: 'Test string',
                 },
                 ignoreUnknownValues: true,
-                jsonExtension: 'Test string',
+                jsonExtension: 'JSON_EXTENSION_UNSPECIFIED',
                 jsonOptions: {
                   encoding: 'Test string',
                 },
                 maxBadRecords: 42,
-                metadataCacheMode: 'Test string',
-                objectMetadata: 'Test string',
+                metadataCacheMode: 'METADATA_CACHE_MODE_UNSPECIFIED',
+                objectMetadata: 'OBJECT_METADATA_UNSPECIFIED',
                 parquetOptions: {
                   enableListInference: true,
                   enumAsString: true,
-                  mapTargetType: 'Test string',
+                  mapTargetType: 'MAP_TARGET_TYPE_UNSPECIFIED',
                 },
                 referenceFileSchemaUri: 'Test string',
                 schema: {
@@ -888,7 +889,7 @@ gapi.load('client', async () => {
                           generationExpression: 'Test string',
                           stored: true,
                         },
-                        generatedMode: 'Test string',
+                        generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                       },
                       maxLength: 'Test string',
                       mode: 'Test string',
@@ -900,14 +901,14 @@ gapi.load('client', async () => {
                       rangeElementType: {
                         type: 'Test string',
                       },
-                      roundingMode: 'Test string',
+                      roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                       scale: 'Test string',
                       timestampPrecision: 'Test string',
                       type: 'Test string',
                     },
                   ],
                   foreignTypeInfo: {
-                    typeSystem: 'Test string',
+                    typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
                   },
                 },
                 sourceFormat: 'Test string',
@@ -940,7 +941,7 @@ gapi.load('client', async () => {
         etag: 'Test string',
         id: 'Test string',
         jobCreationReason: {
-          code: 'Test string',
+          code: 'CODE_UNSPECIFIED',
         },
         jobReference: {
           jobId: 'Test string',
@@ -961,7 +962,7 @@ gapi.load('client', async () => {
           dataMaskingStatistics: {
             dataMaskingApplied: true,
           },
-          edition: 'Test string',
+          edition: 'RESERVATION_EDITION_UNSPECIFIED',
           endTime: 'Test string',
           extract: {
             destinationUriFileCounts: ['Test string'],
@@ -1007,11 +1008,11 @@ gapi.load('client', async () => {
           parentJobId: 'Test string',
           query: {
             biEngineStatistics: {
-              accelerationMode: 'Test string',
-              biEngineMode: 'Test string',
+              accelerationMode: 'BI_ENGINE_ACCELERATION_MODE_UNSPECIFIED',
+              biEngineMode: 'ACCELERATION_MODE_UNSPECIFIED',
               biEngineReasons: [
                 {
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   message: 'Test string',
                 },
               ],
@@ -1061,8 +1062,9 @@ gapi.load('client', async () => {
             },
             dmlStats: {
               deletedRowCount: 'Test string',
-              dmlMode: 'Test string',
-              fineGrainedDmlUnusedReason: 'Test string',
+              dmlMode: 'DML_MODE_UNSPECIFIED',
+              fineGrainedDmlUnusedReason:
+                'FINE_GRAINED_DML_UNUSED_REASON_UNSPECIFIED',
               insertedRowCount: 'Test string',
               updatedRowCount: 'Test string',
             },
@@ -1105,7 +1107,7 @@ gapi.load('client', async () => {
               ],
             },
             incrementalResultStats: {
-              disabledReason: 'Test string',
+              disabledReason: 'DISABLED_REASON_UNSPECIFIED',
               disabledReasonDetails: 'Test string',
               firstIncrementalRowTime: 'Test string',
               incrementalRowCount: 'Test string',
@@ -1126,7 +1128,7 @@ gapi.load('client', async () => {
                 {
                   chosen: true,
                   estimatedBytesSaved: 'Test string',
-                  rejectedReason: 'Test string',
+                  rejectedReason: 'REJECTED_REASON_UNSPECIFIED',
                   tableReference: {
                     datasetId: 'Test string',
                     projectId: 'Test string',
@@ -1151,7 +1153,7 @@ gapi.load('client', async () => {
                     tableId: 'Test string',
                   },
                   tableType: 'Test string',
-                  unusedReason: 'Test string',
+                  unusedReason: 'UNUSED_REASON_UNSPECIFIED',
                 },
               ],
             },
@@ -1186,7 +1188,7 @@ gapi.load('client', async () => {
                             p: 'Test string',
                             q: 'Test string',
                           },
-                          seasonalPeriods: ['Test string'],
+                          seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                           timeSeriesId: 'Test string',
                           timeSeriesIds: ['Test string'],
                         },
@@ -1199,7 +1201,7 @@ gapi.load('client', async () => {
                           q: 'Test string',
                         },
                       ],
-                      seasonalPeriods: ['Test string'],
+                      seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                       timeSeriesId: ['Test string'],
                     },
                     binaryClassificationMetrics: {
@@ -1305,37 +1307,39 @@ gapi.load('client', async () => {
                     autoArimaMinOrder: 'Test string',
                     autoClassWeights: true,
                     batchSize: 'Test string',
-                    boosterType: 'Test string',
+                    boosterType: 'BOOSTER_TYPE_UNSPECIFIED',
                     budgetHours: 42,
                     calculatePValues: true,
-                    categoryEncodingMethod: 'Test string',
+                    categoryEncodingMethod: 'ENCODING_METHOD_UNSPECIFIED',
                     cleanSpikesAndDips: true,
-                    colorSpace: 'Test string',
+                    colorSpace: 'COLOR_SPACE_UNSPECIFIED',
                     colsampleBylevel: 42,
                     colsampleBynode: 42,
                     colsampleBytree: 42,
                     contributionMetric: 'Test string',
-                    dartNormalizeType: 'Test string',
-                    dataFrequency: 'Test string',
+                    dartNormalizeType: 'DART_NORMALIZE_TYPE_UNSPECIFIED',
+                    dataFrequency: 'DATA_FREQUENCY_UNSPECIFIED',
                     dataSplitColumn: 'Test string',
                     dataSplitEvalFraction: 42,
-                    dataSplitMethod: 'Test string',
+                    dataSplitMethod: 'DATA_SPLIT_METHOD_UNSPECIFIED',
                     decomposeTimeSeries: true,
                     dimensionIdColumns: ['Test string'],
-                    distanceType: 'Test string',
+                    distanceType: 'DISTANCE_TYPE_UNSPECIFIED',
                     dropout: 42,
                     earlyStop: true,
                     enableGlobalExplain: true,
                     endpointIdleTtl: 'Test string',
-                    feedbackType: 'Test string',
+                    feedbackType: 'FEEDBACK_TYPE_UNSPECIFIED',
                     fitIntercept: true,
                     forecastLimitLowerBound: 42,
                     forecastLimitUpperBound: 42,
                     hiddenUnits: ['Test string'],
-                    holidayRegion: 'Test string',
-                    holidayRegions: ['Test string'],
+                    holidayRegion: 'HOLIDAY_REGION_UNSPECIFIED',
+                    holidayRegions: ['HOLIDAY_REGION_UNSPECIFIED'],
                     horizon: 'Test string',
-                    hparamTuningObjectives: ['Test string'],
+                    hparamTuningObjectives: [
+                      'HPARAM_TUNING_OBJECTIVE_UNSPECIFIED',
+                    ],
                     huggingFaceModelId: 'Test string',
                     includeDrift: true,
                     initialLearnRate: 42,
@@ -1345,7 +1349,8 @@ gapi.load('client', async () => {
                     isTestColumn: 'Test string',
                     itemColumn: 'Test string',
                     kmeansInitializationColumn: 'Test string',
-                    kmeansInitializationMethod: 'Test string',
+                    kmeansInitializationMethod:
+                      'KMEANS_INITIALIZATION_METHOD_UNSPECIFIED',
                     l1RegActivation: 42,
                     l1Regularization: 42,
                     l2Regularization: 42,
@@ -1353,8 +1358,8 @@ gapi.load('client', async () => {
                       A: 42,
                     },
                     learnRate: 42,
-                    learnRateStrategy: 'Test string',
-                    lossType: 'Test string',
+                    learnRateStrategy: 'LEARN_RATE_STRATEGY_UNSPECIFIED',
+                    lossType: 'LOSS_TYPE_UNSPECIFIED',
                     machineType: 'Test string',
                     maxIterations: 'Test string',
                     maxParallelTrials: 'Test string',
@@ -1368,7 +1373,7 @@ gapi.load('client', async () => {
                     minTimeSeriesLength: 'Test string',
                     minTreeChildWeight: 'Test string',
                     modelGardenModelName: 'Test string',
-                    modelRegistry: 'Test string',
+                    modelRegistry: 'MODEL_REGISTRY_UNSPECIFIED',
                     modelUri: 'Test string',
                     nonSeasonalOrder: {
                       d: 'Test string',
@@ -1380,12 +1385,13 @@ gapi.load('client', async () => {
                     numParallelTree: 'Test string',
                     numPrincipalComponents: 'Test string',
                     numTrials: 'Test string',
-                    optimizationStrategy: 'Test string',
+                    optimizationStrategy: 'OPTIMIZATION_STRATEGY_UNSPECIFIED',
                     optimizer: 'Test string',
                     pcaExplainedVarianceRatio: 42,
-                    pcaSolver: 'Test string',
+                    pcaSolver: 'UNSPECIFIED',
                     reservationAffinityKey: 'Test string',
-                    reservationAffinityType: 'Test string',
+                    reservationAffinityType:
+                      'RESERVATION_AFFINITY_TYPE_UNSPECIFIED',
                     reservationAffinityValues: ['Test string'],
                     sampledShapleyNumPaths: 'Test string',
                     scaleFeatures: true,
@@ -1397,7 +1403,7 @@ gapi.load('client', async () => {
                     timeSeriesIdColumns: ['Test string'],
                     timeSeriesLengthFraction: 42,
                     timeSeriesTimestampColumn: 'Test string',
-                    treeMethod: 'Test string',
+                    treeMethod: 'TREE_METHOD_UNSPECIFIED',
                     trendSmoothingWindowSize: 'Test string',
                     userColumn: 'Test string',
                     vertexAiModelVersionAliases: ['Test string'],
@@ -1430,7 +1436,7 @@ gapi.load('client', async () => {
                             p: 'Test string',
                             q: 'Test string',
                           },
-                          seasonalPeriods: ['Test string'],
+                          seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                           timeSeriesId: 'Test string',
                           timeSeriesIds: ['Test string'],
                         },
@@ -1443,7 +1449,7 @@ gapi.load('client', async () => {
                           q: 'Test string',
                         },
                       ],
-                      seasonalPeriods: ['Test string'],
+                      seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                       timeSeriesId: ['Test string'],
                     },
                     binaryClassificationMetrics: {
@@ -1541,7 +1547,7 @@ gapi.load('client', async () => {
                     },
                   },
                   startTimeMs: 'Test string',
-                  status: 'Test string',
+                  status: 'TRIAL_STATUS_UNSPECIFIED',
                   trainingLoss: 42,
                   trialId: 'Test string',
                 },
@@ -1570,12 +1576,12 @@ gapi.load('client', async () => {
                           p: 'Test string',
                           q: 'Test string',
                         },
-                        seasonalPeriods: ['Test string'],
+                        seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                         timeSeriesId: 'Test string',
                         timeSeriesIds: ['Test string'],
                       },
                     ],
-                    seasonalPeriods: ['Test string'],
+                    seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                   },
                   clusterInfos: [
                     {
@@ -1600,8 +1606,8 @@ gapi.load('client', async () => {
                 },
               ],
               maxIterations: 'Test string',
-              modelType: 'Test string',
-              trainingType: 'Test string',
+              modelType: 'MODEL_TYPE_UNSPECIFIED',
+              trainingType: 'TRAINING_TYPE_UNSPECIFIED',
             },
             modelTraining: {
               currentIteration: 42,
@@ -1613,7 +1619,7 @@ gapi.load('client', async () => {
             objectStorageStats: [
               {
                 cacheBytesRead: 'Test string',
-                cloudProvider: 'Test string',
+                cloudProvider: 'CLOUD_PROVIDER_UNSPECIFIED',
                 objectStorageBytesRead: 'Test string',
               },
             ],
@@ -1631,7 +1637,7 @@ gapi.load('client', async () => {
                 {
                   biEngineReasons: [
                     {
-                      code: 'Test string',
+                      code: 'CODE_UNSPECIFIED',
                       message: 'Test string',
                     },
                   ],
@@ -1681,7 +1687,7 @@ gapi.load('client', async () => {
             queryPlan: [
               {
                 completedParallelInputs: 'Test string',
-                computeMode: 'Test string',
+                computeMode: 'COMPUTE_MODE_UNSPECIFIED',
                 computeMsAvg: 'Test string',
                 computeMsMax: 'Test string',
                 computeRatioAvg: 42,
@@ -1786,7 +1792,7 @@ gapi.load('client', async () => {
                       generationExpression: 'Test string',
                       stored: true,
                     },
-                    generatedMode: 'Test string',
+                    generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                   },
                   maxLength: 'Test string',
                   mode: 'Test string',
@@ -1798,14 +1804,14 @@ gapi.load('client', async () => {
                   rangeElementType: {
                     type: 'Test string',
                   },
-                  roundingMode: 'Test string',
+                  roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                   scale: 'Test string',
                   timestampPrecision: 'Test string',
                   type: 'Test string',
                 },
               ],
               foreignTypeInfo: {
-                typeSystem: 'Test string',
+                typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
               },
             },
             searchIndexingStats: {
@@ -1836,12 +1842,12 @@ gapi.load('client', async () => {
                     projectId: 'Test string',
                     tableId: 'Test string',
                   },
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   indexName: 'Test string',
                   message: 'Test string',
                 },
               ],
-              indexUsageMode: 'Test string',
+              indexUsageMode: 'INDEX_USAGE_MODE_UNSPECIFIED',
             },
             sparkStatistics: {
               endpoints: {
@@ -1918,12 +1924,12 @@ gapi.load('client', async () => {
                     projectId: 'Test string',
                     tableId: 'Test string',
                   },
-                  code: 'Test string',
+                  code: 'CODE_UNSPECIFIED',
                   indexName: 'Test string',
                   message: 'Test string',
                 },
               ],
-              indexUsageMode: 'Test string',
+              indexUsageMode: 'INDEX_USAGE_MODE_UNSPECIFIED',
               storedColumnsUsages: [
                 {
                   baseTable: {
@@ -1934,7 +1940,7 @@ gapi.load('client', async () => {
                   isQueryAccelerated: true,
                   storedColumnsUnusedReasons: [
                     {
-                      code: 'Test string',
+                      code: 'CODE_UNSPECIFIED',
                       message: 'Test string',
                       uncoveredColumns: ['Test string'],
                     },
@@ -1956,7 +1962,7 @@ gapi.load('client', async () => {
             rowLevelSecurityApplied: true,
           },
           scriptStatistics: {
-            evaluationKind: 'Test string',
+            evaluationKind: 'EVALUATION_KIND_UNSPECIFIED',
             stackFrames: [
               {
                 endColumn: 42,
@@ -2007,8 +2013,8 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parentJobId: 'Test string',
       projectId: 'Test string',
-      projection: 'Test string',
-      stateFilter: 'Test string',
+      projection: 'full',
+      stateFilter: 'done',
     });
     /** Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout. # IAM Permissions Requires the `bigquery.jobs.create` permission on the project resource. Data-level permissions are highly dependent on the SQL statement being executed. While standard queries require data access (such as `bigquery.tables.getData`), complex operations like DDL or DCL may require permissions to manage reservations, IAM policies, or project settings. */
     await gapi.client.bigquery.jobs.query(
@@ -2017,8 +2023,8 @@ gapi.load('client', async () => {
       },
       {
         arrowSerializationOptions: {
-          bufferCompression: 'Test string',
-          picosTimestampPrecision: 'Test string',
+          bufferCompression: 'COMPRESSION_UNSPECIFIED',
+          picosTimestampPrecision: 'PICOS_TIMESTAMP_PRECISION_UNSPECIFIED',
         },
         connectionProperties: [
           {
@@ -2037,10 +2043,10 @@ gapi.load('client', async () => {
         },
         dryRun: true,
         formatOptions: {
-          timestampOutputFormat: 'Test string',
+          timestampOutputFormat: 'TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED',
           useInt64Timestamp: true,
         },
-        jobCreationMode: 'Test string',
+        jobCreationMode: 'JOB_CREATION_MODE_UNSPECIFIED',
         jobTimeoutMs: 'Test string',
         kind: 'Test string',
         labels: {
@@ -2080,7 +2086,7 @@ gapi.load('client', async () => {
             },
           },
         ],
-        queryResultsFormat: 'Test string',
+        queryResultsFormat: 'QUERY_RESULTS_FORMAT_UNSPECIFIED',
         requestId: 'Test string',
         reservation: 'Test string',
         secureContext: {
@@ -2139,7 +2145,7 @@ gapi.load('client', async () => {
               structType: {
                 fields: undefined,
               },
-              typeKind: 'Test string',
+              typeKind: 'TYPE_KIND_UNSPECIFIED',
             },
           },
         ],
@@ -2342,7 +2348,7 @@ gapi.load('client', async () => {
                       p: 'Test string',
                       q: 'Test string',
                     },
-                    seasonalPeriods: ['Test string'],
+                    seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                     timeSeriesId: 'Test string',
                     timeSeriesIds: ['Test string'],
                   },
@@ -2355,7 +2361,7 @@ gapi.load('client', async () => {
                     q: 'Test string',
                   },
                 ],
-                seasonalPeriods: ['Test string'],
+                seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                 timeSeriesId: ['Test string'],
               },
               binaryClassificationMetrics: {
@@ -2461,37 +2467,37 @@ gapi.load('client', async () => {
               autoArimaMinOrder: 'Test string',
               autoClassWeights: true,
               batchSize: 'Test string',
-              boosterType: 'Test string',
+              boosterType: 'BOOSTER_TYPE_UNSPECIFIED',
               budgetHours: 42,
               calculatePValues: true,
-              categoryEncodingMethod: 'Test string',
+              categoryEncodingMethod: 'ENCODING_METHOD_UNSPECIFIED',
               cleanSpikesAndDips: true,
-              colorSpace: 'Test string',
+              colorSpace: 'COLOR_SPACE_UNSPECIFIED',
               colsampleBylevel: 42,
               colsampleBynode: 42,
               colsampleBytree: 42,
               contributionMetric: 'Test string',
-              dartNormalizeType: 'Test string',
-              dataFrequency: 'Test string',
+              dartNormalizeType: 'DART_NORMALIZE_TYPE_UNSPECIFIED',
+              dataFrequency: 'DATA_FREQUENCY_UNSPECIFIED',
               dataSplitColumn: 'Test string',
               dataSplitEvalFraction: 42,
-              dataSplitMethod: 'Test string',
+              dataSplitMethod: 'DATA_SPLIT_METHOD_UNSPECIFIED',
               decomposeTimeSeries: true,
               dimensionIdColumns: ['Test string'],
-              distanceType: 'Test string',
+              distanceType: 'DISTANCE_TYPE_UNSPECIFIED',
               dropout: 42,
               earlyStop: true,
               enableGlobalExplain: true,
               endpointIdleTtl: 'Test string',
-              feedbackType: 'Test string',
+              feedbackType: 'FEEDBACK_TYPE_UNSPECIFIED',
               fitIntercept: true,
               forecastLimitLowerBound: 42,
               forecastLimitUpperBound: 42,
               hiddenUnits: ['Test string'],
-              holidayRegion: 'Test string',
-              holidayRegions: ['Test string'],
+              holidayRegion: 'HOLIDAY_REGION_UNSPECIFIED',
+              holidayRegions: ['HOLIDAY_REGION_UNSPECIFIED'],
               horizon: 'Test string',
-              hparamTuningObjectives: ['Test string'],
+              hparamTuningObjectives: ['HPARAM_TUNING_OBJECTIVE_UNSPECIFIED'],
               huggingFaceModelId: 'Test string',
               includeDrift: true,
               initialLearnRate: 42,
@@ -2501,7 +2507,8 @@ gapi.load('client', async () => {
               isTestColumn: 'Test string',
               itemColumn: 'Test string',
               kmeansInitializationColumn: 'Test string',
-              kmeansInitializationMethod: 'Test string',
+              kmeansInitializationMethod:
+                'KMEANS_INITIALIZATION_METHOD_UNSPECIFIED',
               l1RegActivation: 42,
               l1Regularization: 42,
               l2Regularization: 42,
@@ -2509,8 +2516,8 @@ gapi.load('client', async () => {
                 A: 42,
               },
               learnRate: 42,
-              learnRateStrategy: 'Test string',
-              lossType: 'Test string',
+              learnRateStrategy: 'LEARN_RATE_STRATEGY_UNSPECIFIED',
+              lossType: 'LOSS_TYPE_UNSPECIFIED',
               machineType: 'Test string',
               maxIterations: 'Test string',
               maxParallelTrials: 'Test string',
@@ -2524,7 +2531,7 @@ gapi.load('client', async () => {
               minTimeSeriesLength: 'Test string',
               minTreeChildWeight: 'Test string',
               modelGardenModelName: 'Test string',
-              modelRegistry: 'Test string',
+              modelRegistry: 'MODEL_REGISTRY_UNSPECIFIED',
               modelUri: 'Test string',
               nonSeasonalOrder: {
                 d: 'Test string',
@@ -2536,12 +2543,12 @@ gapi.load('client', async () => {
               numParallelTree: 'Test string',
               numPrincipalComponents: 'Test string',
               numTrials: 'Test string',
-              optimizationStrategy: 'Test string',
+              optimizationStrategy: 'OPTIMIZATION_STRATEGY_UNSPECIFIED',
               optimizer: 'Test string',
               pcaExplainedVarianceRatio: 42,
-              pcaSolver: 'Test string',
+              pcaSolver: 'UNSPECIFIED',
               reservationAffinityKey: 'Test string',
-              reservationAffinityType: 'Test string',
+              reservationAffinityType: 'RESERVATION_AFFINITY_TYPE_UNSPECIFIED',
               reservationAffinityValues: ['Test string'],
               sampledShapleyNumPaths: 'Test string',
               scaleFeatures: true,
@@ -2553,7 +2560,7 @@ gapi.load('client', async () => {
               timeSeriesIdColumns: ['Test string'],
               timeSeriesLengthFraction: 42,
               timeSeriesTimestampColumn: 'Test string',
-              treeMethod: 'Test string',
+              treeMethod: 'TREE_METHOD_UNSPECIFIED',
               trendSmoothingWindowSize: 'Test string',
               userColumn: 'Test string',
               vertexAiModelVersionAliases: ['Test string'],
@@ -2586,7 +2593,7 @@ gapi.load('client', async () => {
                       p: 'Test string',
                       q: 'Test string',
                     },
-                    seasonalPeriods: ['Test string'],
+                    seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                     timeSeriesId: 'Test string',
                     timeSeriesIds: ['Test string'],
                   },
@@ -2599,7 +2606,7 @@ gapi.load('client', async () => {
                     q: 'Test string',
                   },
                 ],
-                seasonalPeriods: ['Test string'],
+                seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                 timeSeriesId: ['Test string'],
               },
               binaryClassificationMetrics: {
@@ -2697,7 +2704,7 @@ gapi.load('client', async () => {
               },
             },
             startTimeMs: 'Test string',
-            status: 'Test string',
+            status: 'TRIAL_STATUS_UNSPECIFIED',
             trainingLoss: 42,
             trialId: 'Test string',
           },
@@ -2711,7 +2718,7 @@ gapi.load('client', async () => {
               structType: {
                 fields: undefined,
               },
-              typeKind: 'Test string',
+              typeKind: 'TYPE_KIND_UNSPECIFIED',
             },
           },
         ],
@@ -2725,14 +2732,14 @@ gapi.load('client', async () => {
           modelId: 'Test string',
           projectId: 'Test string',
         },
-        modelType: 'Test string',
+        modelType: 'MODEL_TYPE_UNSPECIFIED',
         optimalTrialIds: ['Test string'],
         remoteModelInfo: {
           connection: 'Test string',
           endpoint: 'Test string',
           maxBatchingRows: 'Test string',
           remoteModelVersion: 'Test string',
-          remoteServiceType: 'Test string',
+          remoteServiceType: 'REMOTE_SERVICE_TYPE_UNSPECIFIED',
           speechRecognizer: 'Test string',
         },
         trainingRuns: [
@@ -2790,7 +2797,7 @@ gapi.load('client', async () => {
                       p: 'Test string',
                       q: 'Test string',
                     },
-                    seasonalPeriods: ['Test string'],
+                    seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                     timeSeriesId: 'Test string',
                     timeSeriesIds: ['Test string'],
                   },
@@ -2803,7 +2810,7 @@ gapi.load('client', async () => {
                     q: 'Test string',
                   },
                 ],
-                seasonalPeriods: ['Test string'],
+                seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                 timeSeriesId: ['Test string'],
               },
               binaryClassificationMetrics: {
@@ -2933,12 +2940,12 @@ gapi.load('client', async () => {
                         p: 'Test string',
                         q: 'Test string',
                       },
-                      seasonalPeriods: ['Test string'],
+                      seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                       timeSeriesId: 'Test string',
                       timeSeriesIds: ['Test string'],
                     },
                   ],
-                  seasonalPeriods: ['Test string'],
+                  seasonalPeriods: ['SEASONAL_PERIOD_TYPE_UNSPECIFIED'],
                 },
                 clusterInfos: [
                   {
@@ -2972,37 +2979,37 @@ gapi.load('client', async () => {
               autoArimaMinOrder: 'Test string',
               autoClassWeights: true,
               batchSize: 'Test string',
-              boosterType: 'Test string',
+              boosterType: 'BOOSTER_TYPE_UNSPECIFIED',
               budgetHours: 42,
               calculatePValues: true,
-              categoryEncodingMethod: 'Test string',
+              categoryEncodingMethod: 'ENCODING_METHOD_UNSPECIFIED',
               cleanSpikesAndDips: true,
-              colorSpace: 'Test string',
+              colorSpace: 'COLOR_SPACE_UNSPECIFIED',
               colsampleBylevel: 42,
               colsampleBynode: 42,
               colsampleBytree: 42,
               contributionMetric: 'Test string',
-              dartNormalizeType: 'Test string',
-              dataFrequency: 'Test string',
+              dartNormalizeType: 'DART_NORMALIZE_TYPE_UNSPECIFIED',
+              dataFrequency: 'DATA_FREQUENCY_UNSPECIFIED',
               dataSplitColumn: 'Test string',
               dataSplitEvalFraction: 42,
-              dataSplitMethod: 'Test string',
+              dataSplitMethod: 'DATA_SPLIT_METHOD_UNSPECIFIED',
               decomposeTimeSeries: true,
               dimensionIdColumns: ['Test string'],
-              distanceType: 'Test string',
+              distanceType: 'DISTANCE_TYPE_UNSPECIFIED',
               dropout: 42,
               earlyStop: true,
               enableGlobalExplain: true,
               endpointIdleTtl: 'Test string',
-              feedbackType: 'Test string',
+              feedbackType: 'FEEDBACK_TYPE_UNSPECIFIED',
               fitIntercept: true,
               forecastLimitLowerBound: 42,
               forecastLimitUpperBound: 42,
               hiddenUnits: ['Test string'],
-              holidayRegion: 'Test string',
-              holidayRegions: ['Test string'],
+              holidayRegion: 'HOLIDAY_REGION_UNSPECIFIED',
+              holidayRegions: ['HOLIDAY_REGION_UNSPECIFIED'],
               horizon: 'Test string',
-              hparamTuningObjectives: ['Test string'],
+              hparamTuningObjectives: ['HPARAM_TUNING_OBJECTIVE_UNSPECIFIED'],
               huggingFaceModelId: 'Test string',
               includeDrift: true,
               initialLearnRate: 42,
@@ -3012,7 +3019,8 @@ gapi.load('client', async () => {
               isTestColumn: 'Test string',
               itemColumn: 'Test string',
               kmeansInitializationColumn: 'Test string',
-              kmeansInitializationMethod: 'Test string',
+              kmeansInitializationMethod:
+                'KMEANS_INITIALIZATION_METHOD_UNSPECIFIED',
               l1RegActivation: 42,
               l1Regularization: 42,
               l2Regularization: 42,
@@ -3020,8 +3028,8 @@ gapi.load('client', async () => {
                 A: 42,
               },
               learnRate: 42,
-              learnRateStrategy: 'Test string',
-              lossType: 'Test string',
+              learnRateStrategy: 'LEARN_RATE_STRATEGY_UNSPECIFIED',
+              lossType: 'LOSS_TYPE_UNSPECIFIED',
               machineType: 'Test string',
               maxIterations: 'Test string',
               maxParallelTrials: 'Test string',
@@ -3035,7 +3043,7 @@ gapi.load('client', async () => {
               minTimeSeriesLength: 'Test string',
               minTreeChildWeight: 'Test string',
               modelGardenModelName: 'Test string',
-              modelRegistry: 'Test string',
+              modelRegistry: 'MODEL_REGISTRY_UNSPECIFIED',
               modelUri: 'Test string',
               nonSeasonalOrder: {
                 d: 'Test string',
@@ -3047,12 +3055,12 @@ gapi.load('client', async () => {
               numParallelTree: 'Test string',
               numPrincipalComponents: 'Test string',
               numTrials: 'Test string',
-              optimizationStrategy: 'Test string',
+              optimizationStrategy: 'OPTIMIZATION_STRATEGY_UNSPECIFIED',
               optimizer: 'Test string',
               pcaExplainedVarianceRatio: 42,
-              pcaSolver: 'Test string',
+              pcaSolver: 'UNSPECIFIED',
               reservationAffinityKey: 'Test string',
-              reservationAffinityType: 'Test string',
+              reservationAffinityType: 'RESERVATION_AFFINITY_TYPE_UNSPECIFIED',
               reservationAffinityValues: ['Test string'],
               sampledShapleyNumPaths: 'Test string',
               scaleFeatures: true,
@@ -3064,7 +3072,7 @@ gapi.load('client', async () => {
               timeSeriesIdColumns: ['Test string'],
               timeSeriesLengthFraction: 42,
               timeSeriesTimestampColumn: 'Test string',
-              treeMethod: 'Test string',
+              treeMethod: 'TREE_METHOD_UNSPECIFIED',
               trendSmoothingWindowSize: 'Test string',
               userColumn: 'Test string',
               vertexAiModelVersionAliases: ['Test string'],
@@ -3092,7 +3100,7 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              typeKind: 'Test string',
+              typeKind: 'TYPE_KIND_UNSPECIFIED',
             },
           },
         ],
@@ -3140,7 +3148,7 @@ gapi.load('client', async () => {
       {
         arguments: [
           {
-            argumentKind: 'Test string',
+            argumentKind: 'ARGUMENT_KIND_UNSPECIFIED',
             dataType: {
               arrayElementType: undefined,
               rangeElementType: undefined,
@@ -3152,10 +3160,10 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              typeKind: 'Test string',
+              typeKind: 'TYPE_KIND_UNSPECIFIED',
             },
             isAggregate: true,
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             name: 'Test string',
             tableType: {
               columns: [
@@ -3167,7 +3175,7 @@ gapi.load('client', async () => {
                     structType: {
                       fields: undefined,
                     },
-                    typeKind: 'Test string',
+                    typeKind: 'TYPE_KIND_UNSPECIFIED',
                   },
                 },
               ],
@@ -3176,7 +3184,7 @@ gapi.load('client', async () => {
         ],
         buildStatus: {
           buildDuration: 'Test string',
-          buildState: 'Test string',
+          buildState: 'BUILD_STATE_UNSPECIFIED',
           buildStateUpdateTime: 'Test string',
           errorResult: {
             debugInfo: 'Test string',
@@ -3194,10 +3202,10 @@ gapi.load('client', async () => {
           ],
         },
         creationTime: 'Test string',
-        dataGovernanceType: 'Test string',
+        dataGovernanceType: 'DATA_GOVERNANCE_TYPE_UNSPECIFIED',
         definitionBody: 'Test string',
         description: 'Test string',
-        determinismLevel: 'Test string',
+        determinismLevel: 'DETERMINISM_LEVEL_UNSPECIFIED',
         etag: 'Test string',
         externalRuntimeOptions: {
           containerCpu: 42,
@@ -3214,7 +3222,7 @@ gapi.load('client', async () => {
           ],
         },
         importedLibraries: ['Test string'],
-        language: 'Test string',
+        language: 'LANGUAGE_UNSPECIFIED',
         lastModifiedTime: 'Test string',
         pythonOptions: {
           buildConnection: 'Test string',
@@ -3240,7 +3248,7 @@ gapi.load('client', async () => {
                 structType: {
                   fields: undefined,
                 },
-                typeKind: 'Test string',
+                typeKind: 'TYPE_KIND_UNSPECIFIED',
               },
             },
           ],
@@ -3256,15 +3264,15 @@ gapi.load('client', async () => {
               },
             ],
           },
-          typeKind: 'Test string',
+          typeKind: 'TYPE_KIND_UNSPECIFIED',
         },
         routineReference: {
           datasetId: 'Test string',
           projectId: 'Test string',
           routineId: 'Test string',
         },
-        routineType: 'Test string',
-        securityMode: 'Test string',
+        routineType: 'ROUTINE_TYPE_UNSPECIFIED',
+        securityMode: 'SECURITY_MODE_UNSPECIFIED',
         sparkOptions: {
           archiveUris: ['Test string'],
           connection: 'Test string',
@@ -3303,7 +3311,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -3346,7 +3354,7 @@ gapi.load('client', async () => {
       {
         arguments: [
           {
-            argumentKind: 'Test string',
+            argumentKind: 'ARGUMENT_KIND_UNSPECIFIED',
             dataType: {
               arrayElementType: undefined,
               rangeElementType: undefined,
@@ -3358,10 +3366,10 @@ gapi.load('client', async () => {
                   },
                 ],
               },
-              typeKind: 'Test string',
+              typeKind: 'TYPE_KIND_UNSPECIFIED',
             },
             isAggregate: true,
-            mode: 'Test string',
+            mode: 'MODE_UNSPECIFIED',
             name: 'Test string',
             tableType: {
               columns: [
@@ -3373,7 +3381,7 @@ gapi.load('client', async () => {
                     structType: {
                       fields: undefined,
                     },
-                    typeKind: 'Test string',
+                    typeKind: 'TYPE_KIND_UNSPECIFIED',
                   },
                 },
               ],
@@ -3382,7 +3390,7 @@ gapi.load('client', async () => {
         ],
         buildStatus: {
           buildDuration: 'Test string',
-          buildState: 'Test string',
+          buildState: 'BUILD_STATE_UNSPECIFIED',
           buildStateUpdateTime: 'Test string',
           errorResult: {
             debugInfo: 'Test string',
@@ -3400,10 +3408,10 @@ gapi.load('client', async () => {
           ],
         },
         creationTime: 'Test string',
-        dataGovernanceType: 'Test string',
+        dataGovernanceType: 'DATA_GOVERNANCE_TYPE_UNSPECIFIED',
         definitionBody: 'Test string',
         description: 'Test string',
-        determinismLevel: 'Test string',
+        determinismLevel: 'DETERMINISM_LEVEL_UNSPECIFIED',
         etag: 'Test string',
         externalRuntimeOptions: {
           containerCpu: 42,
@@ -3420,7 +3428,7 @@ gapi.load('client', async () => {
           ],
         },
         importedLibraries: ['Test string'],
-        language: 'Test string',
+        language: 'LANGUAGE_UNSPECIFIED',
         lastModifiedTime: 'Test string',
         pythonOptions: {
           buildConnection: 'Test string',
@@ -3446,7 +3454,7 @@ gapi.load('client', async () => {
                 structType: {
                   fields: undefined,
                 },
-                typeKind: 'Test string',
+                typeKind: 'TYPE_KIND_UNSPECIFIED',
               },
             },
           ],
@@ -3462,15 +3470,15 @@ gapi.load('client', async () => {
               },
             ],
           },
-          typeKind: 'Test string',
+          typeKind: 'TYPE_KIND_UNSPECIFIED',
         },
         routineReference: {
           datasetId: 'Test string',
           projectId: 'Test string',
           routineId: 'Test string',
         },
-        routineType: 'Test string',
-        securityMode: 'Test string',
+        routineType: 'ROUTINE_TYPE_UNSPECIFIED',
+        securityMode: 'SECURITY_MODE_UNSPECIFIED',
         sparkOptions: {
           archiveUris: ['Test string'],
           connection: 'Test string',
@@ -3612,7 +3620,8 @@ gapi.load('client', async () => {
     /** List the content of a table in rows. # IAM Permissions Requires the `bigquery.tables.getData` permission on the table. */
     await gapi.client.bigquery.tabledata.list({
       datasetId: 'Test string',
-      'formatOptions.timestampOutputFormat': 'Test string',
+      'formatOptions.timestampOutputFormat':
+        'TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED',
       'formatOptions.useInt64Timestamp': true,
       maxResults: 42,
       pageToken: 'Test string',
@@ -3633,7 +3642,7 @@ gapi.load('client', async () => {
       projectId: 'Test string',
       selectedFields: 'Test string',
       tableId: 'Test string',
-      view: 'Test string',
+      view: 'TABLE_METADATA_VIEW_UNSPECIFIED',
     });
     /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
     await gapi.client.bigquery.tables.getIamPolicy(
@@ -3655,10 +3664,10 @@ gapi.load('client', async () => {
       {
         biglakeConfiguration: {
           connectionId: 'Test string',
-          fileFormat: 'Test string',
-          metadataExportMode: 'Test string',
+          fileFormat: 'FILE_FORMAT_UNSPECIFIED',
+          metadataExportMode: 'METADATA_EXPORT_MODE_UNSPECIFIED',
           storageUri: 'Test string',
-          tableFormat: 'Test string',
+          tableFormat: 'TABLE_FORMAT_UNSPECIFIED',
         },
         cloneDefinition: {
           baseTableReference: {
@@ -3673,7 +3682,7 @@ gapi.load('client', async () => {
         },
         creationTime: 'Test string',
         defaultCollation: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         description: 'Test string',
         encryptionConfiguration: {
           kmsKeyName: 'Test string',
@@ -3750,8 +3759,8 @@ gapi.load('client', async () => {
           },
           dateFormat: 'Test string',
           datetimeFormat: 'Test string',
-          decimalTargetTypes: ['Test string'],
-          fileSetSpecType: 'Test string',
+          decimalTargetTypes: ['DECIMAL_TARGET_TYPE_UNSPECIFIED'],
+          fileSetSpecType: 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH',
           googleSheetsOptions: {
             range: 'Test string',
             skipLeadingRows: 'Test string',
@@ -3763,17 +3772,17 @@ gapi.load('client', async () => {
             sourceUriPrefix: 'Test string',
           },
           ignoreUnknownValues: true,
-          jsonExtension: 'Test string',
+          jsonExtension: 'JSON_EXTENSION_UNSPECIFIED',
           jsonOptions: {
             encoding: 'Test string',
           },
           maxBadRecords: 42,
-          metadataCacheMode: 'Test string',
-          objectMetadata: 'Test string',
+          metadataCacheMode: 'METADATA_CACHE_MODE_UNSPECIFIED',
+          objectMetadata: 'OBJECT_METADATA_UNSPECIFIED',
           parquetOptions: {
             enableListInference: true,
             enumAsString: true,
-            mapTargetType: 'Test string',
+            mapTargetType: 'MAP_TARGET_TYPE_UNSPECIFIED',
           },
           referenceFileSchemaUri: 'Test string',
           schema: {
@@ -3810,7 +3819,7 @@ gapi.load('client', async () => {
                     generationExpression: 'Test string',
                     stored: true,
                   },
-                  generatedMode: 'Test string',
+                  generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                 },
                 maxLength: 'Test string',
                 mode: 'Test string',
@@ -3822,14 +3831,14 @@ gapi.load('client', async () => {
                 rangeElementType: {
                   type: 'Test string',
                 },
-                roundingMode: 'Test string',
+                roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                 scale: 'Test string',
                 timestampPrecision: 'Test string',
                 type: 'Test string',
               },
             ],
             foreignTypeInfo: {
-              typeSystem: 'Test string',
+              typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
             },
           },
           sourceFormat: 'Test string',
@@ -3847,7 +3856,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         location: 'Test string',
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         materializedView: {
           allowNonIncrementalDefinition: true,
           enableRefresh: true,
@@ -3943,7 +3952,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         schema: {
           fields: [
@@ -3979,7 +3988,7 @@ gapi.load('client', async () => {
                   generationExpression: 'Test string',
                   stored: true,
                 },
-                generatedMode: 'Test string',
+                generatedMode: 'GENERATED_MODE_UNSPECIFIED',
               },
               maxLength: 'Test string',
               mode: 'Test string',
@@ -3991,14 +4000,14 @@ gapi.load('client', async () => {
               rangeElementType: {
                 type: 'Test string',
               },
-              roundingMode: 'Test string',
+              roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
               scale: 'Test string',
               timestampPrecision: 'Test string',
               type: 'Test string',
             },
           ],
           foreignTypeInfo: {
-            typeSystem: 'Test string',
+            typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
           },
         },
         selfLink: 'Test string',
@@ -4050,7 +4059,7 @@ gapi.load('client', async () => {
             reason: 'Test string',
           },
           replicationIntervalMs: 'Test string',
-          replicationStatus: 'Test string',
+          replicationStatus: 'REPLICATION_STATUS_UNSPECIFIED',
           sourceTable: {
             datasetId: 'Test string',
             projectId: 'Test string',
@@ -4088,7 +4097,7 @@ gapi.load('client', async () => {
             },
             joinRestrictionPolicy: {
               joinAllowedColumns: ['Test string'],
-              joinCondition: 'Test string',
+              joinCondition: 'JOIN_CONDITION_UNSPECIFIED',
             },
           },
           query: 'Test string',
@@ -4121,10 +4130,10 @@ gapi.load('client', async () => {
       {
         biglakeConfiguration: {
           connectionId: 'Test string',
-          fileFormat: 'Test string',
-          metadataExportMode: 'Test string',
+          fileFormat: 'FILE_FORMAT_UNSPECIFIED',
+          metadataExportMode: 'METADATA_EXPORT_MODE_UNSPECIFIED',
           storageUri: 'Test string',
-          tableFormat: 'Test string',
+          tableFormat: 'TABLE_FORMAT_UNSPECIFIED',
         },
         cloneDefinition: {
           baseTableReference: {
@@ -4139,7 +4148,7 @@ gapi.load('client', async () => {
         },
         creationTime: 'Test string',
         defaultCollation: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         description: 'Test string',
         encryptionConfiguration: {
           kmsKeyName: 'Test string',
@@ -4216,8 +4225,8 @@ gapi.load('client', async () => {
           },
           dateFormat: 'Test string',
           datetimeFormat: 'Test string',
-          decimalTargetTypes: ['Test string'],
-          fileSetSpecType: 'Test string',
+          decimalTargetTypes: ['DECIMAL_TARGET_TYPE_UNSPECIFIED'],
+          fileSetSpecType: 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH',
           googleSheetsOptions: {
             range: 'Test string',
             skipLeadingRows: 'Test string',
@@ -4229,17 +4238,17 @@ gapi.load('client', async () => {
             sourceUriPrefix: 'Test string',
           },
           ignoreUnknownValues: true,
-          jsonExtension: 'Test string',
+          jsonExtension: 'JSON_EXTENSION_UNSPECIFIED',
           jsonOptions: {
             encoding: 'Test string',
           },
           maxBadRecords: 42,
-          metadataCacheMode: 'Test string',
-          objectMetadata: 'Test string',
+          metadataCacheMode: 'METADATA_CACHE_MODE_UNSPECIFIED',
+          objectMetadata: 'OBJECT_METADATA_UNSPECIFIED',
           parquetOptions: {
             enableListInference: true,
             enumAsString: true,
-            mapTargetType: 'Test string',
+            mapTargetType: 'MAP_TARGET_TYPE_UNSPECIFIED',
           },
           referenceFileSchemaUri: 'Test string',
           schema: {
@@ -4276,7 +4285,7 @@ gapi.load('client', async () => {
                     generationExpression: 'Test string',
                     stored: true,
                   },
-                  generatedMode: 'Test string',
+                  generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                 },
                 maxLength: 'Test string',
                 mode: 'Test string',
@@ -4288,14 +4297,14 @@ gapi.load('client', async () => {
                 rangeElementType: {
                   type: 'Test string',
                 },
-                roundingMode: 'Test string',
+                roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                 scale: 'Test string',
                 timestampPrecision: 'Test string',
                 type: 'Test string',
               },
             ],
             foreignTypeInfo: {
-              typeSystem: 'Test string',
+              typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
             },
           },
           sourceFormat: 'Test string',
@@ -4313,7 +4322,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         location: 'Test string',
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         materializedView: {
           allowNonIncrementalDefinition: true,
           enableRefresh: true,
@@ -4409,7 +4418,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         schema: {
           fields: [
@@ -4445,7 +4454,7 @@ gapi.load('client', async () => {
                   generationExpression: 'Test string',
                   stored: true,
                 },
-                generatedMode: 'Test string',
+                generatedMode: 'GENERATED_MODE_UNSPECIFIED',
               },
               maxLength: 'Test string',
               mode: 'Test string',
@@ -4457,14 +4466,14 @@ gapi.load('client', async () => {
               rangeElementType: {
                 type: 'Test string',
               },
-              roundingMode: 'Test string',
+              roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
               scale: 'Test string',
               timestampPrecision: 'Test string',
               type: 'Test string',
             },
           ],
           foreignTypeInfo: {
-            typeSystem: 'Test string',
+            typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
           },
         },
         selfLink: 'Test string',
@@ -4516,7 +4525,7 @@ gapi.load('client', async () => {
             reason: 'Test string',
           },
           replicationIntervalMs: 'Test string',
-          replicationStatus: 'Test string',
+          replicationStatus: 'REPLICATION_STATUS_UNSPECIFIED',
           sourceTable: {
             datasetId: 'Test string',
             projectId: 'Test string',
@@ -4554,7 +4563,7 @@ gapi.load('client', async () => {
             },
             joinRestrictionPolicy: {
               joinAllowedColumns: ['Test string'],
-              joinCondition: 'Test string',
+              joinCondition: 'JOIN_CONDITION_UNSPECIFIED',
             },
           },
           query: 'Test string',
@@ -4581,7 +4590,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -4625,10 +4634,10 @@ gapi.load('client', async () => {
       {
         biglakeConfiguration: {
           connectionId: 'Test string',
-          fileFormat: 'Test string',
-          metadataExportMode: 'Test string',
+          fileFormat: 'FILE_FORMAT_UNSPECIFIED',
+          metadataExportMode: 'METADATA_EXPORT_MODE_UNSPECIFIED',
           storageUri: 'Test string',
-          tableFormat: 'Test string',
+          tableFormat: 'TABLE_FORMAT_UNSPECIFIED',
         },
         cloneDefinition: {
           baseTableReference: {
@@ -4643,7 +4652,7 @@ gapi.load('client', async () => {
         },
         creationTime: 'Test string',
         defaultCollation: 'Test string',
-        defaultRoundingMode: 'Test string',
+        defaultRoundingMode: 'ROUNDING_MODE_UNSPECIFIED',
         description: 'Test string',
         encryptionConfiguration: {
           kmsKeyName: 'Test string',
@@ -4720,8 +4729,8 @@ gapi.load('client', async () => {
           },
           dateFormat: 'Test string',
           datetimeFormat: 'Test string',
-          decimalTargetTypes: ['Test string'],
-          fileSetSpecType: 'Test string',
+          decimalTargetTypes: ['DECIMAL_TARGET_TYPE_UNSPECIFIED'],
+          fileSetSpecType: 'FILE_SET_SPEC_TYPE_FILE_SYSTEM_MATCH',
           googleSheetsOptions: {
             range: 'Test string',
             skipLeadingRows: 'Test string',
@@ -4733,17 +4742,17 @@ gapi.load('client', async () => {
             sourceUriPrefix: 'Test string',
           },
           ignoreUnknownValues: true,
-          jsonExtension: 'Test string',
+          jsonExtension: 'JSON_EXTENSION_UNSPECIFIED',
           jsonOptions: {
             encoding: 'Test string',
           },
           maxBadRecords: 42,
-          metadataCacheMode: 'Test string',
-          objectMetadata: 'Test string',
+          metadataCacheMode: 'METADATA_CACHE_MODE_UNSPECIFIED',
+          objectMetadata: 'OBJECT_METADATA_UNSPECIFIED',
           parquetOptions: {
             enableListInference: true,
             enumAsString: true,
-            mapTargetType: 'Test string',
+            mapTargetType: 'MAP_TARGET_TYPE_UNSPECIFIED',
           },
           referenceFileSchemaUri: 'Test string',
           schema: {
@@ -4780,7 +4789,7 @@ gapi.load('client', async () => {
                     generationExpression: 'Test string',
                     stored: true,
                   },
-                  generatedMode: 'Test string',
+                  generatedMode: 'GENERATED_MODE_UNSPECIFIED',
                 },
                 maxLength: 'Test string',
                 mode: 'Test string',
@@ -4792,14 +4801,14 @@ gapi.load('client', async () => {
                 rangeElementType: {
                   type: 'Test string',
                 },
-                roundingMode: 'Test string',
+                roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
                 scale: 'Test string',
                 timestampPrecision: 'Test string',
                 type: 'Test string',
               },
             ],
             foreignTypeInfo: {
-              typeSystem: 'Test string',
+              typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
             },
           },
           sourceFormat: 'Test string',
@@ -4817,7 +4826,7 @@ gapi.load('client', async () => {
         },
         lastModifiedTime: 'Test string',
         location: 'Test string',
-        managedTableType: 'Test string',
+        managedTableType: 'MANAGED_TABLE_TYPE_UNSPECIFIED',
         materializedView: {
           allowNonIncrementalDefinition: true,
           enableRefresh: true,
@@ -4913,7 +4922,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         restrictions: {
-          type: 'Test string',
+          type: 'RESTRICTION_TYPE_UNSPECIFIED',
         },
         schema: {
           fields: [
@@ -4949,7 +4958,7 @@ gapi.load('client', async () => {
                   generationExpression: 'Test string',
                   stored: true,
                 },
-                generatedMode: 'Test string',
+                generatedMode: 'GENERATED_MODE_UNSPECIFIED',
               },
               maxLength: 'Test string',
               mode: 'Test string',
@@ -4961,14 +4970,14 @@ gapi.load('client', async () => {
               rangeElementType: {
                 type: 'Test string',
               },
-              roundingMode: 'Test string',
+              roundingMode: 'ROUNDING_MODE_UNSPECIFIED',
               scale: 'Test string',
               timestampPrecision: 'Test string',
               type: 'Test string',
             },
           ],
           foreignTypeInfo: {
-            typeSystem: 'Test string',
+            typeSystem: 'TYPE_SYSTEM_UNSPECIFIED',
           },
         },
         selfLink: 'Test string',
@@ -5020,7 +5029,7 @@ gapi.load('client', async () => {
             reason: 'Test string',
           },
           replicationIntervalMs: 'Test string',
-          replicationStatus: 'Test string',
+          replicationStatus: 'REPLICATION_STATUS_UNSPECIFIED',
           sourceTable: {
             datasetId: 'Test string',
             projectId: 'Test string',
@@ -5058,7 +5067,7 @@ gapi.load('client', async () => {
             },
             joinRestrictionPolicy: {
               joinAllowedColumns: ['Test string'],
-              joinCondition: 'Test string',
+              joinCondition: 'JOIN_CONDITION_UNSPECIFIED',
             },
           },
           query: 'Test string',

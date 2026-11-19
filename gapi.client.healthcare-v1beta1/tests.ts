@@ -69,7 +69,7 @@ gapi.load('client', async () => {
       {
         config: {
           dicom: {
-            filterProfile: 'Test string',
+            filterProfile: 'TAG_FILTER_PROFILE_UNSPECIFIED',
             keepList: {
               tags: ['Test string'],
             },
@@ -90,7 +90,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  textRedactionMode: 'Test string',
+                  textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                 },
                 cleanTextTag: {},
                 deleteTag: {},
@@ -113,17 +113,17 @@ gapi.load('client', async () => {
                   },
                 ],
                 excludeInfoTypes: ['Test string'],
-                textRedactionMode: 'Test string',
+                textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
               },
-              primaryIds: 'Test string',
+              primaryIds: 'PRIMARY_IDS_OPTION_UNSPECIFIED',
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           fhir: {
             defaultKeepExtensions: true,
             fieldMetadataList: [
               {
-                action: 'Test string',
+                action: 'ACTION_UNSPECIFIED',
                 paths: ['Test string'],
               },
             ],
@@ -161,7 +161,7 @@ gapi.load('client', async () => {
               },
               keepExtensions: {},
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           image: {
             additionalInfoTypes: ['Test string'],
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            textRedactionMode: 'Test string',
+            textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
           },
           operationMetadata: {
             fhirOutput: {
@@ -205,7 +205,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
             transformations: [
               {
                 characterMaskConfig: {
@@ -284,7 +284,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -330,7 +330,7 @@ gapi.load('client', async () => {
         requestAttributes: {
           A: 'Test string',
         },
-        responseView: 'Test string',
+        responseView: 'RESPONSE_VIEW_UNSPECIFIED',
       },
     );
     /** Creates a new consent store in the parent dataset. Attempting to create a consent store with the same ID as an existing store fails with an ALREADY_EXISTS error. */
@@ -371,7 +371,7 @@ gapi.load('client', async () => {
         resourceAttributes: {
           A: 'Test string',
         },
-        responseView: 'Test string',
+        responseView: 'RESPONSE_VIEW_UNSPECIFIED',
         userId: 'Test string',
       },
     );
@@ -439,7 +439,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -480,7 +480,7 @@ gapi.load('client', async () => {
       },
       {
         allowedValues: ['Test string'],
-        category: 'Test string',
+        category: 'CATEGORY_UNSPECIFIED',
         consentDefaultValues: ['Test string'],
         dataMappingDefaultValue: 'Test string',
         description: 'Test string',
@@ -516,7 +516,7 @@ gapi.load('client', async () => {
       },
       {
         allowedValues: ['Test string'],
-        category: 'Test string',
+        category: 'CATEGORY_UNSPECIFIED',
         consentDefaultValues: ['Test string'],
         dataMappingDefaultValue: 'Test string',
         description: 'Test string',
@@ -638,7 +638,7 @@ gapi.load('client', async () => {
         ],
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         userId: 'Test string',
       },
@@ -710,7 +710,7 @@ gapi.load('client', async () => {
         ],
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         ttl: 'Test string',
         userId: 'Test string',
       },
@@ -819,7 +819,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -881,7 +881,7 @@ gapi.load('client', async () => {
               schemaFlattened: {},
               schemaJson: {},
               tableUri: 'Test string',
-              writeDisposition: 'Test string',
+              writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
             },
           },
         ],
@@ -895,7 +895,7 @@ gapi.load('client', async () => {
       {
         config: {
           dicom: {
-            filterProfile: 'Test string',
+            filterProfile: 'TAG_FILTER_PROFILE_UNSPECIFIED',
             keepList: {
               tags: ['Test string'],
             },
@@ -916,7 +916,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  textRedactionMode: 'Test string',
+                  textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                 },
                 cleanTextTag: {},
                 deleteTag: {},
@@ -939,17 +939,17 @@ gapi.load('client', async () => {
                   },
                 ],
                 excludeInfoTypes: ['Test string'],
-                textRedactionMode: 'Test string',
+                textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
               },
-              primaryIds: 'Test string',
+              primaryIds: 'PRIMARY_IDS_OPTION_UNSPECIFIED',
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           fhir: {
             defaultKeepExtensions: true,
             fieldMetadataList: [
               {
-                action: 'Test string',
+                action: 'ACTION_UNSPECIFIED',
                 paths: ['Test string'],
               },
             ],
@@ -987,7 +987,7 @@ gapi.load('client', async () => {
               },
               keepExtensions: {},
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           image: {
             additionalInfoTypes: ['Test string'],
@@ -998,7 +998,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            textRedactionMode: 'Test string',
+            textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
           },
           operationMetadata: {
             fhirOutput: {
@@ -1031,7 +1031,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
             transformations: [
               {
                 characterMaskConfig: {
@@ -1085,7 +1085,7 @@ gapi.load('client', async () => {
           schemaFlattened: {},
           schemaJson: {},
           tableUri: 'Test string',
-          writeDisposition: 'Test string',
+          writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
         },
         filterConfig: {
           resourcePathsGcsUri: 'Test string',
@@ -1120,7 +1120,7 @@ gapi.load('client', async () => {
       },
       {
         blobStorageSettings: {
-          blobStorageClass: 'Test string',
+          blobStorageClass: 'BLOB_STORAGE_CLASS_UNSPECIFIED',
         },
         gcsSource: {
           uri: 'Test string',
@@ -1163,7 +1163,7 @@ gapi.load('client', async () => {
               schemaFlattened: {},
               schemaJson: {},
               tableUri: 'Test string',
-              writeDisposition: 'Test string',
+              writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
             },
           },
         ],
@@ -1197,7 +1197,7 @@ gapi.load('client', async () => {
       },
       {
         blobStorageSettings: {
-          blobStorageClass: 'Test string',
+          blobStorageClass: 'BLOB_STORAGE_CLASS_UNSPECIFIED',
         },
         filterConfig: {
           resourcePathsGcsUri: 'Test string',
@@ -1216,7 +1216,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1294,7 +1294,7 @@ gapi.load('client', async () => {
       },
       {
         blobStorageSettings: {
-          blobStorageClass: 'Test string',
+          blobStorageClass: 'BLOB_STORAGE_CLASS_UNSPECIFIED',
         },
         filterConfig: {
           resourcePathsGcsUri: 'Test string',
@@ -1581,7 +1581,7 @@ gapi.load('client', async () => {
         type: 'Test string',
         until: 'Test string',
         validateOnly: true,
-        versionConfig: 'Test string',
+        versionConfig: 'VERSION_CONFIG_UNSPECIFIED',
       },
     );
     /** Configure the search parameters for the FHIR store and reindex resources in the FHIR store according to the defined search parameters. The search parameters provided in this request will replace any previous search configuration. The target SearchParameter resources need to exist in the store before calling ConfigureSearch, otherwise an error will occur. This method returns an Operation that can be used to track the progress of the reindexing by calling GetOperation. */
@@ -1604,17 +1604,18 @@ gapi.load('client', async () => {
         bulkExportGcsDestination: {
           uriPrefix: 'Test string',
         },
-        complexDataTypeReferenceParsing: 'Test string',
+        complexDataTypeReferenceParsing:
+          'COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED',
         consentConfig: {
           accessDeterminationLogConfig: {
-            logLevel: 'Test string',
+            logLevel: 'LOG_LEVEL_UNSPECIFIED',
           },
           accessEnforced: true,
           consentHeaderHandling: {
-            profile: 'Test string',
+            profile: 'SCOPE_PROFILE_UNSPECIFIED',
           },
           enforcedAdminConsents: ['Test string'],
-          version: 'Test string',
+          version: 'CONSENT_ENFORCEMENT_VERSION_UNSPECIFIED',
         },
         defaultSearchHandlingStrict: true,
         disableReferentialIntegrity: true,
@@ -1648,24 +1649,24 @@ gapi.load('client', async () => {
           {
             bigqueryDestination: {
               changeDataCaptureConfig: {
-                historyMode: 'Test string',
+                historyMode: 'HISTORY_MODE_UNSPECIFIED',
               },
               datasetUri: 'Test string',
               force: true,
               schemaConfig: {
                 lastUpdatedPartitionConfig: {
                   expirationMs: 'Test string',
-                  type: 'Test string',
+                  type: 'PARTITION_TYPE_UNSPECIFIED',
                 },
                 recursiveStructureDepth: 'Test string',
-                schemaType: 'Test string',
+                schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
               },
-              writeDisposition: 'Test string',
+              writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
             },
             deidentifiedStoreDestination: {
               config: {
                 dicom: {
-                  filterProfile: 'Test string',
+                  filterProfile: 'TAG_FILTER_PROFILE_UNSPECIFIED',
                   keepList: {
                     tags: ['Test string'],
                   },
@@ -1686,7 +1687,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         excludeInfoTypes: ['Test string'],
-                        textRedactionMode: 'Test string',
+                        textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                       },
                       cleanTextTag: {},
                       deleteTag: {},
@@ -1709,17 +1710,17 @@ gapi.load('client', async () => {
                         },
                       ],
                       excludeInfoTypes: ['Test string'],
-                      textRedactionMode: 'Test string',
+                      textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                     },
-                    primaryIds: 'Test string',
+                    primaryIds: 'PRIMARY_IDS_OPTION_UNSPECIFIED',
                   },
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                 },
                 fhir: {
                   defaultKeepExtensions: true,
                   fieldMetadataList: [
                     {
-                      action: 'Test string',
+                      action: 'ACTION_UNSPECIFIED',
                       paths: ['Test string'],
                     },
                   ],
@@ -1757,7 +1758,7 @@ gapi.load('client', async () => {
                     },
                     keepExtensions: {},
                   },
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                 },
                 image: {
                   additionalInfoTypes: ['Test string'],
@@ -1768,7 +1769,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  textRedactionMode: 'Test string',
+                  textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                 },
                 operationMetadata: {
                   fhirOutput: {
@@ -1801,7 +1802,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                   transformations: [
                     {
                       characterMaskConfig: {
@@ -1842,7 +1843,7 @@ gapi.load('client', async () => {
           enabledImplementationGuides: ['Test string'],
           enableFhirpathProfileValidation: true,
         },
-        version: 'Test string',
+        version: 'VERSION_UNSPECIFIED',
       },
     );
     /** De-identifies data from the source store and writes it to the destination store. The metadata field type is OperationMetadata. If the request is successful, the response field type is DeidentifyFhirStoreSummary. The number of resources processed are tracked in Operation.metadata. Error details are logged to Cloud Logging. For more information, see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). */
@@ -1853,7 +1854,7 @@ gapi.load('client', async () => {
       {
         config: {
           dicom: {
-            filterProfile: 'Test string',
+            filterProfile: 'TAG_FILTER_PROFILE_UNSPECIFIED',
             keepList: {
               tags: ['Test string'],
             },
@@ -1874,7 +1875,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  textRedactionMode: 'Test string',
+                  textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                 },
                 cleanTextTag: {},
                 deleteTag: {},
@@ -1897,17 +1898,17 @@ gapi.load('client', async () => {
                   },
                 ],
                 excludeInfoTypes: ['Test string'],
-                textRedactionMode: 'Test string',
+                textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
               },
-              primaryIds: 'Test string',
+              primaryIds: 'PRIMARY_IDS_OPTION_UNSPECIFIED',
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           fhir: {
             defaultKeepExtensions: true,
             fieldMetadataList: [
               {
-                action: 'Test string',
+                action: 'ACTION_UNSPECIFIED',
                 paths: ['Test string'],
               },
             ],
@@ -1945,7 +1946,7 @@ gapi.load('client', async () => {
               },
               keepExtensions: {},
             },
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
           },
           image: {
             additionalInfoTypes: ['Test string'],
@@ -1956,7 +1957,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            textRedactionMode: 'Test string',
+            textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
           },
           operationMetadata: {
             fhirOutput: {
@@ -1989,7 +1990,7 @@ gapi.load('client', async () => {
               },
             ],
             excludeInfoTypes: ['Test string'],
-            profileType: 'Test string',
+            profileType: 'PROFILE_TYPE_UNSPECIFIED',
             transformations: [
               {
                 characterMaskConfig: {
@@ -2070,19 +2071,19 @@ gapi.load('client', async () => {
         _type: 'Test string',
         bigqueryDestination: {
           changeDataCaptureConfig: {
-            historyMode: 'Test string',
+            historyMode: 'HISTORY_MODE_UNSPECIFIED',
           },
           datasetUri: 'Test string',
           force: true,
           schemaConfig: {
             lastUpdatedPartitionConfig: {
               expirationMs: 'Test string',
-              type: 'Test string',
+              type: 'PARTITION_TYPE_UNSPECIFIED',
             },
             recursiveStructureDepth: 'Test string',
-            schemaType: 'Test string',
+            schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
           },
-          writeDisposition: 'Test string',
+          writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
         },
         gcsDestination: {
           uriPrefix: 'Test string',
@@ -2126,7 +2127,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        contentStructure: 'Test string',
+        contentStructure: 'CONTENT_STRUCTURE_UNSPECIFIED',
         gcsSource: {
           uri: 'Test string',
         },
@@ -2138,7 +2139,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        contentStructure: 'Test string',
+        contentStructure: 'CONTENT_STRUCTURE_UNSPECIFIED',
         gcsSource: {
           uri: 'Test string',
         },
@@ -2162,17 +2163,18 @@ gapi.load('client', async () => {
         bulkExportGcsDestination: {
           uriPrefix: 'Test string',
         },
-        complexDataTypeReferenceParsing: 'Test string',
+        complexDataTypeReferenceParsing:
+          'COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED',
         consentConfig: {
           accessDeterminationLogConfig: {
-            logLevel: 'Test string',
+            logLevel: 'LOG_LEVEL_UNSPECIFIED',
           },
           accessEnforced: true,
           consentHeaderHandling: {
-            profile: 'Test string',
+            profile: 'SCOPE_PROFILE_UNSPECIFIED',
           },
           enforcedAdminConsents: ['Test string'],
-          version: 'Test string',
+          version: 'CONSENT_ENFORCEMENT_VERSION_UNSPECIFIED',
         },
         defaultSearchHandlingStrict: true,
         disableReferentialIntegrity: true,
@@ -2206,24 +2208,24 @@ gapi.load('client', async () => {
           {
             bigqueryDestination: {
               changeDataCaptureConfig: {
-                historyMode: 'Test string',
+                historyMode: 'HISTORY_MODE_UNSPECIFIED',
               },
               datasetUri: 'Test string',
               force: true,
               schemaConfig: {
                 lastUpdatedPartitionConfig: {
                   expirationMs: 'Test string',
-                  type: 'Test string',
+                  type: 'PARTITION_TYPE_UNSPECIFIED',
                 },
                 recursiveStructureDepth: 'Test string',
-                schemaType: 'Test string',
+                schemaType: 'SCHEMA_TYPE_UNSPECIFIED',
               },
-              writeDisposition: 'Test string',
+              writeDisposition: 'WRITE_DISPOSITION_UNSPECIFIED',
             },
             deidentifiedStoreDestination: {
               config: {
                 dicom: {
-                  filterProfile: 'Test string',
+                  filterProfile: 'TAG_FILTER_PROFILE_UNSPECIFIED',
                   keepList: {
                     tags: ['Test string'],
                   },
@@ -2244,7 +2246,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         excludeInfoTypes: ['Test string'],
-                        textRedactionMode: 'Test string',
+                        textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                       },
                       cleanTextTag: {},
                       deleteTag: {},
@@ -2267,17 +2269,17 @@ gapi.load('client', async () => {
                         },
                       ],
                       excludeInfoTypes: ['Test string'],
-                      textRedactionMode: 'Test string',
+                      textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                     },
-                    primaryIds: 'Test string',
+                    primaryIds: 'PRIMARY_IDS_OPTION_UNSPECIFIED',
                   },
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                 },
                 fhir: {
                   defaultKeepExtensions: true,
                   fieldMetadataList: [
                     {
-                      action: 'Test string',
+                      action: 'ACTION_UNSPECIFIED',
                       paths: ['Test string'],
                     },
                   ],
@@ -2315,7 +2317,7 @@ gapi.load('client', async () => {
                     },
                     keepExtensions: {},
                   },
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                 },
                 image: {
                   additionalInfoTypes: ['Test string'],
@@ -2326,7 +2328,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  textRedactionMode: 'Test string',
+                  textRedactionMode: 'TEXT_REDACTION_MODE_UNSPECIFIED',
                 },
                 operationMetadata: {
                   fhirOutput: {
@@ -2359,7 +2361,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   excludeInfoTypes: ['Test string'],
-                  profileType: 'Test string',
+                  profileType: 'PROFILE_TYPE_UNSPECIFIED',
                   transformations: [
                     {
                       characterMaskConfig: {
@@ -2400,7 +2402,7 @@ gapi.load('client', async () => {
           enabledImplementationGuides: ['Test string'],
           enableFhirpathProfileValidation: true,
         },
-        version: 'Test string',
+        version: 'VERSION_UNSPECIFIED',
       },
     );
     /** Rolls back resources from the FHIR store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackFhirResourcesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
@@ -2409,7 +2411,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        changeType: 'Test string',
+        changeType: 'CHANGE_TYPE_UNSPECIFIED',
         excludeRollbacks: true,
         filteringFields: {
           metadataFilter: 'Test string',
@@ -2434,7 +2436,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2854,7 +2856,7 @@ gapi.load('client', async () => {
                 ],
               },
             ],
-            schematizedParsingType: 'Test string',
+            schematizedParsingType: 'SCHEMATIZED_PARSING_TYPE_UNSPECIFIED',
             types: [
               {
                 type: [
@@ -2869,7 +2871,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     name: 'Test string',
-                    primitive: 'Test string',
+                    primitive: 'PRIMITIVE_UNSPECIFIED',
                   },
                 ],
                 version: [
@@ -2880,10 +2882,11 @@ gapi.load('client', async () => {
                 ],
               },
             ],
-            unexpectedSegmentHandling: 'Test string',
+            unexpectedSegmentHandling:
+              'UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED',
           },
           segmentTerminator: 'Test string',
-          version: 'Test string',
+          version: 'PARSER_VERSION_UNSPECIFIED',
         },
         rejectDuplicateMessage: true,
       },
@@ -2903,8 +2906,8 @@ gapi.load('client', async () => {
         endTime: 'Test string',
         filter: 'Test string',
         gcsDestination: {
-          contentStructure: 'Test string',
-          messageView: 'Test string',
+          contentStructure: 'CONTENT_STRUCTURE_UNSPECIFIED',
+          messageView: 'MESSAGE_VIEW_UNSPECIFIED',
           uriPrefix: 'Test string',
         },
         pubsubDestination: {
@@ -3001,7 +3004,7 @@ gapi.load('client', async () => {
                 ],
               },
             ],
-            schematizedParsingType: 'Test string',
+            schematizedParsingType: 'SCHEMATIZED_PARSING_TYPE_UNSPECIFIED',
             types: [
               {
                 type: [
@@ -3016,7 +3019,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     name: 'Test string',
-                    primitive: 'Test string',
+                    primitive: 'PRIMITIVE_UNSPECIFIED',
                   },
                 ],
                 version: [
@@ -3027,10 +3030,11 @@ gapi.load('client', async () => {
                 ],
               },
             ],
-            unexpectedSegmentHandling: 'Test string',
+            unexpectedSegmentHandling:
+              'UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED',
           },
           segmentTerminator: 'Test string',
-          version: 'Test string',
+          version: 'PARSER_VERSION_UNSPECIFIED',
         },
         rejectDuplicateMessage: true,
       },
@@ -3041,7 +3045,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        changeType: 'Test string',
+        changeType: 'CHANGE_TYPE_UNSPECIFIED',
         excludeRollbacks: true,
         filteringFields: {
           operationIds: ['Test string'],
@@ -3064,7 +3068,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -3102,7 +3106,7 @@ gapi.load('client', async () => {
       {
         ids: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'MESSAGE_VIEW_UNSPECIFIED',
       },
     );
     /** Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. */
@@ -3155,7 +3159,7 @@ gapi.load('client', async () => {
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.messages.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'MESSAGE_VIEW_UNSPECIFIED',
       },
     );
     /** Parses and stores an HL7v2 message. This method triggers an asynchronous notification to any Pub/Sub topic configured in Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter transmits the message when a notification is received. If the method is successful, it generates a response containing an HL7v2 acknowledgment (`ACK`) message. If the method encounters an error, it returns a negative acknowledgment (`NACK`) message. This behavior is suitable for replying to HL7v2 interface systems that expect these acknowledgments. */
@@ -3206,7 +3210,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'MESSAGE_VIEW_UNSPECIFIED',
       },
     );
     /** Update the message. The contents of the message in Message.data and data extracted from the contents such as Message.create_time can't be altered. Only the Message.labels field is allowed to be updated. The labels in the request are merged with the existing set of labels. Existing labels with the same keys are updated. */
@@ -3273,9 +3277,9 @@ gapi.load('client', async () => {
         nlpService: 'Test string',
       },
       {
-        alternativeOutputFormat: 'Test string',
+        alternativeOutputFormat: 'ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED',
         documentContent: 'Test string',
-        licensedVocabularies: ['Test string'],
+        licensedVocabularies: ['LICENSED_VOCABULARY_UNSPECIFIED'],
       },
     );
   }

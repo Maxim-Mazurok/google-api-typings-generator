@@ -427,13 +427,14 @@ declare namespace gapi.client {
       /** Count of how often your ad has appeared on a search results page or website on the Google Network. */
       impressions?: string;
       /** The types of payable and free interactions. */
-      interactionEventTypes?:
+      interactionEventTypes?: (
         | 'UNSPECIFIED'
         | 'UNKNOWN'
         | 'CLICK'
         | 'ENGAGEMENT'
         | 'VIDEO_VIEW'
-        | 'NONE'[];
+        | 'NONE'
+      )[];
       /** How often people interact with your ad after it is shown to them. This is the number of interactions divided by the number of times your ad is shown. */
       interactionRate?: number;
       /** The number of interactions. An interaction is the main user action associated with an ad format-clicks for text and shopping ads, views for video ads, and so on. */
@@ -2093,7 +2094,7 @@ declare namespace gapi.client {
       /** Output only. ID of the campaign in the external engine account. This field is for non-Google Ads account only, for example, Yahoo Japan, Microsoft, Baidu etc. For Google Ads entity, use "campaign.id" instead. */
       engineId?: string;
       /** The asset field types that should be excluded from this campaign. Asset links with these field types will not be inherited by this campaign from the upper level. */
-      excludedParentAssetFieldTypes?:
+      excludedParentAssetFieldTypes?: (
         | 'UNSPECIFIED'
         | 'UNKNOWN'
         | 'HEADLINE'
@@ -2125,9 +2126,10 @@ declare namespace gapi.client {
         | 'HOTEL_PROPERTY'
         | 'DISCOVERY_CAROUSEL_CARD'
         | 'LONG_DESCRIPTION'
-        | 'CALL_TO_ACTION'[];
+        | 'CALL_TO_ACTION'
+      )[];
       /** Output only. Types of feeds that are attached directly to this campaign. */
-      feedTypes?:
+      feedTypes?: (
         | 'UNSPECIFIED'
         | 'UNKNOWN'
         | 'PAGE_FEED'
@@ -2145,7 +2147,8 @@ declare namespace gapi.client {
         | 'CHAIN_DYNAMIC_LOCATION_GROUP'
         | 'STATIC_LOCATION_GROUP'
         | 'HOTEL_PROPERTY'
-        | 'TRAVEL_FEED'[];
+        | 'TRAVEL_FEED'
+      )[];
       /** Suffix used to append query parameters to landing pages that are served with parallel tracking. */
       finalUrlSuffix?: string;
       /** A list that limits how often each user will see this campaign's ads. */
@@ -3118,12 +3121,13 @@ declare namespace gapi.client {
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_OptimizationGoalSetting {
       /** The list of optimization goal types. */
-      optimizationGoalTypes?:
+      optimizationGoalTypes?: (
         | 'UNSPECIFIED'
         | 'UNKNOWN'
         | 'CALL_CLICKS'
         | 'DRIVING_DIRECTIONS'
-        | 'APP_PRE_REGISTRATION'[];
+        | 'APP_PRE_REGISTRATION'
+      )[];
     }
     interface GoogleAdsSearchads360V0Resources_Campaign_SelectiveOptimization {
       /** The selected set of resource names for conversion actions for optimizing this campaign. */
@@ -3539,14 +3543,15 @@ declare namespace gapi.client {
     interface GoogleAdsSearchads360V23Common_PolicyTopicConstraint_ResellerConstraint {}
     interface GoogleAdsSearchads360V23Common_PolicyTopicEvidence_DestinationMismatch {
       /** The set of URLs that did not match each other. */
-      urlTypes?:
+      urlTypes?: (
         | 'UNSPECIFIED'
         | 'UNKNOWN'
         | 'DISPLAY_URL'
         | 'FINAL_URL'
         | 'FINAL_MOBILE_URL'
         | 'TRACKING_URL'
-        | 'MOBILE_TRACKING_URL'[];
+        | 'MOBILE_TRACKING_URL'
+      )[];
     }
     interface GoogleAdsSearchads360V23Common_PolicyTopicEvidence_DestinationNotWorking {
       /** The type of device that failed to load the URL. */
@@ -6574,123 +6579,8 @@ declare namespace gapi.client {
       /** Required. The scheduled experiment. */
       experiment?: string;
     }
-    interface CustomColumnsResource {
-      /** Returns the requested custom column in full detail. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The resource name of the custom column to fetch. */
-        resourceName: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleAdsSearchads360V0Resources__CustomColumn>;
-      /** Returns all the custom columns associated with the customer in full detail. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. The ID of the customer to apply the CustomColumn list operation to. */
-        customerId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-      }): Request<GoogleAdsSearchads360V0Services__ListCustomColumnsResponse>;
-    }
-    interface SearchAds360Resource {
-      /** Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ChangeEventError]() [ChangeStatusError]() [ClickViewError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
-      search(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Required. The ID of the customer being queried. */
-        customerId: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleAdsSearchads360V0Services__SearchSearchAds360Request;
-      }): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360Response>;
-      search(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Required. The ID of the customer being queried. */
-          customerId: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleAdsSearchads360V0Services__SearchSearchAds360Request,
-      ): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360Response>;
-    }
-    interface CustomersResource {
+
+    const customers: {
       /** Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       listAccessibleCustomers(request?: {
         /** V1 error format. */
@@ -6716,10 +6606,125 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleAdsSearchads360V0Services__ListAccessibleCustomersResponse>;
-      customColumns: CustomColumnsResource;
-      searchAds360: SearchAds360Resource;
-    }
-    interface SearchAds360FieldsResource {
+      customColumns: {
+        /** Returns the requested custom column in full detail. */
+        get(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The resource name of the custom column to fetch. */
+          resourceName: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<GoogleAdsSearchads360V0Resources__CustomColumn>;
+        /** Returns all the custom columns associated with the customer in full detail. */
+        list(request?: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Required. The ID of the customer to apply the CustomColumn list operation to. */
+          customerId: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        }): Request<GoogleAdsSearchads360V0Services__ListCustomColumnsResponse>;
+      };
+      searchAds360: {
+        /** Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [ChangeEventError]() [ChangeStatusError]() [ClickViewError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
+        search(request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Required. The ID of the customer being queried. */
+          customerId: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Request body */
+          resource: GoogleAdsSearchads360V0Services__SearchSearchAds360Request;
+        }): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360Response>;
+        search(
+          request: {
+            /** V1 error format. */
+            '$.xgafv'?: '1' | '2';
+            /** OAuth access token. */
+            access_token?: string;
+            /** Data format for response. */
+            alt?: 'json' | 'media' | 'proto';
+            /** JSONP */
+            callback?: string;
+            /** Required. The ID of the customer being queried. */
+            customerId: string;
+            /** Selector specifying which fields to include in a partial response. */
+            fields?: string;
+            /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+            key?: string;
+            /** OAuth 2.0 token for the current user. */
+            oauth_token?: string;
+            /** Returns response with indentations and line breaks. */
+            prettyPrint?: boolean;
+            /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+            quotaUser?: string;
+            /** Upload protocol for media (e.g. "raw", "multipart"). */
+            upload_protocol?: string;
+            /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+            uploadType?: string;
+          },
+          body: GoogleAdsSearchads360V0Services__SearchSearchAds360Request,
+        ): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360Response>;
+      };
+    };
+
+    const searchAds360Fields: {
       /** Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
       get(request?: {
         /** V1 error format. */
@@ -6801,10 +6806,6 @@ declare namespace gapi.client {
         },
         body: GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest,
       ): Request<GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsResponse>;
-    }
-
-    const customers: CustomersResource;
-
-    const searchAds360Fields: SearchAds360FieldsResource;
+    };
   }
 }

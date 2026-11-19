@@ -58,7 +58,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -71,13 +71,13 @@ gapi.load('client', async () => {
                     columns: {
                       options: [
                         {
-                          goToAction: 'Test string',
+                          goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                           goToSectionId: 'Test string',
                           image: {
                             altText: 'Test string',
                             contentUri: 'Test string',
                             properties: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               width: 42,
                             },
                             sourceUri: 'Test string',
@@ -87,7 +87,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       shuffle: true,
-                      type: 'Test string',
+                      type: 'CHOICE_TYPE_UNSPECIFIED',
                     },
                     shuffleQuestions: true,
                   },
@@ -95,7 +95,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -105,13 +105,13 @@ gapi.load('client', async () => {
                       choiceQuestion: {
                         options: [
                           {
-                            goToAction: 'Test string',
+                            goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                             goToSectionId: 'Test string',
                             image: {
                               altText: 'Test string',
                               contentUri: 'Test string',
                               properties: {
-                                alignment: 'Test string',
+                                alignment: 'ALIGNMENT_UNSPECIFIED',
                                 width: 42,
                               },
                               sourceUri: 'Test string',
@@ -121,7 +121,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         shuffle: true,
-                        type: 'Test string',
+                        type: 'CHOICE_TYPE_UNSPECIFIED',
                       },
                       dateQuestion: {
                         includeTime: true,
@@ -131,7 +131,7 @@ gapi.load('client', async () => {
                         folderId: 'Test string',
                         maxFiles: 42,
                         maxFileSize: 'Test string',
-                        types: ['Test string'],
+                        types: ['FILE_TYPE_UNSPECIFIED'],
                       },
                       grading: {
                         correctAnswers: {
@@ -190,7 +190,7 @@ gapi.load('client', async () => {
                       },
                       questionId: 'Test string',
                       ratingQuestion: {
-                        iconType: 'Test string',
+                        iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                         ratingScaleLevel: 42,
                       },
                       required: true,
@@ -217,7 +217,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -226,13 +226,13 @@ gapi.load('client', async () => {
                     choiceQuestion: {
                       options: [
                         {
-                          goToAction: 'Test string',
+                          goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                           goToSectionId: 'Test string',
                           image: {
                             altText: 'Test string',
                             contentUri: 'Test string',
                             properties: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               width: 42,
                             },
                             sourceUri: 'Test string',
@@ -242,7 +242,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       shuffle: true,
-                      type: 'Test string',
+                      type: 'CHOICE_TYPE_UNSPECIFIED',
                     },
                     dateQuestion: {
                       includeTime: true,
@@ -252,7 +252,7 @@ gapi.load('client', async () => {
                       folderId: 'Test string',
                       maxFiles: 42,
                       maxFileSize: 'Test string',
-                      types: ['Test string'],
+                      types: ['FILE_TYPE_UNSPECIFIED'],
                     },
                     grading: {
                       correctAnswers: {
@@ -311,7 +311,7 @@ gapi.load('client', async () => {
                     },
                     questionId: 'Test string',
                     ratingQuestion: {
-                      iconType: 'Test string',
+                      iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                       ratingScaleLevel: 42,
                     },
                     required: true,
@@ -338,7 +338,7 @@ gapi.load('client', async () => {
                   caption: 'Test string',
                   video: {
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     youtubeUri: 'Test string',
@@ -378,7 +378,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -391,13 +391,13 @@ gapi.load('client', async () => {
                     columns: {
                       options: [
                         {
-                          goToAction: 'Test string',
+                          goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                           goToSectionId: 'Test string',
                           image: {
                             altText: 'Test string',
                             contentUri: 'Test string',
                             properties: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               width: 42,
                             },
                             sourceUri: 'Test string',
@@ -407,7 +407,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       shuffle: true,
-                      type: 'Test string',
+                      type: 'CHOICE_TYPE_UNSPECIFIED',
                     },
                     shuffleQuestions: true,
                   },
@@ -415,7 +415,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -425,13 +425,13 @@ gapi.load('client', async () => {
                       choiceQuestion: {
                         options: [
                           {
-                            goToAction: 'Test string',
+                            goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                             goToSectionId: 'Test string',
                             image: {
                               altText: 'Test string',
                               contentUri: 'Test string',
                               properties: {
-                                alignment: 'Test string',
+                                alignment: 'ALIGNMENT_UNSPECIFIED',
                                 width: 42,
                               },
                               sourceUri: 'Test string',
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
                           },
                         ],
                         shuffle: true,
-                        type: 'Test string',
+                        type: 'CHOICE_TYPE_UNSPECIFIED',
                       },
                       dateQuestion: {
                         includeTime: true,
@@ -451,7 +451,7 @@ gapi.load('client', async () => {
                         folderId: 'Test string',
                         maxFiles: 42,
                         maxFileSize: 'Test string',
-                        types: ['Test string'],
+                        types: ['FILE_TYPE_UNSPECIFIED'],
                       },
                       grading: {
                         correctAnswers: {
@@ -510,7 +510,7 @@ gapi.load('client', async () => {
                       },
                       questionId: 'Test string',
                       ratingQuestion: {
-                        iconType: 'Test string',
+                        iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                         ratingScaleLevel: 42,
                       },
                       required: true,
@@ -537,7 +537,7 @@ gapi.load('client', async () => {
                     altText: 'Test string',
                     contentUri: 'Test string',
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     sourceUri: 'Test string',
@@ -546,13 +546,13 @@ gapi.load('client', async () => {
                     choiceQuestion: {
                       options: [
                         {
-                          goToAction: 'Test string',
+                          goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                           goToSectionId: 'Test string',
                           image: {
                             altText: 'Test string',
                             contentUri: 'Test string',
                             properties: {
-                              alignment: 'Test string',
+                              alignment: 'ALIGNMENT_UNSPECIFIED',
                               width: 42,
                             },
                             sourceUri: 'Test string',
@@ -562,7 +562,7 @@ gapi.load('client', async () => {
                         },
                       ],
                       shuffle: true,
-                      type: 'Test string',
+                      type: 'CHOICE_TYPE_UNSPECIFIED',
                     },
                     dateQuestion: {
                       includeTime: true,
@@ -572,7 +572,7 @@ gapi.load('client', async () => {
                       folderId: 'Test string',
                       maxFiles: 42,
                       maxFileSize: 'Test string',
-                      types: ['Test string'],
+                      types: ['FILE_TYPE_UNSPECIFIED'],
                     },
                     grading: {
                       correctAnswers: {
@@ -631,7 +631,7 @@ gapi.load('client', async () => {
                     },
                     questionId: 'Test string',
                     ratingQuestion: {
-                      iconType: 'Test string',
+                      iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                       ratingScaleLevel: 42,
                     },
                     required: true,
@@ -658,7 +658,7 @@ gapi.load('client', async () => {
                   caption: 'Test string',
                   video: {
                     properties: {
-                      alignment: 'Test string',
+                      alignment: 'ALIGNMENT_UNSPECIFIED',
                       width: 42,
                     },
                     youtubeUri: 'Test string',
@@ -672,7 +672,7 @@ gapi.load('client', async () => {
             },
             updateSettings: {
               settings: {
-                emailCollectionType: 'Test string',
+                emailCollectionType: 'EMAIL_COLLECTION_TYPE_UNSPECIFIED',
                 quizSettings: {
                   isQuiz: true,
                 },
@@ -707,7 +707,7 @@ gapi.load('client', async () => {
                 altText: 'Test string',
                 contentUri: 'Test string',
                 properties: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   width: 42,
                 },
                 sourceUri: 'Test string',
@@ -720,13 +720,13 @@ gapi.load('client', async () => {
                 columns: {
                   options: [
                     {
-                      goToAction: 'Test string',
+                      goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                       goToSectionId: 'Test string',
                       image: {
                         altText: 'Test string',
                         contentUri: 'Test string',
                         properties: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           width: 42,
                         },
                         sourceUri: 'Test string',
@@ -736,7 +736,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   shuffle: true,
-                  type: 'Test string',
+                  type: 'CHOICE_TYPE_UNSPECIFIED',
                 },
                 shuffleQuestions: true,
               },
@@ -744,7 +744,7 @@ gapi.load('client', async () => {
                 altText: 'Test string',
                 contentUri: 'Test string',
                 properties: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   width: 42,
                 },
                 sourceUri: 'Test string',
@@ -754,13 +754,13 @@ gapi.load('client', async () => {
                   choiceQuestion: {
                     options: [
                       {
-                        goToAction: 'Test string',
+                        goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                         goToSectionId: 'Test string',
                         image: {
                           altText: 'Test string',
                           contentUri: 'Test string',
                           properties: {
-                            alignment: 'Test string',
+                            alignment: 'ALIGNMENT_UNSPECIFIED',
                             width: 42,
                           },
                           sourceUri: 'Test string',
@@ -770,7 +770,7 @@ gapi.load('client', async () => {
                       },
                     ],
                     shuffle: true,
-                    type: 'Test string',
+                    type: 'CHOICE_TYPE_UNSPECIFIED',
                   },
                   dateQuestion: {
                     includeTime: true,
@@ -780,7 +780,7 @@ gapi.load('client', async () => {
                     folderId: 'Test string',
                     maxFiles: 42,
                     maxFileSize: 'Test string',
-                    types: ['Test string'],
+                    types: ['FILE_TYPE_UNSPECIFIED'],
                   },
                   grading: {
                     correctAnswers: {
@@ -839,7 +839,7 @@ gapi.load('client', async () => {
                   },
                   questionId: 'Test string',
                   ratingQuestion: {
-                    iconType: 'Test string',
+                    iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                     ratingScaleLevel: 42,
                   },
                   required: true,
@@ -866,7 +866,7 @@ gapi.load('client', async () => {
                 altText: 'Test string',
                 contentUri: 'Test string',
                 properties: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   width: 42,
                 },
                 sourceUri: 'Test string',
@@ -875,13 +875,13 @@ gapi.load('client', async () => {
                 choiceQuestion: {
                   options: [
                     {
-                      goToAction: 'Test string',
+                      goToAction: 'GO_TO_ACTION_UNSPECIFIED',
                       goToSectionId: 'Test string',
                       image: {
                         altText: 'Test string',
                         contentUri: 'Test string',
                         properties: {
-                          alignment: 'Test string',
+                          alignment: 'ALIGNMENT_UNSPECIFIED',
                           width: 42,
                         },
                         sourceUri: 'Test string',
@@ -891,7 +891,7 @@ gapi.load('client', async () => {
                     },
                   ],
                   shuffle: true,
-                  type: 'Test string',
+                  type: 'CHOICE_TYPE_UNSPECIFIED',
                 },
                 dateQuestion: {
                   includeTime: true,
@@ -901,7 +901,7 @@ gapi.load('client', async () => {
                   folderId: 'Test string',
                   maxFiles: 42,
                   maxFileSize: 'Test string',
-                  types: ['Test string'],
+                  types: ['FILE_TYPE_UNSPECIFIED'],
                 },
                 grading: {
                   correctAnswers: {
@@ -960,7 +960,7 @@ gapi.load('client', async () => {
                 },
                 questionId: 'Test string',
                 ratingQuestion: {
-                  iconType: 'Test string',
+                  iconType: 'RATING_ICON_TYPE_UNSPECIFIED',
                   ratingScaleLevel: 42,
                 },
                 required: true,
@@ -987,7 +987,7 @@ gapi.load('client', async () => {
               caption: 'Test string',
               video: {
                 properties: {
-                  alignment: 'Test string',
+                  alignment: 'ALIGNMENT_UNSPECIFIED',
                   width: 42,
                 },
                 youtubeUri: 'Test string',
@@ -1005,7 +1005,7 @@ gapi.load('client', async () => {
         responderUri: 'Test string',
         revisionId: 'Test string',
         settings: {
-          emailCollectionType: 'Test string',
+          emailCollectionType: 'EMAIL_COLLECTION_TYPE_UNSPECIFIED',
           quizSettings: {
             isQuiz: true,
           },
@@ -1051,11 +1051,11 @@ gapi.load('client', async () => {
       {
         watch: {
           createTime: 'Test string',
-          errorType: 'Test string',
-          eventType: 'Test string',
+          errorType: 'ERROR_TYPE_UNSPECIFIED',
+          eventType: 'EVENT_TYPE_UNSPECIFIED',
           expireTime: 'Test string',
           id: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           target: {
             topic: {
               topicName: 'Test string',

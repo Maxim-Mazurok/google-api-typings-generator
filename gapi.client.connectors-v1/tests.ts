@@ -60,13 +60,13 @@ gapi.load('client', async () => {
       {
         client: 'Test string',
         encryptionConfig: {
-          encryptionType: 'Test string',
+          encryptionType: 'ENCRYPTION_TYPE_UNSPECIFIED',
           kmsKeyName: 'Test string',
         },
         name: 'Test string',
         networkConfig: {
           egressIps: ['Test string'],
-          egressMode: 'Test string',
+          egressMode: 'NETWORK_EGRESS_MODE_UNSPECIFIED',
         },
         provisioned: true,
       },
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
         adminFilters: [
           {
             filterKey: 'Test string',
-            filterType: 'Test string',
+            filterType: 'FILTER_TYPE_UNSPECIFIED',
             intValue: 'Test string',
             stringListValues: {
               listValues: ['Test string'],
@@ -96,7 +96,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -107,7 +107,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -160,14 +160,14 @@ gapi.load('client', async () => {
         },
         authOverrideEnabled: true,
         billingConfig: {
-          billingCategory: 'Test string',
+          billingCategory: 'BILLING_CATEGORY_UNSPECIFIED',
         },
         configVariables: [
           {
             boolValue: true,
             encryptionKeyValue: {
               kmsKeyName: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             intValue: 'Test string',
             key: 'Test string',
@@ -181,8 +181,9 @@ gapi.load('client', async () => {
         connectorVersion: 'Test string',
         connectorVersionInfraConfig: {
           connectionRatelimitWindowSeconds: 'Test string',
-          deploymentModel: 'Test string',
-          deploymentModelMigrationState: 'Test string',
+          deploymentModel: 'DEPLOYMENT_MODEL_UNSPECIFIED',
+          deploymentModelMigrationState:
+            'DEPLOYMENT_MODEL_MIGRATION_STATE_UNSPECIFIED',
           hpaConfig: {
             cpuUtilizationThreshold: 'Test string',
             memoryUtilizationThreshold: 'Test string',
@@ -199,9 +200,9 @@ gapi.load('client', async () => {
             memory: 'Test string',
           },
           sharedDeployment: 'Test string',
-          tlsMigrationState: 'Test string',
+          tlsMigrationState: 'TLS_MIGRATION_STATE_UNSPECIFIED',
         },
-        connectorVersionLaunchStage: 'Test string',
+        connectorVersionLaunchStage: 'LAUNCH_STAGE_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         destinationConfigs: [
@@ -223,7 +224,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -234,7 +235,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -291,7 +292,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -308,7 +309,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -319,7 +320,7 @@ gapi.load('client', async () => {
               },
             ],
             authKey: 'Test string',
-            authType: 'Test string',
+            authType: 'AUTH_TYPE_UNSPECIFIED',
             oauth2AuthCodeFlow: {
               authCode: 'Test string',
               authUri: 'Test string',
@@ -386,7 +387,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -397,7 +398,7 @@ gapi.load('client', async () => {
               },
             ],
             authKey: 'Test string',
-            authType: 'Test string',
+            authType: 'AUTH_TYPE_UNSPECIFIED',
             oauth2AuthCodeFlow: {
               authCode: 'Test string',
               authUri: 'Test string',
@@ -476,7 +477,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -489,7 +490,7 @@ gapi.load('client', async () => {
             clientCertificate: {
               secretVersion: 'Test string',
             },
-            clientCertType: 'Test string',
+            clientCertType: 'CERT_TYPE_UNSPECIFIED',
             clientPrivateKey: {
               secretVersion: 'Test string',
             },
@@ -499,19 +500,19 @@ gapi.load('client', async () => {
             privateServerCertificate: {
               secretVersion: 'Test string',
             },
-            serverCertType: 'Test string',
-            trustModel: 'Test string',
-            type: 'Test string',
+            serverCertType: 'CERT_TYPE_UNSPECIFIED',
+            trustModel: 'PUBLIC',
+            type: 'SSL_TYPE_UNSPECIFIED',
             useSsl: true,
           },
         },
-        eventingEnablementType: 'Test string',
+        eventingEnablementType: 'EVENTING_ENABLEMENT_TYPE_UNSPECIFIED',
         eventingRuntimeData: {
           eventsListenerEndpoint: 'Test string',
           eventsListenerPscSa: 'Test string',
           status: {
             description: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           webhookData: {
             additionalVariables: [
@@ -519,7 +520,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -545,7 +546,7 @@ gapi.load('client', async () => {
                     boolValue: true,
                     encryptionKeyValue: {
                       kmsKeyName: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     intValue: 'Test string',
                     key: 'Test string',
@@ -579,7 +580,7 @@ gapi.load('client', async () => {
         },
         logConfig: {
           enabled: true,
-          level: 'Test string',
+          level: 'LOG_LEVEL_UNSPECIFIED',
         },
         name: 'Test string',
         nodeConfig: {
@@ -594,7 +595,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -607,7 +608,7 @@ gapi.load('client', async () => {
           clientCertificate: {
             secretVersion: 'Test string',
           },
-          clientCertType: 'Test string',
+          clientCertType: 'CERT_TYPE_UNSPECIFIED',
           clientPrivateKey: {
             secretVersion: 'Test string',
           },
@@ -617,17 +618,17 @@ gapi.load('client', async () => {
           privateServerCertificate: {
             secretVersion: 'Test string',
           },
-          serverCertType: 'Test string',
-          trustModel: 'Test string',
-          type: 'Test string',
+          serverCertType: 'CERT_TYPE_UNSPECIFIED',
+          trustModel: 'PUBLIC',
+          type: 'SSL_TYPE_UNSPECIFIED',
           useSsl: true,
         },
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           status: 'Test string',
         },
-        subscriptionType: 'Test string',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
         suspended: true,
         tlsServiceDirectory: 'Test string',
         trafficShapingConfigs: [
@@ -654,7 +655,7 @@ gapi.load('client', async () => {
           {
             entityType: 'Test string',
             name: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
           },
         ],
       },
@@ -669,7 +670,7 @@ gapi.load('client', async () => {
           {
             entityType: 'Test string',
             name: 'Test string',
-            operation: 'Test string',
+            operation: 'OPERATION_UNSPECIFIED',
           },
         ],
       },
@@ -677,7 +678,7 @@ gapi.load('client', async () => {
     /** Gets details of a single Connection. */
     await gapi.client.connectors.projects.locations.connections.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'CONNECTION_VIEW_UNSPECIFIED',
     });
     /** Gets schema metadata of a connection. SchemaMetadata is a singleton resource for each connection. */
     await gapi.client.connectors.projects.locations.connections.getConnectionSchemaMetadata(
@@ -697,7 +698,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'CONNECTION_VIEW_UNSPECIFIED',
     });
     /** ListenEvent listens to the event. */
     await gapi.client.connectors.projects.locations.connections.listenEvent(
@@ -738,7 +739,7 @@ gapi.load('client', async () => {
         adminFilters: [
           {
             filterKey: 'Test string',
-            filterType: 'Test string',
+            filterType: 'FILTER_TYPE_UNSPECIFIED',
             intValue: 'Test string',
             stringListValues: {
               listValues: ['Test string'],
@@ -753,7 +754,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -764,7 +765,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -817,14 +818,14 @@ gapi.load('client', async () => {
         },
         authOverrideEnabled: true,
         billingConfig: {
-          billingCategory: 'Test string',
+          billingCategory: 'BILLING_CATEGORY_UNSPECIFIED',
         },
         configVariables: [
           {
             boolValue: true,
             encryptionKeyValue: {
               kmsKeyName: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             intValue: 'Test string',
             key: 'Test string',
@@ -838,8 +839,9 @@ gapi.load('client', async () => {
         connectorVersion: 'Test string',
         connectorVersionInfraConfig: {
           connectionRatelimitWindowSeconds: 'Test string',
-          deploymentModel: 'Test string',
-          deploymentModelMigrationState: 'Test string',
+          deploymentModel: 'DEPLOYMENT_MODEL_UNSPECIFIED',
+          deploymentModelMigrationState:
+            'DEPLOYMENT_MODEL_MIGRATION_STATE_UNSPECIFIED',
           hpaConfig: {
             cpuUtilizationThreshold: 'Test string',
             memoryUtilizationThreshold: 'Test string',
@@ -856,9 +858,9 @@ gapi.load('client', async () => {
             memory: 'Test string',
           },
           sharedDeployment: 'Test string',
-          tlsMigrationState: 'Test string',
+          tlsMigrationState: 'TLS_MIGRATION_STATE_UNSPECIFIED',
         },
-        connectorVersionLaunchStage: 'Test string',
+        connectorVersionLaunchStage: 'LAUNCH_STAGE_UNSPECIFIED',
         createTime: 'Test string',
         description: 'Test string',
         destinationConfigs: [
@@ -880,7 +882,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -891,7 +893,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -948,7 +950,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -965,7 +967,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -976,7 +978,7 @@ gapi.load('client', async () => {
               },
             ],
             authKey: 'Test string',
-            authType: 'Test string',
+            authType: 'AUTH_TYPE_UNSPECIFIED',
             oauth2AuthCodeFlow: {
               authCode: 'Test string',
               authUri: 'Test string',
@@ -1043,7 +1045,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -1054,7 +1056,7 @@ gapi.load('client', async () => {
               },
             ],
             authKey: 'Test string',
-            authType: 'Test string',
+            authType: 'AUTH_TYPE_UNSPECIFIED',
             oauth2AuthCodeFlow: {
               authCode: 'Test string',
               authUri: 'Test string',
@@ -1133,7 +1135,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -1146,7 +1148,7 @@ gapi.load('client', async () => {
             clientCertificate: {
               secretVersion: 'Test string',
             },
-            clientCertType: 'Test string',
+            clientCertType: 'CERT_TYPE_UNSPECIFIED',
             clientPrivateKey: {
               secretVersion: 'Test string',
             },
@@ -1156,19 +1158,19 @@ gapi.load('client', async () => {
             privateServerCertificate: {
               secretVersion: 'Test string',
             },
-            serverCertType: 'Test string',
-            trustModel: 'Test string',
-            type: 'Test string',
+            serverCertType: 'CERT_TYPE_UNSPECIFIED',
+            trustModel: 'PUBLIC',
+            type: 'SSL_TYPE_UNSPECIFIED',
             useSsl: true,
           },
         },
-        eventingEnablementType: 'Test string',
+        eventingEnablementType: 'EVENTING_ENABLEMENT_TYPE_UNSPECIFIED',
         eventingRuntimeData: {
           eventsListenerEndpoint: 'Test string',
           eventsListenerPscSa: 'Test string',
           status: {
             description: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           webhookData: {
             additionalVariables: [
@@ -1176,7 +1178,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -1202,7 +1204,7 @@ gapi.load('client', async () => {
                     boolValue: true,
                     encryptionKeyValue: {
                       kmsKeyName: 'Test string',
-                      type: 'Test string',
+                      type: 'TYPE_UNSPECIFIED',
                     },
                     intValue: 'Test string',
                     key: 'Test string',
@@ -1236,7 +1238,7 @@ gapi.load('client', async () => {
         },
         logConfig: {
           enabled: true,
-          level: 'Test string',
+          level: 'LOG_LEVEL_UNSPECIFIED',
         },
         name: 'Test string',
         nodeConfig: {
@@ -1251,7 +1253,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -1264,7 +1266,7 @@ gapi.load('client', async () => {
           clientCertificate: {
             secretVersion: 'Test string',
           },
-          clientCertType: 'Test string',
+          clientCertType: 'CERT_TYPE_UNSPECIFIED',
           clientPrivateKey: {
             secretVersion: 'Test string',
           },
@@ -1274,17 +1276,17 @@ gapi.load('client', async () => {
           privateServerCertificate: {
             secretVersion: 'Test string',
           },
-          serverCertType: 'Test string',
-          trustModel: 'Test string',
-          type: 'Test string',
+          serverCertType: 'CERT_TYPE_UNSPECIFIED',
+          trustModel: 'PUBLIC',
+          type: 'SSL_TYPE_UNSPECIFIED',
           useSsl: true,
         },
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           status: 'Test string',
         },
-        subscriptionType: 'Test string',
+        subscriptionType: 'SUBSCRIPTION_TYPE_UNSPECIFIED',
         suspended: true,
         tlsServiceDirectory: 'Test string',
         trafficShapingConfigs: [
@@ -1329,7 +1331,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1383,7 +1385,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        view: 'Test string',
+        view: 'VIEW_UNSPECIFIED',
       },
     );
     /** List entity types. */
@@ -1393,7 +1395,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        view: 'Test string',
+        view: 'VIEW_UNSPECIFIED',
       },
     );
     /** Refresh runtime schema of a connection. */
@@ -1449,7 +1451,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -1543,12 +1545,12 @@ gapi.load('client', async () => {
             ],
           },
           serviceAccount: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        roles: ['Test string'],
+        roles: ['ROLE_UNSPECIFIED'],
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         userId: 'Test string',
@@ -1564,7 +1566,7 @@ gapi.load('client', async () => {
     await gapi.client.connectors.projects.locations.connections.endUserAuthentications.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'END_USER_AUTHENTICATION_VIEW_UNSPECIFIED',
       },
     );
     /** List EndUserAuthentications in a given project,location and connection. */
@@ -1623,7 +1625,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -1717,12 +1719,12 @@ gapi.load('client', async () => {
             ],
           },
           serviceAccount: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        roles: ['Test string'],
+        roles: ['ROLE_UNSPECIFIED'],
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         updateTime: 'Test string',
         userId: 'Test string',
@@ -1755,7 +1757,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -1769,18 +1771,18 @@ gapi.load('client', async () => {
             topicId: 'Test string',
           },
           serviceAccount: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         eventTypeId: 'Test string',
         filter: 'Test string',
         jms: {
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         subscriber: 'Test string',
         subscriberLink: 'Test string',
@@ -1789,7 +1791,7 @@ gapi.load('client', async () => {
             boolValue: true,
             encryptionKeyValue: {
               kmsKeyName: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             intValue: 'Test string',
             key: 'Test string',
@@ -1851,7 +1853,7 @@ gapi.load('client', async () => {
                 boolValue: true,
                 encryptionKeyValue: {
                   kmsKeyName: 'Test string',
-                  type: 'Test string',
+                  type: 'TYPE_UNSPECIFIED',
                 },
                 intValue: 'Test string',
                 key: 'Test string',
@@ -1865,18 +1867,18 @@ gapi.load('client', async () => {
             topicId: 'Test string',
           },
           serviceAccount: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         eventTypeId: 'Test string',
         filter: 'Test string',
         jms: {
           name: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         name: 'Test string',
         status: {
           description: 'Test string',
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
         },
         subscriber: 'Test string',
         subscriberLink: 'Test string',
@@ -1885,7 +1887,7 @@ gapi.load('client', async () => {
             boolValue: true,
             encryptionKeyValue: {
               kmsKeyName: 'Test string',
-              type: 'Test string',
+              type: 'TYPE_UNSPECIFIED',
             },
             intValue: 'Test string',
             key: 'Test string',
@@ -1932,7 +1934,7 @@ gapi.load('client', async () => {
       {
         serviceAccount: 'Test string',
         specLocation: 'Test string',
-        specType: 'Test string',
+        specType: 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED',
       },
     );
     /** Deletes a single CustomConnectorVersion. */
@@ -1998,7 +2000,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         serviceAttachment: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2009,7 +2011,7 @@ gapi.load('client', async () => {
     /** Gets details of a single EndpointAttachment. */
     await gapi.client.connectors.projects.locations.endpointAttachments.get({
       name: 'Test string',
-      view: 'Test string',
+      view: 'ENDPOINT_ATTACHMENT_VIEW_UNSPECIFIED',
     });
     /** List EndpointAttachments in a given project */
     await gapi.client.connectors.projects.locations.endpointAttachments.list({
@@ -2018,7 +2020,7 @@ gapi.load('client', async () => {
       pageSize: 42,
       pageToken: 'Test string',
       parent: 'Test string',
-      view: 'Test string',
+      view: 'ENDPOINT_ATTACHMENT_VIEW_UNSPECIFIED',
     });
     /** Updates the parameters of a single EndpointAttachment. */
     await gapi.client.connectors.projects.locations.endpointAttachments.patch(
@@ -2036,7 +2038,7 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         serviceAttachment: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2068,7 +2070,7 @@ gapi.load('client', async () => {
         allConnectorVersions: ['Test string'],
         allMarketplaceVersions: ['Test string'],
         createTime: 'Test string',
-        customConnectorType: 'Test string',
+        customConnectorType: 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         labels: {
@@ -2113,7 +2115,7 @@ gapi.load('client', async () => {
         allConnectorVersions: ['Test string'],
         allMarketplaceVersions: ['Test string'],
         createTime: 'Test string',
-        customConnectorType: 'Test string',
+        customConnectorType: 'CUSTOM_CONNECTOR_TYPE_UNSPECIFIED',
         description: 'Test string',
         displayName: 'Test string',
         labels: {
@@ -2139,7 +2141,7 @@ gapi.load('client', async () => {
               boolValue: true,
               encryptionKeyValue: {
                 kmsKeyName: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               intValue: 'Test string',
               key: 'Test string',
@@ -2150,7 +2152,7 @@ gapi.load('client', async () => {
             },
           ],
           authKey: 'Test string',
-          authType: 'Test string',
+          authType: 'AUTH_TYPE_UNSPECIFIED',
           oauth2AuthCodeFlow: {
             authCode: 'Test string',
             authUri: 'Test string',
@@ -2204,7 +2206,7 @@ gapi.load('client', async () => {
         authConfigTemplates: [
           {
             authKey: 'Test string',
-            authType: 'Test string',
+            authType: 'AUTH_TYPE_UNSPECIFIED',
             configVariableTemplates: [
               {
                 authorizationCodeLink: {
@@ -2225,10 +2227,10 @@ gapi.load('client', async () => {
                     id: 'Test string',
                   },
                 ],
-                enumSource: 'Test string',
+                enumSource: 'ENUM_SOURCE_UNSPECIFIED',
                 isAdvanced: true,
                 key: 'Test string',
-                locationType: 'Test string',
+                locationType: 'LOCATION_TYPE_UNSPECIFIED',
                 multipleSelectConfig: {
                   allowCustomValues: true,
                   multipleSelectOptions: [
@@ -2246,27 +2248,27 @@ gapi.load('client', async () => {
                   fieldComparisons: [
                     {
                       boolValue: true,
-                      comparator: 'Test string',
+                      comparator: 'COMPARATOR_UNSPECIFIED',
                       intValue: 'Test string',
                       key: 'Test string',
                       stringValue: 'Test string',
                     },
                   ],
                   logicalExpressions: undefined,
-                  logicalOperator: 'Test string',
+                  logicalOperator: 'OPERATOR_UNSPECIFIED',
                 },
                 roleGrant: {
                   helperTextTemplate: 'Test string',
-                  principal: 'Test string',
+                  principal: 'PRINCIPAL_UNSPECIFIED',
                   resource: {
                     pathTemplate: 'Test string',
-                    type: 'Test string',
+                    type: 'TYPE_UNSPECIFIED',
                   },
                   roles: ['Test string'],
                 },
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
                 validationRegex: 'Test string',
-                valueType: 'Test string',
+                valueType: 'VALUE_TYPE_UNSPECIFIED',
               },
             ],
             description: 'Test string',
@@ -2295,10 +2297,10 @@ gapi.load('client', async () => {
                 id: 'Test string',
               },
             ],
-            enumSource: 'Test string',
+            enumSource: 'ENUM_SOURCE_UNSPECIFIED',
             isAdvanced: true,
             key: 'Test string',
-            locationType: 'Test string',
+            locationType: 'LOCATION_TYPE_UNSPECIFIED',
             multipleSelectConfig: {
               allowCustomValues: true,
               multipleSelectOptions: [
@@ -2316,27 +2318,27 @@ gapi.load('client', async () => {
               fieldComparisons: [
                 {
                   boolValue: true,
-                  comparator: 'Test string',
+                  comparator: 'COMPARATOR_UNSPECIFIED',
                   intValue: 'Test string',
                   key: 'Test string',
                   stringValue: 'Test string',
                 },
               ],
               logicalExpressions: undefined,
-              logicalOperator: 'Test string',
+              logicalOperator: 'OPERATOR_UNSPECIFIED',
             },
             roleGrant: {
               helperTextTemplate: 'Test string',
-              principal: 'Test string',
+              principal: 'PRINCIPAL_UNSPECIFIED',
               resource: {
                 pathTemplate: 'Test string',
-                type: 'Test string',
+                type: 'TYPE_UNSPECIFIED',
               },
               roles: ['Test string'],
             },
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             validationRegex: 'Test string',
-            valueType: 'Test string',
+            valueType: 'VALUE_TYPE_UNSPECIFIED',
           },
         ],
         createTime: 'Test string',
@@ -2379,13 +2381,13 @@ gapi.load('client', async () => {
         publishStatus: {
           publishedAs: 'Test string',
           publishedSource: 'Test string',
-          publishState: 'Test string',
+          publishState: 'PUBLISH_STATE_UNSPECIFIED',
           publishTime: 'Test string',
         },
         serviceAccount: 'Test string',
         specLocation: 'Test string',
         specServerUrls: ['Test string'],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -2508,7 +2510,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -2556,14 +2558,14 @@ gapi.load('client', async () => {
     await gapi.client.connectors.projects.locations.providers.connectors.versions.fetchAuthSchema(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'AUTH_SCHEMA_VIEW_UNSPECIFIED',
       },
     );
     /** Gets details of a single connector version. */
     await gapi.client.connectors.projects.locations.providers.connectors.versions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'CONNECTOR_VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Lists Connector Versions in a given project and location. */
@@ -2572,7 +2574,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'CONNECTOR_VERSION_VIEW_UNSPECIFIED',
       },
     );
     /** Gets details of a single event type. */

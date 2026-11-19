@@ -28,7 +28,7 @@ gapi.load('client', async () => {
       },
       {
         name: 'Test string',
-        notificationTypes: ['Test string'],
+        notificationTypes: ['NOTIFICATION_TYPE_UNSPECIFIED'],
         pubsubTopic: 'Test string',
       },
     );

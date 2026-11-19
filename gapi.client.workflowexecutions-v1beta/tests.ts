@@ -45,7 +45,7 @@ gapi.load('client', async () => {
       },
       {
         argument: 'Test string',
-        callLogLevel: 'Test string',
+        callLogLevel: 'CALL_LOG_LEVEL_UNSPECIFIED',
         endTime: 'Test string',
         error: {
           context: 'Test string',
@@ -67,7 +67,7 @@ gapi.load('client', async () => {
         name: 'Test string',
         result: 'Test string',
         startTime: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         status: {
           currentSteps: [
             {
@@ -83,7 +83,7 @@ gapi.load('client', async () => {
     await gapi.client.workflowexecutions.projects.locations.workflows.executions.get(
       {
         name: 'Test string',
-        view: 'Test string',
+        view: 'EXECUTION_VIEW_UNSPECIFIED',
       },
     );
     /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
@@ -92,7 +92,7 @@ gapi.load('client', async () => {
         pageSize: 42,
         pageToken: 'Test string',
         parent: 'Test string',
-        view: 'Test string',
+        view: 'EXECUTION_VIEW_UNSPECIFIED',
       },
     );
   }

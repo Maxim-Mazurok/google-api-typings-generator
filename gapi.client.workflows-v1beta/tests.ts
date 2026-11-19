@@ -76,7 +76,7 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         serviceAccount: 'Test string',
         sourceContents: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -113,7 +113,7 @@ gapi.load('client', async () => {
         revisionId: 'Test string',
         serviceAccount: 'Test string',
         sourceContents: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

@@ -39,8 +39,8 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        alertType: 'Test string',
-        language: 'Test string',
+        alertType: 'ALERT_TYPE_UNSPECIFIED',
+        language: 'USER_PREFERENCE',
       },
     );
     /** Retrieves the Android Profiling Manager configuration for an app. */
@@ -71,15 +71,15 @@ gapi.load('client', async () => {
     await gapi.client.firebasecrashlytics.projects.apps.events.list({
       'filter.browser.displayNames': 'Test string',
       'filter.device.displayNames': 'Test string',
-      'filter.device.formFactors': 'Test string',
+      'filter.device.formFactors': 'FORM_FACTOR_UNSPECIFIED',
       'filter.interval.endTime': 'Test string',
       'filter.interval.startTime': 'Test string',
       'filter.issue.content': 'Test string',
-      'filter.issue.errorTypes': 'Test string',
+      'filter.issue.errorTypes': 'ERROR_TYPE_UNSPECIFIED',
       'filter.issue.id': 'Test string',
-      'filter.issue.signals': 'Test string',
-      'filter.issue.state': 'Test string',
-      'filter.issue.states': 'Test string',
+      'filter.issue.signals': 'SIGNAL_UNSPECIFIED',
+      'filter.issue.state': 'STATE_UNSPECIFIED',
+      'filter.issue.states': 'STATE_UNSPECIFIED',
       'filter.issue.variantId': 'Test string',
       'filter.operatingSystem.displayNames': 'Test string',
       'filter.version.displayNames': 'Test string',
@@ -98,7 +98,7 @@ gapi.load('client', async () => {
         requests: [
           {
             issue: {
-              errorType: 'Test string',
+              errorType: 'ERROR_TYPE_UNSPECIFIED',
               firstSeenTime: 'Test string',
               firstSeenVersion: 'Test string',
               id: 'Test string',
@@ -110,10 +110,10 @@ gapi.load('client', async () => {
               signals: [
                 {
                   description: 'Test string',
-                  signal: 'Test string',
+                  signal: 'SIGNAL_UNSPECIFIED',
                 },
               ],
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
               stateUpdateTime: 'Test string',
               subtitle: 'Test string',
               title: 'Test string',
@@ -143,7 +143,7 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
-        errorType: 'Test string',
+        errorType: 'ERROR_TYPE_UNSPECIFIED',
         firstSeenTime: 'Test string',
         firstSeenVersion: 'Test string',
         id: 'Test string',
@@ -155,10 +155,10 @@ gapi.load('client', async () => {
         signals: [
           {
             description: 'Test string',
-            signal: 'Test string',
+            signal: 'SIGNAL_UNSPECIFIED',
           },
         ],
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateUpdateTime: 'Test string',
         subtitle: 'Test string',
         title: 'Test string',
@@ -198,30 +198,30 @@ gapi.load('client', async () => {
     await gapi.client.firebasecrashlytics.projects.apps.reports.get({
       'filter.browser.displayNames': 'Test string',
       'filter.device.displayNames': 'Test string',
-      'filter.device.formFactors': 'Test string',
+      'filter.device.formFactors': 'FORM_FACTOR_UNSPECIFIED',
       'filter.interval.endTime': 'Test string',
       'filter.interval.startTime': 'Test string',
       'filter.issue.content': 'Test string',
-      'filter.issue.errorTypes': 'Test string',
+      'filter.issue.errorTypes': 'ERROR_TYPE_UNSPECIFIED',
       'filter.issue.id': 'Test string',
-      'filter.issue.signals': 'Test string',
-      'filter.issue.state': 'Test string',
-      'filter.issue.states': 'Test string',
+      'filter.issue.signals': 'SIGNAL_UNSPECIFIED',
+      'filter.issue.state': 'STATE_UNSPECIFIED',
+      'filter.issue.states': 'STATE_UNSPECIFIED',
       'filter.issue.variantId': 'Test string',
       'filter.operatingSystem.displayNames': 'Test string',
       'filter.version.displayNames': 'Test string',
       filterExpression: 'Test string',
-      granularity: 'Test string',
-      metricsMode: 'Test string',
+      granularity: 'TIME_GRANULARITY_UNSPECIFIED',
+      metricsMode: 'METRICS_MODE_UNSPECIFIED',
       name: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'REPORT_VIEW_UNSPECIFIED',
     });
     /** List all of the available reports. */
     await gapi.client.firebasecrashlytics.projects.apps.reports.list({
       parent: 'Test string',
-      view: 'Test string',
+      view: 'REPORT_VIEW_UNSPECIFIED',
     });
     /** Enqueues a request to permanently remove crash reports associated with the specified user. All reports belonging to the specified user will be deleted typically within 24 hours of receiving the crash report. */
     await gapi.client.firebasecrashlytics.projects.apps.users.deleteCrashReports(

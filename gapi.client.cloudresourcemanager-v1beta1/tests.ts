@@ -67,7 +67,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -108,7 +108,7 @@ gapi.load('client', async () => {
       {
         creationTime: 'Test string',
         displayName: 'Test string',
-        lifecycleState: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
         name: 'Test string',
         organizationId: 'Test string',
         owner: {
@@ -128,8 +128,8 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        lifecycleState: 'Test string',
-        managementType: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
+        managementType: 'MANAGEMENT_TYPE_UNSPECIFIED',
         name: 'Test string',
         parent: {
           id: 'Test string',
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -235,8 +235,8 @@ gapi.load('client', async () => {
         labels: {
           A: 'Test string',
         },
-        lifecycleState: 'Test string',
-        managementType: 'Test string',
+        lifecycleState: 'LIFECYCLE_STATE_UNSPECIFIED',
+        managementType: 'MANAGEMENT_TYPE_UNSPECIFIED',
         name: 'Test string',
         parent: {
           id: 'Test string',

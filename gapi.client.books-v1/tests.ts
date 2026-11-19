@@ -176,7 +176,7 @@ gapi.load('client', async () => {
     /** Request concurrent and download access restrictions. */
     await gapi.client.books.myconfig.requestAccess({
       cpksver: 'Test string',
-      licenseTypes: 'Test string',
+      licenseTypes: 'LICENSE_TYPES_UNDEFINED',
       locale: 'Test string',
       nonce: 'Test string',
       source: 'Test string',
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
     /** Request downloaded content access for specified volumes on the My eBooks shelf. */
     await gapi.client.books.myconfig.syncVolumeLicenses({
       cpksver: 'Test string',
-      features: 'Test string',
+      features: 'FEATURES_UNDEFINED',
       includeNonComicsSeries: true,
       locale: 'Test string',
       nonce: 'Test string',
@@ -413,7 +413,7 @@ gapi.load('client', async () => {
     );
     /** Adds a volume to a bookshelf. */
     await gapi.client.books.mylibrary.bookshelves.addVolume({
-      reason: 'Test string',
+      reason: 'REASON_UNDEFINED',
       shelf: 'Test string',
       source: 'Test string',
       volumeId: 'Test string',
@@ -441,7 +441,7 @@ gapi.load('client', async () => {
     });
     /** Removes a volume from a bookshelf. */
     await gapi.client.books.mylibrary.bookshelves.removeVolume({
-      reason: 'Test string',
+      reason: 'REASON_UNDEFINED',
       shelf: 'Test string',
       source: 'Test string',
       volumeId: 'Test string',
@@ -450,7 +450,7 @@ gapi.load('client', async () => {
     await gapi.client.books.mylibrary.bookshelves.volumes.list({
       country: 'Test string',
       maxResults: 42,
-      projection: 'Test string',
+      projection: 'PROJECTION_UNDEFINED',
       q: 'Test string',
       shelf: 'Test string',
       showPreorders: true,
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
     });
     /** Sets my reading position information for a volume. */
     await gapi.client.books.mylibrary.readingpositions.setPosition({
-      action: 'Test string',
+      action: 'ACTION_UNDEFINED',
       contentVersion: 'Test string',
       deviceCookie: 'Test string',
       position: 'Test string',
@@ -487,14 +487,14 @@ gapi.load('client', async () => {
     await gapi.client.books.onboarding.listCategoryVolumes({
       categoryId: 'Test string',
       locale: 'Test string',
-      maxAllowedMaturityRating: 'Test string',
+      maxAllowedMaturityRating: 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED',
       pageSize: 42,
       pageToken: 'Test string',
     });
     /** Returns a stream of personalized book clusters */
     await gapi.client.books.personalizedstream.get({
       locale: 'Test string',
-      maxAllowedMaturityRating: 'Test string',
+      maxAllowedMaturityRating: 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED',
       source: 'Test string',
     });
     /** Accepts the promo offer. */
@@ -542,23 +542,23 @@ gapi.load('client', async () => {
       country: 'Test string',
       includeNonComicsSeries: true,
       partner: 'Test string',
-      projection: 'Test string',
+      projection: 'PROJECTION_UNDEFINED',
       source: 'Test string',
       user_library_consistent_read: true,
       volumeId: 'Test string',
     });
     /** Performs a book search. */
     await gapi.client.books.volumes.list({
-      download: 'Test string',
-      filter: 'Test string',
+      download: 'DOWNLOAD_UNDEFINED',
+      filter: 'FILTER_UNDEFINED',
       langRestrict: 'Test string',
-      libraryRestrict: 'Test string',
-      maxAllowedMaturityRating: 'Test string',
+      libraryRestrict: 'LIBRARY_RESTRICT_UNDEFINED',
+      maxAllowedMaturityRating: 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED',
       maxResults: 42,
-      orderBy: 'Test string',
+      orderBy: 'ORDER_BY_UNDEFINED',
       partner: 'Test string',
-      printType: 'Test string',
-      projection: 'Test string',
+      printType: 'PRINT_TYPE_UNDEFINED',
+      projection: 'PROJECTION_UNDEFINED',
       q: 'Test string',
       showPreorders: true,
       source: 'Test string',
@@ -566,32 +566,32 @@ gapi.load('client', async () => {
     });
     /** Return a list of associated books. */
     await gapi.client.books.volumes.associated.list({
-      association: 'Test string',
+      association: 'ASSOCIATION_UNDEFINED',
       locale: 'Test string',
-      maxAllowedMaturityRating: 'Test string',
+      maxAllowedMaturityRating: 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED',
       source: 'Test string',
       volumeId: 'Test string',
     });
     /** Return a list of books in My Library. */
     await gapi.client.books.volumes.mybooks.list({
-      acquireMethod: 'Test string',
+      acquireMethod: 'ACQUIRE_METHOD_UNDEFINED',
       country: 'Test string',
       locale: 'Test string',
       maxResults: 42,
-      processingState: 'Test string',
+      processingState: 'PROCESSING_STATE_UNDEFINED',
       source: 'Test string',
       startIndex: 42,
     });
     /** Return a list of recommended books for the current user. */
     await gapi.client.books.volumes.recommended.list({
       locale: 'Test string',
-      maxAllowedMaturityRating: 'Test string',
+      maxAllowedMaturityRating: 'MAX_ALLOWED_MATURITY_RATING_UNDEFINED',
       source: 'Test string',
     });
     /** Rate a recommended book for the current user. */
     await gapi.client.books.volumes.recommended.rate({
       locale: 'Test string',
-      rating: 'Test string',
+      rating: 'RATING_UNDEFINED',
       source: 'Test string',
       volumeId: 'Test string',
     });
@@ -599,7 +599,7 @@ gapi.load('client', async () => {
     await gapi.client.books.volumes.useruploaded.list({
       locale: 'Test string',
       maxResults: 42,
-      processingState: 'Test string',
+      processingState: 'PROCESSING_STATE_UNDEFINED',
       source: 'Test string',
       startIndex: 42,
       volumeId: 'Test string',

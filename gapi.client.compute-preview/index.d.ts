@@ -5639,7 +5639,7 @@ declare namespace gapi.client {
       /** Location policy for this request. */
       locationPolicy?: CapacityHistoryRequestLocationPolicy;
       /** List of history types to get capacity history for. */
-      types?: 'HISTORY_TYPE_UNSPECIFIED' | 'PREEMPTION' | 'PRICE'[];
+      types?: ('HISTORY_TYPE_UNSPECIFIED' | 'PREEMPTION' | 'PRICE')[];
     }
     interface CapacityHistoryRequestInstanceProperties {
       /** Local SSDs. */
@@ -13931,10 +13931,11 @@ declare namespace gapi.client {
     }
     interface HostsGetVersionRequest {
       /** The SBOM selection to return. Duplicate values in the list will be ignored. */
-      sbomSelections?:
+      sbomSelections?: (
         | 'SBOM_SELECTION_CURRENT'
         | 'SBOM_SELECTION_TARGET'
-        | 'SBOM_SELECTION_UNSPECIFIED'[];
+        | 'SBOM_SELECTION_UNSPECIFIED'
+      )[];
     }
     interface HostsListResponse {
       etag?: string;
@@ -17097,8 +17098,9 @@ declare namespace gapi.client {
        */
       allInstances?: boolean;
       /** Actions that are allowed to update instances within MIG. */
-      allowedActions?:
-        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'[];
+      allowedActions?: (
+        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'
+      )[];
       /**
        * The list of URLs of one or more instances for which you want to apply
        * updates. Each URL can be a full URL or a partial URL, such aszones/[ZONE]/instances/[INSTANCE_NAME].
@@ -17728,8 +17730,9 @@ declare namespace gapi.client {
     }
     interface InstanceGroupManagerUpdatePolicy {
       /** Actions that are allowed to update instances within MIG. */
-      allowedActions?:
-        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'[];
+      allowedActions?: (
+        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'
+      )[];
       /**
        * The
        * instance redistribution policy for regional managed instance groups.
@@ -19510,8 +19513,9 @@ declare namespace gapi.client {
        * connection is not provisioned for Cross-Site Networking. Any attempt to use
        * it for Cross-Site Networking will fail.
        */
-      availableFeatures?:
-        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'[];
+      availableFeatures?: (
+        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'
+      )[];
       /**
        * Output only. [Output Only] A list of CircuitInfo objects, that describe the individual
        * circuits in this LAG.
@@ -19689,8 +19693,9 @@ declare namespace gapi.client {
        * exclusively for Cross-Site Networking. The connection can not be used for
        * Cross-Site Networking unless this feature is specified.
        */
-      requestedFeatures?:
-        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'[];
+      requestedFeatures?: (
+        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'
+      )[];
       /**
        * Target number of physical links in the link bundle, as requested by the
        * customer.
@@ -21214,8 +21219,9 @@ declare namespace gapi.client {
        * exclusively for Cross-Site Networking. The connection can not be used for
        * Cross-Site Networking unless this feature is specified.
        */
-      requestedFeatures?:
-        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'[];
+      requestedFeatures?: (
+        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'
+      )[];
       /**
        * Target number of physical links in the link bundle, as requested by the
        * customer.
@@ -21445,8 +21451,9 @@ declare namespace gapi.client {
        * - IF_MACSEC
        * - IF_CROSS_SITE_NETWORK
        */
-      availableFeatures?:
-        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'[];
+      availableFeatures?: (
+        'IF_CROSS_SITE_NETWORK' | 'IF_L2_FORWARDING' | 'IF_MACSEC'
+      )[];
       /**
        * [Output only] List of link types available at this InterconnectLocation,
        * which can take one of the following values:
@@ -21455,10 +21462,11 @@ declare namespace gapi.client {
        * - LINK_TYPE_ETHERNET_100G_LR
        * - LINK_TYPE_ETHERNET_400G_LR4
        */
-      availableLinkTypes?:
+      availableLinkTypes?: (
         | 'LINK_TYPE_ETHERNET_100G_LR'
         | 'LINK_TYPE_ETHERNET_10G_LR'
-        | 'LINK_TYPE_ETHERNET_400G_LR4'[];
+        | 'LINK_TYPE_ETHERNET_400G_LR4'
+      )[];
       /**
        * [Output Only] Metropolitan area designator that indicates which city an
        * interconnect is located.
@@ -25669,7 +25677,7 @@ declare namespace gapi.client {
        * Specifies what address purposes are supported. If empty, all address
        * purposes are supported.
        */
-      addressPurposes?:
+      addressPurposes?: (
         | 'DNS_RESOLVER'
         | 'GCE_ENDPOINT'
         | 'IPSEC_INTERCONNECT'
@@ -25677,7 +25685,8 @@ declare namespace gapi.client {
         | 'PRIVATE_SERVICE_CONNECT'
         | 'SERVERLESS'
         | 'SHARED_LOADBALANCER_VIP'
-        | 'VPC_PEERING'[];
+        | 'VPC_PEERING'
+      )[];
       /** Specifies whether address creation is allowed. */
       allowAddressCreation?:
         'ADDRESS_CREATION_ALLOWED' | 'ADDRESS_CREATION_BLOCKED';
@@ -25755,22 +25764,21 @@ declare namespace gapi.client {
       allowVpcPeering?: 'VPC_PEERING_ALLOWED' | 'VPC_PEERING_BLOCKED';
       /** Specifies whether VPN creation is allowed. */
       allowVpn?: 'VPN_ALLOWED' | 'VPN_BLOCKED';
-      firewallPolicyTypes?:
-        | 'NCC_GATEWAY_POLICY'
-        | 'RDMA_ROCE_POLICY'
-        | 'ULL_POLICY'
-        | 'VPC_POLICY'[];
+      firewallPolicyTypes?: (
+        'NCC_GATEWAY_POLICY' | 'RDMA_ROCE_POLICY' | 'ULL_POLICY' | 'VPC_POLICY'
+      )[];
       /**
        * If set, limits the interface types that the network supports. If
        * empty, all interface types are supported.
        */
-      interfaceTypes?:
+      interfaceTypes?: (
         | 'GVNIC'
         | 'IDPF'
         | 'IRDMA'
         | 'MRDMA'
         | 'UNSPECIFIED_NIC_TYPE'
-        | 'VIRTIO_NET'[];
+        | 'VIRTIO_NET'
+      )[];
       /** Specifies which type of multicast is supported. */
       multicast?: 'MULTICAST_SDN' | 'MULTICAST_ULL';
       /** Specifies a predefined internal IPv6 range for the network. */
@@ -25778,15 +25786,17 @@ declare namespace gapi.client {
       /** Predefined subnetwork ranges for the network. */
       predefinedSubnetworkRanges?: NetworkProfileNetworkFeaturesPredefinedSubnetworkRange[];
       /** Specifies which subnetwork purposes are supported. */
-      subnetPurposes?:
-        'SUBNET_PURPOSE_CUSTOM_HARDWARE' | 'SUBNET_PURPOSE_PRIVATE'[];
+      subnetPurposes?: (
+        'SUBNET_PURPOSE_CUSTOM_HARDWARE' | 'SUBNET_PURPOSE_PRIVATE'
+      )[];
       /** Specifies which subnetwork stack types are supported. */
-      subnetStackTypes?:
+      subnetStackTypes?: (
         | 'SUBNET_STACK_TYPE_IPV4_IPV6'
         | 'SUBNET_STACK_TYPE_IPV4_ONLY'
-        | 'SUBNET_STACK_TYPE_IPV6_ONLY'[];
+        | 'SUBNET_STACK_TYPE_IPV6_ONLY'
+      )[];
       /** Output only. Specifies which subnetwork purposes are supported. */
-      subnetworkPurposes?:
+      subnetworkPurposes?: (
         | 'GLOBAL_MANAGED_PROXY'
         | 'INTERNAL_HTTPS_LOAD_BALANCER'
         | 'PEER_MIGRATION'
@@ -25794,9 +25804,10 @@ declare namespace gapi.client {
         | 'PRIVATE_NAT'
         | 'PRIVATE_RFC_1918'
         | 'PRIVATE_SERVICE_CONNECT'
-        | 'REGIONAL_MANAGED_PROXY'[];
+        | 'REGIONAL_MANAGED_PROXY'
+      )[];
       /** Output only. Specifies which subnetwork stack types are supported. */
-      subnetworkStackTypes?: 'IPV4_IPV6' | 'IPV4_ONLY' | 'IPV6_ONLY'[];
+      subnetworkStackTypes?: ('IPV4_IPV6' | 'IPV4_ONLY' | 'IPV6_ONLY')[];
       /** Specifies which type of unicast is supported. */
       unicast?: 'UNICAST_SDN' | 'UNICAST_ULL';
     }
@@ -30592,8 +30603,9 @@ declare namespace gapi.client {
        */
       allInstances?: boolean;
       /** Actions that are allowed to update instances within MIG. */
-      allowedActions?:
-        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'[];
+      allowedActions?: (
+        'NONE' | 'REFRESH' | 'REPLACE' | 'RESTART' | 'RESTART_IN_PLACE'
+      )[];
       /**
        * The list of URLs of one or more instances for which you want to apply
        * updates. Each URL can be a full URL or a partial URL, such aszones/[ZONE]/instances/[INSTANCE_NAME].
@@ -31898,10 +31910,11 @@ declare namespace gapi.client {
     }
     interface ReservationSlotsGetVersionRequest {
       /** The SBOM selection to return. Duplicate values in the list will be ignored. */
-      sbomSelections?:
+      sbomSelections?: (
         | 'SBOM_SELECTION_CURRENT'
         | 'SBOM_SELECTION_TARGET'
-        | 'SBOM_SELECTION_UNSPECIFIED'[];
+        | 'SBOM_SELECTION_UNSPECIFIED'
+      )[];
     }
     interface ReservationSlotsListResponse {
       /** The unique identifier for the resource; defined by the server. */
@@ -32169,10 +32182,11 @@ declare namespace gapi.client {
     }
     interface ReservationSubBlocksGetVersionRequest {
       /** The SBOM selection to return. */
-      sbomSelections?:
+      sbomSelections?: (
         | 'SBOM_SELECTION_CURRENT'
         | 'SBOM_SELECTION_TARGET'
-        | 'SBOM_SELECTION_UNSPECIFIED'[];
+        | 'SBOM_SELECTION_UNSPECIFIED'
+      )[];
     }
     interface ReservationSubBlocksListResponse {
       /** Unique identifier for the resource; defined by the server. */
@@ -34535,10 +34549,11 @@ declare namespace gapi.client {
        * List of NAT-ted endpoint types supported by the Nat Gateway. If the list
        * is empty, then it will be equivalent to include ENDPOINT_TYPE_VM
        */
-      endpointTypes?:
+      endpointTypes?: (
         | 'ENDPOINT_TYPE_MANAGED_PROXY_LB'
         | 'ENDPOINT_TYPE_SWG'
-        | 'ENDPOINT_TYPE_VM'[];
+        | 'ENDPOINT_TYPE_VM'
+      )[];
       /** Timeout (in seconds) for ICMP connections. Defaults to 30s if not set. */
       icmpIdleTimeoutSec?: number;
       /** Configure logging on this NAT. */
@@ -34765,8 +34780,9 @@ declare namespace gapi.client {
        * "LIST_OF_SECONDARY_IP_RANGES"]
        * Default: [ALL_IP_RANGES]
        */
-      sourceIpRangesToNat?:
-        'ALL_IP_RANGES' | 'LIST_OF_SECONDARY_IP_RANGES' | 'PRIMARY_IP_RANGE'[];
+      sourceIpRangesToNat?: (
+        'ALL_IP_RANGES' | 'LIST_OF_SECONDARY_IP_RANGES' | 'PRIMARY_IP_RANGE'
+      )[];
     }
     interface RouterNatSubnetworkToNat64 {
       /** URL for the subnetwork resource that will use NAT64. */
@@ -42774,7 +42790,7 @@ declare namespace gapi.client {
       /** Indicates whether the UpcomingMaintenance will be triggered on VM shutdown. */
       maintenanceOnShutdown?: boolean;
       /** The reasons for the maintenance. Only valid for vms. */
-      maintenanceReasons?:
+      maintenanceReasons?: (
         | 'FAILURE_CUSTOMER_REPORTED'
         | 'FAILURE_DISK'
         | 'FAILURE_GPU'
@@ -42792,7 +42808,8 @@ declare namespace gapi.client {
         | 'INFRASTRUCTURE_RELOCATION'
         | 'MAINTENANCE_REASON_UNKNOWN'
         | 'PLANNED_NETWORK_UPDATE'
-        | 'PLANNED_UPDATE'[];
+        | 'PLANNED_UPDATE'
+      )[];
       maintenanceStatus?: 'ONGOING' | 'PENDING' | 'UNKNOWN';
       /** Defines the type of maintenance. */
       type?: 'MULTIPLE' | 'SCHEDULED' | 'UNKNOWN_TYPE' | 'UNSCHEDULED';
@@ -43226,8 +43243,9 @@ declare namespace gapi.client {
        * If specified, the scheme(s) must not conflict with the load balancing
        * scheme of the backend service resources this Url map references.
        */
-      loadBalancingSchemes?:
-        'EXTERNAL' | 'EXTERNAL_MANAGED' | 'LOAD_BALANCING_SCHEME_UNSPECIFIED'[];
+      loadBalancingSchemes?: (
+        'EXTERNAL' | 'EXTERNAL_MANAGED' | 'LOAD_BALANCING_SCHEME_UNSPECIFIED'
+      )[];
       /** Content of the UrlMap to be validated. */
       resource?: UrlMap;
     }
@@ -44670,41 +44688,48 @@ declare namespace gapi.client {
       vpnGatewayInterface?: number;
     }
     interface VpnTunnelAdditionalKeyExchanges {
-      ke1s?:
+      ke1s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke2s?:
+        | 'ML_KEM_768'
+      )[];
+      ke2s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke3s?:
+        | 'ML_KEM_768'
+      )[];
+      ke3s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke4s?:
+        | 'ML_KEM_768'
+      )[];
+      ke4s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke5s?:
+        | 'ML_KEM_768'
+      )[];
+      ke5s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke6s?:
+        | 'ML_KEM_768'
+      )[];
+      ke6s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
-      ke7s?:
+        | 'ML_KEM_768'
+      )[];
+      ke7s?: (
         | 'KEY_ENCAPSULATION_MECHANISM_UNSPECIFIED'
         | 'KE_NONE'
         | 'ML_KEM_1024'
-        | 'ML_KEM_768'[];
+        | 'ML_KEM_768'
+      )[];
     }
     interface VpnTunnelAggregatedList {
       /** [Output Only] Unique identifier for the resource; defined by the server. */
@@ -45599,7 +45624,8 @@ declare namespace gapi.client {
        */
       policy?: Policy;
     }
-    interface AcceleratorInterconnectMemberInstancesResource {
+
+    const acceleratorInterconnectMemberInstances: {
       /** Lists member instances of the AcceleratorInterconnect. */
       list(request?: {
         /** V1 error format. */
@@ -45728,8 +45754,9 @@ declare namespace gapi.client {
          */
         zone: string;
       }): Request<AcceleratorInterconnectMemberInstancesListResponse>;
-    }
-    interface AcceleratorInterconnectsResource {
+    };
+
+    const acceleratorInterconnects: {
       /** Deletes the specified accelerator interconnect. */
       delete(request?: {
         /** V1 error format. */
@@ -46306,8 +46333,9 @@ declare namespace gapi.client {
         },
         body: QueryFormabilityRequest,
       ): Request<QueryFormabilityResponse>;
-    }
-    interface AcceleratorTypesResource {
+    };
+
+    const acceleratorTypes: {
       /**
        * Retrieves an aggregated list of accelerator types.
        *
@@ -46602,8 +46630,9 @@ declare namespace gapi.client {
         /** The name of the zone for this request. */
         zone: string;
       }): Request<AcceleratorTypeList>;
-    }
-    interface AddressesResource {
+    };
+
+    const addresses: {
       /**
        * Retrieves an aggregated list of addresses.
        *
@@ -47241,8 +47270,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface AdviceResource {
+    };
+
+    const advice: {
       /**
        * Advise how, where and when to create the requested amount of instances
        * with specified accelerators, within the specified time and location limits.
@@ -47450,8 +47480,9 @@ declare namespace gapi.client {
         },
         body: CapacityHistoryRequest,
       ): Request<CapacityHistoryResponse>;
-    }
-    interface AliasNetworkEndpointsResource {
+    };
+
+    const aliasNetworkEndpoints: {
       /** Deletes the specified AliasNetworkEndpoint. */
       delete(request?: {
         /** V1 error format. */
@@ -47728,8 +47759,9 @@ declare namespace gapi.client {
         /** Required. Name of the zone of this request. */
         zone: string;
       }): Request<AliasNetworkEndpointList>;
-    }
-    interface AutoscalersResource {
+    };
+
+    const autoscalers: {
       /**
        * Retrieves an aggregated list of autoscalers.
        *
@@ -48422,8 +48454,9 @@ declare namespace gapi.client {
         },
         body: Autoscaler,
       ): Request<Operation>;
-    }
-    interface BackendBucketsResource {
+    };
+
+    const backendBuckets: {
       /**
        * Adds a key for validating requests with signed URLs for this backend
        * bucket.
@@ -49554,8 +49587,9 @@ declare namespace gapi.client {
         },
         body: BackendBucket,
       ): Request<Operation>;
-    }
-    interface BackendServicesResource {
+    };
+
+    const backendServices: {
       /**
        * Adds a key for validating requests with signed URLs for this backend
        * service.
@@ -50906,8 +50940,9 @@ declare namespace gapi.client {
         },
         body: BackendService,
       ): Request<Operation>;
-    }
-    interface CrossSiteNetworksResource {
+    };
+
+    const crossSiteNetworks: {
       /** Deletes the specified cross-site network in the given scope. */
       delete(request?: {
         /** V1 error format. */
@@ -51321,8 +51356,306 @@ declare namespace gapi.client {
         },
         body: CrossSiteNetwork,
       ): Request<Operation>;
-    }
-    interface DisksResource {
+    };
+
+    const diskTypes: {
+      /**
+       * Retrieves an aggregated list of disk types.
+       *
+       * To prevent failure, it is recommended that you set the
+       * `returnPartialSuccess` parameter to `true`.
+       */
+      aggregatedList(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /**
+         * Indicates whether every visible scope for each scope type (zone, region,
+         * global) should be included in the response. For new resource types added
+         * after this field, the flag has no effect as new resource types will always
+         * include every visible scope for each scope type in response. For resource
+         * types which predate this field, if this flag is omitted or false, only
+         * scopes of the scope types where the resource type is expected to be found
+         * will be included.
+         */
+        includeAllScopes?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * The Shared VPC service project id or service project number for which
+         * aggregated list request is invoked for subnetworks list-usable api.
+         */
+        serviceProjectNumber?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<DiskTypeAggregatedList>;
+      /** Returns the specified disk type. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Name of the disk type to return. */
+        diskType: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request. */
+        zone: string;
+      }): Request<DiskType>;
+      /**
+       * Retrieves a list of disk types available to the specified
+       * project.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request. */
+        zone: string;
+      }): Request<DiskTypeList>;
+    };
+
+    const disks: {
       /**
        * Adds existing resource policies to a disk. You can only add one
        * policy which will be applied to this disk for scheduling snapshot
@@ -53012,304 +53345,9 @@ declare namespace gapi.client {
         },
         body: DiskUpdateKmsKeyRequest,
       ): Request<Operation>;
-    }
-    interface DiskTypesResource {
-      /**
-       * Retrieves an aggregated list of disk types.
-       *
-       * To prevent failure, it is recommended that you set the
-       * `returnPartialSuccess` parameter to `true`.
-       */
-      aggregatedList(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /**
-         * Indicates whether every visible scope for each scope type (zone, region,
-         * global) should be included in the response. For new resource types added
-         * after this field, the flag has no effect as new resource types will always
-         * include every visible scope for each scope type in response. For resource
-         * types which predate this field, if this flag is omitted or false, only
-         * scopes of the scope types where the resource type is expected to be found
-         * will be included.
-         */
-        includeAllScopes?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * The Shared VPC service project id or service project number for which
-         * aggregated list request is invoked for subnetworks list-usable api.
-         */
-        serviceProjectNumber?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<DiskTypeAggregatedList>;
-      /** Returns the specified disk type. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Name of the disk type to return. */
-        diskType: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request. */
-        zone: string;
-      }): Request<DiskType>;
-      /**
-       * Retrieves a list of disk types available to the specified
-       * project.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request. */
-        zone: string;
-      }): Request<DiskTypeList>;
-    }
-    interface ExternalVpnGatewaysResource {
+    };
+
+    const externalVpnGateways: {
       /** Deletes the specified externalVpnGateway. */
       delete(request?: {
         /** V1 error format. */
@@ -53681,8 +53719,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface FirewallPoliciesResource {
+    };
+
+    const firewallPolicies: {
       /** Inserts an association for the specified firewall policy. */
       addAssociation(request: {
         /** V1 error format. */
@@ -54772,8 +54811,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface FirewallsResource {
+    };
+
+    const firewalls: {
       /** Deletes the specified firewall. */
       delete(request?: {
         /** V1 error format. */
@@ -55310,8 +55350,9 @@ declare namespace gapi.client {
         },
         body: Firewall,
       ): Request<Operation>;
-    }
-    interface FolderGlobalVmExtensionPoliciesResource {
+    };
+
+    const folderGlobalVmExtensionPolicies: {
       /**
        * Retrieves the list of all folder level VM Extension Policy resources
        * available to the specified folder.
@@ -56049,8 +56090,9 @@ declare namespace gapi.client {
         },
         body: GlobalVmExtensionPolicy,
       ): Request<Operation>;
-    }
-    interface FolderRolloutPlansResource {
+    };
+
+    const folderRolloutPlans: {
       /** Deletes a FolderRolloutPlan. */
       delete(request?: {
         /** V1 error format. */
@@ -56341,8 +56383,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<RolloutPlansListResponse>;
-    }
-    interface FolderRolloutsResource {
+    };
+
+    const folderRollouts: {
       /** Advances a Rollout to the next wave, or completes it if no waves remain. */
       advance(request?: {
         /** V1 error format. */
@@ -56748,8 +56791,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface FolderZoneVmExtensionPoliciesResource {
+    };
+
+    const folderZoneVmExtensionPolicies: {
       /** Deletes a specified zone VM extension policy within a folder. */
       delete(request?: {
         /** V1 error format. */
@@ -57308,8 +57352,9 @@ declare namespace gapi.client {
         },
         body: VmExtensionPolicy,
       ): Request<Operation>;
-    }
-    interface ForwardingRulesResource {
+    };
+
+    const forwardingRules: {
       /**
        * Retrieves an aggregated list of forwarding rules.
        *
@@ -58024,8 +58069,9 @@ declare namespace gapi.client {
         },
         body: TargetReference,
       ): Request<Operation>;
-    }
-    interface FutureReservationsResource {
+    };
+
+    const futureReservations: {
       /**
        * Retrieves an aggregated list of future reservations.
        *
@@ -58622,8 +58668,9 @@ declare namespace gapi.client {
         },
         body: FutureReservation,
       ): Request<Operation>;
-    }
-    interface GlobalAddressesResource {
+    };
+
+    const globalAddresses: {
       /** Deletes the specified address resource. */
       delete(request?: {
         /** V1 error format. */
@@ -59086,8 +59133,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface GlobalFolderOperationsResource {
+    };
+
+    const globalFolderOperations: {
       /** Retrieves the specified Operations resource. */
       get(request?: {
         /** V1 error format. */
@@ -59240,8 +59288,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<OperationList>;
-    }
-    interface GlobalForwardingRulesResource {
+    };
+
+    const globalForwardingRules: {
       /** Deletes the specified GlobalForwardingRule resource. */
       delete(request?: {
         /** V1 error format. */
@@ -59785,8 +59834,9 @@ declare namespace gapi.client {
         },
         body: TargetReference,
       ): Request<Operation>;
-    }
-    interface GlobalFrontendSettingsResource {
+    };
+
+    const globalFrontendSettings: {
       /** Gets the Global Frontend Billing Bundle Settings for a project. */
       get(request?: {
         /** V1 error format. */
@@ -59886,8 +59936,9 @@ declare namespace gapi.client {
         },
         body: GlobalFrontendSettings,
       ): Request<GlobalFrontendSettingsPatchResponse>;
-    }
-    interface GlobalNetworkEndpointGroupsResource {
+    };
+
+    const globalNetworkEndpointGroups: {
       /** Attach a network endpoint to the specified network endpoint group. */
       attachNetworkEndpoints(request: {
         /** V1 error format. */
@@ -60535,8 +60586,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<NetworkEndpointGroupsListNetworkEndpoints>;
-    }
-    interface GlobalOperationsResource {
+    };
+
+    const globalOperations: {
       /**
        * Retrieves an aggregated list of all operations.
        *
@@ -60915,8 +60967,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface GlobalOrganizationOperationsResource {
+    };
+
+    const globalOrganizationOperations: {
       /** Deletes the specified Operations resource. */
       delete(request?: {
         /** V1 error format. */
@@ -61109,8 +61162,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<OperationList>;
-    }
-    interface GlobalPublicDelegatedPrefixesResource {
+    };
+
+    const globalPublicDelegatedPrefixes: {
       /** Deletes the specified global PublicDelegatedPrefix. */
       delete(request?: {
         /** V1 error format. */
@@ -61507,8 +61561,9 @@ declare namespace gapi.client {
         },
         body: PublicDelegatedPrefix,
       ): Request<Operation>;
-    }
-    interface GlobalVmExtensionPoliciesResource {
+    };
+
+    const globalVmExtensionPolicies: {
       /**
        * Retrieves the list of all VM Extension Policy resources
        * available to the specified project.
@@ -62246,8 +62301,9 @@ declare namespace gapi.client {
         },
         body: GlobalVmExtensionPolicy,
       ): Request<Operation>;
-    }
-    interface HaControllersResource {
+    };
+
+    const haControllers: {
       /**
        * Retrieves an aggregated list of all of the HaControllers in the specified
        * project across all regions.
@@ -62831,8 +62887,9 @@ declare namespace gapi.client {
         },
         body: HaController,
       ): Request<Operation>;
-    }
-    interface HealthChecksResource {
+    };
+
+    const healthChecks: {
       /**
        * Retrieves the list of all HealthCheck resources, regional and global,
        * available to the specified project.
@@ -63506,8 +63563,9 @@ declare namespace gapi.client {
         },
         body: HealthCheck,
       ): Request<Operation>;
-    }
-    interface HostsResource {
+    };
+
+    const hosts: {
       /** Retrieves information about the specified host. */
       get(request?: {
         /** V1 error format. */
@@ -63780,8 +63838,9 @@ declare namespace gapi.client {
         /** The name of the zone for this request, formatted as RFC1035. */
         zone: string;
       }): Request<HostsListResponse>;
-    }
-    interface HttpHealthChecksResource {
+    };
+
+    const httpHealthChecks: {
       /** Deletes the specified HttpHealthCheck resource. */
       delete(request?: {
         /** V1 error format. */
@@ -64316,8 +64375,9 @@ declare namespace gapi.client {
         },
         body: HttpHealthCheck,
       ): Request<Operation>;
-    }
-    interface HttpsHealthChecksResource {
+    };
+
+    const httpsHealthChecks: {
       /** Deletes the specified HttpsHealthCheck resource. */
       delete(request?: {
         /** V1 error format. */
@@ -64852,8 +64912,9 @@ declare namespace gapi.client {
         },
         body: HttpsHealthCheck,
       ): Request<Operation>;
-    }
-    interface ImageFamilyViewsResource {
+    };
+
+    const imageFamilyViews: {
       /**
        * Returns the latest image that is part of an image family, is not
        * deprecated and is rolled out in the specified zone.
@@ -64890,8 +64951,171 @@ declare namespace gapi.client {
         /** The name of the zone for this request. */
         zone: string;
       }): Request<ImageFamilyView>;
-    }
-    interface ImagesResource {
+    };
+
+    const imageViews: {
+      /**
+       * Returns the specified global ImageView resource, with a regional
+       * context.
+       */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Required. Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Name of the region for this request. */
+        region: string;
+        /** Name of the image resource to return. */
+        resourceId: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<ImageView>;
+      /**
+       * Returns a list of global ImageView resources, with a regional
+       * context.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Required. Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Name of the region for this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<ImageViewsListResponse>;
+    };
+
+    const images: {
       /** Deletes the specified image. */
       delete(request?: {
         /** V1 error format. */
@@ -65583,169 +65807,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface ImageViewsResource {
-      /**
-       * Returns the specified global ImageView resource, with a regional
-       * context.
-       */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Name of the region for this request. */
-        region: string;
-        /** Name of the image resource to return. */
-        resourceId: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<ImageView>;
-      /**
-       * Returns a list of global ImageView resources, with a regional
-       * context.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Name of the region for this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<ImageViewsListResponse>;
-    }
-    interface InstanceGroupManagerResizeRequestsResource {
+    };
+
+    const instanceGroupManagerResizeRequests: {
       /**
        * Cancels the specified resize request and removes it from the queue.
        * Cancelled resize request does no longer wait for the resources to be
@@ -66168,8 +66232,9 @@ declare namespace gapi.client {
          */
         zone: string;
       }): Request<InstanceGroupManagerResizeRequestsListResponse>;
-    }
-    interface InstanceGroupManagersResource {
+    };
+
+    const instanceGroupManagers: {
       /**
        * Flags the specified instances to be removed from the
        * managed instance group. Abandoning an instance does not delete the
@@ -68925,8 +68990,9 @@ declare namespace gapi.client {
         },
         body: InstanceGroupManagersUpdatePerInstanceConfigsReq,
       ): Request<Operation>;
-    }
-    interface InstanceGroupsResource {
+    };
+
+    const instanceGroups: {
       /**
        * Adds a list of instances to the specified instance group.  All of the
        * instances in the instance group must be in the same network/subnetwork.
@@ -70046,8 +70112,697 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface InstancesResource {
+    };
+
+    const instanceSettings: {
+      /** Get Instance settings. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. */
+        zone: string;
+      }): Request<InstanceSettings>;
+      /** Patch Instance settings */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** update_mask indicates fields to be updated as part of this request. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The zone scoping this request. It should conform to RFC1035. */
+        zone: string;
+        /** Request body */
+        resource: InstanceSettings;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** update_mask indicates fields to be updated as part of this request. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** The zone scoping this request. It should conform to RFC1035. */
+          zone: string;
+        },
+        body: InstanceSettings,
+      ): Request<Operation>;
+    };
+
+    const instanceTemplates: {
+      /**
+       * Retrieves the list of all InstanceTemplates resources, regional and global,
+       * available to the specified project.
+       *
+       * To prevent failure, Google recommends that you set the
+       * `returnPartialSuccess` parameter to `true`.
+       */
+      aggregatedList(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /**
+         * Indicates whether every visible scope for each scope type (zone, region,
+         * global) should be included in the response. For new resource types added
+         * after this field, the flag has no effect as new resource types will always
+         * include every visible scope for each scope type in response. For resource
+         * types which predate this field, if this flag is omitted or false, only
+         * scopes of the scope types where the resource type is expected to be found
+         * will be included.
+         */
+        includeAllScopes?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Name of the project scoping this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * The Shared VPC service project id or service project number for which
+         * aggregated list request is invoked for subnetworks list-usable api.
+         */
+        serviceProjectNumber?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<InstanceTemplateAggregatedList>;
+      /**
+       * Deletes the specified instance template. Deleting an instance template is
+       * permanent and cannot be undone. It is not possible to delete templates
+       * that are already in use by a managed instance group.
+       */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The name of the instance template to delete. */
+        instanceTemplate: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<Operation>;
+      /** Returns the specified instance template. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The name of the instance template. */
+        instanceTemplate: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<InstanceTemplate>;
+      /**
+       * Gets the access control policy for a resource. May be empty if no such
+       * policy or resource exists.
+       */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Requested IAM Policy version. */
+        optionsRequestedPolicyVersion?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name or id of the resource for this request. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<Policy>;
+      /**
+       * Creates an instance template in the specified project using the
+       * data that is included in the request. If you are creating a new template to
+       * update an existing instance group, your new instance template must use the
+       * same network or, if applicable, the same subnetwork as the original
+       * template.
+       */
+      insert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: InstanceTemplate;
+      }): Request<Operation>;
+      insert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: InstanceTemplate,
+      ): Request<Operation>;
+      /**
+       * Retrieves a list of instance templates that are contained within
+       * the specified project.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<InstanceTemplateList>;
+      /**
+       * Sets the access control policy on the specified resource.
+       * Replaces any existing policy.
+       */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name or id of the resource for this request. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: GlobalSetPolicyRequest,
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name or id of the resource for this request. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: TestPermissionsRequest,
+      ): Request<TestPermissionsResponse>;
+    };
+
+    const instances: {
       /** Adds an access config to an instance's network interface. */
       addAccessConfig(request: {
         /** V1 error format. */
@@ -74306,694 +75061,9 @@ declare namespace gapi.client {
         },
         body: ShieldedInstanceConfig,
       ): Request<Operation>;
-    }
-    interface InstanceSettingsResource {
-      /** Get Instance settings. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. */
-        zone: string;
-      }): Request<InstanceSettings>;
-      /** Patch Instance settings */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** update_mask indicates fields to be updated as part of this request. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The zone scoping this request. It should conform to RFC1035. */
-        zone: string;
-        /** Request body */
-        resource: InstanceSettings;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** update_mask indicates fields to be updated as part of this request. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** The zone scoping this request. It should conform to RFC1035. */
-          zone: string;
-        },
-        body: InstanceSettings,
-      ): Request<Operation>;
-    }
-    interface InstanceTemplatesResource {
-      /**
-       * Retrieves the list of all InstanceTemplates resources, regional and global,
-       * available to the specified project.
-       *
-       * To prevent failure, Google recommends that you set the
-       * `returnPartialSuccess` parameter to `true`.
-       */
-      aggregatedList(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /**
-         * Indicates whether every visible scope for each scope type (zone, region,
-         * global) should be included in the response. For new resource types added
-         * after this field, the flag has no effect as new resource types will always
-         * include every visible scope for each scope type in response. For resource
-         * types which predate this field, if this flag is omitted or false, only
-         * scopes of the scope types where the resource type is expected to be found
-         * will be included.
-         */
-        includeAllScopes?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Name of the project scoping this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * The Shared VPC service project id or service project number for which
-         * aggregated list request is invoked for subnetworks list-usable api.
-         */
-        serviceProjectNumber?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<InstanceTemplateAggregatedList>;
-      /**
-       * Deletes the specified instance template. Deleting an instance template is
-       * permanent and cannot be undone. It is not possible to delete templates
-       * that are already in use by a managed instance group.
-       */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The name of the instance template to delete. */
-        instanceTemplate: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<Operation>;
-      /** Returns the specified instance template. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** The name of the instance template. */
-        instanceTemplate: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<InstanceTemplate>;
-      /**
-       * Gets the access control policy for a resource. May be empty if no such
-       * policy or resource exists.
-       */
-      getIamPolicy(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Requested IAM Policy version. */
-        optionsRequestedPolicyVersion?: number;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name or id of the resource for this request. */
-        resource: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<Policy>;
-      /**
-       * Creates an instance template in the specified project using the
-       * data that is included in the request. If you are creating a new template to
-       * update an existing instance group, your new instance template must use the
-       * same network or, if applicable, the same subnetwork as the original
-       * template.
-       */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: InstanceTemplate;
-      }): Request<Operation>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: InstanceTemplate,
-      ): Request<Operation>;
-      /**
-       * Retrieves a list of instance templates that are contained within
-       * the specified project.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<InstanceTemplateList>;
-      /**
-       * Sets the access control policy on the specified resource.
-       * Replaces any existing policy.
-       */
-      setIamPolicy(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name or id of the resource for this request. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: GlobalSetPolicyRequest,
-      ): Request<Policy>;
-      /** Returns permissions that a caller has on the specified resource. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name or id of the resource for this request. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: TestPermissionsRequest,
-      ): Request<TestPermissionsResponse>;
-    }
-    interface InstantSnapshotGroupsResource {
+    };
+
+    const instantSnapshotGroups: {
       /** deletes a Zonal InstantSnapshotGroup resource */
       delete(request?: {
         /** V1 error format. */
@@ -75414,8 +75484,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface InstantSnapshotsResource {
+    };
+
+    const instantSnapshots: {
       /**
        * Retrieves an aggregated list of instantSnapshots.
        *
@@ -76035,8 +76106,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface InterconnectAttachmentGroupsResource {
+    };
+
+    const interconnectAttachmentGroups: {
       /** Deletes the specified InterconnectAttachmentGroup in the given scope */
       delete(request?: {
         /** V1 error format. */
@@ -76586,8 +76658,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface InterconnectAttachmentsResource {
+    };
+
+    const interconnectAttachments: {
       /**
        * Retrieves an aggregated list of interconnect attachments.
        *
@@ -77199,8 +77272,9 @@ declare namespace gapi.client {
         },
         body: RegionSetLabelsRequest,
       ): Request<Operation>;
-    }
-    interface InterconnectGroupsResource {
+    };
+
+    const interconnectGroups: {
       /**
        * Create Interconnects with redundancy by creating them in a specified
        * interconnect group.
@@ -77816,8 +77890,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface InterconnectLocationsResource {
+    };
+
+    const interconnectLocations: {
       /**
        * Returns the details for the specified interconnect location. Gets a list of
        * available interconnect locations by making a list() request.
@@ -77973,8 +78048,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<InterconnectLocationList>;
-    }
-    interface InterconnectRemoteLocationsResource {
+    };
+
+    const interconnectRemoteLocations: {
       /**
        * Returns the details for the specified interconnect remote location. Gets a
        * list of available interconnect remote locations by making alist() request.
@@ -78130,8 +78206,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<InterconnectRemoteLocationList>;
-    }
-    interface InterconnectsResource {
+    };
+
+    const interconnects: {
       /** Deletes the specified Interconnect. */
       delete(request?: {
         /** V1 error format. */
@@ -78743,8 +78820,9 @@ declare namespace gapi.client {
         },
         body: InterconnectsSetNameRequest,
       ): Request<Operation>;
-    }
-    interface LicenseCodesResource {
+    };
+
+    const licenseCodes: {
       /**
        * Return a specified license code. License codes are mirrored across
        * all projects that have permissions to read the License Code.
@@ -78900,8 +78978,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface LicensesResource {
+    };
+
+    const licenses: {
       /**
        * Deletes the specified license.
        * *Caution* This resource is intended
@@ -79442,8 +79521,9 @@ declare namespace gapi.client {
         },
         body: License,
       ): Request<Operation>;
-    }
-    interface MachineImagesResource {
+    };
+
+    const machineImages: {
       /**
        * Deletes the specified machine image. Deleting a machine image is permanent
        * and cannot be undone.
@@ -79894,8 +79974,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface MachineTypesResource {
+    };
+
+    const machineTypes: {
       /**
        * Retrieves an aggregated list of machine types.
        *
@@ -80190,8 +80271,9 @@ declare namespace gapi.client {
         /** The name of the zone for this request. */
         zone: string;
       }): Request<MachineTypeList>;
-    }
-    interface ManagedRulesetsResource {
+    };
+
+    const managedRulesets: {
       /** Gets the details for the specified managed ruleset name. */
       get(request?: {
         /** V1 error format. */
@@ -80341,8 +80423,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<ManagedRulesetList>;
-    }
-    interface NetworkAttachmentsResource {
+    };
+
+    const networkAttachments: {
       /**
        * Retrieves the list of all NetworkAttachment resources,
        * regional and global, available to the specified project.
@@ -81010,8 +81093,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface NetworkEdgeSecurityServicesResource {
+    };
+
+    const networkEdgeSecurityServices: {
       /**
        * Retrieves the list of all NetworkEdgeSecurityService resources available to
        * the specified project.
@@ -81446,8 +81530,9 @@ declare namespace gapi.client {
         },
         body: NetworkEdgeSecurityService,
       ): Request<Operation>;
-    }
-    interface NetworkEndpointGroupsResource {
+    };
+
+    const networkEndpointGroups: {
       /**
        * Retrieves the list of network endpoint groups and sorts them by zone.
        *
@@ -82458,8 +82543,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface NetworkFirewallPoliciesResource {
+    };
+
+    const networkFirewallPolicies: {
       /** Inserts an association for the specified firewall policy. */
       addAssociation(request: {
         /** V1 error format. */
@@ -83943,8 +84029,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface NetworkLocationBindingsResource {
+    };
+
+    const networkLocationBindings: {
       /** Returns the specified NetworkLocationBinding resource in the given scope. */
       get(request?: {
         /** V1 error format. */
@@ -84098,8 +84185,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<NetworkLocationBindingList>;
-    }
-    interface NetworkProfilesResource {
+    };
+
+    const networkProfiles: {
       /** Returns the specified network profile. */
       get(request?: {
         /** V1 error format. */
@@ -84252,8 +84340,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<NetworkProfilesListResponse>;
-    }
-    interface NetworksResource {
+    };
+
+    const networks: {
       /** Adds a peering to the specified network. */
       addPeering(request: {
         /** V1 error format. */
@@ -85458,8 +85547,9 @@ declare namespace gapi.client {
         },
         body: NetworksUpdatePeeringRequest,
       ): Request<Operation>;
-    }
-    interface NodeGroupsResource {
+    };
+
+    const nodeGroups: {
       /** Adds specified number of nodes to the node group. */
       addNodes(request: {
         /** V1 error format. */
@@ -86767,8 +86857,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface NodeTemplatesResource {
+    };
+
+    const nodeTemplates: {
       /**
        * Retrieves an aggregated list of node templates.
        *
@@ -87326,8 +87417,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface NodeTypesResource {
+    };
+
+    const nodeTypes: {
       /**
        * Retrieves an aggregated list of node types.
        *
@@ -87622,8 +87714,9 @@ declare namespace gapi.client {
         /** The name of the zone for this request. */
         zone: string;
       }): Request<NodeTypeList>;
-    }
-    interface OrganizationGlobalVmExtensionPoliciesResource {
+    };
+
+    const organizationGlobalVmExtensionPolicies: {
       /**
        * Retrieves the list of all organization level VM Extension Policy resources
        * available to the specified organization.
@@ -88361,8 +88454,9 @@ declare namespace gapi.client {
         },
         body: GlobalVmExtensionPolicy,
       ): Request<Operation>;
-    }
-    interface OrganizationSecurityPoliciesResource {
+    };
+
+    const organizationSecurityPolicies: {
       /**
        * Inserts an association for the specified security policy.
        *
@@ -89555,8 +89649,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface OrganizationZoneVmExtensionPoliciesResource {
+    };
+
+    const organizationZoneVmExtensionPolicies: {
       /** Deletes a specified zone VM extension policy within an organization. */
       delete(request?: {
         /** V1 error format. */
@@ -90118,8 +90213,9 @@ declare namespace gapi.client {
         },
         body: VmExtensionPolicy,
       ): Request<Operation>;
-    }
-    interface PacketMirroringsResource {
+    };
+
+    const packetMirrorings: {
       /**
        * Retrieves an aggregated list of packetMirrorings.
        *
@@ -90707,8 +90803,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface PreviewFeaturesResource {
+    };
+
+    const previewFeatures: {
       /** Returns the details of the given PreviewFeature. */
       get(request?: {
         /** V1 error format. */
@@ -90959,8 +91056,52 @@ declare namespace gapi.client {
         },
         body: PreviewFeature,
       ): Request<Operation>;
-    }
-    interface ProjectsResource {
+    };
+
+    const projectViews: {
+      /**
+       * Returns the specified global ProjectViews resource, with a regional
+       * context.
+       * This regional API endpoint reads resource metadata from regional
+       * read-only replicas. Because changes are copied to these regional replicas
+       * asynchronously, for real-time resource reads or any write operations
+       * (creating, updating, or deleting resources), use the global
+       * [projects.get](https://cloud.google.com/compute/docs/reference/rest/v1/projects/get)
+       * endpoint.
+       */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Required. Project ID for this request. This is part of the URL path. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Name of the region for this request. This is part of the URL path. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<ProjectView>;
+    };
+
+    const projects: {
       /** Disable this project as a shared VPC host project. */
       disableXpnHost(request?: {
         /** V1 error format. */
@@ -92281,50 +92422,9 @@ declare namespace gapi.client {
         },
         body: UsageExportLocation,
       ): Request<Operation>;
-    }
-    interface ProjectViewsResource {
-      /**
-       * Returns the specified global ProjectViews resource, with a regional
-       * context.
-       * This regional API endpoint reads resource metadata from regional
-       * read-only replicas. Because changes are copied to these regional replicas
-       * asynchronously, for real-time resource reads or any write operations
-       * (creating, updating, or deleting resources), use the global
-       * [projects.get](https://cloud.google.com/compute/docs/reference/rest/v1/projects/get)
-       * endpoint.
-       */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Required. Project ID for this request. This is part of the URL path. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. Name of the region for this request. This is part of the URL path. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<ProjectView>;
-    }
-    interface PublicAdvertisedPrefixesResource {
+    };
+
+    const publicAdvertisedPrefixes: {
       /** Announces the specified PublicAdvertisedPrefix */
       announce(request?: {
         /** V1 error format. */
@@ -92815,8 +92915,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface PublicDelegatedPrefixesResource {
+    };
+
+    const publicDelegatedPrefixes: {
       /**
        * Lists all PublicDelegatedPrefix resources owned by the specific project
        * across all scopes.
@@ -93470,8 +93571,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface RegionAutoscalersResource {
+    };
+
+    const regionAutoscalers: {
       /** Deletes the specified autoscaler. */
       delete(request?: {
         /** V1 error format. */
@@ -94026,8 +94128,9 @@ declare namespace gapi.client {
         },
         body: Autoscaler,
       ): Request<Operation>;
-    }
-    interface RegionBackendBucketsResource {
+    };
+
+    const regionBackendBuckets: {
       /** Deletes the specified regional BackendBucket resource. */
       delete(request?: {
         /** V1 error format. */
@@ -94683,8 +94786,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionBackendServicesResource {
+    };
+
+    const regionBackendServices: {
       /** Deletes the specified regional BackendService resource. */
       delete(request?: {
         /** V1 error format. */
@@ -95631,8 +95735,9 @@ declare namespace gapi.client {
         },
         body: BackendService,
       ): Request<Operation>;
-    }
-    interface RegionCommitmentsResource {
+    };
+
+    const regionCommitments: {
       /**
        * Retrieves an aggregated list of commitments by region.
        *
@@ -96140,8 +96245,9 @@ declare namespace gapi.client {
         },
         body: Commitment,
       ): Request<Operation>;
-    }
-    interface RegionCompositeHealthChecksResource {
+    };
+
+    const regionCompositeHealthChecks: {
       /**
        * Retrieves the list of all CompositeHealthCheck resources (all
        * regional) available to the specified project.
@@ -96769,8 +96875,165 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionDisksResource {
+    };
+
+    const regionDiskTypes: {
+      /** Returns the specified regional disk type. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Name of the disk type to return. */
+        diskType: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The name of the region for this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<DiskType>;
+      /** Retrieves a list of regional disk types available to the specified project. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The name of the region for this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<RegionDiskTypeList>;
+    };
+
+    const regionDisks: {
       /**
        * Adds existing resource policies to a regional disk. You can only add one
        * policy which will be applied to this disk for scheduling snapshot
@@ -98247,163 +98510,9 @@ declare namespace gapi.client {
         },
         body: RegionDiskUpdateKmsKeyRequest,
       ): Request<Operation>;
-    }
-    interface RegionDiskTypesResource {
-      /** Returns the specified regional disk type. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Name of the disk type to return. */
-        diskType: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The name of the region for this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<DiskType>;
-      /** Retrieves a list of regional disk types available to the specified project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The name of the region for this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<RegionDiskTypeList>;
-    }
-    interface RegionHealthAggregationPoliciesResource {
+    };
+
+    const regionHealthAggregationPolicies: {
       /**
        * Retrieves the list of all HealthAggregationPolicy resources,
        * regional and global, available to the specified project.
@@ -98995,564 +99104,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionHealthChecksResource {
-      /** Deletes the specified HealthCheck resource. */
-      delete(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Name of the HealthCheck resource to delete. */
-        healthCheck: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<Operation>;
-      /** Returns the specified HealthCheck resource. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Name of the HealthCheck resource to return. */
-        healthCheck: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<HealthCheck>;
-      /**
-       * Creates a HealthCheck resource in the specified project using the data
-       * included in the request.
-       */
-      insert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: HealthCheck;
-      }): Request<Operation>;
-      insert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the region scoping this request. */
-          region: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: HealthCheck,
-      ): Request<Operation>;
-      /**
-       * Retrieves the list of HealthCheck resources available to the specified
-       * project.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<HealthCheckList>;
-      /**
-       * Updates a HealthCheck resource in the specified project using the data
-       * included in the request. This method supportsPATCH
-       * semantics and uses theJSON merge
-       * patch format and processing rules.
-       */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Name of the HealthCheck resource to patch. */
-        healthCheck: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: HealthCheck;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Name of the HealthCheck resource to patch. */
-          healthCheck: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the region scoping this request. */
-          region: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: HealthCheck,
-      ): Request<Operation>;
-      /** Returns permissions that a caller has on the specified resource. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The name of the region for this request. */
-          region: string;
-          /** Name or id of the resource for this request. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: TestPermissionsRequest,
-      ): Request<TestPermissionsResponse>;
-      /**
-       * Updates a HealthCheck resource in the specified project using the data
-       * included in the request.
-       */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** Name of the HealthCheck resource to update. */
-        healthCheck: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region scoping this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: HealthCheck;
-      }): Request<Operation>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** Name of the HealthCheck resource to update. */
-          healthCheck: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the region scoping this request. */
-          region: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: HealthCheck,
-      ): Request<Operation>;
-    }
-    interface RegionHealthCheckServicesResource {
+    };
+
+    const regionHealthCheckServices: {
       /**
        * Retrieves the list of all HealthCheckService resources,
        * regional and global, available to the specified project.
@@ -100153,8 +99707,566 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionHealthSourcesResource {
+    };
+
+    const regionHealthChecks: {
+      /** Deletes the specified HealthCheck resource. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Name of the HealthCheck resource to delete. */
+        healthCheck: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<Operation>;
+      /** Returns the specified HealthCheck resource. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Name of the HealthCheck resource to return. */
+        healthCheck: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<HealthCheck>;
+      /**
+       * Creates a HealthCheck resource in the specified project using the data
+       * included in the request.
+       */
+      insert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: HealthCheck;
+      }): Request<Operation>;
+      insert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name of the region scoping this request. */
+          region: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: HealthCheck,
+      ): Request<Operation>;
+      /**
+       * Retrieves the list of HealthCheck resources available to the specified
+       * project.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<HealthCheckList>;
+      /**
+       * Updates a HealthCheck resource in the specified project using the data
+       * included in the request. This method supportsPATCH
+       * semantics and uses theJSON merge
+       * patch format and processing rules.
+       */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Name of the HealthCheck resource to patch. */
+        healthCheck: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: HealthCheck;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Name of the HealthCheck resource to patch. */
+          healthCheck: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name of the region scoping this request. */
+          region: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: HealthCheck,
+      ): Request<Operation>;
+      /** Returns permissions that a caller has on the specified resource. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The name of the region for this request. */
+          region: string;
+          /** Name or id of the resource for this request. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: TestPermissionsRequest,
+      ): Request<TestPermissionsResponse>;
+      /**
+       * Updates a HealthCheck resource in the specified project using the data
+       * included in the request.
+       */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Name of the HealthCheck resource to update. */
+        healthCheck: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region scoping this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: HealthCheck;
+      }): Request<Operation>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Name of the HealthCheck resource to update. */
+          healthCheck: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name of the region scoping this request. */
+          region: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: HealthCheck,
+      ): Request<Operation>;
+    };
+
+    const regionHealthSources: {
       /**
        * Retrieves the list of all HealthSource resources (all
        * regional) available to the specified project.
@@ -100782,8 +100894,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionInstanceGroupManagerResizeRequestsResource {
+    };
+
+    const regionInstanceGroupManagerResizeRequests: {
       /**
        * Cancels the specified resize request.
        * Cancelled resize request no longer waits for the resources to be
@@ -101202,8 +101315,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<RegionInstanceGroupManagerResizeRequestsListResponse>;
-    }
-    interface RegionInstanceGroupManagersResource {
+    };
+
+    const regionInstanceGroupManagers: {
       /**
        * Flags the specified instances to be immediately removed from the managed
        * instance group. Abandoning an instance does not delete the
@@ -103672,8 +103786,9 @@ declare namespace gapi.client {
         },
         body: RegionInstanceGroupManagerUpdateInstanceConfigReq,
       ): Request<Operation>;
-    }
-    interface RegionInstanceGroupsResource {
+    };
+
+    const regionInstanceGroups: {
       /** Returns the specified instance group resource. */
       get(request?: {
         /** V1 error format. */
@@ -104227,111 +104342,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionInstancesResource {
-      /**
-       * Creates multiple instances in a given region. Count specifies the number of
-       * instances to create.
-       */
-      bulkInsert(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The name of the region for this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: BulkInsertInstanceResource;
-      }): Request<Operation>;
-      bulkInsert(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The name of the region for this request. */
-          region: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: BulkInsertInstanceResource,
-      ): Request<Operation>;
-    }
-    interface RegionInstanceTemplatesResource {
+    };
+
+    const regionInstanceTemplates: {
       /**
        * Deletes the specified instance template. Deleting an instance template is
        * permanent and cannot be undone.
@@ -104641,8 +104654,113 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<InstanceTemplateList>;
-    }
-    interface RegionInstantSnapshotGroupsResource {
+    };
+
+    const regionInstances: {
+      /**
+       * Creates multiple instances in a given region. Count specifies the number of
+       * instances to create.
+       */
+      bulkInsert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The name of the region for this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: BulkInsertInstanceResource;
+      }): Request<Operation>;
+      bulkInsert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The name of the region for this request. */
+          region: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: BulkInsertInstanceResource,
+      ): Request<Operation>;
+    };
+
+    const regionInstantSnapshotGroups: {
       /** deletes a Regional InstantSnapshotGroup resource */
       delete(request?: {
         /** V1 error format. */
@@ -105066,8 +105184,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionInstantSnapshotsResource {
+    };
+
+    const regionInstantSnapshots: {
       /**
        * Deletes the specified InstantSnapshot resource. Keep in mind that deleting
        * a single instantSnapshot might not necessarily delete all the data on that
@@ -105549,8 +105668,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionNetworkEndpointGroupsResource {
+    };
+
+    const regionNetworkEndpointGroups: {
       /** Attach a list of network endpoints to the specified network endpoint group. */
       attachNetworkEndpoints(request: {
         /** V1 error format. */
@@ -106256,8 +106376,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<NetworkEndpointGroupsListNetworkEndpoints>;
-    }
-    interface RegionNetworkFirewallPoliciesResource {
+    };
+
+    const regionNetworkFirewallPolicies: {
       /** Inserts an association for the specified network firewall policy. */
       addAssociation(request: {
         /** V1 error format. */
@@ -107488,8 +107609,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionNotificationEndpointsResource {
+    };
+
+    const regionNotificationEndpoints: {
       /**
        * Retrieves the list of all NotificationEndpoint resources,
        * regional and global, available to the specified project.
@@ -107965,8 +108087,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RegionOperationsResource {
+    };
+
+    const regionOperations: {
       /** Deletes the specified region-specific Operations resource. */
       delete(request?: {
         /** V1 error format. */
@@ -108215,198 +108338,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface RegionsResource {
-      /**
-       * Returns the specified Region resource.
-       *
-       * To decrease latency for this method, you can optionally omit any unneeded
-       * information from the response by using a field mask. This practice is
-       * especially recommended for unused quota information (the `quotas` field).
-       * To exclude one or more fields, set your request's `fields` query parameter
-       * to only include the fields you need. For example, to only include the `id`
-       * and `selfLink` fields, add the query parameter `?fields=id,selfLink` to
-       * your request.
-       *
-       * This method fails if the quota information is unavailable for the region
-       * and if the organization policy constraint
-       * compute.requireBasicQuotaInResponse is enforced. This
-       * constraint, when enforced, disables the fail-open behaviour when quota
-       * information (the `items.quotas` field) is unavailable for the region.
-       * It is recommended to use the default setting
-       * for the constraint unless your application requires the fail-closed
-       * behaviour for this method.
-       */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region resource to return. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<Region>;
-      /**
-       * Retrieves the list of region resources available to the specified project.
-       *
-       * To decrease latency for this method, you can optionally omit any unneeded
-       * information from the response by using a field mask. This practice is
-       * especially recommended for unused quota information
-       * (the `items.quotas` field).
-       * To exclude one or more fields, set your request's `fields` query parameter
-       * to only include the fields you need. For example, to only include the `id`
-       * and `selfLink` fields, add the query parameter `?fields=id,selfLink` to
-       * your request.
-       *
-       * This method fails if the quota information is unavailable for the region
-       * and if the organization policy constraint
-       * compute.requireBasicQuotaInResponse is enforced. This
-       * constraint, when enforced, disables the fail-open behaviour when quota
-       * information (the `items.quotas` field) is unavailable for the region.
-       * It is recommended to use the default setting
-       * for the constraint unless your application requires the fail-closed
-       * behaviour for this method.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<RegionList>;
-    }
-    interface RegionSecurityPoliciesResource {
+    };
+
+    const regionSecurityPolicies: {
       /** Inserts a rule into a security policy. */
       addRule(request: {
         /** V1 error format. */
@@ -109114,8 +109048,145 @@ declare namespace gapi.client {
         },
         body: RegionSetLabelsRequest,
       ): Request<Operation>;
-    }
-    interface RegionSnapshotsResource {
+    };
+
+    const regionSnapshotSettings: {
+      /** Get region snapshot settings. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region for this request. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<SnapshotSettings>;
+      /** Patch region snapshot settings. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region for this request. */
+        region: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** update_mask indicates fields to be updated as part of this request. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: SnapshotSettings;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name of the region for this request. */
+          region: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** update_mask indicates fields to be updated as part of this request. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: SnapshotSettings,
+      ): Request<Operation>;
+    };
+
+    const regionSnapshots: {
       /**
        * Deletes the specified Snapshot resource. Keep in mind that deleting
        * a single snapshot might not necessarily delete all the data on that
@@ -109705,143 +109776,9 @@ declare namespace gapi.client {
         },
         body: RegionSnapshotUpdateKmsKeyRequest,
       ): Request<Operation>;
-    }
-    interface RegionSnapshotSettingsResource {
-      /** Get region snapshot settings. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region for this request. */
-        region: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<SnapshotSettings>;
-      /** Patch region snapshot settings. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the region for this request. */
-        region: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** update_mask indicates fields to be updated as part of this request. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: SnapshotSettings;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name of the region for this request. */
-          region: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** update_mask indicates fields to be updated as part of this request. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: SnapshotSettings,
-      ): Request<Operation>;
-    }
-    interface RegionSslCertificatesResource {
+    };
+
+    const regionSslCertificates: {
       /** Deletes the specified SslCertificate resource in the region. */
       delete(request?: {
         /** V1 error format. */
@@ -110191,8 +110128,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<SslCertificateList>;
-    }
-    interface RegionSslPoliciesResource {
+    };
+
+    const regionSslPolicies: {
       /**
        * Deletes the specified SSL policy. The SSL policy resource can be deleted
        * only if it is not in use by any TargetHttpsProxy or TargetSslProxy
@@ -110740,8 +110678,9 @@ declare namespace gapi.client {
         },
         body: SslPolicy,
       ): Request<Operation>;
-    }
-    interface RegionTargetHttpProxiesResource {
+    };
+
+    const regionTargetHttpProxies: {
       /** Deletes the specified TargetHttpProxy resource. */
       delete(request?: {
         /** V1 error format. */
@@ -111150,8 +111089,9 @@ declare namespace gapi.client {
         },
         body: UrlMapReference,
       ): Request<Operation>;
-    }
-    interface RegionTargetHttpsProxiesResource {
+    };
+
+    const regionTargetHttpsProxies: {
       /** Deletes the specified TargetHttpsProxy resource. */
       delete(request?: {
         /** V1 error format. */
@@ -111775,8 +111715,9 @@ declare namespace gapi.client {
         },
         body: UrlMapReference,
       ): Request<Operation>;
-    }
-    interface RegionTargetTcpProxiesResource {
+    };
+
+    const regionTargetTcpProxies: {
       /** Deletes the specified TargetTcpProxy resource. */
       delete(request?: {
         /** V1 error format. */
@@ -112083,8 +112024,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<TargetTcpProxyList>;
-    }
-    interface RegionUrlMapsResource {
+    };
+
+    const regionUrlMaps: {
       /** Deletes the specified UrlMap resource. */
       delete(request?: {
         /** V1 error format. */
@@ -112600,8 +112542,9 @@ declare namespace gapi.client {
         },
         body: RegionUrlMapsValidateRequest,
       ): Request<UrlMapsValidateResponse>;
-    }
-    interface RegionZonesResource {
+    };
+
+    const regionZones: {
       /**
        * Retrieves the list of Zone resources under the specific region available to
        * the specified project.
@@ -112725,8 +112668,200 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<ZoneList>;
-    }
-    interface ReliabilityRisksResource {
+    };
+
+    const regions: {
+      /**
+       * Returns the specified Region resource.
+       *
+       * To decrease latency for this method, you can optionally omit any unneeded
+       * information from the response by using a field mask. This practice is
+       * especially recommended for unused quota information (the `quotas` field).
+       * To exclude one or more fields, set your request's `fields` query parameter
+       * to only include the fields you need. For example, to only include the `id`
+       * and `selfLink` fields, add the query parameter `?fields=id,selfLink` to
+       * your request.
+       *
+       * This method fails if the quota information is unavailable for the region
+       * and if the organization policy constraint
+       * compute.requireBasicQuotaInResponse is enforced. This
+       * constraint, when enforced, disables the fail-open behaviour when quota
+       * information (the `items.quotas` field) is unavailable for the region.
+       * It is recommended to use the default setting
+       * for the constraint unless your application requires the fail-closed
+       * behaviour for this method.
+       */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the region resource to return. */
+        region: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<Region>;
+      /**
+       * Retrieves the list of region resources available to the specified project.
+       *
+       * To decrease latency for this method, you can optionally omit any unneeded
+       * information from the response by using a field mask. This practice is
+       * especially recommended for unused quota information
+       * (the `items.quotas` field).
+       * To exclude one or more fields, set your request's `fields` query parameter
+       * to only include the fields you need. For example, to only include the `id`
+       * and `selfLink` fields, add the query parameter `?fields=id,selfLink` to
+       * your request.
+       *
+       * This method fails if the quota information is unavailable for the region
+       * and if the organization policy constraint
+       * compute.requireBasicQuotaInResponse is enforced. This
+       * constraint, when enforced, disables the fail-open behaviour when quota
+       * information (the `items.quotas` field) is unavailable for the region.
+       * It is recommended to use the default setting
+       * for the constraint unless your application requires the fail-closed
+       * behaviour for this method.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<RegionList>;
+    };
+
+    const reliabilityRisks: {
       /** Returns the specified ReliabilityRisk resource. */
       get(request?: {
         /** V1 error format. */
@@ -112876,8 +113011,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<ReliabilityRisksListResponse>;
-    }
-    interface ReservationBlocksResource {
+    };
+
+    const reservationBlocks: {
       /** Retrieves information about the specified reservation block. */
       get(request?: {
         /** V1 error format. */
@@ -113283,8 +113419,1004 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface ReservationsResource {
+    };
+
+    const reservationSlots: {
+      /** Retrieves information about the specified reservation slot. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block, formatted as
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** The project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * The name of the reservation slot, formatted as RFC1035 or a resource ID
+         * number.
+         */
+        reservationSlot: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request, formatted as RFC1035. */
+        zone: string;
+      }): Request<ReservationSlotsGetResponse>;
+      /** Get health info on a reservation slot. */
+      getHealth(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation, parent block and parent sub-block. In
+         * the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** An optional request ID to identify requests. */
+        requestId?: string;
+        /**
+         * The name of the reservation slot.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSlot: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+      }): Request<Operation>;
+      /** Allows customers to get SBOM versions of a reservation slot. */
+      getVersion(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /**
+         * The name of the reservation slot.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSlot: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+        /** Request body */
+        resource: ReservationSlotsGetVersionRequest;
+      }): Request<Operation>;
+      getVersion(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /**
+           * The name of the parent reservation and parent block. In the format of
+           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+           */
+          parentName: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /**
+           * The name of the reservation slot.
+           * Name should conform to RFC1035 or be a resource ID.
+           */
+          reservationSlot: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** Name of the zone for this request. Zone name should conform to RFC1035. */
+          zone: string;
+        },
+        body: ReservationSlotsGetVersionRequest,
+      ): Request<Operation>;
+      /** Retrieves a list of reservation slots under a single reservation. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /**
+         * The name of the parent reservation and parent block, formatted as
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** The project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request, formatted as RFC1035. */
+        zone: string;
+      }): Request<ReservationSlotsListResponse>;
+      /** Update a reservation slot in the specified sub-block. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The name of the sub-block resource. */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** The project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The name of the slot resource. */
+        reservationSlot: string;
+        /** The fields to be updated as part of this request. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request, formatted as RFC1035. */
+        zone: string;
+        /** Request body */
+        resource: ReservationSlot;
+      }): Request<Operation>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** The name of the sub-block resource. */
+          parentName: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** The project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The name of the slot resource. */
+          reservationSlot: string;
+          /** The fields to be updated as part of this request. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** The name of the zone for this request, formatted as RFC1035. */
+          zone: string;
+        },
+        body: ReservationSlot,
+      ): Request<Operation>;
+    };
+
+    const reservationSubBlocks: {
+      /** Retrieves information about the specified reservation subBlock. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * The name of the reservation subBlock.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSubBlock: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** View of the subBlock. */
+        view?:
+          | 'SUB_BLOCK_VIEW_BASIC'
+          | 'SUB_BLOCK_VIEW_FULL'
+          | 'SUB_BLOCK_VIEW_UNSPECIFIED';
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+      }): Request<ReservationSubBlocksGetResponse>;
+      /**
+       * Gets the access control policy for a resource. May be empty if no such
+       * policy or resource exists.
+       */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Requested IAM Policy version. */
+        optionsRequestedPolicyVersion?: number;
+        /** Name or id of parent resource of the resource for this request. */
+        parentResource: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name or id of the resource for this request. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request. */
+        zone: string;
+      }): Request<Policy>;
+      /** Allows customers to get SBOM versions of a reservation subBlock. */
+      getVersion(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /**
+         * The name of the reservation subBlock.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSubBlock: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+        /** Request body */
+        resource: ReservationSubBlocksGetVersionRequest;
+      }): Request<Operation>;
+      getVersion(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /**
+           * The name of the parent reservation and parent block. In the format of
+           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+           */
+          parentName: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /**
+           * The name of the reservation subBlock.
+           * Name should conform to RFC1035 or be a resource ID.
+           */
+          reservationSubBlock: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** Name of the zone for this request. Zone name should conform to RFC1035. */
+          zone: string;
+        },
+        body: ReservationSubBlocksGetVersionRequest,
+      ): Request<Operation>;
+      /** Retrieves a list of reservation subBlocks under a single reservation. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+      }): Request<ReservationSubBlocksListResponse>;
+      /** Allows customers to perform maintenance on a reservation subBlock */
+      performMaintenance(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /**
+         * The name of the reservation subBlock.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSubBlock: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+      }): Request<Operation>;
+      /** Allows customers to report a faulty subBlock. */
+      reportFaulty(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * The name of the parent reservation and parent block. In the format of
+         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+         */
+        parentName: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /**
+         * The name of the reservation subBlock.
+         * Name should conform to RFC1035 or be a resource ID.
+         */
+        reservationSubBlock: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone for this request. Zone name should conform to RFC1035. */
+        zone: string;
+        /** Request body */
+        resource: ReservationSubBlocksReportFaultyRequest;
+      }): Request<Operation>;
+      reportFaulty(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /**
+           * The name of the parent reservation and parent block. In the format of
+           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+           */
+          parentName: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /**
+           * The name of the reservation subBlock.
+           * Name should conform to RFC1035 or be a resource ID.
+           */
+          reservationSubBlock: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** Name of the zone for this request. Zone name should conform to RFC1035. */
+          zone: string;
+        },
+        body: ReservationSubBlocksReportFaultyRequest,
+      ): Request<Operation>;
+      /**
+       * Sets the access control policy on the specified resource.
+       * Replaces any existing policy.
+       */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Name or id of parent resource of the resource for this request. */
+          parentResource: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name or id of the resource for this request. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** The name of the zone for this request. */
+          zone: string;
+        },
+        body: ZoneSetNestedPolicyRequest,
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Name or id of parent resource of the resource for this request. */
+          parentResource: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Name or id of the resource for this request. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+          /** The name of the zone for this request. */
+          zone: string;
+        },
+        body: TestPermissionsRequest,
+      ): Request<TestPermissionsResponse>;
+    };
+
+    const reservations: {
       /**
        * Retrieves an aggregated list of reservations.
        *
@@ -114164,1001 +115296,9 @@ declare namespace gapi.client {
         },
         body: Reservation,
       ): Request<Operation>;
-    }
-    interface ReservationSlotsResource {
-      /** Retrieves information about the specified reservation slot. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block, formatted as
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * The name of the reservation slot, formatted as RFC1035 or a resource ID
-         * number.
-         */
-        reservationSlot: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request, formatted as RFC1035. */
-        zone: string;
-      }): Request<ReservationSlotsGetResponse>;
-      /** Get health info on a reservation slot. */
-      getHealth(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation, parent block and parent sub-block. In
-         * the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** An optional request ID to identify requests. */
-        requestId?: string;
-        /**
-         * The name of the reservation slot.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSlot: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-      }): Request<Operation>;
-      /** Allows customers to get SBOM versions of a reservation slot. */
-      getVersion(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /**
-         * The name of the reservation slot.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSlot: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-        /** Request body */
-        resource: ReservationSlotsGetVersionRequest;
-      }): Request<Operation>;
-      getVersion(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /**
-           * The name of the parent reservation and parent block. In the format of
-           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
-           */
-          parentName: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /**
-           * The name of the reservation slot.
-           * Name should conform to RFC1035 or be a resource ID.
-           */
-          reservationSlot: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** Name of the zone for this request. Zone name should conform to RFC1035. */
-          zone: string;
-        },
-        body: ReservationSlotsGetVersionRequest,
-      ): Request<Operation>;
-      /** Retrieves a list of reservation slots under a single reservation. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /**
-         * The name of the parent reservation and parent block, formatted as
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request, formatted as RFC1035. */
-        zone: string;
-      }): Request<ReservationSlotsListResponse>;
-      /** Update a reservation slot in the specified sub-block. */
-      update(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** The name of the sub-block resource. */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** The project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** The name of the slot resource. */
-        reservationSlot: string;
-        /** The fields to be updated as part of this request. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request, formatted as RFC1035. */
-        zone: string;
-        /** Request body */
-        resource: ReservationSlot;
-      }): Request<Operation>;
-      update(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** The name of the sub-block resource. */
-          parentName: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** The project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** The name of the slot resource. */
-          reservationSlot: string;
-          /** The fields to be updated as part of this request. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** The name of the zone for this request, formatted as RFC1035. */
-          zone: string;
-        },
-        body: ReservationSlot,
-      ): Request<Operation>;
-    }
-    interface ReservationSubBlocksResource {
-      /** Retrieves information about the specified reservation subBlock. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * The name of the reservation subBlock.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSubBlock: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** View of the subBlock. */
-        view?:
-          | 'SUB_BLOCK_VIEW_BASIC'
-          | 'SUB_BLOCK_VIEW_FULL'
-          | 'SUB_BLOCK_VIEW_UNSPECIFIED';
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-      }): Request<ReservationSubBlocksGetResponse>;
-      /**
-       * Gets the access control policy for a resource. May be empty if no such
-       * policy or resource exists.
-       */
-      getIamPolicy(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Requested IAM Policy version. */
-        optionsRequestedPolicyVersion?: number;
-        /** Name or id of parent resource of the resource for this request. */
-        parentResource: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name or id of the resource for this request. */
-        resource: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request. */
-        zone: string;
-      }): Request<Policy>;
-      /** Allows customers to get SBOM versions of a reservation subBlock. */
-      getVersion(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /**
-         * The name of the reservation subBlock.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSubBlock: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-        /** Request body */
-        resource: ReservationSubBlocksGetVersionRequest;
-      }): Request<Operation>;
-      getVersion(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /**
-           * The name of the parent reservation and parent block. In the format of
-           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-           */
-          parentName: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /**
-           * The name of the reservation subBlock.
-           * Name should conform to RFC1035 or be a resource ID.
-           */
-          reservationSubBlock: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** Name of the zone for this request. Zone name should conform to RFC1035. */
-          zone: string;
-        },
-        body: ReservationSubBlocksGetVersionRequest,
-      ): Request<Operation>;
-      /** Retrieves a list of reservation subBlocks under a single reservation. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-      }): Request<ReservationSubBlocksListResponse>;
-      /** Allows customers to perform maintenance on a reservation subBlock */
-      performMaintenance(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /**
-         * The name of the reservation subBlock.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSubBlock: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-      }): Request<Operation>;
-      /** Allows customers to report a faulty subBlock. */
-      reportFaulty(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * The name of the parent reservation and parent block. In the format of
-         * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-         */
-        parentName: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /**
-         * The name of the reservation subBlock.
-         * Name should conform to RFC1035 or be a resource ID.
-         */
-        reservationSubBlock: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone for this request. Zone name should conform to RFC1035. */
-        zone: string;
-        /** Request body */
-        resource: ReservationSubBlocksReportFaultyRequest;
-      }): Request<Operation>;
-      reportFaulty(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /**
-           * The name of the parent reservation and parent block. In the format of
-           * reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
-           */
-          parentName: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /**
-           * The name of the reservation subBlock.
-           * Name should conform to RFC1035 or be a resource ID.
-           */
-          reservationSubBlock: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** Name of the zone for this request. Zone name should conform to RFC1035. */
-          zone: string;
-        },
-        body: ReservationSubBlocksReportFaultyRequest,
-      ): Request<Operation>;
-      /**
-       * Sets the access control policy on the specified resource.
-       * Replaces any existing policy.
-       */
-      setIamPolicy(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name or id of parent resource of the resource for this request. */
-          parentResource: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name or id of the resource for this request. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** The name of the zone for this request. */
-          zone: string;
-        },
-        body: ZoneSetNestedPolicyRequest,
-      ): Request<Policy>;
-      /** Returns permissions that a caller has on the specified resource. */
-      testIamPermissions(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Name or id of parent resource of the resource for this request. */
-          parentResource: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Name or id of the resource for this request. */
-          resource: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-          /** The name of the zone for this request. */
-          zone: string;
-        },
-        body: TestPermissionsRequest,
-      ): Request<TestPermissionsResponse>;
-    }
-    interface ResourcePoliciesResource {
+    };
+
+    const resourcePolicies: {
       /**
        * Retrieves an aggregated list of resource policies.
        *
@@ -115819,8 +115959,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface RolloutPlansResource {
+    };
+
+    const rolloutPlans: {
       /** Deletes a RolloutPlan. */
       delete(request?: {
         /** V1 error format. */
@@ -116111,8 +116252,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<RolloutPlansListResponse>;
-    }
-    interface RolloutsResource {
+    };
+
+    const rollouts: {
       /** Advances a Rollout to the next wave, or completes it if no waves remain. */
       advance(request?: {
         /** V1 error format. */
@@ -116518,8 +116660,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<Operation>;
-    }
-    interface RoutersResource {
+    };
+
+    const routers: {
       /**
        * Retrieves an aggregated list of routers.
        *
@@ -118440,8 +118583,9 @@ declare namespace gapi.client {
         },
         body: RoutePolicy,
       ): Request<Operation>;
-    }
-    interface RoutesResource {
+    };
+
+    const routes: {
       /** Deletes the specified Route resource. */
       delete(request?: {
         /** V1 error format. */
@@ -118769,8 +118913,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface SecurityPoliciesResource {
+    };
+
+    const securityPolicies: {
       /** Inserts a rule into a security policy. */
       addRule(request: {
         /** V1 error format. */
@@ -119691,8 +119836,9 @@ declare namespace gapi.client {
         },
         body: GlobalSetLabelsRequest,
       ): Request<Operation>;
-    }
-    interface ServiceAttachmentsResource {
+    };
+
+    const serviceAttachments: {
       /**
        * Retrieves the list of all ServiceAttachment resources,
        * regional and global, available to the specified project.
@@ -120363,8 +120509,139 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface SnapshotsResource {
+    };
+
+    const snapshotSettings: {
+      /** Get snapshot settings. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<SnapshotSettings>;
+      /** Patch snapshot settings. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * An optional request ID to identify requests. Specify a unique request ID so
+         * that if you must retry your request, the server will know to ignore the
+         * request if it has already been completed.
+         *
+         * For example, consider a situation where you make an initial request and
+         * the request times out. If you make the request again with the same
+         * request ID, the server can check if original operation with the same
+         * request ID was received, and if so, will ignore the second request. This
+         * prevents clients from accidentally creating duplicate commitments.
+         *
+         * The request ID must be
+         * a valid UUID with the exception that zero UUID is not supported
+         * (00000000-0000-0000-0000-000000000000).
+         */
+        requestId?: string;
+        /** update_mask indicates fields to be updated as part of this request. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Request body */
+        resource: SnapshotSettings;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: '1' | '2';
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: 'json' | 'media' | 'proto';
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Project ID for this request. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /**
+           * An optional request ID to identify requests. Specify a unique request ID so
+           * that if you must retry your request, the server will know to ignore the
+           * request if it has already been completed.
+           *
+           * For example, consider a situation where you make an initial request and
+           * the request times out. If you make the request again with the same
+           * request ID, the server can check if original operation with the same
+           * request ID was received, and if so, will ignore the second request. This
+           * prevents clients from accidentally creating duplicate commitments.
+           *
+           * The request ID must be
+           * a valid UUID with the exception that zero UUID is not supported
+           * (00000000-0000-0000-0000-000000000000).
+           */
+          requestId?: string;
+          /** update_mask indicates fields to be updated as part of this request. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Legacy name for parameter that has been superseded by `quotaUser`. */
+          userIp?: string;
+        },
+        body: SnapshotSettings,
+      ): Request<Operation>;
+    };
+
+    const snapshots: {
       /**
        * Deletes the specified Snapshot resource. Keep in mind that deleting
        * a single snapshot might not necessarily delete all the data on that
@@ -120918,137 +121195,9 @@ declare namespace gapi.client {
         },
         body: SnapshotUpdateKmsKeyRequest,
       ): Request<Operation>;
-    }
-    interface SnapshotSettingsResource {
-      /** Get snapshot settings. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<SnapshotSettings>;
-      /** Patch snapshot settings. */
-      patch(request: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * An optional request ID to identify requests. Specify a unique request ID so
-         * that if you must retry your request, the server will know to ignore the
-         * request if it has already been completed.
-         *
-         * For example, consider a situation where you make an initial request and
-         * the request times out. If you make the request again with the same
-         * request ID, the server can check if original operation with the same
-         * request ID was received, and if so, will ignore the second request. This
-         * prevents clients from accidentally creating duplicate commitments.
-         *
-         * The request ID must be
-         * a valid UUID with the exception that zero UUID is not supported
-         * (00000000-0000-0000-0000-000000000000).
-         */
-        requestId?: string;
-        /** update_mask indicates fields to be updated as part of this request. */
-        updateMask?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Request body */
-        resource: SnapshotSettings;
-      }): Request<Operation>;
-      patch(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: '1' | '2';
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: 'json' | 'media' | 'proto';
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Project ID for this request. */
-          project: string;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /**
-           * An optional request ID to identify requests. Specify a unique request ID so
-           * that if you must retry your request, the server will know to ignore the
-           * request if it has already been completed.
-           *
-           * For example, consider a situation where you make an initial request and
-           * the request times out. If you make the request again with the same
-           * request ID, the server can check if original operation with the same
-           * request ID was received, and if so, will ignore the second request. This
-           * prevents clients from accidentally creating duplicate commitments.
-           *
-           * The request ID must be
-           * a valid UUID with the exception that zero UUID is not supported
-           * (00000000-0000-0000-0000-000000000000).
-           */
-          requestId?: string;
-          /** update_mask indicates fields to be updated as part of this request. */
-          updateMask?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-          /** Legacy name for parameter that has been superseded by `quotaUser`. */
-          userIp?: string;
-        },
-        body: SnapshotSettings,
-      ): Request<Operation>;
-    }
-    interface SslCertificatesResource {
+    };
+
+    const sslCertificates: {
       /**
        * Retrieves the list of all SslCertificate resources, regional and global,
        * available to the specified project.
@@ -121521,8 +121670,9 @@ declare namespace gapi.client {
         /** Legacy name for parameter that has been superseded by `quotaUser`. */
         userIp?: string;
       }): Request<SslCertificateList>;
-    }
-    interface SslPoliciesResource {
+    };
+
+    const sslPolicies: {
       /**
        * Retrieves the list of all SslPolicy resources, regional and global,
        * available to the specified project.
@@ -122190,8 +122340,306 @@ declare namespace gapi.client {
         },
         body: SslPolicy,
       ): Request<Operation>;
-    }
-    interface StoragePoolsResource {
+    };
+
+    const storagePoolTypes: {
+      /**
+       * Retrieves an aggregated list of storage pool types.
+       *
+       * To prevent failure, Google recommends that you set the
+       * `returnPartialSuccess` parameter to `true`.
+       */
+      aggregatedList(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /**
+         * Indicates whether every visible scope for each scope type (zone, region,
+         * global) should be included in the response. For new resource types added
+         * after this field, the flag has no effect as new resource types will always
+         * include every visible scope for each scope type in response. For resource
+         * types which predate this field, if this flag is omitted or false, only
+         * scopes of the scope types where the resource type is expected to be found
+         * will be included.
+         */
+        includeAllScopes?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /**
+         * The Shared VPC service project id or service project number for which
+         * aggregated list request is invoked for subnetworks list-usable api.
+         */
+        serviceProjectNumber?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<StoragePoolTypeAggregatedList>;
+      /** Returns the specified storage pool type. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Name of the storage pool type to return. */
+        storagePoolType: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request. */
+        zone: string;
+      }): Request<StoragePoolType>;
+      /**
+       * Retrieves a list of storage pool types available to the specified
+       * project.
+       */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** The name of the zone for this request. */
+        zone: string;
+      }): Request<StoragePoolTypeList>;
+    };
+
+    const storagePools: {
       /**
        * Retrieves an aggregated list of storage pools.
        *
@@ -122992,304 +123440,9 @@ declare namespace gapi.client {
         },
         body: StoragePool,
       ): Request<Operation>;
-    }
-    interface StoragePoolTypesResource {
-      /**
-       * Retrieves an aggregated list of storage pool types.
-       *
-       * To prevent failure, Google recommends that you set the
-       * `returnPartialSuccess` parameter to `true`.
-       */
-      aggregatedList(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /**
-         * Indicates whether every visible scope for each scope type (zone, region,
-         * global) should be included in the response. For new resource types added
-         * after this field, the flag has no effect as new resource types will always
-         * include every visible scope for each scope type in response. For resource
-         * types which predate this field, if this flag is omitted or false, only
-         * scopes of the scope types where the resource type is expected to be found
-         * will be included.
-         */
-        includeAllScopes?: boolean;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /**
-         * The Shared VPC service project id or service project number for which
-         * aggregated list request is invoked for subnetworks list-usable api.
-         */
-        serviceProjectNumber?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<StoragePoolTypeAggregatedList>;
-      /** Returns the specified storage pool type. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Name of the storage pool type to return. */
-        storagePoolType: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request. */
-        zone: string;
-      }): Request<StoragePoolType>;
-      /**
-       * Retrieves a list of storage pool types available to the specified
-       * project.
-       */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** The name of the zone for this request. */
-        zone: string;
-      }): Request<StoragePoolTypeList>;
-    }
-    interface SubnetworksResource {
+    };
+
+    const subnetworks: {
       /**
        * Retrieves an aggregated list of subnetworks.
        *
@@ -124337,8 +124490,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface TargetGrpcProxiesResource {
+    };
+
+    const targetGrpcProxies: {
       /** Deletes the specified TargetGrpcProxy in the given scope */
       delete(request?: {
         /** V1 error format. */
@@ -124735,8 +124889,9 @@ declare namespace gapi.client {
         },
         body: TargetGrpcProxy,
       ): Request<Operation>;
-    }
-    interface TargetHttpProxiesResource {
+    };
+
+    const targetHttpProxies: {
       /**
        * Retrieves the list of all TargetHttpProxy resources, regional and global,
        * available to the specified project.
@@ -125373,8 +125528,9 @@ declare namespace gapi.client {
         },
         body: UrlMapReference,
       ): Request<Operation>;
-    }
-    interface TargetHttpsProxiesResource {
+    };
+
+    const targetHttpsProxies: {
       /**
        * Retrieves the list of all TargetHttpsProxy resources, regional and global,
        * available to the specified project.
@@ -126438,8 +126594,9 @@ declare namespace gapi.client {
         },
         body: UrlMapReference,
       ): Request<Operation>;
-    }
-    interface TargetInstancesResource {
+    };
+
+    const targetInstances: {
       /**
        * Retrieves an aggregated list of target instances.
        *
@@ -127032,8 +127189,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface TargetPoolsResource {
+    };
+
+    const targetPools: {
       /** Adds health check URLs to a target pool. */
       addHealthCheck(request: {
         /** V1 error format. */
@@ -128213,8 +128371,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface TargetSslProxiesResource {
+    };
+
+    const targetSslProxies: {
       /** Deletes the specified TargetSslProxy resource. */
       delete(request?: {
         /** V1 error format. */
@@ -129064,8 +129223,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface TargetTcpProxiesResource {
+    };
+
+    const targetTcpProxies: {
       /**
        * Retrieves the list of all TargetTcpProxy resources, regional and global,
        * available to the specified project.
@@ -129737,8 +129897,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface TargetVpnGatewaysResource {
+    };
+
+    const targetVpnGateways: {
       /**
        * Retrieves an aggregated list of target VPN gateways.
        *
@@ -130238,8 +130399,9 @@ declare namespace gapi.client {
         },
         body: RegionSetLabelsRequest,
       ): Request<Operation>;
-    }
-    interface UrlMapsResource {
+    };
+
+    const urlMaps: {
       /**
        * Retrieves the list of all UrlMap resources, regional and global,
        * available to the specified project.
@@ -131087,8 +131249,9 @@ declare namespace gapi.client {
         },
         body: UrlMapsValidateRequest,
       ): Request<UrlMapsValidateResponse>;
-    }
-    interface VpnGatewaysResource {
+    };
+
+    const vpnGateways: {
       /**
        * Retrieves an aggregated list of VPN gateways.
        *
@@ -131657,8 +131820,9 @@ declare namespace gapi.client {
         },
         body: TestPermissionsRequest,
       ): Request<TestPermissionsResponse>;
-    }
-    interface VpnTunnelsResource {
+    };
+
+    const vpnTunnels: {
       /**
        * Retrieves an aggregated list of VPN tunnels.
        *
@@ -132158,8 +132322,9 @@ declare namespace gapi.client {
         },
         body: RegionSetLabelsRequest,
       ): Request<Operation>;
-    }
-    interface WireGroupsResource {
+    };
+
+    const wireGroups: {
       /** Deletes the specified wire group in the given scope. */
       delete(request?: {
         /** V1 error format. */
@@ -132580,8 +132745,9 @@ declare namespace gapi.client {
         },
         body: WireGroup,
       ): Request<Operation>;
-    }
-    interface ZoneFolderOperationsResource {
+    };
+
+    const zoneFolderOperations: {
       /** Retrieves the specified Operations resource. */
       get(request?: {
         /** V1 error format. */
@@ -132738,8 +132904,9 @@ declare namespace gapi.client {
         /** Name of the zone for request. */
         zone: string;
       }): Request<OperationList>;
-    }
-    interface ZoneOperationsResource {
+    };
+
+    const zoneOperations: {
       /** Deletes the specified zone-specific Operations resource. */
       delete(request?: {
         /** V1 error format. */
@@ -132987,8 +133154,9 @@ declare namespace gapi.client {
         /** Name of the zone for this request. */
         zone: string;
       }): Request<Operation>;
-    }
-    interface ZoneOrganizationOperationsResource {
+    };
+
+    const zoneOrganizationOperations: {
       /** Retrieves the specified Operations resource. */
       get(request?: {
         /** V1 error format. */
@@ -133148,159 +133316,9 @@ declare namespace gapi.client {
         /** Name of the zone for request. */
         zone: string;
       }): Request<OperationList>;
-    }
-    interface ZonesResource {
-      /** Returns the specified Zone resource. */
-      get(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-        /** Name of the zone resource to return. */
-        zone: string;
-      }): Request<Zone>;
-      /** Retrieves the list of Zone resources available to the specified project. */
-      list(request?: {
-        /** V1 error format. */
-        '$.xgafv'?: '1' | '2';
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: 'json' | 'media' | 'proto';
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /**
-         * A filter expression that filters resources listed in the response. Most
-         * Compute resources support two types of filter expressions:
-         * expressions that support regular expressions and expressions that follow
-         * API improvement proposal AIP-160.
-         * These two types of filter expressions cannot be mixed in one request.
-         *
-         * If you want to use AIP-160, your expression must specify the field name, an
-         * operator, and the value that you want to use for filtering. The value
-         * must be a string, a number, or a boolean. The operator
-         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
-         *
-         * For example, if you are filtering Compute Engine instances, you can
-         * exclude instances named `example-instance` by specifying
-         * `name != example-instance`.
-         *
-         * The `:*` comparison can be used to test whether a key has been defined.
-         * For example, to find all objects with `owner` label use:
-         * ```
-         * labels.owner:*
-         * ```
-         *
-         * You can also filter nested fields. For example, you could specify
-         * `scheduling.automaticRestart = false` to include instances only
-         * if they are not scheduled for automatic restarts. You can use filtering
-         * on nested fields to filter based onresource labels.
-         *
-         * To filter on multiple expressions, provide each separate expression within
-         * parentheses. For example:
-         * ```
-         * (scheduling.automaticRestart = true)
-         * (cpuPlatform = "Intel Skylake")
-         * ```
-         * By default, each expression is an `AND` expression. However, you
-         * can include `AND` and `OR` expressions explicitly.
-         * For example:
-         * ```
-         * (cpuPlatform = "Intel Skylake") OR
-         * (cpuPlatform = "Intel Broadwell") AND
-         * (scheduling.automaticRestart = true)
-         * ```
-         *
-         * If you want to use a regular expression, use the `eq` (equal) or `ne`
-         * (not equal) operator against a single un-parenthesized expression with or
-         * without quotes or against multiple parenthesized expressions. Examples:
-         *
-         * `fieldname eq unquoted literal`
-         * `fieldname eq 'single quoted literal'`
-         * `fieldname eq "double quoted literal"`
-         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
-         *
-         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
-         * The literal value must match the entire field.
-         *
-         * For example, to filter for instances that do not end with name "instance",
-         * you would use `name ne .*instance`.
-         *
-         * You cannot combine constraints on multiple fields using regular
-         * expressions.
-         */
-        filter?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /**
-         * The maximum number of results per page that should be returned.
-         * If the number of available results is larger than `maxResults`,
-         * Compute Engine returns a `nextPageToken` that can be used to get
-         * the next page of results in subsequent list requests. Acceptable values are
-         * `0` to `500`, inclusive. (Default: `500`)
-         */
-        maxResults?: number;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /**
-         * Sorts list results by a certain order. By default, results
-         * are returned in alphanumerical order based on the resource name.
-         *
-         * You can also sort results in descending order based on the creation
-         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
-         * results based on the `creationTimestamp` field in
-         * reverse chronological order (newest result first). Use this to sort
-         * resources like operations so that the newest operation is returned first.
-         *
-         * Currently, only sorting by `name` or
-         * `creationTimestamp desc` is supported.
-         */
-        orderBy?: string;
-        /**
-         * Specifies a page token to use. Set `pageToken` to the
-         * `nextPageToken` returned by a previous list request to get
-         * the next page of results.
-         */
-        pageToken?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Project ID for this request. */
-        project: string;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Legacy name for parameter that has been superseded by `quotaUser`. */
-        userIp?: string;
-      }): Request<ZoneList>;
-    }
-    interface ZoneVmExtensionPoliciesResource {
+    };
+
+    const zoneVmExtensionPolicies: {
       /** Deletes a specified zone VM extension policy within a project. */
       delete(request?: {
         /** V1 error format. */
@@ -133859,296 +133877,158 @@ declare namespace gapi.client {
         },
         body: VmExtensionPolicy,
       ): Request<Operation>;
-    }
-
-    const acceleratorInterconnectMemberInstances: AcceleratorInterconnectMemberInstancesResource;
-
-    const acceleratorInterconnects: AcceleratorInterconnectsResource;
-
-    const acceleratorTypes: AcceleratorTypesResource;
-
-    const addresses: AddressesResource;
-
-    const advice: AdviceResource;
-
-    const aliasNetworkEndpoints: AliasNetworkEndpointsResource;
-
-    const autoscalers: AutoscalersResource;
-
-    const backendBuckets: BackendBucketsResource;
-
-    const backendServices: BackendServicesResource;
-
-    const crossSiteNetworks: CrossSiteNetworksResource;
-
-    const diskTypes: DiskTypesResource;
-
-    const disks: DisksResource;
-
-    const externalVpnGateways: ExternalVpnGatewaysResource;
-
-    const firewallPolicies: FirewallPoliciesResource;
-
-    const firewalls: FirewallsResource;
-
-    const folderGlobalVmExtensionPolicies: FolderGlobalVmExtensionPoliciesResource;
-
-    const folderRolloutPlans: FolderRolloutPlansResource;
-
-    const folderRollouts: FolderRolloutsResource;
-
-    const folderZoneVmExtensionPolicies: FolderZoneVmExtensionPoliciesResource;
-
-    const forwardingRules: ForwardingRulesResource;
-
-    const futureReservations: FutureReservationsResource;
-
-    const globalAddresses: GlobalAddressesResource;
-
-    const globalFolderOperations: GlobalFolderOperationsResource;
-
-    const globalForwardingRules: GlobalForwardingRulesResource;
-
-    const globalFrontendSettings: GlobalFrontendSettingsResource;
-
-    const globalNetworkEndpointGroups: GlobalNetworkEndpointGroupsResource;
-
-    const globalOperations: GlobalOperationsResource;
-
-    const globalOrganizationOperations: GlobalOrganizationOperationsResource;
-
-    const globalPublicDelegatedPrefixes: GlobalPublicDelegatedPrefixesResource;
-
-    const globalVmExtensionPolicies: GlobalVmExtensionPoliciesResource;
-
-    const haControllers: HaControllersResource;
-
-    const healthChecks: HealthChecksResource;
-
-    const hosts: HostsResource;
-
-    const httpHealthChecks: HttpHealthChecksResource;
-
-    const httpsHealthChecks: HttpsHealthChecksResource;
-
-    const imageFamilyViews: ImageFamilyViewsResource;
-
-    const imageViews: ImageViewsResource;
-
-    const images: ImagesResource;
-
-    const instanceGroupManagerResizeRequests: InstanceGroupManagerResizeRequestsResource;
-
-    const instanceGroupManagers: InstanceGroupManagersResource;
-
-    const instanceGroups: InstanceGroupsResource;
-
-    const instanceSettings: InstanceSettingsResource;
-
-    const instanceTemplates: InstanceTemplatesResource;
-
-    const instances: InstancesResource;
-
-    const instantSnapshotGroups: InstantSnapshotGroupsResource;
-
-    const instantSnapshots: InstantSnapshotsResource;
-
-    const interconnectAttachmentGroups: InterconnectAttachmentGroupsResource;
-
-    const interconnectAttachments: InterconnectAttachmentsResource;
-
-    const interconnectGroups: InterconnectGroupsResource;
-
-    const interconnectLocations: InterconnectLocationsResource;
-
-    const interconnectRemoteLocations: InterconnectRemoteLocationsResource;
-
-    const interconnects: InterconnectsResource;
-
-    const licenseCodes: LicenseCodesResource;
-
-    const licenses: LicensesResource;
-
-    const machineImages: MachineImagesResource;
-
-    const machineTypes: MachineTypesResource;
-
-    const managedRulesets: ManagedRulesetsResource;
-
-    const networkAttachments: NetworkAttachmentsResource;
-
-    const networkEdgeSecurityServices: NetworkEdgeSecurityServicesResource;
-
-    const networkEndpointGroups: NetworkEndpointGroupsResource;
-
-    const networkFirewallPolicies: NetworkFirewallPoliciesResource;
-
-    const networkLocationBindings: NetworkLocationBindingsResource;
-
-    const networkProfiles: NetworkProfilesResource;
-
-    const networks: NetworksResource;
-
-    const nodeGroups: NodeGroupsResource;
-
-    const nodeTemplates: NodeTemplatesResource;
-
-    const nodeTypes: NodeTypesResource;
-
-    const organizationGlobalVmExtensionPolicies: OrganizationGlobalVmExtensionPoliciesResource;
-
-    const organizationSecurityPolicies: OrganizationSecurityPoliciesResource;
-
-    const organizationZoneVmExtensionPolicies: OrganizationZoneVmExtensionPoliciesResource;
-
-    const packetMirrorings: PacketMirroringsResource;
-
-    const previewFeatures: PreviewFeaturesResource;
-
-    const projectViews: ProjectViewsResource;
-
-    const projects: ProjectsResource;
-
-    const publicAdvertisedPrefixes: PublicAdvertisedPrefixesResource;
-
-    const publicDelegatedPrefixes: PublicDelegatedPrefixesResource;
-
-    const regionAutoscalers: RegionAutoscalersResource;
-
-    const regionBackendBuckets: RegionBackendBucketsResource;
-
-    const regionBackendServices: RegionBackendServicesResource;
-
-    const regionCommitments: RegionCommitmentsResource;
-
-    const regionCompositeHealthChecks: RegionCompositeHealthChecksResource;
-
-    const regionDiskTypes: RegionDiskTypesResource;
-
-    const regionDisks: RegionDisksResource;
-
-    const regionHealthAggregationPolicies: RegionHealthAggregationPoliciesResource;
-
-    const regionHealthCheckServices: RegionHealthCheckServicesResource;
-
-    const regionHealthChecks: RegionHealthChecksResource;
-
-    const regionHealthSources: RegionHealthSourcesResource;
-
-    const regionInstanceGroupManagerResizeRequests: RegionInstanceGroupManagerResizeRequestsResource;
-
-    const regionInstanceGroupManagers: RegionInstanceGroupManagersResource;
-
-    const regionInstanceGroups: RegionInstanceGroupsResource;
-
-    const regionInstanceTemplates: RegionInstanceTemplatesResource;
-
-    const regionInstances: RegionInstancesResource;
-
-    const regionInstantSnapshotGroups: RegionInstantSnapshotGroupsResource;
-
-    const regionInstantSnapshots: RegionInstantSnapshotsResource;
-
-    const regionNetworkEndpointGroups: RegionNetworkEndpointGroupsResource;
-
-    const regionNetworkFirewallPolicies: RegionNetworkFirewallPoliciesResource;
-
-    const regionNotificationEndpoints: RegionNotificationEndpointsResource;
-
-    const regionOperations: RegionOperationsResource;
-
-    const regionSecurityPolicies: RegionSecurityPoliciesResource;
-
-    const regionSnapshotSettings: RegionSnapshotSettingsResource;
-
-    const regionSnapshots: RegionSnapshotsResource;
-
-    const regionSslCertificates: RegionSslCertificatesResource;
-
-    const regionSslPolicies: RegionSslPoliciesResource;
-
-    const regionTargetHttpProxies: RegionTargetHttpProxiesResource;
-
-    const regionTargetHttpsProxies: RegionTargetHttpsProxiesResource;
-
-    const regionTargetTcpProxies: RegionTargetTcpProxiesResource;
-
-    const regionUrlMaps: RegionUrlMapsResource;
-
-    const regionZones: RegionZonesResource;
-
-    const regions: RegionsResource;
-
-    const reliabilityRisks: ReliabilityRisksResource;
-
-    const reservationBlocks: ReservationBlocksResource;
-
-    const reservationSlots: ReservationSlotsResource;
-
-    const reservationSubBlocks: ReservationSubBlocksResource;
-
-    const reservations: ReservationsResource;
-
-    const resourcePolicies: ResourcePoliciesResource;
-
-    const rolloutPlans: RolloutPlansResource;
-
-    const rollouts: RolloutsResource;
-
-    const routers: RoutersResource;
-
-    const routes: RoutesResource;
-
-    const securityPolicies: SecurityPoliciesResource;
-
-    const serviceAttachments: ServiceAttachmentsResource;
-
-    const snapshotSettings: SnapshotSettingsResource;
-
-    const snapshots: SnapshotsResource;
-
-    const sslCertificates: SslCertificatesResource;
-
-    const sslPolicies: SslPoliciesResource;
-
-    const storagePoolTypes: StoragePoolTypesResource;
-
-    const storagePools: StoragePoolsResource;
-
-    const subnetworks: SubnetworksResource;
-
-    const targetGrpcProxies: TargetGrpcProxiesResource;
-
-    const targetHttpProxies: TargetHttpProxiesResource;
-
-    const targetHttpsProxies: TargetHttpsProxiesResource;
-
-    const targetInstances: TargetInstancesResource;
-
-    const targetPools: TargetPoolsResource;
-
-    const targetSslProxies: TargetSslProxiesResource;
-
-    const targetTcpProxies: TargetTcpProxiesResource;
-
-    const targetVpnGateways: TargetVpnGatewaysResource;
-
-    const urlMaps: UrlMapsResource;
-
-    const vpnGateways: VpnGatewaysResource;
-
-    const vpnTunnels: VpnTunnelsResource;
-
-    const wireGroups: WireGroupsResource;
-
-    const zoneFolderOperations: ZoneFolderOperationsResource;
-
-    const zoneOperations: ZoneOperationsResource;
-
-    const zoneOrganizationOperations: ZoneOrganizationOperationsResource;
-
-    const zoneVmExtensionPolicies: ZoneVmExtensionPoliciesResource;
-
-    const zones: ZonesResource;
+    };
+
+    const zones: {
+      /** Returns the specified Zone resource. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+        /** Name of the zone resource to return. */
+        zone: string;
+      }): Request<Zone>;
+      /** Retrieves the list of Zone resources available to the specified project. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: '1' | '2';
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: 'json' | 'media' | 'proto';
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /**
+         * A filter expression that filters resources listed in the response. Most
+         * Compute resources support two types of filter expressions:
+         * expressions that support regular expressions and expressions that follow
+         * API improvement proposal AIP-160.
+         * These two types of filter expressions cannot be mixed in one request.
+         *
+         * If you want to use AIP-160, your expression must specify the field name, an
+         * operator, and the value that you want to use for filtering. The value
+         * must be a string, a number, or a boolean. The operator
+         * must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+         *
+         * For example, if you are filtering Compute Engine instances, you can
+         * exclude instances named `example-instance` by specifying
+         * `name != example-instance`.
+         *
+         * The `:*` comparison can be used to test whether a key has been defined.
+         * For example, to find all objects with `owner` label use:
+         * ```
+         * labels.owner:*
+         * ```
+         *
+         * You can also filter nested fields. For example, you could specify
+         * `scheduling.automaticRestart = false` to include instances only
+         * if they are not scheduled for automatic restarts. You can use filtering
+         * on nested fields to filter based onresource labels.
+         *
+         * To filter on multiple expressions, provide each separate expression within
+         * parentheses. For example:
+         * ```
+         * (scheduling.automaticRestart = true)
+         * (cpuPlatform = "Intel Skylake")
+         * ```
+         * By default, each expression is an `AND` expression. However, you
+         * can include `AND` and `OR` expressions explicitly.
+         * For example:
+         * ```
+         * (cpuPlatform = "Intel Skylake") OR
+         * (cpuPlatform = "Intel Broadwell") AND
+         * (scheduling.automaticRestart = true)
+         * ```
+         *
+         * If you want to use a regular expression, use the `eq` (equal) or `ne`
+         * (not equal) operator against a single un-parenthesized expression with or
+         * without quotes or against multiple parenthesized expressions. Examples:
+         *
+         * `fieldname eq unquoted literal`
+         * `fieldname eq 'single quoted literal'`
+         * `fieldname eq "double quoted literal"`
+         * `(fieldname1 eq literal) (fieldname2 ne "literal")`
+         *
+         * The literal value is interpreted as a regular expression using GoogleRE2 library syntax.
+         * The literal value must match the entire field.
+         *
+         * For example, to filter for instances that do not end with name "instance",
+         * you would use `name ne .*instance`.
+         *
+         * You cannot combine constraints on multiple fields using regular
+         * expressions.
+         */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /**
+         * The maximum number of results per page that should be returned.
+         * If the number of available results is larger than `maxResults`,
+         * Compute Engine returns a `nextPageToken` that can be used to get
+         * the next page of results in subsequent list requests. Acceptable values are
+         * `0` to `500`, inclusive. (Default: `500`)
+         */
+        maxResults?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /**
+         * Sorts list results by a certain order. By default, results
+         * are returned in alphanumerical order based on the resource name.
+         *
+         * You can also sort results in descending order based on the creation
+         * timestamp using `orderBy="creationTimestamp desc"`. This sorts
+         * results based on the `creationTimestamp` field in
+         * reverse chronological order (newest result first). Use this to sort
+         * resources like operations so that the newest operation is returned first.
+         *
+         * Currently, only sorting by `name` or
+         * `creationTimestamp desc` is supported.
+         */
+        orderBy?: string;
+        /**
+         * Specifies a page token to use. Set `pageToken` to the
+         * `nextPageToken` returned by a previous list request to get
+         * the next page of results.
+         */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Project ID for this request. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Legacy name for parameter that has been superseded by `quotaUser`. */
+        userIp?: string;
+      }): Request<ZoneList>;
+    };
   }
 }

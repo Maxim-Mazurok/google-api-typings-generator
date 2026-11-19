@@ -48,9 +48,9 @@ gapi.load('client', async () => {
           },
         },
         budgetFilter: {
-          calendarPeriod: 'Test string',
+          calendarPeriod: 'CALENDAR_PERIOD_UNSPECIFIED',
           creditTypes: ['Test string'],
-          creditTypesTreatment: 'Test string',
+          creditTypesTreatment: 'CREDIT_TYPES_TREATMENT_UNSPECIFIED',
           customPeriod: {
             endDate: {
               day: 42,
@@ -81,15 +81,15 @@ gapi.load('client', async () => {
           pubsubTopic: 'Test string',
           schemaVersion: 'Test string',
         },
-        ownershipScope: 'Test string',
+        ownershipScope: 'OWNERSHIP_SCOPE_UNSPECIFIED',
         spendCap: {
-          inputState: 'Test string',
-          outputState: 'Test string',
+          inputState: 'STATE_UNSPECIFIED',
+          outputState: 'STATE_UNSPECIFIED',
           reconciling: true,
         },
         thresholdRules: [
           {
-            spendBasis: 'Test string',
+            spendBasis: 'BASIS_UNSPECIFIED',
             thresholdPercent: 42,
           },
         ],
@@ -126,9 +126,9 @@ gapi.load('client', async () => {
           },
         },
         budgetFilter: {
-          calendarPeriod: 'Test string',
+          calendarPeriod: 'CALENDAR_PERIOD_UNSPECIFIED',
           creditTypes: ['Test string'],
-          creditTypesTreatment: 'Test string',
+          creditTypesTreatment: 'CREDIT_TYPES_TREATMENT_UNSPECIFIED',
           customPeriod: {
             endDate: {
               day: 42,
@@ -159,15 +159,15 @@ gapi.load('client', async () => {
           pubsubTopic: 'Test string',
           schemaVersion: 'Test string',
         },
-        ownershipScope: 'Test string',
+        ownershipScope: 'OWNERSHIP_SCOPE_UNSPECIFIED',
         spendCap: {
-          inputState: 'Test string',
-          outputState: 'Test string',
+          inputState: 'STATE_UNSPECIFIED',
+          outputState: 'STATE_UNSPECIFIED',
           reconciling: true,
         },
         thresholdRules: [
           {
-            spendBasis: 'Test string',
+            spendBasis: 'BASIS_UNSPECIFIED',
             thresholdPercent: 42,
           },
         ],

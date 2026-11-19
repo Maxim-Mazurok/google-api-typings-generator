@@ -696,7 +696,7 @@ declare namespace gapi.client {
     }
     interface PlayerScoreResponse {
       /** The time spans where the submitted score is better than the existing score for that time span. */
-      beatenScoreTimeSpans?: 'ALL_TIME' | 'WEEKLY' | 'DAILY'[];
+      beatenScoreTimeSpans?: ('ALL_TIME' | 'WEEKLY' | 'DAILY')[];
       /** The formatted value of the submitted score. */
       formattedScore?: string;
       /** Uniquely identifies the type of this resource. Value is always the fixed string `games#playerScoreResponse`. */
@@ -879,7 +879,8 @@ declare namespace gapi.client {
       /** Required. Whether a Recall token specified by the request was deleted. Can be 'false' when there were no Recall tokens satisfied the criteria from the request. */
       unlinked?: boolean;
     }
-    interface AccesstokensResource {
+
+    const accesstokens: {
       /** Generates a Play Grouping API token for the PGS user identified by the attached credential. */
       generatePlayGroupingApiToken(request?: {
         /** V1 error format. */
@@ -940,8 +941,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GenerateRecallPlayGroupingApiTokenResponse>;
-    }
-    interface AchievementDefinitionsResource {
+    };
+
+    const achievementDefinitions: {
       /** Lists all the achievement definitions for your application. */
       list(request?: {
         /** V1 error format. */
@@ -973,8 +975,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AchievementDefinitionsListResponse>;
-    }
-    interface AchievementsResource {
+    };
+
+    const achievements: {
       /** Increments the steps of the achievement with the given ID for the currently authenticated player. */
       increment(request?: {
         /** V1 error format. */
@@ -1178,8 +1181,9 @@ declare namespace gapi.client {
         },
         body: AchievementUpdateMultipleRequest,
       ): Request<AchievementUpdateMultipleResponse>;
-    }
-    interface ApplicationsResource {
+    };
+
+    const applications: {
       /** Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified `platformType`, the returned response will not include any instance data. */
       get(request?: {
         /** V1 error format. */
@@ -1292,8 +1296,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ApplicationVerifyResponse>;
-    }
-    interface EventsResource {
+    };
+
+    const events: {
       /** Returns a list showing the current progress on events in this application for the currently authenticated user. */
       listByPlayer(request?: {
         /** V1 error format. */
@@ -1414,8 +1419,9 @@ declare namespace gapi.client {
         },
         body: EventRecordRequest,
       ): Request<EventUpdateResponse>;
-    }
-    interface GameStatsResource {
+    };
+
+    const gameStats: {
       /** Records a batch of player game events for a specific player. This method allows sending multiple events in a single request. */
       batchRecordEvents(request: {
         /** V1 error format. */
@@ -1474,8 +1480,9 @@ declare namespace gapi.client {
         },
         body: BatchRecordEventsRequest,
       ): Request<BatchRecordEventsResponse>;
-    }
-    interface LeaderboardsResource {
+    };
+
+    const leaderboards: {
       /** Retrieves the metadata of the leaderboard with the given ID. */
       get(request?: {
         /** V1 error format. */
@@ -1536,8 +1543,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<LeaderboardListResponse>;
-    }
-    interface MetagameResource {
+    };
+
+    const metagame: {
       /** Return the metagame configuration data for the calling application. */
       getMetagameConfig(request?: {
         /** V1 error format. */
@@ -1598,8 +1606,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<CategoryListResponse>;
-    }
-    interface PlayersResource {
+    };
+
+    const players: {
       /** Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set `playerId` to `me`. */
       get(request?: {
         /** V1 error format. */
@@ -1716,8 +1725,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<PlayerListResponse>;
-    }
-    interface RecallResource {
+    };
+
+    const recall: {
       /** Retrieve the Recall tokens from all requested games that is associated with the PGS Player encoded in the provided recall session id. The API is only available for users that have an active PGS Player profile. */
       gamesPlayerTokens(request?: {
         /** V1 error format. */
@@ -1963,8 +1973,9 @@ declare namespace gapi.client {
         },
         body: UnlinkPersonaRequest,
       ): Request<UnlinkPersonaResponse>;
-    }
-    interface RevisionsResource {
+    };
+
+    const revisions: {
       /** Checks whether the games client is out of date. */
       check(request?: {
         /** V1 error format. */
@@ -1992,8 +2003,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<RevisionCheckResponse>;
-    }
-    interface ScoresResource {
+    };
+
+    const scores: {
       /** Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, `leaderboardId` can be set to `ALL` to retrieve data for all leaderboards in a given time span. `NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'. */
       get(request?: {
         /** V1 error format. */
@@ -2202,8 +2214,9 @@ declare namespace gapi.client {
         },
         body: PlayerScoreSubmissionList,
       ): Request<PlayerScoreListResponse>;
-    }
-    interface SnapshotsResource {
+    };
+
+    const snapshots: {
       /** Retrieves the metadata for a given snapshot ID. */
       get(request?: {
         /** V1 error format. */
@@ -2266,8 +2279,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SnapshotListResponse>;
-    }
-    interface StatsResource {
+    };
+
+    const stats: {
       /** Returns engagement and spend statistics in this application for the currently authenticated user. */
       get(request?: {
         /** V1 error format. */
@@ -2293,34 +2307,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<StatsResponse>;
-    }
-
-    const accesstokens: AccesstokensResource;
-
-    const achievementDefinitions: AchievementDefinitionsResource;
-
-    const achievements: AchievementsResource;
-
-    const applications: ApplicationsResource;
-
-    const events: EventsResource;
-
-    const gameStats: GameStatsResource;
-
-    const leaderboards: LeaderboardsResource;
-
-    const metagame: MetagameResource;
-
-    const players: PlayersResource;
-
-    const recall: RecallResource;
-
-    const revisions: RevisionsResource;
-
-    const scores: ScoresResource;
-
-    const snapshots: SnapshotsResource;
-
-    const stats: StatsResource;
+    };
   }
 }

@@ -653,10 +653,11 @@ declare namespace gapi.client {
       /** Output only. Current Maintenance version of the database resource. Example: "MYSQL_8_0_41.R20250531.01_15" */
       maintenanceVersion?: string;
       /** Output only. List of possible reasons why the maintenance is not completed. This is an optional field and is only populated if there are any reasons for failures recorded for the maintenance by DB Center. FAILURE maintenance status may not always have a failure reason. */
-      possibleFailureReasons?:
+      possibleFailureReasons?: (
         | 'POSSIBLE_FAILURE_REASON_UNSPECIFIED'
         | 'POSSIBLE_FAILURE_REASON_DENY_POLICY_CONFLICT'
-        | 'POSSIBLE_FAILURE_REASON_INSTANCE_IN_STOPPED_STATE'[];
+        | 'POSSIBLE_FAILURE_REASON_INSTANCE_IN_STOPPED_STATE'
+      )[];
       /** Output only. Previous maintenance version of the database resource. Example: "MYSQL_8_0_41.R20250531.01_15". This is available once a minor version maintenance is complete on a database resource. */
       previousMaintenanceVersion?: string;
       /** Output only. Resource maintenance state. This is to capture the current state of the maintenance. */
@@ -1306,7 +1307,7 @@ declare namespace gapi.client {
       /** Required. The display name of a signal group. */
       displayName?: string;
       /** Optional. List of signal types present in the group. */
-      signalTypes?:
+      signalTypes?: (
         | 'SIGNAL_TYPE_UNSPECIFIED'
         | 'SIGNAL_TYPE_RESOURCE_FAILOVER_PROTECTED'
         | 'SIGNAL_TYPE_GROUP_MULTIREGIONAL'
@@ -1414,7 +1415,8 @@ declare namespace gapi.client {
         | 'SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE'
         | 'SIGNAL_TYPE_HIGH_MAINTENANCE_DOWNTIME_RISK'
         | 'SIGNAL_TYPE_LOW_CACHE_HIT_AND_MAINTENANCE_DOWNTIME'
-        | 'SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION'[];
+        | 'SIGNAL_TYPE_MISSING_ENHANCED_PROTECTION'
+      )[];
     }
     interface SubResource {
       /** Specifies where the resource is created. For Google Cloud resources, it is the full name of the project. */
@@ -1457,7 +1459,8 @@ declare namespace gapi.client {
       /** Output only. Start time of the upcoming maintenance. Start time is always populated when an upcoming maintenance is scheduled. */
       startTime?: string;
     }
-    interface FoldersResource {
+
+    const folders: {
       /** AggregateQueryStats provides database resource query execution statistics. */
       aggregateQueryStats(request: {
         /** V1 error format. */
@@ -1516,8 +1519,9 @@ declare namespace gapi.client {
         },
         body: AggregateQueryStatsRequest,
       ): Request<AggregateQueryStatsResponse>;
-    }
-    interface OrganizationsResource {
+    };
+
+    const organizations: {
       /** AggregateQueryStats provides database resource query execution statistics. */
       aggregateQueryStats(request: {
         /** V1 error format. */
@@ -1576,8 +1580,9 @@ declare namespace gapi.client {
         },
         body: AggregateQueryStatsRequest,
       ): Request<AggregateQueryStatsResponse>;
-    }
-    interface ProjectsResource {
+    };
+
+    const projects: {
       /** AggregateQueryStats provides database resource query execution statistics. */
       aggregateQueryStats(request: {
         /** V1 error format. */
@@ -1636,8 +1641,9 @@ declare namespace gapi.client {
         },
         body: AggregateQueryStatsRequest,
       ): Request<AggregateQueryStatsResponse>;
-    }
-    interface V1betaResource {
+    };
+
+    const v1beta: {
       /** AggregateFleet provides statistics about the fleet grouped by various fields. */
       aggregateFleet(request?: {
         /** V1 error format. */
@@ -1874,14 +1880,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<QueryProductsResponse>;
-    }
-
-    const folders: FoldersResource;
-
-    const organizations: OrganizationsResource;
-
-    const projects: ProjectsResource;
-
-    const v1beta: V1betaResource;
+    };
   }
 }

@@ -44,13 +44,13 @@ gapi.load('client', async () => {
       },
       {
         assetTypes: ['Test string'],
-        contentType: 'Test string',
+        contentType: 'CONTENT_TYPE_UNSPECIFIED',
         outputConfig: {
           bigqueryDestination: {
             dataset: 'Test string',
             force: true,
             partitionSpec: {
-              partitionKey: 'Test string',
+              partitionKey: 'PARTITION_KEY_UNSPECIFIED',
             },
             separateTablesPerAssetType: true,
             table: 'Test string',

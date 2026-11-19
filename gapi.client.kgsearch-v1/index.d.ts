@@ -32,7 +32,8 @@ declare namespace gapi.client {
       /** The item list of search results. */
       itemListElement?: any[];
     }
-    interface EntitiesResource {
+
+    const entities: {
       /** Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with http://schema.org */
       search(request?: {
         /** V1 error format. */
@@ -72,8 +73,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<SearchResponse>;
-    }
-
-    const entities: EntitiesResource;
+    };
   }
 }

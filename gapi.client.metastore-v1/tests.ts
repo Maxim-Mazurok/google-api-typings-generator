@@ -53,7 +53,7 @@ gapi.load('client', async () => {
       {
         backendMetastores: {
           A: {
-            metastoreType: 'Test string',
+            metastoreType: 'METASTORE_TYPE_UNSPECIFIED',
             name: 'Test string',
           },
         },
@@ -63,7 +63,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
@@ -105,7 +105,7 @@ gapi.load('client', async () => {
       {
         backendMetastores: {
           A: {
-            metastoreType: 'Test string',
+            metastoreType: 'METASTORE_TYPE_UNSPECIFIED',
             name: 'Test string',
           },
         },
@@ -115,7 +115,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
@@ -137,7 +137,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -240,7 +240,7 @@ gapi.load('client', async () => {
       {
         artifactGcsUri: 'Test string',
         createTime: 'Test string',
-        databaseType: 'Test string',
+        databaseType: 'DATABASE_TYPE_UNSPECIFIED',
         deletionProtection: true,
         encryptionConfig: {
           kmsKey: 'Test string',
@@ -267,7 +267,7 @@ gapi.load('client', async () => {
           configOverrides: {
             A: 'Test string',
           },
-          endpointProtocol: 'Test string',
+          endpointProtocol: 'ENDPOINT_PROTOCOL_UNSPECIFIED',
           kerberosConfig: {
             keytab: {
               cloudSecret: 'Test string',
@@ -285,7 +285,7 @@ gapi.load('client', async () => {
           namespaces: ['Test string'],
         },
         maintenanceWindow: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           hourOfDay: 42,
         },
         metadataIntegration: {
@@ -296,11 +296,11 @@ gapi.load('client', async () => {
         metadataManagementActivity: {
           metadataExports: [
             {
-              databaseDumpType: 'Test string',
+              databaseDumpType: 'TYPE_UNSPECIFIED',
               destinationGcsUri: 'Test string',
               endTime: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           restores: [
@@ -310,8 +310,8 @@ gapi.load('client', async () => {
               details: 'Test string',
               endTime: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
-              type: 'Test string',
+              state: 'STATE_UNSPECIFIED',
+              type: 'RESTORE_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -327,7 +327,7 @@ gapi.load('client', async () => {
           ],
         },
         port: 42,
-        releaseChannel: 'Test string',
+        releaseChannel: 'RELEASE_CHANNEL_UNSPECIFIED',
         scalingConfig: {
           autoscalingConfig: {
             autoscalingEnabled: true,
@@ -337,7 +337,7 @@ gapi.load('client', async () => {
               minScalingFactor: 42,
             },
           },
-          instanceSize: 'Test string',
+          instanceSize: 'INSTANCE_SIZE_UNSPECIFIED',
           scalingFactor: 42,
         },
         scheduledBackup: {
@@ -348,20 +348,20 @@ gapi.load('client', async () => {
             backupId: 'Test string',
             duration: 'Test string',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           nextScheduledTime: 'Test string',
           timeZone: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
         },
         telemetryConfig: {
-          logFormat: 'Test string',
+          logFormat: 'LOG_FORMAT_UNSPECIFIED',
         },
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -377,7 +377,7 @@ gapi.load('client', async () => {
         service: 'Test string',
       },
       {
-        databaseDumpType: 'Test string',
+        databaseDumpType: 'TYPE_UNSPECIFIED',
         destinationGcsFolder: 'Test string',
         requestId: 'Test string',
       },
@@ -420,7 +420,7 @@ gapi.load('client', async () => {
       {
         artifactGcsUri: 'Test string',
         createTime: 'Test string',
-        databaseType: 'Test string',
+        databaseType: 'DATABASE_TYPE_UNSPECIFIED',
         deletionProtection: true,
         encryptionConfig: {
           kmsKey: 'Test string',
@@ -447,7 +447,7 @@ gapi.load('client', async () => {
           configOverrides: {
             A: 'Test string',
           },
-          endpointProtocol: 'Test string',
+          endpointProtocol: 'ENDPOINT_PROTOCOL_UNSPECIFIED',
           kerberosConfig: {
             keytab: {
               cloudSecret: 'Test string',
@@ -465,7 +465,7 @@ gapi.load('client', async () => {
           namespaces: ['Test string'],
         },
         maintenanceWindow: {
-          dayOfWeek: 'Test string',
+          dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
           hourOfDay: 42,
         },
         metadataIntegration: {
@@ -476,11 +476,11 @@ gapi.load('client', async () => {
         metadataManagementActivity: {
           metadataExports: [
             {
-              databaseDumpType: 'Test string',
+              databaseDumpType: 'TYPE_UNSPECIFIED',
               destinationGcsUri: 'Test string',
               endTime: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
           ],
           restores: [
@@ -490,8 +490,8 @@ gapi.load('client', async () => {
               details: 'Test string',
               endTime: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
-              type: 'Test string',
+              state: 'STATE_UNSPECIFIED',
+              type: 'RESTORE_TYPE_UNSPECIFIED',
             },
           ],
         },
@@ -507,7 +507,7 @@ gapi.load('client', async () => {
           ],
         },
         port: 42,
-        releaseChannel: 'Test string',
+        releaseChannel: 'RELEASE_CHANNEL_UNSPECIFIED',
         scalingConfig: {
           autoscalingConfig: {
             autoscalingEnabled: true,
@@ -517,7 +517,7 @@ gapi.load('client', async () => {
               minScalingFactor: 42,
             },
           },
-          instanceSize: 'Test string',
+          instanceSize: 'INSTANCE_SIZE_UNSPECIFIED',
           scalingFactor: 42,
         },
         scheduledBackup: {
@@ -528,20 +528,20 @@ gapi.load('client', async () => {
             backupId: 'Test string',
             duration: 'Test string',
             startTime: 'Test string',
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
           },
           nextScheduledTime: 'Test string',
           timeZone: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         stateMessage: 'Test string',
         tags: {
           A: 'Test string',
         },
         telemetryConfig: {
-          logFormat: 'Test string',
+          logFormat: 'LOG_FORMAT_UNSPECIFIED',
         },
-        tier: 'Test string',
+        tier: 'TIER_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -564,7 +564,7 @@ gapi.load('client', async () => {
         backup: 'Test string',
         backupLocation: 'Test string',
         requestId: 'Test string',
-        restoreType: 'Test string',
+        restoreType: 'RESTORE_TYPE_UNSPECIFIED',
       },
     );
     /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
@@ -579,7 +579,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -616,12 +616,12 @@ gapi.load('client', async () => {
                 catalogSummaries: [
                   {
                     catalog: 'Test string',
-                    catalogType: 'Test string',
+                    catalogType: 'CATALOG_TYPE_UNSPECIFIED',
                     databaseSummaries: [
                       {
                         database: 'Test string',
-                        planAction: 'Test string',
-                        resultStatus: 'Test string',
+                        planAction: 'ACTION_UNSPECIFIED',
+                        resultStatus: 'STATE_UNSPECIFIED',
                         tableSummary: {
                           partitionDiscoveredCount: 'Test string',
                           partitionFailedCount: 'Test string',
@@ -643,9 +643,9 @@ gapi.load('client', async () => {
                 service: 'Test string',
               },
               reportPath: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
-            conflictPolicy: 'Test string',
+            conflictPolicy: 'CONFLICT_POLICY_UNSPECIFIED',
             dryRun: true,
             hiveConfig: {
               catalog: 'Test string',
@@ -655,14 +655,14 @@ gapi.load('client', async () => {
               catalog: 'Test string',
               namespaces: ['Test string'],
             },
-            mode: 'Test string',
+            mode: 'MIGRATION_MODE_UNSPECIFIED',
             reportPath: 'Test string',
           },
           createTime: 'Test string',
           endTime: 'Test string',
           name: 'Test string',
-          phase: 'Test string',
-          state: 'Test string',
+          phase: 'PHASE_UNSPECIFIED',
+          state: 'STATE_UNSPECIFIED',
           stateMessage: 'Test string',
         },
         migrationExecutionId: 'Test string',
@@ -694,7 +694,7 @@ gapi.load('client', async () => {
         serviceRevision: {
           artifactGcsUri: 'Test string',
           createTime: 'Test string',
-          databaseType: 'Test string',
+          databaseType: 'DATABASE_TYPE_UNSPECIFIED',
           deletionProtection: true,
           encryptionConfig: {
             kmsKey: 'Test string',
@@ -721,7 +721,7 @@ gapi.load('client', async () => {
             configOverrides: {
               A: 'Test string',
             },
-            endpointProtocol: 'Test string',
+            endpointProtocol: 'ENDPOINT_PROTOCOL_UNSPECIFIED',
             kerberosConfig: {
               keytab: {
                 cloudSecret: 'Test string',
@@ -739,7 +739,7 @@ gapi.load('client', async () => {
             namespaces: ['Test string'],
           },
           maintenanceWindow: {
-            dayOfWeek: 'Test string',
+            dayOfWeek: 'DAY_OF_WEEK_UNSPECIFIED',
             hourOfDay: 42,
           },
           metadataIntegration: {
@@ -750,11 +750,11 @@ gapi.load('client', async () => {
           metadataManagementActivity: {
             metadataExports: [
               {
-                databaseDumpType: 'Test string',
+                databaseDumpType: 'TYPE_UNSPECIFIED',
                 destinationGcsUri: 'Test string',
                 endTime: 'Test string',
                 startTime: 'Test string',
-                state: 'Test string',
+                state: 'STATE_UNSPECIFIED',
               },
             ],
             restores: [
@@ -764,8 +764,8 @@ gapi.load('client', async () => {
                 details: 'Test string',
                 endTime: 'Test string',
                 startTime: 'Test string',
-                state: 'Test string',
-                type: 'Test string',
+                state: 'STATE_UNSPECIFIED',
+                type: 'RESTORE_TYPE_UNSPECIFIED',
               },
             ],
           },
@@ -781,7 +781,7 @@ gapi.load('client', async () => {
             ],
           },
           port: 42,
-          releaseChannel: 'Test string',
+          releaseChannel: 'RELEASE_CHANNEL_UNSPECIFIED',
           scalingConfig: {
             autoscalingConfig: {
               autoscalingEnabled: true,
@@ -791,7 +791,7 @@ gapi.load('client', async () => {
                 minScalingFactor: 42,
               },
             },
-            instanceSize: 'Test string',
+            instanceSize: 'INSTANCE_SIZE_UNSPECIFIED',
             scalingFactor: 42,
           },
           scheduledBackup: {
@@ -802,24 +802,24 @@ gapi.load('client', async () => {
               backupId: 'Test string',
               duration: 'Test string',
               startTime: 'Test string',
-              state: 'Test string',
+              state: 'STATE_UNSPECIFIED',
             },
             nextScheduledTime: 'Test string',
             timeZone: 'Test string',
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           stateMessage: 'Test string',
           tags: {
             A: 'Test string',
           },
           telemetryConfig: {
-            logFormat: 'Test string',
+            logFormat: 'LOG_FORMAT_UNSPECIFIED',
           },
-          tier: 'Test string',
+          tier: 'TIER_UNSPECIFIED',
           uid: 'Test string',
           updateTime: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a single backup. */
@@ -858,7 +858,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -901,7 +901,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -944,7 +944,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -978,15 +978,15 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         databaseDump: {
-          databaseType: 'Test string',
+          databaseType: 'DATABASE_TYPE_UNSPECIFIED',
           gcsUri: 'Test string',
           sourceDatabase: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         description: 'Test string',
         endTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -1016,15 +1016,15 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         databaseDump: {
-          databaseType: 'Test string',
+          databaseType: 'DATABASE_TYPE_UNSPECIFIED',
           gcsUri: 'Test string',
           sourceDatabase: 'Test string',
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         description: 'Test string',
         endTime: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );

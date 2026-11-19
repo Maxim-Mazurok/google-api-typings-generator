@@ -68,7 +68,7 @@ gapi.load('client', async () => {
         effectiveMaintenanceVersion: 'Test string',
         instanceMessages: [
           {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             message: 'Test string',
           },
         ],
@@ -81,7 +81,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               duration: 'Test string',
               startTime: {
                 hours: 42,
@@ -103,7 +103,7 @@ gapi.load('client', async () => {
           {
             host: 'Test string',
             memcacheFullVersion: 'Test string',
-            memcacheVersion: 'Test string',
+            memcacheVersion: 'MEMCACHE_VERSION_UNSPECIFIED',
             nodeId: 'Test string',
             parameters: {
               id: 'Test string',
@@ -112,11 +112,11 @@ gapi.load('client', async () => {
               },
             },
             port: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             zone: 'Test string',
           },
         ],
-        memcacheVersion: 'Test string',
+        memcacheVersion: 'MEMCACHE_VERSION_UNSPECIFIED',
         name: 'Test string',
         nodeConfig: {
           cpuCount: 42,
@@ -132,7 +132,7 @@ gapi.load('client', async () => {
         reservedIpRangeId: ['Test string'],
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         zones: ['Test string'],
       },
@@ -172,7 +172,7 @@ gapi.load('client', async () => {
         effectiveMaintenanceVersion: 'Test string',
         instanceMessages: [
           {
-            code: 'Test string',
+            code: 'CODE_UNSPECIFIED',
             message: 'Test string',
           },
         ],
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
           updateTime: 'Test string',
           weeklyMaintenanceWindow: [
             {
-              day: 'Test string',
+              day: 'DAY_OF_WEEK_UNSPECIFIED',
               duration: 'Test string',
               startTime: {
                 hours: 42,
@@ -207,7 +207,7 @@ gapi.load('client', async () => {
           {
             host: 'Test string',
             memcacheFullVersion: 'Test string',
-            memcacheVersion: 'Test string',
+            memcacheVersion: 'MEMCACHE_VERSION_UNSPECIFIED',
             nodeId: 'Test string',
             parameters: {
               id: 'Test string',
@@ -216,11 +216,11 @@ gapi.load('client', async () => {
               },
             },
             port: 42,
-            state: 'Test string',
+            state: 'STATE_UNSPECIFIED',
             zone: 'Test string',
           },
         ],
-        memcacheVersion: 'Test string',
+        memcacheVersion: 'MEMCACHE_VERSION_UNSPECIFIED',
         name: 'Test string',
         nodeConfig: {
           cpuCount: 42,
@@ -236,7 +236,7 @@ gapi.load('client', async () => {
         reservedIpRangeId: ['Test string'],
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         zones: ['Test string'],
       },
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
         instance: 'Test string',
       },
       {
-        rescheduleType: 'Test string',
+        rescheduleType: 'RESCHEDULE_TYPE_UNSPECIFIED',
         scheduleTime: 'Test string',
       },
     );
@@ -286,7 +286,7 @@ gapi.load('client', async () => {
         name: 'Test string',
       },
       {
-        memcacheVersion: 'Test string',
+        memcacheVersion: 'MEMCACHE_VERSION_UNSPECIFIED',
       },
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of `1`, corresponding to `Code.CANCELLED`. */

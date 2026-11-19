@@ -47,7 +47,7 @@ gapi.load('client', async () => {
       },
       {
         description: 'Test string',
-        discoveryType: 'Test string',
+        discoveryType: 'DISCOVERY_TYPE_UNSPECIFIED',
         displayName: 'Test string',
         documentation: 'Test string',
         icon: 'Test string',
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
       },
       {
         description: 'Test string',
-        discoveryType: 'Test string',
+        discoveryType: 'DISCOVERY_TYPE_UNSPECIFIED',
         displayName: 'Test string',
         documentation: 'Test string',
         icon: 'Test string',
@@ -135,7 +135,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -205,8 +205,8 @@ gapi.load('client', async () => {
           effectiveReplicas: [
             {
               location: 'Test string',
-              primaryState: 'Test string',
-              replicaState: 'Test string',
+              primaryState: 'PRIMARY_STATE_UNSPECIFIED',
+              replicaState: 'REPLICA_STATE_UNSPECIFIED',
             },
           ],
           replicaLocations: ['Test string'],
@@ -222,10 +222,10 @@ gapi.load('client', async () => {
             },
           ],
         },
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         commercialInfo: {
           cloudMarketplace: {
-            commercialState: 'Test string',
+            commercialState: 'COMMERCIAL_STATE_UNSPECIFIED',
             service: 'Test string',
           },
         },
@@ -234,7 +234,7 @@ gapi.load('client', async () => {
           primaryContact: 'Test string',
         },
         description: 'Test string',
-        discoveryType: 'Test string',
+        discoveryType: 'DISCOVERY_TYPE_UNSPECIFIED',
         displayName: 'Test string',
         documentation: 'Test string',
         icon: 'Test string',
@@ -250,15 +250,15 @@ gapi.load('client', async () => {
           topic: 'Test string',
         },
         requestAccess: 'Test string',
-        resourceType: 'Test string',
+        resourceType: 'SHARED_RESOURCE_TYPE_UNSPECIFIED',
         restrictedExportConfig: {
           enabled: true,
           restrictDirectTableAccess: true,
           restrictQueryResult: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storedProcedureConfig: {
-          allowedStoredProcedureTypes: ['Test string'],
+          allowedStoredProcedureTypes: ['STORED_PROCEDURE_TYPE_UNSPECIFIED'],
           enabled: true,
         },
       },
@@ -317,8 +317,8 @@ gapi.load('client', async () => {
           effectiveReplicas: [
             {
               location: 'Test string',
-              primaryState: 'Test string',
-              replicaState: 'Test string',
+              primaryState: 'PRIMARY_STATE_UNSPECIFIED',
+              replicaState: 'REPLICA_STATE_UNSPECIFIED',
             },
           ],
           replicaLocations: ['Test string'],
@@ -334,10 +334,10 @@ gapi.load('client', async () => {
             },
           ],
         },
-        categories: ['Test string'],
+        categories: ['CATEGORY_UNSPECIFIED'],
         commercialInfo: {
           cloudMarketplace: {
-            commercialState: 'Test string',
+            commercialState: 'COMMERCIAL_STATE_UNSPECIFIED',
             service: 'Test string',
           },
         },
@@ -346,7 +346,7 @@ gapi.load('client', async () => {
           primaryContact: 'Test string',
         },
         description: 'Test string',
-        discoveryType: 'Test string',
+        discoveryType: 'DISCOVERY_TYPE_UNSPECIFIED',
         displayName: 'Test string',
         documentation: 'Test string',
         icon: 'Test string',
@@ -362,15 +362,15 @@ gapi.load('client', async () => {
           topic: 'Test string',
         },
         requestAccess: 'Test string',
-        resourceType: 'Test string',
+        resourceType: 'SHARED_RESOURCE_TYPE_UNSPECIFIED',
         restrictedExportConfig: {
           enabled: true,
           restrictDirectTableAccess: true,
           restrictQueryResult: true,
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         storedProcedureConfig: {
-          allowedStoredProcedureTypes: ['Test string'],
+          allowedStoredProcedureTypes: ['STORED_PROCEDURE_TYPE_UNSPECIFIED'],
           enabled: true,
         },
       },
@@ -387,7 +387,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -496,8 +496,8 @@ gapi.load('client', async () => {
                   },
                 },
                 compression: {
-                  compressionAlgorithm: 'Test string',
-                  compressionMode: 'Test string',
+                  compressionAlgorithm: 'COMPRESSION_ALGORITHM_UNSPECIFIED',
+                  compressionMode: 'COMPRESSION_MODE_UNSPECIFIED',
                 },
                 disabled: true,
                 enabled: true,
@@ -569,9 +569,9 @@ gapi.load('client', async () => {
         proposer: 'Test string',
         routine: {
           definitionBody: 'Test string',
-          routineType: 'Test string',
+          routineType: 'ROUTINE_TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -614,9 +614,9 @@ gapi.load('client', async () => {
         proposer: 'Test string',
         routine: {
           definitionBody: 'Test string',
-          routineType: 'Test string',
+          routineType: 'ROUTINE_TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -681,7 +681,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

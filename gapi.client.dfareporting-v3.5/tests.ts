@@ -40,7 +40,7 @@ gapi.load('client', async () => {
       {
         assetIdentifier: {
           name: 'Test string',
-          type: 'Test string',
+          type: 'IMAGE',
         },
         clickTags: [
           {
@@ -57,9 +57,9 @@ gapi.load('client', async () => {
           {
             advertiserCustomEventId: 'Test string',
             advertiserCustomEventName: 'Test string',
-            advertiserCustomEventType: 'Test string',
+            advertiserCustomEventType: 'ADVERTISER_EVENT_TIMER',
             artworkLabel: 'Test string',
-            artworkType: 'Test string',
+            artworkType: 'ARTWORK_TYPE_FLASH',
             exitClickThroughUrl: {
               computedClickThroughUrl: 'Test string',
               customClickThroughUrl: 'Test string',
@@ -78,7 +78,7 @@ gapi.load('client', async () => {
                 left: 42,
                 top: 42,
               },
-              positionType: 'Test string',
+              positionType: 'CENTER',
               showAddressBar: true,
               showMenuBar: true,
               showScrollBar: true,
@@ -86,18 +86,18 @@ gapi.load('client', async () => {
               showToolBar: true,
               title: 'Test string',
             },
-            targetType: 'Test string',
+            targetType: 'TARGET_BLANK',
             videoReportingId: 'Test string',
           },
         ],
-        detectedFeatures: ['Test string'],
+        detectedFeatures: ['CSS_FONT_FACE'],
         exitCustomEvents: [
           {
             advertiserCustomEventId: 'Test string',
             advertiserCustomEventName: 'Test string',
-            advertiserCustomEventType: 'Test string',
+            advertiserCustomEventType: 'ADVERTISER_EVENT_TIMER',
             artworkLabel: 'Test string',
-            artworkType: 'Test string',
+            artworkType: 'ARTWORK_TYPE_FLASH',
             exitClickThroughUrl: {
               computedClickThroughUrl: 'Test string',
               customClickThroughUrl: 'Test string',
@@ -116,7 +116,7 @@ gapi.load('client', async () => {
                 left: 42,
                 top: 42,
               },
-              positionType: 'Test string',
+              positionType: 'CENTER',
               showAddressBar: true,
               showMenuBar: true,
               showScrollBar: true,
@@ -124,7 +124,7 @@ gapi.load('client', async () => {
               showToolBar: true,
               title: 'Test string',
             },
-            targetType: 'Test string',
+            targetType: 'TARGET_BLANK',
             videoReportingId: 'Test string',
           },
         ],
@@ -134,7 +134,7 @@ gapi.load('client', async () => {
           etag: 'Test string',
           id: 'Test string',
           kind: 'Test string',
-          matchType: 'Test string',
+          matchType: 'EXACT',
           value: 'Test string',
         },
         kind: 'Test string',
@@ -143,9 +143,9 @@ gapi.load('client', async () => {
           {
             advertiserCustomEventId: 'Test string',
             advertiserCustomEventName: 'Test string',
-            advertiserCustomEventType: 'Test string',
+            advertiserCustomEventType: 'ADVERTISER_EVENT_TIMER',
             artworkLabel: 'Test string',
-            artworkType: 'Test string',
+            artworkType: 'ARTWORK_TYPE_FLASH',
             exitClickThroughUrl: {
               computedClickThroughUrl: 'Test string',
               customClickThroughUrl: 'Test string',
@@ -164,7 +164,7 @@ gapi.load('client', async () => {
                 left: 42,
                 top: 42,
               },
-              positionType: 'Test string',
+              positionType: 'CENTER',
               showAddressBar: true,
               showMenuBar: true,
               showScrollBar: true,
@@ -172,11 +172,11 @@ gapi.load('client', async () => {
               showToolBar: true,
               title: 'Test string',
             },
-            targetType: 'Test string',
+            targetType: 'TARGET_BLANK',
             videoReportingId: 'Test string',
           },
         ],
-        warnedValidationRules: ['Test string'],
+        warnedValidationRules: ['CLICK_TAG_NON_TOP_LEVEL'],
       },
     );
   }

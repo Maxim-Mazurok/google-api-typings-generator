@@ -1217,7 +1217,8 @@ declare namespace gapi.client {
       /** Output only. A link to the user's profile photo, if available. */
       photoLink?: string;
     }
-    interface AboutResource {
+
+    const about: {
       /** Gets information about the user, the user's Drive, and system capabilities. For more information, see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter). */
       get(request?: {
         /** V1 error format. */
@@ -1243,8 +1244,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<About>;
-    }
-    interface AccessproposalsResource {
+    };
+
+    const accessproposals: {
       /** Retrieves an access proposal by ID. For more information, see [Manage pending access proposals](https://developers.google.com/workspace/drive/api/guides/pending-access). */
       get(request?: {
         /** V1 error format. */
@@ -1367,8 +1369,9 @@ declare namespace gapi.client {
         },
         body: ResolveAccessProposalRequest,
       ): Request<void>;
-    }
-    interface ApprovalsResource {
+    };
+
+    const approvals: {
       /** Approves an approval. For more information, see [Manage approvals](https://developers.google.com/workspace/drive/api/guides/approvals). This is used to update the ReviewerResponse of the requesting user with a Response of `APPROVED`. If this is the last required reviewer response, this also completes the approval and sets the approval Status to `APPROVED`. */
       approve(request: {
         /** V1 error format. */
@@ -1797,8 +1800,9 @@ declare namespace gapi.client {
         },
         body: StartApprovalRequest,
       ): Request<Approval>;
-    }
-    interface AppsResource {
+    };
+
+    const apps: {
       /** Gets a specific app. For more information, see [Return user info](https://developers.google.com/workspace/drive/api/guides/user-info). */
       get(request?: {
         /** V1 error format. */
@@ -1857,8 +1861,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<AppList>;
-    }
-    interface ChangesResource {
+    };
+
+    const changes: {
       /** Gets the starting pageToken for listing future changes. For more information, see [Retrieve changes](https://developers.google.com/workspace/drive/api/guides/manage-changes). */
       getStartPageToken(request?: {
         /** V1 error format. */
@@ -2055,8 +2060,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface ChannelsResource {
+    };
+
+    const channels: {
       /** Stops watching resources through this channel. For more information, see [Notifications for resource changes](https://developers.google.com/workspace/drive/api/guides/push). */
       stop(request: {
         /** V1 error format. */
@@ -2111,8 +2117,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<void>;
-    }
-    interface CommentsResource {
+    };
+
+    const comments: {
       /** Creates a comment on a file. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter). */
       create(request: {
         /** V1 error format. */
@@ -2328,8 +2335,9 @@ declare namespace gapi.client {
         },
         body: Comment,
       ): Request<Comment>;
-    }
-    interface DrivesResource {
+    };
+
+    const drives: {
       /** Creates a shared drive. For more information, see [Manage shared drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives). */
       create(request: {
         /** V1 error format. */
@@ -2597,8 +2605,9 @@ declare namespace gapi.client {
         },
         body: Drive,
       ): Request<Drive>;
-    }
-    interface FilesResource {
+    };
+
+    const files: {
       /** Creates a copy of a file and applies any requested updates with patch semantics. For more information, see [Create and manage files](https://developers.google.com/workspace/drive/api/guides/create-file). */
       copy(request: {
         /** V1 error format. */
@@ -3322,8 +3331,9 @@ declare namespace gapi.client {
         },
         body: Channel,
       ): Request<Channel>;
-    }
-    interface OperationsResource {
+    };
+
+    const operations: {
       /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
       get(request?: {
         /** V1 error format. */
@@ -3351,8 +3361,9 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<Operation>;
-    }
-    interface PermissionsResource {
+    };
+
+    const permissions: {
       /** Creates a permission for a file or shared drive. For more information, see [Share files, folders, and drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing). **Warning:** Concurrent permission modifications (such as update or delete) on the same file, folder, or shared drive aren't supported across any users or clients; only the last update is applied. */
       create(request: {
         /** V1 error format. */
@@ -3644,8 +3655,9 @@ declare namespace gapi.client {
         },
         body: Permission,
       ): Request<Permission>;
-    }
-    interface RepliesResource {
+    };
+
+    const replies: {
       /** Creates a reply to a comment. For more information, see [Manage comments and replies](https://developers.google.com/workspace/drive/api/guides/manage-comments). */
       create(request: {
         /** V1 error format. */
@@ -3873,8 +3885,9 @@ declare namespace gapi.client {
         },
         body: Reply,
       ): Request<Reply>;
-    }
-    interface RevisionsResource {
+    };
+
+    const revisions: {
       /** Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted. For more information, see [Manage file revisions](https://developers.google.com/drive/api/guides/manage-revisions). */
       delete(request?: {
         /** V1 error format. */
@@ -4028,8 +4041,9 @@ declare namespace gapi.client {
         },
         body: Revision,
       ): Request<Revision>;
-    }
-    interface TeamdrivesResource {
+    };
+
+    const teamdrives: {
       /** Deprecated: Use `drives.create` instead. */
       create(request: {
         /** V1 error format. */
@@ -4239,34 +4253,6 @@ declare namespace gapi.client {
         },
         body: TeamDrive,
       ): Request<TeamDrive>;
-    }
-
-    const about: AboutResource;
-
-    const accessproposals: AccessproposalsResource;
-
-    const approvals: ApprovalsResource;
-
-    const apps: AppsResource;
-
-    const changes: ChangesResource;
-
-    const channels: ChannelsResource;
-
-    const comments: CommentsResource;
-
-    const drives: DrivesResource;
-
-    const files: FilesResource;
-
-    const operations: OperationsResource;
-
-    const permissions: PermissionsResource;
-
-    const replies: RepliesResource;
-
-    const revisions: RevisionsResource;
-
-    const teamdrives: TeamdrivesResource;
+    };
   }
 }

@@ -198,7 +198,8 @@ declare namespace gapi.client {
       /** Output only. The client-provided ID of a profile on the device. */
       virtualProfileId?: string;
     }
-    interface ChallengeResource {
+
+    const challenge: {
       /** Generates a new challenge. */
       generate(request: {
         /** V1 error format. */
@@ -307,8 +308,6 @@ declare namespace gapi.client {
         },
         body: VerifyChallengeResponseRequest,
       ): Request<VerifyChallengeResponseResult>;
-    }
-
-    const challenge: ChallengeResource;
+    };
   }
 }

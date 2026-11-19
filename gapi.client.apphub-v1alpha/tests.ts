@@ -69,7 +69,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         crmNode: 'Test string',
         name: 'Test string',
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -91,7 +91,7 @@ gapi.load('client', async () => {
           },
         },
         applicationType: {
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         attributes: {
           businessOwners: [
@@ -106,7 +106,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -119,7 +119,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -136,9 +136,9 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         scope: {
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -183,7 +183,7 @@ gapi.load('client', async () => {
           },
         },
         applicationType: {
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
         attributes: {
           businessOwners: [
@@ -198,7 +198,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -211,7 +211,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -228,9 +228,9 @@ gapi.load('client', async () => {
         displayName: 'Test string',
         name: 'Test string',
         scope: {
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -247,7 +247,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -301,7 +301,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -314,7 +314,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -340,7 +340,7 @@ gapi.load('client', async () => {
             },
           },
           functionalType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           gcpProject: 'Test string',
           identity: {
@@ -348,7 +348,7 @@ gapi.load('client', async () => {
           },
           location: 'Test string',
           registrationType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           zone: 'Test string',
         },
@@ -356,7 +356,7 @@ gapi.load('client', async () => {
           path: 'Test string',
           uri: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -399,7 +399,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -412,7 +412,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -438,7 +438,7 @@ gapi.load('client', async () => {
             },
           },
           functionalType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           gcpProject: 'Test string',
           identity: {
@@ -446,7 +446,7 @@ gapi.load('client', async () => {
           },
           location: 'Test string',
           registrationType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           zone: 'Test string',
         },
@@ -454,7 +454,7 @@ gapi.load('client', async () => {
           path: 'Test string',
           uri: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
       },
@@ -480,7 +480,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -493,7 +493,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -510,7 +510,7 @@ gapi.load('client', async () => {
         discoveredWorkload: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         workloadProperties: {
@@ -522,7 +522,7 @@ gapi.load('client', async () => {
             },
           },
           functionalType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           gcpProject: 'Test string',
           identity: {
@@ -574,7 +574,7 @@ gapi.load('client', async () => {
           criticality: {
             level: 'Test string',
             missionCritical: true,
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           developerOwners: [
             {
@@ -587,7 +587,7 @@ gapi.load('client', async () => {
           ],
           environment: {
             environment: 'Test string',
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           operatorOwners: [
             {
@@ -604,7 +604,7 @@ gapi.load('client', async () => {
         discoveredWorkload: 'Test string',
         displayName: 'Test string',
         name: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
         updateTime: 'Test string',
         workloadProperties: {
@@ -616,7 +616,7 @@ gapi.load('client', async () => {
             },
           },
           functionalType: {
-            type: 'Test string',
+            type: 'TYPE_UNSPECIFIED',
           },
           gcpProject: 'Test string',
           identity: {
@@ -728,7 +728,7 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         name: 'Test string',
         serviceProject: 'Test string',
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         uid: 'Test string',
       },
     );

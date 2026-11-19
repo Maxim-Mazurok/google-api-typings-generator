@@ -63,7 +63,7 @@ gapi.load('client', async () => {
         alloydb: {
           clusterId: 'Test string',
           settings: {
-            databaseVersion: 'Test string',
+            databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
             encryptionConfig: {
               kmsKeyName: 'Test string',
             },
@@ -108,15 +108,15 @@ gapi.load('client', async () => {
           privateIp: 'Test string',
           publicIp: 'Test string',
           settings: {
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             autoStorageIncrease: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             cmekKeyName: 'Test string',
             collation: 'Test string',
             databaseFlags: {
               A: 'Test string',
             },
-            databaseVersion: 'Test string',
+            databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
             databaseVersionName: 'Test string',
             dataCacheConfig: {
               dataCacheEnabled: true,
@@ -124,8 +124,8 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
-            edition: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
+            edition: 'EDITION_UNSPECIFIED',
             ipConfig: {
               allocatedIpRange: 'Test string',
               authorizedNetworks: [
@@ -185,7 +185,7 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticServiceIpConnectivity: {},
           username: 'Test string',
@@ -214,7 +214,7 @@ gapi.load('client', async () => {
               sslFlags: {
                 A: 'Test string',
               },
-              type: 'Test string',
+              type: 'SSL_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -231,7 +231,7 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticServiceIpConnectivity: {},
           username: 'Test string',
@@ -249,7 +249,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
           host: 'Test string',
-          networkArchitecture: 'Test string',
+          networkArchitecture: 'NETWORK_ARCHITECTURE_UNSPECIFIED',
           password: 'Test string',
           passwordSet: true,
           port: 42,
@@ -266,13 +266,13 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticIpConnectivity: {},
           username: 'Test string',
         },
-        provider: 'Test string',
-        role: 'Test string',
+        provider: 'DATABASE_PROVIDER_UNSPECIFIED',
+        role: 'ROLE_UNSPECIFIED',
         satisfiesPzi: true,
         satisfiesPzs: true,
         sqlserver: {
@@ -308,12 +308,12 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticIpConnectivity: {},
           username: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -357,7 +357,7 @@ gapi.load('client', async () => {
         alloydb: {
           clusterId: 'Test string',
           settings: {
-            databaseVersion: 'Test string',
+            databaseVersion: 'DATABASE_VERSION_UNSPECIFIED',
             encryptionConfig: {
               kmsKeyName: 'Test string',
             },
@@ -402,15 +402,15 @@ gapi.load('client', async () => {
           privateIp: 'Test string',
           publicIp: 'Test string',
           settings: {
-            activationPolicy: 'Test string',
+            activationPolicy: 'SQL_ACTIVATION_POLICY_UNSPECIFIED',
             autoStorageIncrease: true,
-            availabilityType: 'Test string',
+            availabilityType: 'SQL_AVAILABILITY_TYPE_UNSPECIFIED',
             cmekKeyName: 'Test string',
             collation: 'Test string',
             databaseFlags: {
               A: 'Test string',
             },
-            databaseVersion: 'Test string',
+            databaseVersion: 'SQL_DATABASE_VERSION_UNSPECIFIED',
             databaseVersionName: 'Test string',
             dataCacheConfig: {
               dataCacheEnabled: true,
@@ -418,8 +418,8 @@ gapi.load('client', async () => {
             dataDiskProvisionedIops: 'Test string',
             dataDiskProvisionedThroughput: 'Test string',
             dataDiskSizeGb: 'Test string',
-            dataDiskType: 'Test string',
-            edition: 'Test string',
+            dataDiskType: 'SQL_DATA_DISK_TYPE_UNSPECIFIED',
+            edition: 'EDITION_UNSPECIFIED',
             ipConfig: {
               allocatedIpRange: 'Test string',
               authorizedNetworks: [
@@ -479,7 +479,7 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticServiceIpConnectivity: {},
           username: 'Test string',
@@ -508,7 +508,7 @@ gapi.load('client', async () => {
               sslFlags: {
                 A: 'Test string',
               },
-              type: 'Test string',
+              type: 'SSL_TYPE_UNSPECIFIED',
             },
             username: 'Test string',
           },
@@ -525,7 +525,7 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticServiceIpConnectivity: {},
           username: 'Test string',
@@ -543,7 +543,7 @@ gapi.load('client', async () => {
             username: 'Test string',
           },
           host: 'Test string',
-          networkArchitecture: 'Test string',
+          networkArchitecture: 'NETWORK_ARCHITECTURE_UNSPECIFIED',
           password: 'Test string',
           passwordSet: true,
           port: 42,
@@ -560,13 +560,13 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticIpConnectivity: {},
           username: 'Test string',
         },
-        provider: 'Test string',
-        role: 'Test string',
+        provider: 'DATABASE_PROVIDER_UNSPECIFIED',
+        role: 'ROLE_UNSPECIFIED',
         satisfiesPzi: true,
         satisfiesPzs: true,
         sqlserver: {
@@ -602,12 +602,12 @@ gapi.load('client', async () => {
             sslFlags: {
               A: 'Test string',
             },
-            type: 'Test string',
+            type: 'SSL_TYPE_UNSPECIFIED',
           },
           staticIpConnectivity: {},
           username: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -623,7 +623,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -698,10 +698,10 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         destination: {
-          engine: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
           version: 'Test string',
         },
-        destinationProvider: 'Test string',
+        destinationProvider: 'DATABASE_PROVIDER_UNSPECIFIED',
         displayName: 'Test string',
         globalSettings: {
           A: 'Test string',
@@ -713,10 +713,10 @@ gapi.load('client', async () => {
         latestConvertTime: 'Test string',
         name: 'Test string',
         source: {
-          engine: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
           version: 'Test string',
         },
-        sourceProvider: 'Test string',
+        sourceProvider: 'DATABASE_PROVIDER_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -743,20 +743,20 @@ gapi.load('client', async () => {
         filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        tree: 'Test string',
+        tree: 'DB_TREE_TYPE_UNSPECIFIED',
         uncommitted: true,
-        view: 'Test string',
+        view: 'DATABASE_ENTITY_VIEW_UNSPECIFIED',
       },
     );
     /** An internal, RPC only method that returns a list of the (filtered) entities with minimal information required for the entities tree view. */
     await gapi.client.datamigration.projects.locations.conversionWorkspaces.fetchEntitiesStatusView(
       {
         conversionWorkspace: 'Test string',
-        fetchView: 'Test string',
+        fetchView: 'FETCH_VIEW_UNSPECIFIED',
         filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        tree: 'Test string',
+        tree: 'DB_TREE_TYPE_UNSPECIFIED',
       },
     );
     /** List issues of conversion workspace operations e.g. conversion. */
@@ -767,7 +767,7 @@ gapi.load('client', async () => {
         filter: 'Test string',
         pageSize: 42,
         pageToken: 'Test string',
-        tree: 'Test string',
+        tree: 'DB_TREE_TYPE_UNSPECIFIED',
       },
     );
     /** Gets details of a single conversion workspace. */
@@ -802,10 +802,10 @@ gapi.load('client', async () => {
       {
         createTime: 'Test string',
         destination: {
-          engine: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
           version: 'Test string',
         },
-        destinationProvider: 'Test string',
+        destinationProvider: 'DATABASE_PROVIDER_UNSPECIFIED',
         displayName: 'Test string',
         globalSettings: {
           A: 'Test string',
@@ -817,10 +817,10 @@ gapi.load('client', async () => {
         latestConvertTime: 'Test string',
         name: 'Test string',
         source: {
-          engine: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
           version: 'Test string',
         },
-        sourceProvider: 'Test string',
+        sourceProvider: 'DATABASE_PROVIDER_UNSPECIFIED',
         updateTime: 'Test string',
       },
     );
@@ -861,11 +861,11 @@ gapi.load('client', async () => {
         conversionWorkspace: 'Test string',
       },
       {
-        basedOnDdlKind: 'Test string',
+        basedOnDdlKind: 'DDL_KIND_UNSPECIFIED',
         ddl: 'Test string',
-        ddlKind: 'Test string',
+        ddlKind: 'DDL_KIND_UNSPECIFIED',
         entityName: 'Test string',
-        entityType: 'Test string',
+        entityType: 'DATABASE_ENTITY_TYPE_UNSPECIFIED',
         explanation: 'Test string',
       },
     );
@@ -881,7 +881,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -927,7 +927,7 @@ gapi.load('client', async () => {
             A: 42,
           },
           sourceNumericFilter: {
-            numericFilterOption: 'Test string',
+            numericFilterOption: 'NUMERIC_FILTER_OPTION_UNSPECIFIED',
             sourceMaxPrecisionFilter: 42,
             sourceMaxScaleFilter: 42,
             sourceMinPrecisionFilter: 42,
@@ -949,11 +949,11 @@ gapi.load('client', async () => {
             },
             doubleComparison: {
               value: 42,
-              valueComparison: 'Test string',
+              valueComparison: 'VALUE_COMPARISON_UNSPECIFIED',
             },
             intComparison: {
               value: 'Test string',
-              valueComparison: 'Test string',
+              valueComparison: 'VALUE_COMPARISON_UNSPECIFIED',
             },
             isNull: {},
             roundScale: {
@@ -961,7 +961,7 @@ gapi.load('client', async () => {
             },
             valueList: {
               ignoreCase: true,
-              valuePresentList: 'Test string',
+              valuePresentList: 'VALUE_PRESENT_IN_LIST_UNSPECIFIED',
               values: ['Test string'],
             },
           },
@@ -995,7 +995,7 @@ gapi.load('client', async () => {
           overrideScale: 42,
           sourceDataTypeFilter: 'Test string',
           sourceNumericFilter: {
-            numericFilterOption: 'Test string',
+            numericFilterOption: 'NUMERIC_FILTER_OPTION_UNSPECIFIED',
             sourceMaxPrecisionFilter: 42,
             sourceMaxScaleFilter: 42,
             sourceMinPrecisionFilter: 42,
@@ -1008,13 +1008,13 @@ gapi.load('client', async () => {
         },
         multiEntityRename: {
           newNamePattern: 'Test string',
-          sourceNameTransformation: 'Test string',
+          sourceNameTransformation: 'ENTITY_NAME_TRANSFORMATION_UNSPECIFIED',
         },
         name: 'Test string',
         revisionCreateTime: 'Test string',
         revisionId: 'Test string',
         ruleOrder: 'Test string',
-        ruleScope: 'Test string',
+        ruleScope: 'DATABASE_ENTITY_TYPE_UNSPECIFIED',
         setTablePrimaryKey: {
           primaryKey: 'Test string',
           primaryKeyColumns: ['Test string'],
@@ -1048,7 +1048,7 @@ gapi.load('client', async () => {
         sourceSqlChange: {
           sqlCode: 'Test string',
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
       },
     );
     /** Deletes a single mapping rule. */
@@ -1077,7 +1077,7 @@ gapi.load('client', async () => {
             rulesSourceFilename: 'Test string',
           },
         ],
-        rulesFormat: 'Test string',
+        rulesFormat: 'IMPORT_RULES_FILE_FORMAT_UNSPECIFIED',
       },
     );
     /** Lists the mapping rules for a specific conversion workspace. */
@@ -1104,8 +1104,8 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         destination: 'Test string',
         destinationDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         displayName: 'Test string',
         dumpFlags: {
@@ -1117,7 +1117,7 @@ gapi.load('client', async () => {
           ],
         },
         dumpPath: 'Test string',
-        dumpType: 'Test string',
+        dumpType: 'DUMP_TYPE_UNSPECIFIED',
         duration: 'Test string',
         endTime: 'Test string',
         error: {
@@ -1145,7 +1145,7 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
@@ -1155,11 +1155,11 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
-            objectsSelectionType: 'Test string',
+            objectsSelectionType: 'OBJECTS_SELECTION_TYPE_UNSPECIFIED',
           },
         },
         oracleToPostgresConfig: {
@@ -1184,10 +1184,10 @@ gapi.load('client', async () => {
         },
         originalMigrationName: 'Test string',
         performanceConfig: {
-          dumpParallelLevel: 'Test string',
-          loadParallelLevel: 'Test string',
+          dumpParallelLevel: 'DUMP_PARALLEL_LEVEL_UNSPECIFIED',
+          loadParallelLevel: 'LOAD_PARALLEL_LEVEL_UNSPECIFIED',
         },
-        phase: 'Test string',
+        phase: 'PHASE_UNSPECIFIED',
         postgresHomogeneousConfig: {
           isNativeLogical: true,
           maxAdditionalSubscriptions: 42,
@@ -1201,7 +1201,7 @@ gapi.load('client', async () => {
             transactionTimeout: 'Test string',
           },
         },
-        purpose: 'Test string',
+        purpose: 'PURPOSE_UNSPECIFIED',
         reverseSshConnectivity: {
           vm: 'Test string',
           vmIp: 'Test string',
@@ -1212,8 +1212,8 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         source: 'Test string',
         sourceDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         sqlserverHomogeneousMigrationJobConfig: {
           backupFilePattern: 'Test string',
@@ -1246,9 +1246,9 @@ gapi.load('client', async () => {
             skipFullDump: true,
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         staticIpConnectivity: {},
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConnectivity: {
           vpc: 'Test string',
@@ -1339,8 +1339,8 @@ gapi.load('client', async () => {
         createTime: 'Test string',
         destination: 'Test string',
         destinationDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         displayName: 'Test string',
         dumpFlags: {
@@ -1352,7 +1352,7 @@ gapi.load('client', async () => {
           ],
         },
         dumpPath: 'Test string',
-        dumpType: 'Test string',
+        dumpType: 'DUMP_TYPE_UNSPECIFIED',
         duration: 'Test string',
         endTime: 'Test string',
         error: {
@@ -1380,7 +1380,7 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
@@ -1390,11 +1390,11 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
-            objectsSelectionType: 'Test string',
+            objectsSelectionType: 'OBJECTS_SELECTION_TYPE_UNSPECIFIED',
           },
         },
         oracleToPostgresConfig: {
@@ -1419,10 +1419,10 @@ gapi.load('client', async () => {
         },
         originalMigrationName: 'Test string',
         performanceConfig: {
-          dumpParallelLevel: 'Test string',
-          loadParallelLevel: 'Test string',
+          dumpParallelLevel: 'DUMP_PARALLEL_LEVEL_UNSPECIFIED',
+          loadParallelLevel: 'LOAD_PARALLEL_LEVEL_UNSPECIFIED',
         },
-        phase: 'Test string',
+        phase: 'PHASE_UNSPECIFIED',
         postgresHomogeneousConfig: {
           isNativeLogical: true,
           maxAdditionalSubscriptions: 42,
@@ -1436,7 +1436,7 @@ gapi.load('client', async () => {
             transactionTimeout: 'Test string',
           },
         },
-        purpose: 'Test string',
+        purpose: 'PURPOSE_UNSPECIFIED',
         reverseSshConnectivity: {
           vm: 'Test string',
           vmIp: 'Test string',
@@ -1447,8 +1447,8 @@ gapi.load('client', async () => {
         satisfiesPzs: true,
         source: 'Test string',
         sourceDatabase: {
-          engine: 'Test string',
-          provider: 'Test string',
+          engine: 'DATABASE_ENGINE_UNSPECIFIED',
+          provider: 'DATABASE_PROVIDER_UNSPECIFIED',
         },
         sqlserverHomogeneousMigrationJobConfig: {
           backupFilePattern: 'Test string',
@@ -1481,9 +1481,9 @@ gapi.load('client', async () => {
             skipFullDump: true,
           },
         },
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         staticIpConnectivity: {},
-        type: 'Test string',
+        type: 'TYPE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConnectivity: {
           vpc: 'Test string',
@@ -1505,7 +1505,7 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
@@ -1515,11 +1515,11 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
-            objectsSelectionType: 'Test string',
+            objectsSelectionType: 'OBJECTS_SELECTION_TYPE_UNSPECIFIED',
           },
         },
       },
@@ -1538,7 +1538,7 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
@@ -1548,11 +1548,11 @@ gapi.load('client', async () => {
                   database: 'Test string',
                   schema: 'Test string',
                   table: 'Test string',
-                  type: 'Test string',
+                  type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                 },
               },
             ],
-            objectsSelectionType: 'Test string',
+            objectsSelectionType: 'OBJECTS_SELECTION_TYPE_UNSPECIFIED',
           },
         },
         restartFailedObjects: true,
@@ -1580,7 +1580,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1644,8 +1644,8 @@ gapi.load('client', async () => {
           createTime: 'Test string',
           destination: 'Test string',
           destinationDatabase: {
-            engine: 'Test string',
-            provider: 'Test string',
+            engine: 'DATABASE_ENGINE_UNSPECIFIED',
+            provider: 'DATABASE_PROVIDER_UNSPECIFIED',
           },
           displayName: 'Test string',
           dumpFlags: {
@@ -1657,7 +1657,7 @@ gapi.load('client', async () => {
             ],
           },
           dumpPath: 'Test string',
-          dumpType: 'Test string',
+          dumpType: 'DUMP_TYPE_UNSPECIFIED',
           duration: 'Test string',
           endTime: 'Test string',
           error: {
@@ -1685,7 +1685,7 @@ gapi.load('client', async () => {
                     database: 'Test string',
                     schema: 'Test string',
                     table: 'Test string',
-                    type: 'Test string',
+                    type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                   },
                 },
               ],
@@ -1695,11 +1695,11 @@ gapi.load('client', async () => {
                     database: 'Test string',
                     schema: 'Test string',
                     table: 'Test string',
-                    type: 'Test string',
+                    type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
                   },
                 },
               ],
-              objectsSelectionType: 'Test string',
+              objectsSelectionType: 'OBJECTS_SELECTION_TYPE_UNSPECIFIED',
             },
           },
           oracleToPostgresConfig: {
@@ -1724,10 +1724,10 @@ gapi.load('client', async () => {
           },
           originalMigrationName: 'Test string',
           performanceConfig: {
-            dumpParallelLevel: 'Test string',
-            loadParallelLevel: 'Test string',
+            dumpParallelLevel: 'DUMP_PARALLEL_LEVEL_UNSPECIFIED',
+            loadParallelLevel: 'LOAD_PARALLEL_LEVEL_UNSPECIFIED',
           },
-          phase: 'Test string',
+          phase: 'PHASE_UNSPECIFIED',
           postgresHomogeneousConfig: {
             isNativeLogical: true,
             maxAdditionalSubscriptions: 42,
@@ -1741,7 +1741,7 @@ gapi.load('client', async () => {
               transactionTimeout: 'Test string',
             },
           },
-          purpose: 'Test string',
+          purpose: 'PURPOSE_UNSPECIFIED',
           reverseSshConnectivity: {
             vm: 'Test string',
             vmIp: 'Test string',
@@ -1752,8 +1752,8 @@ gapi.load('client', async () => {
           satisfiesPzs: true,
           source: 'Test string',
           sourceDatabase: {
-            engine: 'Test string',
-            provider: 'Test string',
+            engine: 'DATABASE_ENGINE_UNSPECIFIED',
+            provider: 'DATABASE_PROVIDER_UNSPECIFIED',
           },
           sqlserverHomogeneousMigrationJobConfig: {
             backupFilePattern: 'Test string',
@@ -1786,9 +1786,9 @@ gapi.load('client', async () => {
               skipFullDump: true,
             },
           },
-          state: 'Test string',
+          state: 'STATE_UNSPECIFIED',
           staticIpConnectivity: {},
-          type: 'Test string',
+          type: 'TYPE_UNSPECIFIED',
           updateTime: 'Test string',
           vpcPeeringConnectivity: {
             vpc: 'Test string',
@@ -1828,7 +1828,7 @@ gapi.load('client', async () => {
           database: 'Test string',
           schema: 'Test string',
           table: 'Test string',
-          type: 'Test string',
+          type: 'MIGRATION_JOB_OBJECT_TYPE_UNSPECIFIED',
         },
       },
     );
@@ -1844,7 +1844,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',
@@ -1934,7 +1934,7 @@ gapi.load('client', async () => {
         },
         satisfiesPzi: true,
         satisfiesPzs: true,
-        state: 'Test string',
+        state: 'STATE_UNSPECIFIED',
         updateTime: 'Test string',
         vpcPeeringConfig: {
           subnet: 'Test string',
@@ -1980,7 +1980,7 @@ gapi.load('client', async () => {
               auditLogConfigs: [
                 {
                   exemptedMembers: ['Test string'],
-                  logType: 'Test string',
+                  logType: 'LOG_TYPE_UNSPECIFIED',
                 },
               ],
               service: 'Test string',

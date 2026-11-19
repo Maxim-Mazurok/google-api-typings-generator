@@ -44,7 +44,7 @@ gapi.load('client', async () => {
           },
         ],
         downloadUrl: 'Test string',
-        mapsPublishStatus: 'Test string',
+        mapsPublishStatus: 'UNSPECIFIED_MAPS_PUBLISH_STATUS',
         photoId: {
           id: 'Test string',
         },
@@ -73,7 +73,7 @@ gapi.load('client', async () => {
         },
         shareLink: 'Test string',
         thumbnailUrl: 'Test string',
-        transferStatus: 'Test string',
+        transferStatus: 'TRANSFER_STATUS_UNKNOWN',
         uploadReference: {
           uploadUrl: 'Test string',
         },
@@ -89,7 +89,7 @@ gapi.load('client', async () => {
     await gapi.client.streetviewpublish.photo.get({
       languageCode: 'Test string',
       photoId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Creates an upload session to start uploading photo bytes. The method uses the upload URL of the returned UploadRef to upload the bytes for the Photo. In addition to the photo requirements shown in https://support.google.com/maps/answer/7012050?ref_topic=6275604, the photo must meet the following requirements: * Photo Sphere XMP metadata must be included in the photo metadata. See https://developers.google.com/streetview/spherical-metadata for the required fields. * The pixel size of the photo must meet the size requirements listed in https://support.google.com/maps/answer/7012050?ref_topic=6275604, and the photo must be a full 360 horizontally. After the upload completes, the method uses UploadRef with CreatePhoto to create the Photo object entry. */
     await gapi.client.streetviewpublish.photo.startUpload({}, {});
@@ -109,7 +109,7 @@ gapi.load('client', async () => {
           },
         ],
         downloadUrl: 'Test string',
-        mapsPublishStatus: 'Test string',
+        mapsPublishStatus: 'UNSPECIFIED_MAPS_PUBLISH_STATUS',
         photoId: {
           id: 'Test string',
         },
@@ -138,7 +138,7 @@ gapi.load('client', async () => {
         },
         shareLink: 'Test string',
         thumbnailUrl: 'Test string',
-        transferStatus: 'Test string',
+        transferStatus: 'TRANSFER_STATUS_UNKNOWN',
         uploadReference: {
           uploadUrl: 'Test string',
         },
@@ -157,7 +157,7 @@ gapi.load('client', async () => {
     await gapi.client.streetviewpublish.photos.batchGet({
       languageCode: 'Test string',
       photoIds: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Updates the metadata of Photos, such as pose, place association, connections, etc. Changing the pixels of photos is not supported. Note that if BatchUpdatePhotos fails, either critical fields are missing or there is an authentication error. Even if BatchUpdatePhotos succeeds, individual photos in the batch may have failures. These failures are specified in each PhotoResponse.status in BatchUpdatePhotosResponse.results. See UpdatePhoto for specific failures that can occur per photo. Only the fields specified in updateMask field are used. If `updateMask` is not present, the update applies to all fields. The number of UpdatePhotoRequest messages in a BatchUpdatePhotosRequest must not exceed 20. > Note: To update Pose.altitude, Pose.latLngPair has to be filled as well. Otherwise, the request will fail. */
     await gapi.client.streetviewpublish.photos.batchUpdate(
@@ -175,7 +175,7 @@ gapi.load('client', async () => {
                 },
               ],
               downloadUrl: 'Test string',
-              mapsPublishStatus: 'Test string',
+              mapsPublishStatus: 'UNSPECIFIED_MAPS_PUBLISH_STATUS',
               photoId: {
                 id: 'Test string',
               },
@@ -204,7 +204,7 @@ gapi.load('client', async () => {
               },
               shareLink: 'Test string',
               thumbnailUrl: 'Test string',
-              transferStatus: 'Test string',
+              transferStatus: 'TRANSFER_STATUS_UNKNOWN',
               uploadReference: {
                 uploadUrl: 'Test string',
               },
@@ -222,12 +222,12 @@ gapi.load('client', async () => {
       languageCode: 'Test string',
       pageSize: 42,
       pageToken: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** After the client finishes uploading the PhotoSequence with the returned UploadRef, CreatePhotoSequence extracts a sequence of 360 photos from a video or Extensible Device Metadata (XDM, http://www.xdm.org/) to be published to Street View on Google Maps. `CreatePhotoSequence` returns an Operation, with the PhotoSequence Id set in the `Operation.name` field. This method returns the following error codes: * google.rpc.Code.INVALID_ARGUMENT if the request is malformed. * google.rpc.Code.NOT_FOUND if the upload reference does not exist. */
     await gapi.client.streetviewpublish.photoSequence.create(
       {
-        inputType: 'Test string',
+        inputType: 'INPUT_TYPE_UNSPECIFIED',
       },
       {
         captureTimeOverride: 'Test string',
@@ -254,9 +254,9 @@ gapi.load('client', async () => {
             startTime: 'Test string',
           },
         },
-        failureReason: 'Test string',
+        failureReason: 'PROCESSING_FAILURE_REASON_UNSPECIFIED',
         filename: 'Test string',
-        gpsSource: 'Test string',
+        gpsSource: 'PHOTO_SEQUENCE',
         id: 'Test string',
         imu: {
           accelMpsps: [
@@ -295,7 +295,7 @@ gapi.load('client', async () => {
               },
             ],
             downloadUrl: 'Test string',
-            mapsPublishStatus: 'Test string',
+            mapsPublishStatus: 'UNSPECIFIED_MAPS_PUBLISH_STATUS',
             photoId: {
               id: 'Test string',
             },
@@ -324,7 +324,7 @@ gapi.load('client', async () => {
             },
             shareLink: 'Test string',
             thumbnailUrl: 'Test string',
-            transferStatus: 'Test string',
+            transferStatus: 'TRANSFER_STATUS_UNKNOWN',
             uploadReference: {
               uploadUrl: 'Test string',
             },
@@ -332,7 +332,7 @@ gapi.load('client', async () => {
             viewCount: 'Test string',
           },
         ],
-        processingState: 'Test string',
+        processingState: 'PROCESSING_STATE_UNSPECIFIED',
         rawGpsTimeline: [
           {
             accuracyMeters: 42,
@@ -376,7 +376,7 @@ gapi.load('client', async () => {
     await gapi.client.streetviewpublish.photoSequence.get({
       filter: 'Test string',
       sequenceId: 'Test string',
-      view: 'Test string',
+      view: 'BASIC',
     });
     /** Creates an upload session to start uploading photo sequence data. The upload URL of the returned UploadRef is used to upload the data for the `photoSequence`. After the upload is complete, the UploadRef is used with CreatePhotoSequence to create the PhotoSequence object entry. */
     await gapi.client.streetviewpublish.photoSequence.startUpload({}, {});
