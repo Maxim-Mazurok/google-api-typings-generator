@@ -204,6 +204,17 @@ This fork understands `"repeated": true`
 More info here: [Maxim-Mazurok/google-api-typings-generator#1](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/1)
 and here: [declanvong@`bec4f89`#r35992626](https://github.com/declanvong/google-api-typings-generator/commit/bec4f89b998db670e4a9d41810ceb39a1ba9b798#r35992626)
 
+### Resource types
+
+Request and response types are named interfaces, like `gapi.client.drive.File`.
+API resources are inline types, so resources with the same name in different places don't get mixed up. Use `typeof` to refer to them:
+
+```typescript
+type Files = typeof gapi.client.drive.files;
+```
+
+More info here: [Maxim-Mazurok/google-api-typings-generator#1412](https://github.com/Maxim-Mazurok/google-api-typings-generator/pull/1412)
+
 ### JavaScript VS NodeJS Clients
 
 There are two ways to use Google APIs: on the client-side (in the browser) and on the server-side.

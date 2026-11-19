@@ -1,10 +1,13 @@
-See https://github.com/microsoft/DefinitelyTyped-tools/issues/850
+Skip DefinitelyTyped-only metadata checks: our packages are public and use
+schema-revision versions, not .9999 versions. Keep implementation-package checks disabled.
+
+Upstream issue: https://github.com/microsoft/DefinitelyTyped-tools/issues/850
 
 diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
-index 4276450..349913c 100755
+index 0f85093..269b5eb 100755
 --- a/node_modules/@definitelytyped/dtslint/dist/index.js
 +++ b/node_modules/@definitelytyped/dtslint/dist/index.js
-@@ -131,10 +131,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, npmChecks, tsLocal)
+@@ -136,10 +136,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, npmChecks, tsLocal)
      assertPathIsNotBanned(packageName);
      assertPackageIsNotDeprecated(packageName, await fs_1.default.promises.readFile((0, path_1.join)(dtRoot, "notNeededPackages.json"), "utf-8"));
      const typesVersions = (0, header_parser_1.getTypesVersions)(dirPath);
