@@ -25,7 +25,6 @@ import {
   getDiagnosticsDirectory,
   getErrorMessage,
   getPackageNameFromRestDescription,
-  getResourceTypeName,
   getRevision,
   majorAndMinorVersion,
   sameNamespace,
@@ -48,9 +47,9 @@ const typesMap: {[key: string]: string} = {
 };
 
 // JavaScript reserved keywords that cannot be used as identifiers in declarations
-// (e.g., `const debugger: Type;` is a syntax error). Property names in interfaces
-// are fine, so these are handled via declaration merging when they appear as
-// top-level resource names.
+// (e.g., `const debugger: Type;` is a syntax error). Property names in object
+// types are fine, so these are handled via declaration merging when they appear
+// as top-level resource names.
 const jsReservedKeywords = new Set([
   'abstract',
   'arguments',
@@ -122,6 +121,14 @@ export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
   [
     'poly:v1', // Google Poly was shut down on June 30, 2021; The Discovery API returns 5xx error
     'composer:v1beta1', // Error: Attempted to generate stub for unknown schema 'AnalyzeTaskRequest'
+    // Document AI Warehouse shut down 2025-01-16: https://docs.cloud.google.com/document-warehouse/docs/release-notes
+    'contentwarehouse:v1', // cspell:ignore contentwarehouse
+    // Rapid Migration Assessment shut down 2025-06-30: https://docs.cloud.google.com/migration-center/docs/deprecations
+    'rapidmigrationassessment:v1', // cspell:ignore rapidmigrationassessment
+    // Legacy Data Labeling shut down 2025-01-31: https://docs.cloud.google.com/vertex-ai/docs/deprecations
+    'datalabeling:v1beta1', // cspell:ignore datalabeling
+    // My Business Q&A shut down 2025-11-03: https://developers.google.com/my-business/content/sunset-dates
+    'mybusinessqanda:v1', // cspell:ignore mybusinessqanda
   ];
 
 const generatedDisclaimer = [
@@ -404,15 +411,39 @@ function getName(path: string | undefined): string | undefined {
   }
 }
 
+function isEmptyResource(resource: RestResource) {
+  return _.isEmpty(resource.methods) && _.isEmpty(resource.resources);
+}
+
+/**
+ * Returns names of the resources written for the namespace, including empty ones.
+ */
+function getWrittenResourceNames(
+  resources: Record<string, RestResource> | undefined,
+  namespace: string,
+) {
+  return Object.entries(resources ?? {})
+    .filter(
+      ([, resource]) =>
+        isEmptyResource(resource) ||
+        getAllNamespaces(resource).includes(namespace),
+    )
+    .map(([resourceName]) => resourceName);
+}
+
+/**
+ * @param schemaQualifier Prefix for schema references written outside of the API namespace, e.g. `debuggerApi.`
+ */
 function getType(
   type: JsonSchema,
   schemas: Record<string, JsonSchema>,
+  schemaQualifier = '',
 ): string | TypescriptWriterCallback {
   if (type.type === 'array') {
-    const child = getType(checkExists(type.items), schemas);
+    const child = getType(checkExists(type.items), schemas, schemaQualifier);
 
     if (typeof child === 'string') {
-      return `${child}[]`;
+      return child.includes(' | ') ? `(${child})[]` : `${child}[]`;
     } else if (typeof child === 'function') {
       // Wrap complex child types in parentheses with [] suffix instead of
       // using Array<T>, which would break if a Google API schema named
@@ -435,7 +466,7 @@ function getType(
           }
           writer.property(
             propertyName,
-            getType(property, schemas),
+            getType(property, schemas, schemaQualifier),
             property.required || false,
           );
         });
@@ -443,14 +474,18 @@ function getType(
         if (type.additionalProperties) {
           writer.property(
             '[key: string]',
-            getType(type.additionalProperties, schemas),
+            getType(type.additionalProperties, schemas, schemaQualifier),
           );
         }
       });
     };
   } else if (type.type === 'object' && type.additionalProperties) {
     return (writer: TypescriptTextWriter) => {
-      const child = getType(checkExists(type.additionalProperties), schemas);
+      const child = getType(
+        checkExists(type.additionalProperties),
+        schemas,
+        schemaQualifier,
+      );
       // Record<K, T> (workaround for https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/206)
       writer.write('{ [P in string]: ');
       writer.write(child);
@@ -474,7 +509,7 @@ function getType(
       return 'any';
     }
 
-    return type.$ref;
+    return `${schemaQualifier}${type.$ref}`;
   } else throw Error();
 }
 
@@ -488,6 +523,7 @@ function formatComment(comment: string) {
 function getMethodReturn(
   method: RestMethod,
   schemas: Record<string, JsonSchema>,
+  schemaQualifier: string,
 ) {
   const name = schemas['Request'] ? 'client.Request' : 'Request';
 
@@ -515,7 +551,7 @@ function getMethodReturn(
     const schema = schemas[checkExists(method.response.$ref)];
 
     if (schema && !_.isEmpty(schema.properties)) {
-      return `${name}<${method.response.$ref}>`;
+      return `${name}<${schemaQualifier}${method.response.$ref}>`;
     } else {
       return emptyObject;
     }
@@ -568,6 +604,7 @@ export class App {
   private static createRequestParameterWriterCallback(
     parameters: Record<string, JsonSchema>,
     schemas: Record<string, JsonSchema>,
+    schemaQualifier: string,
     ref?: string,
   ) {
     return function requestParameterWriterCallback(
@@ -579,136 +616,112 @@ export class App {
             writer.comment(formatComment(data.description));
           }
 
-          writer.property(key, getType(data, schemas), Boolean(data.required));
+          writer.property(
+            key,
+            getType(data, schemas, schemaQualifier),
+            Boolean(data.required),
+          );
         });
 
         if (ref) {
           writer.comment('Request body');
-          writer.property('resource', ref, true);
+          writer.property('resource', `${schemaQualifier}${ref}`, true);
         }
       });
     };
   }
 
   /**
-   * Writes specified resource definition.
+   * Writes the inline type of the specified resource.
    */
-  private writeResources(
+  private writeResourceType(
     out: TypescriptTextWriter,
-    resources: Record<string, RestResource>,
-    parameters: Record<string, JsonSchema> = {},
+    resource: RestResource,
+    parameters: Record<string, JsonSchema>,
     schemas: Record<string, JsonSchema>,
     namespace: string,
-  ): string[] {
-    const writtenTopLevelResourceNames: string[] = [];
+    schemaQualifier: string,
+  ) {
+    const writtenResourceNames = getWrittenResourceNames(
+      resource.resources,
+      namespace,
+    );
+    const methods = Object.entries(resource.methods || {})
+      .filter(([, method]) => sameNamespace(method.id, namespace))
+      .filter(([methodName]) => !writtenResourceNames.includes(methodName)); // see `resource takes precedence to method on the same level with the same name` test in gapi
 
-    _.forEach(resources, (resource, resourceName) => {
-      const resourceInterfaceName = getResourceTypeName(resourceName);
+    out.anonymousType(() => {
+      methods.forEach(([methodName, method]) => {
+        if (method.description) {
+          out.comment(formatComment(method.description));
+        }
 
-      let writtenResources: string[] = [];
+        const requestRef = method.request?.$ref;
+        const requestParameters: Record<string, JsonSchema> = sortObject({
+          ...parameters,
+          ...method.parameters,
+        });
 
-      if (resource.resources !== undefined) {
-        writtenResources = this.writeResources(
+        if (!requestParameters.resource || !requestRef) {
+          // generate method(request)
+          out.method(
+            formatPropertyName(checkExists(getName(methodName))),
+            [
+              {
+                parameter: 'request',
+                type: App.createRequestParameterWriterCallback(
+                  requestParameters,
+                  schemas,
+                  schemaQualifier,
+                  requestRef,
+                ),
+                required: Boolean(requestRef),
+              },
+            ],
+            getMethodReturn(method, schemas, schemaQualifier),
+          );
+        }
+
+        if (requestRef) {
+          // generate method(request, body)
+          out.method(
+            formatPropertyName(checkExists(getName(methodName))),
+            [
+              {
+                parameter: 'request',
+                type: App.createRequestParameterWriterCallback(
+                  requestParameters,
+                  schemas,
+                  schemaQualifier,
+                ),
+                required: true,
+              },
+              {
+                parameter: 'body',
+                type: `${schemaQualifier}${requestRef}`,
+                required: true,
+              },
+            ],
+            getMethodReturn(method, schemas, schemaQualifier),
+          );
+        }
+      });
+
+      _.forEach(resource.resources, (childResource, childResourceName) => {
+        if (!getAllNamespaces(childResource).includes(namespace)) return;
+
+        out.newLine(`${formatPropertyName(childResourceName)}: `);
+        this.writeResourceType(
           out,
-          resource.resources,
+          childResource,
           parameters,
           schemas,
           namespace,
+          schemaQualifier,
         );
-      }
-
-      const allMethods = Object.entries(resource.methods || {});
-
-      const methods = allMethods
-        .filter(([, method]) => sameNamespace(method.id, namespace))
-        .filter(([methodName]) => !writtenResources.includes(methodName)); // see `resource takes precedence to method on the same level with the same name` test in gapi
-
-      const supposedToBeEmpty =
-        allMethods.length === 0 &&
-        (resource.resources === undefined ||
-          Object.keys(resource.resources).length === 0);
-
-      const resourceHasNamespaceDeep =
-        getAllNamespaces(resource).includes(namespace);
-
-      if (
-        !supposedToBeEmpty &&
-        methods.length === 0 &&
-        resourceHasNamespaceDeep === false
-      ) {
-        // this interface isn't supposed to be empty and it/kids doesn't have any methods in this namespace - so don't print it
-        return;
-      }
-
-      out.interface(resourceInterfaceName, () => {
-        writtenTopLevelResourceNames.push(resourceName);
-        methods.forEach(([methodName, method]) => {
-          if (method.description) {
-            out.comment(formatComment(method.description));
-          }
-
-          const requestRef = method.request?.$ref;
-          const requestParameters: Record<string, JsonSchema> = sortObject({
-            ...parameters,
-            ...method.parameters,
-          });
-
-          if (!requestParameters.resource || !requestRef) {
-            // generate method(request)
-            out.method(
-              formatPropertyName(checkExists(getName(methodName))),
-              [
-                {
-                  parameter: 'request',
-                  type: App.createRequestParameterWriterCallback(
-                    requestParameters,
-                    schemas,
-                    requestRef,
-                  ),
-                  required: Boolean(requestRef),
-                },
-              ],
-              getMethodReturn(method, schemas),
-            );
-          }
-
-          if (requestRef) {
-            // generate method(request, body)
-            out.method(
-              formatPropertyName(checkExists(getName(methodName))),
-              [
-                {
-                  parameter: 'request',
-                  type: App.createRequestParameterWriterCallback(
-                    requestParameters,
-                    schemas,
-                  ),
-                  required: true,
-                },
-                {
-                  parameter: 'body',
-                  type: requestRef,
-                  required: true,
-                },
-              ],
-              getMethodReturn(method, schemas),
-            );
-          }
-        });
-
-        if (resource.resources) {
-          _.forEach(resource.resources, (childResource, childResourceName) => {
-            if (!getAllNamespaces(childResource).includes(namespace)) return;
-
-            const childResourceInterfaceName =
-              getResourceTypeName(childResourceName);
-            out.property(childResourceName, childResourceInterfaceName);
-          });
-        }
+        out.endLine(';');
       });
     });
-
-    return _.uniq(writtenTopLevelResourceNames).sort();
   }
 
   /// writes api description for specified JSON object
@@ -822,12 +835,18 @@ export class App {
       writer.endLine();
 
       namespaces.forEach(namespace => {
-        const allResources: string[] = [];
-        let hasReservedKeywordResource = false;
+        const resources = restDescription.resources ?? {};
+        const parameters = restDescription.parameters ?? {};
+        const schemas = checkExists(restDescription.schemas);
+        const rootResourceNames = getWrittenResourceNames(
+          resources,
+          namespace,
+        ).sort();
+        const hasReservedKeywordResource = rootResourceNames.some(
+          resourceName => jsReservedKeywords.has(resourceName),
+        );
 
         writer.namespace(namespace, () => {
-          const schemas = checkExists(restDescription.schemas);
-
           for (const schemaName of Object.keys(schemas)) {
             if (this.typescriptGlobalTypeNames.has(schemaName)) {
               console.warn(
@@ -861,32 +880,22 @@ export class App {
             });
           });
 
-          if (restDescription.resources) {
-            const writtenResources = this.writeResources(
-              writer,
-              restDescription.resources,
-              restDescription.parameters,
-              schemas,
-              namespace,
-            );
-
-            writtenResources.forEach(resourceName => {
-              allResources.push(resourceName);
-              if (jsReservedKeywords.has(resourceName)) {
-                hasReservedKeywordResource = true;
-              }
+          // When no reserved keywords, emit const declarations inside the
+          // namespace (the normal path).
+          if (!hasReservedKeywordResource) {
+            rootResourceNames.forEach(resourceName => {
+              writer.endLine();
+              writer.newLine(`const ${resourceName}: `);
+              this.writeResourceType(
+                writer,
+                resources[resourceName],
+                parameters,
+                schemas,
+                namespace,
+                '',
+              );
+              writer.endLine(';');
             });
-
-            // When no reserved keywords, emit const declarations inside the
-            // namespace (the normal path).
-            if (!hasReservedKeywordResource) {
-              writtenResources.forEach(resourceName => {
-                writer.endLine();
-                writer.writeLine(
-                  `const ${resourceName}: ${getResourceTypeName(resourceName)};`,
-                );
-              });
-            }
           }
         });
 
@@ -894,17 +903,27 @@ export class App {
         // use `const` declarations inside the namespace (e.g. `const debugger`
         // is a syntax error). Instead, emit a `var` declaration that merges
         // with the namespace — the namespace keeps only type members
-        // (interfaces) and the var provides value-level access to all
-        // resources, including reserved-keyword ones.
-        if (hasReservedKeywordResource && allResources.length > 0) {
+        // (schema interfaces) and the var provides value-level access to all
+        // resources, including reserved-keyword ones. The var is declared
+        // outside of the namespace, so schema references are qualified.
+        if (hasReservedKeywordResource) {
           writer.endLine();
-          writer.writeLine(`var ${namespace}: {`);
-          allResources.forEach(resourceName => {
-            writer.writeLine(
-              `    readonly ${resourceName}: ${namespace}.${getResourceTypeName(resourceName)};`,
-            );
+          writer.newLine(`var ${namespace}: `);
+          writer.anonymousType(() => {
+            rootResourceNames.forEach(resourceName => {
+              writer.newLine(`readonly ${formatPropertyName(resourceName)}: `);
+              this.writeResourceType(
+                writer,
+                resources[resourceName],
+                parameters,
+                schemas,
+                namespace,
+                `${namespace}.`,
+              );
+              writer.endLine(';');
+            });
           });
-          writer.writeLine('};');
+          writer.endLine(';');
         }
       });
     });
@@ -1039,7 +1058,7 @@ export class App {
         scope.write('true');
         break;
       case 'string':
-        scope.write('"Test string"');
+        scope.write(JSON.stringify(property.enum?.[0] ?? 'Test string'));
         break;
       case 'array':
         this.writeArray(scope, api, checkExists(property.items));

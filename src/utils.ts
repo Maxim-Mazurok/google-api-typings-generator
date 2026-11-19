@@ -18,32 +18,6 @@ export const TYPE_PREFIX = 'gapi.client.';
 export const NPM_ORGANIZATION = 'maxim_mazurok';
 
 /**
- * Returns the capitalized name of the TypeScript interface for the specified resource.
- */
-export function getResourceTypeName(resourceName: string) {
-  if (resourceName === '-') {
-    // AIP-159 wildcard collection, e.g. `publications/-/readers` in https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1
-    return 'WildcardResource';
-  }
-
-  resourceName = resourceName
-    .split('-')
-    .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
-    .join('');
-
-  const resourceTypeName = `${resourceName[0].toUpperCase()}${resourceName.substring(
-    1,
-  )}Resource`;
-
-  if (resourceTypeName === 'JwtResource') {
-    // TODO: get rid of this hack in https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
-    return 'JWTResource'; // hack to avoid collision with the actual `JwtResource` interface vs `jwt` key in the `resources` object for https://walletobjects.googleapis.com/$discovery/rest?version=v1
-  }
-
-  return resourceTypeName;
-}
-
-/**
  * Creates directory recursively if it doesn't exist
  */
 export function ensureDirectoryExists(directory: string) {

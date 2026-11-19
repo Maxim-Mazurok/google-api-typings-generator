@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {NpmArchivesToPublishHelper} from '../src/archives-to-publish.js';
 import {
   camelCaseToSnakeCase,
@@ -7,25 +6,8 @@ import {
   getApiName,
   getNpmArchivesToPublish,
   getPackageNameFromRestDescription,
-  getResourceTypeName,
   hasValueRecursive,
 } from '../src/utils.js';
-
-describe('getResourceTypeName', () => {
-  const expectations = {
-    marketplaceprivateauction: 'MarketplaceprivateauctionResource', // cspell:disable-line
-    marketplacePrivateAuction: 'MarketplacePrivateAuctionResource',
-    'marketplace-privateauction': 'MarketplacePrivateauctionResource', // cspell:disable-line
-    'marketplace-private-auction': 'MarketplacePrivateAuctionResource',
-    '-': 'WildcardResource',
-  };
-
-  _.forEach(expectations, (expected, given) => {
-    it(`should convert: ${given}`, () => {
-      expect(getResourceTypeName(given)).toBe(expected);
-    });
-  });
-});
 
 describe('checkExists', () => {
   it('returns when exists', () => {
