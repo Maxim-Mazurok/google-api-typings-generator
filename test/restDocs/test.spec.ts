@@ -1,4 +1,11 @@
-import {existsSync, readdirSync, readFileSync, rmSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import {join} from 'node:path';
 import {vi} from 'vitest';
 import {App} from '../../src/app.js';
@@ -54,6 +61,56 @@ const mySnapshotTest = async (name: string, action: () => Promise<void>) => {
   readdirSync(resultFolder).forEach(file => {
     expect(readFileSyncAsUTF8(join(resultFolder, file))).toMatchSnapshot();
   });
+};
+
+const typeCheck = (projectPath: string) => {
+  const {status, stdout} = spawnSync(
+    process.execPath,
+    [
+      join(import.meta.dirname, '../../node_modules/typescript-go/bin/tsc'),
+      '--noEmit',
+      '--project',
+      projectPath,
+    ],
+    {encoding: 'utf8'},
+  );
+  return {status, stdout};
+};
+
+/**
+ * Generates the package and type-checks its declarations, tests, and the given type assertions.
+ * @returns Generated declarations
+ */
+const generateAndTypeCheck = async (
+  restDescription: RestDescription,
+  typeAssertions: string,
+) => {
+  const resultDirectory = join(
+    import.meta.dirname,
+    'results',
+    getPackageNameFromRestDescription(restDescription),
+  );
+  rmSync(resultDirectory, {force: true, recursive: true});
+
+  await app.processService(
+    restDescription,
+    new URL('https://example.com/discovery'),
+    false,
+  );
+
+  writeFileSync(join(resultDirectory, 'type-assertions.ts'), typeAssertions);
+  writeFileSync(
+    join(resultDirectory, 'tsconfig.type-assertions.json'),
+    JSON.stringify({
+      extends: './tsconfig.json',
+      files: ['index.d.ts', 'tests.ts', 'type-assertions.ts'],
+    }),
+  );
+  expect(
+    typeCheck(join(resultDirectory, 'tsconfig.type-assertions.json')),
+  ).toStrictEqual({status: 0, stdout: ''});
+
+  return readFileSyncAsUTF8(join(resultDirectory, 'index.d.ts'));
 };
 
 ['drive', 'sheets', 'calendar', 'admin', 'integrations'].forEach(apiName => {
@@ -112,6 +169,114 @@ it('uses method ID instead of resource name/key', async () => {
 
   await mySnapshotTest(folder, () =>
     app.processService(restDescription, new URL('http://x.com'), false),
+  );
+});
+
+it('keeps same-named resources at different paths distinct', async () => {
+  const restDescription: RestDescription = {
+    name: 'resource-collisions',
+    title: 'Resource Collisions',
+    id: 'resource-collisions:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {},
+    resources: {
+      groups: {
+        resources: {
+          keys: {
+            methods: {
+              create: {
+                id: 'example.groups.keys.create',
+                httpMethod: 'POST',
+                path: 'groups/keys',
+              },
+            },
+          },
+        },
+      },
+      developers: {
+        resources: {
+          keys: {
+            resources: {
+              create: {
+                methods: {
+                  create: {
+                    id: 'example.developers.keys.create.create',
+                    httpMethod: 'POST',
+                    path: 'developers/keys/create',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const generatedDeclarations = await generateAndTypeCheck(
+    restDescription,
+    `
+gapi.client.example.groups.keys.create({});
+gapi.client.example.developers.keys.create.create({});
+// @ts-expect-error Group keys expose a method, not a nested resource.
+gapi.client.example.groups.keys.create.create({});
+// @ts-expect-error Developer keys expose a nested resource, not a method.
+gapi.client.example.developers.keys.create({});
+`,
+  );
+
+  expect(generatedDeclarations).not.toContain('interface ');
+});
+
+it('keeps resource types separate from same-named schemas', async () => {
+  const restDescription: RestDescription = {
+    name: 'schema-collisions',
+    title: 'Schema Collisions',
+    id: 'schema-collisions:v1',
+    version: 'v1',
+    documentationLink: 'https://example.com',
+    schemas: {
+      TranslationsListResponse: {
+        id: 'TranslationsListResponse',
+        type: 'object',
+        properties: {
+          translations: {type: 'array', items: {$ref: 'TranslationsResource'}},
+        },
+      },
+      TranslationsResource: {
+        id: 'TranslationsResource',
+        type: 'object',
+        properties: {translatedText: {type: 'string'}},
+      },
+    },
+    resources: {
+      translations: {
+        methods: {
+          list: {
+            id: 'example.translations.list',
+            httpMethod: 'GET',
+            path: 'translations',
+            response: {$ref: 'TranslationsListResponse'},
+          },
+        },
+      },
+    },
+  };
+
+  await generateAndTypeCheck(
+    restDescription,
+    `
+gapi.client.example.translations.list({}).then(response => {
+  const translatedText: string | undefined =
+    response.result.translations?.[0]?.translatedText;
+  // @ts-expect-error Schema objects do not expose resource methods.
+  response.result.translations?.[0]?.list({});
+  return translatedText;
+});
+// @ts-expect-error Resources do not expose schema properties.
+gapi.client.example.translations.translatedText;
+`,
   );
 });
 
@@ -245,7 +410,13 @@ it('handles reserved JS keyword resource names via declaration merging', async (
     id: 'debugger-api:v1',
     version: 'v1',
     documentationLink: 'https://example.com',
-    schemas: {},
+    schemas: {
+      Breakpoint: {
+        id: 'Breakpoint',
+        type: 'object',
+        properties: {id: {type: 'string'}},
+      },
+    },
     resources: {
       debugger: {
         methods: {
@@ -262,6 +433,7 @@ it('handles reserved JS keyword resource names via declaration merging', async (
                 httpMethod: 'GET',
                 path: 'debugger/breakpoints/get',
                 id: 'debuggerApi.get',
+                response: {$ref: 'Breakpoint'},
               },
             },
           },
@@ -273,6 +445,7 @@ it('handles reserved JS keyword resource names via declaration merging', async (
             httpMethod: 'PUT',
             path: 'controller/update',
             id: 'debuggerApi.update',
+            request: {$ref: 'Breakpoint'},
           },
         },
       },
@@ -284,6 +457,10 @@ it('handles reserved JS keyword resource names via declaration merging', async (
   await mySnapshotTest(folder, () =>
     app.processService(restDescription, new URL('http://x.com'), false),
   );
+
+  expect(
+    typeCheck(join(import.meta.dirname, 'results', folder, 'tsconfig.json')),
+  ).toStrictEqual({status: 0, stdout: ''});
 });
 
 describe('discover best-effort', () => {
