@@ -154,6 +154,90 @@ it('warns when schema names shadow TypeScript globals', async () => {
   }
 });
 
+it.each([
+  {
+    label: 'enumerated strings',
+    enumValues: ['reader', 'writer'],
+    expectedValue: '"reader"',
+    expectedArrayType: '("reader" | "writer")[]',
+  },
+  {
+    label: 'empty string enum values',
+    enumValues: ['', 'reader'],
+    expectedValue: '""',
+    expectedArrayType: '("" | "reader")[]',
+  },
+  {
+    label: 'unrestricted strings',
+    enumValues: undefined,
+    expectedValue: '"Test string"',
+    expectedArrayType: 'string[]',
+  },
+])(
+  'generates valid examples for $label',
+  async ({enumValues, expectedValue, expectedArrayType}) => {
+    const restDescription: RestDescription = {
+      name: 'enum-examples',
+      title: 'Enum Examples',
+      id: 'enum-examples:v1',
+      version: 'v1',
+      documentationLink: 'https://example.com',
+      schemas: {},
+      resources: {
+        examples: {
+          methods: {
+            list: {
+              httpMethod: 'GET',
+              path: 'examples',
+              id: 'enumExamples.examples.list',
+              parameters: {
+                state: {type: 'string', enum: enumValues},
+                states: {
+                  type: 'array',
+                  items: {type: 'string', enum: enumValues},
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+
+    await app.processService(
+      restDescription,
+      new URL('https://example.com/discovery'),
+      false,
+    );
+
+    const generatedTests = readFileSyncAsUTF8(
+      join(
+        import.meta.dirname,
+        'results',
+        getPackageNameFromRestDescription(restDescription),
+        'tests.ts',
+      ),
+    );
+
+    expect(generatedTests).toContain(`state: ${expectedValue},`);
+    expect(generatedTests).toMatch(
+      new RegExp(`states: \\[\\s*${expectedValue}\\s*\\]`),
+    );
+
+    const generatedDeclarations = readFileSyncAsUTF8(
+      join(
+        import.meta.dirname,
+        'results',
+        getPackageNameFromRestDescription(restDescription),
+        'index.d.ts',
+      ),
+    );
+
+    expect(generatedDeclarations.replace(/\s+/g, ' ')).toContain(
+      `states?: ${expectedArrayType};`,
+    );
+  },
+);
+
 it('handles reserved JS keyword resource names via declaration merging', async () => {
   const restDescription = {
     name: 'debugger-api',

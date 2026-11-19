@@ -412,7 +412,7 @@ function getType(
     const child = getType(checkExists(type.items), schemas);
 
     if (typeof child === 'string') {
-      return `${child}[]`;
+      return child.includes(' | ') ? `(${child})[]` : `${child}[]`;
     } else if (typeof child === 'function') {
       // Wrap complex child types in parentheses with [] suffix instead of
       // using Array<T>, which would break if a Google API schema named
@@ -1039,7 +1039,7 @@ export class App {
         scope.write('true');
         break;
       case 'string':
-        scope.write('"Test string"');
+        scope.write(JSON.stringify(property.enum?.[0] ?? 'Test string'));
         break;
       case 'array':
         this.writeArray(scope, api, checkExists(property.items));
